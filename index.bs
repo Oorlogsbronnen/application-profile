@@ -48,20 +48,20 @@ Each record *MUST* be typed as one of the following classes:
 
 For each of these classes, the sections below list the *REQUIRED* and *OPTIONAL* properties.
 
- ### CreativeWork
+{#CreativeWork}
+### CreativeWork
 
-
+{#ArchivalComponent}
 ### ArchivalComponent
 
-
+{#Person}
 ### Person
 
-
+{#Event}
 ### Event
 
-
+{#Place}
 ### Place
 
-
+{#Organization}
 ### Organization
-
