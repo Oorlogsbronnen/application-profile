@@ -6,7 +6,7 @@ Status: LS
 Markup Shorthands: css yes, markdown yes, biblio yes
 URL: http://data.oorlogsbronnen.nl/application-profile
 Editor: Micon Schorsij, WO2Net https://wo2net.nl, micon.schorsij@wo2net.nl, https://oorlogsbronnen.nl
-Abstract: A short description of your spec, one or two sentences.
+Abstract: This Application Model describes how Oorlogsbronnen uses classes properties and relations from different ontologies to model Historical Persons, Events and Cultural Heritage Objects.
 </pre>
 
 Introduction {#intro}
@@ -23,5 +23,7 @@ The Oorlogsbronnen Application Profile is based on:
 
 - Schema.org Application Profile for NDE (SCHEMA-AP-NDE),
     the documentation of which can be found at [https://docs.nde.nl/schema-profile/](https://docs.nde.nl/schema-profile/),
-- Persons in Context (PiCo), a knowledge model for describing person observations and (derived from them) uniquely identified persons. PiCo is documented at [https://personsincontext.org/] (https://personsincontext.org/).
-- Custom Oorlogsbronnen classes and properties created for expressing more detail in typology of archival sources, (life)events and the relations between persons, events and sources.
+- Persons in Context (PiCo), a knowledge model for describing person observations and (derived from them) uniquely identified persons. PiCo is documented at [https://personsincontext.org/](https://personsincontext.org/),
+- Custom Oorlogsbronnen classes and properties were created for expressing more detail in the typology of archival sources, (life)events and the relations between entities.
+
+In short: The OORLOGSBRONNEN-AP adopts existing standards from the Dutch Digital Heritage field and makes use of existing ontologies as much as possible, only adding custom classes and properties when no existing solutions are available.
