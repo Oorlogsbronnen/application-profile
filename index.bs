@@ -29,10 +29,12 @@ The Oorlogsbronnen Application Profile makes use of:
 
 In short: The OORLOGSBRONNEN-AP adopts existing standards from the Dutch Digital Heritage field and makes use of existing ontologies as much as possible, only adding custom classes and properties when no existing solutions are available.
 
-Data model {#data-model-section}
+Classes and Properties {#classes-and-properties-section}
 ==========
 
 This section describes the classes and properties that *MUST* be used to publish metadata records in the heritage network.
+
+### Subclasses ### {#subclasses}
 
 Each record *MUST* be typed as one of the following classes:
 
