@@ -32,7 +32,7 @@ In short: The OORLOGSBRONNEN-AP adopts existing standards from the Dutch Digital
 Data model {#data-model-section}
 ==========
 
-This section describes the classes and properties that *MUST* be used to publish [=metadata records=] in the heritage network.
+This section describes the classes and properties that *MUST* be used to publish metadata records in the heritage network.
 
 Each record *MUST* be typed as one of the following classes:
 
