@@ -28,3 +28,22 @@ The Oorlogsbronnen Application Profile makes use of:
 - Custom Oorlogsbronnen classes and properties created for expressing more detail in the typology of archival sources, (life)events and the relations between entities.
 
 In short: The OORLOGSBRONNEN-AP adopts existing standards from the Dutch Digital Heritage field and makes use of existing ontologies as much as possible, only adding custom classes and properties when no existing solutions are available.
+
+Data model {#data-model-section}
+==========
+
+This section describes the classes and properties that *MUST* be used to publish [=metadata records=] in the heritage network.
+
+Each record *MUST* be typed as one of the following classes:
+
+- [[#CreativeWork|CreativeWork]]
+- [[#Person|Person]] 
+- [[#Organization|Organization]]
+- [[#Event|Event]]
+- [[#Place|Place]].
+
+For each of these classes, the sections below list the *REQUIRED* and *OPTIONAL* properties.
+
+{% assign mainNodeShapes = nodeShapes | where: "name" %}
+
+## Class diagram ## {#class-diagram}
