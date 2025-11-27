@@ -3,16 +3,18 @@ name: QA
 on:
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
-  build:
+  validate:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v5
 
-      - name: Build and validate
-        uses: w3c/spec-prod@v2
-        with:
-          VALIDATE_MARKUP: false
+      - name: Validate JSON-LD examples with SHACL
+        run: |
+          docker run --rm -v $PWD:/work -w /work stain/jena:latest bash validate-examples.sh
+
+  build:
+    uses: netwerk-digitaal-erfgoed/workflows/.github/workflows/spec.yml@main
