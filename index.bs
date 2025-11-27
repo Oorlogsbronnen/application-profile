@@ -15,15 +15,16 @@ Introduction {#intro}
 Goal {#goal}
 ---
 
-This document prescribes the OORLOGSBRONNEN-AP [=generic data model=] used for sharing aggregated archival and historical data sources on Dutch WW2 Heritage as Linked Open Data.
+This document drescribes the OORLOGSBRONNEN-AP [=generic data model=] used for publishing integrated archival and historical data (sources) on Dutch WW2 Heritage as Linked Open Data.
 The aplication profile presented is used by Oorlogsbronnen for the mapping of a diversity of aggregated data sources to a uniform and connected LOD knowledge graph. 
-This dataset forms the base for the website Oorlogsbronnen.nl but also can be queried, browsed and used as linked data through the LDmax platform
+This dataset forms the base for the website Oorlogsbronnen.nl but also can be queried, browsed and used as linked data through the [LDmax platform](https://www.ldmax.nl/datasets/wo2-oorlogsbronnen).
 
-The Oorlogsbronnen Application Profile is based on:
+The Oorlogsbronnen Application Profile makes use of:
 
 - Schema.org Application Profile for NDE (SCHEMA-AP-NDE),
     the documentation of which can be found at [https://docs.nde.nl/schema-profile/](https://docs.nde.nl/schema-profile/),
 - Persons in Context (PiCo), a knowledge model for describing person observations and (derived from them) uniquely identified persons. PiCo is documented at [https://personsincontext.org/](https://personsincontext.org/),
-- Custom Oorlogsbronnen classes and properties were created for expressing more detail in the typology of archival sources, (life)events and the relations between entities.
+- Ontologies like Schema.org, Dublin Core, SKOS, Prov and PiCo,
+- Custom Oorlogsbronnen classes and properties created for expressing more detail in the typology of archival sources, (life)events and the relations between entities.
 
 In short: The OORLOGSBRONNEN-AP adopts existing standards from the Dutch Digital Heritage field and makes use of existing ontologies as much as possible, only adding custom classes and properties when no existing solutions are available.
