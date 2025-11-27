@@ -37,8 +37,28 @@ This section describes the classes and properties that *MUST* be used to publish
 Each record *MUST* be typed as one of the following classes:
 
 - [[#CreativeWork|CreativeWork]]
+- [[#ArchivalComponent|ArchivalComponent]]
+- [[#Person|Person]]
+- [[#Event|Event]]
+- [[#Place|Place]]
+- [[#Organization|Organization]]
 
 For each of these classes, the sections below list the *REQUIRED* and *OPTIONAL* properties.
 
 CreativeWork {#CreativeWork}
-==========
+---
+
+ArchivalComponent {#ArchivalComponent}
+---
+
+Person {#Person}
+---
+
+Event {#Event}
+---
+
+Place {#Place}
+---
+
+Organization {#Organization}
+---
