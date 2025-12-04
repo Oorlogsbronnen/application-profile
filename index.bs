@@ -39,23 +39,23 @@ Classes {#subclasses}
 
 Each record *MUST* be typed as one of the following classes:
 
-- [CreativeWork](#creativework)
-- [ArchivalComponent](#ArchivalComponent)
-- [Person](#Person)
-- [Event](#Event)
-- [Place](#Place)
-- [Organization](#Organization)
+- [[#CreativeWork]]
+- [[#ArchivalComponent]]
+- [[#Person]]
+- [[#Event]]
+- [[#Place]]
+- [[#Organization]]
 
 For each of these classes, the sections below list the *REQUIRED* and *OPTIONAL* properties.
 
-### CreativeWork
+### CreativeWork ### {#CreativeWork}
 
-### ArchivalComponent
+### ArchivalComponent ### {#ArchivalComponent}
 
-### Person
+### Person ### {#Person}
 
-### Event
+### Event ### {#Event}
 
-### Place
+### Place ### {#Place}
 
-### Organization
+### Organization ### {#Organization}
