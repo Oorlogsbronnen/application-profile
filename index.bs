@@ -61,6 +61,28 @@ For each of these classes, the sections below list the *REQUIRED* and *OPTIONAL*
 
 ### CreativeWork ### {#CreativeWork}
 
+<div class="example">
+    Specifying the language of the `name` property:
+
+    <pre highlight=json-ld line-numbers line-highlight="5-14">
+        {
+          "@context": "https://schema.org",
+          "@id": "https://n2t.net/ark:/123456/1",
+          "@type": "CreativeWork",
+          "name": [
+            {
+              "@language": "nl",
+              "@value": "De Sterrennacht"
+            },
+            {
+              "@language": "en",
+              "@value": "The Starry Night"
+            }
+          ]
+        }
+    </pre>
+</div>
+
 ### Dataset ### {#Dataset}
 
 ### Entity ### {#Entity}
