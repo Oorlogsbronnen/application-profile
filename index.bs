@@ -39,26 +39,41 @@ Classes {#classes}
 
 Each record *MUST* be typed as one of the following classes:
 
+- [[#Archive]]
+- [[#ArchiveComponent]]
+- [[#ArchiveFile]]
 - [[#CreativeWork]]
-- [[#ArchivalComponent]]
-- [[#Person]]
+- [[#Dataset]]
+- [[#Entity]]
 - [[#Event]]
-- [[#Place]]
+- [[#ImageObject]]
 - [[#Organization]]
+- [[#Person]]
+- [[#PersonObservation]]
 
 For each of these classes, the sections below list the *REQUIRED* and *OPTIONAL* properties.
 
+### Archive ### {#Archive}
+
+### ArchiveComponent ### {#ArchiveComponent}
+
+### ArchiveFile ### {#ArchiveFile}
+
 ### CreativeWork ### {#CreativeWork}
 
-### ArchivalComponent ### {#ArchivalComponent}
+### Dataset ### {#Dataset}
 
-### Person ### {#Person}
+### Entity ### {#Entity}
 
 ### Event ### {#Event}
 
-### Place ### {#Place}
+### ImageObject ### {#ImageObject}
 
 ### Organization ### {#Organization}
+
+### Person ### {#Person}
+
+### PersonObservation ### {#PersonObservation}
 
 Properties {#properties}
 ---
