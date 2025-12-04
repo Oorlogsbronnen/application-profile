@@ -78,5 +78,101 @@ For each of these classes, the sections below list the *REQUIRED* and *OPTIONAL*
 Properties {#properties}
 ---
 
+### about ### {#about}
+
+### actor ### {#actor}
+
+### additionalName ### {#additionalName}
+
+### additionalType ### {#additionalType}
+
+### address ### {#address}
+
+### alternateName ### {#alternateName}
+
+### birthDate ### {#birthDate}
+
+### birthPlace ### {#birthPlace}
+
+### caption ### {#caption}
+
+### contentLocation ### {#contentLocation}
+
+### contentUrl ### {#contentUrl}
+
+### creator ### {#creator}
+
+### date ### {#date}
+
+### deathDate ### {#deathDate}
+
+### deathPlace ### {#deathPlace}
+
+### description ### {#description}
+
+### endDate ### {#endDate}
+
+### familyName ### {#familyName}
+
+### fromLocation ### {#fromLocation}
+
+### gender ### {#gender}
+
+### givenName ### {#givenName}
+
+### homeLocation ### {#homeLocation}
+
+### identifier ### {#identifier}
+
+### image ### {#image}
+
+### isPartOf ### {#isPartOf}
+
+### jobTitle ### {#jobTitle}
+
+### keywords ### {#keywords}
+
+### license ### {#license}
+
+### location ### {#location}
+
+### maintainer ### {#maintainer}
+
+### memberOf ### {#memberOf}
+
+### name ### {#name}
+
+### position ### {#position}
+
+### publisher ### {#publisher}
+
+### rights ### {#rights}
+
+### sameAs ### {#sameAs}
+
+### source ### {#source}
+
+### startDate ### {#startDate}
+
+### subject ### {#subject}
+
+### superEvent ### {#superEvent}
+
+### temporal ### {#temporal}
+
+### thumbnail ### {#thumbnail}
+
+### thumbnailUrl ### {#thumbnailUrl}
+
+### title ### {#title}
+
+### toLocation ### {#toLocation}
+
+### type ### {#type}
+
+### url ### {#url}
+
+### wasDerivedFrom ### {#wasDerivedFrom}
+
 Full Examples {#examples}
 ==========
