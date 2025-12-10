@@ -64,6 +64,34 @@ IRI: [https://data.niod.nl/Archive](https://data.niod.nl/Archive)
 |:-----|:------|:------|
 | [[#dcidentifier]] | An unambiguous reference to the resource within a given context | Expected class type [xsd:string](https://www.w3.org/2001/XMLSchema#string) |
 
+<table class="syntax">
+    <caption>
+        Matrix of publications levels and methods.
+    </caption>
+    <thead>
+        <td></td>
+        <td>Combined</td>
+        <td>Separate profiles</td>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Resolvable URI</td>
+            <td>✅</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <td>Data dump</td>
+            <td>✅</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <td>SPARQL endpoint</td>
+            <td>❌</td>
+            <td>✅</td>
+        </tr>
+    </tbody>
+</table>
+
 ### ArchiveComponent #### {#ArchiveComponent}
 IRI: [http://schema.org/ArchiveComponent](http://schema.org/ArchiveComponent)
 
