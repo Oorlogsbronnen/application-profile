@@ -57,17 +57,17 @@ Each record *MUST* be typed as one of the following classes:
 
 For each of these classes, the sections below list the *REQUIRED* and *OPTIONAL* properties.
 
-### Archive {#Archive}
+### Archive
 IRI: [https://data.niod.nl/Archive](https://data.niod.nl/Archive)
 
 | Property | Definition | Constraints |
 |:-----|:------|:------|
 | [[#dcidentifier]] | An unambiguous reference to the resource within a given context | Expected class type [xsd:string](https://www.w3.org/2001/XMLSchema#string) |
 
-### ArchiveComponent {#ArchiveComponent}
+### ArchiveComponent
 IRI: [http://schema.org/ArchiveComponent](http://schema.org/ArchiveComponent)
 
-### ArchiveFile {#ArchiveFile}
+### ArchiveFile
 IRI: [https://data.niod.nl/ArchiveFile](https://data.niod.nl/ArchiveFile)
 
 ### CreativeWork ### {#CreativeWork}
