@@ -19,6 +19,10 @@ This document drescribes the OORLOGSBRONNEN-AP [=generic data model=] used for p
 The aplication profile presented is used by Oorlogsbronnen for the mapping of a diversity of aggregated data sources to a uniform and connected LOD knowledge graph. 
 This dataset forms the base for the website Oorlogsbronnen.nl but also can be queried, browsed and used as linked data through the [LDmax platform](https://www.ldmax.nl/datasets/wo2-oorlogsbronnen).
 
+
+Generic and domain data models {#models}
+---
+
 The Oorlogsbronnen Application Profile makes use of:
 
 - Schema.org Application Profile for NDE (SCHEMA-AP-NDE),
@@ -54,10 +58,12 @@ Each record *MUST* be typed as one of the following classes:
 For each of these classes, the sections below list the *REQUIRED* and *OPTIONAL* properties.
 
 ### Archive ### {#Archive}
+IRI: [https://data.niod.nl/Archive](https://data.niod.nl/Archive)
 
 ### ArchiveComponent ### {#ArchiveComponent}
 
 ### ArchiveFile ### {#ArchiveFile}
+IRI: [https://data.niod.nl/ArchiveFile](https://data.niod.nl/ArchiveFile)
 
 ### CreativeWork ### {#CreativeWork}
 
