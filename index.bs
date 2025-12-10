@@ -61,11 +61,40 @@ For each of these classes, the sections below list the *REQUIRED* and *OPTIONAL*
 IRI: [https://data.niod.nl/Archive](https://data.niod.nl/Archive)
 
 ### ArchiveComponent ### {#ArchiveComponent}
+IRI: [http://schema.org/ArchiveComponent](http://schema.org/ArchiveComponent)
 
 ### ArchiveFile ### {#ArchiveFile}
 IRI: [https://data.niod.nl/ArchiveFile](https://data.niod.nl/ArchiveFile)
 
 ### CreativeWork ### {#CreativeWork}
+IRI: [http://schema.org/CreativeWork](http://schema.org/CreativeWork)
+
+#### Article #### {#Article}
+IRI: [http://schema.org/ArchiveComponent](http://schema.org/Article)
+
+#### AudioObject #### {#AudioObject}
+IRI: [http://schema.org/AudioObject](http://schema.org/AudioObject)
+
+#### Book #### {#Book}
+IRI: [http://schema.org/Book](http://schema.org/Book)
+
+#### Monument #### {#Monument}
+IRI: [https://data.niod.nl/Monument](https://data.niod.nl/Monument)
+
+#### Newspaper #### {#Newspaper}
+IRI: [http://schema.org/Newspaper](http://schema.org/Newspaper)
+
+#### Photograph #### {#Photograph}
+IRI: [http://schema.org/Photograph](http://schema.org/Photograph)
+
+#### SheetMusic #### {#SheetMusic}
+IRI: [http://schema.org/SheetMusic](http://schema.org/SheetMusic)
+
+#### VideoObject #### {#VideoObject}
+IRI: [http://schema.org/VideoObject](http://schema.org/VideoObject)
+
+#### VisualArtwork #### {#VisualArtwork}
+IRI: [http://schema.org/VisualArtwork](http://schema.org/VisualArtwork)
 
 <div class="example">
     Specifying the language of the `name` property:
@@ -90,18 +119,25 @@ IRI: [https://data.niod.nl/ArchiveFile](https://data.niod.nl/ArchiveFile)
 </div>
 
 ### Dataset ### {#Dataset}
+IRI: [http://schema.org/Dataset](http://schema.org/Dataset)
 
 ### Entity ### {#Entity}
+IRI: [http://www.w3.org/ns/prov#Entity](http://www.w3.org/ns/prov#Entity)
 
 ### Event ### {#Event}
+IRI: [http://schema.org/Event](http://schema.org/Event)
 
 ### ImageObject ### {#ImageObject}
+IRI: [http://schema.org/ImageObject](http://schema.org/ImageObject)
 
 ### Organization ### {#Organization}
+IRI: [http://schema.org/Organization](http://schema.org/Organization)
 
 ### Person ### {#Person}
+IRI: [http://schema.org/Person](http://schema.org/Person)
 
 ### PersonObservation ### {#PersonObservation}
+IRI: [https://personsincontext.org/model#PersonObservation](https://personsincontext.org/model#PersonObservation)
 
 Properties {#properties}
 ---
