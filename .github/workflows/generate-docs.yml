@@ -3,8 +3,8 @@ name: Generate Linked Data Documentation
 on:
   push:
     branches:
-      - main  # De workflow start zodra je iets naar main pusht
-  workflow_dispatch: # Hiermee kun je de actie ook handmatig starten
+      - main
+  workflow_dispatch:
 
 jobs:
   build-docs:
@@ -12,6 +12,15 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Create external directory
+        run: mkdir -p external
+
+      - name: Fetch Latest External Schemas
+        run: |
+          # Haal schema.org en Dublin Core op voor lokale verwerking
+          curl -L https://schema.org/docs/schemaorg.ttl -o external/schema.ttl
+          curl -L https://purl.org/dc/terms.ttl -o external/dcterms.ttl
 
       - name: Set up Java
         uses: actions/setup-java@v3
@@ -25,20 +34,18 @@ jobs:
 
       - name: Generate Documentation
         run: |
-          # We voegen je ontology en shacl samen of we wijzen naar het hoofdbestand
-          # -ontFile: je bronbestand
-          # -outFolder: de map waar de website komt
-          # -rewriteAll: zorgt dat alles ververst wordt
-          # -includeImported: neemt de relaties met schema.org mee
+          # We voegen de map 'external' toe aan de input zodat Widoco de definities kent
           java -jar widoco.jar \
             -ontFile ./schema_ext-oorlogsbronnen.ttl \
             -outFolder ./docs \
             -rewriteAll \
             -webVowl \
             -includeImported
+            # Tip: Als Widoco de externe bestanden niet automatisch oppakt, 
+            # kun je ze mergen in een tijdelijk bestand voor de build.
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: docs # De map die Widoco net heeft aangemaakt
-          branch: gh-pages # De website komt op een aparte branch
+          folder: docs
+          branch: gh-pages
