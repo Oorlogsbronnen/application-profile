@@ -13,6 +13,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Validate Turtle Syntax
+        uses: atomgraph/riot-action@master
+        with:
+          args: "--validate ./schema_ext-oorlogsbronnen.ttl ./shacl.ttl"
+
       - name: Create external directory
         run: mkdir -p external
 
@@ -28,10 +33,13 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
 
-      - name: Download Widoco
+      - name: Download Latest Widoco
         run: |
-          wget https://github.com/dgarijo/Widoco/releases/download/v1.4.25/widoco-1.4.25-jar-with-dependencies-all.jar -O widoco.jar
-
+          # Gebruik de GitHub API om de download URL van de laatste release te vinden
+          WIDOCO_URL=$(curl -s https://api.github.com/repos/dgarijo/Widoco/releases/latest | grep "browser_download_url.*jar" | cut -d '"' -f 4 | head -n 1)
+          echo "Downloading from: $WIDOCO_URL"
+          wget $WIDOCO_URL -O widoco.jar
+          
       - name: Generate Documentation
         run: |
           # We voegen de map 'external' toe aan de input zodat Widoco de definities kent
