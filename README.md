@@ -36,3 +36,34 @@ Richt je repository als volgt in voor optimaal beheer:
 ├── docs/                    # Hier komt de gegenereerde output (GitHub Pages bron)
 └── .github/workflows/       # Automatisering
     └── documentation.yml
+
+4. Automatisering met GitHub Actions
+Dit is de sleutel tot efficiënt beheer. Je wilt dat de documentatie vernieuwt zodra je de .ttl bestanden aanpast.
+
+Maak een workflow (.github/workflows/documentation.yml) die:
+
+De repository uitcheckt.
+
+Een Docker-container van Widoco of Pylode draait.
+
+De .ttl bestanden als input neemt en HTML genereert in de /docs map.
+
+De wijzigingen commit of direct pusht naar de gh-pages branch.
+
+5. Deployment naar GitHub Pages
+Ga in je GitHub repo naar Settings > Pages.
+
+Kies als bron de map /docs op je main branch (of gebruik een aparte gh-pages branch via de Action uit stap 4).
+
+Je documentatie is nu live op https://<gebruiker>.github.io/<repo-naam>/.
+
+Samenvatting van de Workflow
+Definieer je eigen termen in een Turtle bestand.
+
+Limiteer het gebruik van schema.org en DC via een SHACL bestand (hier leg je de regels van je profiel vast).
+
+Push naar GitHub.
+
+GitHub Actions ziet de wijziging en trapt de generator (bijv. Widoco) aan.
+
+GitHub Pages serveert de nieuwe documentatie direct aan je gebruikers.
