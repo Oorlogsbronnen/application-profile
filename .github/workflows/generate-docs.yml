@@ -38,32 +38,44 @@ jobs:
           WIDOCO_URL=$(curl -s https://api.github.com/repos/dgarijo/Widoco/releases/latest | grep "browser_download_url.*jar" | cut -d '"' -f 4 | head -n 1)
           wget $WIDOCO_URL -O widoco.jar
 
-      - name: Generate Documentation
+      - name: Generate Documentation (with Deep Debug)
         run: |
-          # 1. Maak de output map aan
+          # 1. Voorbereiding mappen
           mkdir -p out
-
-          # 2. Voeg de bestanden slim samen: 
-          # We pakken alle unieke prefix-regels en dan de rest van de inhoud.
+          
+          # 2. Samenvoegen en controleren
+          echo "--- Prefixes verzamelen ---"
           grep -h "@prefix" ontology/*.ttl | sort -u > full_profile.ttl
+          echo "--- Inhoud toevoegen ---"
           grep -vh "@prefix" ontology/*.ttl >> full_profile.ttl
-
-          # 3. Draai Widoco op het gecombineerde bestand. 
-          # We gebruiken de vlag -ontFile (die wel werkt).
+          
+          # DEBUG: Laat de eerste 20 regels van het resultaat zien in de logs
+          echo "--- Preview van full_profile.ttl ---"
+          head -n 20 full_profile.ttl
+          
+          # 3. Widoco uitvoeren met volledige logging
+          echo "--- Widoco Start ---"
           java -jar widoco.jar \
             -ontFile full_profile.ttl \
             -outFolder ./out \
             -rewriteAll \
             -webVowl \
             -includeImported \
-            -verbose
+            -verbose > widoco_output.log 2>&1 || echo "Widoco is gestopt met een error code."
 
-          # 4. Kopieer de context file
-          cp context/context.jsonld out/context.jsonld
+          # 4. DEBUG: Altijd de widoco logs tonen, ook bij falen
+          echo "--- Widoco Logs ---"
+          cat widoco_output.log
 
-          # 5. Check of de bouw gelukt is
+          # 5. Kopieer de context file (indien aanwezig)
+          if [ -f context/context.jsonld ]; then
+            cp context/context.jsonld out/context.jsonld
+          fi
+
+          # 6. De ultieme check
           if [ ! -f ./out/index.html ]; then
-            echo "Fout: Widoco heeft geen index.html gegenereerd."
+            echo "CRITISCHE FOUT: Geen index.html gevonden in ./out"
+            echo "Controleer hierboven de 'Widoco Logs' sectie op 'SEVERE' of 'Exception'."
             exit 1
           fi
 
