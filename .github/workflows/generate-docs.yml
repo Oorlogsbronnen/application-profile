@@ -23,15 +23,15 @@ jobs:
       - name: Validate Turtle Syntax
         run: |
           pip install rdflib
-          python -c "from rdflib import Graph; Graph().parse('./schema_ext-oorlogsbronnen (1).ttl', format='turtle'); print('TTL Valid!')"
+          python -c "from rdflib import Graph; Graph().parse('./ontology/schema_ext-oorlogsbronnen.ttl', format='turtle'); print('TTL Valid!')"
 
       - name: Create external directory
         run: mkdir -p external
 
       - name: Fetch Latest External Schemas
         run: |
-          curl -L http://schema.org/docs/schemaorg.ttl -o external/schema.ttl
-          curl -L https://purl.org/dc/terms.ttl -o external/dcterms.ttl
+          curl -L http://schema.org/docs/schemaorg.ttl -o schemas/schema.ttl
+          curl -L https://purl.org/dc/terms.ttl -o schemas/dcterms.ttl
 
       - name: Download Latest Widoco
         run: |
@@ -43,7 +43,7 @@ jobs:
         run: |
           # Let op: ik heb de bestandsnaam aangepast aan je upload
           java -jar widoco.jar \
-            -ontFile "./schema_ext-oorlogsbronnen (1).ttl" \
+            -ontFile "./ontology/schema_ext-oorlogsbronnen.ttl" \
             -outFolder ./docs \
             -rewriteAll \
             -webVowl \
