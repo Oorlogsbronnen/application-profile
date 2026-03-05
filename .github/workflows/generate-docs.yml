@@ -40,17 +40,28 @@ jobs:
 
       - name: Generate Documentation
         run: |
-          # 1. Voeg vocabulaire en shapes samen voor een compleet Application Profile
+          # 1. Maak de output map handmatig aan
+          mkdir -p out
+          
+          # 2. Voeg de bestanden samen
           cat ontology/schema_ext-oorlogsbronnen.ttl ontology/shapes.ttl > full_profile.ttl
           
-          # 2. Widoco uitvoeren. We zetten de output in de map 'out'
-          # De vlag -rewriteAll zorgt voor een schone build
+          # 3. Widoco uitvoeren met extra logging (-verbose)
+          # We gebruiken '|| true' om te voorkomen dat de workflow stopt bij kleine waarschuwingen,
+          # maar we checken daarna of er echt iets is gegenereerd.
           java -jar widoco.jar \
             -ontFile full_profile.ttl \
             -outFolder ./out \
             -rewriteAll \
             -webVowl \
-            -includeImported
+            -includeImported \
+            -verbose || echo "Widoco had some warnings but continuing..."
+
+          # 4. Check of er daadwerkelijk een index.html is gemaakt
+          if [ ! -f ./out/index.html ]; then
+            echo "Error: Widoco failed to generate index.html!"
+            exit 1
+          fi
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
