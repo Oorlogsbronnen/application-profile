@@ -1,0 +1,44 @@
+name: Generate Linked Data Documentation
+
+on:
+  push:
+    branches:
+      - main  # De workflow start zodra je iets naar main pusht
+  workflow_dispatch: # Hiermee kun je de actie ook handmatig starten
+
+jobs:
+  build-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+
+      - name: Download Widoco
+        run: |
+          wget https://github.com/dgarijo/Widoco/releases/download/v1.4.25/widoco-1.4.25-jar-with-dependencies-all.jar -O widoco.jar
+
+      - name: Generate Documentation
+        run: |
+          # We voegen je ontology en shacl samen of we wijzen naar het hoofdbestand
+          # -ontFile: je bronbestand
+          # -outFolder: de map waar de website komt
+          # -rewriteAll: zorgt dat alles ververst wordt
+          # -includeImported: neemt de relaties met schema.org mee
+          java -jar widoco.jar \
+            -ontFile ./schema_ext-oorlogsbronnen.ttl \
+            -outFolder ./docs \
+            -rewriteAll \
+            -webVowl \
+            -includeImported
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: docs # De map die Widoco net heeft aangemaakt
+          branch: gh-pages # De website komt op een aparte branch
