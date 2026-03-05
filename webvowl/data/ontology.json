@@ -1,8 +1,8 @@
 {
   "_comment" : "Created with OWL2VOWL (version 0.3.5), http://vowl.visualdataweb.org",
   "header" : {
-    "languages" : [ "en", "nl" ],
-    "baseIris" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://schema.org", "https://personsincontext.org/model", "http://www.w3.org/2000/01/rdf-schema", "http://www.w3.org/ns/shacl", "http://www.w3.org/2001/XMLSchema", "https://data.niod.nl", "http://www.w3.org/2004/02/skos/core" ],
+    "languages" : [ "en", "nl", "undefined" ],
+    "baseIris" : [ "https://personsincontext.org/model/", "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://schema.org", "http://www.w3.org/2000/01/rdf-schema", "http://www.w3.org/ns/shacl", "http://www.w3.org/2001/XMLSchema", "https://data.niod.nl", "http://www.w3.org/2004/02/skos/core" ],
     "iri" : "No IRI set"
   },
   "namespace" : [ ],
@@ -58,7 +58,7 @@
     "id" : "37",
     "type" : "owl:Class"
   }, {
-    "id" : "40",
+    "id" : "38",
     "type" : "owl:Class"
   }, {
     "id" : "41",
@@ -67,7 +67,7 @@
     "id" : "42",
     "type" : "owl:Class"
   }, {
-    "id" : "47",
+    "id" : "43",
     "type" : "owl:Class"
   }, {
     "id" : "48",
@@ -76,25 +76,25 @@
     "id" : "49",
     "type" : "owl:Class"
   }, {
-    "id" : "57",
+    "id" : "50",
     "type" : "owl:Class"
   }, {
     "id" : "58",
     "type" : "owl:Class"
   }, {
-    "id" : "61",
+    "id" : "59",
     "type" : "owl:Class"
   }, {
-    "id" : "55",
+    "id" : "62",
     "type" : "owl:Class"
   }, {
-    "id" : "17",
+    "id" : "56",
     "type" : "owl:Class"
   }, {
     "id" : "22",
     "type" : "owl:Class"
   }, {
-    "id" : "73",
+    "id" : "17",
     "type" : "owl:Class"
   }, {
     "id" : "74",
@@ -106,10 +106,10 @@
     "id" : "87",
     "type" : "owl:Class"
   }, {
-    "id" : "77",
+    "id" : "86",
     "type" : "owl:Class"
   }, {
-    "id" : "86",
+    "id" : "77",
     "type" : "owl:Class"
   }, {
     "id" : "80",
@@ -121,22 +121,22 @@
     "id" : "15",
     "type" : "owl:Class"
   }, {
-    "id" : "51",
+    "id" : "52",
     "type" : "owl:Class"
   }, {
     "id" : "92",
     "type" : "owl:Class"
   }, {
-    "id" : "43",
+    "id" : "44",
     "type" : "owl:Class"
   }, {
     "id" : "1",
     "type" : "owl:Class"
   }, {
-    "id" : "44",
+    "id" : "45",
     "type" : "owl:Class"
   }, {
-    "id" : "46",
+    "id" : "47",
     "type" : "owl:Class"
   }, {
     "id" : "24",
@@ -151,19 +151,16 @@
     "id" : "11",
     "type" : "owl:Class"
   }, {
-    "id" : "53",
+    "id" : "54",
     "type" : "owl:Class"
   }, {
     "id" : "94",
     "type" : "owl:Class"
   }, {
-    "id" : "111",
+    "id" : "70",
     "type" : "owl:Class"
   }, {
-    "id" : "69",
-    "type" : "owl:Class"
-  }, {
-    "id" : "71",
+    "id" : "72",
     "type" : "owl:Class"
   }, {
     "id" : "97",
@@ -172,19 +169,25 @@
     "id" : "99",
     "type" : "owl:Class"
   }, {
-    "id" : "101",
+    "id" : "121",
     "type" : "owl:Class"
   }, {
     "id" : "100",
     "type" : "owl:Class"
   }, {
+    "id" : "101",
+    "type" : "owl:Class"
+  }, {
     "id" : "126",
     "type" : "owl:Class"
   }, {
-    "id" : "45",
+    "id" : "127",
     "type" : "owl:Class"
   }, {
     "id" : "4",
+    "type" : "owl:Class"
+  }, {
+    "id" : "46",
     "type" : "owl:Class"
   }, {
     "id" : "93",
@@ -196,25 +199,25 @@
     "id" : "95",
     "type" : "owl:Class"
   }, {
-    "id" : "39",
+    "id" : "40",
     "type" : "owl:Class"
   }, {
-    "id" : "60",
+    "id" : "61",
     "type" : "owl:Class"
   }, {
     "id" : "83",
     "type" : "owl:Class"
   }, {
-    "id" : "38",
+    "id" : "39",
     "type" : "owl:Class"
   }, {
     "id" : "98",
     "type" : "owl:Class"
   }, {
-    "id" : "9",
+    "id" : "64",
     "type" : "owl:Class"
   }, {
-    "id" : "63",
+    "id" : "9",
     "type" : "owl:Class"
   } ],
   "classAttribute" : [ {
@@ -256,20 +259,20 @@
     "id" : "2",
     "superClasses" : [ "1" ]
   }, {
-    "iri" : "https://data.niod.nl/Vrijgelaten",
+    "iri" : "https://data.niod.nl/Gestorven",
     "baseIri" : "https://data.niod.nl",
     "instances" : 0,
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
         "language" : "undefined",
-        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6346",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6361",
         "type" : "iri"
       } ]
     },
     "label" : {
-      "IRI-based" : "Vrijgelaten",
-      "nl" : "Vrijgelaten"
+      "IRI-based" : "Gestorven",
+      "nl" : "Gestorven"
     },
     "attributes" : [ "external" ],
     "id" : "5",
@@ -285,20 +288,20 @@
     "id" : "6",
     "superClasses" : [ "7" ]
   }, {
-    "iri" : "https://data.niod.nl/Gestorven",
+    "iri" : "https://data.niod.nl/Vrijgelaten",
     "baseIri" : "https://data.niod.nl",
     "instances" : 0,
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
         "language" : "undefined",
-        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6361",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6346",
         "type" : "iri"
       } ]
     },
     "label" : {
-      "IRI-based" : "Gestorven",
-      "nl" : "Gestorven"
+      "IRI-based" : "Vrijgelaten",
+      "nl" : "Vrijgelaten"
     },
     "attributes" : [ "external" ],
     "id" : "8",
@@ -348,6 +351,25 @@
     "id" : "14",
     "superClasses" : [ "15" ]
   }, {
+    "iri" : "https://data.niod.nl/Vermist",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/10946",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Vermist",
+      "nl" : "Vermist"
+    },
+    "attributes" : [ "external" ],
+    "id" : "26",
+    "superClasses" : [ "1" ]
+  }, {
     "iri" : "https://data.niod.nl/Executeert",
     "baseIri" : "https://data.niod.nl",
     "instances" : 0,
@@ -365,25 +387,6 @@
     },
     "comment" : {
       "nl" : "Het actief ombrengen van een persoon (in opdracht van..). Werkwoord om uitvoerder van de executie te benoemen."
-    },
-    "attributes" : [ "external" ],
-    "id" : "26",
-    "superClasses" : [ "1" ]
-  }, {
-    "iri" : "https://data.niod.nl/Vermist",
-    "baseIri" : "https://data.niod.nl",
-    "instances" : 0,
-    "annotations" : {
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "undefined",
-        "value" : "https://data.niod.nl/WO2_Thesaurus/events/10946",
-        "type" : "iri"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "Vermist",
-      "nl" : "Vermist"
     },
     "attributes" : [ "external" ],
     "id" : "27",
@@ -465,6 +468,19 @@
     "id" : "34",
     "superClasses" : [ "1" ]
   }, {
+    "iri" : "https://personsincontext.org/model/#PersonObservation",
+    "baseIri" : "https://personsincontext.org/model/",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "PersonObservation",
+      "nl" : "Persoonsvermelding"
+    },
+    "comment" : {
+      "nl" : "Persoon zoals geobserveerd in een bron"
+    },
+    "attributes" : [ "external" ],
+    "id" : "35"
+  }, {
     "iri" : "https://data.niod.nl/Verraadt",
     "baseIri" : "https://data.niod.nl",
     "instances" : 0,
@@ -484,7 +500,7 @@
       "nl" : "Het verraden van een ander mens. Werkwoord om de verrader te benoemen."
     },
     "attributes" : [ "external" ],
-    "id" : "35",
+    "id" : "36",
     "superClasses" : [ "1" ]
   }, {
     "iri" : "https://data.niod.nl/Teruggekeerd",
@@ -503,7 +519,7 @@
       "nl" : "Teruggekeerd"
     },
     "attributes" : [ "external" ],
-    "id" : "36",
+    "id" : "37",
     "superClasses" : [ "1" ]
   }, {
     "iri" : "https://data.niod.nl/ArchiveSeries",
@@ -517,8 +533,8 @@
       "en" : "Class for a collection of archival documents"
     },
     "attributes" : [ "external" ],
-    "id" : "37",
-    "superClasses" : [ "38", "39" ]
+    "id" : "38",
+    "superClasses" : [ "39", "40" ]
   }, {
     "iri" : "https://data.niod.nl/Ontsnapt",
     "baseIri" : "https://data.niod.nl",
@@ -536,7 +552,7 @@
       "nl" : "Ontsnapt"
     },
     "attributes" : [ "external" ],
-    "id" : "40",
+    "id" : "41",
     "superClasses" : [ "1" ]
   }, {
     "iri" : "https://data.niod.nl/Opgevangen",
@@ -555,7 +571,7 @@
       "nl" : "Opgevangen"
     },
     "attributes" : [ "external" ],
-    "id" : "41",
+    "id" : "42",
     "superClasses" : [ "1" ]
   }, {
     "iri" : "http://schema.org/CreativeWork",
@@ -565,9 +581,9 @@
       "IRI-based" : "CreativeWork",
       "nl" : "Object"
     },
-    "subClasses" : [ "43", "44", "38", "39", "45", "15", "46" ],
+    "subClasses" : [ "44", "45", "39", "40", "46", "15", "47" ],
     "attributes" : [ "external" ],
-    "id" : "42"
+    "id" : "43"
   }, {
     "iri" : "https://data.niod.nl/Opgeroepen",
     "baseIri" : "https://data.niod.nl",
@@ -585,7 +601,7 @@
       "nl" : "Opgeroepen"
     },
     "attributes" : [ "external" ],
-    "id" : "47",
+    "id" : "48",
     "superClasses" : [ "1" ]
   }, {
     "iri" : "http://schema.org/SheetMusic",
@@ -596,7 +612,7 @@
       "nl" : "Bladmuziek"
     },
     "attributes" : [ "external" ],
-    "id" : "48",
+    "id" : "49",
     "superClasses" : [ "15" ]
   }, {
     "iri" : "https://data.niod.nl/Gehuwd",
@@ -615,29 +631,7 @@
       "nl" : "Gehuwd"
     },
     "attributes" : [ "external" ],
-    "id" : "49",
-    "superClasses" : [ "1" ]
-  }, {
-    "iri" : "https://data.niod.nl/BevrijdIn",
-    "baseIri" : "https://data.niod.nl",
-    "instances" : 0,
-    "annotations" : {
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "undefined",
-        "value" : "https://data.niod.nl/WO2_Thesaurus/events/11173",
-        "type" : "iri"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "BevrijdIn",
-      "nl" : "Bevrijd in"
-    },
-    "comment" : {
-      "nl" : "Plaats/stad of land waarin een persoon bevrijd wordt."
-    },
-    "attributes" : [ "external" ],
-    "id" : "57",
+    "id" : "50",
     "superClasses" : [ "1" ]
   }, {
     "iri" : "https://data.niod.nl/BevrijdUit",
@@ -662,6 +656,28 @@
     "id" : "58",
     "superClasses" : [ "1" ]
   }, {
+    "iri" : "https://data.niod.nl/BevrijdIn",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/11173",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "BevrijdIn",
+      "nl" : "Bevrijd in"
+    },
+    "comment" : {
+      "nl" : "Plaats/stad of land waarin een persoon bevrijd wordt."
+    },
+    "attributes" : [ "external" ],
+    "id" : "59",
+    "superClasses" : [ "1" ]
+  }, {
     "iri" : "https://data.niod.nl/Arresteert",
     "baseIri" : "https://data.niod.nl",
     "instances" : 0,
@@ -681,7 +697,7 @@
       "nl" : "Het actief arresteren of oppakken van mensen. Werkwoord om de arresterende persoon te benoemen."
     },
     "attributes" : [ "external" ],
-    "id" : "61",
+    "id" : "62",
     "superClasses" : [ "1" ]
   }, {
     "iri" : "https://data.niod.nl/Geboren",
@@ -700,7 +716,26 @@
       "nl" : "Geboren"
     },
     "attributes" : [ "external" ],
-    "id" : "55",
+    "id" : "56",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Ondergedoken",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6351",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Ondergedoken",
+      "nl" : "Ondergedoken"
+    },
+    "attributes" : [ "external" ],
+    "id" : "22",
     "superClasses" : [ "1" ]
   }, {
     "iri" : "https://data.niod.nl/Gevangen",
@@ -724,38 +759,6 @@
     "attributes" : [ "external" ],
     "id" : "17",
     "superClasses" : [ "1" ]
-  }, {
-    "iri" : "https://data.niod.nl/Ondergedoken",
-    "baseIri" : "https://data.niod.nl",
-    "instances" : 0,
-    "annotations" : {
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "undefined",
-        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6351",
-        "type" : "iri"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "Ondergedoken",
-      "nl" : "Ondergedoken"
-    },
-    "attributes" : [ "external" ],
-    "id" : "22",
-    "superClasses" : [ "1" ]
-  }, {
-    "iri" : "https://personsincontext.org/model#PersonReconstruction",
-    "baseIri" : "https://personsincontext.org/model",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "PersonReconstruction",
-      "nl" : "Persoonsreconstructie"
-    },
-    "comment" : {
-      "nl" : "Persoon gemodelleerd op basis van een of meer persoonsvermeldingen"
-    },
-    "attributes" : [ "external" ],
-    "id" : "73"
   }, {
     "iri" : "https://data.niod.nl/Veroordeeld",
     "baseIri" : "https://data.niod.nl",
@@ -817,6 +820,25 @@
     "id" : "87",
     "superClasses" : [ "1" ]
   }, {
+    "iri" : "https://data.niod.nl/Gevochten",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6359",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Gevochten",
+      "nl" : "Gevochten"
+    },
+    "attributes" : [ "external" ],
+    "id" : "86",
+    "superClasses" : [ "1" ]
+  }, {
     "iri" : "https://data.niod.nl/Geïnterneerd",
     "baseIri" : "https://data.niod.nl",
     "instances" : 0,
@@ -837,25 +859,6 @@
     },
     "attributes" : [ "external" ],
     "id" : "77",
-    "superClasses" : [ "1" ]
-  }, {
-    "iri" : "https://data.niod.nl/Gevochten",
-    "baseIri" : "https://data.niod.nl",
-    "instances" : 0,
-    "annotations" : {
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "undefined",
-        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6359",
-        "type" : "iri"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "Gevochten",
-      "nl" : "Gevochten"
-    },
-    "attributes" : [ "external" ],
-    "id" : "86",
     "superClasses" : [ "1" ]
   }, {
     "iri" : "https://data.niod.nl/Geland",
@@ -909,13 +912,13 @@
       "IRI-based" : "Afbeelding",
       "nl" : "Afbeelding"
     },
-    "subClasses" : [ "48", "14", "63", "53", "51" ],
+    "subClasses" : [ "49", "14", "64", "54", "52" ],
     "comment" : {
       "en" : "Superclass of all collection objects with a visuel element."
     },
     "attributes" : [ "external" ],
     "id" : "15",
-    "superClasses" : [ "42" ]
+    "superClasses" : [ "43" ]
   }, {
     "iri" : "http://schema.org/Photograph",
     "baseIri" : "http://schema.org",
@@ -925,7 +928,7 @@
       "nl" : "Foto"
     },
     "attributes" : [ "external" ],
-    "id" : "51",
+    "id" : "52",
     "superClasses" : [ "15" ]
   }, {
     "iri" : "https://data.niod.nl/Rights",
@@ -952,8 +955,8 @@
       "en" : "Class for interviews segments"
     },
     "attributes" : [ "external" ],
-    "id" : "43",
-    "superClasses" : [ "42" ]
+    "id" : "44",
+    "superClasses" : [ "43" ]
   }, {
     "iri" : "http://schema.org/Event",
     "baseIri" : "http://schema.org",
@@ -961,7 +964,7 @@
     "label" : {
       "IRI-based" : "Event"
     },
-    "subClasses" : [ "55", "0", "24", "30", "2", "8", "17", "22", "20", "5", "11", "4", "93", "94", "13", "74", "95", "96", "81", "26", "27", "87", "31", "32", "83", "33", "86", "77", "34", "80", "35", "69", "36", "71", "91", "40", "97", "41", "47", "98", "99", "49", "63", "57", "58", "61", "100", "101" ],
+    "subClasses" : [ "56", "0", "24", "30", "2", "5", "17", "22", "20", "8", "11", "4", "93", "94", "13", "74", "95", "96", "81", "27", "26", "87", "31", "32", "83", "33", "86", "77", "34", "80", "36", "70", "37", "72", "91", "41", "97", "42", "48", "98", "99", "50", "64", "59", "58", "62", "100", "101" ],
     "attributes" : [ "external" ],
     "id" : "1"
   }, {
@@ -976,8 +979,8 @@
       "en" : "Class for interviews"
     },
     "attributes" : [ "external" ],
-    "id" : "44",
-    "superClasses" : [ "42" ]
+    "id" : "45",
+    "superClasses" : [ "43" ]
   }, {
     "iri" : "https://data.niod.nl/Monument",
     "baseIri" : "https://data.niod.nl",
@@ -990,8 +993,8 @@
       "en" : "Class for monuments"
     },
     "attributes" : [ "external" ],
-    "id" : "46",
-    "superClasses" : [ "42" ]
+    "id" : "47",
+    "superClasses" : [ "43" ]
   }, {
     "iri" : "https://data.niod.nl/Geëxecuteerd",
     "baseIri" : "https://data.niod.nl",
@@ -1086,7 +1089,7 @@
       "nl" : "Afbeelding"
     },
     "attributes" : [ "external" ],
-    "id" : "53",
+    "id" : "54",
     "superClasses" : [ "15" ]
   }, {
     "iri" : "https://data.niod.nl/Geleid",
@@ -1111,19 +1114,6 @@
     "id" : "94",
     "superClasses" : [ "1" ]
   }, {
-    "iri" : "https://personsincontext.org/model#PersonObservation",
-    "baseIri" : "https://personsincontext.org/model",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "PersonObservation",
-      "nl" : "Persoonsvermelding"
-    },
-    "comment" : {
-      "nl" : "Persoon zoals geobserveerd in een bron"
-    },
-    "attributes" : [ "external" ],
-    "id" : "111"
-  }, {
     "iri" : "https://data.niod.nl/Geliquideerd",
     "baseIri" : "https://data.niod.nl",
     "instances" : 0,
@@ -1140,7 +1130,7 @@
       "nl" : "Geliquideerd"
     },
     "attributes" : [ "external" ],
-    "id" : "69",
+    "id" : "70",
     "superClasses" : [ "1" ]
   }, {
     "iri" : "https://data.niod.nl/Opgepakt",
@@ -1162,7 +1152,7 @@
       "nl" : "Opgepakt betekent de aanhouding van een persoon zonder dat daarna een juridisch traject gestart is. Opgepakt wordt meestal gebruikt voor personen die (willekeurig) aangehouden zijn tijdens razzia's en repressailles."
     },
     "attributes" : [ "external" ],
-    "id" : "71",
+    "id" : "72",
     "superClasses" : [ "1" ]
   }, {
     "iri" : "https://data.niod.nl/Gevlucht",
@@ -1203,24 +1193,1131 @@
     "id" : "99",
     "superClasses" : [ "1" ]
   }, {
-    "iri" : "https://data.niod.nl/Geroyeerd",
-    "baseIri" : "https://data.niod.nl",
+    "iri" : "http://www.w3.org/ns/shacl#PropertyShape",
+    "baseIri" : "http://www.w3.org/ns/shacl",
     "instances" : 0,
-    "annotations" : {
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "undefined",
-        "value" : "https://data.niod.nl/WO2_Thesaurus/events/11178",
-        "type" : "iri"
-      } ]
-    },
     "label" : {
-      "IRI-based" : "Geroyeerd",
-      "nl" : "Geroyeerd"
+      "IRI-based" : "PropertyShape"
     },
+    "individuals" : [ {
+      "iri" : "http://data.niod.nl/Rule_position",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/position",
+          "type" : "iri"
+        } ],
+        "datatype" : [ {
+          "identifier" : "datatype",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/2001/XMLSchema#integer",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_position"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_superEvent",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/superEvent",
+          "type" : "iri"
+        } ],
+        "nodeKind" : [ {
+          "identifier" : "nodeKind",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#IRI",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_superEvent"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_toLocation",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/toLocation",
+          "type" : "iri"
+        } ],
+        "nodeKind" : [ {
+          "identifier" : "nodeKind",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#IRI",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_toLocation"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_birthPlace",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/birthPlace",
+          "type" : "iri"
+        } ],
+        "nodeKind" : [ {
+          "identifier" : "nodeKind",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#IRI",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_birthPlace"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_actor",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/actor",
+          "type" : "iri"
+        } ],
+        "nodeKind" : [ {
+          "identifier" : "nodeKind",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#IRI",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_actor"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_thumbnail",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/thumbnail",
+          "type" : "iri"
+        } ],
+        "nodeKind" : [ {
+          "identifier" : "nodeKind",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#IRI",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_thumbnail"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_isPartOf",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/isPartOf",
+          "type" : "iri"
+        } ],
+        "nodeKind" : [ {
+          "identifier" : "nodeKind",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#IRI",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_isPartOf"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_caption",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/caption",
+          "type" : "iri"
+        } ],
+        "datatype" : [ {
+          "identifier" : "datatype",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/2001/XMLSchema#string",
+          "type" : "iri"
+        } ],
+        "maxCount" : [ {
+          "identifier" : "maxCount",
+          "language" : "undefined",
+          "value" : "1",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_caption"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_rights",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://purl.org/dc/elements/1.1/rights",
+          "type" : "iri"
+        } ],
+        "datatype" : [ {
+          "identifier" : "datatype",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/2001/XMLSchema#string",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_rights"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_givenName",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/givenName",
+          "type" : "iri"
+        } ],
+        "datatype" : [ {
+          "identifier" : "datatype",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/2001/XMLSchema#string",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_givenName"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_gender",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/gender",
+          "type" : "iri"
+        } ],
+        "datatype" : [ {
+          "identifier" : "datatype",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/2001/XMLSchema#string",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_gender"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_startDate",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/startDate",
+          "type" : "iri"
+        } ],
+        "datatype" : [ {
+          "identifier" : "datatype",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/2001/XMLSchema#date",
+          "type" : "iri"
+        } ],
+        "maxCount" : [ {
+          "identifier" : "maxCount",
+          "language" : "undefined",
+          "value" : "1",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_startDate"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_jobTitle",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/jobTitle",
+          "type" : "iri"
+        } ],
+        "datatype" : [ {
+          "identifier" : "datatype",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/2001/XMLSchema#string",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_jobTitle"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_type",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "type" : "iri"
+        } ],
+        "nodeKind" : [ {
+          "identifier" : "nodeKind",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#IRI",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_type"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_description",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/description",
+          "type" : "iri"
+        } ],
+        "datatype" : [ {
+          "identifier" : "datatype",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/2001/XMLSchema#string",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_description"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_homeLocation",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/homeLocation",
+          "type" : "iri"
+        } ],
+        "nodeKind" : [ {
+          "identifier" : "nodeKind",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#IRI",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_homeLocation"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_fromLocation",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/fromLocation",
+          "type" : "iri"
+        } ],
+        "nodeKind" : [ {
+          "identifier" : "nodeKind",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#IRI",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_fromLocation"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_dateCreated",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/dateCreated",
+          "type" : "iri"
+        } ],
+        "datatype" : [ {
+          "identifier" : "datatype",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/2001/XMLSchema#date",
+          "type" : "iri"
+        } ],
+        "maxCount" : [ {
+          "identifier" : "maxCount",
+          "language" : "undefined",
+          "value" : "1",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_dateCreated"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_creator",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/creator",
+          "type" : "iri"
+        } ],
+        "nodeKind" : [ {
+          "identifier" : "nodeKind",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#IRI",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_creator"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_about",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/about",
+          "type" : "iri"
+        } ],
+        "nodeKind" : [ {
+          "identifier" : "nodeKind",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#IRI",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_about"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_maintainer",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/maintainer",
+          "type" : "iri"
+        } ],
+        "nodeKind" : [ {
+          "identifier" : "nodeKind",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#IRI",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_maintainer"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_deathDate",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/deathDate",
+          "type" : "iri"
+        } ],
+        "datatype" : [ {
+          "identifier" : "datatype",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/2001/XMLSchema#date",
+          "type" : "iri"
+        } ],
+        "maxCount" : [ {
+          "identifier" : "maxCount",
+          "language" : "undefined",
+          "value" : "1",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_deathDate"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_wasDerivedFrom",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/prov#wasDerivedFrom",
+          "type" : "iri"
+        } ],
+        "nodeKind" : [ {
+          "identifier" : "nodeKind",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#IRI",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_wasDerivedFrom"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_alternateName",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/alternateName",
+          "type" : "iri"
+        } ],
+        "datatype" : [ {
+          "identifier" : "datatype",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/2001/XMLSchema#string",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_alternateName"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_contentLocation",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/contentLocation",
+          "type" : "iri"
+        } ],
+        "nodeKind" : [ {
+          "identifier" : "nodeKind",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#IRI",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_contentLocation"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_additionalType",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/additionalType",
+          "type" : "iri"
+        } ],
+        "nodeKind" : [ {
+          "identifier" : "nodeKind",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#IRI",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_additionalType"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_birthDate",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/birthDate",
+          "type" : "iri"
+        } ],
+        "datatype" : [ {
+          "identifier" : "datatype",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/2001/XMLSchema#date",
+          "type" : "iri"
+        } ],
+        "maxCount" : [ {
+          "identifier" : "maxCount",
+          "language" : "undefined",
+          "value" : "1",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_birthDate"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_address",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/address",
+          "type" : "iri"
+        } ],
+        "datatype" : [ {
+          "identifier" : "datatype",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/2001/XMLSchema#string",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_address"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_contentUrl",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/contentUrl",
+          "type" : "iri"
+        } ],
+        "nodeKind" : [ {
+          "identifier" : "nodeKind",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#IRI",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_contentUrl"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_source",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://purl.org/dc/elements/1.1/source",
+          "type" : "iri"
+        } ],
+        "datatype" : [ {
+          "identifier" : "datatype",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/2001/XMLSchema#string",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_source"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_dateModified",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/dateModified",
+          "type" : "iri"
+        } ],
+        "datatype" : [ {
+          "identifier" : "datatype",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/2001/XMLSchema#date",
+          "type" : "iri"
+        } ],
+        "maxCount" : [ {
+          "identifier" : "maxCount",
+          "language" : "undefined",
+          "value" : "1",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_dateModified"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_familyName",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/familyName",
+          "type" : "iri"
+        } ],
+        "datatype" : [ {
+          "identifier" : "datatype",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/2001/XMLSchema#string",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_familyName"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_identifier_schema",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/identifier",
+          "type" : "iri"
+        } ],
+        "datatype" : [ {
+          "identifier" : "datatype",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/2001/XMLSchema#string",
+          "type" : "iri"
+        } ],
+        "minCount" : [ {
+          "identifier" : "minCount",
+          "language" : "undefined",
+          "value" : "1",
+          "type" : "label"
+        } ],
+        "maxCount" : [ {
+          "identifier" : "maxCount",
+          "language" : "undefined",
+          "value" : "1",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_identifier_schema"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_name",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/name",
+          "type" : "iri"
+        } ],
+        "datatype" : [ {
+          "identifier" : "datatype",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/2001/XMLSchema#string",
+          "type" : "iri"
+        } ],
+        "minCount" : [ {
+          "identifier" : "minCount",
+          "language" : "undefined",
+          "value" : "1",
+          "type" : "label"
+        } ],
+        "maxCount" : [ {
+          "identifier" : "maxCount",
+          "language" : "undefined",
+          "value" : "1",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_name"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_location",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/location",
+          "type" : "iri"
+        } ],
+        "nodeKind" : [ {
+          "identifier" : "nodeKind",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#IRI",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_location"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_title",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://purl.org/dc/elements/1.1/title",
+          "type" : "iri"
+        } ],
+        "datatype" : [ {
+          "identifier" : "datatype",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/2001/XMLSchema#string",
+          "type" : "iri"
+        } ],
+        "minCount" : [ {
+          "identifier" : "minCount",
+          "language" : "undefined",
+          "value" : "1",
+          "type" : "label"
+        } ],
+        "maxCount" : [ {
+          "identifier" : "maxCount",
+          "language" : "undefined",
+          "value" : "1",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_title"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_deathPlace",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/deathPlace",
+          "type" : "iri"
+        } ],
+        "nodeKind" : [ {
+          "identifier" : "nodeKind",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#IRI",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_deathPlace"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_sameAs",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/sameAs",
+          "type" : "iri"
+        } ],
+        "nodeKind" : [ {
+          "identifier" : "nodeKind",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#IRI",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_sameAs"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_identifier_dc",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://purl.org/dc/elements/1.1/identifier",
+          "type" : "iri"
+        } ],
+        "datatype" : [ {
+          "identifier" : "datatype",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/2001/XMLSchema#string",
+          "type" : "iri"
+        } ],
+        "minCount" : [ {
+          "identifier" : "minCount",
+          "language" : "undefined",
+          "value" : "1",
+          "type" : "label"
+        } ],
+        "maxCount" : [ {
+          "identifier" : "maxCount",
+          "language" : "undefined",
+          "value" : "1",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_identifier_dc"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_date",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://purl.org/dc/elements/1.1/date",
+          "type" : "iri"
+        } ],
+        "datatype" : [ {
+          "identifier" : "datatype",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/2001/XMLSchema#date",
+          "type" : "iri"
+        } ],
+        "maxCount" : [ {
+          "identifier" : "maxCount",
+          "language" : "undefined",
+          "value" : "1",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_date"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_publisher",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/publisher",
+          "type" : "iri"
+        } ],
+        "nodeKind" : [ {
+          "identifier" : "nodeKind",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#IRI",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_publisher"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_license",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/license",
+          "type" : "iri"
+        } ],
+        "nodeKind" : [ {
+          "identifier" : "nodeKind",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#IRI",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_license"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_image",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/image",
+          "type" : "iri"
+        } ],
+        "nodeKind" : [ {
+          "identifier" : "nodeKind",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#IRI",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_image"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_url",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/url",
+          "type" : "iri"
+        } ],
+        "nodeKind" : [ {
+          "identifier" : "nodeKind",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#IRI",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_url"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_subject",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://purl.org/dc/elements/1.1/subject",
+          "type" : "iri"
+        } ],
+        "nodeKind" : [ {
+          "identifier" : "nodeKind",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#IRI",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_subject"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_memberOf",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/memberOf",
+          "type" : "iri"
+        } ],
+        "nodeKind" : [ {
+          "identifier" : "nodeKind",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#IRI",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_memberOf"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_temporal",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://purl.org/dc/terms/temporal",
+          "type" : "iri"
+        } ],
+        "datatype" : [ {
+          "identifier" : "datatype",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/2001/XMLSchema#string",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_temporal"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_endDate",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/endDate",
+          "type" : "iri"
+        } ],
+        "datatype" : [ {
+          "identifier" : "datatype",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/2001/XMLSchema#date",
+          "type" : "iri"
+        } ],
+        "maxCount" : [ {
+          "identifier" : "maxCount",
+          "language" : "undefined",
+          "value" : "1",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_endDate"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_additionalName",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/additionalName",
+          "type" : "iri"
+        } ],
+        "datatype" : [ {
+          "identifier" : "datatype",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/2001/XMLSchema#string",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_additionalName"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_thumbnailUrl",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/thumbnailUrl",
+          "type" : "iri"
+        } ],
+        "nodeKind" : [ {
+          "identifier" : "nodeKind",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#IRI",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_thumbnailUrl"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Rule_keywords",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "path" : [ {
+          "identifier" : "path",
+          "language" : "undefined",
+          "value" : "http://schema.org/keywords",
+          "type" : "iri"
+        } ],
+        "datatype" : [ {
+          "identifier" : "datatype",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/2001/XMLSchema#string",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Rule_keywords"
+      }
+    } ],
     "attributes" : [ "external" ],
-    "id" : "101",
-    "superClasses" : [ "1" ]
+    "id" : "121"
   }, {
     "iri" : "https://data.niod.nl/Gearresteerd",
     "baseIri" : "https://data.niod.nl",
@@ -1244,6 +2341,38 @@
     "id" : "100",
     "superClasses" : [ "1" ]
   }, {
+    "iri" : "https://data.niod.nl/Geroyeerd",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/11178",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Geroyeerd",
+      "nl" : "Geroyeerd"
+    },
+    "attributes" : [ "external" ],
+    "id" : "101",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://personsincontext.org/model/#PersonReconstruction",
+    "baseIri" : "https://personsincontext.org/model/",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "PersonReconstruction",
+      "nl" : "Persoonsreconstructie"
+    },
+    "comment" : {
+      "nl" : "Persoon gemodelleerd op basis van een of meer persoonsvermeldingen"
+    },
+    "attributes" : [ "external" ],
+    "id" : "126"
+  }, {
     "iri" : "http://www.w3.org/ns/shacl#NodeShape",
     "baseIri" : "http://www.w3.org/ns/shacl",
     "instances" : 0,
@@ -1251,16 +2380,21 @@
       "IRI-based" : "NodeShape"
     },
     "individuals" : [ {
-      "iri" : "https://data.niod.nl/PersonObservationShape",
-      "baseIri" : "https://data.niod.nl",
+      "iri" : "http://data.niod.nl/ObjectShape",
+      "baseIri" : "http://data.niod.nl",
       "annotations" : {
         "targetClass" : [ {
           "identifier" : "targetClass",
           "language" : "undefined",
-          "value" : "https://personsincontext.org/model#PersonObservation",
+          "value" : "http://schema.org/CreativeWork",
           "type" : "iri"
         } ],
         "property" : [ {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483648",
+          "type" : "label"
+        }, {
           "identifier" : "property",
           "language" : "undefined",
           "value" : "_:genid2147483652",
@@ -1269,64 +2403,18 @@
         "name" : [ {
           "identifier" : "name",
           "language" : "nl",
-          "value" : "Persoonsvermelding",
+          "value" : "Archiefstuk of Object",
           "type" : "label"
         } ]
       },
       "labels" : {
-        "IRI-based" : "PersonObservationShape"
+        "IRI-based" : "ObjectShape"
       }
     }, {
-      "iri" : "https://data.niod.nl/RightsShape",
-      "baseIri" : "https://data.niod.nl",
+      "iri" : "http://data.niod.nl/GebeurtenisShape",
+      "baseIri" : "http://data.niod.nl",
       "annotations" : {
         "targetClass" : [ {
-          "identifier" : "targetClass",
-          "language" : "undefined",
-          "value" : "https://data.niod.nl/Rights",
-          "type" : "iri"
-        } ],
-        "property" : [ {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483653",
-          "type" : "label"
-        } ],
-        "name" : [ {
-          "identifier" : "name",
-          "language" : "nl",
-          "value" : "Rechten",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "RightsShape"
-      }
-    }, {
-      "iri" : "https://data.niod.nl/EventShape",
-      "baseIri" : "https://data.niod.nl",
-      "annotations" : {
-        "targetClass" : [ {
-          "identifier" : "targetClass",
-          "language" : "undefined",
-          "value" : "https://data.niod.nl/Gearresteerd",
-          "type" : "iri"
-        }, {
-          "identifier" : "targetClass",
-          "language" : "undefined",
-          "value" : "https://data.niod.nl/Bekendmaking",
-          "type" : "iri"
-        }, {
-          "identifier" : "targetClass",
-          "language" : "undefined",
-          "value" : "https://data.niod.nl/Omgekomen",
-          "type" : "iri"
-        }, {
-          "identifier" : "targetClass",
-          "language" : "undefined",
-          "value" : "https://data.niod.nl/Gevangen",
-          "type" : "iri"
-        }, {
           "identifier" : "targetClass",
           "language" : "undefined",
           "value" : "http://schema.org/Event",
@@ -1340,7 +2428,7 @@
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483650",
+          "value" : "_:genid2147483653",
           "type" : "label"
         } ],
         "name" : [ {
@@ -1351,39 +2439,16 @@
         } ]
       },
       "labels" : {
-        "IRI-based" : "EventShape"
+        "IRI-based" : "GebeurtenisShape"
       }
     }, {
-      "iri" : "https://data.niod.nl/CreativeWorkShape",
-      "baseIri" : "https://data.niod.nl",
-      "description" : {
-        "nl" : "Basisregels voor alle collectiestukken en documenten."
-      },
+      "iri" : "http://data.niod.nl/PersoonsvermeldingShape",
+      "baseIri" : "http://data.niod.nl",
       "annotations" : {
         "targetClass" : [ {
           "identifier" : "targetClass",
           "language" : "undefined",
-          "value" : "https://data.niod.nl/Certificate",
-          "type" : "iri"
-        }, {
-          "identifier" : "targetClass",
-          "language" : "undefined",
-          "value" : "https://data.niod.nl/Afbeelding",
-          "type" : "iri"
-        }, {
-          "identifier" : "targetClass",
-          "language" : "undefined",
-          "value" : "https://data.niod.nl/Monument",
-          "type" : "iri"
-        }, {
-          "identifier" : "targetClass",
-          "language" : "undefined",
-          "value" : "http://schema.org/CreativeWork",
-          "type" : "iri"
-        }, {
-          "identifier" : "targetClass",
-          "language" : "undefined",
-          "value" : "https://data.niod.nl/Archiefmateriaal",
+          "value" : "http://data.niod.nl/Persoonsvermelding",
           "type" : "iri"
         } ],
         "property" : [ {
@@ -1394,36 +2459,22 @@
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483648",
+          "value" : "_:genid2147483650",
           "type" : "label"
         } ],
         "name" : [ {
           "identifier" : "name",
           "language" : "nl",
-          "value" : "Object",
+          "value" : "Persoonsvermelding",
           "type" : "label"
         } ]
       },
       "labels" : {
-        "IRI-based" : "CreativeWorkShape"
+        "IRI-based" : "PersoonsvermeldingShape"
       }
     } ],
     "attributes" : [ "external" ],
-    "id" : "126"
-  }, {
-    "iri" : "https://data.niod.nl/Certificate",
-    "baseIri" : "https://data.niod.nl",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Certificate",
-      "nl" : "Akte"
-    },
-    "comment" : {
-      "en" : "Class for archival certificates"
-    },
-    "attributes" : [ "external" ],
-    "id" : "45",
-    "superClasses" : [ "42" ]
+    "id" : "127"
   }, {
     "iri" : "https://data.niod.nl/LidGeweest",
     "baseIri" : "https://data.niod.nl",
@@ -1443,6 +2494,20 @@
     "attributes" : [ "external" ],
     "id" : "4",
     "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Certificate",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Certificate",
+      "nl" : "Akte"
+    },
+    "comment" : {
+      "en" : "Class for archival certificates"
+    },
+    "attributes" : [ "external" ],
+    "id" : "46",
+    "superClasses" : [ "43" ]
   }, {
     "iri" : "https://data.niod.nl/Gedecoreerd",
     "baseIri" : "https://data.niod.nl",
@@ -1508,13 +2573,13 @@
       "IRI-based" : "Archiefmateriaal",
       "nl" : "Archiefmateriaal"
     },
-    "subClasses" : [ "38", "37", "60" ],
+    "subClasses" : [ "39", "38", "61" ],
     "comment" : {
       "en" : "Class for all archivematerial"
     },
     "attributes" : [ "external" ],
-    "id" : "39",
-    "superClasses" : [ "42" ]
+    "id" : "40",
+    "superClasses" : [ "43" ]
   }, {
     "iri" : "https://data.niod.nl/ArchiveFile",
     "baseIri" : "https://data.niod.nl",
@@ -1527,8 +2592,8 @@
       "en" : "Class for archival documents"
     },
     "attributes" : [ "external" ],
-    "id" : "60",
-    "superClasses" : [ "38", "39" ]
+    "id" : "61",
+    "superClasses" : [ "39", "40" ]
   }, {
     "iri" : "https://data.niod.nl/Vrijgesteld",
     "baseIri" : "https://data.niod.nl",
@@ -1556,13 +2621,13 @@
       "IRI-based" : "Archive",
       "nl" : "Archief"
     },
-    "subClasses" : [ "37", "60" ],
+    "subClasses" : [ "38", "61" ],
     "comment" : {
       "en" : "Class for an archive"
     },
     "attributes" : [ "external" ],
-    "id" : "38",
-    "superClasses" : [ "42", "39" ]
+    "id" : "39",
+    "superClasses" : [ "43", "40" ]
   }, {
     "iri" : "https://data.niod.nl/GedwongenVerhuisd",
     "baseIri" : "https://data.niod.nl",
@@ -1583,16 +2648,6 @@
     "id" : "98",
     "superClasses" : [ "1" ]
   }, {
-    "iri" : "http://schema.org/WebPage",
-    "baseIri" : "http://schema.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "WebPage"
-    },
-    "attributes" : [ "external" ],
-    "id" : "9",
-    "superClasses" : [ "7" ]
-  }, {
     "iri" : "https://data.niod.nl/Bekendmaking",
     "baseIri" : "https://data.niod.nl",
     "instances" : 0,
@@ -1604,8 +2659,18 @@
       "en" : "Class for official announcements, treated as events "
     },
     "attributes" : [ "external" ],
-    "id" : "63",
+    "id" : "64",
     "superClasses" : [ "1", "15" ]
+  }, {
+    "iri" : "http://schema.org/WebPage",
+    "baseIri" : "http://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "WebPage"
+    },
+    "attributes" : [ "external" ],
+    "id" : "9",
+    "superClasses" : [ "7" ]
   } ],
   "property" : [ {
     "id" : "3",
@@ -1641,25 +2706,22 @@
     "id" : "29",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "50",
+    "id" : "51",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "52",
+    "id" : "53",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "54",
+    "id" : "55",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "56",
+    "id" : "57",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "59",
+    "id" : "60",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "62",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "64",
+    "id" : "63",
     "type" : "rdfs:SubClassOf"
   }, {
     "id" : "65",
@@ -1674,10 +2736,13 @@
     "id" : "68",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "70",
+    "id" : "69",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "72",
+    "id" : "71",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "73",
     "type" : "rdfs:SubClassOf"
   }, {
     "id" : "75",
@@ -1737,6 +2802,9 @@
     "id" : "110",
     "type" : "rdfs:SubClassOf"
   }, {
+    "id" : "111",
+    "type" : "rdfs:SubClassOf"
+  }, {
     "id" : "112",
     "type" : "rdfs:SubClassOf"
   }, {
@@ -1764,9 +2832,6 @@
     "id" : "120",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "121",
-    "type" : "rdfs:SubClassOf"
-  }, {
     "id" : "122",
     "type" : "rdfs:SubClassOf"
   }, {
@@ -1777,9 +2842,6 @@
     "type" : "rdfs:SubClassOf"
   }, {
     "id" : "125",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "127",
     "type" : "rdfs:SubClassOf"
   }, {
     "id" : "128",
@@ -1808,341 +2870,344 @@
   }, {
     "id" : "136",
     "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "137",
+    "type" : "rdfs:SubClassOf"
   } ],
   "propertyAttribute" : [ {
     "range" : "1",
     "domain" : "4",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "3"
   }, {
     "range" : "1",
     "domain" : "11",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "10"
   }, {
     "range" : "1",
-    "domain" : "5",
-    "attributes" : [ "anonymous", "object" ],
+    "domain" : "8",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "12"
   }, {
     "range" : "1",
     "domain" : "17",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "16"
   }, {
     "range" : "1",
-    "domain" : "8",
-    "attributes" : [ "anonymous", "object" ],
+    "domain" : "5",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "18"
   }, {
     "range" : "1",
     "domain" : "20",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "19"
   }, {
     "range" : "1",
     "domain" : "22",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "21"
   }, {
     "range" : "1",
     "domain" : "24",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "23"
   }, {
     "range" : "1",
     "domain" : "0",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "25"
   }, {
     "range" : "1",
     "domain" : "2",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "28"
   }, {
     "range" : "1",
     "domain" : "30",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "29"
   }, {
     "range" : "15",
-    "domain" : "51",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "50"
+    "domain" : "52",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "51"
   }, {
     "range" : "15",
-    "domain" : "53",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "52"
+    "domain" : "54",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "53"
   }, {
     "range" : "1",
-    "domain" : "55",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "54"
+    "domain" : "56",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "55"
   }, {
     "range" : "15",
-    "domain" : "48",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "56"
+    "domain" : "49",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "57"
   }, {
-    "range" : "38",
-    "domain" : "60",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "59"
+    "range" : "39",
+    "domain" : "61",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "60"
   }, {
     "range" : "15",
-    "domain" : "63",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "62"
+    "domain" : "64",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "63"
   }, {
     "range" : "15",
     "domain" : "14",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "64"
-  }, {
-    "range" : "39",
-    "domain" : "37",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "65"
   }, {
-    "range" : "38",
-    "domain" : "37",
-    "attributes" : [ "anonymous", "object" ],
+    "range" : "40",
+    "domain" : "38",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "66"
   }, {
     "range" : "39",
-    "domain" : "60",
-    "attributes" : [ "anonymous", "object" ],
+    "domain" : "38",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "67"
   }, {
-    "range" : "1",
-    "domain" : "69",
-    "attributes" : [ "anonymous", "object" ],
+    "range" : "40",
+    "domain" : "61",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "68"
   }, {
     "range" : "1",
-    "domain" : "71",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "70"
+    "domain" : "70",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "69"
   }, {
     "range" : "1",
-    "domain" : "36",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "72"
+    "domain" : "72",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "71"
+  }, {
+    "range" : "1",
+    "domain" : "37",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "73"
   }, {
     "range" : "1",
     "domain" : "34",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "75"
   }, {
     "range" : "1",
     "domain" : "77",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "76"
   }, {
     "range" : "1",
-    "domain" : "35",
-    "attributes" : [ "anonymous", "object" ],
+    "domain" : "36",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "78"
   }, {
     "range" : "1",
     "domain" : "80",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "79"
   }, {
     "range" : "1",
     "domain" : "83",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "82"
   }, {
     "range" : "1",
     "domain" : "32",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "84"
   }, {
     "range" : "1",
     "domain" : "86",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "85"
   }, {
     "range" : "1",
     "domain" : "33",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "88"
   }, {
     "range" : "1",
     "domain" : "31",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "89"
   }, {
     "range" : "1",
     "domain" : "87",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "90"
   }, {
     "range" : "1",
-    "domain" : "27",
-    "attributes" : [ "anonymous", "object" ],
+    "domain" : "26",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "102"
   }, {
     "range" : "1",
     "domain" : "96",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "103"
   }, {
     "range" : "1",
     "domain" : "95",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "104"
   }, {
     "range" : "1",
-    "domain" : "26",
-    "attributes" : [ "anonymous", "object" ],
+    "domain" : "27",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "105"
   }, {
     "range" : "1",
     "domain" : "81",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "106"
   }, {
     "range" : "1",
     "domain" : "94",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "107"
   }, {
     "range" : "1",
     "domain" : "93",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "108"
   }, {
     "range" : "1",
     "domain" : "74",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "109"
   }, {
     "range" : "1",
     "domain" : "13",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "110"
   }, {
     "range" : "1",
     "domain" : "100",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "111"
+  }, {
+    "range" : "1",
+    "domain" : "62",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "112"
   }, {
     "range" : "1",
-    "domain" : "61",
-    "attributes" : [ "anonymous", "object" ],
+    "domain" : "101",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "113"
   }, {
     "range" : "1",
-    "domain" : "101",
-    "attributes" : [ "anonymous", "object" ],
+    "domain" : "64",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "114"
   }, {
     "range" : "1",
-    "domain" : "63",
-    "attributes" : [ "anonymous", "object" ],
+    "domain" : "50",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "115"
   }, {
     "range" : "1",
-    "domain" : "49",
-    "attributes" : [ "anonymous", "object" ],
+    "domain" : "58",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "116"
   }, {
     "range" : "1",
-    "domain" : "58",
-    "attributes" : [ "anonymous", "object" ],
+    "domain" : "59",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "117"
   }, {
     "range" : "1",
-    "domain" : "57",
-    "attributes" : [ "anonymous", "object" ],
+    "domain" : "98",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "118"
   }, {
     "range" : "1",
-    "domain" : "98",
-    "attributes" : [ "anonymous", "object" ],
+    "domain" : "48",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "119"
   }, {
     "range" : "1",
-    "domain" : "47",
-    "attributes" : [ "anonymous", "object" ],
+    "domain" : "99",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "120"
   }, {
     "range" : "1",
-    "domain" : "99",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "121"
-  }, {
-    "range" : "1",
-    "domain" : "40",
-    "attributes" : [ "anonymous", "object" ],
+    "domain" : "41",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "122"
   }, {
     "range" : "1",
     "domain" : "91",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "123"
   }, {
     "range" : "1",
-    "domain" : "41",
-    "attributes" : [ "anonymous", "object" ],
+    "domain" : "42",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "124"
   }, {
     "range" : "1",
     "domain" : "97",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "125"
   }, {
-    "range" : "42",
-    "domain" : "43",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "127"
-  }, {
-    "range" : "42",
+    "range" : "43",
     "domain" : "44",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "128"
   }, {
-    "range" : "42",
-    "domain" : "38",
-    "attributes" : [ "anonymous", "object" ],
+    "range" : "43",
+    "domain" : "45",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "129"
   }, {
-    "range" : "42",
+    "range" : "43",
     "domain" : "39",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "130"
   }, {
-    "range" : "42",
-    "domain" : "45",
-    "attributes" : [ "anonymous", "object" ],
+    "range" : "43",
+    "domain" : "40",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "131"
   }, {
-    "range" : "42",
-    "domain" : "15",
-    "attributes" : [ "anonymous", "object" ],
+    "range" : "43",
+    "domain" : "46",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "132"
   }, {
-    "range" : "42",
-    "domain" : "46",
-    "attributes" : [ "anonymous", "object" ],
+    "range" : "43",
+    "domain" : "15",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "133"
   }, {
-    "range" : "39",
-    "domain" : "38",
-    "attributes" : [ "anonymous", "object" ],
+    "range" : "43",
+    "domain" : "47",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "134"
   }, {
-    "range" : "7",
-    "domain" : "9",
-    "attributes" : [ "anonymous", "object" ],
+    "range" : "40",
+    "domain" : "39",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "135"
   }, {
     "range" : "7",
-    "domain" : "6",
-    "attributes" : [ "anonymous", "object" ],
+    "domain" : "9",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "136"
+  }, {
+    "range" : "7",
+    "domain" : "6",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "137"
   } ]
 }

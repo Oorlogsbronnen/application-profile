@@ -60,6 +60,13 @@
     
 
 
+    <!-- http://www.w3.org/ns/shacl#maxCount -->
+
+
+    <AnnotationProperty rdf:about="http://www.w3.org/ns/shacl#maxCount"/>
+    
+
+
     <!-- http://www.w3.org/ns/shacl#minCount -->
 
 
@@ -71,6 +78,13 @@
 
 
     <AnnotationProperty rdf:about="http://www.w3.org/ns/shacl#name"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#node -->
+
+
+    <AnnotationProperty rdf:about="http://www.w3.org/ns/shacl#node"/>
     
 
 
@@ -236,6 +250,13 @@
 
 
     <Class rdf:about="http://www.w3.org/ns/shacl#NodeShape"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#PropertyShape -->
+
+
+    <Class rdf:about="http://www.w3.org/ns/shacl#PropertyShape"/>
     
 
 
@@ -906,20 +927,20 @@
     
 
 
-    <!-- https://personsincontext.org/model#PersonObservation -->
+    <!-- https://personsincontext.org/model/#PersonObservation -->
 
 
-    <Class rdf:about="https://personsincontext.org/model#PersonObservation">
+    <Class rdf:about="https://personsincontext.org/model/#PersonObservation">
         <rdf:comment xml:lang="nl">Persoon zoals geobserveerd in een bron</rdf:comment>
         <rdfs:label xml:lang="nl">Persoonsvermelding</rdfs:label>
     </Class>
     
 
 
-    <!-- https://personsincontext.org/model#PersonReconstruction -->
+    <!-- https://personsincontext.org/model/#PersonReconstruction -->
 
 
-    <Class rdf:about="https://personsincontext.org/model#PersonReconstruction">
+    <Class rdf:about="https://personsincontext.org/model/#PersonReconstruction">
         <rdf:comment xml:lang="nl">Persoon gemodelleerd op basis van een of meer persoonsvermeldingen</rdf:comment>
         <rdfs:label xml:lang="nl">Persoonsreconstructie</rdfs:label>
     </Class>
@@ -938,97 +959,655 @@
     
 
 
-    <!-- https://data.niod.nl/CreativeWorkShape -->
+    <!-- http://data.niod.nl/GebeurtenisShape -->
 
 
-    <NamedIndividual rdf:about="https://data.niod.nl/CreativeWorkShape">
-        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-        <shacl:description xml:lang="nl">Basisregels voor alle collectiestukken en documenten.</shacl:description>
-        <shacl:name xml:lang="nl">Object</shacl:name>
-        <shacl:property rdf:nodeID="genid2"/>
-        <shacl:property rdf:nodeID="genid3"/>
-        <shacl:targetClass rdf:resource="http://schema.org/CreativeWork"/>
-        <shacl:targetClass rdf:resource="https://data.niod.nl/Afbeelding"/>
-        <shacl:targetClass rdf:resource="https://data.niod.nl/Archiefmateriaal"/>
-        <shacl:targetClass rdf:resource="https://data.niod.nl/Certificate"/>
-        <shacl:targetClass rdf:resource="https://data.niod.nl/Monument"/>
-    </NamedIndividual>
-    <rdf:Description rdf:nodeID="genid2">
-        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <shacl:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</shacl:minCount>
-        <shacl:name xml:lang="nl">Titel</shacl:name>
-        <shacl:path rdf:resource="http://purl.org/dc/terms/title"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid3">
-        <shacl:description xml:lang="nl">Link naar het IIIF manifest van het object.</shacl:description>
-        <shacl:name xml:lang="nl">IIIF Manifest</shacl:name>
-        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
-        <shacl:path rdf:resource="https://data.niod.nl/imageIIIF"/>
-    </rdf:Description>
-    
-
-
-    <!-- https://data.niod.nl/EventShape -->
-
-
-    <NamedIndividual rdf:about="https://data.niod.nl/EventShape">
+    <NamedIndividual rdf:about="http://data.niod.nl/GebeurtenisShape">
         <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
         <shacl:name xml:lang="nl">Gebeurtenis</shacl:name>
-        <shacl:property rdf:nodeID="genid4"/>
-        <shacl:property rdf:nodeID="genid5"/>
+        <shacl:property rdf:nodeID="genid2"/>
+        <shacl:property rdf:nodeID="genid3"/>
         <shacl:targetClass rdf:resource="http://schema.org/Event"/>
-        <shacl:targetClass rdf:resource="https://data.niod.nl/Bekendmaking"/>
-        <shacl:targetClass rdf:resource="https://data.niod.nl/Gearresteerd"/>
-        <shacl:targetClass rdf:resource="https://data.niod.nl/Gevangen"/>
-        <shacl:targetClass rdf:resource="https://data.niod.nl/Omgekomen"/>
     </NamedIndividual>
-    <rdf:Description rdf:nodeID="genid4">
-        <shacl:description xml:lang="nl">Persoon die slachtoffer was in deze gebeurtenis.</shacl:description>
-        <shacl:name xml:lang="nl">Slachtoffer</shacl:name>
-        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
-        <shacl:path rdf:resource="https://data.niod.nl/slachtoffer"/>
+    <rdf:Description rdf:nodeID="genid2">
+        <shacl:description xml:lang="nl">De dag waarop de gebeurtenis startte.</shacl:description>
+        <shacl:name xml:lang="nl">Datum van plaatsvinden</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/TechnicalDateRule"/>
+        <shacl:path rdf:resource="http://schema.org/datePublished"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid5">
-        <shacl:description xml:lang="nl">Persoon of organisatie die de opdracht gaf voor de bekendmaking.</shacl:description>
-        <shacl:name xml:lang="nl">Opdrachtgever</shacl:name>
-        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
-        <shacl:path rdf:resource="https://data.niod.nl/opdrachtgever"/>
-    </rdf:Description>
-    
-
-
-    <!-- https://data.niod.nl/PersonObservationShape -->
-
-
-    <NamedIndividual rdf:about="https://data.niod.nl/PersonObservationShape">
-        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-        <shacl:name xml:lang="nl">Persoonsvermelding</shacl:name>
-        <shacl:property rdf:nodeID="genid6"/>
-        <shacl:targetClass rdf:resource="https://personsincontext.org/model#PersonObservation"/>
-    </NamedIndividual>
-    <rdf:Description rdf:nodeID="genid6">
-        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <shacl:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</shacl:minCount>
-        <shacl:name xml:lang="nl">Naam</shacl:name>
+    <rdf:Description rdf:nodeID="genid3">
+        <shacl:description xml:lang="nl">Bijv: &apos;Transport vanuit Kamp Amersfoort&apos; of &apos;Razzia van Rotterdam&apos;.</shacl:description>
+        <shacl:name xml:lang="nl">Titel van gebeurtenis</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/TechnicalNameRule"/>
         <shacl:path rdf:resource="http://schema.org/name"/>
     </rdf:Description>
     
 
 
-    <!-- https://data.niod.nl/RightsShape -->
+    <!-- http://data.niod.nl/ObjectShape -->
 
 
-    <NamedIndividual rdf:about="https://data.niod.nl/RightsShape">
+    <NamedIndividual rdf:about="http://data.niod.nl/ObjectShape">
         <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
-        <shacl:name xml:lang="nl">Rechten</shacl:name>
-        <shacl:property rdf:nodeID="genid7"/>
-        <shacl:targetClass rdf:resource="https://data.niod.nl/Rights"/>
+        <shacl:name xml:lang="nl">Archiefstuk of Object</shacl:name>
+        <shacl:property rdf:nodeID="genid4"/>
+        <shacl:property rdf:nodeID="genid5"/>
+        <shacl:targetClass rdf:resource="http://schema.org/CreativeWork"/>
     </NamedIndividual>
-    <rdf:Description rdf:nodeID="genid7">
-        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <shacl:name xml:lang="nl">Rechtenverklaring</shacl:name>
-        <shacl:path rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+    <rdf:Description rdf:nodeID="genid4">
+        <shacl:description xml:lang="nl">De titel van het document of de naam van het voorwerp.</shacl:description>
+        <shacl:name xml:lang="nl">Objecttitel</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/TechnicalNameRule"/>
+        <shacl:path rdf:resource="http://schema.org/name"/>
     </rdf:Description>
+    <rdf:Description rdf:nodeID="genid5">
+        <shacl:description xml:lang="nl">Samenvatting van de inhoud van het archiefstuk.</shacl:description>
+        <shacl:name xml:lang="nl">Inhoudelijke beschrijving</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/TechnicalDescriptionRule"/>
+        <shacl:path rdf:resource="http://schema.org/description"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://data.niod.nl/PersoonsvermeldingShape -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/PersoonsvermeldingShape">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+        <shacl:name xml:lang="nl">Persoonsvermelding</shacl:name>
+        <shacl:property rdf:nodeID="genid6"/>
+        <shacl:property rdf:nodeID="genid7"/>
+        <shacl:targetClass rdf:resource="http://data.niod.nl/Persoonsvermelding"/>
+    </NamedIndividual>
+    <rdf:Description rdf:nodeID="genid6">
+        <shacl:description xml:lang="nl">De naam van de persoon zoals vermeld in de bron.</shacl:description>
+        <shacl:name xml:lang="nl">Volledige naam</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/TechnicalNameRule"/>
+        <shacl:path rdf:resource="http://schema.org/name"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid7">
+        <shacl:description xml:lang="nl">Een korte beschrijving van de persoon of diens rol.</shacl:description>
+        <shacl:name xml:lang="nl">Biografische schets</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/TechnicalDescriptionRule"/>
+        <shacl:path rdf:resource="http://schema.org/description"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://data.niod.nl/Rule_about -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_about">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+        <shacl:path rdf:resource="http://schema.org/about"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_actor -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_actor">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+        <shacl:path rdf:resource="http://schema.org/actor"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_additionalName -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_additionalName">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <shacl:path rdf:resource="http://schema.org/additionalName"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_additionalType -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_additionalType">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+        <shacl:path rdf:resource="http://schema.org/additionalType"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_address -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_address">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <shacl:path rdf:resource="http://schema.org/address"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_alternateName -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_alternateName">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <shacl:path rdf:resource="http://schema.org/alternateName"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_birthDate -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_birthDate">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <shacl:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</shacl:maxCount>
+        <shacl:path rdf:resource="http://schema.org/birthDate"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_birthPlace -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_birthPlace">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+        <shacl:path rdf:resource="http://schema.org/birthPlace"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_caption -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_caption">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <shacl:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</shacl:maxCount>
+        <shacl:path rdf:resource="http://schema.org/caption"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_contentLocation -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_contentLocation">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+        <shacl:path rdf:resource="http://schema.org/contentLocation"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_contentUrl -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_contentUrl">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+        <shacl:path rdf:resource="http://schema.org/contentUrl"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_creator -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_creator">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+        <shacl:path rdf:resource="http://schema.org/creator"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_date -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_date">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <shacl:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</shacl:maxCount>
+        <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/date"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_dateCreated -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_dateCreated">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <shacl:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</shacl:maxCount>
+        <shacl:path rdf:resource="http://schema.org/dateCreated"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_dateModified -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_dateModified">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <shacl:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</shacl:maxCount>
+        <shacl:path rdf:resource="http://schema.org/dateModified"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_deathDate -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_deathDate">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <shacl:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</shacl:maxCount>
+        <shacl:path rdf:resource="http://schema.org/deathDate"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_deathPlace -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_deathPlace">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+        <shacl:path rdf:resource="http://schema.org/deathPlace"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_description -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_description">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <shacl:path rdf:resource="http://schema.org/description"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_endDate -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_endDate">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <shacl:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</shacl:maxCount>
+        <shacl:path rdf:resource="http://schema.org/endDate"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_familyName -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_familyName">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <shacl:path rdf:resource="http://schema.org/familyName"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_fromLocation -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_fromLocation">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+        <shacl:path rdf:resource="http://schema.org/fromLocation"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_gender -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_gender">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <shacl:path rdf:resource="http://schema.org/gender"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_givenName -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_givenName">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <shacl:path rdf:resource="http://schema.org/givenName"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_homeLocation -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_homeLocation">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+        <shacl:path rdf:resource="http://schema.org/homeLocation"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_identifier_dc -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_identifier_dc">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <shacl:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</shacl:maxCount>
+        <shacl:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</shacl:minCount>
+        <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/identifier"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_identifier_schema -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_identifier_schema">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <shacl:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</shacl:maxCount>
+        <shacl:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</shacl:minCount>
+        <shacl:path rdf:resource="http://schema.org/identifier"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_image -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_image">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+        <shacl:path rdf:resource="http://schema.org/image"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_isPartOf -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_isPartOf">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+        <shacl:path rdf:resource="http://schema.org/isPartOf"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_jobTitle -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_jobTitle">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <shacl:path rdf:resource="http://schema.org/jobTitle"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_keywords -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_keywords">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <shacl:path rdf:resource="http://schema.org/keywords"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_license -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_license">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+        <shacl:path rdf:resource="http://schema.org/license"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_location -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_location">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+        <shacl:path rdf:resource="http://schema.org/location"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_maintainer -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_maintainer">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+        <shacl:path rdf:resource="http://schema.org/maintainer"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_memberOf -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_memberOf">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+        <shacl:path rdf:resource="http://schema.org/memberOf"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_name -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_name">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <shacl:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</shacl:maxCount>
+        <shacl:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</shacl:minCount>
+        <shacl:path rdf:resource="http://schema.org/name"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_position -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_position">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <shacl:path rdf:resource="http://schema.org/position"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_publisher -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_publisher">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+        <shacl:path rdf:resource="http://schema.org/publisher"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_rights -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_rights">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/rights"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_sameAs -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_sameAs">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+        <shacl:path rdf:resource="http://schema.org/sameAs"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_source -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_source">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/source"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_startDate -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_startDate">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <shacl:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</shacl:maxCount>
+        <shacl:path rdf:resource="http://schema.org/startDate"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_subject -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_subject">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+        <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/subject"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_superEvent -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_superEvent">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+        <shacl:path rdf:resource="http://schema.org/superEvent"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_temporal -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_temporal">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <shacl:path rdf:resource="http://purl.org/dc/terms/temporal"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_thumbnail -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_thumbnail">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+        <shacl:path rdf:resource="http://schema.org/thumbnail"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_thumbnailUrl -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_thumbnailUrl">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+        <shacl:path rdf:resource="http://schema.org/thumbnailUrl"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_title -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_title">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <shacl:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</shacl:maxCount>
+        <shacl:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</shacl:minCount>
+        <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/title"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_toLocation -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_toLocation">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+        <shacl:path rdf:resource="http://schema.org/toLocation"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_type -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_type">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+        <shacl:path rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_url -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_url">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+        <shacl:path rdf:resource="http://schema.org/url"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://data.niod.nl/Rule_wasDerivedFrom -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/Rule_wasDerivedFrom">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+        <shacl:path rdf:resource="http://www.w3.org/ns/prov#wasDerivedFrom"/>
+    </NamedIndividual>
     
 
 
