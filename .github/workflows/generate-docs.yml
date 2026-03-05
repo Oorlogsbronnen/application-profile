@@ -40,30 +40,30 @@ jobs:
 
       - name: Generate Documentation
         run: |
-          # 1. Maak de output map handmatig aan
+          # 1. Maak de mappen aan
           mkdir -p out
-          
-          # 2. Voeg de bestanden samen
-          cat ontology/schema_ext-oorlogsbronnen.ttl ontology/shapes.ttl > full_profile.ttl
-          
-          # 3. Widoco uitvoeren met extra logging (-verbose)
-          # We gebruiken '|| true' om te voorkomen dat de workflow stopt bij kleine waarschuwingen,
-          # maar we checken daarna of er echt iets is gegenereerd.
+          mkdir -p input_ontology
+
+          # 2. Kopieer je bestanden naar een schone input map
+          cp ontology/schema_ext-oorlogsbronnen.ttl input_ontology/
+          cp ontology/shapes.ttl input_ontology/
+
+          # 3. Widoco uitvoeren op de hele MAP in plaats van één bestand
+          # We gebruiken de -ontDirectory vlag
           java -jar widoco.jar \
-            -ontFile full_profile.ttl \
+            -ontDirectory ./input_ontology \
             -outFolder ./out \
             -rewriteAll \
             -webVowl \
             -includeImported \
-            -verbose || echo "Widoco had some warnings but continuing..."
+            -verbose
 
-          # 4. KOPIEER HIER JE CONTEXT FILE
-          # Dit zorgt ervoor dat je context beschikbaar is op https://<user>.github.io/<repo>/context.jsonld
+          # 4. Kopieer de context file
           cp context/context.jsonld out/context.jsonld
 
           # 5. Check of de bouw gelukt is
           if [ ! -f ./out/index.html ]; then
-            echo "Error: Widoco failed to generate index.html!"
+            echo "Fout: Widoco heeft geen index.html gegenereerd. Check de logs hierboven voor Java/Prefix fouten."
             exit 1
           fi
 
