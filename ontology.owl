@@ -954,16 +954,16 @@
         <shacl:targetClass rdf:resource="https://data.niod.nl/Monument"/>
     </NamedIndividual>
     <rdf:Description rdf:nodeID="genid2">
-        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <shacl:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</shacl:minCount>
-        <shacl:name xml:lang="nl">Titel</shacl:name>
-        <shacl:path rdf:resource="http://purl.org/dc/terms/title"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid3">
         <shacl:description xml:lang="nl">Link naar het IIIF manifest van het object.</shacl:description>
         <shacl:name xml:lang="nl">IIIF Manifest</shacl:name>
         <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
         <shacl:path rdf:resource="https://data.niod.nl/imageIIIF"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid3">
+        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <shacl:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</shacl:minCount>
+        <shacl:name xml:lang="nl">Titel</shacl:name>
+        <shacl:path rdf:resource="http://purl.org/dc/terms/title"/>
     </rdf:Description>
     
 

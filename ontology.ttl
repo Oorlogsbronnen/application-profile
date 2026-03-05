@@ -595,15 +595,15 @@ rdf:comment rdf:type owl:AnnotationProperty .
                                                                                   <https://data.niod.nl/Certificate> ,
                                                                                   <https://data.niod.nl/Monument> .
 
-_:genid2 <http://www.w3.org/ns/shacl#datatype> xsd:string ;
-          <http://www.w3.org/ns/shacl#minCount> 1 ;
-          <http://www.w3.org/ns/shacl#name> "Titel"@nl ;
-          <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/terms/title> .
-
-_:genid3 <http://www.w3.org/ns/shacl#description> "Link naar het IIIF manifest van het object."@nl ;
+_:genid2 <http://www.w3.org/ns/shacl#description> "Link naar het IIIF manifest van het object."@nl ;
           <http://www.w3.org/ns/shacl#name> "IIIF Manifest"@nl ;
           <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ;
           <http://www.w3.org/ns/shacl#path> <https://data.niod.nl/imageIIIF> .
+
+_:genid3 <http://www.w3.org/ns/shacl#datatype> xsd:string ;
+          <http://www.w3.org/ns/shacl#minCount> 1 ;
+          <http://www.w3.org/ns/shacl#name> "Titel"@nl ;
+          <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/terms/title> .
 
 
 ###  https://data.niod.nl/EventShape
