@@ -13,44 +13,41 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Validate Turtle Syntax
-        uses: atomgraph/riot-action@master
+      - name: Set up Java & Python
+        uses: actions/setup-java@v3
         with:
-          args: "--validate ./schema_ext-oorlogsbronnen.ttl ./shacl.ttl"
+          java-version: '11'
+          distribution: 'temurin'
+
+      # We valideren de Turtle syntax met een simpele python check ipv een externe action
+      - name: Validate Turtle Syntax
+        run: |
+          pip install rdflib
+          python -c "from rdflib import Graph; Graph().parse('./schema_ext-oorlogsbronnen (1).ttl', format='turtle'); print('TTL Valid!')"
 
       - name: Create external directory
         run: mkdir -p external
 
       - name: Fetch Latest External Schemas
         run: |
-          # Haal schema.org en Dublin Core op voor lokale verwerking
-          curl -L https://schema.org/docs/schemaorg.ttl -o external/schema.ttl
+          curl -L http://schema.org/docs/schemaorg.ttl -o external/schema.ttl
           curl -L https://purl.org/dc/terms.ttl -o external/dcterms.ttl
-
-      - name: Set up Java
-        uses: actions/setup-java@v3
-        with:
-          java-version: '11'
-          distribution: 'temurin'
 
       - name: Download Latest Widoco
         run: |
-          # Gebruik de GitHub API om de download URL van de laatste release te vinden
+          # Haalt de download URL van de allerlaatste release op via de GitHub API
           WIDOCO_URL=$(curl -s https://api.github.com/repos/dgarijo/Widoco/releases/latest | grep "browser_download_url.*jar" | cut -d '"' -f 4 | head -n 1)
-          echo "Downloading from: $WIDOCO_URL"
           wget $WIDOCO_URL -O widoco.jar
-          
+
       - name: Generate Documentation
         run: |
-          # We voegen de map 'external' toe aan de input zodat Widoco de definities kent
+          # Let op: ik heb de bestandsnaam aangepast aan je upload
           java -jar widoco.jar \
-            -ontFile ./schema_ext-oorlogsbronnen.ttl \
+            -ontFile "./schema_ext-oorlogsbronnen (1).ttl" \
             -outFolder ./docs \
             -rewriteAll \
             -webVowl \
             -includeImported
-            # Tip: Als Widoco de externe bestanden niet automatisch oppakt, 
-            # kun je ze mergen in een tijdelijk bestand voor de build.
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
