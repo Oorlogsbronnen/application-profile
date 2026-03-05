@@ -1,0 +1,2148 @@
+{
+  "_comment" : "Created with OWL2VOWL (version 0.3.5), http://vowl.visualdataweb.org",
+  "header" : {
+    "languages" : [ "en", "nl" ],
+    "baseIris" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://schema.org", "https://personsincontext.org/model", "http://www.w3.org/2000/01/rdf-schema", "http://www.w3.org/ns/shacl", "http://www.w3.org/2001/XMLSchema", "https://data.niod.nl", "http://www.w3.org/2004/02/skos/core" ],
+    "iri" : "No IRI set"
+  },
+  "namespace" : [ ],
+  "class" : [ {
+    "id" : "0",
+    "type" : "owl:Class"
+  }, {
+    "id" : "2",
+    "type" : "owl:Class"
+  }, {
+    "id" : "5",
+    "type" : "owl:Class"
+  }, {
+    "id" : "6",
+    "type" : "owl:Class"
+  }, {
+    "id" : "8",
+    "type" : "owl:Class"
+  }, {
+    "id" : "7",
+    "type" : "owl:Class"
+  }, {
+    "id" : "13",
+    "type" : "owl:Class"
+  }, {
+    "id" : "14",
+    "type" : "owl:Class"
+  }, {
+    "id" : "26",
+    "type" : "owl:Class"
+  }, {
+    "id" : "27",
+    "type" : "owl:Class"
+  }, {
+    "id" : "31",
+    "type" : "owl:Class"
+  }, {
+    "id" : "32",
+    "type" : "owl:Class"
+  }, {
+    "id" : "33",
+    "type" : "owl:Class"
+  }, {
+    "id" : "34",
+    "type" : "owl:Class"
+  }, {
+    "id" : "35",
+    "type" : "owl:Class"
+  }, {
+    "id" : "36",
+    "type" : "owl:Class"
+  }, {
+    "id" : "37",
+    "type" : "owl:Class"
+  }, {
+    "id" : "40",
+    "type" : "owl:Class"
+  }, {
+    "id" : "41",
+    "type" : "owl:Class"
+  }, {
+    "id" : "42",
+    "type" : "owl:Class"
+  }, {
+    "id" : "47",
+    "type" : "owl:Class"
+  }, {
+    "id" : "48",
+    "type" : "owl:Class"
+  }, {
+    "id" : "49",
+    "type" : "owl:Class"
+  }, {
+    "id" : "57",
+    "type" : "owl:Class"
+  }, {
+    "id" : "58",
+    "type" : "owl:Class"
+  }, {
+    "id" : "61",
+    "type" : "owl:Class"
+  }, {
+    "id" : "55",
+    "type" : "owl:Class"
+  }, {
+    "id" : "22",
+    "type" : "owl:Class"
+  }, {
+    "id" : "17",
+    "type" : "owl:Class"
+  }, {
+    "id" : "73",
+    "type" : "owl:Class"
+  }, {
+    "id" : "74",
+    "type" : "owl:Class"
+  }, {
+    "id" : "81",
+    "type" : "owl:Class"
+  }, {
+    "id" : "87",
+    "type" : "owl:Class"
+  }, {
+    "id" : "86",
+    "type" : "owl:Class"
+  }, {
+    "id" : "77",
+    "type" : "owl:Class"
+  }, {
+    "id" : "80",
+    "type" : "owl:Class"
+  }, {
+    "id" : "91",
+    "type" : "owl:Class"
+  }, {
+    "id" : "15",
+    "type" : "owl:Class"
+  }, {
+    "id" : "51",
+    "type" : "owl:Class"
+  }, {
+    "id" : "92",
+    "type" : "owl:Class"
+  }, {
+    "id" : "43",
+    "type" : "owl:Class"
+  }, {
+    "id" : "1",
+    "type" : "owl:Class"
+  }, {
+    "id" : "44",
+    "type" : "owl:Class"
+  }, {
+    "id" : "46",
+    "type" : "owl:Class"
+  }, {
+    "id" : "24",
+    "type" : "owl:Class"
+  }, {
+    "id" : "30",
+    "type" : "owl:Class"
+  }, {
+    "id" : "20",
+    "type" : "owl:Class"
+  }, {
+    "id" : "11",
+    "type" : "owl:Class"
+  }, {
+    "id" : "53",
+    "type" : "owl:Class"
+  }, {
+    "id" : "94",
+    "type" : "owl:Class"
+  }, {
+    "id" : "111",
+    "type" : "owl:Class"
+  }, {
+    "id" : "69",
+    "type" : "owl:Class"
+  }, {
+    "id" : "71",
+    "type" : "owl:Class"
+  }, {
+    "id" : "97",
+    "type" : "owl:Class"
+  }, {
+    "id" : "99",
+    "type" : "owl:Class"
+  }, {
+    "id" : "100",
+    "type" : "owl:Class"
+  }, {
+    "id" : "101",
+    "type" : "owl:Class"
+  }, {
+    "id" : "126",
+    "type" : "owl:Class"
+  }, {
+    "id" : "45",
+    "type" : "owl:Class"
+  }, {
+    "id" : "4",
+    "type" : "owl:Class"
+  }, {
+    "id" : "93",
+    "type" : "owl:Class"
+  }, {
+    "id" : "96",
+    "type" : "owl:Class"
+  }, {
+    "id" : "95",
+    "type" : "owl:Class"
+  }, {
+    "id" : "39",
+    "type" : "owl:Class"
+  }, {
+    "id" : "60",
+    "type" : "owl:Class"
+  }, {
+    "id" : "83",
+    "type" : "owl:Class"
+  }, {
+    "id" : "38",
+    "type" : "owl:Class"
+  }, {
+    "id" : "98",
+    "type" : "owl:Class"
+  }, {
+    "id" : "63",
+    "type" : "owl:Class"
+  }, {
+    "id" : "9",
+    "type" : "owl:Class"
+  } ],
+  "classAttribute" : [ {
+    "iri" : "https://data.niod.nl/Getroffen",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6356",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Getroffen",
+      "nl" : "Getroffen"
+    },
+    "attributes" : [ "external" ],
+    "id" : "0",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Benoemd",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/13790",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Benoemd",
+      "nl" : "Benoemd"
+    },
+    "attributes" : [ "external" ],
+    "id" : "2",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Vrijgelaten",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6346",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Vrijgelaten",
+      "nl" : "Vrijgelaten"
+    },
+    "attributes" : [ "external" ],
+    "id" : "5",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "baseIri" : "http://www.w3.org/2004/02/skos/core",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Concept"
+    },
+    "attributes" : [ "external" ],
+    "id" : "6",
+    "superClasses" : [ "7" ]
+  }, {
+    "iri" : "https://data.niod.nl/Gestorven",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6361",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Gestorven",
+      "nl" : "Gestorven"
+    },
+    "attributes" : [ "external" ],
+    "id" : "8",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Webpagina",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Webpagina",
+      "nl" : "Webpagina"
+    },
+    "subClasses" : [ "9", "6" ],
+    "comment" : {
+      "en" : "Class for all web content created by Oorlogsbronnen"
+    },
+    "attributes" : [ "external" ],
+    "id" : "7"
+  }, {
+    "iri" : "https://data.niod.nl/Gevaren",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/11181",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Gevaren",
+      "nl" : "Gevaren"
+    },
+    "attributes" : [ "external" ],
+    "id" : "13",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://schema.org/VisualArtwork",
+    "baseIri" : "http://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "VisualArtwork",
+      "nl" : "Kunstwerk"
+    },
+    "attributes" : [ "external" ],
+    "id" : "14",
+    "superClasses" : [ "15" ]
+  }, {
+    "iri" : "https://data.niod.nl/Vermist",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/10946",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Vermist",
+      "nl" : "Vermist"
+    },
+    "attributes" : [ "external" ],
+    "id" : "26",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Executeert",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/11176",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Executeert",
+      "nl" : "Executeert"
+    },
+    "comment" : {
+      "nl" : "Het actief ombrengen van een persoon (in opdracht van..). Werkwoord om uitvoerder van de executie te benoemen."
+    },
+    "attributes" : [ "external" ],
+    "id" : "27",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Vrijgesproken",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/14203",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Vrijgesproken",
+      "nl" : "Vrijgesproken"
+    },
+    "attributes" : [ "external" ],
+    "id" : "31",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Opgericht",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/13792",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Opgericht",
+      "nl" : "Opgericht"
+    },
+    "attributes" : [ "external" ],
+    "id" : "32",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Getransporteerd",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6348",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Getransporteerd",
+      "nl" : "Getransporteerd"
+    },
+    "attributes" : [ "external" ],
+    "id" : "33",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Omgekomen",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/8772",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Omgekomen",
+      "nl" : "Omgekomen"
+    },
+    "attributes" : [ "external" ],
+    "id" : "34",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Verraadt",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/11177",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Verraadt",
+      "nl" : "Verraadt"
+    },
+    "comment" : {
+      "nl" : "Het verraden van een ander mens. Werkwoord om de verrader te benoemen."
+    },
+    "attributes" : [ "external" ],
+    "id" : "35",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Teruggekeerd",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/18496",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Teruggekeerd",
+      "nl" : "Teruggekeerd"
+    },
+    "attributes" : [ "external" ],
+    "id" : "36",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/ArchiveSeries",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ArchiveSeries",
+      "nl" : "Archiefreeks"
+    },
+    "comment" : {
+      "en" : "Class for a collection of archival documents"
+    },
+    "attributes" : [ "external" ],
+    "id" : "37",
+    "superClasses" : [ "38", "39" ]
+  }, {
+    "iri" : "https://data.niod.nl/Ontsnapt",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/8795",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Ontsnapt",
+      "nl" : "Ontsnapt"
+    },
+    "attributes" : [ "external" ],
+    "id" : "40",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Opgevangen",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/10956",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Opgevangen",
+      "nl" : "Opgevangen"
+    },
+    "attributes" : [ "external" ],
+    "id" : "41",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://schema.org/CreativeWork",
+    "baseIri" : "http://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "CreativeWork",
+      "nl" : "Object"
+    },
+    "subClasses" : [ "43", "44", "38", "39", "45", "15", "46" ],
+    "attributes" : [ "external" ],
+    "id" : "42"
+  }, {
+    "iri" : "https://data.niod.nl/Opgeroepen",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/8542",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Opgeroepen",
+      "nl" : "Opgeroepen"
+    },
+    "attributes" : [ "external" ],
+    "id" : "47",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://schema.org/SheetMusic",
+    "baseIri" : "http://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "SheetMusic",
+      "nl" : "Bladmuziek"
+    },
+    "attributes" : [ "external" ],
+    "id" : "48",
+    "superClasses" : [ "15" ]
+  }, {
+    "iri" : "https://data.niod.nl/Gehuwd",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/18966",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Gehuwd",
+      "nl" : "Gehuwd"
+    },
+    "attributes" : [ "external" ],
+    "id" : "49",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/BevrijdUit",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6347",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "BevrijdUit",
+      "nl" : "Bevrijd uit"
+    },
+    "comment" : {
+      "nl" : "Bevrijd worden uit een kamp of gevangenis."
+    },
+    "attributes" : [ "external" ],
+    "id" : "57",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/BevrijdIn",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/11173",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "BevrijdIn",
+      "nl" : "Bevrijd in"
+    },
+    "comment" : {
+      "nl" : "Plaats/stad of land waarin een persoon bevrijd wordt."
+    },
+    "attributes" : [ "external" ],
+    "id" : "58",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Arresteert",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/11179",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Arresteert",
+      "nl" : "Arresteert"
+    },
+    "comment" : {
+      "nl" : "Het actief arresteren of oppakken van mensen. Werkwoord om de arresterende persoon te benoemen."
+    },
+    "attributes" : [ "external" ],
+    "id" : "61",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Geboren",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6360",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Geboren",
+      "nl" : "Geboren"
+    },
+    "attributes" : [ "external" ],
+    "id" : "55",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Ondergedoken",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6351",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Ondergedoken",
+      "nl" : "Ondergedoken"
+    },
+    "attributes" : [ "external" ],
+    "id" : "22",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Gevangen",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6354",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Gevangen",
+      "nl" : "Gevangen"
+    },
+    "comment" : {
+      "nl" : "Gevangen verwijst naar de gevangenschap van burgers in (concentratie)kampen en gevangenissen. Voor krijgsgevangenen gebruiken we 'Geïnterneerd'. Ook voor gevangen burgers uit Nederlands-Indië wordt de term 'Geïnterneerd' gebruikt."
+    },
+    "attributes" : [ "external" ],
+    "id" : "17",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://personsincontext.org/model#PersonReconstruction",
+    "baseIri" : "https://personsincontext.org/model",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "PersonReconstruction",
+      "nl" : "Persoonsreconstructie"
+    },
+    "comment" : {
+      "nl" : "Persoon gemodelleerd op basis van een of meer persoonsvermeldingen"
+    },
+    "attributes" : [ "external" ],
+    "id" : "73"
+  }, {
+    "iri" : "https://data.niod.nl/Veroordeeld",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6563",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Veroordeeld",
+      "nl" : "Veroordeeld"
+    },
+    "attributes" : [ "external" ],
+    "id" : "74",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Overleden",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/8771",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Overleden",
+      "nl" : "Overleden"
+    },
+    "attributes" : [ "external" ],
+    "id" : "81",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Afgepakt",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/19486",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Afgepakt",
+      "nl" : "Afgepakt"
+    },
+    "comment" : {
+      "nl" : "Afgepakt is de term voor de persoonlijke gebeurtenis waarbij roerende of onroerende bezittingen afgenomen worden van de eigenaar."
+    },
+    "attributes" : [ "external" ],
+    "id" : "87",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Gevochten",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6359",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Gevochten",
+      "nl" : "Gevochten"
+    },
+    "attributes" : [ "external" ],
+    "id" : "86",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Geïnterneerd",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6349",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Geïnterneerd",
+      "nl" : "Geïnterneerd"
+    },
+    "comment" : {
+      "nl" : "Geïnterneerd verwijst naar militairen die gevangen zitten in kampen of gevangenissen. Ook naar burgers in Nederlands-Indië die gevangen zitten in kampen wordt verwezen als geïnterneerden. Voor alle overige burgers in kampen en gevangenissen gebruiken we 'Gevangen'."
+    },
+    "attributes" : [ "external" ],
+    "id" : "77",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Geland",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6363",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Geland",
+      "nl" : "Geland"
+    },
+    "comment" : {
+      "nl" : "Het aan land komen (zowel per boot als vliegtuig) van een persoon."
+    },
+    "attributes" : [ "external" ],
+    "id" : "80",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Gerecruteerd",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6362",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Gerecruteerd",
+      "nl" : "Gerecruteerd"
+    },
+    "comment" : {
+      "nl" : "Gerecruteerd betekent geworven voor militaire of geheime diensten."
+    },
+    "attributes" : [ "external" ],
+    "id" : "91",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Afbeelding",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Afbeelding",
+      "nl" : "Afbeelding"
+    },
+    "subClasses" : [ "48", "14", "63", "53", "51" ],
+    "comment" : {
+      "en" : "Superclass of all collection objects with a visuel element."
+    },
+    "attributes" : [ "external" ],
+    "id" : "15",
+    "superClasses" : [ "42" ]
+  }, {
+    "iri" : "http://schema.org/Photograph",
+    "baseIri" : "http://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Photograph",
+      "nl" : "Foto"
+    },
+    "attributes" : [ "external" ],
+    "id" : "51",
+    "superClasses" : [ "15" ]
+  }, {
+    "iri" : "https://data.niod.nl/Rights",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Rights",
+      "nl" : "Rechten"
+    },
+    "comment" : {
+      "en" : "Rights Statement"
+    },
+    "attributes" : [ "external" ],
+    "id" : "92"
+  }, {
+    "iri" : "https://data.niod.nl/InterviewSegment",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "InterviewSegment",
+      "nl" : "Fragment"
+    },
+    "comment" : {
+      "en" : "Class for interviews segments"
+    },
+    "attributes" : [ "external" ],
+    "id" : "43",
+    "superClasses" : [ "42" ]
+  }, {
+    "iri" : "http://schema.org/Event",
+    "baseIri" : "http://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Event"
+    },
+    "subClasses" : [ "55", "0", "24", "30", "2", "8", "17", "22", "20", "5", "11", "4", "93", "94", "13", "74", "95", "96", "81", "27", "26", "87", "31", "32", "83", "33", "86", "77", "34", "80", "35", "69", "36", "71", "91", "40", "97", "41", "47", "98", "99", "49", "63", "58", "57", "61", "100", "101" ],
+    "attributes" : [ "external" ],
+    "id" : "1"
+  }, {
+    "iri" : "https://data.niod.nl/Interview",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Interview",
+      "nl" : "Interview"
+    },
+    "comment" : {
+      "en" : "Class for interviews"
+    },
+    "attributes" : [ "external" ],
+    "id" : "44",
+    "superClasses" : [ "42" ]
+  }, {
+    "iri" : "https://data.niod.nl/Monument",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Monument",
+      "nl" : "Monument"
+    },
+    "comment" : {
+      "en" : "Class for monuments"
+    },
+    "attributes" : [ "external" ],
+    "id" : "46",
+    "superClasses" : [ "42" ]
+  }, {
+    "iri" : "https://data.niod.nl/Geëxecuteerd",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6357",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Geëxecuteerd",
+      "nl" : "Geëxecuteerd"
+    },
+    "comment" : {
+      "nl" : "Standrechtelijk omgebracht worden. Geëxecuteerd is het werkwoord om het slachtoffer van de executie te benoemen."
+    },
+    "attributes" : [ "external" ],
+    "id" : "24",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Verraden",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6358",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Verraden",
+      "nl" : "Verraden"
+    },
+    "comment" : {
+      "nl" : "Verraden worden. Werkwoord om de persoon te beschrijven die verraden is."
+    },
+    "attributes" : [ "external" ],
+    "id" : "30",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Tewerkgesteld",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/8514",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Tewerkgesteld",
+      "nl" : "Tewerkgesteld"
+    },
+    "attributes" : [ "external" ],
+    "id" : "20",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Gepleegd",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6355",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Gepleegd",
+      "nl" : "Gepleegd"
+    },
+    "comment" : {
+      "nl" : "Het uitvoeren van een (ondermijnende) activiteit, zoals een aanslag of overval. Werkwoord om de uitvoerder van de aanslag te benoemen."
+    },
+    "attributes" : [ "external" ],
+    "id" : "11",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://schema.org/ImageObject",
+    "baseIri" : "http://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ImageObject",
+      "nl" : "Afbeelding"
+    },
+    "attributes" : [ "external" ],
+    "id" : "53",
+    "superClasses" : [ "15" ]
+  }, {
+    "iri" : "https://data.niod.nl/Geleid",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/11182",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Geleid",
+      "nl" : "Geleid"
+    },
+    "comment" : {
+      "nl" : "Leider zijn van, baas zijn over. Werkwoord om het leiden van een partij, groep of organisatie te beschrijven."
+    },
+    "attributes" : [ "external" ],
+    "id" : "94",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://personsincontext.org/model#PersonObservation",
+    "baseIri" : "https://personsincontext.org/model",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "PersonObservation",
+      "nl" : "Persoonsvermelding"
+    },
+    "comment" : {
+      "nl" : "Persoon zoals geobserveerd in een bron"
+    },
+    "attributes" : [ "external" ],
+    "id" : "111"
+  }, {
+    "iri" : "https://data.niod.nl/Geliquideerd",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/16379",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Geliquideerd",
+      "nl" : "Geliquideerd"
+    },
+    "attributes" : [ "external" ],
+    "id" : "69",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Opgepakt",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6345",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Opgepakt",
+      "nl" : "Opgepakt"
+    },
+    "comment" : {
+      "nl" : "Opgepakt betekent de aanhouding van een persoon zonder dat daarna een juridisch traject gestart is. Opgepakt wordt meestal gebruikt voor personen die (willekeurig) aangehouden zijn tijdens razzia's en repressailles."
+    },
+    "attributes" : [ "external" ],
+    "id" : "71",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Gevlucht",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6353",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Gevlucht",
+      "nl" : "Gevlucht"
+    },
+    "attributes" : [ "external" ],
+    "id" : "97",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/OpPadGegaan",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/17064",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "OpPadGegaan",
+      "nl" : "Op pad gegaan"
+    },
+    "attributes" : [ "external" ],
+    "id" : "99",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Gearresteerd",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6344",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Gearresteerd",
+      "nl" : "Gearresteerd"
+    },
+    "comment" : {
+      "nl" : "Aangehouden of opgepakt worden."
+    },
+    "attributes" : [ "external" ],
+    "id" : "100",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Geroyeerd",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/11178",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Geroyeerd",
+      "nl" : "Geroyeerd"
+    },
+    "attributes" : [ "external" ],
+    "id" : "101",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://www.w3.org/ns/shacl#NodeShape",
+    "baseIri" : "http://www.w3.org/ns/shacl",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "NodeShape"
+    },
+    "individuals" : [ {
+      "iri" : "https://data.niod.nl/PersonObservationShape",
+      "baseIri" : "https://data.niod.nl",
+      "annotations" : {
+        "targetClass" : [ {
+          "identifier" : "targetClass",
+          "language" : "undefined",
+          "value" : "https://personsincontext.org/model#PersonObservation",
+          "type" : "iri"
+        } ],
+        "property" : [ {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483651",
+          "type" : "label"
+        } ],
+        "name" : [ {
+          "identifier" : "name",
+          "language" : "nl",
+          "value" : "Persoonsvermelding",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "PersonObservationShape"
+      }
+    }, {
+      "iri" : "https://data.niod.nl/RightsShape",
+      "baseIri" : "https://data.niod.nl",
+      "annotations" : {
+        "targetClass" : [ {
+          "identifier" : "targetClass",
+          "language" : "undefined",
+          "value" : "https://data.niod.nl/Rights",
+          "type" : "iri"
+        } ],
+        "property" : [ {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483650",
+          "type" : "label"
+        } ],
+        "name" : [ {
+          "identifier" : "name",
+          "language" : "nl",
+          "value" : "Rechten",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "RightsShape"
+      }
+    }, {
+      "iri" : "https://data.niod.nl/EventShape",
+      "baseIri" : "https://data.niod.nl",
+      "annotations" : {
+        "targetClass" : [ {
+          "identifier" : "targetClass",
+          "language" : "undefined",
+          "value" : "https://data.niod.nl/Bekendmaking",
+          "type" : "iri"
+        }, {
+          "identifier" : "targetClass",
+          "language" : "undefined",
+          "value" : "https://data.niod.nl/Gearresteerd",
+          "type" : "iri"
+        }, {
+          "identifier" : "targetClass",
+          "language" : "undefined",
+          "value" : "https://data.niod.nl/Omgekomen",
+          "type" : "iri"
+        }, {
+          "identifier" : "targetClass",
+          "language" : "undefined",
+          "value" : "https://data.niod.nl/Gevangen",
+          "type" : "iri"
+        }, {
+          "identifier" : "targetClass",
+          "language" : "undefined",
+          "value" : "http://schema.org/Event",
+          "type" : "iri"
+        } ],
+        "property" : [ {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483649",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483648",
+          "type" : "label"
+        } ],
+        "name" : [ {
+          "identifier" : "name",
+          "language" : "nl",
+          "value" : "Gebeurtenis",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "EventShape"
+      }
+    }, {
+      "iri" : "https://data.niod.nl/CreativeWorkShape",
+      "baseIri" : "https://data.niod.nl",
+      "description" : {
+        "nl" : "Basisregels voor alle collectiestukken en documenten."
+      },
+      "annotations" : {
+        "targetClass" : [ {
+          "identifier" : "targetClass",
+          "language" : "undefined",
+          "value" : "https://data.niod.nl/Monument",
+          "type" : "iri"
+        }, {
+          "identifier" : "targetClass",
+          "language" : "undefined",
+          "value" : "http://schema.org/CreativeWork",
+          "type" : "iri"
+        }, {
+          "identifier" : "targetClass",
+          "language" : "undefined",
+          "value" : "https://data.niod.nl/Certificate",
+          "type" : "iri"
+        }, {
+          "identifier" : "targetClass",
+          "language" : "undefined",
+          "value" : "https://data.niod.nl/Archiefmateriaal",
+          "type" : "iri"
+        }, {
+          "identifier" : "targetClass",
+          "language" : "undefined",
+          "value" : "https://data.niod.nl/Afbeelding",
+          "type" : "iri"
+        } ],
+        "property" : [ {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483653",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483652",
+          "type" : "label"
+        } ],
+        "name" : [ {
+          "identifier" : "name",
+          "language" : "nl",
+          "value" : "Object",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "CreativeWorkShape"
+      }
+    } ],
+    "attributes" : [ "external" ],
+    "id" : "126"
+  }, {
+    "iri" : "https://data.niod.nl/Certificate",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Certificate",
+      "nl" : "Akte"
+    },
+    "comment" : {
+      "en" : "Class for archival certificates"
+    },
+    "attributes" : [ "external" ],
+    "id" : "45",
+    "superClasses" : [ "42" ]
+  }, {
+    "iri" : "https://data.niod.nl/LidGeweest",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6352",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "LidGeweest",
+      "nl" : "Lid geweest"
+    },
+    "attributes" : [ "external" ],
+    "id" : "4",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Gedecoreerd",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6365",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Gedecoreerd",
+      "nl" : "Gedecoreerd"
+    },
+    "attributes" : [ "external" ],
+    "id" : "93",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Vertrokken",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/13791",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Vertrokken",
+      "nl" : "Vertrokken"
+    },
+    "attributes" : [ "external" ],
+    "id" : "96",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Geëvacueerd",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/11174",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Geëvacueerd",
+      "nl" : "Geëvacueerd"
+    },
+    "attributes" : [ "external" ],
+    "id" : "95",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Archiefmateriaal",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Archiefmateriaal",
+      "nl" : "Archiefmateriaal"
+    },
+    "subClasses" : [ "38", "37", "60" ],
+    "comment" : {
+      "en" : "Class for all archivematerial"
+    },
+    "attributes" : [ "external" ],
+    "id" : "39",
+    "superClasses" : [ "42" ]
+  }, {
+    "iri" : "https://data.niod.nl/ArchiveFile",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ArchiveFile",
+      "nl" : "Archiefstuk"
+    },
+    "comment" : {
+      "en" : "Class for archival documents"
+    },
+    "attributes" : [ "external" ],
+    "id" : "60",
+    "superClasses" : [ "38", "39" ]
+  }, {
+    "iri" : "https://data.niod.nl/Vrijgesteld",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6562",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Vrijgesteld",
+      "nl" : "Vrijgesteld"
+    },
+    "attributes" : [ "external" ],
+    "id" : "83",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Archive",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Archive",
+      "nl" : "Archief"
+    },
+    "subClasses" : [ "37", "60" ],
+    "comment" : {
+      "en" : "Class for an archive"
+    },
+    "attributes" : [ "external" ],
+    "id" : "38",
+    "superClasses" : [ "42", "39" ]
+  }, {
+    "iri" : "https://data.niod.nl/GedwongenVerhuisd",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/19198",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "GedwongenVerhuisd",
+      "nl" : "Gedwongen verhuisd"
+    },
+    "attributes" : [ "external" ],
+    "id" : "98",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Bekendmaking",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Bekendmaking",
+      "nl" : "Bekendmaking"
+    },
+    "comment" : {
+      "en" : "Class for official announcements, treated as events "
+    },
+    "attributes" : [ "external" ],
+    "id" : "63",
+    "superClasses" : [ "1", "15" ]
+  }, {
+    "iri" : "http://schema.org/WebPage",
+    "baseIri" : "http://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "WebPage"
+    },
+    "attributes" : [ "external" ],
+    "id" : "9",
+    "superClasses" : [ "7" ]
+  } ],
+  "property" : [ {
+    "id" : "3",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "10",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "12",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "16",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "18",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "19",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "21",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "23",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "25",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "28",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "29",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "50",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "52",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "54",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "56",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "59",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "62",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "64",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "65",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "66",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "67",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "68",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "70",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "72",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "75",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "76",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "78",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "79",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "82",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "84",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "85",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "88",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "89",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "90",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "102",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "103",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "104",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "105",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "106",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "107",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "108",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "109",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "110",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "112",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "113",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "114",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "115",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "116",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "117",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "118",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "119",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "120",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "121",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "122",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "123",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "124",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "125",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "127",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "128",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "129",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "130",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "131",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "132",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "133",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "134",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "135",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "136",
+    "type" : "rdfs:SubClassOf"
+  } ],
+  "propertyAttribute" : [ {
+    "range" : "1",
+    "domain" : "4",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "3"
+  }, {
+    "range" : "1",
+    "domain" : "11",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "10"
+  }, {
+    "range" : "1",
+    "domain" : "5",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "12"
+  }, {
+    "range" : "1",
+    "domain" : "17",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "16"
+  }, {
+    "range" : "1",
+    "domain" : "8",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "18"
+  }, {
+    "range" : "1",
+    "domain" : "20",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "19"
+  }, {
+    "range" : "1",
+    "domain" : "22",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "21"
+  }, {
+    "range" : "1",
+    "domain" : "24",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "23"
+  }, {
+    "range" : "1",
+    "domain" : "0",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "25"
+  }, {
+    "range" : "1",
+    "domain" : "2",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "28"
+  }, {
+    "range" : "1",
+    "domain" : "30",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "29"
+  }, {
+    "range" : "15",
+    "domain" : "51",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "50"
+  }, {
+    "range" : "15",
+    "domain" : "53",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "52"
+  }, {
+    "range" : "1",
+    "domain" : "55",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "54"
+  }, {
+    "range" : "15",
+    "domain" : "48",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "56"
+  }, {
+    "range" : "38",
+    "domain" : "60",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "59"
+  }, {
+    "range" : "15",
+    "domain" : "63",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "62"
+  }, {
+    "range" : "15",
+    "domain" : "14",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "64"
+  }, {
+    "range" : "39",
+    "domain" : "37",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "65"
+  }, {
+    "range" : "38",
+    "domain" : "37",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "66"
+  }, {
+    "range" : "39",
+    "domain" : "60",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "67"
+  }, {
+    "range" : "1",
+    "domain" : "69",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "68"
+  }, {
+    "range" : "1",
+    "domain" : "71",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "70"
+  }, {
+    "range" : "1",
+    "domain" : "36",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "72"
+  }, {
+    "range" : "1",
+    "domain" : "34",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "75"
+  }, {
+    "range" : "1",
+    "domain" : "77",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "76"
+  }, {
+    "range" : "1",
+    "domain" : "35",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "78"
+  }, {
+    "range" : "1",
+    "domain" : "80",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "79"
+  }, {
+    "range" : "1",
+    "domain" : "83",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "82"
+  }, {
+    "range" : "1",
+    "domain" : "32",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "84"
+  }, {
+    "range" : "1",
+    "domain" : "86",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "85"
+  }, {
+    "range" : "1",
+    "domain" : "33",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "88"
+  }, {
+    "range" : "1",
+    "domain" : "31",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "89"
+  }, {
+    "range" : "1",
+    "domain" : "87",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "90"
+  }, {
+    "range" : "1",
+    "domain" : "26",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "102"
+  }, {
+    "range" : "1",
+    "domain" : "96",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "103"
+  }, {
+    "range" : "1",
+    "domain" : "95",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "104"
+  }, {
+    "range" : "1",
+    "domain" : "27",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "105"
+  }, {
+    "range" : "1",
+    "domain" : "81",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "106"
+  }, {
+    "range" : "1",
+    "domain" : "94",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "107"
+  }, {
+    "range" : "1",
+    "domain" : "93",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "108"
+  }, {
+    "range" : "1",
+    "domain" : "74",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "109"
+  }, {
+    "range" : "1",
+    "domain" : "13",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "110"
+  }, {
+    "range" : "1",
+    "domain" : "100",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "112"
+  }, {
+    "range" : "1",
+    "domain" : "61",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "113"
+  }, {
+    "range" : "1",
+    "domain" : "101",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "114"
+  }, {
+    "range" : "1",
+    "domain" : "63",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "115"
+  }, {
+    "range" : "1",
+    "domain" : "49",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "116"
+  }, {
+    "range" : "1",
+    "domain" : "57",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "117"
+  }, {
+    "range" : "1",
+    "domain" : "58",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "118"
+  }, {
+    "range" : "1",
+    "domain" : "98",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "119"
+  }, {
+    "range" : "1",
+    "domain" : "47",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "120"
+  }, {
+    "range" : "1",
+    "domain" : "99",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "121"
+  }, {
+    "range" : "1",
+    "domain" : "40",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "122"
+  }, {
+    "range" : "1",
+    "domain" : "91",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "123"
+  }, {
+    "range" : "1",
+    "domain" : "41",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "124"
+  }, {
+    "range" : "1",
+    "domain" : "97",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "125"
+  }, {
+    "range" : "42",
+    "domain" : "43",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "127"
+  }, {
+    "range" : "42",
+    "domain" : "44",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "128"
+  }, {
+    "range" : "42",
+    "domain" : "38",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "129"
+  }, {
+    "range" : "42",
+    "domain" : "39",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "130"
+  }, {
+    "range" : "42",
+    "domain" : "45",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "131"
+  }, {
+    "range" : "42",
+    "domain" : "15",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "132"
+  }, {
+    "range" : "42",
+    "domain" : "46",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "133"
+  }, {
+    "range" : "39",
+    "domain" : "38",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "134"
+  }, {
+    "range" : "7",
+    "domain" : "9",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "135"
+  }, {
+    "range" : "7",
+    "domain" : "6",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "136"
+  } ]
+}

@@ -1,0 +1,257 @@
+{
+  "@context": {
+    "type": "@type",
+    "id": "@id",
+    "@vocab": "http://data.niod.nl/",
+    "niod": "http://data.niod.nl/WO2_Thesaurus",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "dct": "http://purl.org/dc/terms/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dcmit": "http://purl.org/dc/dcmitype/",
+    "dcam": "http://purl.org/dc/dcam/",
+    "edm": "http://www.europeana.eu/schemas/edm/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "picom": "https://personsincontext.org/model/#",
+    "pnv": "https://w3id.org/pnv#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "http://schema.org/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "xml": "http://www.w3.org/XML/1998/namespace",
+    "Afbeelding": {
+      "type": "rdfs:Class"
+    },
+    "Archiefmateriaal": {
+      "type": "rdfs:Class"
+    },
+    "Archive": {
+      "type": "rdfs:Class"
+    },
+    "ArchiveFile": {
+      "type": "rdfs:Class"
+    },
+    "ArchiveSeries": {
+      "type": "rdfs:Class"
+    },
+    "Certificate": {
+      "type": "rdfs:Class"
+    },
+    "Monument": {
+      "type": "rdfs:Class"
+    },
+    "Rights": {
+      "type": "rdfs:Class"
+    },
+    "Webpagina": {
+      "type": "rdfs:Class"
+    },
+    "Omgekomen": {
+      "id": "niod:events/8772",
+      "type": "rdfs:Class"
+    },
+    "Geboren": {
+      "id": "niod:events/6360",
+      "type": "rdfs:Class"
+    },
+    "Gevangen": {
+      "id": "niod:events/6354",
+      "type": "rdfs:Class"
+    },
+    "BevrijdUit": {
+      "id": "niod:events/6347",
+      "type": "rdfs:Class"
+    },
+    "Gearresteerd": {
+      "id": "niod:events/6344",
+      "type": "rdfs:Class"
+    },
+    "Ontsnapt": {
+      "id": "niod:events/8795",
+      "type": "rdfs:Class"
+    },
+    "Opgepakt": {
+      "id": "niod:events/6345",
+      "type": "rdfs:Class"
+    },
+    "Getransporteerd": {
+      "id": "niod:events/6348",
+      "type": "rdfs:Class"
+    },
+    "Tewerkgesteld": {
+      "id": "niod:events/8514",
+      "type": "rdfs:Class"
+    },
+    "Teruggekeerd": {
+      "id": "niod:18496",
+      "type": "rdfs:Class"
+    },
+    "Gevlucht": {
+      "id": "niod:events/6353",
+      "type": "rdfs:Class"
+    },
+    "Gestorven": {
+      "id": "niod:events/6361",
+      "type": "rdfs:Class"
+    },
+    "Vrijgelaten": {
+      "id": "niod:events/6346",
+      "type": "rdfs:Class"
+    },
+    "LidGeweest": {
+      "id": "niod:events/6352",
+      "type": "rdfs:Class"
+    },
+    "Geëxecuteerd": {
+      "id": "niod:events/6357",
+      "type": "rdfs:Class"
+    },
+    "Overleden": {
+      "id": "niod:events/8771",
+      "type": "rdfs:Class"
+    },
+    "Verraden": {
+      "id": "niod:events/6358",
+      "type": "rdfs:Class"
+    },
+    "Getroffen": {
+      "id": "niod:events/6356",
+      "type": "rdfs:Class"
+    },
+    "Geïnterneerd": {
+      "id": "niod:events/6349",
+      "type": "rdfs:Class"
+    },
+    "Afgepakt": {
+      "id": "niod:19486",
+      "type": "rdfs:Class"
+    },
+    "Opgeroepen": {
+      "id": "niod:events/8542",
+      "type": "rdfs:Class"
+    },
+    "Gehuwd": {
+      "id": "niod:18966",
+      "type": "rdfs:Class"
+    },
+    "Opgericht": {
+      "id": "niod:13792",
+      "type": "rdfs:Class"
+    },
+    "Benoemd": {
+      "id": "niod:13790",
+      "type": "rdfs:Class"
+    },
+    "Veroordeeld": {
+      "id": "niod:events/6563",
+      "type": "rdfs:Class"
+    },
+    "Geleid": {
+      "id": "niod:events/11182",
+      "type": "rdfs:Class"
+    },
+    "Arresteert": {
+      "id": "niod:events/11179",
+      "type": "rdfs:Class"
+    },
+    "Gerecruteerd": {
+      "id": "niod:events/6362",
+      "type": "rdfs:Class"
+    },
+    "Vertrokken": {
+      "id": "niod:13791",
+      "type": "rdfs:Class"
+    },
+    "Vrijgesproken": {
+      "id": "niod:14203",
+      "type": "rdfs:Class"
+    },
+    "Gevochten": {
+      "id": "niod:events/6359",
+      "type": "rdfs:Class"
+    },
+    "Verraadt": {
+      "id": "niod:events/11177",
+      "type": "rdfs:Class"
+    },
+    "Gedecoreerd": {
+      "id": "niod:events/6365",
+      "type": "rdfs:Class"
+    },
+    "Geroyeerd": {
+      "id": "niod:events/11178",
+      "type": "rdfs:Class"
+    },
+    "Ondergedoken": {
+      "id": "niod:events/6351",
+      "type": "rdfs:Class"
+    },
+    "Executeert": {
+      "id": "niod:events/11176",
+      "type": "rdfs:Class"
+    },
+    "Opgevangen": {
+      "id": "niod:events/10956",
+      "type": "rdfs:Class"
+    },
+    "Gevaren": {
+      "id": "niod:events/11181",
+      "type": "rdfs:Class"
+    },
+    "Geliquideerd": {
+      "id": "niod:16379",
+      "type": "rdfs:Class"
+    },
+    "BevrijdIn": {
+      "id": "niod:events/11173",
+      "type": "rdfs:Class"
+    },
+    "Geland": {
+      "id": "niod:events/6363",
+      "type": "rdfs:Class"
+    },
+    "Gepleegd": {
+      "id": "niod:events/6355",
+      "type": "rdfs:Class"
+    },
+    "OpPadGegaan": {
+      "id": "niod:17064",
+      "type": "rdfs:Class"
+    },
+    "Vrijgesteld": {
+      "id": "niod:events/6562",
+      "type": "rdfs:Class"
+    },
+    "Geëvacueerd": {
+      "id": "niod:events/11174",
+      "type": "rdfs:Class"
+    },
+    "Vermist": {
+      "id": "niod:events/10946",
+      "type": "rdfs:Class"
+    },
+    "GedwongenVerhuisd": {
+      "id": "niod:19198",
+      "type": "rdfs:Class"
+    },
+    "slachtoffer": {
+      "id": "vocab:slachtoffer",
+      "type": "rdfs:Property"
+    },
+    "opdrachtgever": {
+      "id": "vocab:opdrachtgever",
+      "type": "rdfs:Property"
+    },
+    "genoemde": {
+      "id": "vocab:genoemde",
+      "type": "rdfs:Property"
+    },
+    "imageIIIF": {
+      "id": "vocab:imageIIIF",
+      "type": "rdfs:Property"
+    }
+  }
+}

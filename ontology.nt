@@ -1,0 +1,595 @@
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://schema.org/actor
+<http://schema.org/actor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://schema.org/image
+<http://schema.org/image> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/1999/02/22-rdf-syntax-ns#comment
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#comment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/ns/shacl#datatype
+<http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/ns/shacl#description
+<http://www.w3.org/ns/shacl#description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/ns/shacl#minCount
+<http://www.w3.org/ns/shacl#minCount> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/ns/shacl#name
+<http://www.w3.org/ns/shacl#name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/ns/shacl#nodeKind
+<http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/ns/shacl#path
+<http://www.w3.org/ns/shacl#path> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/ns/shacl#property
+<http://www.w3.org/ns/shacl#property> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/ns/shacl#targetClass
+<http://www.w3.org/ns/shacl#targetClass> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# https://data.niod.nl/genoemde
+<https://data.niod.nl/genoemde> <http://www.w3.org/1999/02/22-rdf-syntax-ns#comment> "Een persoon die genoemd wordt bij een bekendmaking"@nl .
+<https://data.niod.nl/genoemde> <http://www.w3.org/2000/01/rdf-schema#label> "genoemde"@nl .
+<https://data.niod.nl/genoemde> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<https://data.niod.nl/genoemde> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://schema.org/actor> .
+# 
+# https://data.niod.nl/imageIIIF
+<https://data.niod.nl/imageIIIF> <http://www.w3.org/1999/02/22-rdf-syntax-ns#comment> "IIIF manifest van afbeeldingen die bij de bron beschikbaar zijn in IIIF formaat"@nl .
+<https://data.niod.nl/imageIIIF> <http://www.w3.org/2000/01/rdf-schema#label> "IIIF Manifest"@nl .
+<https://data.niod.nl/imageIIIF> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<https://data.niod.nl/imageIIIF> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://schema.org/image> .
+# 
+# https://data.niod.nl/opdrachtgever
+<https://data.niod.nl/opdrachtgever> <http://www.w3.org/1999/02/22-rdf-syntax-ns#comment> "Een persoon die de opdrachtgever was van een bekendmaking"@nl .
+<https://data.niod.nl/opdrachtgever> <http://www.w3.org/2000/01/rdf-schema#label> "opdrachtgever"@nl .
+<https://data.niod.nl/opdrachtgever> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<https://data.niod.nl/opdrachtgever> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://schema.org/actor> .
+# 
+# https://data.niod.nl/slachtoffer
+<https://data.niod.nl/slachtoffer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#comment> "Een persoon die slachtoffer was in een gebeurtenis"@nl .
+<https://data.niod.nl/slachtoffer> <http://www.w3.org/2000/01/rdf-schema#label> "slachtoffer"@nl .
+<https://data.niod.nl/slachtoffer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<https://data.niod.nl/slachtoffer> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://schema.org/actor> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://schema.org/CreativeWork
+<http://schema.org/CreativeWork> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://schema.org/CreativeWork> <http://www.w3.org/2000/01/rdf-schema#label> "Object"@nl .
+# 
+# http://schema.org/Event
+<http://schema.org/Event> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://schema.org/ImageObject
+<http://schema.org/ImageObject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://schema.org/ImageObject> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://data.niod.nl/Afbeelding> .
+<http://schema.org/ImageObject> <http://www.w3.org/2000/01/rdf-schema#label> "Afbeelding"@nl .
+# 
+# http://schema.org/Photograph
+<http://schema.org/Photograph> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://schema.org/Photograph> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://data.niod.nl/Afbeelding> .
+<http://schema.org/Photograph> <http://www.w3.org/2000/01/rdf-schema#label> "Foto"@nl .
+# 
+# http://schema.org/SheetMusic
+<http://schema.org/SheetMusic> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://schema.org/SheetMusic> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://data.niod.nl/Afbeelding> .
+<http://schema.org/SheetMusic> <http://www.w3.org/2000/01/rdf-schema#label> "Bladmuziek"@nl .
+# 
+# http://schema.org/VisualArtwork
+<http://schema.org/VisualArtwork> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://schema.org/VisualArtwork> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://data.niod.nl/Afbeelding> .
+<http://schema.org/VisualArtwork> <http://www.w3.org/2000/01/rdf-schema#label> "Kunstwerk"@nl .
+# 
+# http://schema.org/WebPage
+<http://schema.org/WebPage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://schema.org/WebPage> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://data.niod.nl/Webpagina> .
+# 
+# http://www.w3.org/2004/02/skos/core#Concept
+<http://www.w3.org/2004/02/skos/core#Concept> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2004/02/skos/core#Concept> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://data.niod.nl/Webpagina> .
+# 
+# http://www.w3.org/ns/shacl#NodeShape
+<http://www.w3.org/ns/shacl#NodeShape> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://data.niod.nl/Afbeelding
+<https://data.niod.nl/Afbeelding> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Afbeelding> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/CreativeWork> .
+<https://data.niod.nl/Afbeelding> <http://www.w3.org/1999/02/22-rdf-syntax-ns#comment> "Superclass of all collection objects with a visuel element."@en .
+<https://data.niod.nl/Afbeelding> <http://www.w3.org/2000/01/rdf-schema#label> "Afbeelding"@nl .
+# 
+# https://data.niod.nl/Afgepakt
+<https://data.niod.nl/Afgepakt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Afgepakt> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Afgepakt> <http://www.w3.org/2000/01/rdf-schema#comment> "Afgepakt is de term voor de persoonlijke gebeurtenis waarbij roerende of onroerende bezittingen afgenomen worden van de eigenaar."@nl .
+<https://data.niod.nl/Afgepakt> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/19486> .
+<https://data.niod.nl/Afgepakt> <http://www.w3.org/2000/01/rdf-schema#label> "Afgepakt"@nl .
+# 
+# https://data.niod.nl/Archiefmateriaal
+<https://data.niod.nl/Archiefmateriaal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Archiefmateriaal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/CreativeWork> .
+<https://data.niod.nl/Archiefmateriaal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#comment> "Class for all archivematerial"@en .
+<https://data.niod.nl/Archiefmateriaal> <http://www.w3.org/2000/01/rdf-schema#label> "Archiefmateriaal"@nl .
+# 
+# https://data.niod.nl/Archive
+<https://data.niod.nl/Archive> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Archive> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/CreativeWork> .
+<https://data.niod.nl/Archive> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://data.niod.nl/Archiefmateriaal> .
+<https://data.niod.nl/Archive> <http://www.w3.org/1999/02/22-rdf-syntax-ns#comment> "Class for an archive"@en .
+<https://data.niod.nl/Archive> <http://www.w3.org/2000/01/rdf-schema#label> "Archief"@nl .
+# 
+# https://data.niod.nl/ArchiveFile
+<https://data.niod.nl/ArchiveFile> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/ArchiveFile> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://data.niod.nl/Archiefmateriaal> .
+<https://data.niod.nl/ArchiveFile> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://data.niod.nl/Archive> .
+<https://data.niod.nl/ArchiveFile> <http://www.w3.org/1999/02/22-rdf-syntax-ns#comment> "Class for archival documents"@en .
+<https://data.niod.nl/ArchiveFile> <http://www.w3.org/2000/01/rdf-schema#label> "Archiefstuk"@nl .
+# 
+# https://data.niod.nl/ArchiveSeries
+<https://data.niod.nl/ArchiveSeries> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/ArchiveSeries> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://data.niod.nl/Archiefmateriaal> .
+<https://data.niod.nl/ArchiveSeries> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://data.niod.nl/Archive> .
+<https://data.niod.nl/ArchiveSeries> <http://www.w3.org/1999/02/22-rdf-syntax-ns#comment> "Class for a collection of archival documents"@en .
+<https://data.niod.nl/ArchiveSeries> <http://www.w3.org/2000/01/rdf-schema#label> "Archiefreeks"@nl .
+# 
+# https://data.niod.nl/Arresteert
+<https://data.niod.nl/Arresteert> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Arresteert> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Arresteert> <http://www.w3.org/2000/01/rdf-schema#comment> "Het actief arresteren of oppakken van mensen. Werkwoord om de arresterende persoon te benoemen."@nl .
+<https://data.niod.nl/Arresteert> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/11179> .
+<https://data.niod.nl/Arresteert> <http://www.w3.org/2000/01/rdf-schema#label> "Arresteert"@nl .
+# 
+# https://data.niod.nl/Bekendmaking
+<https://data.niod.nl/Bekendmaking> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Bekendmaking> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Bekendmaking> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://data.niod.nl/Afbeelding> .
+<https://data.niod.nl/Bekendmaking> <http://www.w3.org/1999/02/22-rdf-syntax-ns#comment> "Class for official announcements, treated as events "@en .
+<https://data.niod.nl/Bekendmaking> <http://www.w3.org/2000/01/rdf-schema#label> "Bekendmaking"@nl .
+# 
+# https://data.niod.nl/Benoemd
+<https://data.niod.nl/Benoemd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Benoemd> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Benoemd> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/13790> .
+<https://data.niod.nl/Benoemd> <http://www.w3.org/2000/01/rdf-schema#label> "Benoemd"@nl .
+# 
+# https://data.niod.nl/BevrijdIn
+<https://data.niod.nl/BevrijdIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/BevrijdIn> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/BevrijdIn> <http://www.w3.org/2000/01/rdf-schema#comment> "Plaats/stad of land waarin een persoon bevrijd wordt."@nl .
+<https://data.niod.nl/BevrijdIn> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/11173> .
+<https://data.niod.nl/BevrijdIn> <http://www.w3.org/2000/01/rdf-schema#label> "Bevrijd in"@nl .
+# 
+# https://data.niod.nl/BevrijdUit
+<https://data.niod.nl/BevrijdUit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/BevrijdUit> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/BevrijdUit> <http://www.w3.org/2000/01/rdf-schema#comment> "Bevrijd worden uit een kamp of gevangenis."@nl .
+<https://data.niod.nl/BevrijdUit> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/6347> .
+<https://data.niod.nl/BevrijdUit> <http://www.w3.org/2000/01/rdf-schema#label> "Bevrijd uit"@nl .
+# 
+# https://data.niod.nl/Certificate
+<https://data.niod.nl/Certificate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Certificate> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/CreativeWork> .
+<https://data.niod.nl/Certificate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#comment> "Class for archival certificates"@en .
+<https://data.niod.nl/Certificate> <http://www.w3.org/2000/01/rdf-schema#label> "Akte"@nl .
+# 
+# https://data.niod.nl/Executeert
+<https://data.niod.nl/Executeert> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Executeert> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Executeert> <http://www.w3.org/2000/01/rdf-schema#comment> "Het actief ombrengen van een persoon (in opdracht van..). Werkwoord om uitvoerder van de executie te benoemen."@nl .
+<https://data.niod.nl/Executeert> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/11176> .
+<https://data.niod.nl/Executeert> <http://www.w3.org/2000/01/rdf-schema#label> "Executeert"@nl .
+# 
+# https://data.niod.nl/Gearresteerd
+<https://data.niod.nl/Gearresteerd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Gearresteerd> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Gearresteerd> <http://www.w3.org/2000/01/rdf-schema#comment> "Aangehouden of opgepakt worden."@nl .
+<https://data.niod.nl/Gearresteerd> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/6344> .
+<https://data.niod.nl/Gearresteerd> <http://www.w3.org/2000/01/rdf-schema#label> "Gearresteerd"@nl .
+# 
+# https://data.niod.nl/Geboren
+<https://data.niod.nl/Geboren> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Geboren> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Geboren> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/6360> .
+<https://data.niod.nl/Geboren> <http://www.w3.org/2000/01/rdf-schema#label> "Geboren"@nl .
+# 
+# https://data.niod.nl/Gedecoreerd
+<https://data.niod.nl/Gedecoreerd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Gedecoreerd> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Gedecoreerd> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/6365> .
+<https://data.niod.nl/Gedecoreerd> <http://www.w3.org/2000/01/rdf-schema#label> "Gedecoreerd"@nl .
+# 
+# https://data.niod.nl/GedwongenVerhuisd
+<https://data.niod.nl/GedwongenVerhuisd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/GedwongenVerhuisd> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/GedwongenVerhuisd> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/19198> .
+<https://data.niod.nl/GedwongenVerhuisd> <http://www.w3.org/2000/01/rdf-schema#label> "Gedwongen verhuisd"@nl .
+# 
+# https://data.niod.nl/Gehuwd
+<https://data.niod.nl/Gehuwd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Gehuwd> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Gehuwd> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/18966> .
+<https://data.niod.nl/Gehuwd> <http://www.w3.org/2000/01/rdf-schema#label> "Gehuwd"@nl .
+# 
+# https://data.niod.nl/Geland
+<https://data.niod.nl/Geland> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Geland> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Geland> <http://www.w3.org/2000/01/rdf-schema#comment> "Het aan land komen (zowel per boot als vliegtuig) van een persoon."@nl .
+<https://data.niod.nl/Geland> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/6363> .
+<https://data.niod.nl/Geland> <http://www.w3.org/2000/01/rdf-schema#label> "Geland"@nl .
+# 
+# https://data.niod.nl/Geleid
+<https://data.niod.nl/Geleid> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Geleid> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Geleid> <http://www.w3.org/2000/01/rdf-schema#comment> "Leider zijn van, baas zijn over. Werkwoord om het leiden van een partij, groep of organisatie te beschrijven."@nl .
+<https://data.niod.nl/Geleid> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/11182> .
+<https://data.niod.nl/Geleid> <http://www.w3.org/2000/01/rdf-schema#label> "Geleid"@nl .
+# 
+# https://data.niod.nl/Geliquideerd
+<https://data.niod.nl/Geliquideerd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Geliquideerd> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Geliquideerd> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/16379> .
+<https://data.niod.nl/Geliquideerd> <http://www.w3.org/2000/01/rdf-schema#label> "Geliquideerd"@nl .
+# 
+# https://data.niod.nl/Gepleegd
+<https://data.niod.nl/Gepleegd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Gepleegd> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Gepleegd> <http://www.w3.org/2000/01/rdf-schema#comment> "Het uitvoeren van een (ondermijnende) activiteit, zoals een aanslag of overval. Werkwoord om de uitvoerder van de aanslag te benoemen."@nl .
+<https://data.niod.nl/Gepleegd> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/6355> .
+<https://data.niod.nl/Gepleegd> <http://www.w3.org/2000/01/rdf-schema#label> "Gepleegd"@nl .
+# 
+# https://data.niod.nl/Gerecruteerd
+<https://data.niod.nl/Gerecruteerd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Gerecruteerd> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Gerecruteerd> <http://www.w3.org/2000/01/rdf-schema#comment> "Gerecruteerd betekent geworven voor militaire of geheime diensten."@nl .
+<https://data.niod.nl/Gerecruteerd> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/6362> .
+<https://data.niod.nl/Gerecruteerd> <http://www.w3.org/2000/01/rdf-schema#label> "Gerecruteerd"@nl .
+# 
+# https://data.niod.nl/Geroyeerd
+<https://data.niod.nl/Geroyeerd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Geroyeerd> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Geroyeerd> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/11178> .
+<https://data.niod.nl/Geroyeerd> <http://www.w3.org/2000/01/rdf-schema#label> "Geroyeerd"@nl .
+# 
+# https://data.niod.nl/Gestorven
+<https://data.niod.nl/Gestorven> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Gestorven> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Gestorven> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/6361> .
+<https://data.niod.nl/Gestorven> <http://www.w3.org/2000/01/rdf-schema#label> "Gestorven"@nl .
+# 
+# https://data.niod.nl/Getransporteerd
+<https://data.niod.nl/Getransporteerd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Getransporteerd> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Getransporteerd> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/6348> .
+<https://data.niod.nl/Getransporteerd> <http://www.w3.org/2000/01/rdf-schema#label> "Getransporteerd"@nl .
+# 
+# https://data.niod.nl/Getroffen
+<https://data.niod.nl/Getroffen> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Getroffen> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Getroffen> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/6356> .
+<https://data.niod.nl/Getroffen> <http://www.w3.org/2000/01/rdf-schema#label> "Getroffen"@nl .
+# 
+# https://data.niod.nl/Gevangen
+<https://data.niod.nl/Gevangen> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Gevangen> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Gevangen> <http://www.w3.org/2000/01/rdf-schema#comment> "Gevangen verwijst naar de gevangenschap van burgers in (concentratie)kampen en gevangenissen. Voor krijgsgevangenen gebruiken we 'Geïnterneerd'. Ook voor gevangen burgers uit Nederlands-Indië wordt de term 'Geïnterneerd' gebruikt."@nl .
+<https://data.niod.nl/Gevangen> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/6354> .
+<https://data.niod.nl/Gevangen> <http://www.w3.org/2000/01/rdf-schema#label> "Gevangen"@nl .
+# 
+# https://data.niod.nl/Gevaren
+<https://data.niod.nl/Gevaren> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Gevaren> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Gevaren> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/11181> .
+<https://data.niod.nl/Gevaren> <http://www.w3.org/2000/01/rdf-schema#label> "Gevaren"@nl .
+# 
+# https://data.niod.nl/Gevlucht
+<https://data.niod.nl/Gevlucht> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Gevlucht> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Gevlucht> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/6353> .
+<https://data.niod.nl/Gevlucht> <http://www.w3.org/2000/01/rdf-schema#label> "Gevlucht"@nl .
+# 
+# https://data.niod.nl/Gevochten
+<https://data.niod.nl/Gevochten> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Gevochten> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Gevochten> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/6359> .
+<https://data.niod.nl/Gevochten> <http://www.w3.org/2000/01/rdf-schema#label> "Gevochten"@nl .
+# 
+# https://data.niod.nl/Geëvacueerd
+<https://data.niod.nl/Geëvacueerd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Geëvacueerd> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Geëvacueerd> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/11174> .
+<https://data.niod.nl/Geëvacueerd> <http://www.w3.org/2000/01/rdf-schema#label> "Geëvacueerd"@nl .
+# 
+# https://data.niod.nl/Geëxecuteerd
+<https://data.niod.nl/Geëxecuteerd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Geëxecuteerd> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Geëxecuteerd> <http://www.w3.org/2000/01/rdf-schema#comment> "Standrechtelijk omgebracht worden. Geëxecuteerd is het werkwoord om het slachtoffer van de executie te benoemen."@nl .
+<https://data.niod.nl/Geëxecuteerd> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/6357> .
+<https://data.niod.nl/Geëxecuteerd> <http://www.w3.org/2000/01/rdf-schema#label> "Geëxecuteerd"@nl .
+# 
+# https://data.niod.nl/Geïnterneerd
+<https://data.niod.nl/Geïnterneerd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Geïnterneerd> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Geïnterneerd> <http://www.w3.org/2000/01/rdf-schema#comment> "Geïnterneerd verwijst naar militairen die gevangen zitten in kampen of gevangenissen. Ook naar burgers in Nederlands-Indië die gevangen zitten in kampen wordt verwezen als geïnterneerden. Voor alle overige burgers in kampen en gevangenissen gebruiken we 'Gevangen'."@nl .
+<https://data.niod.nl/Geïnterneerd> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/6349> .
+<https://data.niod.nl/Geïnterneerd> <http://www.w3.org/2000/01/rdf-schema#label> "Geïnterneerd"@nl .
+# 
+# https://data.niod.nl/Interview
+<https://data.niod.nl/Interview> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Interview> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/CreativeWork> .
+<https://data.niod.nl/Interview> <http://www.w3.org/1999/02/22-rdf-syntax-ns#comment> "Class for interviews"@en .
+<https://data.niod.nl/Interview> <http://www.w3.org/2000/01/rdf-schema#label> "Interview"@nl .
+# 
+# https://data.niod.nl/InterviewSegment
+<https://data.niod.nl/InterviewSegment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/InterviewSegment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/CreativeWork> .
+<https://data.niod.nl/InterviewSegment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#comment> "Class for interviews segments"@en .
+<https://data.niod.nl/InterviewSegment> <http://www.w3.org/2000/01/rdf-schema#label> "Fragment"@nl .
+# 
+# https://data.niod.nl/LidGeweest
+<https://data.niod.nl/LidGeweest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/LidGeweest> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/LidGeweest> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/6352> .
+<https://data.niod.nl/LidGeweest> <http://www.w3.org/2000/01/rdf-schema#label> "Lid geweest"@nl .
+# 
+# https://data.niod.nl/Monument
+<https://data.niod.nl/Monument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Monument> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/CreativeWork> .
+<https://data.niod.nl/Monument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#comment> "Class for monuments"@en .
+<https://data.niod.nl/Monument> <http://www.w3.org/2000/01/rdf-schema#label> "Monument"@nl .
+# 
+# https://data.niod.nl/Omgekomen
+<https://data.niod.nl/Omgekomen> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Omgekomen> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Omgekomen> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/8772> .
+<https://data.niod.nl/Omgekomen> <http://www.w3.org/2000/01/rdf-schema#label> "Omgekomen"@nl .
+# 
+# https://data.niod.nl/Ondergedoken
+<https://data.niod.nl/Ondergedoken> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Ondergedoken> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Ondergedoken> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/6351> .
+<https://data.niod.nl/Ondergedoken> <http://www.w3.org/2000/01/rdf-schema#label> "Ondergedoken"@nl .
+# 
+# https://data.niod.nl/Ontsnapt
+<https://data.niod.nl/Ontsnapt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Ontsnapt> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Ontsnapt> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/8795> .
+<https://data.niod.nl/Ontsnapt> <http://www.w3.org/2000/01/rdf-schema#label> "Ontsnapt"@nl .
+# 
+# https://data.niod.nl/OpPadGegaan
+<https://data.niod.nl/OpPadGegaan> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/OpPadGegaan> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/OpPadGegaan> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/17064> .
+<https://data.niod.nl/OpPadGegaan> <http://www.w3.org/2000/01/rdf-schema#label> "Op pad gegaan"@nl .
+# 
+# https://data.niod.nl/Opgepakt
+<https://data.niod.nl/Opgepakt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Opgepakt> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Opgepakt> <http://www.w3.org/2000/01/rdf-schema#comment> "Opgepakt betekent de aanhouding van een persoon zonder dat daarna een juridisch traject gestart is. Opgepakt wordt meestal gebruikt voor personen die (willekeurig) aangehouden zijn tijdens razzia's en repressailles."@nl .
+<https://data.niod.nl/Opgepakt> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/6345> .
+<https://data.niod.nl/Opgepakt> <http://www.w3.org/2000/01/rdf-schema#label> "Opgepakt"@nl .
+# 
+# https://data.niod.nl/Opgericht
+<https://data.niod.nl/Opgericht> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Opgericht> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Opgericht> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/13792> .
+<https://data.niod.nl/Opgericht> <http://www.w3.org/2000/01/rdf-schema#label> "Opgericht"@nl .
+# 
+# https://data.niod.nl/Opgeroepen
+<https://data.niod.nl/Opgeroepen> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Opgeroepen> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Opgeroepen> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/8542> .
+<https://data.niod.nl/Opgeroepen> <http://www.w3.org/2000/01/rdf-schema#label> "Opgeroepen"@nl .
+# 
+# https://data.niod.nl/Opgevangen
+<https://data.niod.nl/Opgevangen> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Opgevangen> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Opgevangen> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/10956> .
+<https://data.niod.nl/Opgevangen> <http://www.w3.org/2000/01/rdf-schema#label> "Opgevangen"@nl .
+# 
+# https://data.niod.nl/Overleden
+<https://data.niod.nl/Overleden> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Overleden> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Overleden> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/8771> .
+<https://data.niod.nl/Overleden> <http://www.w3.org/2000/01/rdf-schema#label> "Overleden"@nl .
+# 
+# https://data.niod.nl/Rights
+<https://data.niod.nl/Rights> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Rights> <http://www.w3.org/1999/02/22-rdf-syntax-ns#comment> "Rights Statement"@en .
+<https://data.niod.nl/Rights> <http://www.w3.org/2000/01/rdf-schema#label> "Rechten"@nl .
+# 
+# https://data.niod.nl/Teruggekeerd
+<https://data.niod.nl/Teruggekeerd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Teruggekeerd> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Teruggekeerd> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/18496> .
+<https://data.niod.nl/Teruggekeerd> <http://www.w3.org/2000/01/rdf-schema#label> "Teruggekeerd"@nl .
+# 
+# https://data.niod.nl/Tewerkgesteld
+<https://data.niod.nl/Tewerkgesteld> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Tewerkgesteld> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Tewerkgesteld> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/8514> .
+<https://data.niod.nl/Tewerkgesteld> <http://www.w3.org/2000/01/rdf-schema#label> "Tewerkgesteld"@nl .
+# 
+# https://data.niod.nl/Vermist
+<https://data.niod.nl/Vermist> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Vermist> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Vermist> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/10946> .
+<https://data.niod.nl/Vermist> <http://www.w3.org/2000/01/rdf-schema#label> "Vermist"@nl .
+# 
+# https://data.niod.nl/Veroordeeld
+<https://data.niod.nl/Veroordeeld> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Veroordeeld> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Veroordeeld> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/6563> .
+<https://data.niod.nl/Veroordeeld> <http://www.w3.org/2000/01/rdf-schema#label> "Veroordeeld"@nl .
+# 
+# https://data.niod.nl/Verraadt
+<https://data.niod.nl/Verraadt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Verraadt> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Verraadt> <http://www.w3.org/2000/01/rdf-schema#comment> "Het verraden van een ander mens. Werkwoord om de verrader te benoemen."@nl .
+<https://data.niod.nl/Verraadt> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/11177> .
+<https://data.niod.nl/Verraadt> <http://www.w3.org/2000/01/rdf-schema#label> "Verraadt"@nl .
+# 
+# https://data.niod.nl/Verraden
+<https://data.niod.nl/Verraden> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Verraden> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Verraden> <http://www.w3.org/2000/01/rdf-schema#comment> "Verraden worden. Werkwoord om de persoon te beschrijven die verraden is."@nl .
+<https://data.niod.nl/Verraden> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/6358> .
+<https://data.niod.nl/Verraden> <http://www.w3.org/2000/01/rdf-schema#label> "Verraden"@nl .
+# 
+# https://data.niod.nl/Vertrokken
+<https://data.niod.nl/Vertrokken> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Vertrokken> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Vertrokken> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/13791> .
+<https://data.niod.nl/Vertrokken> <http://www.w3.org/2000/01/rdf-schema#label> "Vertrokken"@nl .
+# 
+# https://data.niod.nl/Vrijgelaten
+<https://data.niod.nl/Vrijgelaten> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Vrijgelaten> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Vrijgelaten> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/6346> .
+<https://data.niod.nl/Vrijgelaten> <http://www.w3.org/2000/01/rdf-schema#label> "Vrijgelaten"@nl .
+# 
+# https://data.niod.nl/Vrijgesproken
+<https://data.niod.nl/Vrijgesproken> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Vrijgesproken> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Vrijgesproken> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/14203> .
+<https://data.niod.nl/Vrijgesproken> <http://www.w3.org/2000/01/rdf-schema#label> "Vrijgesproken"@nl .
+# 
+# https://data.niod.nl/Vrijgesteld
+<https://data.niod.nl/Vrijgesteld> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Vrijgesteld> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<https://data.niod.nl/Vrijgesteld> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://data.niod.nl/WO2_Thesaurus/events/6562> .
+<https://data.niod.nl/Vrijgesteld> <http://www.w3.org/2000/01/rdf-schema#label> "Vrijgesteld"@nl .
+# 
+# https://data.niod.nl/Webpagina
+<https://data.niod.nl/Webpagina> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.niod.nl/Webpagina> <http://www.w3.org/1999/02/22-rdf-syntax-ns#comment> "Class for all web content created by Oorlogsbronnen"@en .
+<https://data.niod.nl/Webpagina> <http://www.w3.org/2000/01/rdf-schema#label> "Webpagina"@nl .
+# 
+# https://personsincontext.org/model#PersonObservation
+<https://personsincontext.org/model#PersonObservation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://personsincontext.org/model#PersonObservation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#comment> "Persoon zoals geobserveerd in een bron"@nl .
+<https://personsincontext.org/model#PersonObservation> <http://www.w3.org/2000/01/rdf-schema#label> "Persoonsvermelding"@nl .
+# 
+# https://personsincontext.org/model#PersonReconstruction
+<https://personsincontext.org/model#PersonReconstruction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://personsincontext.org/model#PersonReconstruction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#comment> "Persoon gemodelleerd op basis van een of meer persoonsvermeldingen"@nl .
+<https://personsincontext.org/model#PersonReconstruction> <http://www.w3.org/2000/01/rdf-schema#label> "Persoonsreconstructie"@nl .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# https://data.niod.nl/CreativeWorkShape
+<https://data.niod.nl/CreativeWorkShape> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://data.niod.nl/CreativeWorkShape> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#NodeShape> .
+<https://data.niod.nl/CreativeWorkShape> <http://www.w3.org/ns/shacl#description> "Basisregels voor alle collectiestukken en documenten."@nl .
+<https://data.niod.nl/CreativeWorkShape> <http://www.w3.org/ns/shacl#name> "Object"@nl .
+<https://data.niod.nl/CreativeWorkShape> <http://www.w3.org/ns/shacl#property> _:genid2 .
+_:genid2 <http://www.w3.org/ns/shacl#path> <https://data.niod.nl/imageIIIF> .
+_:genid2 <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
+_:genid2 <http://www.w3.org/ns/shacl#name> "IIIF Manifest"@nl .
+_:genid2 <http://www.w3.org/ns/shacl#description> "Link naar het IIIF manifest van het object."@nl .
+<https://data.niod.nl/CreativeWorkShape> <http://www.w3.org/ns/shacl#property> _:genid3 .
+_:genid3 <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/terms/title> .
+_:genid3 <http://www.w3.org/ns/shacl#name> "Titel"@nl .
+_:genid3 <http://www.w3.org/ns/shacl#minCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:genid3 <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#string> .
+<https://data.niod.nl/CreativeWorkShape> <http://www.w3.org/ns/shacl#targetClass> <http://schema.org/CreativeWork> .
+<https://data.niod.nl/CreativeWorkShape> <http://www.w3.org/ns/shacl#targetClass> <https://data.niod.nl/Afbeelding> .
+<https://data.niod.nl/CreativeWorkShape> <http://www.w3.org/ns/shacl#targetClass> <https://data.niod.nl/Archiefmateriaal> .
+<https://data.niod.nl/CreativeWorkShape> <http://www.w3.org/ns/shacl#targetClass> <https://data.niod.nl/Certificate> .
+<https://data.niod.nl/CreativeWorkShape> <http://www.w3.org/ns/shacl#targetClass> <https://data.niod.nl/Monument> .
+# 
+# https://data.niod.nl/EventShape
+<https://data.niod.nl/EventShape> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://data.niod.nl/EventShape> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#NodeShape> .
+<https://data.niod.nl/EventShape> <http://www.w3.org/ns/shacl#name> "Gebeurtenis"@nl .
+<https://data.niod.nl/EventShape> <http://www.w3.org/ns/shacl#property> _:genid4 .
+_:genid4 <http://www.w3.org/ns/shacl#path> <https://data.niod.nl/slachtoffer> .
+_:genid4 <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
+_:genid4 <http://www.w3.org/ns/shacl#name> "Slachtoffer"@nl .
+_:genid4 <http://www.w3.org/ns/shacl#description> "Persoon die slachtoffer was in deze gebeurtenis."@nl .
+<https://data.niod.nl/EventShape> <http://www.w3.org/ns/shacl#property> _:genid5 .
+_:genid5 <http://www.w3.org/ns/shacl#path> <https://data.niod.nl/opdrachtgever> .
+_:genid5 <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
+_:genid5 <http://www.w3.org/ns/shacl#name> "Opdrachtgever"@nl .
+_:genid5 <http://www.w3.org/ns/shacl#description> "Persoon of organisatie die de opdracht gaf voor de bekendmaking."@nl .
+<https://data.niod.nl/EventShape> <http://www.w3.org/ns/shacl#targetClass> <http://schema.org/Event> .
+<https://data.niod.nl/EventShape> <http://www.w3.org/ns/shacl#targetClass> <https://data.niod.nl/Bekendmaking> .
+<https://data.niod.nl/EventShape> <http://www.w3.org/ns/shacl#targetClass> <https://data.niod.nl/Gearresteerd> .
+<https://data.niod.nl/EventShape> <http://www.w3.org/ns/shacl#targetClass> <https://data.niod.nl/Gevangen> .
+<https://data.niod.nl/EventShape> <http://www.w3.org/ns/shacl#targetClass> <https://data.niod.nl/Omgekomen> .
+# 
+# https://data.niod.nl/PersonObservationShape
+<https://data.niod.nl/PersonObservationShape> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://data.niod.nl/PersonObservationShape> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#NodeShape> .
+<https://data.niod.nl/PersonObservationShape> <http://www.w3.org/ns/shacl#name> "Persoonsvermelding"@nl .
+<https://data.niod.nl/PersonObservationShape> <http://www.w3.org/ns/shacl#property> _:genid6 .
+_:genid6 <http://www.w3.org/ns/shacl#path> <http://schema.org/name> .
+_:genid6 <http://www.w3.org/ns/shacl#name> "Naam"@nl .
+_:genid6 <http://www.w3.org/ns/shacl#minCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:genid6 <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#string> .
+<https://data.niod.nl/PersonObservationShape> <http://www.w3.org/ns/shacl#targetClass> <https://personsincontext.org/model#PersonObservation> .
+# 
+# https://data.niod.nl/RightsShape
+<https://data.niod.nl/RightsShape> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://data.niod.nl/RightsShape> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#NodeShape> .
+<https://data.niod.nl/RightsShape> <http://www.w3.org/ns/shacl#name> "Rechten"@nl .
+<https://data.niod.nl/RightsShape> <http://www.w3.org/ns/shacl#property> _:genid7 .
+_:genid7 <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2000/01/rdf-schema#label> .
+_:genid7 <http://www.w3.org/ns/shacl#name> "Rechtenverklaring"@nl .
+_:genid7 <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#string> .
+<https://data.niod.nl/RightsShape> <http://www.w3.org/ns/shacl#targetClass> <https://data.niod.nl/Rights> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Annotations
+# #
+# #################################################################
+# 
+# 
+<http://schema.org/Article> <http://www.w3.org/2000/01/rdf-schema#label> "Krantartikel"@nl .
+# 
+<http://schema.org/AudioObject> <http://www.w3.org/2000/01/rdf-schema#label> "Audio"@nl .
+# 
+<http://schema.org/Book> <http://www.w3.org/2000/01/rdf-schema#label> "Boek"@nl .
+# 
+<http://schema.org/Newspaper> <http://www.w3.org/2000/01/rdf-schema#label> "Krant"@nl .
+# 
+<http://schema.org/Painting> <http://www.w3.org/2000/01/rdf-schema#label> "Schilderij"@nl .
+# 
+<http://schema.org/Person> <http://www.w3.org/2000/01/rdf-schema#label> "Persoon"@nl .
+# 
+<http://schema.org/Place> <http://www.w3.org/2000/01/rdf-schema#label> "Locatie"@nl .
+# 
+<http://schema.org/Sculpture> <http://www.w3.org/2000/01/rdf-schema#label> "Beeldhouwwerk"@nl .
+# 
+<http://schema.org/VideoObject> <http://www.w3.org/2000/01/rdf-schema#label> "Video"@nl .
+# 
+# Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
