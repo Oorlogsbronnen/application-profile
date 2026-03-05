@@ -37,22 +37,6 @@
   "@id" : "_:genid4",
   "http://www.w3.org/ns/shacl#description" : [ {
     "@language" : "nl",
-    "@value" : "Persoon die slachtoffer was in deze gebeurtenis."
-  } ],
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Slachtoffer"
-  } ],
-  "http://www.w3.org/ns/shacl#nodeKind" : [ {
-    "@id" : "http://www.w3.org/ns/shacl#IRI"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "https://data.niod.nl/slachtoffer"
-  } ]
-}, {
-  "@id" : "_:genid5",
-  "http://www.w3.org/ns/shacl#description" : [ {
-    "@language" : "nl",
     "@value" : "Persoon of organisatie die de opdracht gaf voor de bekendmaking."
   } ],
   "http://www.w3.org/ns/shacl#name" : [ {
@@ -64,6 +48,22 @@
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
     "@id" : "https://data.niod.nl/opdrachtgever"
+  } ]
+}, {
+  "@id" : "_:genid5",
+  "http://www.w3.org/ns/shacl#description" : [ {
+    "@language" : "nl",
+    "@value" : "Persoon die slachtoffer was in deze gebeurtenis."
+  } ],
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Slachtoffer"
+  } ],
+  "http://www.w3.org/ns/shacl#nodeKind" : [ {
+    "@id" : "http://www.w3.org/ns/shacl#IRI"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "https://data.niod.nl/slachtoffer"
   } ]
 }, {
   "@id" : "_:genid6",

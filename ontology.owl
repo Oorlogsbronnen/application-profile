@@ -983,16 +983,16 @@
         <shacl:targetClass rdf:resource="https://data.niod.nl/Omgekomen"/>
     </NamedIndividual>
     <rdf:Description rdf:nodeID="genid4">
-        <shacl:description xml:lang="nl">Persoon die slachtoffer was in deze gebeurtenis.</shacl:description>
-        <shacl:name xml:lang="nl">Slachtoffer</shacl:name>
-        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
-        <shacl:path rdf:resource="https://data.niod.nl/slachtoffer"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid5">
         <shacl:description xml:lang="nl">Persoon of organisatie die de opdracht gaf voor de bekendmaking.</shacl:description>
         <shacl:name xml:lang="nl">Opdrachtgever</shacl:name>
         <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
         <shacl:path rdf:resource="https://data.niod.nl/opdrachtgever"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid5">
+        <shacl:description xml:lang="nl">Persoon die slachtoffer was in deze gebeurtenis.</shacl:description>
+        <shacl:name xml:lang="nl">Slachtoffer</shacl:name>
+        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
+        <shacl:path rdf:resource="https://data.niod.nl/slachtoffer"/>
     </rdf:Description>
     
 

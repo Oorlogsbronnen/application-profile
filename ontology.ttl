@@ -618,15 +618,15 @@ _:genid3 <http://www.w3.org/ns/shacl#datatype> xsd:string ;
                                                                            <https://data.niod.nl/Gevangen> ,
                                                                            <https://data.niod.nl/Omgekomen> .
 
-_:genid4 <http://www.w3.org/ns/shacl#description> "Persoon die slachtoffer was in deze gebeurtenis."@nl ;
-          <http://www.w3.org/ns/shacl#name> "Slachtoffer"@nl ;
-          <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ;
-          <http://www.w3.org/ns/shacl#path> <https://data.niod.nl/slachtoffer> .
-
-_:genid5 <http://www.w3.org/ns/shacl#description> "Persoon of organisatie die de opdracht gaf voor de bekendmaking."@nl ;
+_:genid4 <http://www.w3.org/ns/shacl#description> "Persoon of organisatie die de opdracht gaf voor de bekendmaking."@nl ;
           <http://www.w3.org/ns/shacl#name> "Opdrachtgever"@nl ;
           <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ;
           <http://www.w3.org/ns/shacl#path> <https://data.niod.nl/opdrachtgever> .
+
+_:genid5 <http://www.w3.org/ns/shacl#description> "Persoon die slachtoffer was in deze gebeurtenis."@nl ;
+          <http://www.w3.org/ns/shacl#name> "Slachtoffer"@nl ;
+          <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ;
+          <http://www.w3.org/ns/shacl#path> <https://data.niod.nl/slachtoffer> .
 
 
 ###  https://data.niod.nl/PersonObservationShape
