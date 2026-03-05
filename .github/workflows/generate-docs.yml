@@ -57,7 +57,11 @@ jobs:
             -includeImported \
             -verbose || echo "Widoco had some warnings but continuing..."
 
-          # 4. Check of er daadwerkelijk een index.html is gemaakt
+          # 4. KOPIEER HIER JE CONTEXT FILE
+          # Dit zorgt ervoor dat je context beschikbaar is op https://<user>.github.io/<repo>/context.jsonld
+          cp context/context.jsonld out/context.jsonld
+
+          # 5. Check of de bouw gelukt is
           if [ ! -f ./out/index.html ]; then
             echo "Error: Widoco failed to generate index.html!"
             exit 1
