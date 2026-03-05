@@ -529,15 +529,15 @@ _:genid3 <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema
 <https://data.niod.nl/EventShape> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#NodeShape> .
 <https://data.niod.nl/EventShape> <http://www.w3.org/ns/shacl#name> "Gebeurtenis"@nl .
 <https://data.niod.nl/EventShape> <http://www.w3.org/ns/shacl#property> _:genid4 .
-_:genid4 <http://www.w3.org/ns/shacl#path> <https://data.niod.nl/slachtoffer> .
+_:genid4 <http://www.w3.org/ns/shacl#path> <https://data.niod.nl/opdrachtgever> .
 _:genid4 <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-_:genid4 <http://www.w3.org/ns/shacl#name> "Slachtoffer"@nl .
-_:genid4 <http://www.w3.org/ns/shacl#description> "Persoon die slachtoffer was in deze gebeurtenis."@nl .
+_:genid4 <http://www.w3.org/ns/shacl#name> "Opdrachtgever"@nl .
+_:genid4 <http://www.w3.org/ns/shacl#description> "Persoon of organisatie die de opdracht gaf voor de bekendmaking."@nl .
 <https://data.niod.nl/EventShape> <http://www.w3.org/ns/shacl#property> _:genid5 .
-_:genid5 <http://www.w3.org/ns/shacl#path> <https://data.niod.nl/opdrachtgever> .
+_:genid5 <http://www.w3.org/ns/shacl#path> <https://data.niod.nl/slachtoffer> .
 _:genid5 <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-_:genid5 <http://www.w3.org/ns/shacl#name> "Opdrachtgever"@nl .
-_:genid5 <http://www.w3.org/ns/shacl#description> "Persoon of organisatie die de opdracht gaf voor de bekendmaking."@nl .
+_:genid5 <http://www.w3.org/ns/shacl#name> "Slachtoffer"@nl .
+_:genid5 <http://www.w3.org/ns/shacl#description> "Persoon die slachtoffer was in deze gebeurtenis."@nl .
 <https://data.niod.nl/EventShape> <http://www.w3.org/ns/shacl#targetClass> <http://schema.org/Event> .
 <https://data.niod.nl/EventShape> <http://www.w3.org/ns/shacl#targetClass> <https://data.niod.nl/Bekendmaking> .
 <https://data.niod.nl/EventShape> <http://www.w3.org/ns/shacl#targetClass> <https://data.niod.nl/Gearresteerd> .
