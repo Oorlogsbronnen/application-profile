@@ -1,1 +1,44 @@
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <https://schema.org/> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix dcmit:    <http://purl.org/dc/dcmitype/> .
+@prefix niod:     <https://mijn-organisatie.nl/ns/model#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix picom:     <https://personsincontext.org/model/#> .
 
+# De Shape definitie
+my:CreativeWorkShape
+    a sh:NodeShape ;
+    sh:targetClass schema:CreativeWork ;  # Dit koppelt de regels aan de schema.org class
+    sh:name "CreativeWork" ;
+    sh:description "Dit profiel definieert de vereisten voor datasets binnen onze organisatie." ;
+    
+    # 1. Gebruik van Dublin Core (Standaard property)
+    sh:property [
+        sh:path dct:title ;
+        sh:name "Titel" ;
+        sh:description "De officiële naam van de dataset." ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;              # Verplicht veld
+        sh:maxCount 1 ;
+    ] ;
+
+    # 2. Gebruik van schema.org (Standaard property)
+    sh:property [
+        sh:path schema:license ;
+        sh:name "Licentie" ;
+        sh:description "De licentie waaronder de data beschikbaar is gesteld." ;
+        sh:nodeKind sh:IRI ;         # Moet een link/URL zijn
+        sh:minCount 1 ;
+    ] ;
+
+    # 3. Gebruik van een eigen property (Custom)
+    sh:property [
+        sh:path my:internalStatus ;
+        sh:name "Interne Status" ;
+        sh:description "De workflow status van de dataset (bijv. 'concept', 'gevalideerd')." ;
+        sh:datatype xsd:string ;
+        sh:in ("concept" "gevalideerd" "gearchiveerd") ; # Beperkt tot deze waarden
+    ] .
