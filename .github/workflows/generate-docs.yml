@@ -66,7 +66,8 @@ jobs:
             cp -r ./out/nl/* ./out/
           fi
 
-          # 5. Kopieer de context file
+          # 5. Kopieer de context file en het volledige ttl bestand:
+          cp full_profile.ttl out/full_profile.ttl
           if [ -f context/context.jsonld ]; then
             cp context/context.jsonld out/context.jsonld
           fi
