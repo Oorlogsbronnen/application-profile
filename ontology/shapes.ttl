@@ -1,78 +1,264 @@
-@prefix sh:     <http://www.w3.org/ns/shacl#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix : <http://data.niod.nl/> .
+@prefix niod: <http://data.niod.nl/WO2_Thesaurus/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcmit: <http://purl.org/dc/dcmitype/> .
+@prefix dcam: <http://purl.org/dc/dcam/> .
+@prefix edm: <http://www.europeana.eu/schemas/edm/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix picom: <https://personsincontext.org/model/#> .
+@prefix pnv: <https://w3id.org/pnv#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <http://schema.org/> .
-@prefix niod:   <https://data.niod.nl/> .
-@prefix dct:    <http://purl.org/dc/terms/> .
-@prefix picom:  <https://personsincontext.org/model#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
 
-### 1. SHAPE VOOR OBJECTEN (CreativeWork en subclasses)
-# Dit geldt voor Boek, Foto, Archiefmateriaal, etc.
-niod:CreativeWorkShape
-    a sh:NodeShape ;
-    sh:targetClass schema:CreativeWork, niod:Afbeelding, niod:Archiefmateriaal, niod:Monument, niod:Certificate ;
-    sh:name "Object"@nl ;
-    sh:description "Basisregels voor alle collectiestukken en documenten."@nl ;
+# =================================================================
+# TECHNISCHE BOUWSTENEN (Herbruikbare PropertyShapes)
+# =================================================================
 
-    # Voorbeeld property uit Dublin Core
-    sh:property [
-        sh:path dct:title ;
-        sh:name "Titel"@nl ;
-        sh:minCount 1 ;
-        sh:datatype xsd:string ;
-    ] ;
+# --- Identificatie en Naamgeving ---
+:Rule_name          a sh:PropertyShape ;
+	sh:path schema:name ;
+	sh:datatype xsd:string ; 
+    sh:minCount 1 ; 
+    sh:maxCount 1 .
+:Rule_title         a sh:PropertyShape ;
+	sh:path dc:title ;
+	sh:datatype xsd:string ; 
+    sh:minCount 1 ; 
+    sh:maxCount 1 .
+:Rule_alternateName a sh:PropertyShape ;
+	sh:path schema:alternateName ;
+	sh:datatype xsd:string .
+:Rule_givenName     a sh:PropertyShape ;
+	sh:path schema:givenName ;
+	sh:datatype xsd:string .
+:Rule_familyName    a sh:PropertyShape ;
+	sh:path schema:familyName ;
+	sh:datatype xsd:string .
+:Rule_additionalName a sh:PropertyShape ;
+	sh:path schema:additionalName ;
+	sh:datatype xsd:string .
+:Rule_identifier_dc a sh:PropertyShape ;
+	sh:path dc:identifier ;
+	sh:datatype xsd:string ; 
+    sh:minCount 1 ; 
+    sh:maxCount 1 .
+:Rule_identifier_schema a sh:PropertyShape ;
+	sh:path schema:identifier ;
+	sh:datatype xsd:string ; 
+    sh:minCount 1 ; 
+    sh:maxCount 1 .
 
-    # NIOD specifieke property voor IIIF
-    sh:property [
-        sh:path niod:imageIIIF ;
-        sh:name "IIIF Manifest"@nl ;
-        sh:description "Link naar het IIIF manifest van het object."@nl ;
-        sh:nodeKind sh:IRI ;
-    ] .
+# --- Beschrijving en Categorisering ---
+:Rule_description   a sh:PropertyShape ;
+	sh:path schema:description ;
+	sh:datatype xsd:string .
+:Rule_caption       a sh:PropertyShape ;
+	sh:path schema:caption ;
+	sh:datatype xsd:string ; 
+    sh:maxCount 1 .
+:Rule_keywords      a sh:PropertyShape ;
+	sh:path schema:keywords ;
+	sh:datatype xsd:string .
+:Rule_additionalType a sh:PropertyShape ;
+	sh:path schema:additionalType ;
+	sh:nodeKind sh:IRI .
+:Rule_type          a sh:PropertyShape ;
+	sh:path rdf:type ;
+	sh:nodeKind sh:IRI .
+:Rule_subject       a sh:PropertyShape ;
+	sh:path dc:subject ;
+	sh:nodeKind sh:IRI .
+:Rule_about         a sh:PropertyShape ;
+	sh:path schema:about ;
+	sh:nodeKind sh:IRI .
 
-### 2. SHAPE VOOR GEBEURTENISSEN (Event en alle subclasses zoals Omgekomen, Gevangen, etc.)
-niod:EventShape
-    a sh:NodeShape ;
-    sh:targetClass schema:Event, niod:Omgekomen, niod:Gevangen, niod:Gearresteerd, niod:Bekendmaking ;
-    sh:name "Gebeurtenis"@nl ;
+# --- Data en Tijd ---
+:Rule_date          a sh:PropertyShape ;
+	sh:path dc:date ;
+	sh:datatype xsd:date ; 
+    sh:maxCount 1 .
+:Rule_startDate     a sh:PropertyShape ;
+	sh:path schema:startDate ;
+	sh:datatype xsd:date ; 
+    sh:maxCount 1 .
+:Rule_endDate       a sh:PropertyShape ;
+	sh:path schema:endDate ;
+	sh:datatype xsd:date ; 
+    sh:maxCount 1 .
+:Rule_dateCreated     a sh:PropertyShape ;
+	sh:path schema:dateCreated ;
+	sh:datatype xsd:date ; 
+    sh:maxCount 1 .
+:Rule_dateModified       a sh:PropertyShape ;
+	sh:path schema:dateModified ;
+	sh:datatype xsd:date ; 
+    sh:maxCount 1 .
+:Rule_birthDate     a sh:PropertyShape ;
+	sh:path schema:birthDate ;
+	sh:datatype xsd:date ; 
+    sh:maxCount 1 .
+:Rule_deathDate     a sh:PropertyShape ;
+	sh:path schema:deathDate ;
+	sh:datatype xsd:date ; 
+    sh:maxCount 1 .
+:Rule_temporal      a sh:PropertyShape ;
+	sh:path dct:temporal ;
+	sh:datatype xsd:string .
 
-    # NIOD Property: Slachtoffer
-    sh:property [
-        sh:path niod:slachtoffer ;
-        sh:name "Slachtoffer"@nl ;
-        sh:description "Persoon die slachtoffer was in deze gebeurtenis."@nl ;
-        sh:nodeKind sh:IRI ; # Verwijst naar een schema:Person of picom:PersonObservation
-    ] ;
+# --- Locatie ---
+:Rule_location      a sh:PropertyShape ;
+	sh:path schema:location ;
+	sh:nodeKind sh:IRI .
+:Rule_contentLocation a sh:PropertyShape ;
+	sh:path schema:contentLocation ;
+	sh:nodeKind sh:IRI .
+:Rule_homeLocation   a sh:PropertyShape ;
+	sh:path schema:homeLocation ;
+	sh:nodeKind sh:IRI .
+:Rule_birthPlace    a sh:PropertyShape ;
+	sh:path schema:birthPlace ;
+	sh:nodeKind sh:IRI .
+:Rule_deathPlace    a sh:PropertyShape ;
+	sh:path schema:deathPlace ;
+	sh:nodeKind sh:IRI .
+:Rule_address       a sh:PropertyShape ;
+	sh:path schema:address ;
+	sh:datatype xsd:string .
+:Rule_fromLocation  a sh:PropertyShape ;
+	sh:path schema:fromLocation ;
+	sh:nodeKind sh:IRI .
+:Rule_toLocation    a sh:PropertyShape ;
+	sh:path schema:toLocation ;
+	sh:nodeKind sh:IRI .
 
-    # NIOD Property: Opdrachtgever (specifiek genoemd voor Bekendmakingen)
-    sh:property [
-        sh:path niod:opdrachtgever ;
-        sh:name "Opdrachtgever"@nl ;
-        sh:description "Persoon of organisatie die de opdracht gaf voor de bekendmaking."@nl ;
-        sh:nodeKind sh:IRI ;
-    ] .
+# --- Personen en Organisaties (Relaties) ---
+:Rule_actor         a sh:PropertyShape ;
+	sh:path schema:actor ;
+	sh:nodeKind sh:IRI .
+:Rule_creator       a sh:PropertyShape ;
+	sh:path schema:creator ;
+	sh:nodeKind sh:IRI .
+:Rule_publisher     a sh:PropertyShape ;
+	sh:path schema:publisher ;
+	sh:nodeKind sh:IRI .
+:Rule_maintainer    a sh:PropertyShape ;
+	sh:path schema:maintainer ;
+	sh:nodeKind sh:IRI .
+:Rule_memberOf      a sh:PropertyShape ;
+	sh:path schema:memberOf ;
+	sh:nodeKind sh:IRI .
+:Rule_jobTitle      a sh:PropertyShape ;
+	sh:path schema:jobTitle ;
+	sh:datatype xsd:string .
+:Rule_gender        a sh:PropertyShape ;
+	sh:path schema:gender ;
+	sh:datatype xsd:string .
 
-### 3. SHAPE VOOR PERSONEN (Persons In Context)
-niod:PersonObservationShape
-    a sh:NodeShape ;
-    sh:targetClass picom:PersonObservation ;
+# --- Media en Web ---
+:Rule_url           a sh:PropertyShape ;
+	sh:path schema:url ;
+	sh:nodeKind sh:IRI .
+:Rule_contentUrl    a sh:PropertyShape ;
+	sh:path schema:contentUrl ;
+	sh:nodeKind sh:IRI .
+:Rule_image         a sh:PropertyShape ;
+	sh:path schema:image ;
+	sh:nodeKind sh:IRI .
+:Rule_thumbnail     a sh:PropertyShape ;
+	sh:path schema:thumbnail ;
+	sh:nodeKind sh:IRI .
+:Rule_thumbnailUrl  a sh:PropertyShape ;
+	sh:path schema:thumbnailUrl ;
+	sh:nodeKind sh:IRI .
+
+# --- Structureel en Rechten ---
+:Rule_isPartOf      a sh:PropertyShape ;
+	sh:path schema:isPartOf ;
+	sh:nodeKind sh:IRI .
+:Rule_superEvent    a sh:PropertyShape ;
+	sh:path schema:superEvent ;
+	sh:nodeKind sh:IRI .
+:Rule_license       a sh:PropertyShape ;
+	sh:path schema:license ;
+	sh:nodeKind sh:IRI .
+:Rule_rights        a sh:PropertyShape ;
+	sh:path dc:rights ;
+	sh:datatype xsd:string .
+:Rule_position      a sh:PropertyShape ;
+	sh:path schema:position ;
+	sh:datatype xsd:integer .
+
+# --- Herkomst en Verwijzingen ---
+:Rule_sameAs        a sh:PropertyShape ;
+	sh:path schema:sameAs ;
+	sh:nodeKind sh:IRI .
+:Rule_source        a sh:PropertyShape ;
+	sh:path dc:source ;
+	sh:datatype xsd:string .
+:Rule_wasDerivedFrom a sh:PropertyShape ;
+	sh:path prov:wasDerivedFrom ;
+	sh:nodeKind sh:IRI .
+
+# =================================================================
+# 2. TOEPASSING OP KLASSEN (Context-specifieke labels voor Widoco)
+# =================================================================
+
+### --- PERSOONSVERMELDING ---
+:PersoonsvermeldingShape a sh:NodeShape ;
+    sh:targetClass :Persoonsvermelding ; # Pas aan naar jouw exacte klasse-URI
     sh:name "Persoonsvermelding"@nl ;
-    
     sh:property [
         sh:path schema:name ;
-        sh:name "Naam"@nl ;
-        sh:datatype xsd:string ;
-        sh:minCount 1 ;
+        sh:name "Volledige naam"@nl ;
+        sh:description "De naam van de persoon zoals vermeld in de bron."@nl ;
+        sh:node :TechnicalNameRule ;
+    ] ;
+    sh:property [
+        sh:path schema:description ;
+        sh:name "Biografische schets"@nl ;
+        sh:description "Een korte beschrijving van de persoon of diens rol."@nl ;
+        sh:node :TechnicalDescriptionRule ;
     ] .
 
-### 4. SHAPE VOOR RECHTEN
-niod:RightsShape
-    a sh:NodeShape ;
-    sh:targetClass niod:Rights ;
-    sh:name "Rechten"@nl ;
+### --- GEBEURTENIS ---
+:GebeurtenisShape a sh:NodeShape ;
+    sh:targetClass schema:Event ;
+    sh:name "Gebeurtenis"@nl ;
     sh:property [
-        sh:path rdfs:label ;
-        sh:name "Rechtenverklaring"@nl ;
-        sh:datatype xsd:string ;
+        sh:path schema:name ;
+        sh:name "Titel van gebeurtenis"@nl ;
+        sh:description "Bijv: 'Transport vanuit Kamp Amersfoort' of 'Razzia van Rotterdam'."@nl ;
+        sh:node :TechnicalNameRule ;
+    ] ;
+    sh:property [
+        sh:path schema:datePublished ;
+        sh:name "Datum van plaatsvinden"@nl ;
+        sh:description "De dag waarop de gebeurtenis startte."@nl ;
+        sh:node :TechnicalDateRule ;
+    ] .
+
+### --- OBJECT (BRON) ---
+:ObjectShape a sh:NodeShape ;
+    sh:targetClass schema:CreativeWork ;
+    sh:name "Archiefstuk of Object"@nl ;
+    sh:property [
+        sh:path schema:name ;
+        sh:name "Objecttitel"@nl ;
+        sh:description "De titel van het document of de naam van het voorwerp."@nl ;
+        sh:node :TechnicalNameRule ;
+    ] ;
+    sh:property [
+        sh:path schema:description ;
+        sh:name "Inhoudelijke beschrijving"@nl ;
+        sh:description "Samenvatting van de inhoud van het archiefstuk."@nl ;
+        sh:node :TechnicalDescriptionRule ;
     ] .
