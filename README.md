@@ -1,42 +1,38 @@
-# Requirements Template
+Het creëren van documentatie voor een Application Profile (AP) kan snel complex worden als je alles handmatig moet bijhouden. De meest efficiënte aanpak is "Documentation as Code", waarbij de documentatie automatisch wordt gegenereerd op basis van je machine-leesbare bestanden (TTL/JSON-LD).
 
-This is the template for requirements published by Netwerk Digitaal Erfgoed.
+Hier is een stappenplan om een robuuste workflow op te zetten via GitHub en GitHub Pages.
 
-Requirements are written in Markdown and transformed to HTML using the
-[Bikeshed preprocessor](https://tabatkins.github.io/bikeshed/).
+1. De Motor: Kies je Tooling
+Voor een Linked Data profiel dat verschillende standaarden combineert, raad ik aan om niet zelf HTML te schrijven. De meest gebruikte "best practice" tools zijn:
 
+LODE (Live OWL Documentation Environment): De klassieke keuze voor OWL/RDFS.
 
-## Usage
+Widoco: Een krachtige Java-gebaseerde tool die een complete website genereert inclusief diagrammen en navigatie.
 
-1. Create a new repository using this template by clicking the green _Use this template_ button on Github.
+Pylode: Een modern Python-alternatief dat zeer strakke, leesbare HTML produceert.
 
-![](images/step-1.png)
+Mijn advies voor efficiëntie: Gebruik Widoco. Het handelt de cross-references tussen schema.org, Dublin Core en je eigen termen automatisch af en genereert een mensgerichte website vanuit je Turtle bestanden.
 
-2. Fill in the necessary repository information.
+2. De Structuur: SHACL voor Validatie en Documentatie
+Je noemde dat je nog niet hebt vastgelegd welke relaties bij welke classes horen. Een JSON-LD context doet dit inderdaad niet; die mapt alleen keys naar URI's.
 
-![](images/step-2.png)
-   
-1. Clone the new repository using `git clone https://github.com/<your_repository>` and edit the `index.bs` to start the requirements specification writing!
+Om dit vast te leggen én tegelijkertijd je documentatie te voeden, gebruik je SHACL (Shapes Constraint Language).
 
-## Generate HTML locally
+In SHACL definieer je NodeShapes (voor classes) en PropertyShapes (voor attributen en relaties).
 
-To view HTML output locally (using a [Docker container](https://github.com/netwerk-digitaal-erfgoed/bikeshed-docker)),
-run:
+Je kunt hierin sh:description, sh:name, sh:minCount en sh:maxCount opgeven.
 
-```bash
-make spec
-```
+Documentatie-tools kunnen deze SHACL-shapes uitlezen om tabellen te genereren van "Verplichte" en "Optionele" velden.
 
-and open the `index.html` file:
+3. De GitHub Repository Opzet
+Richt je repository als volgt in voor optimaal beheer:
 
-```bash
-open index.html
-```
-
-**WARNING: Do NOT add the generated `index.html` to your `.gitignore` as this will make github actions unable to automatically publish the rendered version of your specification on github pages.**
-
-Alternatively, to update the HTML every time you make changes to [the source document](index.bs):
-
-```bash
-make watch
-```
+/
+├── ontology/
+│   ├── my-profile.ttl       # Je eigen classes en properties (RDFS/OWL)
+│   └── shapes.ttl           # De SHACL definities (het "Application Profile")
+├── context/
+│   └── context.jsonld       # Je JSON-LD context
+├── docs/                    # Hier komt de gegenereerde output (GitHub Pages bron)
+└── .github/workflows/       # Automatisering
+    └── documentation.yml
