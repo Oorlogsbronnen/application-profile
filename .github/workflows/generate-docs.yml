@@ -40,18 +40,18 @@ jobs:
 
       - name: Generate Documentation
         run: |
-          # 1. Maak de mappen aan
+          # 1. Maak de output map aan
           mkdir -p out
-          mkdir -p input_ontology
 
-          # 2. Kopieer je bestanden naar een schone input map
-          cp ontology/schema_ext-oorlogsbronnen.ttl input_ontology/
-          cp ontology/shapes.ttl input_ontology/
+          # 2. Voeg de bestanden slim samen: 
+          # We pakken alle unieke prefix-regels en dan de rest van de inhoud.
+          grep -h "@prefix" ontology/*.ttl | sort -u > full_profile.ttl
+          grep -vh "@prefix" ontology/*.ttl >> full_profile.ttl
 
-          # 3. Widoco uitvoeren op de hele MAP in plaats van één bestand
-          # We gebruiken de -ontDirectory vlag
+          # 3. Draai Widoco op het gecombineerde bestand. 
+          # We gebruiken de vlag -ontFile (die wel werkt).
           java -jar widoco.jar \
-            -ontDirectory ./input_ontology \
+            -ontFile full_profile.ttl \
             -outFolder ./out \
             -rewriteAll \
             -webVowl \
@@ -63,7 +63,7 @@ jobs:
 
           # 5. Check of de bouw gelukt is
           if [ ! -f ./out/index.html ]; then
-            echo "Fout: Widoco heeft geen index.html gegenereerd. Check de logs hierboven voor Java/Prefix fouten."
+            echo "Fout: Widoco heeft geen index.html gegenereerd."
             exit 1
           fi
 
