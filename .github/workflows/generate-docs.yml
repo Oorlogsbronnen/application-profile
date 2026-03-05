@@ -19,32 +19,35 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
 
-      # We valideren de Turtle syntax met een simpele python check ipv een externe action
+      # Valideer beide Turtle bestanden in de ontology map
       - name: Validate Turtle Syntax
         run: |
           pip install rdflib
-          python -c "from rdflib import Graph; Graph().parse('./ontology/schema_ext-oorlogsbronnen.ttl', format='turtle'); print('TTL Valid!')"
+          python -c "from rdflib import Graph; g=Graph(); g.parse('ontology/schema_ext-oorlogsbronnen.ttl', format='turtle'); g.parse('ontology/shapes.ttl', format='turtle'); print('Ontology & Shapes Valid!')"
 
       - name: Create external directory
         run: mkdir -p external
 
       - name: Fetch Latest External Schemas
         run: |
-          curl -L http://schema.org/docs/schemaorg.ttl -o schemas/schema.ttl
-          curl -L https://purl.org/dc/terms.ttl -o schemas/dcterms.ttl
+          curl -L http://schema.org/docs/schemaorg.ttl -o external/schema.ttl
+          curl -L https://purl.org/dc/terms.ttl -o external/dcterms.ttl
 
       - name: Download Latest Widoco
         run: |
-          # Haalt de download URL van de allerlaatste release op via de GitHub API
           WIDOCO_URL=$(curl -s https://api.github.com/repos/dgarijo/Widoco/releases/latest | grep "browser_download_url.*jar" | cut -d '"' -f 4 | head -n 1)
           wget $WIDOCO_URL -O widoco.jar
 
       - name: Generate Documentation
         run: |
-          # Let op: ik heb de bestandsnaam aangepast aan je upload
+          # 1. Voeg vocabulaire en shapes samen voor een compleet Application Profile
+          cat ontology/schema_ext-oorlogsbronnen.ttl ontology/shapes.ttl > full_profile.ttl
+          
+          # 2. Widoco uitvoeren. We zetten de output in de map 'out'
+          # De vlag -rewriteAll zorgt voor een schone build
           java -jar widoco.jar \
-            -ontFile "./ontology/schema_ext-oorlogsbronnen.ttl" \
-            -outFolder ./docs \
+            -ontFile full_profile.ttl \
+            -outFolder ./out \
             -rewriteAll \
             -webVowl \
             -includeImported
@@ -52,5 +55,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: docs
-          branch: gh-pages
+          folder: out # We pakken de inhoud van 'out'
+          branch: gh-pages # En zetten dit in de root van de gh-pages branch
