@@ -1,44 +1,78 @@
-@prefix sh:    <http://www.w3.org/ns/shacl#> .
-@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
-@prefix schema: <https://schema.org/> .
-@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix niod:   <https://data.niod.nl/> .
 @prefix dct:    <http://purl.org/dc/terms/> .
-@prefix dcmit:    <http://purl.org/dc/dcmitype/> .
-@prefix niod:     <https://mijn-organisatie.nl/ns/model#> .
-@prefix owl:     <http://www.w3.org/2002/07/owl#> .
-@prefix picom:     <https://personsincontext.org/model/#> .
+@prefix picom:  <https://personsincontext.org/model#> .
 
-# De Shape definitie
-my:CreativeWorkShape
+### 1. SHAPE VOOR OBJECTEN (CreativeWork en subclasses)
+# Dit geldt voor Boek, Foto, Archiefmateriaal, etc.
+niod:CreativeWorkShape
     a sh:NodeShape ;
-    sh:targetClass schema:CreativeWork ;  # Dit koppelt de regels aan de schema.org class
-    sh:name "CreativeWork" ;
-    sh:description "Dit profiel definieert de vereisten voor datasets binnen onze organisatie." ;
-    
-    # 1. Gebruik van Dublin Core (Standaard property)
+    sh:targetClass schema:CreativeWork, niod:Afbeelding, niod:Archiefmateriaal, niod:Monument, niod:Certificate ;
+    sh:name "Object"@nl ;
+    sh:description "Basisregels voor alle collectiestukken en documenten."@nl ;
+
+    # Voorbeeld property uit Dublin Core
     sh:property [
         sh:path dct:title ;
-        sh:name "Titel" ;
-        sh:description "De officiële naam van de dataset." ;
-        sh:datatype xsd:string ;
-        sh:minCount 1 ;              # Verplicht veld
-        sh:maxCount 1 ;
-    ] ;
-
-    # 2. Gebruik van schema.org (Standaard property)
-    sh:property [
-        sh:path schema:license ;
-        sh:name "Licentie" ;
-        sh:description "De licentie waaronder de data beschikbaar is gesteld." ;
-        sh:nodeKind sh:IRI ;         # Moet een link/URL zijn
+        sh:name "Titel"@nl ;
         sh:minCount 1 ;
+        sh:datatype xsd:string ;
     ] ;
 
-    # 3. Gebruik van een eigen property (Custom)
+    # NIOD specifieke property voor IIIF
     sh:property [
-        sh:path my:internalStatus ;
-        sh:name "Interne Status" ;
-        sh:description "De workflow status van de dataset (bijv. 'concept', 'gevalideerd')." ;
+        sh:path niod:imageIIIF ;
+        sh:name "IIIF Manifest"@nl ;
+        sh:description "Link naar het IIIF manifest van het object."@nl ;
+        sh:nodeKind sh:IRI ;
+    ] .
+
+### 2. SHAPE VOOR GEBEURTENISSEN (Event en alle subclasses zoals Omgekomen, Gevangen, etc.)
+niod:EventShape
+    a sh:NodeShape ;
+    sh:targetClass schema:Event, niod:Omgekomen, niod:Gevangen, niod:Gearresteerd, niod:Bekendmaking ;
+    sh:name "Gebeurtenis"@nl ;
+
+    # NIOD Property: Slachtoffer
+    sh:property [
+        sh:path niod:slachtoffer ;
+        sh:name "Slachtoffer"@nl ;
+        sh:description "Persoon die slachtoffer was in deze gebeurtenis."@nl ;
+        sh:nodeKind sh:IRI ; # Verwijst naar een schema:Person of picom:PersonObservation
+    ] ;
+
+    # NIOD Property: Opdrachtgever (specifiek genoemd voor Bekendmakingen)
+    sh:property [
+        sh:path niod:opdrachtgever ;
+        sh:name "Opdrachtgever"@nl ;
+        sh:description "Persoon of organisatie die de opdracht gaf voor de bekendmaking."@nl ;
+        sh:nodeKind sh:IRI ;
+    ] .
+
+### 3. SHAPE VOOR PERSONEN (Persons In Context)
+niod:PersonObservationShape
+    a sh:NodeShape ;
+    sh:targetClass picom:PersonObservation ;
+    sh:name "Persoonsvermelding"@nl ;
+    
+    sh:property [
+        sh:path schema:name ;
+        sh:name "Naam"@nl ;
         sh:datatype xsd:string ;
-        sh:in ("concept" "gevalideerd" "gearchiveerd") ; # Beperkt tot deze waarden
+        sh:minCount 1 ;
+    ] .
+
+### 4. SHAPE VOOR RECHTEN
+niod:RightsShape
+    a sh:NodeShape ;
+    sh:targetClass niod:Rights ;
+    sh:name "Rechten"@nl ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:name "Rechtenverklaring"@nl ;
+        sh:datatype xsd:string ;
     ] .
