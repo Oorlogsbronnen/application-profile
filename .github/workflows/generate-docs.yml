@@ -43,14 +43,13 @@ jobs:
           # 1. Voorbereiding
           mkdir -p out
           
-          # 2. Samenvoegen (deze methode is veilig voor prefixes)
+          # 2. Samenvoegen
           grep -h "@prefix" ontology/*.ttl | sort -u > full_profile.ttl
           grep -vh "@prefix" ontology/*.ttl >> full_profile.ttl
           
-          # 3. Widoco uitvoeren met de CORRECTE vlaggen uit jouw help-output
-          # -includeImported is vervangen door -includeImportedOntologies
-          # -verbose is verwijderd (niet ondersteund)
-          # -getOntologyMetadata toegevoegd om titel/beschrijving uit je TTL te halen
+          # 3. Widoco uitvoeren
+          # We voegen '-lang nl' toe om het in het Nederlands te proberen als je dat hebt,
+          # of we blijven bij de standaard.
           java -jar widoco.jar \
             -ontFile full_profile.ttl \
             -outFolder ./out \
@@ -59,14 +58,28 @@ jobs:
             -getOntologyMetadata \
             -includeImportedOntologies
 
-          # 4. Kopieer de context file
+          # 4. FIX: Verplaats bestanden als Widoco ze in een submap 'en' of 'nl' heeft gezet
+          # Soms maakt Widoco ./out/en/index.html aan. We halen alles naar ./out/
+          if [ -d "./out/en" ]; then
+            cp -r ./out/en/* ./out/
+          elif [ -d "./out/nl" ]; then
+            cp -r ./out/nl/* ./out/
+          fi
+
+          # 5. Kopieer de context file
           if [ -f context/context.jsonld ]; then
             cp context/context.jsonld out/context.jsonld
           fi
 
-          # 5. Check of de bouw gelukt is
+          # 6. Check of er een index file is (we accepteren nu ook index-en.html etc)
+          # We hernoemen de belangrijkste naar index.html voor GitHub Pages
+          if [ -f ./out/index-en.html ]; then cp ./out/index-en.html ./out/index.html; fi
+          if [ -f ./out/index-nl.html ]; then cp ./out/index-nl.html ./out/index.html; fi
+
           if [ ! -f ./out/index.html ]; then
-            echo "Fout: Widoco heeft nog steeds geen index.html gegenereerd."
+            echo "Bestanden in de out map:"
+            ls -R ./out
+            echo "Fout: Geen index.html gevonden na verplaatsen."
             exit 1
           fi
 
