@@ -3,22 +3,6 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Ontology" ]
 }, {
   "@id" : "_:genid2",
-  "http://www.w3.org/ns/shacl#description" : [ {
-    "@language" : "nl",
-    "@value" : "Link naar het IIIF manifest van het object."
-  } ],
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "IIIF Manifest"
-  } ],
-  "http://www.w3.org/ns/shacl#nodeKind" : [ {
-    "@id" : "http://www.w3.org/ns/shacl#IRI"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "https://data.niod.nl/imageIIIF"
-  } ]
-}, {
-  "@id" : "_:genid3",
   "http://www.w3.org/ns/shacl#datatype" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
   } ],
@@ -34,23 +18,23 @@
     "@id" : "http://purl.org/dc/terms/title"
   } ]
 }, {
-  "@id" : "_:genid4",
+  "@id" : "_:genid3",
   "http://www.w3.org/ns/shacl#description" : [ {
     "@language" : "nl",
-    "@value" : "Persoon of organisatie die de opdracht gaf voor de bekendmaking."
+    "@value" : "Link naar het IIIF manifest van het object."
   } ],
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Opdrachtgever"
+    "@value" : "IIIF Manifest"
   } ],
   "http://www.w3.org/ns/shacl#nodeKind" : [ {
     "@id" : "http://www.w3.org/ns/shacl#IRI"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "https://data.niod.nl/opdrachtgever"
+    "@id" : "https://data.niod.nl/imageIIIF"
   } ]
 }, {
-  "@id" : "_:genid5",
+  "@id" : "_:genid4",
   "http://www.w3.org/ns/shacl#description" : [ {
     "@language" : "nl",
     "@value" : "Persoon die slachtoffer was in deze gebeurtenis."
@@ -64,6 +48,22 @@
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
     "@id" : "https://data.niod.nl/slachtoffer"
+  } ]
+}, {
+  "@id" : "_:genid5",
+  "http://www.w3.org/ns/shacl#description" : [ {
+    "@language" : "nl",
+    "@value" : "Persoon of organisatie die de opdracht gaf voor de bekendmaking."
+  } ],
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Opdrachtgever"
+  } ],
+  "http://www.w3.org/ns/shacl#nodeKind" : [ {
+    "@id" : "http://www.w3.org/ns/shacl#IRI"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "https://data.niod.nl/opdrachtgever"
   } ]
 }, {
   "@id" : "_:genid6",

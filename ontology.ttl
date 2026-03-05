@@ -595,15 +595,15 @@ rdf:comment rdf:type owl:AnnotationProperty .
                                                                                   <https://data.niod.nl/Certificate> ,
                                                                                   <https://data.niod.nl/Monument> .
 
-_:genid2 <http://www.w3.org/ns/shacl#description> "Link naar het IIIF manifest van het object."@nl ;
-          <http://www.w3.org/ns/shacl#name> "IIIF Manifest"@nl ;
-          <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ;
-          <http://www.w3.org/ns/shacl#path> <https://data.niod.nl/imageIIIF> .
-
-_:genid3 <http://www.w3.org/ns/shacl#datatype> xsd:string ;
+_:genid2 <http://www.w3.org/ns/shacl#datatype> xsd:string ;
           <http://www.w3.org/ns/shacl#minCount> 1 ;
           <http://www.w3.org/ns/shacl#name> "Titel"@nl ;
           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/terms/title> .
+
+_:genid3 <http://www.w3.org/ns/shacl#description> "Link naar het IIIF manifest van het object."@nl ;
+          <http://www.w3.org/ns/shacl#name> "IIIF Manifest"@nl ;
+          <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ;
+          <http://www.w3.org/ns/shacl#path> <https://data.niod.nl/imageIIIF> .
 
 
 ###  https://data.niod.nl/EventShape
@@ -618,15 +618,15 @@ _:genid3 <http://www.w3.org/ns/shacl#datatype> xsd:string ;
                                                                            <https://data.niod.nl/Gevangen> ,
                                                                            <https://data.niod.nl/Omgekomen> .
 
-_:genid4 <http://www.w3.org/ns/shacl#description> "Persoon of organisatie die de opdracht gaf voor de bekendmaking."@nl ;
-          <http://www.w3.org/ns/shacl#name> "Opdrachtgever"@nl ;
-          <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ;
-          <http://www.w3.org/ns/shacl#path> <https://data.niod.nl/opdrachtgever> .
-
-_:genid5 <http://www.w3.org/ns/shacl#description> "Persoon die slachtoffer was in deze gebeurtenis."@nl ;
+_:genid4 <http://www.w3.org/ns/shacl#description> "Persoon die slachtoffer was in deze gebeurtenis."@nl ;
           <http://www.w3.org/ns/shacl#name> "Slachtoffer"@nl ;
           <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ;
           <http://www.w3.org/ns/shacl#path> <https://data.niod.nl/slachtoffer> .
+
+_:genid5 <http://www.w3.org/ns/shacl#description> "Persoon of organisatie die de opdracht gaf voor de bekendmaking."@nl ;
+          <http://www.w3.org/ns/shacl#name> "Opdrachtgever"@nl ;
+          <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ;
+          <http://www.w3.org/ns/shacl#path> <https://data.niod.nl/opdrachtgever> .
 
 
 ###  https://data.niod.nl/PersonObservationShape
