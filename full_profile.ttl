@@ -1,0 +1,518 @@
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix edm: <http://www.europeana.eu/schemas/edm/> .
+@prefix niod:   <https://data.niod.nl/> .
+@prefix niod: <https://data.niod.nl/> .
+@prefix picom:  <https://personsincontext.org/model#> .
+@prefix picom: <https://personsincontext.org/model#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+
+### This file defines oorlogsbronnen specific classes and properties
+
+## Dutch labels for classes used in Oorlogsbronnen
+
+# Dutch labels for Objects
+schema:CreativeWork rdfs:label "Object"@nl .
+schema:Article rdfs:label "Krantartikel"@nl . #TBD replace with schema:NewsArticle
+schema:Newspaper rdfs:label "Krant"@nl .
+schema:Book rdfs:label "Boek"@nl .
+schema:Photograph rdfs:label "Foto"@nl .
+schema:VisualArtwork rdfs:label "Kunstwerk"@nl .
+schema:VideoObject rdfs:label "Video"@nl .
+schema:AudioObject rdfs:label "Audio"@nl .
+schema:ImageObject rdfs:label "Afbeelding"@nl .
+schema:Painting rdfs:label "Schilderij"@nl .
+schema:Sculpture rdfs:label "Beeldhouwwerk"@nl .
+schema:SheetMusic rdfs:label "Bladmuziek"@nl .
+
+# Dutch labels for Persons and places
+schema:Person rdfs:label "Persoon"@nl .
+schema:Place rdfs:label "Locatie"@nl .
+
+## Additional level of classes between CreativeWork and specific types
+niod:Afbeelding a rdfs:Class ;
+	rdfs:label "Afbeelding"@nl ;
+	rdfs:subClassOf schema:CreativeWork ;
+	rdf:comment "Superclass of all collection objects with a visuel element."@en .
+
+schema:Photograph rdfs:subClassOf niod:Afbeelding .
+schema:ImageObject rdfs:subClassOf niod:Afbeelding .
+schema:VisualArtwork rdfs:subClassOf niod:Afbeelding .
+schema:SheetMusic rdfs:subClassOf niod:Afbeelding .
+niod:Bekendmaking rdfs:subClassOf niod:Afbeelding .
+
+niod:Archiefmateriaal a rdfs:Class ;
+	rdfs:label "Archiefmateriaal"@nl ;
+	rdfs:subClassOf schema:CreativeWork ;
+	rdf:comment "Class for all archivematerial"@en .
+
+niod:Archive rdfs:subClassOf niod:Archiefmateriaal .
+niod:ArchiveSeries rdfs:subClassOf niod:Archiefmateriaal .
+niod:ArchiveFile rdfs:subClassOf niod:Archiefmateriaal .
+
+## Specific subclasses of schema:CreativeWork
+
+niod:Monument a rdfs:Class ;
+	rdfs:label "Monument"@nl ;
+	rdfs:subClassOf schema:CreativeWork ;
+	rdf:comment "Class for monuments"@en .
+
+niod:Archive a rdfs:Class ;
+	rdfs:label "Archief"@nl ;
+	rdfs:subClassOf schema:CreativeWork ;
+	rdf:comment "Class for an archive"@en .
+
+niod:ArchiveSeries a rdfs:Class ;
+	rdfs:label "Archiefreeks"@nl ;
+	rdfs:subClassOf niod:Archive ;
+	rdf:comment "Class for a collection of archival documents"@en .
+
+niod:ArchiveFile a rdfs:Class ;
+	rdfs:label "Archiefstuk"@nl ;
+	rdfs:subClassOf niod:Archive ;
+	rdf:comment "Class for archival documents"@en .
+
+niod:Certificate a rdfs:Class ;
+  	rdfs:label "Akte"@nl ;
+  	rdfs:subClassOf schema:CreativeWork ;
+  	rdf:comment "Class for archival certificates"@en .
+
+niod:Interview a rdfs:Class ;
+	rdfs:label "Interview"@nl ;
+	rdfs:subClassOf schema:CreativeWork ;
+	rdf:comment "Class for interviews"@en .
+
+niod:InterviewSegment a rdfs:Class ;
+	rdfs:label "Fragment"@nl ;
+	rdfs:subClassOf schema:CreativeWork ;
+	rdf:comment "Class for interviews segments"@en .
+
+## Curated content
+
+niod:Webpagina a rdfs:Class ;
+	rdfs:label "Webpagina"@nl ;
+	rdf:comment "Class for all web content created by Oorlogsbronnen"@en .
+
+schema:WebPage rdfs:subClassOf niod:Webpagina .
+skos:Concept rdfs:subClassOf niod:Webpagina . # hack to get all thesaurus content available as webpagina
+
+## More specific classes of schema:Event
+
+# Concept: "Omgekomen"
+niod:Omgekomen a rdfs:Class ;
+    rdfs:label "Omgekomen"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/8772> .
+
+# Concept: "Geboren"
+niod:Geboren a rdfs:Class ;
+    rdfs:label "Geboren"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6360> .
+
+# Concept: "Gevangen"
+niod:Gevangen a rdfs:Class ;
+    rdfs:label "Gevangen"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:comment "Gevangen verwijst naar de gevangenschap van burgers in (concentratie)kampen en gevangenissen. Voor krijgsgevangenen gebruiken we 'Geïnterneerd'. Ook voor gevangen burgers uit Nederlands-Indië wordt de term 'Geïnterneerd' gebruikt."@nl ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6354> .
+
+# Concept: "Bevrijd uit"
+niod:BevrijdUit a rdfs:Class ;
+    rdfs:label "Bevrijd uit"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:comment "Bevrijd worden uit een kamp of gevangenis."@nl ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6347> .
+
+# Concept: "Gearresteerd"
+niod:Gearresteerd a rdfs:Class ;
+    rdfs:label "Gearresteerd"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:comment "Aangehouden of opgepakt worden."@nl ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6344> .
+
+# Concept: "Ontsnapt"
+niod:Ontsnapt a rdfs:Class ;
+    rdfs:label "Ontsnapt"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/8795> .
+
+# Concept: "Opgepakt"
+niod:Opgepakt a rdfs:Class ;
+    rdfs:label "Opgepakt"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:comment "Opgepakt betekent de aanhouding van een persoon zonder dat daarna een juridisch traject gestart is. Opgepakt wordt meestal gebruikt voor personen die (willekeurig) aangehouden zijn tijdens razzia's en repressailles."@nl ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6345> .
+
+# Concept: "Getransporteerd"
+niod:Getransporteerd a rdfs:Class ;
+    rdfs:label "Getransporteerd"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6348> .
+
+# Concept: "Tewerkgesteld"
+niod:Tewerkgesteld a rdfs:Class ;
+    rdfs:label "Tewerkgesteld"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/8514> .
+
+# Concept: "Teruggekeerd"
+niod:Teruggekeerd a rdfs:Class ;
+    rdfs:label "Teruggekeerd"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/18496> .
+
+# Concept: "Gevlucht"
+niod:Gevlucht a rdfs:Class ;
+    rdfs:label "Gevlucht"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6353> .
+
+# Concept: "Gestorven"
+niod:Gestorven a rdfs:Class ;
+    rdfs:label "Gestorven"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6361> .
+
+# Concept: "Vrijgelaten"
+niod:Vrijgelaten a rdfs:Class ;
+    rdfs:label "Vrijgelaten"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6346> .
+
+# Concept: "Lid geweest"
+niod:LidGeweest a rdfs:Class ;
+    rdfs:label "Lid geweest"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6352> .
+
+# Concept: "Geëxecuteerd"
+niod:Geëxecuteerd a rdfs:Class ;
+    rdfs:label "Geëxecuteerd"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:comment "Standrechtelijk omgebracht worden. Geëxecuteerd is het werkwoord om het slachtoffer van de executie te benoemen."@nl ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6357> .
+
+# Concept: "Overleden"
+niod:Overleden a rdfs:Class ;
+    rdfs:label "Overleden"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/8771> .
+
+# Concept: "Verraden"
+niod:Verraden a rdfs:Class ;
+    rdfs:label "Verraden"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:comment "Verraden worden. Werkwoord om de persoon te beschrijven die verraden is."@nl ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6358> .
+
+# Concept: "Getroffen"
+niod:Getroffen a rdfs:Class ;
+    rdfs:label "Getroffen"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6356> .
+
+# Concept: "Geïnterneerd"
+niod:Geïnterneerd a rdfs:Class ;
+    rdfs:label "Geïnterneerd"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:comment "Geïnterneerd verwijst naar militairen die gevangen zitten in kampen of gevangenissen. Ook naar burgers in Nederlands-Indië die gevangen zitten in kampen wordt verwezen als geïnterneerden. Voor alle overige burgers in kampen en gevangenissen gebruiken we 'Gevangen'."@nl ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6349> .
+
+# Concept: "Afgepakt"
+niod:Afgepakt a rdfs:Class ;
+    rdfs:label "Afgepakt"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:comment "Afgepakt is de term voor de persoonlijke gebeurtenis waarbij roerende of onroerende bezittingen afgenomen worden van de eigenaar."@nl ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/19486> .
+
+# Concept: "Opgeroepen"
+niod:Opgeroepen a rdfs:Class ;
+    rdfs:label "Opgeroepen"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/8542> .
+
+# Concept: "Gehuwd"
+niod:Gehuwd a rdfs:Class ;
+    rdfs:label "Gehuwd"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/18966> .
+
+# Concept: "Opgericht"
+niod:Opgericht a rdfs:Class ;
+    rdfs:label "Opgericht"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/13792> .
+
+# Concept: "Benoemd"
+niod:Benoemd a rdfs:Class ;
+    rdfs:label "Benoemd"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/13790> .
+
+# Concept: "Veroordeeld"
+niod:Veroordeeld a rdfs:Class ;
+    rdfs:label "Veroordeeld"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6563> .
+
+# Concept: "Geleid"
+niod:Geleid a rdfs:Class ;
+    rdfs:label "Geleid"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:comment "Leider zijn van, baas zijn over. Werkwoord om het leiden van een partij, groep of organisatie te beschrijven."@nl ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11182> .
+
+# Concept: "Arresteert"
+niod:Arresteert a rdfs:Class ;
+    rdfs:label "Arresteert"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:comment "Het actief arresteren of oppakken van mensen. Werkwoord om de arresterende persoon te benoemen."@nl ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11179> .
+
+# Concept: "Gerecruteerd"
+niod:Gerecruteerd a rdfs:Class ;
+    rdfs:label "Gerecruteerd"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:comment "Gerecruteerd betekent geworven voor militaire of geheime diensten."@nl ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6362> .
+
+# Concept: "Vertrokken"
+niod:Vertrokken a rdfs:Class ;
+    rdfs:label "Vertrokken"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/13791> .
+
+# Concept: "Vrijgesproken"
+niod:Vrijgesproken a rdfs:Class ;
+    rdfs:label "Vrijgesproken"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/14203> .
+
+# Concept: "Gevochten"
+niod:Gevochten a rdfs:Class ;
+    rdfs:label "Gevochten"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6359> .
+
+# Concept: "Verraadt"
+niod:Verraadt a rdfs:Class ;
+    rdfs:label "Verraadt"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:comment "Het verraden van een ander mens. Werkwoord om de verrader te benoemen."@nl ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11177> .
+
+# Concept: "Gedecoreerd"
+niod:Gedecoreerd a rdfs:Class ;
+    rdfs:label "Gedecoreerd"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6365> .
+
+# Concept: "Geroyeerd"
+niod:Geroyeerd a rdfs:Class ;
+    rdfs:label "Geroyeerd"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11178> .
+
+# Concept: "Ondergedoken"
+niod:Ondergedoken a rdfs:Class ;
+    rdfs:label "Ondergedoken"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6351> .
+
+# Concept: "Executeert"
+niod:Executeert a rdfs:Class ;
+    rdfs:label "Executeert"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:comment "Het actief ombrengen van een persoon (in opdracht van..). Werkwoord om uitvoerder van de executie te benoemen."@nl ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11176> .
+
+# Concept: "Opgevangen"
+niod:Opgevangen a rdfs:Class ;
+    rdfs:label "Opgevangen"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/10956> .
+
+# Concept: "Gevaren"
+niod:Gevaren a rdfs:Class ;
+    rdfs:label "Gevaren"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11181> .
+
+# Concept: "Geliquideerd"
+niod:Geliquideerd a rdfs:Class ;
+    rdfs:label "Geliquideerd"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/16379> .
+
+# Concept: "Bevrijd in"
+niod:BevrijdIn a rdfs:Class ;
+    rdfs:label "Bevrijd in"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:comment "Plaats/stad of land waarin een persoon bevrijd wordt."@nl ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11173> .
+
+# Concept: "Geland"
+niod:Geland a rdfs:Class ;
+    rdfs:label "Geland"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:comment "Het aan land komen (zowel per boot als vliegtuig) van een persoon."@nl ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6363> .
+
+# Concept: "Gepleegd"
+niod:Gepleegd a rdfs:Class ;
+    rdfs:label "Gepleegd"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:comment "Het uitvoeren van een (ondermijnende) activiteit, zoals een aanslag of overval. Werkwoord om de uitvoerder van de aanslag te benoemen."@nl ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6355> .
+
+# Concept: "Op pad gegaan"
+niod:OpPadGegaan a rdfs:Class ;
+    rdfs:label "Op pad gegaan"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/17064> .
+
+# Concept: "Vrijgesteld"
+niod:Vrijgesteld a rdfs:Class ;
+    rdfs:label "Vrijgesteld"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6562> .
+
+# Concept: "Geëvacueerd"
+niod:Geëvacueerd a rdfs:Class ;
+    rdfs:label "Geëvacueerd"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11174> .
+
+# Concept: "Vermist"
+niod:Vermist a rdfs:Class ;
+    rdfs:label "Vermist"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/10946> .
+
+# Concept: "Gedwongen verhuisd"
+niod:GedwongenVerhuisd a rdfs:Class ;
+    rdfs:label "Gedwongen verhuisd"@nl ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/19198> .
+
+## Classes and properties for 'Bekendmakingen'
+
+niod:Bekendmaking a rdfs:Class ;
+ 	rdfs:label "Bekendmaking"@nl ;
+	rdfs:subClassOf schema:Event ;
+	rdf:comment "Class for official announcements, treated as events "@en .
+
+niod:slachtoffer a rdf:Property ;
+	rdfs:label "slachtoffer"@nl ;
+	rdfs:subPropertyOf schema:actor ;
+	rdf:comment "Een persoon die slachtoffer was in een gebeurtenis"@nl .
+
+niod:opdrachtgever a rdf:Property ;
+	rdfs:label "opdrachtgever"@nl ;
+	rdfs:subPropertyOf schema:actor ;
+	rdf:comment "Een persoon die de opdrachtgever was van een bekendmaking"@nl .
+
+niod:genoemde a rdf:Property ;
+	rdfs:label "genoemde"@nl ;
+	rdfs:subPropertyOf schema:actor ;
+	rdf:comment "Een persoon die genoemd wordt bij een bekendmaking"@nl .
+
+## Other NIOD properties
+
+niod:imageIIIF a rdf:Property ;
+	rdfs:label "IIIF Manifest"@nl ;
+	rdfs:subPropertyOf schema:image ;
+	rdf:comment "IIIF manifest van afbeeldingen die bij de bron beschikbaar zijn in IIIF formaat"@nl .
+
+## Class for rights statements
+
+niod:Rights a rdfs:Class ;
+	rdfs:label "Rechten"@nl ;
+	rdf:comment "Rights Statement"@en .
+
+## Classes for persons from Persons In Context
+
+picom:PersonObservation a rdfs:Class ;
+        rdfs:label "Persoonsvermelding"@nl ;
+        rdf:comment "Persoon zoals geobserveerd in een bron"@nl .
+    
+picom:PersonReconstruction a rdfs:Class ;
+        rdfs:label "Persoonsreconstructie"@nl ;
+        rdf:comment "Persoon gemodelleerd op basis van een of meer persoonsvermeldingen"@nl .
+
+### 1. SHAPE VOOR OBJECTEN (CreativeWork en subclasses)
+# Dit geldt voor Boek, Foto, Archiefmateriaal, etc.
+niod:CreativeWorkShape
+    a sh:NodeShape ;
+    sh:targetClass schema:CreativeWork, niod:Afbeelding, niod:Archiefmateriaal, niod:Monument, niod:Certificate ;
+    sh:name "Object"@nl ;
+    sh:description "Basisregels voor alle collectiestukken en documenten."@nl ;
+
+    # Voorbeeld property uit Dublin Core
+    sh:property [
+        sh:path dct:title ;
+        sh:name "Titel"@nl ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+    ] ;
+
+    # NIOD specifieke property voor IIIF
+    sh:property [
+        sh:path niod:imageIIIF ;
+        sh:name "IIIF Manifest"@nl ;
+        sh:description "Link naar het IIIF manifest van het object."@nl ;
+        sh:nodeKind sh:IRI ;
+    ] .
+
+### 2. SHAPE VOOR GEBEURTENISSEN (Event en alle subclasses zoals Omgekomen, Gevangen, etc.)
+niod:EventShape
+    a sh:NodeShape ;
+    sh:targetClass schema:Event, niod:Omgekomen, niod:Gevangen, niod:Gearresteerd, niod:Bekendmaking ;
+    sh:name "Gebeurtenis"@nl ;
+
+    # NIOD Property: Slachtoffer
+    sh:property [
+        sh:path niod:slachtoffer ;
+        sh:name "Slachtoffer"@nl ;
+        sh:description "Persoon die slachtoffer was in deze gebeurtenis."@nl ;
+        sh:nodeKind sh:IRI ; # Verwijst naar een schema:Person of picom:PersonObservation
+    ] ;
+
+    # NIOD Property: Opdrachtgever (specifiek genoemd voor Bekendmakingen)
+    sh:property [
+        sh:path niod:opdrachtgever ;
+        sh:name "Opdrachtgever"@nl ;
+        sh:description "Persoon of organisatie die de opdracht gaf voor de bekendmaking."@nl ;
+        sh:nodeKind sh:IRI ;
+    ] .
+
+### 3. SHAPE VOOR PERSONEN (Persons In Context)
+niod:PersonObservationShape
+    a sh:NodeShape ;
+    sh:targetClass picom:PersonObservation ;
+    sh:name "Persoonsvermelding"@nl ;
+    
+    sh:property [
+        sh:path schema:name ;
+        sh:name "Naam"@nl ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] .
+
+### 4. SHAPE VOOR RECHTEN
+niod:RightsShape
+    a sh:NodeShape ;
+    sh:targetClass niod:Rights ;
+    sh:name "Rechten"@nl ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:name "Rechtenverklaring"@nl ;
+        sh:datatype xsd:string ;
+    ] .
