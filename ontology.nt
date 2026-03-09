@@ -38,6 +38,9 @@ _:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/20
 # http://www.w3.org/ns/shacl#nodeKind
 <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
+# http://www.w3.org/ns/shacl#or
+<http://www.w3.org/ns/shacl#or> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
 # http://www.w3.org/ns/shacl#path
 <http://www.w3.org/ns/shacl#path> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
@@ -512,376 +515,236 @@ _:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/20
 # #################################################################
 # 
 # 
+# http://data.niod.nl/Base_Date
+<http://data.niod.nl/Base_Date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://data.niod.nl/Base_Date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
+<http://data.niod.nl/Base_Date> <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#date> .
+# 
+# http://data.niod.nl/Base_DateOrInteger
+<http://data.niod.nl/Base_DateOrInteger> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://data.niod.nl/Base_DateOrInteger> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
+<http://data.niod.nl/Base_DateOrInteger> <http://www.w3.org/ns/shacl#or> _:genid2 .
+# 
+# http://data.niod.nl/Base_IRI
+<http://data.niod.nl/Base_IRI> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://data.niod.nl/Base_IRI> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
+<http://data.niod.nl/Base_IRI> <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
+# 
+# http://data.niod.nl/Base_Integer
+<http://data.niod.nl/Base_Integer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://data.niod.nl/Base_Integer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
+<http://data.niod.nl/Base_Integer> <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#integer> .
+# 
+# http://data.niod.nl/Base_String
+<http://data.niod.nl/Base_String> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://data.niod.nl/Base_String> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
+<http://data.niod.nl/Base_String> <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#string> .
+# 
+# http://data.niod.nl/Base_StringOrIRI
+<http://data.niod.nl/Base_StringOrIRI> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://data.niod.nl/Base_StringOrIRI> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
+<http://data.niod.nl/Base_StringOrIRI> <http://www.w3.org/ns/shacl#or> _:genid3 .
+# 
 # http://data.niod.nl/GebeurtenisShape
 <http://data.niod.nl/GebeurtenisShape> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <http://data.niod.nl/GebeurtenisShape> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#NodeShape> .
 <http://data.niod.nl/GebeurtenisShape> <http://www.w3.org/ns/shacl#name> "Gebeurtenis"@nl .
-<http://data.niod.nl/GebeurtenisShape> <http://www.w3.org/ns/shacl#property> _:genid2 .
-_:genid2 <http://www.w3.org/ns/shacl#path> <http://schema.org/datePublished> .
-_:genid2 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/TechnicalDateRule> .
-_:genid2 <http://www.w3.org/ns/shacl#name> "Datum van plaatsvinden"@nl .
-_:genid2 <http://www.w3.org/ns/shacl#description> "De dag waarop de gebeurtenis startte."@nl .
-<http://data.niod.nl/GebeurtenisShape> <http://www.w3.org/ns/shacl#property> _:genid3 .
-_:genid3 <http://www.w3.org/ns/shacl#path> <http://schema.org/name> .
-_:genid3 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/TechnicalNameRule> .
-_:genid3 <http://www.w3.org/ns/shacl#name> "Titel van gebeurtenis"@nl .
-_:genid3 <http://www.w3.org/ns/shacl#description> "Bijv: 'Transport vanuit Kamp Amersfoort' of 'Razzia van Rotterdam'."@nl .
+<http://data.niod.nl/GebeurtenisShape> <http://www.w3.org/ns/shacl#property> _:genid4 .
+_:genid4 <http://www.w3.org/ns/shacl#path> <http://schema.org/name> .
+_:genid4 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/TechnicalNameRule> .
+_:genid4 <http://www.w3.org/ns/shacl#name> "Titel van gebeurtenis"@nl .
+_:genid4 <http://www.w3.org/ns/shacl#description> "Bijv: 'Transport vanuit Kamp Amersfoort' of 'Razzia van Rotterdam'."@nl .
+<http://data.niod.nl/GebeurtenisShape> <http://www.w3.org/ns/shacl#property> _:genid5 .
+_:genid5 <http://www.w3.org/ns/shacl#path> <http://schema.org/datePublished> .
+_:genid5 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/TechnicalDateRule> .
+_:genid5 <http://www.w3.org/ns/shacl#name> "Datum van plaatsvinden"@nl .
+_:genid5 <http://www.w3.org/ns/shacl#description> "De dag waarop de gebeurtenis startte."@nl .
 <http://data.niod.nl/GebeurtenisShape> <http://www.w3.org/ns/shacl#targetClass> <http://schema.org/Event> .
 # 
 # http://data.niod.nl/ObjectShape
 <http://data.niod.nl/ObjectShape> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <http://data.niod.nl/ObjectShape> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#NodeShape> .
 <http://data.niod.nl/ObjectShape> <http://www.w3.org/ns/shacl#name> "Archiefstuk of Object"@nl .
-<http://data.niod.nl/ObjectShape> <http://www.w3.org/ns/shacl#property> _:genid4 .
-_:genid4 <http://www.w3.org/ns/shacl#path> <http://schema.org/name> .
-_:genid4 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/TechnicalNameRule> .
-_:genid4 <http://www.w3.org/ns/shacl#name> "Objecttitel"@nl .
-_:genid4 <http://www.w3.org/ns/shacl#description> "De titel van het document of de naam van het voorwerp."@nl .
-<http://data.niod.nl/ObjectShape> <http://www.w3.org/ns/shacl#property> _:genid5 .
-_:genid5 <http://www.w3.org/ns/shacl#path> <http://schema.org/description> .
-_:genid5 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/TechnicalDescriptionRule> .
-_:genid5 <http://www.w3.org/ns/shacl#name> "Inhoudelijke beschrijving"@nl .
-_:genid5 <http://www.w3.org/ns/shacl#description> "Samenvatting van de inhoud van het archiefstuk."@nl .
+<http://data.niod.nl/ObjectShape> <http://www.w3.org/ns/shacl#property> _:genid6 .
+_:genid6 <http://www.w3.org/ns/shacl#path> <http://schema.org/name> .
+_:genid6 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/TechnicalNameRule> .
+_:genid6 <http://www.w3.org/ns/shacl#name> "Objecttitel"@nl .
+_:genid6 <http://www.w3.org/ns/shacl#description> "De titel van het document of de naam van het voorwerp."@nl .
+<http://data.niod.nl/ObjectShape> <http://www.w3.org/ns/shacl#property> _:genid7 .
+_:genid7 <http://www.w3.org/ns/shacl#path> <http://schema.org/description> .
+_:genid7 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/TechnicalDescriptionRule> .
+_:genid7 <http://www.w3.org/ns/shacl#name> "Inhoudelijke beschrijving"@nl .
+_:genid7 <http://www.w3.org/ns/shacl#description> "Samenvatting van de inhoud van het archiefstuk."@nl .
 <http://data.niod.nl/ObjectShape> <http://www.w3.org/ns/shacl#targetClass> <http://schema.org/CreativeWork> .
+# 
+# http://data.niod.nl/PersoonReconstructionShape
+<http://data.niod.nl/PersoonReconstructionShape> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://data.niod.nl/PersoonReconstructionShape> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#NodeShape> .
+<http://data.niod.nl/PersoonReconstructionShape> <http://www.w3.org/ns/shacl#description> "De geaggregeerde en gevalideerde gegevens van een persoon, samengesteld uit één of meerdere bronvermeldingen."@nl .
+<http://data.niod.nl/PersoonReconstructionShape> <http://www.w3.org/ns/shacl#name> "Persoonsreconstructie"@nl .
+<http://data.niod.nl/PersoonReconstructionShape> <http://www.w3.org/ns/shacl#property> _:genid8 .
+_:genid8 <http://www.w3.org/ns/shacl#path> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> .
+_:genid8 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_type> .
+_:genid8 <http://www.w3.org/ns/shacl#name> "Type entiteit"@nl .
+_:genid8 <http://www.w3.org/ns/shacl#description> "Classificatie van de entiteit (meestal schema:Person)."@nl .
+<http://data.niod.nl/PersoonReconstructionShape> <http://www.w3.org/ns/shacl#property> _:genid9 .
+_:genid9 <http://www.w3.org/ns/shacl#path> <http://schema.org/identifier> .
+_:genid9 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_identifier_schema> .
+_:genid9 <http://www.w3.org/ns/shacl#name> "Persoons-ID"@nl .
+_:genid9 <http://www.w3.org/ns/shacl#description> "De unieke identifier van de gereconstrueerde persoon (bijv. een P-nummer)."@nl .
+<http://data.niod.nl/PersoonReconstructionShape> <http://www.w3.org/ns/shacl#property> _:genid10 .
+_:genid10 <http://www.w3.org/ns/shacl#path> <http://schema.org/alternateName> .
+_:genid10 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_alternateName> .
+_:genid10 <http://www.w3.org/ns/shacl#name> "Andere namen"@nl .
+_:genid10 <http://www.w3.org/ns/shacl#description> "Varianten, aliassen of historische schrijfwijzen van de naam."@nl .
+<http://data.niod.nl/PersoonReconstructionShape> <http://www.w3.org/ns/shacl#property> _:genid11 .
+_:genid11 <http://www.w3.org/ns/shacl#path> <http://schema.org/name> .
+_:genid11 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_name> .
+_:genid11 <http://www.w3.org/ns/shacl#name> "Voorkeursnaam"@nl .
+_:genid11 <http://www.w3.org/ns/shacl#description> "De gestandaardiseerde volledige naam van de persoon."@nl .
+<http://data.niod.nl/PersoonReconstructionShape> <http://www.w3.org/ns/shacl#property> _:genid12 .
+_:genid12 <http://www.w3.org/ns/shacl#path> <http://schema.org/birthDate> .
+_:genid12 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_birthDate> .
+_:genid12 <http://www.w3.org/ns/shacl#name> "Geboortedatum"@nl .
+<http://data.niod.nl/PersoonReconstructionShape> <http://www.w3.org/ns/shacl#property> _:genid13 .
+_:genid13 <http://www.w3.org/ns/shacl#path> <http://schema.org/birthPlace> .
+_:genid13 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_birthPlace> .
+_:genid13 <http://www.w3.org/ns/shacl#name> "Geboorteplaats"@nl .
+<http://data.niod.nl/PersoonReconstructionShape> <http://www.w3.org/ns/shacl#property> _:genid14 .
+_:genid14 <http://www.w3.org/ns/shacl#path> <http://schema.org/deathDate> .
+_:genid14 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_deathDate> .
+_:genid14 <http://www.w3.org/ns/shacl#name> "Datum van overlijden"@nl .
+<http://data.niod.nl/PersoonReconstructionShape> <http://www.w3.org/ns/shacl#property> _:genid15 .
+_:genid15 <http://www.w3.org/ns/shacl#path> <http://schema.org/deathPlace> .
+_:genid15 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_deathPlace> .
+_:genid15 <http://www.w3.org/ns/shacl#name> "Plaats van overlijden"@nl .
+<http://data.niod.nl/PersoonReconstructionShape> <http://www.w3.org/ns/shacl#property> _:genid16 .
+_:genid16 <http://www.w3.org/ns/shacl#path> <https://personsincontext.org/model/#deceased> .
+_:genid16 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_deceased> .
+_:genid16 <http://www.w3.org/ns/shacl#name> "Overleden status"@nl .
+_:genid16 <http://www.w3.org/ns/shacl#description> "Indicatie of de persoon is overleden (bijv. Ja/Nee of tekstueel)."@nl .
+<http://data.niod.nl/PersoonReconstructionShape> <http://www.w3.org/ns/shacl#property> _:genid17 .
+_:genid17 <http://www.w3.org/ns/shacl#path> <http://schema.org/gender> .
+_:genid17 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_gender> .
+_:genid17 <http://www.w3.org/ns/shacl#name> "Geslacht"@nl .
+<http://data.niod.nl/PersoonReconstructionShape> <http://www.w3.org/ns/shacl#property> _:genid18 .
+_:genid18 <http://www.w3.org/ns/shacl#path> <http://schema.org/dateCreated> .
+_:genid18 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_dateCreated> .
+_:genid18 <http://www.w3.org/ns/shacl#name> "Aanmaakdatum"@nl .
+_:genid18 <http://www.w3.org/ns/shacl#description> "Datum waarop deze reconstructie voor het eerst is aangemaakt."@nl .
+<http://data.niod.nl/PersoonReconstructionShape> <http://www.w3.org/ns/shacl#property> _:genid19 .
+_:genid19 <http://www.w3.org/ns/shacl#path> <http://schema.org/dateModified> .
+_:genid19 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_dateModified> .
+_:genid19 <http://www.w3.org/ns/shacl#name> "Wijzigingsdatum"@nl .
+_:genid19 <http://www.w3.org/ns/shacl#description> "Datum waarop deze reconstructie voor het laatst is bijgewerkt."@nl .
+<http://data.niod.nl/PersoonReconstructionShape> <http://www.w3.org/ns/shacl#property> _:genid20 .
+_:genid20 <http://www.w3.org/ns/shacl#path> <http://www.w3.org/ns/prov#wasDerivedFrom> .
+_:genid20 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_wasDerivedFrom> .
+_:genid20 <http://www.w3.org/ns/shacl#name> "Afgeleid van"@nl .
+_:genid20 <http://www.w3.org/ns/shacl#description> "Verwijzing naar de bronnen of observaties waaruit deze reconstructie is opgebouwd."@nl .
+<http://data.niod.nl/PersoonReconstructionShape> <http://www.w3.org/ns/shacl#property> _:genid21 .
+_:genid21 <http://www.w3.org/ns/shacl#path> <http://schema.org/sameAs> .
+_:genid21 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_sameAs> .
+_:genid21 <http://www.w3.org/ns/shacl#name> "Andere autoriteit"@nl .
+_:genid21 <http://www.w3.org/ns/shacl#description> "Externe links naar dezelfde persoon in andere systemen (bijv. Wikidata, NTA)."@nl .
+<http://data.niod.nl/PersoonReconstructionShape> <http://www.w3.org/ns/shacl#property> _:genid22 .
+_:genid22 <http://www.w3.org/ns/shacl#path> <http://schema.org/keywords> .
+_:genid22 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_keywords> .
+_:genid22 <http://www.w3.org/ns/shacl#name> "Trefwoorden"@nl .
+_:genid22 <http://www.w3.org/ns/shacl#description> "Categorisering of kenmerken van de persoon uit een thesaurus."@nl .
+<http://data.niod.nl/PersoonReconstructionShape> <http://www.w3.org/ns/shacl#targetClass> <https://personsincontext.org/model/#PersonReconstruction> .
 # 
 # http://data.niod.nl/PersoonsvermeldingShape
 <http://data.niod.nl/PersoonsvermeldingShape> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <http://data.niod.nl/PersoonsvermeldingShape> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#NodeShape> .
+<http://data.niod.nl/PersoonsvermeldingShape> <http://www.w3.org/ns/shacl#description> "Een observatie of vermelding van een persoon binnen een specifieke historische bron."@nl .
 <http://data.niod.nl/PersoonsvermeldingShape> <http://www.w3.org/ns/shacl#name> "Persoonsvermelding"@nl .
-<http://data.niod.nl/PersoonsvermeldingShape> <http://www.w3.org/ns/shacl#property> _:genid6 .
-_:genid6 <http://www.w3.org/ns/shacl#path> <http://schema.org/name> .
-_:genid6 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/TechnicalNameRule> .
-_:genid6 <http://www.w3.org/ns/shacl#name> "Volledige naam"@nl .
-_:genid6 <http://www.w3.org/ns/shacl#description> "De naam van de persoon zoals vermeld in de bron."@nl .
-<http://data.niod.nl/PersoonsvermeldingShape> <http://www.w3.org/ns/shacl#property> _:genid7 .
-_:genid7 <http://www.w3.org/ns/shacl#path> <http://schema.org/description> .
-_:genid7 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/TechnicalDescriptionRule> .
-_:genid7 <http://www.w3.org/ns/shacl#name> "Biografische schets"@nl .
-_:genid7 <http://www.w3.org/ns/shacl#description> "Een korte beschrijving van de persoon of diens rol."@nl .
-<http://data.niod.nl/PersoonsvermeldingShape> <http://www.w3.org/ns/shacl#targetClass> <http://data.niod.nl/Persoonsvermelding> .
+<http://data.niod.nl/PersoonsvermeldingShape> <http://www.w3.org/ns/shacl#property> _:genid23 .
+_:genid23 <http://www.w3.org/ns/shacl#path> <http://schema.org/name> .
+_:genid23 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_name> .
+_:genid23 <http://www.w3.org/ns/shacl#name> "Volledige naam"@nl .
+_:genid23 <http://www.w3.org/ns/shacl#description> "De volledige naam zoals deze letterlijk in de bron staat."@nl .
+<http://data.niod.nl/PersoonsvermeldingShape> <http://www.w3.org/ns/shacl#property> _:genid24 .
+_:genid24 <http://www.w3.org/ns/shacl#path> <http://schema.org/givenName> .
+_:genid24 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_givenName> .
+_:genid24 <http://www.w3.org/ns/shacl#name> "Voornaam"@nl .
+_:genid24 <http://www.w3.org/ns/shacl#description> "De roepnaam of eerste voornaam van de persoon."@nl .
+<http://data.niod.nl/PersoonsvermeldingShape> <http://www.w3.org/ns/shacl#property> _:genid25 .
+_:genid25 <http://www.w3.org/ns/shacl#path> <http://schema.org/familyName> .
+_:genid25 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_familyName> .
+_:genid25 <http://www.w3.org/ns/shacl#name> "Achternaam"@nl .
+_:genid25 <http://www.w3.org/ns/shacl#description> "De geslachtsnaam, inclusief tussenvoegsels."@nl .
+<http://data.niod.nl/PersoonsvermeldingShape> <http://www.w3.org/ns/shacl#property> _:genid26 .
+_:genid26 <http://www.w3.org/ns/shacl#path> <https://w3id.org/pnv#initials> .
+_:genid26 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_initials> .
+_:genid26 <http://www.w3.org/ns/shacl#name> "Initialen"@nl .
+_:genid26 <http://www.w3.org/ns/shacl#description> "De voorletters van de persoon."@nl .
+<http://data.niod.nl/PersoonsvermeldingShape> <http://www.w3.org/ns/shacl#property> _:genid27 .
+_:genid27 <http://www.w3.org/ns/shacl#path> <http://schema.org/alternateName> .
+_:genid27 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_alternateName> .
+_:genid27 <http://www.w3.org/ns/shacl#name> "Alias of roepnaam"@nl .
+_:genid27 <http://www.w3.org/ns/shacl#description> "Andere namen waaronder de persoon bekend was (bijv. schuilnaam)."@nl .
+<http://data.niod.nl/PersoonsvermeldingShape> <http://www.w3.org/ns/shacl#property> _:genid28 .
+_:genid28 <http://www.w3.org/ns/shacl#path> <http://schema.org/identifier> .
+_:genid28 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_identifier_schema> .
+_:genid28 <http://www.w3.org/ns/shacl#name> "Identificatiecode"@nl .
+_:genid28 <http://www.w3.org/ns/shacl#description> "Een uniek kenmerk of registratienummer uit de bron."@nl .
+<http://data.niod.nl/PersoonsvermeldingShape> <http://www.w3.org/ns/shacl#property> _:genid29 .
+_:genid29 <http://www.w3.org/ns/shacl#path> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> .
+_:genid29 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_type> .
+_:genid29 <http://www.w3.org/ns/shacl#name> "Type observatie"@nl .
+_:genid29 <http://www.w3.org/ns/shacl#description> "Classificatie van het type persoonsvermelding."@nl .
+<http://data.niod.nl/PersoonsvermeldingShape> <http://www.w3.org/ns/shacl#property> _:genid30 .
+_:genid30 <http://www.w3.org/ns/shacl#path> <http://schema.org/birthDate> .
+_:genid30 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_birthDate> .
+_:genid30 <http://www.w3.org/ns/shacl#name> "Geboortedatum"@nl .
+_:genid30 <http://www.w3.org/ns/shacl#description> "Datum waarop de persoon is geboren."@nl .
+<http://data.niod.nl/PersoonsvermeldingShape> <http://www.w3.org/ns/shacl#property> _:genid31 .
+_:genid31 <http://www.w3.org/ns/shacl#path> <http://schema.org/birthPlace> .
+_:genid31 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_birthPlace> .
+_:genid31 <http://www.w3.org/ns/shacl#name> "Geboorteplaats"@nl .
+_:genid31 <http://www.w3.org/ns/shacl#description> "De geografische locatie waar de persoon is geboren."@nl .
+<http://data.niod.nl/PersoonsvermeldingShape> <http://www.w3.org/ns/shacl#property> _:genid32 .
+_:genid32 <http://www.w3.org/ns/shacl#path> <http://schema.org/deathDate> .
+_:genid32 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_deathDate> .
+_:genid32 <http://www.w3.org/ns/shacl#name> "Datum van overlijden"@nl .
+_:genid32 <http://www.w3.org/ns/shacl#description> "De datum waarop de persoon is gestorven."@nl .
+<http://data.niod.nl/PersoonsvermeldingShape> <http://www.w3.org/ns/shacl#property> _:genid33 .
+_:genid33 <http://www.w3.org/ns/shacl#path> <http://schema.org/deathPlace> .
+_:genid33 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_deathPlace> .
+_:genid33 <http://www.w3.org/ns/shacl#name> "Plaats van overlijden"@nl .
+_:genid33 <http://www.w3.org/ns/shacl#description> "De geografische locatie waar de persoon is gestorven."@nl .
+<http://data.niod.nl/PersoonsvermeldingShape> <http://www.w3.org/ns/shacl#property> _:genid34 .
+_:genid34 <http://www.w3.org/ns/shacl#path> <http://schema.org/hasOccupation> .
+_:genid34 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_hasOccupation> .
+_:genid34 <http://www.w3.org/ns/shacl#name> "Beroep of functie"@nl .
+_:genid34 <http://www.w3.org/ns/shacl#description> "Het beroep of de maatschappelijke rol van de persoon."@nl .
+<http://data.niod.nl/PersoonsvermeldingShape> <http://www.w3.org/ns/shacl#property> _:genid35 .
+_:genid35 <http://www.w3.org/ns/shacl#path> <http://schema.org/address> .
+_:genid35 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_address> .
+_:genid35 <http://www.w3.org/ns/shacl#name> "Adresgegevens"@nl .
+_:genid35 <http://www.w3.org/ns/shacl#description> "Woonplaats of laatst bekende adres."@nl .
+<http://data.niod.nl/PersoonsvermeldingShape> <http://www.w3.org/ns/shacl#property> _:genid36 .
+_:genid36 <http://www.w3.org/ns/shacl#path> <http://schema.org/about> .
+_:genid36 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_about> .
+_:genid36 <http://www.w3.org/ns/shacl#name> "Betreft"@nl .
+_:genid36 <http://www.w3.org/ns/shacl#description> "Onderwerp of entiteit waar deze vermelding over gaat."@nl .
+<http://data.niod.nl/PersoonsvermeldingShape> <http://www.w3.org/ns/shacl#property> _:genid37 .
+_:genid37 <http://www.w3.org/ns/shacl#path> <http://www.w3.org/ns/prov#hadPrimarySource> .
+_:genid37 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_hadPrimarySource> .
+_:genid37 <http://www.w3.org/ns/shacl#name> "Primaire bron"@nl .
+_:genid37 <http://www.w3.org/ns/shacl#description> "De originele bron waaruit deze informatie afkomstig is."@nl .
+<http://data.niod.nl/PersoonsvermeldingShape> <http://www.w3.org/ns/shacl#property> _:genid38 .
+_:genid38 <http://www.w3.org/ns/shacl#path> <http://schema.org/description> .
+_:genid38 <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_description_schema> .
+_:genid38 <http://www.w3.org/ns/shacl#name> "Biografische schets"@nl .
+_:genid38 <http://www.w3.org/ns/shacl#description> "Een korte beschrijving van de persoon of diens rol."@nl .
+<http://data.niod.nl/PersoonsvermeldingShape> <http://www.w3.org/ns/shacl#targetClass> <https://personsincontext.org/model/#PersonObservation> .
 # 
-# http://data.niod.nl/Rule_about
-<http://data.niod.nl/Rule_about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_about> <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-<http://data.niod.nl/Rule_about> <http://www.w3.org/ns/shacl#path> <http://schema.org/about> .
-# 
-# http://data.niod.nl/Rule_actor
-<http://data.niod.nl/Rule_actor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_actor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_actor> <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-<http://data.niod.nl/Rule_actor> <http://www.w3.org/ns/shacl#path> <http://schema.org/actor> .
-# 
-# http://data.niod.nl/Rule_additionalName
-<http://data.niod.nl/Rule_additionalName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_additionalName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_additionalName> <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#string> .
-<http://data.niod.nl/Rule_additionalName> <http://www.w3.org/ns/shacl#path> <http://schema.org/additionalName> .
-# 
-# http://data.niod.nl/Rule_additionalType
-<http://data.niod.nl/Rule_additionalType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_additionalType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_additionalType> <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-<http://data.niod.nl/Rule_additionalType> <http://www.w3.org/ns/shacl#path> <http://schema.org/additionalType> .
-# 
-# http://data.niod.nl/Rule_address
-<http://data.niod.nl/Rule_address> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_address> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_address> <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#string> .
-<http://data.niod.nl/Rule_address> <http://www.w3.org/ns/shacl#path> <http://schema.org/address> .
-# 
-# http://data.niod.nl/Rule_alternateName
-<http://data.niod.nl/Rule_alternateName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_alternateName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_alternateName> <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#string> .
-<http://data.niod.nl/Rule_alternateName> <http://www.w3.org/ns/shacl#path> <http://schema.org/alternateName> .
-# 
-# http://data.niod.nl/Rule_birthDate
-<http://data.niod.nl/Rule_birthDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_birthDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_birthDate> <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#date> .
-<http://data.niod.nl/Rule_birthDate> <http://www.w3.org/ns/shacl#maxCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://data.niod.nl/Rule_birthDate> <http://www.w3.org/ns/shacl#path> <http://schema.org/birthDate> .
-# 
-# http://data.niod.nl/Rule_birthPlace
-<http://data.niod.nl/Rule_birthPlace> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_birthPlace> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_birthPlace> <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-<http://data.niod.nl/Rule_birthPlace> <http://www.w3.org/ns/shacl#path> <http://schema.org/birthPlace> .
-# 
-# http://data.niod.nl/Rule_caption
-<http://data.niod.nl/Rule_caption> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_caption> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_caption> <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#string> .
-<http://data.niod.nl/Rule_caption> <http://www.w3.org/ns/shacl#maxCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://data.niod.nl/Rule_caption> <http://www.w3.org/ns/shacl#path> <http://schema.org/caption> .
-# 
-# http://data.niod.nl/Rule_contentLocation
-<http://data.niod.nl/Rule_contentLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_contentLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_contentLocation> <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-<http://data.niod.nl/Rule_contentLocation> <http://www.w3.org/ns/shacl#path> <http://schema.org/contentLocation> .
-# 
-# http://data.niod.nl/Rule_contentUrl
-<http://data.niod.nl/Rule_contentUrl> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_contentUrl> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_contentUrl> <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-<http://data.niod.nl/Rule_contentUrl> <http://www.w3.org/ns/shacl#path> <http://schema.org/contentUrl> .
-# 
-# http://data.niod.nl/Rule_creator
-<http://data.niod.nl/Rule_creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_creator> <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-<http://data.niod.nl/Rule_creator> <http://www.w3.org/ns/shacl#path> <http://schema.org/creator> .
-# 
-# http://data.niod.nl/Rule_date
-<http://data.niod.nl/Rule_date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_date> <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#date> .
-<http://data.niod.nl/Rule_date> <http://www.w3.org/ns/shacl#maxCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://data.niod.nl/Rule_date> <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/date> .
-# 
-# http://data.niod.nl/Rule_dateCreated
-<http://data.niod.nl/Rule_dateCreated> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_dateCreated> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_dateCreated> <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#date> .
-<http://data.niod.nl/Rule_dateCreated> <http://www.w3.org/ns/shacl#maxCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://data.niod.nl/Rule_dateCreated> <http://www.w3.org/ns/shacl#path> <http://schema.org/dateCreated> .
-# 
-# http://data.niod.nl/Rule_dateModified
-<http://data.niod.nl/Rule_dateModified> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_dateModified> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_dateModified> <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#date> .
-<http://data.niod.nl/Rule_dateModified> <http://www.w3.org/ns/shacl#maxCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://data.niod.nl/Rule_dateModified> <http://www.w3.org/ns/shacl#path> <http://schema.org/dateModified> .
-# 
-# http://data.niod.nl/Rule_deathDate
-<http://data.niod.nl/Rule_deathDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_deathDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_deathDate> <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#date> .
-<http://data.niod.nl/Rule_deathDate> <http://www.w3.org/ns/shacl#maxCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://data.niod.nl/Rule_deathDate> <http://www.w3.org/ns/shacl#path> <http://schema.org/deathDate> .
-# 
-# http://data.niod.nl/Rule_deathPlace
-<http://data.niod.nl/Rule_deathPlace> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_deathPlace> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_deathPlace> <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-<http://data.niod.nl/Rule_deathPlace> <http://www.w3.org/ns/shacl#path> <http://schema.org/deathPlace> .
-# 
-# http://data.niod.nl/Rule_description
-<http://data.niod.nl/Rule_description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_description> <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#string> .
-<http://data.niod.nl/Rule_description> <http://www.w3.org/ns/shacl#path> <http://schema.org/description> .
-# 
-# http://data.niod.nl/Rule_endDate
-<http://data.niod.nl/Rule_endDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_endDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_endDate> <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#date> .
-<http://data.niod.nl/Rule_endDate> <http://www.w3.org/ns/shacl#maxCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://data.niod.nl/Rule_endDate> <http://www.w3.org/ns/shacl#path> <http://schema.org/endDate> .
-# 
-# http://data.niod.nl/Rule_familyName
-<http://data.niod.nl/Rule_familyName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_familyName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_familyName> <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#string> .
-<http://data.niod.nl/Rule_familyName> <http://www.w3.org/ns/shacl#path> <http://schema.org/familyName> .
-# 
-# http://data.niod.nl/Rule_fromLocation
-<http://data.niod.nl/Rule_fromLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_fromLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_fromLocation> <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-<http://data.niod.nl/Rule_fromLocation> <http://www.w3.org/ns/shacl#path> <http://schema.org/fromLocation> .
-# 
-# http://data.niod.nl/Rule_gender
-<http://data.niod.nl/Rule_gender> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_gender> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_gender> <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#string> .
-<http://data.niod.nl/Rule_gender> <http://www.w3.org/ns/shacl#path> <http://schema.org/gender> .
-# 
-# http://data.niod.nl/Rule_givenName
-<http://data.niod.nl/Rule_givenName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_givenName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_givenName> <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#string> .
-<http://data.niod.nl/Rule_givenName> <http://www.w3.org/ns/shacl#path> <http://schema.org/givenName> .
-# 
-# http://data.niod.nl/Rule_homeLocation
-<http://data.niod.nl/Rule_homeLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_homeLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_homeLocation> <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-<http://data.niod.nl/Rule_homeLocation> <http://www.w3.org/ns/shacl#path> <http://schema.org/homeLocation> .
-# 
-# http://data.niod.nl/Rule_identifier_dc
-<http://data.niod.nl/Rule_identifier_dc> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_identifier_dc> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_identifier_dc> <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#string> .
-<http://data.niod.nl/Rule_identifier_dc> <http://www.w3.org/ns/shacl#maxCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://data.niod.nl/Rule_identifier_dc> <http://www.w3.org/ns/shacl#minCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://data.niod.nl/Rule_identifier_dc> <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/identifier> .
-# 
-# http://data.niod.nl/Rule_identifier_schema
-<http://data.niod.nl/Rule_identifier_schema> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_identifier_schema> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_identifier_schema> <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#string> .
-<http://data.niod.nl/Rule_identifier_schema> <http://www.w3.org/ns/shacl#maxCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://data.niod.nl/Rule_identifier_schema> <http://www.w3.org/ns/shacl#minCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://data.niod.nl/Rule_identifier_schema> <http://www.w3.org/ns/shacl#path> <http://schema.org/identifier> .
-# 
-# http://data.niod.nl/Rule_image
-<http://data.niod.nl/Rule_image> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_image> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_image> <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-<http://data.niod.nl/Rule_image> <http://www.w3.org/ns/shacl#path> <http://schema.org/image> .
-# 
-# http://data.niod.nl/Rule_isPartOf
-<http://data.niod.nl/Rule_isPartOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_isPartOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_isPartOf> <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-<http://data.niod.nl/Rule_isPartOf> <http://www.w3.org/ns/shacl#path> <http://schema.org/isPartOf> .
-# 
-# http://data.niod.nl/Rule_jobTitle
-<http://data.niod.nl/Rule_jobTitle> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_jobTitle> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_jobTitle> <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#string> .
-<http://data.niod.nl/Rule_jobTitle> <http://www.w3.org/ns/shacl#path> <http://schema.org/jobTitle> .
-# 
-# http://data.niod.nl/Rule_keywords
-<http://data.niod.nl/Rule_keywords> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_keywords> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_keywords> <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#string> .
-<http://data.niod.nl/Rule_keywords> <http://www.w3.org/ns/shacl#path> <http://schema.org/keywords> .
-# 
-# http://data.niod.nl/Rule_license
-<http://data.niod.nl/Rule_license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_license> <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-<http://data.niod.nl/Rule_license> <http://www.w3.org/ns/shacl#path> <http://schema.org/license> .
-# 
-# http://data.niod.nl/Rule_location
-<http://data.niod.nl/Rule_location> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_location> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_location> <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-<http://data.niod.nl/Rule_location> <http://www.w3.org/ns/shacl#path> <http://schema.org/location> .
-# 
-# http://data.niod.nl/Rule_maintainer
-<http://data.niod.nl/Rule_maintainer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_maintainer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_maintainer> <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-<http://data.niod.nl/Rule_maintainer> <http://www.w3.org/ns/shacl#path> <http://schema.org/maintainer> .
-# 
-# http://data.niod.nl/Rule_memberOf
-<http://data.niod.nl/Rule_memberOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_memberOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_memberOf> <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-<http://data.niod.nl/Rule_memberOf> <http://www.w3.org/ns/shacl#path> <http://schema.org/memberOf> .
-# 
-# http://data.niod.nl/Rule_name
-<http://data.niod.nl/Rule_name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_name> <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#string> .
-<http://data.niod.nl/Rule_name> <http://www.w3.org/ns/shacl#maxCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://data.niod.nl/Rule_name> <http://www.w3.org/ns/shacl#minCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://data.niod.nl/Rule_name> <http://www.w3.org/ns/shacl#path> <http://schema.org/name> .
-# 
-# http://data.niod.nl/Rule_position
-<http://data.niod.nl/Rule_position> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_position> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_position> <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#integer> .
-<http://data.niod.nl/Rule_position> <http://www.w3.org/ns/shacl#path> <http://schema.org/position> .
-# 
-# http://data.niod.nl/Rule_publisher
-<http://data.niod.nl/Rule_publisher> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_publisher> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_publisher> <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-<http://data.niod.nl/Rule_publisher> <http://www.w3.org/ns/shacl#path> <http://schema.org/publisher> .
-# 
-# http://data.niod.nl/Rule_rights
-<http://data.niod.nl/Rule_rights> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_rights> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_rights> <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#string> .
-<http://data.niod.nl/Rule_rights> <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/rights> .
-# 
-# http://data.niod.nl/Rule_sameAs
-<http://data.niod.nl/Rule_sameAs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_sameAs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_sameAs> <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-<http://data.niod.nl/Rule_sameAs> <http://www.w3.org/ns/shacl#path> <http://schema.org/sameAs> .
-# 
-# http://data.niod.nl/Rule_source
-<http://data.niod.nl/Rule_source> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_source> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_source> <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#string> .
-<http://data.niod.nl/Rule_source> <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/source> .
-# 
-# http://data.niod.nl/Rule_startDate
-<http://data.niod.nl/Rule_startDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_startDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_startDate> <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#date> .
-<http://data.niod.nl/Rule_startDate> <http://www.w3.org/ns/shacl#maxCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://data.niod.nl/Rule_startDate> <http://www.w3.org/ns/shacl#path> <http://schema.org/startDate> .
-# 
-# http://data.niod.nl/Rule_subject
-<http://data.niod.nl/Rule_subject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_subject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_subject> <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-<http://data.niod.nl/Rule_subject> <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/subject> .
-# 
-# http://data.niod.nl/Rule_superEvent
-<http://data.niod.nl/Rule_superEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_superEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_superEvent> <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-<http://data.niod.nl/Rule_superEvent> <http://www.w3.org/ns/shacl#path> <http://schema.org/superEvent> .
-# 
-# http://data.niod.nl/Rule_temporal
-<http://data.niod.nl/Rule_temporal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_temporal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_temporal> <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#string> .
-<http://data.niod.nl/Rule_temporal> <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/terms/temporal> .
-# 
-# http://data.niod.nl/Rule_thumbnail
-<http://data.niod.nl/Rule_thumbnail> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_thumbnail> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_thumbnail> <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-<http://data.niod.nl/Rule_thumbnail> <http://www.w3.org/ns/shacl#path> <http://schema.org/thumbnail> .
-# 
-# http://data.niod.nl/Rule_thumbnailUrl
-<http://data.niod.nl/Rule_thumbnailUrl> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_thumbnailUrl> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_thumbnailUrl> <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-<http://data.niod.nl/Rule_thumbnailUrl> <http://www.w3.org/ns/shacl#path> <http://schema.org/thumbnailUrl> .
-# 
-# http://data.niod.nl/Rule_title
-<http://data.niod.nl/Rule_title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_title> <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#string> .
-<http://data.niod.nl/Rule_title> <http://www.w3.org/ns/shacl#maxCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://data.niod.nl/Rule_title> <http://www.w3.org/ns/shacl#minCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://data.niod.nl/Rule_title> <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/title> .
-# 
-# http://data.niod.nl/Rule_toLocation
-<http://data.niod.nl/Rule_toLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_toLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_toLocation> <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-<http://data.niod.nl/Rule_toLocation> <http://www.w3.org/ns/shacl#path> <http://schema.org/toLocation> .
-# 
-# http://data.niod.nl/Rule_type
-<http://data.niod.nl/Rule_type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_type> <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-<http://data.niod.nl/Rule_type> <http://www.w3.org/ns/shacl#path> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> .
-# 
-# http://data.niod.nl/Rule_url
-<http://data.niod.nl/Rule_url> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_url> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_url> <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-<http://data.niod.nl/Rule_url> <http://www.w3.org/ns/shacl#path> <http://schema.org/url> .
-# 
-# http://data.niod.nl/Rule_wasDerivedFrom
-<http://data.niod.nl/Rule_wasDerivedFrom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<http://data.niod.nl/Rule_wasDerivedFrom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/shacl#PropertyShape> .
-<http://data.niod.nl/Rule_wasDerivedFrom> <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
-<http://data.niod.nl/Rule_wasDerivedFrom> <http://www.w3.org/ns/shacl#path> <http://www.w3.org/ns/prov#wasDerivedFrom> .
-# 
+_:genid39 <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
+_:genid40 <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid41 <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#integer> .
+_:genid42 <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#date> .
 # 
 # 
 # #################################################################
@@ -890,6 +753,191 @@ _:genid7 <http://www.w3.org/ns/shacl#description> "Een korte beschrijving van de
 # #
 # #################################################################
 # 
+# 
+<http://data.niod.nl/Rule_about> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_StringOrIRI> .
+<http://data.niod.nl/Rule_about> <http://www.w3.org/ns/shacl#path> <http://schema.org/about> .
+# 
+<http://data.niod.nl/Rule_actor> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_IRI> .
+<http://data.niod.nl/Rule_actor> <http://www.w3.org/ns/shacl#path> <http://schema.org/actor> .
+# 
+<http://data.niod.nl/Rule_additionalName> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_String> .
+<http://data.niod.nl/Rule_additionalName> <http://www.w3.org/ns/shacl#path> <http://schema.org/additionalName> .
+# 
+<http://data.niod.nl/Rule_additionalType> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_IRI> .
+<http://data.niod.nl/Rule_additionalType> <http://www.w3.org/ns/shacl#path> <http://schema.org/additionalType> .
+# 
+<http://data.niod.nl/Rule_address> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_StringOrIRI> .
+<http://data.niod.nl/Rule_address> <http://www.w3.org/ns/shacl#path> <http://schema.org/address> .
+# 
+<http://data.niod.nl/Rule_alternateName> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_String> .
+<http://data.niod.nl/Rule_alternateName> <http://www.w3.org/ns/shacl#path> <http://schema.org/alternateName> .
+# 
+<http://data.niod.nl/Rule_birthDate> <http://www.w3.org/ns/shacl#maxCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://data.niod.nl/Rule_birthDate> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_Date> .
+<http://data.niod.nl/Rule_birthDate> <http://www.w3.org/ns/shacl#path> <http://schema.org/birthDate> .
+# 
+<http://data.niod.nl/Rule_birthPlace> <http://www.w3.org/ns/shacl#maxCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://data.niod.nl/Rule_birthPlace> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_StringOrIRI> .
+<http://data.niod.nl/Rule_birthPlace> <http://www.w3.org/ns/shacl#path> <http://schema.org/birthPlace> .
+# 
+<http://data.niod.nl/Rule_caption> <http://www.w3.org/ns/shacl#maxCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://data.niod.nl/Rule_caption> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_String> .
+<http://data.niod.nl/Rule_caption> <http://www.w3.org/ns/shacl#path> <http://schema.org/caption> .
+# 
+<http://data.niod.nl/Rule_contentLocation> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_StringOrIRI> .
+<http://data.niod.nl/Rule_contentLocation> <http://www.w3.org/ns/shacl#path> <http://schema.org/contentLocation> .
+# 
+<http://data.niod.nl/Rule_contentUrl> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_StringOrIRI> .
+<http://data.niod.nl/Rule_contentUrl> <http://www.w3.org/ns/shacl#path> <http://schema.org/contentUrl> .
+# 
+<http://data.niod.nl/Rule_creator> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_StringOrIRI> .
+<http://data.niod.nl/Rule_creator> <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/creator> .
+# 
+<http://data.niod.nl/Rule_date> <http://www.w3.org/ns/shacl#maxCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://data.niod.nl/Rule_date> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_DateOrInteger> .
+<http://data.niod.nl/Rule_date> <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/date> .
+# 
+<http://data.niod.nl/Rule_dateCreated> <http://www.w3.org/ns/shacl#maxCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://data.niod.nl/Rule_dateCreated> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_Date> .
+<http://data.niod.nl/Rule_dateCreated> <http://www.w3.org/ns/shacl#path> <http://schema.org/dateCreated> .
+# 
+<http://data.niod.nl/Rule_dateModified> <http://www.w3.org/ns/shacl#maxCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://data.niod.nl/Rule_dateModified> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_Date> .
+<http://data.niod.nl/Rule_dateModified> <http://www.w3.org/ns/shacl#path> <http://schema.org/dateModified> .
+# 
+<http://data.niod.nl/Rule_datePublished> <http://www.w3.org/ns/shacl#maxCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://data.niod.nl/Rule_datePublished> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_Date> .
+<http://data.niod.nl/Rule_datePublished> <http://www.w3.org/ns/shacl#path> <http://schema.org/datePublished> .
+# 
+<http://data.niod.nl/Rule_deathDate> <http://www.w3.org/ns/shacl#maxCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://data.niod.nl/Rule_deathDate> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_Date> .
+<http://data.niod.nl/Rule_deathDate> <http://www.w3.org/ns/shacl#path> <http://schema.org/deathDate> .
+# 
+<http://data.niod.nl/Rule_deathPlace> <http://www.w3.org/ns/shacl#maxCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://data.niod.nl/Rule_deathPlace> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_StringOrIRI> .
+<http://data.niod.nl/Rule_deathPlace> <http://www.w3.org/ns/shacl#path> <http://schema.org/deathPlace> .
+# 
+<http://data.niod.nl/Rule_deceased> <http://www.w3.org/ns/shacl#maxCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://data.niod.nl/Rule_deceased> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_String> .
+<http://data.niod.nl/Rule_deceased> <http://www.w3.org/ns/shacl#path> <https://personsincontext.org/model/#deceased> .
+# 
+<http://data.niod.nl/Rule_description_dc> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_String> .
+<http://data.niod.nl/Rule_description_dc> <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/description> .
+# 
+<http://data.niod.nl/Rule_description_schema> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_String> .
+<http://data.niod.nl/Rule_description_schema> <http://www.w3.org/ns/shacl#path> <http://schema.org/description> .
+# 
+<http://data.niod.nl/Rule_endDate> <http://www.w3.org/ns/shacl#maxCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://data.niod.nl/Rule_endDate> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_DateOrInteger> .
+<http://data.niod.nl/Rule_endDate> <http://www.w3.org/ns/shacl#path> <http://schema.org/endDate> .
+# 
+<http://data.niod.nl/Rule_familyName> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_String> .
+<http://data.niod.nl/Rule_familyName> <http://www.w3.org/ns/shacl#path> <http://schema.org/familyName> .
+# 
+<http://data.niod.nl/Rule_fromLocation> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_StringOrIRI> .
+<http://data.niod.nl/Rule_fromLocation> <http://www.w3.org/ns/shacl#path> <http://schema.org/fromLocation> .
+# 
+<http://data.niod.nl/Rule_gender> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_StringOrIRI> .
+<http://data.niod.nl/Rule_gender> <http://www.w3.org/ns/shacl#path> <http://schema.org/gender> .
+# 
+<http://data.niod.nl/Rule_givenName> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_String> .
+<http://data.niod.nl/Rule_givenName> <http://www.w3.org/ns/shacl#path> <http://schema.org/givenName> .
+# 
+<http://data.niod.nl/Rule_hadPrimarySource> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_IRI> .
+<http://data.niod.nl/Rule_hadPrimarySource> <http://www.w3.org/ns/shacl#path> <http://www.w3.org/ns/prov#hadPrimarySource> .
+# 
+<http://data.niod.nl/Rule_hasOccupation> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_String> .
+<http://data.niod.nl/Rule_hasOccupation> <http://www.w3.org/ns/shacl#path> <http://schema.org/hasOccupation> .
+# 
+<http://data.niod.nl/Rule_homeLocation> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_StringOrIRI> .
+<http://data.niod.nl/Rule_homeLocation> <http://www.w3.org/ns/shacl#path> <http://schema.org/homeLocation> .
+# 
+<http://data.niod.nl/Rule_identifier_dc> <http://www.w3.org/ns/shacl#maxCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://data.niod.nl/Rule_identifier_dc> <http://www.w3.org/ns/shacl#minCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://data.niod.nl/Rule_identifier_dc> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_String> .
+<http://data.niod.nl/Rule_identifier_dc> <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/identifier> .
+# 
+<http://data.niod.nl/Rule_identifier_schema> <http://www.w3.org/ns/shacl#maxCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://data.niod.nl/Rule_identifier_schema> <http://www.w3.org/ns/shacl#minCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://data.niod.nl/Rule_identifier_schema> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_String> .
+<http://data.niod.nl/Rule_identifier_schema> <http://www.w3.org/ns/shacl#path> <http://schema.org/identifier> .
+# 
+<http://data.niod.nl/Rule_image> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_IRI> .
+<http://data.niod.nl/Rule_image> <http://www.w3.org/ns/shacl#path> <http://schema.org/image> .
+# 
+<http://data.niod.nl/Rule_initials> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_String> .
+<http://data.niod.nl/Rule_initials> <http://www.w3.org/ns/shacl#path> <https://w3id.org/pnv#initials> .
+# 
+<http://data.niod.nl/Rule_isPartOf> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_IRI> .
+<http://data.niod.nl/Rule_isPartOf> <http://www.w3.org/ns/shacl#path> <http://schema.org/isPartOf> .
+# 
+<http://data.niod.nl/Rule_keywords> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_IRI> .
+<http://data.niod.nl/Rule_keywords> <http://www.w3.org/ns/shacl#path> <http://schema.org/keywords> .
+# 
+<http://data.niod.nl/Rule_license> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_IRI> .
+<http://data.niod.nl/Rule_license> <http://www.w3.org/ns/shacl#path> <http://schema.org/license> .
+# 
+<http://data.niod.nl/Rule_location> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_StringOrIRI> .
+<http://data.niod.nl/Rule_location> <http://www.w3.org/ns/shacl#path> <http://schema.org/location> .
+# 
+<http://data.niod.nl/Rule_maintainer> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_IRI> .
+<http://data.niod.nl/Rule_maintainer> <http://www.w3.org/ns/shacl#path> <http://schema.org/maintainer> .
+# 
+<http://data.niod.nl/Rule_name> <http://www.w3.org/ns/shacl#maxCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://data.niod.nl/Rule_name> <http://www.w3.org/ns/shacl#minCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://data.niod.nl/Rule_name> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_String> .
+<http://data.niod.nl/Rule_name> <http://www.w3.org/ns/shacl#path> <http://schema.org/name> .
+# 
+<http://data.niod.nl/Rule_position> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_Integer> .
+<http://data.niod.nl/Rule_position> <http://www.w3.org/ns/shacl#path> <http://schema.org/position> .
+# 
+<http://data.niod.nl/Rule_publisher> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_IRI> .
+<http://data.niod.nl/Rule_publisher> <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/publisher> .
+# 
+<http://data.niod.nl/Rule_rights> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_String> .
+<http://data.niod.nl/Rule_rights> <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/rights> .
+# 
+<http://data.niod.nl/Rule_sameAs> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_StringOrIRI> .
+<http://data.niod.nl/Rule_sameAs> <http://www.w3.org/ns/shacl#path> <http://schema.org/sameAs> .
+# 
+<http://data.niod.nl/Rule_source> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_String> .
+<http://data.niod.nl/Rule_source> <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/source> .
+# 
+<http://data.niod.nl/Rule_startDate> <http://www.w3.org/ns/shacl#maxCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://data.niod.nl/Rule_startDate> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_DateOrInteger> .
+<http://data.niod.nl/Rule_startDate> <http://www.w3.org/ns/shacl#path> <http://schema.org/startDate> .
+# 
+<http://data.niod.nl/Rule_subject> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_StringOrIRI> .
+<http://data.niod.nl/Rule_subject> <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/subject> .
+# 
+<http://data.niod.nl/Rule_superEvent> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_IRI> .
+<http://data.niod.nl/Rule_superEvent> <http://www.w3.org/ns/shacl#path> <http://schema.org/superEvent> .
+# 
+<http://data.niod.nl/Rule_temporal> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_String> .
+<http://data.niod.nl/Rule_temporal> <http://www.w3.org/ns/shacl#path> <http://schema.org/temporal> .
+# 
+<http://data.niod.nl/Rule_thumbnail> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_StringOrIRI> .
+<http://data.niod.nl/Rule_thumbnail> <http://www.w3.org/ns/shacl#path> <http://schema.org/thumbnail> .
+# 
+<http://data.niod.nl/Rule_thumbnailUrl> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_StringOrIRI> .
+<http://data.niod.nl/Rule_thumbnailUrl> <http://www.w3.org/ns/shacl#path> <http://schema.org/thumbnailUrl> .
+# 
+<http://data.niod.nl/Rule_title> <http://www.w3.org/ns/shacl#maxCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://data.niod.nl/Rule_title> <http://www.w3.org/ns/shacl#minCount> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://data.niod.nl/Rule_title> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_String> .
+<http://data.niod.nl/Rule_title> <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/title> .
+# 
+<http://data.niod.nl/Rule_toLocation> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_StringOrIRI> .
+<http://data.niod.nl/Rule_toLocation> <http://www.w3.org/ns/shacl#path> <http://schema.org/toLocation> .
+# 
+<http://data.niod.nl/Rule_type> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_IRI> .
+<http://data.niod.nl/Rule_type> <http://www.w3.org/ns/shacl#path> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> .
+# 
+<http://data.niod.nl/Rule_url> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_StringOrIRI> .
+<http://data.niod.nl/Rule_url> <http://www.w3.org/ns/shacl#path> <http://schema.org/url> .
+# 
+<http://data.niod.nl/Rule_wasDerivedFrom> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_IRI> .
+<http://data.niod.nl/Rule_wasDerivedFrom> <http://www.w3.org/ns/shacl#path> <http://www.w3.org/ns/prov#wasDerivedFrom> .
 # 
 <http://schema.org/Article> <http://www.w3.org/2000/01/rdf-schema#label> "Krantartikel"@nl .
 # 
