@@ -54,6 +54,8 @@
 :Rule_rights             sh:path dc:rights ;           sh:node :Base_String .
 :Rule_source             sh:path dc:source ;           sh:node :Base_String .
 :Rule_hasOccupation      sh:path schema:hasOccupation ;sh:node :Base_String .
+:Rule_type_dc            sh:path dc:type ;             sh:node :Base_String .
+:Rule_collection         sh:path dcmit:Collection ;    sh:node :Base_String .
 
 :Rule_keywords           sh:path schema:keywords ;     sh:node :Base_IRI .
 :Rule_subject            sh:path dc:subject ;          sh:node :Base_StringOrIRI .
@@ -87,7 +89,7 @@
 # --- Personen en Organisaties (Relaties) ---
 :Rule_actor              sh:path schema:actor ;         sh:node :Base_IRI .
 :Rule_publisher          sh:path dc:publisher ;        sh:node :Base_IRI .
-:Rule_maintainer         sh:path schema:maintainer ;    sh:node :Base_IRI .
+:Rule_provider         sh:path schema:provider ;    sh:node :Base_IRI .
 :Rule_creator            sh:path dc:creator ;          sh:node :Base_StringOrIRI .
 :Rule_gender             sh:path schema:gender ;        sh:node :Base_StringOrIRI .
 
@@ -322,6 +324,122 @@
         sh:node :Rule_keywords ;
     ] .
 
+### --- MEDIA EN OBJECT TYPEN ---
+:CreativeWorkShape a sh:NodeShape ;
+    sh:targetClass 
+        schema:Article, 
+        schema:Newspaper, 
+        schema:Book, 
+        schema:Photograph, 
+        schema:VisualArtwork, 
+        schema:Painting, 
+        schema:Sculpture, 
+        schema:SheetMusic ;
+    sh:name "Media en Objecten"@nl ;
+    sh:description "Verschillende typen bronnen en objecten die binnen de collectie worden beschreven, zoals artikelen, foto's en kunstwerken."@nl ;
+    # --- Identificatie en Basis ---
+    sh:property [
+        sh:path dc:identifier ;
+        sh:name "Identifier (DC)"@nl ;
+        sh:node :Rule_identifier_dc ;
+    ] ;
+    sh:property [
+        sh:path dc:title ;
+        sh:name "Titel"@nl ;
+        sh:node :Rule_title ;
+    ] ;
+    sh:property [
+        sh:path rdf:type ;
+        sh:name "Type (RDF)"@nl ;
+        sh:node :Rule_type ;
+    ] ;
+    sh:property [
+        sh:path dc:type ;
+        sh:name "Type (DC)"@nl ;
+        sh:node :Rule_type_dc ;
+    ] ;
+
+    # --- Inhoud en Onderwerp ---
+    sh:property [
+        sh:path dc:description ;
+        sh:name "Beschrijving"@nl ;
+        sh:node :Rule_description_dc ;
+    ] ;
+    sh:property [
+        sh:path dc:subject ;
+        sh:name "Onderwerp"@nl ;
+        sh:node :Rule_subject ;
+    ] ;
+    sh:property [
+        sh:path schema:about ;
+        sh:name "Betreft entiteit"@nl ;
+        sh:node :Rule_about ;
+    ] ;
+    sh:property [
+        sh:path schema:temporal ;
+        sh:name "Periodisering"@nl ;
+        sh:node :Rule_temporal ;
+    ] ;
+    sh:property [
+        sh:path schema:contentLocation ;
+        sh:name "Inhoudelijke locatie"@nl ;
+        sh:node :Rule_contentLocation ;
+    ] ;
+
+    # --- Creatie en Herkomst ---
+    sh:property [
+        sh:path dc:creator ;
+        sh:name "Maker"@nl ;
+        sh:node :Rule_creator ;
+    ] ;
+    sh:property [
+        sh:path dc:publisher ;
+        sh:name "Uitgever"@nl ;
+        sh:node :Rule_publisher ;
+    ] ;
+    sh:property [
+        sh:path schema:provider ;
+        sh:name "Provider"@nl ;
+        sh:description "De instelling die het object digitaal beschikbaar stelt."@nl ;
+        sh:node :Rule_provider ;
+    ] ;
+    sh:property [
+        sh:path dc:source ;
+        sh:name "Bron"@nl ;
+        sh:node :Rule_source ;
+    ] ;
+    sh:property [
+        sh:path dcmit:Collection ;
+        sh:name "Collectie"@nl ;
+        sh:description "De verzameling waar dit object deel van uitmaakt."@nl ;
+        sh:node :Rule_collection ;
+    ] ;
+
+    # --- Tijd ---
+    sh:property [
+        sh:path dc:date ;
+        sh:name "Datum"@nl ;
+        sh:node :Rule_date ;
+    ] ;
+    sh:property [
+        sh:path schema:startDate ;
+        sh:name "Startdatum"@nl ;
+        sh:node :Rule_startDate ;
+    ] ;
+    sh:property [
+        sh:property [
+        sh:path schema:endDate ;
+        sh:name "Einddatum"@nl ;
+        sh:node :Rule_endDate ;
+    ] ;
+
+    # --- Visueel ---
+    sh:property [
+        sh:path schema:thumbnail ;
+        sh:name "Thumbnail"@nl ;
+        sh:node :Rule_thumbnail ;
+    ] .
+        
 ### --- GEBEURTENIS ---
 :GebeurtenisShape a sh:NodeShape ;
     sh:targetClass schema:Event ;
