@@ -46,6 +46,13 @@
 :Rule_additionalName a sh:PropertyShape ;
 	sh:path schema:additionalName ;
 	sh:datatype xsd:string .
+:Rule_initials a sh:PropertyShape ;
+	sh:path pnv:initials ;
+	sh:datatype xsd:string .
+:Rule_deceased a sh:PropertyShape ;
+	sh:path picom:deceased ;
+	sh:datatype xsd:string ;
+    sh:maxCount 1 .
 :Rule_identifier_dc a sh:PropertyShape ;
 	sh:path dc:identifier ;
 	sh:datatype xsd:string ; 
@@ -58,7 +65,10 @@
     sh:maxCount 1 .
 
 # --- Beschrijving en Categorisering ---
-:Rule_description   a sh:PropertyShape ;
+:Rule_description_dc   a sh:PropertyShape ;
+	sh:path dc:description ;
+	sh:datatype xsd:string .
+:Rule_description_schema   a sh:PropertyShape ;
 	sh:path schema:description ;
 	sh:datatype xsd:string .
 :Rule_caption       a sh:PropertyShape ;
@@ -67,7 +77,10 @@
     sh:maxCount 1 .
 :Rule_keywords      a sh:PropertyShape ;
 	sh:path schema:keywords ;
-	sh:datatype xsd:string .
+	sh:or (
+        [ sh:datatype xsd:string ]
+        [ sh:nodeKind sh:IRI ]
+    ) .
 :Rule_additionalType a sh:PropertyShape ;
 	sh:path schema:additionalType ;
 	sh:nodeKind sh:IRI .
@@ -76,23 +89,38 @@
 	sh:nodeKind sh:IRI .
 :Rule_subject       a sh:PropertyShape ;
 	sh:path dc:subject ;
-	sh:nodeKind sh:IRI .
+	sh:or (
+        [ sh:datatype xsd:string ]
+        [ sh:nodeKind sh:IRI ]
+    ) .
 :Rule_about         a sh:PropertyShape ;
 	sh:path schema:about ;
-	sh:nodeKind sh:IRI .
+	sh:or (
+        [ sh:datatype xsd:string ]
+        [ sh:nodeKind sh:IRI ]
+    ) .
 
 # --- Data en Tijd ---
 :Rule_date          a sh:PropertyShape ;
 	sh:path dc:date ;
-	sh:datatype xsd:date ; 
+    sh:or (
+        [ sh:datatype xsd:date ]      # "1944-05-04"
+        [ sh:datatype xsd:integer ]   #  1944
+    ) ;
     sh:maxCount 1 .
 :Rule_startDate     a sh:PropertyShape ;
 	sh:path schema:startDate ;
-	sh:datatype xsd:date ; 
+	sh:or (
+        [ sh:datatype xsd:date ]      # "1944-05-04"
+        [ sh:datatype xsd:integer ]   #  1944
+    ) ;
     sh:maxCount 1 .
 :Rule_endDate       a sh:PropertyShape ;
 	sh:path schema:endDate ;
-	sh:datatype xsd:date ; 
+	sh:or (
+        [ sh:datatype xsd:date ]      # "1944-05-04"
+        [ sh:datatype xsd:integer ]   #  1944
+    ) ;
     sh:maxCount 1 .
 :Rule_dateCreated     a sh:PropertyShape ;
 	sh:path schema:dateCreated ;
@@ -106,79 +134,124 @@
 	sh:path schema:birthDate ;
 	sh:datatype xsd:date ; 
     sh:maxCount 1 .
+:Rule_datePublished       a sh:PropertyShape ;
+	sh:path schema:datePublished ;
+	sh:datatype xsd:date ; 
+    sh:maxCount 1 .
 :Rule_deathDate     a sh:PropertyShape ;
 	sh:path schema:deathDate ;
 	sh:datatype xsd:date ; 
     sh:maxCount 1 .
 :Rule_temporal      a sh:PropertyShape ;
-	sh:path dct:temporal ;
-	sh:datatype xsd:string .
+	sh:path schema:temporal ;
+	sh:datatype xsd:string . # "Voorjaar 1944"
 
 # --- Locatie ---
 :Rule_location      a sh:PropertyShape ;
 	sh:path schema:location ;
-	sh:nodeKind sh:IRI .
+	sh:or (
+        [ sh:datatype xsd:string ]
+        [ sh:nodeKind sh:IRI ]
+    ) .
 :Rule_contentLocation a sh:PropertyShape ;
 	sh:path schema:contentLocation ;
-	sh:nodeKind sh:IRI .
+	sh:or (
+        [ sh:datatype xsd:string ]
+        [ sh:nodeKind sh:IRI ]
+    ) .
 :Rule_homeLocation   a sh:PropertyShape ;
 	sh:path schema:homeLocation ;
-	sh:nodeKind sh:IRI .
+	sh:or (
+        [ sh:datatype xsd:string ]
+        [ sh:nodeKind sh:IRI ]
+    ) ..
 :Rule_birthPlace    a sh:PropertyShape ;
 	sh:path schema:birthPlace ;
-	sh:nodeKind sh:IRI .
+	sh:or (
+        [ sh:datatype xsd:string ]
+        [ sh:nodeKind sh:IRI ]
+    ) ; 
+    sh:maxCount 1 .
 :Rule_deathPlace    a sh:PropertyShape ;
 	sh:path schema:deathPlace ;
-	sh:nodeKind sh:IRI .
+	sh:or (
+        [ sh:datatype xsd:string ]
+        [ sh:nodeKind sh:IRI ]
+    ) ; 
+    sh:maxCount 1 .
 :Rule_address       a sh:PropertyShape ;
 	sh:path schema:address ;
-	sh:datatype xsd:string .
+	sh:or (
+        [ sh:datatype xsd:string ]
+        [ sh:nodeKind sh:IRI ]
+    ) .
 :Rule_fromLocation  a sh:PropertyShape ;
 	sh:path schema:fromLocation ;
-	sh:nodeKind sh:IRI .
+	sh:or (
+        [ sh:datatype xsd:string ]
+        [ sh:nodeKind sh:IRI ]
+    ) .
 :Rule_toLocation    a sh:PropertyShape ;
 	sh:path schema:toLocation ;
-	sh:nodeKind sh:IRI .
+	sh:or (
+        [ sh:datatype xsd:string ]
+        [ sh:nodeKind sh:IRI ]
+    ) .
 
 # --- Personen en Organisaties (Relaties) ---
 :Rule_actor         a sh:PropertyShape ;
 	sh:path schema:actor ;
 	sh:nodeKind sh:IRI .
 :Rule_creator       a sh:PropertyShape ;
-	sh:path schema:creator ;
-	sh:nodeKind sh:IRI .
+	sh:path dc:creator ;
+	sh:or (
+        [ sh:datatype xsd:string ]
+        [ sh:nodeKind sh:IRI ]
+    ) .
 :Rule_publisher     a sh:PropertyShape ;
-	sh:path schema:publisher ;
+	sh:path dc:publisher ;
 	sh:nodeKind sh:IRI .
-:Rule_maintainer    a sh:PropertyShape ;
+:Rule_maintainer    a sh:PropertyShape ; #wordt deze property wel gebruikt?
 	sh:path schema:maintainer ;
-	sh:nodeKind sh:IRI .
-:Rule_memberOf      a sh:PropertyShape ;
-	sh:path schema:memberOf ;
 	sh:nodeKind sh:IRI .
 :Rule_jobTitle      a sh:PropertyShape ;
 	sh:path schema:jobTitle ;
 	sh:datatype xsd:string .
 :Rule_gender        a sh:PropertyShape ;
 	sh:path schema:gender ;
-	sh:datatype xsd:string .
+	sh:or (
+        [ sh:datatype xsd:string ]
+        [ sh:nodeKind sh:IRI ]
+    ) .
 
 # --- Media en Web ---
 :Rule_url           a sh:PropertyShape ;
 	sh:path schema:url ;
-	sh:nodeKind sh:IRI .
+	sh:or (
+        [ sh:datatype xsd:string ]
+        [ sh:nodeKind sh:IRI ]
+    ) .
 :Rule_contentUrl    a sh:PropertyShape ;
 	sh:path schema:contentUrl ;
-	sh:nodeKind sh:IRI .
+	sh:or (
+        [ sh:datatype xsd:string ]
+        [ sh:nodeKind sh:IRI ]
+    ) .
 :Rule_image         a sh:PropertyShape ;
 	sh:path schema:image ;
 	sh:nodeKind sh:IRI .
 :Rule_thumbnail     a sh:PropertyShape ;
 	sh:path schema:thumbnail ;
-	sh:nodeKind sh:IRI .
+	sh:or (
+        [ sh:datatype xsd:string ]
+        [ sh:nodeKind sh:IRI ]
+    ) .
 :Rule_thumbnailUrl  a sh:PropertyShape ;
 	sh:path schema:thumbnailUrl ;
-	sh:nodeKind sh:IRI .
+	sh:or (
+        [ sh:datatype xsd:string ]
+        [ sh:nodeKind sh:IRI ]
+    ) .
 
 # --- Structureel en Rechten ---
 :Rule_isPartOf      a sh:PropertyShape ;
@@ -200,12 +273,18 @@
 # --- Herkomst en Verwijzingen ---
 :Rule_sameAs        a sh:PropertyShape ;
 	sh:path schema:sameAs ;
-	sh:nodeKind sh:IRI .
+	sh:or (
+        [ sh:datatype xsd:string ]
+        [ sh:nodeKind sh:IRI ]
+    ) .
 :Rule_source        a sh:PropertyShape ;
 	sh:path dc:source ;
 	sh:datatype xsd:string .
 :Rule_wasDerivedFrom a sh:PropertyShape ;
 	sh:path prov:wasDerivedFrom ;
+	sh:nodeKind sh:IRI .
+:Rule_hadPrimarySource a sh:PropertyShape ;
+	sh:path prov:hadPrimarySource ;
 	sh:nodeKind sh:IRI .
 
 # =================================================================
