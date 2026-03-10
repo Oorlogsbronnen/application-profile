@@ -101,7 +101,7 @@
 :Rule_image              sh:path schema:image ;         sh:node :Base_IRI .
 
 # --- Structureel en Rechten ---
-:Rule_isPartOf           sh:path schema:isPartOf ;      sh:node :Base_IRI .
+:Rule_isPartOf           sh:path dct:isPartOf ;         sh:node :Base_IRI .
 :Rule_superEvent         sh:path schema:superEvent ;    sh:node :Base_IRI .
 :Rule_license            sh:path schema:license ;       sh:node :Base_IRI .
 :Rule_position           sh:path schema:position ;      sh:node :Base_Integer .
@@ -324,9 +324,10 @@
         sh:node :Rule_keywords ;
     ] .
 
-### --- MEDIA EN OBJECT TYPEN ---
+### --- BRON EN OBJECT TYPEN ---
 :CreativeWorkShape a sh:NodeShape ;
     sh:targetClass 
+        schema:CreativeWork,
         schema:Article, 
         schema:Newspaper, 
         schema:Book, 
@@ -334,8 +335,9 @@
         schema:VisualArtwork, 
         schema:Painting, 
         schema:Sculpture, 
-        schema:SheetMusic ;
-    sh:name "Media en Objecten"@nl ;
+        schema:SheetMusic,
+        niod:Monument ;
+    sh:name "Bronnen en Objecten"@nl ;
     sh:description "Verschillende typen bronnen en objecten die binnen de collectie worden beschreven, zoals artikelen, foto's en kunstwerken."@nl ;
     # --- Identificatie en Basis ---
     sh:property [
@@ -427,7 +429,6 @@
         sh:node :Rule_startDate ;
     ] ;
     sh:property [
-        sh:property [
         sh:path schema:endDate ;
         sh:name "Einddatum"@nl ;
         sh:node :Rule_endDate ;
@@ -439,7 +440,25 @@
         sh:name "Thumbnail"@nl ;
         sh:node :Rule_thumbnail ;
     ] .
-        
+
+### --- ARCHIEVEN EN ARCHIEFSTUKKEN (Uitbreiding) ---
+:ArchiveShape a sh:NodeShape ;
+    sh:targetClass 
+        niod:Archive,
+        niod:ArchiveFile ;
+    sh:name "Archieven en Archiefstukken"@nl ;
+    
+    # 1. Hergebruik ALLE regels van CreativeWork in één keer
+    sh:node :CreativeWorkShape ;
+
+    # 2. Voeg extra properties toe
+    sh:property [
+        sh:path dct:isPartOf ;
+        sh:name "Onderdeel van"@nl ;
+        sh:description "Dit archiefstuk is onderdeel van een archiefserie of archief"@nl ;
+        sh:node :Rule_isPartOf ;
+    ] .
+
 ### --- GEBEURTENIS ---
 :GebeurtenisShape a sh:NodeShape ;
     sh:targetClass schema:Event ;
@@ -455,21 +474,4 @@
         sh:name "Datum van plaatsvinden"@nl ;
         sh:description "De dag waarop de gebeurtenis startte."@nl ;
         sh:node :TechnicalDateRule ;
-    ] .
-
-### --- OBJECT (BRON) ---
-:ObjectShape a sh:NodeShape ;
-    sh:targetClass schema:CreativeWork ;
-    sh:name "Archiefstuk of Object"@nl ;
-    sh:property [
-        sh:path schema:name ;
-        sh:name "Objecttitel"@nl ;
-        sh:description "De titel van het document of de naam van het voorwerp."@nl ;
-        sh:node :TechnicalNameRule ;
-    ] ;
-    sh:property [
-        sh:path schema:description ;
-        sh:name "Inhoudelijke beschrijving"@nl ;
-        sh:description "Samenvatting van de inhoud van het archiefstuk."@nl ;
-        sh:node :TechnicalDescriptionRule ;
     ] .
