@@ -16,13 +16,13 @@
     "id" : "5",
     "type" : "owl:Class"
   }, {
-    "id" : "6",
-    "type" : "owl:Class"
-  }, {
     "id" : "7",
     "type" : "owl:Class"
   }, {
     "id" : "8",
+    "type" : "owl:Class"
+  }, {
+    "id" : "6",
     "type" : "owl:Class"
   }, {
     "id" : "13",
@@ -70,7 +70,7 @@
     "id" : "43",
     "type" : "owl:Class"
   }, {
-    "id" : "44",
+    "id" : "48",
     "type" : "owl:Class"
   }, {
     "id" : "49",
@@ -91,10 +91,10 @@
     "id" : "56",
     "type" : "owl:Class"
   }, {
-    "id" : "17",
+    "id" : "22",
     "type" : "owl:Class"
   }, {
-    "id" : "22",
+    "id" : "17",
     "type" : "owl:Class"
   }, {
     "id" : "74",
@@ -127,16 +127,16 @@
     "id" : "92",
     "type" : "owl:Class"
   }, {
-    "id" : "45",
+    "id" : "44",
     "type" : "owl:Class"
   }, {
     "id" : "1",
     "type" : "owl:Class"
   }, {
-    "id" : "46",
+    "id" : "45",
     "type" : "owl:Class"
   }, {
-    "id" : "48",
+    "id" : "47",
     "type" : "owl:Class"
   }, {
     "id" : "24",
@@ -172,10 +172,10 @@
     "id" : "121",
     "type" : "owl:Class"
   }, {
-    "id" : "101",
+    "id" : "100",
     "type" : "owl:Class"
   }, {
-    "id" : "100",
+    "id" : "101",
     "type" : "owl:Class"
   }, {
     "id" : "126",
@@ -184,19 +184,19 @@
     "id" : "127",
     "type" : "owl:Class"
   }, {
-    "id" : "47",
+    "id" : "4",
     "type" : "owl:Class"
   }, {
-    "id" : "4",
+    "id" : "46",
     "type" : "owl:Class"
   }, {
     "id" : "93",
     "type" : "owl:Class"
   }, {
-    "id" : "95",
+    "id" : "96",
     "type" : "owl:Class"
   }, {
-    "id" : "96",
+    "id" : "95",
     "type" : "owl:Class"
   }, {
     "id" : "40",
@@ -259,24 +259,15 @@
     "id" : "2",
     "superClasses" : [ "1" ]
   }, {
-    "iri" : "https://data.niod.nl/Gestorven",
-    "baseIri" : "https://data.niod.nl",
+    "iri" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "baseIri" : "http://www.w3.org/2004/02/skos/core",
     "instances" : 0,
-    "annotations" : {
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "undefined",
-        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6361",
-        "type" : "iri"
-      } ]
-    },
     "label" : {
-      "IRI-based" : "Gestorven",
-      "nl" : "Gestorven"
+      "IRI-based" : "Concept"
     },
     "attributes" : [ "external" ],
     "id" : "5",
-    "superClasses" : [ "1" ]
+    "superClasses" : [ "6" ]
   }, {
     "iri" : "https://data.niod.nl/Vrijgelaten",
     "baseIri" : "https://data.niod.nl",
@@ -294,18 +285,27 @@
       "nl" : "Vrijgelaten"
     },
     "attributes" : [ "external" ],
-    "id" : "6",
+    "id" : "7",
     "superClasses" : [ "1" ]
   }, {
-    "iri" : "http://www.w3.org/2004/02/skos/core#Concept",
-    "baseIri" : "http://www.w3.org/2004/02/skos/core",
+    "iri" : "https://data.niod.nl/Gestorven",
+    "baseIri" : "https://data.niod.nl",
     "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6361",
+        "type" : "iri"
+      } ]
+    },
     "label" : {
-      "IRI-based" : "Concept"
+      "IRI-based" : "Gestorven",
+      "nl" : "Gestorven"
     },
     "attributes" : [ "external" ],
-    "id" : "7",
-    "superClasses" : [ "8" ]
+    "id" : "8",
+    "superClasses" : [ "1" ]
   }, {
     "iri" : "https://data.niod.nl/Webpagina",
     "baseIri" : "https://data.niod.nl",
@@ -314,12 +314,12 @@
       "IRI-based" : "Webpagina",
       "nl" : "Webpagina"
     },
-    "subClasses" : [ "9", "7" ],
+    "subClasses" : [ "9", "5" ],
     "comment" : {
       "en" : "Class for all web content created by Oorlogsbronnen"
     },
     "attributes" : [ "external" ],
-    "id" : "8"
+    "id" : "6"
   }, {
     "iri" : "https://data.niod.nl/Gevaren",
     "baseIri" : "https://data.niod.nl",
@@ -574,6 +574,17 @@
     "id" : "42",
     "superClasses" : [ "1" ]
   }, {
+    "iri" : "http://schema.org/CreativeWork",
+    "baseIri" : "http://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "CreativeWork",
+      "nl" : "Object"
+    },
+    "subClasses" : [ "44", "45", "39", "40", "46", "15", "47" ],
+    "attributes" : [ "external" ],
+    "id" : "43"
+  }, {
     "iri" : "https://data.niod.nl/Opgeroepen",
     "baseIri" : "https://data.niod.nl",
     "instances" : 0,
@@ -590,19 +601,8 @@
       "nl" : "Opgeroepen"
     },
     "attributes" : [ "external" ],
-    "id" : "43",
+    "id" : "48",
     "superClasses" : [ "1" ]
-  }, {
-    "iri" : "http://schema.org/CreativeWork",
-    "baseIri" : "http://schema.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "CreativeWork",
-      "nl" : "Object"
-    },
-    "subClasses" : [ "45", "46", "39", "40", "47", "15", "48" ],
-    "attributes" : [ "external" ],
-    "id" : "44"
   }, {
     "iri" : "http://schema.org/SheetMusic",
     "baseIri" : "http://schema.org",
@@ -719,6 +719,25 @@
     "id" : "56",
     "superClasses" : [ "1" ]
   }, {
+    "iri" : "https://data.niod.nl/Ondergedoken",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6351",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Ondergedoken",
+      "nl" : "Ondergedoken"
+    },
+    "attributes" : [ "external" ],
+    "id" : "22",
+    "superClasses" : [ "1" ]
+  }, {
     "iri" : "https://data.niod.nl/Gevangen",
     "baseIri" : "https://data.niod.nl",
     "instances" : 0,
@@ -739,25 +758,6 @@
     },
     "attributes" : [ "external" ],
     "id" : "17",
-    "superClasses" : [ "1" ]
-  }, {
-    "iri" : "https://data.niod.nl/Ondergedoken",
-    "baseIri" : "https://data.niod.nl",
-    "instances" : 0,
-    "annotations" : {
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "undefined",
-        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6351",
-        "type" : "iri"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "Ondergedoken",
-      "nl" : "Ondergedoken"
-    },
-    "attributes" : [ "external" ],
-    "id" : "22",
     "superClasses" : [ "1" ]
   }, {
     "iri" : "https://data.niod.nl/Veroordeeld",
@@ -918,7 +918,7 @@
     },
     "attributes" : [ "external" ],
     "id" : "15",
-    "superClasses" : [ "44" ]
+    "superClasses" : [ "43" ]
   }, {
     "iri" : "http://schema.org/Photograph",
     "baseIri" : "http://schema.org",
@@ -955,8 +955,8 @@
       "en" : "Class for interviews segments"
     },
     "attributes" : [ "external" ],
-    "id" : "45",
-    "superClasses" : [ "44" ]
+    "id" : "44",
+    "superClasses" : [ "43" ]
   }, {
     "iri" : "http://schema.org/Event",
     "baseIri" : "http://schema.org",
@@ -964,7 +964,7 @@
     "label" : {
       "IRI-based" : "Event"
     },
-    "subClasses" : [ "56", "0", "24", "30", "2", "5", "17", "22", "20", "6", "11", "4", "93", "94", "13", "74", "95", "96", "81", "26", "27", "87", "31", "32", "83", "33", "86", "77", "34", "80", "36", "70", "37", "72", "91", "41", "97", "42", "43", "98", "99", "50", "64", "59", "58", "62", "100", "101" ],
+    "subClasses" : [ "56", "0", "24", "30", "2", "8", "17", "22", "20", "7", "11", "4", "93", "94", "13", "74", "95", "96", "81", "26", "27", "87", "31", "32", "83", "33", "86", "77", "34", "80", "36", "70", "37", "72", "91", "41", "97", "42", "48", "98", "99", "50", "64", "59", "58", "62", "100", "101" ],
     "attributes" : [ "external" ],
     "id" : "1"
   }, {
@@ -979,8 +979,8 @@
       "en" : "Class for interviews"
     },
     "attributes" : [ "external" ],
-    "id" : "46",
-    "superClasses" : [ "44" ]
+    "id" : "45",
+    "superClasses" : [ "43" ]
   }, {
     "iri" : "https://data.niod.nl/Monument",
     "baseIri" : "https://data.niod.nl",
@@ -993,8 +993,8 @@
       "en" : "Class for monuments"
     },
     "attributes" : [ "external" ],
-    "id" : "48",
-    "superClasses" : [ "44" ]
+    "id" : "47",
+    "superClasses" : [ "43" ]
   }, {
     "iri" : "https://data.niod.nl/Geëxecuteerd",
     "baseIri" : "https://data.niod.nl",
@@ -1220,7 +1220,7 @@
         "or" : [ {
           "identifier" : "or",
           "language" : "undefined",
-          "value" : "_:genid2147483685",
+          "value" : "_:genid2147483699",
           "type" : "label"
         } ]
       },
@@ -1248,7 +1248,7 @@
         "or" : [ {
           "identifier" : "or",
           "language" : "undefined",
-          "value" : "_:genid2147483688",
+          "value" : "_:genid2147483705",
           "type" : "label"
         } ]
       },
@@ -1287,25 +1287,6 @@
     "attributes" : [ "external" ],
     "id" : "121"
   }, {
-    "iri" : "https://data.niod.nl/Geroyeerd",
-    "baseIri" : "https://data.niod.nl",
-    "instances" : 0,
-    "annotations" : {
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "undefined",
-        "value" : "https://data.niod.nl/WO2_Thesaurus/events/11178",
-        "type" : "iri"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "Geroyeerd",
-      "nl" : "Geroyeerd"
-    },
-    "attributes" : [ "external" ],
-    "id" : "101",
-    "superClasses" : [ "1" ]
-  }, {
     "iri" : "https://data.niod.nl/Gearresteerd",
     "baseIri" : "https://data.niod.nl",
     "instances" : 0,
@@ -1328,6 +1309,25 @@
     "id" : "100",
     "superClasses" : [ "1" ]
   }, {
+    "iri" : "https://data.niod.nl/Geroyeerd",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/11178",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Geroyeerd",
+      "nl" : "Geroyeerd"
+    },
+    "attributes" : [ "external" ],
+    "id" : "101",
+    "superClasses" : [ "1" ]
+  }, {
     "iri" : "https://personsincontext.org/model/#PersonReconstruction",
     "baseIri" : "https://personsincontext.org/model/",
     "instances" : 0,
@@ -1348,37 +1348,6 @@
       "IRI-based" : "NodeShape"
     },
     "individuals" : [ {
-      "iri" : "http://data.niod.nl/ObjectShape",
-      "baseIri" : "http://data.niod.nl",
-      "annotations" : {
-        "targetClass" : [ {
-          "identifier" : "targetClass",
-          "language" : "undefined",
-          "value" : "http://schema.org/CreativeWork",
-          "type" : "iri"
-        } ],
-        "property" : [ {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483686",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483687",
-          "type" : "label"
-        } ],
-        "name" : [ {
-          "identifier" : "name",
-          "language" : "nl",
-          "value" : "Archiefstuk of Object",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "ObjectShape"
-      }
-    }, {
       "iri" : "http://data.niod.nl/GebeurtenisShape",
       "baseIri" : "http://data.niod.nl",
       "annotations" : {
@@ -1397,17 +1366,176 @@
         "property" : [ {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483679",
+          "value" : "_:genid2147483664",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483698",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "GebeurtenisShape"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/CreativeWorkShape",
+      "baseIri" : "http://data.niod.nl",
+      "description" : {
+        "nl" : "Verschillende typen bronnen en objecten die binnen de collectie worden beschreven, zoals artikelen, foto's en kunstwerken."
+      },
+      "annotations" : {
+        "targetClass" : [ {
+          "identifier" : "targetClass",
+          "language" : "undefined",
+          "value" : "https://data.niod.nl/Monument",
+          "type" : "iri"
+        }, {
+          "identifier" : "targetClass",
+          "language" : "undefined",
+          "value" : "http://schema.org/SheetMusic",
+          "type" : "iri"
+        }, {
+          "identifier" : "targetClass",
+          "language" : "undefined",
+          "value" : "http://schema.org/Book",
+          "type" : "iri"
+        }, {
+          "identifier" : "targetClass",
+          "language" : "undefined",
+          "value" : "http://schema.org/Painting",
+          "type" : "iri"
+        }, {
+          "identifier" : "targetClass",
+          "language" : "undefined",
+          "value" : "http://schema.org/Newspaper",
+          "type" : "iri"
+        }, {
+          "identifier" : "targetClass",
+          "language" : "undefined",
+          "value" : "http://schema.org/Sculpture",
+          "type" : "iri"
+        }, {
+          "identifier" : "targetClass",
+          "language" : "undefined",
+          "value" : "http://schema.org/Photograph",
+          "type" : "iri"
+        }, {
+          "identifier" : "targetClass",
+          "language" : "undefined",
+          "value" : "http://schema.org/CreativeWork",
+          "type" : "iri"
+        }, {
+          "identifier" : "targetClass",
+          "language" : "undefined",
+          "value" : "http://schema.org/Article",
+          "type" : "iri"
+        }, {
+          "identifier" : "targetClass",
+          "language" : "undefined",
+          "value" : "http://schema.org/VisualArtwork",
+          "type" : "iri"
+        } ],
+        "property" : [ {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483686",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483681",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483683",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483697",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483690",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483691",
           "type" : "label"
         }, {
           "identifier" : "property",
           "language" : "undefined",
           "value" : "_:genid2147483680",
           "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483684",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483689",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483685",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483687",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483693",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483688",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483694",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483696",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483682",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483695",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483692",
+          "type" : "label"
+        } ],
+        "name" : [ {
+          "identifier" : "name",
+          "language" : "nl",
+          "value" : "Bronnen en Objecten",
+          "type" : "label"
         } ]
       },
       "labels" : {
-        "IRI-based" : "GebeurtenisShape"
+        "IRI-based" : "CreativeWorkShape"
       }
     }, {
       "iri" : "http://data.niod.nl/PersoonsvermeldingShape",
@@ -1435,37 +1563,7 @@
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483664",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483653",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483661",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483652",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483655",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483660",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483663",
+          "value" : "_:genid2147483651",
           "type" : "label"
         }, {
           "identifier" : "property",
@@ -1475,7 +1573,7 @@
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483656",
+          "value" : "_:genid2147483652",
           "type" : "label"
         }, {
           "identifier" : "property",
@@ -1485,12 +1583,27 @@
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483651",
+          "value" : "_:genid2147483661",
           "type" : "label"
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483650",
+          "value" : "_:genid2147483663",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483655",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483648",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483660",
           "type" : "label"
         }, {
           "identifier" : "property",
@@ -1500,7 +1613,22 @@
         }, {
           "identifier" : "property",
           "language" : "undefined",
+          "value" : "_:genid2147483650",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483653",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
           "value" : "_:genid2147483659",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483656",
           "type" : "label"
         } ],
         "name" : [ {
@@ -1529,32 +1657,12 @@
         "property" : [ {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483668",
+          "value" : "_:genid2147483671",
           "type" : "label"
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483648",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483677",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483673",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483667",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483669",
+          "value" : "_:genid2147483670",
           "type" : "label"
         }, {
           "identifier" : "property",
@@ -1564,27 +1672,32 @@
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483674",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483676",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
           "value" : "_:genid2147483678",
           "type" : "label"
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483671",
+          "value" : "_:genid2147483668",
           "type" : "label"
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483670",
+          "value" : "_:genid2147483677",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483672",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483667",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483679",
           "type" : "label"
         }, {
           "identifier" : "property",
@@ -1599,7 +1712,22 @@
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483672",
+          "value" : "_:genid2147483673",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483669",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483674",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483676",
           "type" : "label"
         } ],
         "name" : [ {
@@ -1612,23 +1740,46 @@
       "labels" : {
         "IRI-based" : "PersoonReconstructionShape"
       }
+    }, {
+      "iri" : "http://data.niod.nl/ArchiveShape",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "node" : [ {
+          "identifier" : "node",
+          "language" : "undefined",
+          "value" : "http://data.niod.nl/CreativeWorkShape",
+          "type" : "iri"
+        } ],
+        "targetClass" : [ {
+          "identifier" : "targetClass",
+          "language" : "undefined",
+          "value" : "https://data.niod.nl/ArchiveFile",
+          "type" : "iri"
+        }, {
+          "identifier" : "targetClass",
+          "language" : "undefined",
+          "value" : "https://data.niod.nl/Archive",
+          "type" : "iri"
+        } ],
+        "name" : [ {
+          "identifier" : "name",
+          "language" : "nl",
+          "value" : "Archieven en Archiefstukken",
+          "type" : "label"
+        } ],
+        "property" : [ {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483700",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "ArchiveShape"
+      }
     } ],
     "attributes" : [ "external" ],
     "id" : "127"
-  }, {
-    "iri" : "https://data.niod.nl/Certificate",
-    "baseIri" : "https://data.niod.nl",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Certificate",
-      "nl" : "Akte"
-    },
-    "comment" : {
-      "en" : "Class for archival certificates"
-    },
-    "attributes" : [ "external" ],
-    "id" : "47",
-    "superClasses" : [ "44" ]
   }, {
     "iri" : "https://data.niod.nl/LidGeweest",
     "baseIri" : "https://data.niod.nl",
@@ -1649,6 +1800,20 @@
     "id" : "4",
     "superClasses" : [ "1" ]
   }, {
+    "iri" : "https://data.niod.nl/Certificate",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Certificate",
+      "nl" : "Akte"
+    },
+    "comment" : {
+      "en" : "Class for archival certificates"
+    },
+    "attributes" : [ "external" ],
+    "id" : "46",
+    "superClasses" : [ "43" ]
+  }, {
     "iri" : "https://data.niod.nl/Gedecoreerd",
     "baseIri" : "https://data.niod.nl",
     "instances" : 0,
@@ -1666,25 +1831,6 @@
     },
     "attributes" : [ "external" ],
     "id" : "93",
-    "superClasses" : [ "1" ]
-  }, {
-    "iri" : "https://data.niod.nl/Geëvacueerd",
-    "baseIri" : "https://data.niod.nl",
-    "instances" : 0,
-    "annotations" : {
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "undefined",
-        "value" : "https://data.niod.nl/WO2_Thesaurus/events/11174",
-        "type" : "iri"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "Geëvacueerd",
-      "nl" : "Geëvacueerd"
-    },
-    "attributes" : [ "external" ],
-    "id" : "95",
     "superClasses" : [ "1" ]
   }, {
     "iri" : "https://data.niod.nl/Vertrokken",
@@ -1706,6 +1852,25 @@
     "id" : "96",
     "superClasses" : [ "1" ]
   }, {
+    "iri" : "https://data.niod.nl/Geëvacueerd",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/11174",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Geëvacueerd",
+      "nl" : "Geëvacueerd"
+    },
+    "attributes" : [ "external" ],
+    "id" : "95",
+    "superClasses" : [ "1" ]
+  }, {
     "iri" : "https://data.niod.nl/Archiefmateriaal",
     "baseIri" : "https://data.niod.nl",
     "instances" : 0,
@@ -1719,7 +1884,7 @@
     },
     "attributes" : [ "external" ],
     "id" : "40",
-    "superClasses" : [ "44" ]
+    "superClasses" : [ "43" ]
   }, {
     "iri" : "https://data.niod.nl/ArchiveFile",
     "baseIri" : "https://data.niod.nl",
@@ -1767,7 +1932,7 @@
     },
     "attributes" : [ "external" ],
     "id" : "39",
-    "superClasses" : [ "44", "40" ]
+    "superClasses" : [ "43", "40" ]
   }, {
     "iri" : "https://data.niod.nl/GedwongenVerhuisd",
     "baseIri" : "https://data.niod.nl",
@@ -1810,7 +1975,7 @@
     },
     "attributes" : [ "external" ],
     "id" : "9",
-    "superClasses" : [ "8" ]
+    "superClasses" : [ "6" ]
   } ],
   "property" : [ {
     "id" : "3",
@@ -2017,337 +2182,337 @@
   "propertyAttribute" : [ {
     "range" : "1",
     "domain" : "4",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "3"
   }, {
     "range" : "1",
     "domain" : "11",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "10"
   }, {
     "range" : "1",
-    "domain" : "6",
-    "attributes" : [ "anonymous", "object" ],
+    "domain" : "7",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "12"
   }, {
     "range" : "1",
     "domain" : "17",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "16"
   }, {
     "range" : "1",
-    "domain" : "5",
-    "attributes" : [ "anonymous", "object" ],
+    "domain" : "8",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "18"
   }, {
     "range" : "1",
     "domain" : "20",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "19"
   }, {
     "range" : "1",
     "domain" : "22",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "21"
   }, {
     "range" : "1",
     "domain" : "24",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "23"
   }, {
     "range" : "1",
     "domain" : "0",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "25"
   }, {
     "range" : "1",
     "domain" : "2",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "28"
   }, {
     "range" : "1",
     "domain" : "30",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "29"
   }, {
     "range" : "15",
     "domain" : "52",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "51"
   }, {
     "range" : "15",
     "domain" : "54",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "53"
   }, {
     "range" : "1",
     "domain" : "56",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "55"
   }, {
     "range" : "15",
     "domain" : "49",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "57"
   }, {
     "range" : "39",
     "domain" : "61",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "60"
   }, {
     "range" : "15",
     "domain" : "64",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "63"
   }, {
     "range" : "15",
     "domain" : "14",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "65"
   }, {
     "range" : "40",
     "domain" : "38",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "66"
   }, {
     "range" : "39",
     "domain" : "38",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "67"
   }, {
     "range" : "40",
     "domain" : "61",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "68"
   }, {
     "range" : "1",
     "domain" : "70",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "69"
   }, {
     "range" : "1",
     "domain" : "72",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "71"
   }, {
     "range" : "1",
     "domain" : "37",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "73"
   }, {
     "range" : "1",
     "domain" : "34",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "75"
   }, {
     "range" : "1",
     "domain" : "77",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "76"
   }, {
     "range" : "1",
     "domain" : "36",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "78"
   }, {
     "range" : "1",
     "domain" : "80",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "79"
   }, {
     "range" : "1",
     "domain" : "83",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "82"
   }, {
     "range" : "1",
     "domain" : "32",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "84"
   }, {
     "range" : "1",
     "domain" : "86",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "85"
   }, {
     "range" : "1",
     "domain" : "33",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "88"
   }, {
     "range" : "1",
     "domain" : "31",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "89"
   }, {
     "range" : "1",
     "domain" : "87",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "90"
   }, {
     "range" : "1",
     "domain" : "27",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "102"
   }, {
     "range" : "1",
     "domain" : "96",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "103"
   }, {
     "range" : "1",
     "domain" : "95",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "104"
   }, {
     "range" : "1",
     "domain" : "26",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "105"
   }, {
     "range" : "1",
     "domain" : "81",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "106"
   }, {
     "range" : "1",
     "domain" : "94",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "107"
   }, {
     "range" : "1",
     "domain" : "93",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "108"
   }, {
     "range" : "1",
     "domain" : "74",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "109"
   }, {
     "range" : "1",
     "domain" : "13",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "110"
   }, {
     "range" : "1",
     "domain" : "100",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "111"
   }, {
     "range" : "1",
     "domain" : "62",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "112"
   }, {
     "range" : "1",
     "domain" : "101",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "113"
   }, {
     "range" : "1",
     "domain" : "64",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "114"
   }, {
     "range" : "1",
     "domain" : "50",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "115"
   }, {
     "range" : "1",
     "domain" : "58",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "116"
   }, {
     "range" : "1",
     "domain" : "59",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "117"
   }, {
     "range" : "1",
     "domain" : "98",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "118"
   }, {
     "range" : "1",
-    "domain" : "43",
-    "attributes" : [ "anonymous", "object" ],
+    "domain" : "48",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "119"
   }, {
     "range" : "1",
     "domain" : "99",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "120"
   }, {
     "range" : "1",
     "domain" : "41",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "122"
   }, {
     "range" : "1",
     "domain" : "91",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "123"
   }, {
     "range" : "1",
     "domain" : "42",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "124"
   }, {
     "range" : "1",
     "domain" : "97",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "125"
   }, {
-    "range" : "44",
-    "domain" : "45",
-    "attributes" : [ "anonymous", "object" ],
+    "range" : "43",
+    "domain" : "44",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "128"
   }, {
-    "range" : "44",
-    "domain" : "46",
-    "attributes" : [ "anonymous", "object" ],
+    "range" : "43",
+    "domain" : "45",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "129"
   }, {
-    "range" : "44",
+    "range" : "43",
     "domain" : "39",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "130"
   }, {
-    "range" : "44",
+    "range" : "43",
     "domain" : "40",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "131"
   }, {
-    "range" : "44",
-    "domain" : "47",
-    "attributes" : [ "anonymous", "object" ],
+    "range" : "43",
+    "domain" : "46",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "132"
   }, {
-    "range" : "44",
+    "range" : "43",
     "domain" : "15",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "133"
   }, {
-    "range" : "44",
-    "domain" : "48",
-    "attributes" : [ "anonymous", "object" ],
+    "range" : "43",
+    "domain" : "47",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "134"
   }, {
     "range" : "40",
     "domain" : "39",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "135"
   }, {
-    "range" : "8",
+    "range" : "6",
     "domain" : "9",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "136"
   }, {
-    "range" : "8",
-    "domain" : "7",
-    "attributes" : [ "anonymous", "object" ],
+    "range" : "6",
+    "domain" : "5",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "137"
   } ]
 }

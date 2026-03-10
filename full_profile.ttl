@@ -490,6 +490,8 @@ picom:PersonReconstruction a rdfs:Class ;
 :Rule_rights             sh:path dc:rights ;           sh:node :Base_String .
 :Rule_source             sh:path dc:source ;           sh:node :Base_String .
 :Rule_hasOccupation      sh:path schema:hasOccupation ;sh:node :Base_String .
+:Rule_type_dc            sh:path dc:type ;             sh:node :Base_String .
+:Rule_collection         sh:path dcmit:Collection ;    sh:node :Base_String .
 
 :Rule_keywords           sh:path schema:keywords ;     sh:node :Base_IRI .
 :Rule_subject            sh:path dc:subject ;          sh:node :Base_StringOrIRI .
@@ -523,7 +525,7 @@ picom:PersonReconstruction a rdfs:Class ;
 # --- Personen en Organisaties (Relaties) ---
 :Rule_actor              sh:path schema:actor ;         sh:node :Base_IRI .
 :Rule_publisher          sh:path dc:publisher ;        sh:node :Base_IRI .
-:Rule_maintainer         sh:path schema:maintainer ;    sh:node :Base_IRI .
+:Rule_provider         sh:path schema:provider ;    sh:node :Base_IRI .
 :Rule_creator            sh:path dc:creator ;          sh:node :Base_StringOrIRI .
 :Rule_gender             sh:path schema:gender ;        sh:node :Base_StringOrIRI .
 
@@ -535,7 +537,7 @@ picom:PersonReconstruction a rdfs:Class ;
 :Rule_image              sh:path schema:image ;         sh:node :Base_IRI .
 
 # --- Structureel en Rechten ---
-:Rule_isPartOf           sh:path schema:isPartOf ;      sh:node :Base_IRI .
+:Rule_isPartOf           sh:path dct:isPartOf ;         sh:node :Base_IRI .
 :Rule_superEvent         sh:path schema:superEvent ;    sh:node :Base_IRI .
 :Rule_license            sh:path schema:license ;       sh:node :Base_IRI .
 :Rule_position           sh:path schema:position ;      sh:node :Base_Integer .
@@ -758,6 +760,141 @@ picom:PersonReconstruction a rdfs:Class ;
         sh:node :Rule_keywords ;
     ] .
 
+### --- BRON EN OBJECT TYPEN ---
+:CreativeWorkShape a sh:NodeShape ;
+    sh:targetClass 
+        schema:CreativeWork,
+        schema:Article, 
+        schema:Newspaper, 
+        schema:Book, 
+        schema:Photograph, 
+        schema:VisualArtwork, 
+        schema:Painting, 
+        schema:Sculpture, 
+        schema:SheetMusic,
+        niod:Monument ;
+    sh:name "Bronnen en Objecten"@nl ;
+    sh:description "Verschillende typen bronnen en objecten die binnen de collectie worden beschreven, zoals artikelen, foto's en kunstwerken."@nl ;
+    # --- Identificatie en Basis ---
+    sh:property [
+        sh:path dc:identifier ;
+        sh:name "Identifier (DC)"@nl ;
+        sh:node :Rule_identifier_dc ;
+    ] ;
+    sh:property [
+        sh:path dc:title ;
+        sh:name "Titel"@nl ;
+        sh:node :Rule_title ;
+    ] ;
+    sh:property [
+        sh:path rdf:type ;
+        sh:name "Type (RDF)"@nl ;
+        sh:node :Rule_type ;
+    ] ;
+    sh:property [
+        sh:path dc:type ;
+        sh:name "Type (DC)"@nl ;
+        sh:node :Rule_type_dc ;
+    ] ;
+
+    # --- Inhoud en Onderwerp ---
+    sh:property [
+        sh:path dc:description ;
+        sh:name "Beschrijving"@nl ;
+        sh:node :Rule_description_dc ;
+    ] ;
+    sh:property [
+        sh:path dc:subject ;
+        sh:name "Onderwerp"@nl ;
+        sh:node :Rule_subject ;
+    ] ;
+    sh:property [
+        sh:path schema:about ;
+        sh:name "Betreft entiteit"@nl ;
+        sh:node :Rule_about ;
+    ] ;
+    sh:property [
+        sh:path schema:temporal ;
+        sh:name "Periodisering"@nl ;
+        sh:node :Rule_temporal ;
+    ] ;
+    sh:property [
+        sh:path schema:contentLocation ;
+        sh:name "Inhoudelijke locatie"@nl ;
+        sh:node :Rule_contentLocation ;
+    ] ;
+
+    # --- Creatie en Herkomst ---
+    sh:property [
+        sh:path dc:creator ;
+        sh:name "Maker"@nl ;
+        sh:node :Rule_creator ;
+    ] ;
+    sh:property [
+        sh:path dc:publisher ;
+        sh:name "Uitgever"@nl ;
+        sh:node :Rule_publisher ;
+    ] ;
+    sh:property [
+        sh:path schema:provider ;
+        sh:name "Provider"@nl ;
+        sh:description "De instelling die het object digitaal beschikbaar stelt."@nl ;
+        sh:node :Rule_provider ;
+    ] ;
+    sh:property [
+        sh:path dc:source ;
+        sh:name "Bron"@nl ;
+        sh:node :Rule_source ;
+    ] ;
+    sh:property [
+        sh:path dcmit:Collection ;
+        sh:name "Collectie"@nl ;
+        sh:description "De verzameling waar dit object deel van uitmaakt."@nl ;
+        sh:node :Rule_collection ;
+    ] ;
+
+    # --- Tijd ---
+    sh:property [
+        sh:path dc:date ;
+        sh:name "Datum"@nl ;
+        sh:node :Rule_date ;
+    ] ;
+    sh:property [
+        sh:path schema:startDate ;
+        sh:name "Startdatum"@nl ;
+        sh:node :Rule_startDate ;
+    ] ;
+    sh:property [
+        sh:path schema:endDate ;
+        sh:name "Einddatum"@nl ;
+        sh:node :Rule_endDate ;
+    ] ;
+
+    # --- Visueel ---
+    sh:property [
+        sh:path schema:thumbnail ;
+        sh:name "Thumbnail"@nl ;
+        sh:node :Rule_thumbnail ;
+    ] .
+
+### --- ARCHIEVEN EN ARCHIEFSTUKKEN (Uitbreiding) ---
+:ArchiveShape a sh:NodeShape ;
+    sh:targetClass 
+        niod:Archive,
+        niod:ArchiveFile ;
+    sh:name "Archieven en Archiefstukken"@nl ;
+    
+    # 1. Hergebruik ALLE regels van CreativeWork in één keer
+    sh:node :CreativeWorkShape ;
+
+    # 2. Voeg extra properties toe
+    sh:property [
+        sh:path dct:isPartOf ;
+        sh:name "Onderdeel van"@nl ;
+        sh:description "Dit archiefstuk is onderdeel van een archiefserie of archief"@nl ;
+        sh:node :Rule_isPartOf ;
+    ] .
+
 ### --- GEBEURTENIS ---
 :GebeurtenisShape a sh:NodeShape ;
     sh:targetClass schema:Event ;
@@ -773,21 +910,4 @@ picom:PersonReconstruction a rdfs:Class ;
         sh:name "Datum van plaatsvinden"@nl ;
         sh:description "De dag waarop de gebeurtenis startte."@nl ;
         sh:node :TechnicalDateRule ;
-    ] .
-
-### --- OBJECT (BRON) ---
-:ObjectShape a sh:NodeShape ;
-    sh:targetClass schema:CreativeWork ;
-    sh:name "Archiefstuk of Object"@nl ;
-    sh:property [
-        sh:path schema:name ;
-        sh:name "Objecttitel"@nl ;
-        sh:description "De titel van het document of de naam van het voorwerp."@nl ;
-        sh:node :TechnicalNameRule ;
-    ] ;
-    sh:property [
-        sh:path schema:description ;
-        sh:name "Inhoudelijke beschrijving"@nl ;
-        sh:description "Samenvatting van de inhoud van het archiefstuk."@nl ;
-        sh:node :TechnicalDescriptionRule ;
     ] .
