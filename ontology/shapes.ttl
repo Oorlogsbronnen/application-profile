@@ -40,7 +40,6 @@
 :Rule_identifier_dc     sh:path dc:identifier ;        sh:node :Base_String ; sh:minCount 1 ; sh:maxCount 1 .
 :Rule_identifier_schema sh:path schema:identifier ;    sh:node :Base_String ; sh:minCount 1 ; sh:maxCount 1 .
 :Rule_deceased          sh:path picom:deceased ;       sh:node :Base_String ; sh:maxCount 1 .
-
 :Rule_additionalName    sh:path schema:additionalName ;sh:node :Base_String .
 :Rule_alternateName     sh:path schema:alternateName ; sh:node :Base_String .
 :Rule_givenName         sh:path schema:givenName ;     sh:node :Base_String .
@@ -56,11 +55,9 @@
 :Rule_hasOccupation      sh:path schema:hasOccupation ;sh:node :Base_String .
 :Rule_type_dc            sh:path dc:type ;             sh:node :Base_String .
 :Rule_collection         sh:path dcmit:Collection ;    sh:node :Base_String .
-
 :Rule_keywords           sh:path schema:keywords ;     sh:node :Base_IRI ; sh:class skos:Concept .
 :Rule_subject            sh:path dc:subject ;          sh:node :Base_StringOrIRI .
 :Rule_about              sh:path schema:about ;        sh:node :Base_StringOrIRI .
-
 :Rule_type               sh:path rdf:type ;             sh:node :Base_IRI .
 :Rule_additionalType     sh:path schema:additionalType ;sh:node :Base_IRI .
 
@@ -68,7 +65,6 @@
 :Rule_date               sh:path dc:date ;             sh:node :Base_DateOrInteger ; sh:maxCount 1 .
 :Rule_startDate          sh:path schema:startDate ;    sh:node :Base_DateOrInteger ; sh:maxCount 1 .
 :Rule_endDate            sh:path schema:endDate ;      sh:node :Base_DateOrInteger ; sh:maxCount 1 .
-
 :Rule_dateCreated        sh:path schema:dateCreated ;   sh:node :Base_Date ; sh:maxCount 1 .
 :Rule_dateModified       sh:path schema:dateModified ;  sh:node :Base_Date ; sh:maxCount 1 .
 :Rule_birthDate          sh:path schema:birthDate ;     sh:node :Base_Date ; sh:maxCount 1 .
@@ -90,7 +86,7 @@
 :Rule_children           sh:path schema:children;       sh:node :Base_IRI ;  sh:or ([ sh:class picom:PersonReconstruction ] [ sh:class picom:PersonObservation ]) .
 :Rule_parent             sh:path schema:parent ;        sh:node :Base_IRI ;  sh:or ([ sh:class picom:PersonReconstruction ] [ sh:class picom:PersonObservation ]) .
 :Rule_sibling            sh:path schema:sibling ;       sh:node :Base_IRI ;  sh:or ([ sh:class picom:PersonReconstruction ] [ sh:class picom:PersonObservation ]) .
-:Rule_actor              sh:path schema:actor           sh:node :Base_IRI ;  sh:or ([ sh:class picom:PersonReconstruction ] [ sh:class picom:PersonObservation ]) .
+:Rule_actor              sh:path schema:actor ;          sh:node :Base_IRI ; sh:or ([ sh:class picom:PersonReconstruction ] [ sh:class picom:PersonObservation ]) .
 :Rule_publisher          sh:path dc:publisher ;         sh:node :Base_IRI  ; sh:class schema:Organization .
 :Rule_provider           sh:path schema:provider ;      sh:node :Base_IRI  ; sh:class schema:Organization .
 :Rule_creator            sh:path dc:creator ;           sh:node :Base_StringOrIRI .
@@ -127,21 +123,21 @@
     # --- Identificatie en Type ---
     sh:property [
         sh:path schema:identifier ;
-        sh:name "Persoons-ID"@nl ;
-        sh:description "De unieke identifier van de gereconstrueerde persoon."@nl ;
+        sh:name "Identifier"@nl ;
+        sh:description "De unieke identifier van persoon."@nl ;
         sh:node :Rule_identifier_schema ;
     ] ;
     sh:property [
         sh:path rdf:type ;
         sh:name "Type entiteit"@nl ;
-        sh:description "Classificatie van de entiteit."@nl ;
+        sh:description "Classificatie van de entiteit volgens Persons in Context."@nl ;
         sh:node :Rule_type ;
     ] ;
 
     # --- Naamgeving ---
     sh:property [
         sh:path schema:name ;
-        sh:name "Voorkeursnaam"@nl ;
+        sh:name "Naam"@nl ;
         sh:description "De gestandaardiseerde volledige naam van de persoon."@nl ;
         sh:node :Rule_name ;
     ] ;
@@ -176,13 +172,33 @@
     sh:property [
         sh:path picom:deceased ;
         sh:name "Overleden status"@nl ;
-        sh:description "Indicatie of de persoon is overleden (bijv. Ja/Nee of tekstueel)."@nl ;
+        sh:description "Indicatie of de persoon is overleden."@nl ;
         sh:node :Rule_deceased ;
     ] ;
     sh:property [
         sh:path schema:gender ;
         sh:name "Geslacht"@nl ;
         sh:node :Rule_gender ;
+    ] ;
+
+    # --- Familierelaties ---
+    sh:property [
+        sh:path schema:children ;
+        sh:name "Kinderen"@nl ;
+        sh:description "Verwijzing naar de kinderen van deze persoon."@nl ;
+        sh:node :Rule_children ;
+    ] ;
+    sh:property [
+        sh:path schema:parent ;
+        sh:name "Ouder"@nl ;
+        sh:description "Verwijzing naar een ouder van deze persoon."@nl ;
+        sh:node :Rule_parent ;
+    ] ;
+    sh:property [
+        sh:path schema:sibling ;
+        sh:name "Broer of zus"@nl ;
+        sh:description "Verwijzing naar een broer of zus van deze persoon."@nl ;
+        sh:node :Rule_sibling ;
     ] ;
 
     # --- Metadata en Herkomst ---
@@ -201,19 +217,19 @@
     sh:property [
         sh:path prov:wasDerivedFrom ;
         sh:name "Afgeleid van"@nl ;
-        sh:description "Verwijzing naar de bronnen of observaties waaruit deze reconstructie is opgebouwd."@nl ;
+        sh:description "Verwijzing naar de persoonsvermeldingen waaruit deze reconstructie is opgebouwd."@nl ;
         sh:node :Rule_wasDerivedFrom ;
     ] ;
     sh:property [
         sh:path schema:sameAs ;
         sh:name "Andere autoriteit"@nl ;
-        sh:description "Externe links naar dezelfde persoon in andere systemen (bijv. Wikidata, NTA)."@nl ;
+        sh:description "Externe links naar dezelfde persoon in andere systemen (bijv. Wikidata)."@nl ;
         sh:node :Rule_sameAs ;
     ] ;
     sh:property [
         sh:path schema:keywords ;
         sh:name "Trefwoorden"@nl ;
-        sh:description "Categorisering of kenmerken van de persoon uit een thesaurus."@nl ;
+        sh:description "Categorisering of trefwoorden van toepassing op de persoon (uit de WO2 thesaurus)."@nl ;
         sh:node :Rule_keywords ;
     ] .
 
@@ -277,8 +293,79 @@
     sh:property [
         sh:path schema:description ;
         sh:name "Biografische schets"@nl ;
-        sh:description "Een korte beschrijving van de persoon of diens rol."@nl ;
+        sh:description "Een korte beschrijving van de persoon of diens rol tijdens de Tweede Wereldoorlog."@nl ;
         sh:node :Rule_description_schema ;
+    ] .
+
+### --- PERSOONLIJKE GEBEURTENISSEN ---
+:EventShape a sh:NodeShape ;
+    sh:targetClass schema:Event ;
+    sh:name "Gebeurtenis"@nl ;
+    sh:description ""@nl ;
+
+    # --- Type ---
+    sh:property [
+        sh:path rdf:type ;
+        sh:name "Type entiteit"@nl ;
+        sh:description "Classificatie van de entiteit als schema:Event"@nl ;
+        sh:node :Rule_type ;
+    ] ;
+    sh:property [
+        sh:path schema:additionalType ;
+        sh:name "type gebeurtenis"@nl ;
+        sh:description "Classificatie van de gebeurtenis als persoonlijke gebeurtenis uit de WO2 thesaurus"@nl ;
+        sh:node :Rule_type ;
+    ] ;
+
+    # --- Kenmerken en Context ---
+    sh:property [
+        sh:path schema:name ;
+        sh:name "Naam"@nl ;
+        sh:description "De naam van de gebeurtenis."@nl ;
+        sh:node :Rule_hasOccupation ;
+    ] ;
+    sh:property [
+        sh:path schema:location ;
+        sh:name "Locatie"@nl ;
+        sh:node :Rule_location ;
+    ] ;
+    sh:property [
+        sh:path schema:fromLocation ;
+        sh:name "Beginlocatie"@nl ;
+        sh:node :Rule_fromLocation ;
+    ] ;
+    sh:property [
+        sh:path schema:toLocation ;
+        sh:name "Eindlocatie"@nl ;
+        sh:node :Rule_toLocation ;
+    ] ;
+    sh:property [
+        sh:path schema:actor ;
+        sh:name "Persoon in de gebeurtenis"@nl ;
+        sh:node :Rule_actor ;
+    ] ;
+    sh:property [
+        sh:path schema:superEvent ;
+        sh:name "Grotere gebeurtenis"@nl ;
+        sh:node :Rule_superEvent ;
+    ] ;
+    sh:property [
+        sh:path prov:hadPrimarySource ;
+        sh:name "Primaire bron"@nl ;
+        sh:description "De originele bron waaruit deze informatie afkomstig is."@nl ;
+        sh:node :Rule_hadPrimarySource ;
+    ] ;
+
+    # --- Tijd ---
+    sh:property [
+        sh:path schema:startDate ;
+        sh:name "Startdatum"@nl ;
+        sh:node :Rule_startDate ;
+    ] ;
+    sh:property [
+        sh:path schema:endDate ;
+        sh:name "Einddatum"@nl ;
+        sh:node :Rule_endDate ;
     ] .
 
 ### --- BRON EN OBJECT TYPEN ---
