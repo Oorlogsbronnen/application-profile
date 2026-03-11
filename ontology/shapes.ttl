@@ -90,7 +90,7 @@
 :Rule_children           sh:path schema:children;       sh:node :Base_IRI ;  sh:or ([ sh:class picom:PersonReconstruction ] [ sh:class picom:PersonObservation ]) .
 :Rule_parent             sh:path schema:parent ;        sh:node :Base_IRI ;  sh:or ([ sh:class picom:PersonReconstruction ] [ sh:class picom:PersonObservation ]) .
 :Rule_sibling            sh:path schema:sibling ;       sh:node :Base_IRI ;  sh:or ([ sh:class picom:PersonReconstruction ] [ sh:class picom:PersonObservation ]) .
-:Rule_actor              sh:path schema:actor           sh:nodeKind sh:IRI ; sh:class schema:Event .
+:Rule_actor              sh:path schema:actor           sh:node :Base_IRI ;  sh:or ([ sh:class picom:PersonReconstruction ] [ sh:class picom:PersonObservation ]) .
 :Rule_publisher          sh:path dc:publisher ;         sh:node :Base_IRI  ; sh:class schema:Organization .
 :Rule_provider           sh:path schema:provider ;      sh:node :Base_IRI  ; sh:class schema:Organization .
 :Rule_creator            sh:path dc:creator ;           sh:node :Base_StringOrIRI .
