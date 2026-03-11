@@ -19,44 +19,40 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
 
-      # Valideer beide Turtle bestanden in de ontology map
-      - name: Validate Turtle Syntax
-        run: |
-          pip install rdflib
-          python -c "from rdflib import Graph; g=Graph(); g.parse('ontology/schema_ext-oorlogsbronnen.ttl', format='turtle'); g.parse('ontology/shapes.ttl', format='turtle'); print('Ontology & Shapes Valid!')"
+      - name: Install Python Dependencies
+        run: pip install rdflib
 
-      - name: Create external directory
-        run: mkdir -p external
-
-      - name: Fetch Latest External Schemas
+      # STAP 1: De bestanden technisch correct samenvoegen
+      - name: Merge TTL Files Properly
         run: |
-          curl -L http://schema.org/docs/schemaorg.ttl -o external/schema.ttl
-          curl -L https://purl.org/dc/terms.ttl -o external/dcterms.ttl
+          python -c "
+          from rdflib import Graph
+          g = Graph()
+          g.parse('ontology/schema_ext-oorlogsbronnen.ttl', format='turtle')
+          g.parse('ontology/shapes.ttl', format='turtle')
+          g.serialize(destination='full_profile.ttl', format='turtle')
+          print('Merge succesvol: full_profile.ttl aangemaakt.')
+          "
 
       - name: Download Latest Widoco
         run: |
-          WIDOCO_URL=$(curl -s https://api.github.com/repos/dgarijo/Widoco/releases/latest | grep "browser_download_url.*jar" | cut -d '"' -f 4 | head -n 1)
+          WIDOCO_URL=$(curl -s https://api.github.com/repos/dgarijo/Widoco/releases/latest | grep "browser_download_url.*jar" | cut -d '\"' -f 4 | head -n 1)
           wget $WIDOCO_URL -O widoco.jar
 
+      # STAP 2: Documentatie genereren op basis van het samengevoegde bestand
       - name: Generate Documentation
         run: |
-          # 1. Voorbereiding
           mkdir -p out
-          
-          # 2. Samenvoegen
-          grep -h "@prefix" ontology/*.ttl | sort -u > full_profile.ttl
-          grep -vh "@prefix" ontology/*.ttl >> full_profile.ttl
-          
-          # 3. Widoco uitvoeren
-          # We voegen '-lang nl' toe om het in het Nederlands te proberen als je dat hebt,
-          # of we blijven bij de standaard.
           java -jar widoco.jar \
             -ontFile full_profile.ttl \
             -outFolder ./out \
             -rewriteAll \
             -webVowl \
             -getOntologyMetadata \
-            -includeImportedOntologies
+            -includeImportedOntologies \
+            -lang nl-en
+
+          # ... rest van je verplaats-logica (index.html fix etc.) ...
 
           # 4. FIX: Verplaats bestanden als Widoco ze in een submap 'en' of 'nl' heeft gezet
           # Soms maakt Widoco ./out/en/index.html aan. We halen alles naar ./out/
