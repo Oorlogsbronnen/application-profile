@@ -545,6 +545,7 @@ picom:PersonReconstruction a rdfs:Class ;
 :Rule_sameAs             sh:path schema:sameAs ;        sh:node :Base_IRI .
 :Rule_wasDerivedFrom     sh:path prov:wasDerivedFrom ;  sh:node :Base_IRI ; sh:class picom:PersonObservation .
 :Rule_hadPrimarySource   sh:path prov:hadPrimarySource ;sh:node :Base_IRI ;  sh:or ([ sh:class prov:Entity ] [ sh:class schema:ArchiveComponent ]) .
+:Rule_inDataset          sh:path niod:inDataset ;       sh:node :Base_IRI .
 
 # =================================================================
 # 2. TOEPASSING OP KLASSEN (Context-specifieke labels voor Widoco)
@@ -809,19 +810,24 @@ picom:PersonReconstruction a rdfs:Class ;
     sh:targetClass 
         schema:ArchiveComponent,
         prov:Entity ;
-    sh:name "Bronnen van persoonsvermeldingen"@nl ;
-    sh:description "De archiefstukken, maar ook andere (onderzoeks)datasets en webpagina's waarin de persoonsvermeldingen zijn aangetroffen (bronvermelding)."@nl ;
+    sh:name "Record waarop de persoonsvermelding is aangetroffen"@nl ;
+    sh:description "Archiefstukken, maar ook records uit andere (onderzoeks)datasets en webpagina's kunnen persoonsvermeldingen bevatten. Dit is hiervoor de bronvermelding."@nl ;
     
     sh:property [
         sh:path rdf:type ;
-        sh:name "Type entiteit"@nl ;
-        sh:description "Classificatie van de entiteit"@nl ;
+        sh:name "Type record"@nl ;
+        sh:description "Classificatie van het record als archiefstuk of anders."@nl ;
         sh:node :Rule_type ;
     ] ;
     sh:property [
         sh:path schema:url ;
         sh:name "Url van de bron"@nl ;
         sh:node :Rule_url ;
+    ] ;
+    sh:property [
+        sh:path niod:inDataset ;
+        sh:name "Herkomst van het record"@nl ;
+        sh:node :Rule_inDataset ;
     ] .
 
 ### --- BRON EN OBJECT TYPEN ---
