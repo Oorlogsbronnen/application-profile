@@ -368,6 +368,26 @@
         sh:node :Rule_endDate ;
     ] .
 
+### --- BRONNEN VOOR PERSONEN ---
+:SourceShape a sh:NodeShape ;
+    sh:targetClass 
+        schema:ArchiveComponent,
+        prov:Entity ;
+    sh:name "Bronnen van persoonsvermeldingen"@nl ;
+    sh:description "De archiefstukken, maar ook andere (onderzoeks)datasets en webpagina's waarin de persoonsvermeldingen zijn aangetroffen (bronvermelding)."@nl ;
+    
+    sh:property [
+        sh:path rdf:type ;
+        sh:name "Type entiteit"@nl ;
+        sh:description "Classificatie van de entiteit"@nl ;
+        sh:node :Rule_type ;
+    ] ;
+    sh:property [
+        sh:path schema:url ;
+        sh:name "Url van de bron"@nl ;
+        sh:node :Rule_url ;
+    ] .
+
 ### --- BRON EN OBJECT TYPEN ---
 :CreativeWorkShape a sh:NodeShape ;
     sh:targetClass 
