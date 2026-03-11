@@ -24,6 +24,10 @@
 rdf:comment rdf:type owl:AnnotationProperty .
 
 
+###  http://www.w3.org/ns/shacl#class
+<http://www.w3.org/ns/shacl#class> rdf:type owl:AnnotationProperty .
+
+
 ###  http://www.w3.org/ns/shacl#datatype
 <http://www.w3.org/ns/shacl#datatype> rdf:type owl:AnnotationProperty .
 
@@ -683,95 +687,162 @@ _:genid2 <http://www.w3.org/ns/shacl#description> "Dit archiefstuk is onderdeel 
                                                                                  <http://schema.org/VisualArtwork> ,
                                                                                  <https://data.niod.nl/Monument> .
 
-_:genid5 <http://www.w3.org/ns/shacl#name> "Periodisering"@nl ;
+_:genid5 <http://www.w3.org/ns/shacl#description> "De verzameling waar dit object deel van uitmaakt."@nl ;
+          <http://www.w3.org/ns/shacl#name> "Collectie"@nl ;
+          <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_collection> ;
+          <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/dcmitype/Collection> .
+
+_:genid6 <http://www.w3.org/ns/shacl#name> "Onderwerp"@nl ;
+          <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_subject> ;
+          <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/subject> .
+
+_:genid7 <http://www.w3.org/ns/shacl#name> "Betreft entiteit"@nl ;
+          <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_about> ;
+          <http://www.w3.org/ns/shacl#path> <http://schema.org/about> .
+
+_:genid8 <http://www.w3.org/ns/shacl#name> "Periodisering"@nl ;
           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_temporal> ;
           <http://www.w3.org/ns/shacl#path> <http://schema.org/temporal> .
 
-_:genid6 <http://www.w3.org/ns/shacl#name> "Maker"@nl ;
-          <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_creator> ;
-          <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/creator> .
-
-_:genid7 <http://www.w3.org/ns/shacl#name> "Inhoudelijke locatie"@nl ;
+_:genid9 <http://www.w3.org/ns/shacl#name> "Inhoudelijke locatie"@nl ;
           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_contentLocation> ;
           <http://www.w3.org/ns/shacl#path> <http://schema.org/contentLocation> .
 
-_:genid8 <http://www.w3.org/ns/shacl#name> "Startdatum"@nl ;
-          <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_startDate> ;
-          <http://www.w3.org/ns/shacl#path> <http://schema.org/startDate> .
+_:genid10 <http://www.w3.org/ns/shacl#name> "Maker"@nl ;
+           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_creator> ;
+           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/creator> .
 
-_:genid9 <http://www.w3.org/ns/shacl#name> "Datum"@nl ;
-          <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_date> ;
-          <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/date> .
-
-_:genid10 <http://www.w3.org/ns/shacl#name> "Thumbnail"@nl ;
-           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_thumbnail> ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/thumbnail> .
-
-_:genid11 <http://www.w3.org/ns/shacl#name> "Einddatum"@nl ;
-           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_endDate> ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/endDate> .
+_:genid11 <http://www.w3.org/ns/shacl#name> "Uitgever"@nl ;
+           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_publisher> ;
+           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/publisher> .
 
 _:genid12 <http://www.w3.org/ns/shacl#description> "De instelling die het object digitaal beschikbaar stelt."@nl ;
            <http://www.w3.org/ns/shacl#name> "Provider"@nl ;
            <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_provider> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/provider> .
 
-_:genid13 <http://www.w3.org/ns/shacl#name> "Uitgever"@nl ;
-           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_publisher> ;
-           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/publisher> .
-
-_:genid14 <http://www.w3.org/ns/shacl#description> "De verzameling waar dit object deel van uitmaakt."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Collectie"@nl ;
-           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_collection> ;
-           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/dcmitype/Collection> .
-
-_:genid15 <http://www.w3.org/ns/shacl#name> "Bron"@nl ;
+_:genid13 <http://www.w3.org/ns/shacl#name> "Bron"@nl ;
            <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_source> ;
            <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/source> .
 
-_:genid16 <http://www.w3.org/ns/shacl#name> "Identifier (DC)"@nl ;
-           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_identifier_dc> ;
-           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/identifier> .
-
-_:genid17 <http://www.w3.org/ns/shacl#name> "Titel"@nl ;
-           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_title> ;
-           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/title> .
-
-_:genid18 <http://www.w3.org/ns/shacl#name> "Type (RDF)"@nl ;
-           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_type> ;
-           <http://www.w3.org/ns/shacl#path> rdf:type .
-
-_:genid19 <http://www.w3.org/ns/shacl#name> "Type (DC)"@nl ;
-           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_type_dc> ;
-           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/type> .
-
-_:genid20 <http://www.w3.org/ns/shacl#name> "Beschrijving"@nl ;
+_:genid14 <http://www.w3.org/ns/shacl#name> "Beschrijving"@nl ;
            <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_description_dc> ;
            <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/description> .
 
-_:genid21 <http://www.w3.org/ns/shacl#name> "Onderwerp"@nl ;
-           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_subject> ;
-           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/subject> .
+_:genid15 <http://www.w3.org/ns/shacl#name> "Type (RDF)"@nl ;
+           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_type> ;
+           <http://www.w3.org/ns/shacl#path> rdf:type .
 
-_:genid22 <http://www.w3.org/ns/shacl#name> "Betreft entiteit"@nl ;
-           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_about> ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/about> .
+_:genid16 <http://www.w3.org/ns/shacl#name> "Type (DC)"@nl ;
+           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_type_dc> ;
+           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/type> .
+
+_:genid17 <http://www.w3.org/ns/shacl#name> "Identifier (DC)"@nl ;
+           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_identifier_dc> ;
+           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/identifier> .
+
+_:genid18 <http://www.w3.org/ns/shacl#name> "Titel"@nl ;
+           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_title> ;
+           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/title> .
+
+_:genid19 <http://www.w3.org/ns/shacl#name> "Datum"@nl ;
+           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_date> ;
+           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/date> .
+
+_:genid20 <http://www.w3.org/ns/shacl#name> "Startdatum"@nl ;
+           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_startDate> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/startDate> .
+
+_:genid21 <http://www.w3.org/ns/shacl#name> "Einddatum"@nl ;
+           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_endDate> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/endDate> .
+
+_:genid22 <http://www.w3.org/ns/shacl#name> "Thumbnail"@nl ;
+           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_thumbnail> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/thumbnail> .
+
+
+###  http://data.niod.nl/EventShape
+<http://data.niod.nl/EventShape> rdf:type owl:NamedIndividual ,
+                                          <http://www.w3.org/ns/shacl#NodeShape> ;
+                                 <http://www.w3.org/ns/shacl#description> ""@nl ;
+                                 <http://www.w3.org/ns/shacl#name> "Gebeurtenis"@nl ;
+                                 <http://www.w3.org/ns/shacl#property> _:genid23 ,
+                                                                       _:genid24 ,
+                                                                       _:genid25 ,
+                                                                       _:genid26 ,
+                                                                       _:genid27 ,
+                                                                       _:genid28 ,
+                                                                       _:genid29 ,
+                                                                       _:genid30 ,
+                                                                       _:genid31 ,
+                                                                       _:genid32 ,
+                                                                       _:genid33 ;
+                                 <http://www.w3.org/ns/shacl#targetClass> <http://schema.org/Event> .
+
+_:genid23 <http://www.w3.org/ns/shacl#description> "De naam van de gebeurtenis."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Naam"@nl ;
+           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_hasOccupation> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/name> .
+
+_:genid24 <http://www.w3.org/ns/shacl#name> "Locatie"@nl ;
+           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_location> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/location> .
+
+_:genid25 <http://www.w3.org/ns/shacl#name> "Beginlocatie"@nl ;
+           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_fromLocation> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/fromLocation> .
+
+_:genid26 <http://www.w3.org/ns/shacl#description> "Classificatie van de entiteit als schema:Event"@nl ;
+           <http://www.w3.org/ns/shacl#name> "Type entiteit"@nl ;
+           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_type> ;
+           <http://www.w3.org/ns/shacl#path> rdf:type .
+
+_:genid27 <http://www.w3.org/ns/shacl#description> "Classificatie van de gebeurtenis als persoonlijke gebeurtenis uit de WO2 thesaurus"@nl ;
+           <http://www.w3.org/ns/shacl#name> "type gebeurtenis"@nl ;
+           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_type> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/additionalType> .
+
+_:genid28 <http://www.w3.org/ns/shacl#name> "Eindlocatie"@nl ;
+           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_toLocation> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/toLocation> .
+
+_:genid29 <http://www.w3.org/ns/shacl#name> "Persoon in de gebeurtenis"@nl ;
+           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_actor> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/actor> .
+
+_:genid30 <http://www.w3.org/ns/shacl#name> "Grotere gebeurtenis"@nl ;
+           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_superEvent> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/superEvent> .
+
+_:genid31 <http://www.w3.org/ns/shacl#description> "De originele bron waaruit deze informatie afkomstig is."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Primaire bron"@nl ;
+           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_hadPrimarySource> ;
+           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/ns/prov#hadPrimarySource> .
+
+_:genid32 <http://www.w3.org/ns/shacl#name> "Startdatum"@nl ;
+           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_startDate> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/startDate> .
+
+_:genid33 <http://www.w3.org/ns/shacl#name> "Einddatum"@nl ;
+           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_endDate> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/endDate> .
 
 
 ###  http://data.niod.nl/GebeurtenisShape
 <http://data.niod.nl/GebeurtenisShape> rdf:type owl:NamedIndividual ,
                                                 <http://www.w3.org/ns/shacl#NodeShape> ;
                                        <http://www.w3.org/ns/shacl#name> "Gebeurtenis"@nl ;
-                                       <http://www.w3.org/ns/shacl#property> _:genid23 ,
-                                                                             _:genid24 ;
+                                       <http://www.w3.org/ns/shacl#property> _:genid34 ,
+                                                                             _:genid35 ;
                                        <http://www.w3.org/ns/shacl#targetClass> <http://schema.org/Event> .
 
-_:genid23 <http://www.w3.org/ns/shacl#description> "Bijv: 'Transport vanuit Kamp Amersfoort' of 'Razzia van Rotterdam'."@nl ;
+_:genid34 <http://www.w3.org/ns/shacl#description> "Bijv: 'Transport vanuit Kamp Amersfoort' of 'Razzia van Rotterdam'."@nl ;
            <http://www.w3.org/ns/shacl#name> "Titel van gebeurtenis"@nl ;
            <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/TechnicalNameRule> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/name> .
 
-_:genid24 <http://www.w3.org/ns/shacl#description> "De dag waarop de gebeurtenis startte."@nl ;
+_:genid35 <http://www.w3.org/ns/shacl#description> "De dag waarop de gebeurtenis startte."@nl ;
            <http://www.w3.org/ns/shacl#name> "Datum van plaatsvinden"@nl ;
            <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/TechnicalDateRule> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/datePublished> .
@@ -782,11 +853,11 @@ _:genid24 <http://www.w3.org/ns/shacl#description> "De dag waarop de gebeurtenis
                                           <http://www.w3.org/ns/shacl#NodeShape> ;
                                  <http://www.w3.org/ns/shacl#name> "Audio en Video objecten"@nl ;
                                  <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/CreativeWorkShape> ;
-                                 <http://www.w3.org/ns/shacl#property> _:genid25 ;
+                                 <http://www.w3.org/ns/shacl#property> _:genid36 ;
                                  <http://www.w3.org/ns/shacl#targetClass> <http://schema.org/AudioObject> ,
                                                                           <http://schema.org/VideoObject> .
 
-_:genid25 <http://www.w3.org/ns/shacl#name> "Url van het media object"@nl ;
+_:genid36 <http://www.w3.org/ns/shacl#name> "Url van het media object"@nl ;
            <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_contentUrl> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/contentUrl> .
 
@@ -794,91 +865,109 @@ _:genid25 <http://www.w3.org/ns/shacl#name> "Url van het media object"@nl ;
 ###  http://data.niod.nl/PersoonReconstructionShape
 <http://data.niod.nl/PersoonReconstructionShape> rdf:type owl:NamedIndividual ,
                                                           <http://www.w3.org/ns/shacl#NodeShape> ;
-                                                 <http://www.w3.org/ns/shacl#description> "De geaggregeerde en gevalideerde gegevens van een persoon, samengesteld uit één of meerdere bronvermeldingen."@nl ;
+                                                 <http://www.w3.org/ns/shacl#description> "De geaggregeerde en gevalideerde gegevens van een persoon, samengesteld uit één of meerdere persoonsvermeldingen."@nl ;
                                                  <http://www.w3.org/ns/shacl#name> "Persoonsreconstructie"@nl ;
-                                                 <http://www.w3.org/ns/shacl#property> _:genid26 ,
-                                                                                       _:genid27 ,
-                                                                                       _:genid28 ,
-                                                                                       _:genid29 ,
-                                                                                       _:genid30 ,
-                                                                                       _:genid31 ,
-                                                                                       _:genid32 ,
-                                                                                       _:genid33 ,
-                                                                                       _:genid34 ,
-                                                                                       _:genid35 ,
-                                                                                       _:genid36 ,
-                                                                                       _:genid37 ,
+                                                 <http://www.w3.org/ns/shacl#property> _:genid37 ,
                                                                                        _:genid38 ,
                                                                                        _:genid39 ,
-                                                                                       _:genid40 ;
+                                                                                       _:genid40 ,
+                                                                                       _:genid41 ,
+                                                                                       _:genid42 ,
+                                                                                       _:genid43 ,
+                                                                                       _:genid44 ,
+                                                                                       _:genid45 ,
+                                                                                       _:genid46 ,
+                                                                                       _:genid47 ,
+                                                                                       _:genid48 ,
+                                                                                       _:genid49 ,
+                                                                                       _:genid50 ,
+                                                                                       _:genid51 ,
+                                                                                       _:genid52 ,
+                                                                                       _:genid53 ,
+                                                                                       _:genid54 ;
                                                  <http://www.w3.org/ns/shacl#targetClass> <https://personsincontext.org/model/#PersonReconstruction> .
 
-_:genid26 <http://www.w3.org/ns/shacl#description> "De unieke identifier van de gereconstrueerde persoon."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Persoons-ID"@nl ;
+_:genid37 <http://www.w3.org/ns/shacl#description> "De unieke identifier van persoon."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Identifier"@nl ;
            <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_identifier_schema> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/identifier> .
 
-_:genid27 <http://www.w3.org/ns/shacl#description> "Classificatie van de entiteit."@nl ;
+_:genid38 <http://www.w3.org/ns/shacl#description> "Classificatie van de entiteit volgens Persons in Context."@nl ;
            <http://www.w3.org/ns/shacl#name> "Type entiteit"@nl ;
            <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_type> ;
            <http://www.w3.org/ns/shacl#path> rdf:type .
 
-_:genid28 <http://www.w3.org/ns/shacl#description> "De gestandaardiseerde volledige naam van de persoon."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Voorkeursnaam"@nl ;
+_:genid39 <http://www.w3.org/ns/shacl#description> "De gestandaardiseerde volledige naam van de persoon."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Naam"@nl ;
            <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_name> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/name> .
 
-_:genid29 <http://www.w3.org/ns/shacl#description> "Varianten, aliassen of historische schrijfwijzen van de naam."@nl ;
+_:genid40 <http://www.w3.org/ns/shacl#description> "Varianten, aliassen of historische schrijfwijzen van de naam."@nl ;
            <http://www.w3.org/ns/shacl#name> "Andere namen"@nl ;
            <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_alternateName> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/alternateName> .
 
-_:genid30 <http://www.w3.org/ns/shacl#name> "Geboortedatum"@nl ;
+_:genid41 <http://www.w3.org/ns/shacl#name> "Geboortedatum"@nl ;
            <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_birthDate> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/birthDate> .
 
-_:genid31 <http://www.w3.org/ns/shacl#name> "Geboorteplaats"@nl ;
+_:genid42 <http://www.w3.org/ns/shacl#name> "Geboorteplaats"@nl ;
            <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_birthPlace> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/birthPlace> .
 
-_:genid32 <http://www.w3.org/ns/shacl#name> "Datum van overlijden"@nl ;
+_:genid43 <http://www.w3.org/ns/shacl#name> "Datum van overlijden"@nl ;
            <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_deathDate> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/deathDate> .
 
-_:genid33 <http://www.w3.org/ns/shacl#name> "Plaats van overlijden"@nl ;
+_:genid44 <http://www.w3.org/ns/shacl#name> "Plaats van overlijden"@nl ;
            <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_deathPlace> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/deathPlace> .
 
-_:genid34 <http://www.w3.org/ns/shacl#description> "Indicatie of de persoon is overleden (bijv. Ja/Nee of tekstueel)."@nl ;
+_:genid45 <http://www.w3.org/ns/shacl#description> "Indicatie of de persoon is overleden."@nl ;
            <http://www.w3.org/ns/shacl#name> "Overleden status"@nl ;
            <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_deceased> ;
            <http://www.w3.org/ns/shacl#path> <https://personsincontext.org/model/#deceased> .
 
-_:genid35 <http://www.w3.org/ns/shacl#name> "Geslacht"@nl ;
+_:genid46 <http://www.w3.org/ns/shacl#name> "Geslacht"@nl ;
            <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_gender> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/gender> .
 
-_:genid36 <http://www.w3.org/ns/shacl#description> "Datum waarop deze reconstructie voor het eerst is aangemaakt."@nl ;
+_:genid47 <http://www.w3.org/ns/shacl#description> "Verwijzing naar de kinderen van deze persoon."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Kinderen"@nl ;
+           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_children> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/children> .
+
+_:genid48 <http://www.w3.org/ns/shacl#description> "Verwijzing naar een ouder van deze persoon."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Ouder"@nl ;
+           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_parent> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/parent> .
+
+_:genid49 <http://www.w3.org/ns/shacl#description> "Verwijzing naar een broer of zus van deze persoon."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Broer of zus"@nl ;
+           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_sibling> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/sibling> .
+
+_:genid50 <http://www.w3.org/ns/shacl#description> "Datum waarop deze reconstructie voor het eerst is aangemaakt."@nl ;
            <http://www.w3.org/ns/shacl#name> "Aanmaakdatum"@nl ;
            <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_dateCreated> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/dateCreated> .
 
-_:genid37 <http://www.w3.org/ns/shacl#description> "Datum waarop deze reconstructie voor het laatst is bijgewerkt."@nl ;
+_:genid51 <http://www.w3.org/ns/shacl#description> "Datum waarop deze reconstructie voor het laatst is bijgewerkt."@nl ;
            <http://www.w3.org/ns/shacl#name> "Wijzigingsdatum"@nl ;
            <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_dateModified> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/dateModified> .
 
-_:genid38 <http://www.w3.org/ns/shacl#description> "Verwijzing naar de bronnen of observaties waaruit deze reconstructie is opgebouwd."@nl ;
+_:genid52 <http://www.w3.org/ns/shacl#description> "Verwijzing naar de persoonsvermeldingen waaruit deze reconstructie is opgebouwd."@nl ;
            <http://www.w3.org/ns/shacl#name> "Afgeleid van"@nl ;
            <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_wasDerivedFrom> ;
            <http://www.w3.org/ns/shacl#path> <http://www.w3.org/ns/prov#wasDerivedFrom> .
 
-_:genid39 <http://www.w3.org/ns/shacl#description> "Externe links naar dezelfde persoon in andere systemen (bijv. Wikidata, NTA)."@nl ;
+_:genid53 <http://www.w3.org/ns/shacl#description> "Externe links naar dezelfde persoon in andere systemen (bijv. Wikidata)."@nl ;
            <http://www.w3.org/ns/shacl#name> "Andere autoriteit"@nl ;
            <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_sameAs> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/sameAs> .
 
-_:genid40 <http://www.w3.org/ns/shacl#description> "Categorisering of kenmerken van de persoon uit een thesaurus."@nl ;
+_:genid54 <http://www.w3.org/ns/shacl#description> "Categorisering of trefwoorden van toepassing op de persoon (uit de WO2 thesaurus)."@nl ;
            <http://www.w3.org/ns/shacl#name> "Trefwoorden"@nl ;
            <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_keywords> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/keywords> .
@@ -890,67 +979,97 @@ _:genid40 <http://www.w3.org/ns/shacl#description> "Categorisering of kenmerken 
                                               <http://www.w3.org/ns/shacl#description> "Een observatie of vermelding van een persoon binnen een specifieke historische bron."@nl ;
                                               <http://www.w3.org/ns/shacl#name> "Persoonsvermelding"@nl ;
                                               <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/PersoonReconstructionShape> ;
-                                              <http://www.w3.org/ns/shacl#property> _:genid41 ,
-                                                                                    _:genid42 ,
-                                                                                    _:genid43 ,
-                                                                                    _:genid44 ,
-                                                                                    _:genid45 ,
-                                                                                    _:genid46 ,
-                                                                                    _:genid47 ,
-                                                                                    _:genid48 ;
+                                              <http://www.w3.org/ns/shacl#property> _:genid55 ,
+                                                                                    _:genid56 ,
+                                                                                    _:genid57 ,
+                                                                                    _:genid58 ,
+                                                                                    _:genid59 ,
+                                                                                    _:genid60 ,
+                                                                                    _:genid61 ,
+                                                                                    _:genid62 ;
                                               <http://www.w3.org/ns/shacl#targetClass> <https://personsincontext.org/model/#PersonObservation> .
 
-_:genid41 <http://www.w3.org/ns/shacl#description> "Voor persoonsvermeldingen wordt prov:wasDerivedFrom niet toegestaan."@nl ;
-           <http://www.w3.org/ns/shacl#maxCount> 0 ;
-           <http://www.w3.org/ns/shacl#name> "Afgeleid van (niet toegestaan)"@nl ;
-           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/ns/prov#wasDerivedFrom> .
-
-_:genid42 <http://www.w3.org/ns/shacl#description> "De roepnaam of eerste voornaam van de persoon."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Voornaam"@nl ;
-           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_givenName> ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/givenName> .
-
-_:genid43 <http://www.w3.org/ns/shacl#description> "De geslachtsnaam, inclusief tussenvoegsels."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Achternaam"@nl ;
-           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_familyName> ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/familyName> .
-
-_:genid44 <http://www.w3.org/ns/shacl#description> "De voorletters van de persoon."@nl ;
+_:genid55 <http://www.w3.org/ns/shacl#description> "De voorletters van de persoon."@nl ;
            <http://www.w3.org/ns/shacl#name> "Initialen"@nl ;
            <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_initials> ;
            <http://www.w3.org/ns/shacl#path> <https://w3id.org/pnv#initials> .
 
-_:genid45 <http://www.w3.org/ns/shacl#description> "Het beroep of de maatschappelijke rol van de persoon."@nl ;
+_:genid56 <http://www.w3.org/ns/shacl#description> "Het beroep of de maatschappelijke rol van de persoon."@nl ;
            <http://www.w3.org/ns/shacl#name> "Beroep of functie"@nl ;
            <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_hasOccupation> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/hasOccupation> .
 
-_:genid46 <http://www.w3.org/ns/shacl#description> "Woonplaats of laatst bekende adres."@nl ;
+_:genid57 <http://www.w3.org/ns/shacl#description> "Woonplaats of laatst bekende adres."@nl ;
            <http://www.w3.org/ns/shacl#name> "Adresgegevens"@nl ;
            <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_address> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/address> .
 
-_:genid47 <http://www.w3.org/ns/shacl#description> "De originele bron waaruit deze informatie afkomstig is."@nl ;
+_:genid58 <http://www.w3.org/ns/shacl#description> "De originele bron waaruit deze informatie afkomstig is."@nl ;
            <http://www.w3.org/ns/shacl#name> "Primaire bron"@nl ;
            <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_hadPrimarySource> ;
            <http://www.w3.org/ns/shacl#path> <http://www.w3.org/ns/prov#hadPrimarySource> .
 
-_:genid48 <http://www.w3.org/ns/shacl#description> "Een korte beschrijving van de persoon of diens rol."@nl ;
+_:genid59 <http://www.w3.org/ns/shacl#description> "Een korte beschrijving van de persoon of diens rol tijdens de Tweede Wereldoorlog."@nl ;
            <http://www.w3.org/ns/shacl#name> "Biografische schets"@nl ;
            <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_description_schema> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/description> .
 
+_:genid60 <http://www.w3.org/ns/shacl#description> "Voor persoonsvermeldingen wordt prov:wasDerivedFrom niet toegestaan."@nl ;
+           <http://www.w3.org/ns/shacl#maxCount> 0 ;
+           <http://www.w3.org/ns/shacl#name> "Afgeleid van (niet toegestaan)"@nl ;
+           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/ns/prov#wasDerivedFrom> .
 
-[ <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI>
+_:genid61 <http://www.w3.org/ns/shacl#description> "De roepnaam of eerste voornaam van de persoon."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Voornaam"@nl ;
+           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_givenName> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/givenName> .
+
+_:genid62 <http://www.w3.org/ns/shacl#description> "De geslachtsnaam, inclusief tussenvoegsels."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Achternaam"@nl ;
+           <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Rule_familyName> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/familyName> .
+
+
+[ <http://www.w3.org/ns/shacl#datatype> xsd:date
 ] .
-
-[ <http://www.w3.org/ns/shacl#datatype> xsd:string
- ] .
 
 [ <http://www.w3.org/ns/shacl#datatype> xsd:integer
  ] .
 
-[ <http://www.w3.org/ns/shacl#datatype> xsd:date
+[ <http://www.w3.org/ns/shacl#class> <https://personsincontext.org/model/#PersonReconstruction>
+ ] .
+
+[ <http://www.w3.org/ns/shacl#datatype> xsd:string
+ ] .
+
+[ <http://www.w3.org/ns/shacl#class> <https://personsincontext.org/model/#PersonObservation>
+ ] .
+
+[ <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI>
+ ] .
+
+[ <http://www.w3.org/ns/shacl#class> <https://personsincontext.org/model/#PersonReconstruction>
+ ] .
+
+[ <http://www.w3.org/ns/shacl#class> <https://personsincontext.org/model/#PersonReconstruction>
+ ] .
+
+[ <http://www.w3.org/ns/shacl#class> <https://personsincontext.org/model/#PersonObservation>
+ ] .
+
+[ <http://www.w3.org/ns/shacl#class> <https://personsincontext.org/model/#PersonObservation>
+ ] .
+
+[ <http://www.w3.org/ns/shacl#class> <http://www.w3.org/ns/prov#Entity>
+ ] .
+
+[ <http://www.w3.org/ns/shacl#class> <http://schema.org/ArchiveComponent>
+ ] .
+
+[ <http://www.w3.org/ns/shacl#class> <https://personsincontext.org/model/#PersonObservation>
+ ] .
+
+[ <http://www.w3.org/ns/shacl#class> <https://personsincontext.org/model/#PersonReconstruction>
  ] .
 
 #################################################################
@@ -962,7 +1081,8 @@ _:genid48 <http://www.w3.org/ns/shacl#description> "Een korte beschrijving van d
 
 
 <http://data.niod.nl/Rule_actor> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_IRI> ;
-                                 <http://www.w3.org/ns/shacl#path> <http://schema.org/actor> .
+                                 <http://www.w3.org/ns/shacl#or> [ ] ;
+<http://www.w3.org/ns/shacl#path> <http://schema.org/actor> .
 
 
 <http://data.niod.nl/Rule_additionalName> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_String> ;
@@ -997,7 +1117,8 @@ _:genid48 <http://www.w3.org/ns/shacl#description> "Een korte beschrijving van d
 
 
 <http://data.niod.nl/Rule_children> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_IRI> ;
-                                    <http://www.w3.org/ns/shacl#path> <http://schema.org/children> .
+                                    <http://www.w3.org/ns/shacl#or> [ ] ;
+<http://www.w3.org/ns/shacl#path> <http://schema.org/children> .
 
 
 <http://data.niod.nl/Rule_collection> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_String> ;
@@ -1081,7 +1202,8 @@ _:genid48 <http://www.w3.org/ns/shacl#description> "Een korte beschrijving van d
 
 
 <http://data.niod.nl/Rule_hadPrimarySource> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_IRI> ;
-                                            <http://www.w3.org/ns/shacl#path> <http://www.w3.org/ns/prov#hadPrimarySource> .
+                                            <http://www.w3.org/ns/shacl#or> [ ] ;
+<http://www.w3.org/ns/shacl#path> <http://www.w3.org/ns/prov#hadPrimarySource> .
 
 
 <http://data.niod.nl/Rule_hasOccupation> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_String> ;
@@ -1116,11 +1238,13 @@ _:genid48 <http://www.w3.org/ns/shacl#description> "Een korte beschrijving van d
                                     <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/terms/isPartOf> .
 
 
-<http://data.niod.nl/Rule_keywords> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_IRI> ;
+<http://data.niod.nl/Rule_keywords> <http://www.w3.org/ns/shacl#class> <http://www.w3.org/2004/02/skos/core#Concept> ;
+                                    <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_IRI> ;
                                     <http://www.w3.org/ns/shacl#path> <http://schema.org/keywords> .
 
 
-<http://data.niod.nl/Rule_license> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_IRI> ;
+<http://data.niod.nl/Rule_license> <http://www.w3.org/ns/shacl#class> <https://data.niod.nl/Rights> ;
+                                   <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_IRI> ;
                                    <http://www.w3.org/ns/shacl#path> <http://schema.org/license> .
 
 
@@ -1135,18 +1259,21 @@ _:genid48 <http://www.w3.org/ns/shacl#description> "Een korte beschrijving van d
 
 
 <http://data.niod.nl/Rule_parent> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_IRI> ;
-                                  <http://www.w3.org/ns/shacl#path> <http://schema.org/parent> .
+                                  <http://www.w3.org/ns/shacl#or> [ ] ;
+<http://www.w3.org/ns/shacl#path> <http://schema.org/parent> .
 
 
 <http://data.niod.nl/Rule_position> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_Integer> ;
                                     <http://www.w3.org/ns/shacl#path> <http://schema.org/position> .
 
 
-<http://data.niod.nl/Rule_provider> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_IRI> ;
+<http://data.niod.nl/Rule_provider> <http://www.w3.org/ns/shacl#class> <http://schema.org/Organization> ;
+                                    <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_IRI> ;
                                     <http://www.w3.org/ns/shacl#path> <http://schema.org/provider> .
 
 
-<http://data.niod.nl/Rule_publisher> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_IRI> ;
+<http://data.niod.nl/Rule_publisher> <http://www.w3.org/ns/shacl#class> <http://schema.org/Organization> ;
+                                     <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_IRI> ;
                                      <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/publisher> .
 
 
@@ -1159,7 +1286,8 @@ _:genid48 <http://www.w3.org/ns/shacl#description> "Een korte beschrijving van d
 
 
 <http://data.niod.nl/Rule_sibling> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_IRI> ;
-                                   <http://www.w3.org/ns/shacl#path> <http://schema.org/sibling> .
+                                   <http://www.w3.org/ns/shacl#or> [ ] ;
+<http://www.w3.org/ns/shacl#path> <http://schema.org/sibling> .
 
 
 <http://data.niod.nl/Rule_source> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_String> ;
@@ -1175,7 +1303,8 @@ _:genid48 <http://www.w3.org/ns/shacl#description> "Een korte beschrijving van d
                                    <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/subject> .
 
 
-<http://data.niod.nl/Rule_superEvent> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_IRI> ;
+<http://data.niod.nl/Rule_superEvent> <http://www.w3.org/ns/shacl#class> <http://schema.org/Event> ;
+                                      <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_IRI> ;
                                       <http://www.w3.org/ns/shacl#path> <http://schema.org/superEvent> .
 
 
@@ -1213,7 +1342,8 @@ _:genid48 <http://www.w3.org/ns/shacl#description> "Een korte beschrijving van d
                                <http://www.w3.org/ns/shacl#path> <http://schema.org/url> .
 
 
-<http://data.niod.nl/Rule_wasDerivedFrom> <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_IRI> ;
+<http://data.niod.nl/Rule_wasDerivedFrom> <http://www.w3.org/ns/shacl#class> <https://personsincontext.org/model/#PersonObservation> ;
+                                          <http://www.w3.org/ns/shacl#node> <http://data.niod.nl/Base_IRI> ;
                                           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/ns/prov#wasDerivedFrom> .
 
 
