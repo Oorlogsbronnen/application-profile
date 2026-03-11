@@ -19,10 +19,10 @@
     "id" : "6",
     "type" : "owl:Class"
   }, {
-    "id" : "8",
+    "id" : "7",
     "type" : "owl:Class"
   }, {
-    "id" : "7",
+    "id" : "8",
     "type" : "owl:Class"
   }, {
     "id" : "13",
@@ -91,10 +91,10 @@
     "id" : "56",
     "type" : "owl:Class"
   }, {
-    "id" : "17",
+    "id" : "22",
     "type" : "owl:Class"
   }, {
-    "id" : "22",
+    "id" : "17",
     "type" : "owl:Class"
   }, {
     "id" : "74",
@@ -106,10 +106,10 @@
     "id" : "87",
     "type" : "owl:Class"
   }, {
-    "id" : "77",
+    "id" : "86",
     "type" : "owl:Class"
   }, {
-    "id" : "86",
+    "id" : "77",
     "type" : "owl:Class"
   }, {
     "id" : "80",
@@ -118,10 +118,10 @@
     "id" : "91",
     "type" : "owl:Class"
   }, {
-    "id" : "15",
+    "id" : "52",
     "type" : "owl:Class"
   }, {
-    "id" : "52",
+    "id" : "15",
     "type" : "owl:Class"
   }, {
     "id" : "92",
@@ -184,19 +184,19 @@
     "id" : "127",
     "type" : "owl:Class"
   }, {
-    "id" : "4",
+    "id" : "46",
     "type" : "owl:Class"
   }, {
-    "id" : "46",
+    "id" : "4",
     "type" : "owl:Class"
   }, {
     "id" : "93",
     "type" : "owl:Class"
   }, {
-    "id" : "96",
+    "id" : "95",
     "type" : "owl:Class"
   }, {
-    "id" : "95",
+    "id" : "96",
     "type" : "owl:Class"
   }, {
     "id" : "40",
@@ -214,10 +214,10 @@
     "id" : "98",
     "type" : "owl:Class"
   }, {
-    "id" : "9",
+    "id" : "64",
     "type" : "owl:Class"
   }, {
-    "id" : "64",
+    "id" : "9",
     "type" : "owl:Class"
   } ],
   "classAttribute" : [ {
@@ -278,16 +278,6 @@
     "id" : "5",
     "superClasses" : [ "1" ]
   }, {
-    "iri" : "http://www.w3.org/2004/02/skos/core#Concept",
-    "baseIri" : "http://www.w3.org/2004/02/skos/core",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Concept"
-    },
-    "attributes" : [ "external" ],
-    "id" : "6",
-    "superClasses" : [ "7" ]
-  }, {
     "iri" : "https://data.niod.nl/Vrijgelaten",
     "baseIri" : "https://data.niod.nl",
     "instances" : 0,
@@ -304,8 +294,18 @@
       "nl" : "Vrijgelaten"
     },
     "attributes" : [ "external" ],
-    "id" : "8",
+    "id" : "6",
     "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "baseIri" : "http://www.w3.org/2004/02/skos/core",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Concept"
+    },
+    "attributes" : [ "external" ],
+    "id" : "7",
+    "superClasses" : [ "8" ]
   }, {
     "iri" : "https://data.niod.nl/Webpagina",
     "baseIri" : "https://data.niod.nl",
@@ -314,12 +314,12 @@
       "IRI-based" : "Webpagina",
       "nl" : "Webpagina"
     },
-    "subClasses" : [ "9", "6" ],
+    "subClasses" : [ "9", "7" ],
     "comment" : {
       "en" : "Class for all web content created by Oorlogsbronnen"
     },
     "attributes" : [ "external" ],
-    "id" : "7"
+    "id" : "8"
   }, {
     "iri" : "https://data.niod.nl/Gevaren",
     "baseIri" : "https://data.niod.nl",
@@ -351,6 +351,25 @@
     "id" : "14",
     "superClasses" : [ "15" ]
   }, {
+    "iri" : "https://data.niod.nl/Vermist",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/10946",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Vermist",
+      "nl" : "Vermist"
+    },
+    "attributes" : [ "external" ],
+    "id" : "26",
+    "superClasses" : [ "1" ]
+  }, {
     "iri" : "https://data.niod.nl/Executeert",
     "baseIri" : "https://data.niod.nl",
     "instances" : 0,
@@ -368,25 +387,6 @@
     },
     "comment" : {
       "nl" : "Het actief ombrengen van een persoon (in opdracht van..). Werkwoord om uitvoerder van de executie te benoemen."
-    },
-    "attributes" : [ "external" ],
-    "id" : "26",
-    "superClasses" : [ "1" ]
-  }, {
-    "iri" : "https://data.niod.nl/Vermist",
-    "baseIri" : "https://data.niod.nl",
-    "instances" : 0,
-    "annotations" : {
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "undefined",
-        "value" : "https://data.niod.nl/WO2_Thesaurus/events/10946",
-        "type" : "iri"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "Vermist",
-      "nl" : "Vermist"
     },
     "attributes" : [ "external" ],
     "id" : "27",
@@ -634,28 +634,6 @@
     "id" : "50",
     "superClasses" : [ "1" ]
   }, {
-    "iri" : "https://data.niod.nl/BevrijdIn",
-    "baseIri" : "https://data.niod.nl",
-    "instances" : 0,
-    "annotations" : {
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "undefined",
-        "value" : "https://data.niod.nl/WO2_Thesaurus/events/11173",
-        "type" : "iri"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "BevrijdIn",
-      "nl" : "Bevrijd in"
-    },
-    "comment" : {
-      "nl" : "Plaats/stad of land waarin een persoon bevrijd wordt."
-    },
-    "attributes" : [ "external" ],
-    "id" : "58",
-    "superClasses" : [ "1" ]
-  }, {
     "iri" : "https://data.niod.nl/BevrijdUit",
     "baseIri" : "https://data.niod.nl",
     "instances" : 0,
@@ -673,6 +651,28 @@
     },
     "comment" : {
       "nl" : "Bevrijd worden uit een kamp of gevangenis."
+    },
+    "attributes" : [ "external" ],
+    "id" : "58",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/BevrijdIn",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/11173",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "BevrijdIn",
+      "nl" : "Bevrijd in"
+    },
+    "comment" : {
+      "nl" : "Plaats/stad of land waarin een persoon bevrijd wordt."
     },
     "attributes" : [ "external" ],
     "id" : "59",
@@ -719,6 +719,25 @@
     "id" : "56",
     "superClasses" : [ "1" ]
   }, {
+    "iri" : "https://data.niod.nl/Ondergedoken",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6351",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Ondergedoken",
+      "nl" : "Ondergedoken"
+    },
+    "attributes" : [ "external" ],
+    "id" : "22",
+    "superClasses" : [ "1" ]
+  }, {
     "iri" : "https://data.niod.nl/Gevangen",
     "baseIri" : "https://data.niod.nl",
     "instances" : 0,
@@ -739,25 +758,6 @@
     },
     "attributes" : [ "external" ],
     "id" : "17",
-    "superClasses" : [ "1" ]
-  }, {
-    "iri" : "https://data.niod.nl/Ondergedoken",
-    "baseIri" : "https://data.niod.nl",
-    "instances" : 0,
-    "annotations" : {
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "undefined",
-        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6351",
-        "type" : "iri"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "Ondergedoken",
-      "nl" : "Ondergedoken"
-    },
-    "attributes" : [ "external" ],
-    "id" : "22",
     "superClasses" : [ "1" ]
   }, {
     "iri" : "https://data.niod.nl/Veroordeeld",
@@ -820,6 +820,25 @@
     "id" : "87",
     "superClasses" : [ "1" ]
   }, {
+    "iri" : "https://data.niod.nl/Gevochten",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6359",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Gevochten",
+      "nl" : "Gevochten"
+    },
+    "attributes" : [ "external" ],
+    "id" : "86",
+    "superClasses" : [ "1" ]
+  }, {
     "iri" : "https://data.niod.nl/Geïnterneerd",
     "baseIri" : "https://data.niod.nl",
     "instances" : 0,
@@ -840,25 +859,6 @@
     },
     "attributes" : [ "external" ],
     "id" : "77",
-    "superClasses" : [ "1" ]
-  }, {
-    "iri" : "https://data.niod.nl/Gevochten",
-    "baseIri" : "https://data.niod.nl",
-    "instances" : 0,
-    "annotations" : {
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "undefined",
-        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6359",
-        "type" : "iri"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "Gevochten",
-      "nl" : "Gevochten"
-    },
-    "attributes" : [ "external" ],
-    "id" : "86",
     "superClasses" : [ "1" ]
   }, {
     "iri" : "https://data.niod.nl/Geland",
@@ -905,6 +905,17 @@
     "id" : "91",
     "superClasses" : [ "1" ]
   }, {
+    "iri" : "http://schema.org/Photograph",
+    "baseIri" : "http://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Photograph",
+      "nl" : "Foto"
+    },
+    "attributes" : [ "external" ],
+    "id" : "52",
+    "superClasses" : [ "15" ]
+  }, {
     "iri" : "https://data.niod.nl/Afbeelding",
     "baseIri" : "https://data.niod.nl",
     "instances" : 0,
@@ -919,17 +930,6 @@
     "attributes" : [ "external" ],
     "id" : "15",
     "superClasses" : [ "43" ]
-  }, {
-    "iri" : "http://schema.org/Photograph",
-    "baseIri" : "http://schema.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Photograph",
-      "nl" : "Foto"
-    },
-    "attributes" : [ "external" ],
-    "id" : "52",
-    "superClasses" : [ "15" ]
   }, {
     "iri" : "https://data.niod.nl/Rights",
     "baseIri" : "https://data.niod.nl",
@@ -964,7 +964,7 @@
     "label" : {
       "IRI-based" : "Event"
     },
-    "subClasses" : [ "56", "0", "24", "30", "2", "5", "17", "22", "20", "8", "11", "4", "93", "94", "13", "74", "95", "96", "81", "26", "27", "87", "31", "32", "83", "33", "86", "77", "34", "80", "36", "70", "37", "72", "91", "41", "97", "42", "48", "98", "99", "50", "64", "58", "59", "62", "100", "101" ],
+    "subClasses" : [ "56", "0", "24", "30", "2", "5", "17", "22", "20", "6", "11", "4", "93", "94", "13", "74", "95", "96", "81", "27", "26", "87", "31", "32", "83", "33", "86", "77", "34", "80", "36", "70", "37", "72", "91", "41", "97", "42", "48", "98", "99", "50", "64", "59", "58", "62", "100", "101" ],
     "attributes" : [ "external" ],
     "id" : "1"
   }, {
@@ -1220,7 +1220,7 @@
         "or" : [ {
           "identifier" : "or",
           "language" : "undefined",
-          "value" : "_:genid2147483705",
+          "value" : "_:genid2147483693",
           "type" : "label"
         } ]
       },
@@ -1242,20 +1242,6 @@
         "IRI-based" : "Base_Date"
       }
     }, {
-      "iri" : "http://data.niod.nl/Base_StringOrIRI",
-      "baseIri" : "http://data.niod.nl",
-      "annotations" : {
-        "or" : [ {
-          "identifier" : "or",
-          "language" : "undefined",
-          "value" : "_:genid2147483706",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "Base_StringOrIRI"
-      }
-    }, {
       "iri" : "http://data.niod.nl/Base_IRI",
       "baseIri" : "http://data.niod.nl",
       "annotations" : {
@@ -1268,6 +1254,20 @@
       },
       "labels" : {
         "IRI-based" : "Base_IRI"
+      }
+    }, {
+      "iri" : "http://data.niod.nl/Base_StringOrIRI",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "or" : [ {
+          "identifier" : "or",
+          "language" : "undefined",
+          "value" : "_:genid2147483694",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Base_StringOrIRI"
       }
     }, {
       "iri" : "http://data.niod.nl/Base_Integer",
@@ -1348,6 +1348,37 @@
       "IRI-based" : "NodeShape"
     },
     "individuals" : [ {
+      "iri" : "http://data.niod.nl/GebeurtenisShape",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "targetClass" : [ {
+          "identifier" : "targetClass",
+          "language" : "undefined",
+          "value" : "http://schema.org/Event",
+          "type" : "iri"
+        } ],
+        "name" : [ {
+          "identifier" : "name",
+          "language" : "nl",
+          "value" : "Gebeurtenis",
+          "type" : "label"
+        } ],
+        "property" : [ {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483674",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483657",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "GebeurtenisShape"
+      }
+    }, {
       "iri" : "http://data.niod.nl/CreativeWorkShape",
       "baseIri" : "http://data.niod.nl",
       "description" : {
@@ -1357,7 +1388,7 @@
         "targetClass" : [ {
           "identifier" : "targetClass",
           "language" : "undefined",
-          "value" : "http://schema.org/Photograph",
+          "value" : "http://schema.org/SheetMusic",
           "type" : "iri"
         }, {
           "identifier" : "targetClass",
@@ -1367,7 +1398,7 @@
         }, {
           "identifier" : "targetClass",
           "language" : "undefined",
-          "value" : "http://schema.org/Sculpture",
+          "value" : "http://schema.org/Photograph",
           "type" : "iri"
         }, {
           "identifier" : "targetClass",
@@ -1377,17 +1408,12 @@
         }, {
           "identifier" : "targetClass",
           "language" : "undefined",
-          "value" : "http://schema.org/Painting",
-          "type" : "iri"
-        }, {
-          "identifier" : "targetClass",
-          "language" : "undefined",
           "value" : "http://schema.org/VisualArtwork",
           "type" : "iri"
         }, {
           "identifier" : "targetClass",
           "language" : "undefined",
-          "value" : "https://data.niod.nl/Monument",
+          "value" : "http://schema.org/Painting",
           "type" : "iri"
         }, {
           "identifier" : "targetClass",
@@ -1397,18 +1423,23 @@
         }, {
           "identifier" : "targetClass",
           "language" : "undefined",
-          "value" : "http://schema.org/SheetMusic",
+          "value" : "http://schema.org/Sculpture",
           "type" : "iri"
         }, {
           "identifier" : "targetClass",
           "language" : "undefined",
           "value" : "http://schema.org/CreativeWork",
           "type" : "iri"
+        }, {
+          "identifier" : "targetClass",
+          "language" : "undefined",
+          "value" : "https://data.niod.nl/Monument",
+          "type" : "iri"
         } ],
         "property" : [ {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483693",
+          "value" : "_:genid2147483675",
           "type" : "label"
         }, {
           "identifier" : "property",
@@ -1418,37 +1449,7 @@
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483680",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
           "value" : "_:genid2147483687",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483696",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483691",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483685",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483688",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483683",
           "type" : "label"
         }, {
           "identifier" : "property",
@@ -1458,27 +1459,7 @@
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483681",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483695",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483684",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483689",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483694",
+          "value" : "_:genid2147483679",
           "type" : "label"
         }, {
           "identifier" : "property",
@@ -1488,12 +1469,62 @@
         }, {
           "identifier" : "property",
           "language" : "undefined",
+          "value" : "_:genid2147483684",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483691",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483680",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483677",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483681",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483683",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483689",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483685",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483676",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483688",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
           "value" : "_:genid2147483682",
           "type" : "label"
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483679",
+          "value" : "_:genid2147483678",
           "type" : "label"
         } ],
         "name" : [ {
@@ -1507,43 +1538,18 @@
         "IRI-based" : "CreativeWorkShape"
       }
     }, {
-      "iri" : "http://data.niod.nl/GebeurtenisShape",
-      "baseIri" : "http://data.niod.nl",
-      "annotations" : {
-        "targetClass" : [ {
-          "identifier" : "targetClass",
-          "language" : "undefined",
-          "value" : "http://schema.org/Event",
-          "type" : "iri"
-        } ],
-        "property" : [ {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483699",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483700",
-          "type" : "label"
-        } ],
-        "name" : [ {
-          "identifier" : "name",
-          "language" : "nl",
-          "value" : "Gebeurtenis",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "GebeurtenisShape"
-      }
-    }, {
       "iri" : "http://data.niod.nl/PersoonsvermeldingShape",
       "baseIri" : "http://data.niod.nl",
       "description" : {
         "nl" : "Een observatie of vermelding van een persoon binnen een specifieke historische bron."
       },
       "annotations" : {
+        "node" : [ {
+          "identifier" : "node",
+          "language" : "undefined",
+          "value" : "http://data.niod.nl/PersoonReconstructionShape",
+          "type" : "iri"
+        } ],
         "targetClass" : [ {
           "identifier" : "targetClass",
           "language" : "undefined",
@@ -1553,7 +1559,7 @@
         "property" : [ {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483657",
+          "value" : "_:genid2147483654",
           "type" : "label"
         }, {
           "identifier" : "property",
@@ -1563,12 +1569,7 @@
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483652",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483659",
+          "value" : "_:genid2147483651",
           "type" : "label"
         }, {
           "identifier" : "property",
@@ -1578,27 +1579,12 @@
         }, {
           "identifier" : "property",
           "language" : "undefined",
+          "value" : "_:genid2147483649",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
           "value" : "_:genid2147483655",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483651",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483660",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483656",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483658",
           "type" : "label"
         }, {
           "identifier" : "property",
@@ -1608,27 +1594,7 @@
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483662",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483649",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483663",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483654",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483661",
+          "value" : "_:genid2147483652",
           "type" : "label"
         } ],
         "name" : [ {
@@ -1657,32 +1623,27 @@
         "property" : [ {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483671",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483665",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483677",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483674",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
           "value" : "_:genid2147483673",
           "type" : "label"
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483667",
+          "value" : "_:genid2147483660",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483663",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483671",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483662",
           "type" : "label"
         }, {
           "identifier" : "property",
@@ -1692,27 +1653,27 @@
         }, {
           "identifier" : "property",
           "language" : "undefined",
+          "value" : "_:genid2147483659",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483667",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483665",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
           "value" : "_:genid2147483672",
           "type" : "label"
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483676",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483675",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483664",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483678",
+          "value" : "_:genid2147483666",
           "type" : "label"
         }, {
           "identifier" : "property",
@@ -1722,12 +1683,17 @@
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483669",
+          "value" : "_:genid2147483664",
           "type" : "label"
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483666",
+          "value" : "_:genid2147483661",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483669",
           "type" : "label"
         } ],
         "name" : [ {
@@ -1739,43 +1705,6 @@
       },
       "labels" : {
         "IRI-based" : "PersoonReconstructionShape"
-      }
-    }, {
-      "iri" : "http://data.niod.nl/ArchiveShape",
-      "baseIri" : "http://data.niod.nl",
-      "annotations" : {
-        "node" : [ {
-          "identifier" : "node",
-          "language" : "undefined",
-          "value" : "http://data.niod.nl/CreativeWorkShape",
-          "type" : "iri"
-        } ],
-        "targetClass" : [ {
-          "identifier" : "targetClass",
-          "language" : "undefined",
-          "value" : "https://data.niod.nl/Archive",
-          "type" : "iri"
-        }, {
-          "identifier" : "targetClass",
-          "language" : "undefined",
-          "value" : "https://data.niod.nl/ArchiveFile",
-          "type" : "iri"
-        } ],
-        "name" : [ {
-          "identifier" : "name",
-          "language" : "nl",
-          "value" : "Archieven en Archiefstukken",
-          "type" : "label"
-        } ],
-        "property" : [ {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483697",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "ArchiveShape"
       }
     }, {
       "iri" : "http://data.niod.nl/MediaShape",
@@ -1790,33 +1719,84 @@
         "targetClass" : [ {
           "identifier" : "targetClass",
           "language" : "undefined",
-          "value" : "http://schema.org/VideoObject",
+          "value" : "http://schema.org/AudioObject",
           "type" : "iri"
         }, {
           "identifier" : "targetClass",
           "language" : "undefined",
-          "value" : "http://schema.org/AudioObject",
+          "value" : "http://schema.org/VideoObject",
           "type" : "iri"
-        } ],
-        "property" : [ {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483698",
-          "type" : "label"
         } ],
         "name" : [ {
           "identifier" : "name",
           "language" : "nl",
           "value" : "Audio en Video objecten",
           "type" : "label"
+        } ],
+        "property" : [ {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483658",
+          "type" : "label"
         } ]
       },
       "labels" : {
         "IRI-based" : "MediaShape"
       }
+    }, {
+      "iri" : "http://data.niod.nl/ArchiveShape",
+      "baseIri" : "http://data.niod.nl",
+      "annotations" : {
+        "node" : [ {
+          "identifier" : "node",
+          "language" : "undefined",
+          "value" : "http://data.niod.nl/CreativeWorkShape",
+          "type" : "iri"
+        } ],
+        "targetClass" : [ {
+          "identifier" : "targetClass",
+          "language" : "undefined",
+          "value" : "https://data.niod.nl/ArchiveFile",
+          "type" : "iri"
+        }, {
+          "identifier" : "targetClass",
+          "language" : "undefined",
+          "value" : "https://data.niod.nl/Archive",
+          "type" : "iri"
+        } ],
+        "name" : [ {
+          "identifier" : "name",
+          "language" : "nl",
+          "value" : "Archieven en Archiefstukken",
+          "type" : "label"
+        } ],
+        "property" : [ {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483656",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "ArchiveShape"
+      }
     } ],
     "attributes" : [ "external" ],
     "id" : "127"
+  }, {
+    "iri" : "https://data.niod.nl/Certificate",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Certificate",
+      "nl" : "Akte"
+    },
+    "comment" : {
+      "en" : "Class for archival certificates"
+    },
+    "attributes" : [ "external" ],
+    "id" : "46",
+    "superClasses" : [ "43" ]
   }, {
     "iri" : "https://data.niod.nl/LidGeweest",
     "baseIri" : "https://data.niod.nl",
@@ -1837,20 +1817,6 @@
     "id" : "4",
     "superClasses" : [ "1" ]
   }, {
-    "iri" : "https://data.niod.nl/Certificate",
-    "baseIri" : "https://data.niod.nl",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Certificate",
-      "nl" : "Akte"
-    },
-    "comment" : {
-      "en" : "Class for archival certificates"
-    },
-    "attributes" : [ "external" ],
-    "id" : "46",
-    "superClasses" : [ "43" ]
-  }, {
     "iri" : "https://data.niod.nl/Gedecoreerd",
     "baseIri" : "https://data.niod.nl",
     "instances" : 0,
@@ -1870,25 +1836,6 @@
     "id" : "93",
     "superClasses" : [ "1" ]
   }, {
-    "iri" : "https://data.niod.nl/Vertrokken",
-    "baseIri" : "https://data.niod.nl",
-    "instances" : 0,
-    "annotations" : {
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "undefined",
-        "value" : "https://data.niod.nl/WO2_Thesaurus/13791",
-        "type" : "iri"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "Vertrokken",
-      "nl" : "Vertrokken"
-    },
-    "attributes" : [ "external" ],
-    "id" : "96",
-    "superClasses" : [ "1" ]
-  }, {
     "iri" : "https://data.niod.nl/Geëvacueerd",
     "baseIri" : "https://data.niod.nl",
     "instances" : 0,
@@ -1906,6 +1853,25 @@
     },
     "attributes" : [ "external" ],
     "id" : "95",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Vertrokken",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/13791",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Vertrokken",
+      "nl" : "Vertrokken"
+    },
+    "attributes" : [ "external" ],
+    "id" : "96",
     "superClasses" : [ "1" ]
   }, {
     "iri" : "https://data.niod.nl/Archiefmateriaal",
@@ -1990,16 +1956,6 @@
     "id" : "98",
     "superClasses" : [ "1" ]
   }, {
-    "iri" : "http://schema.org/WebPage",
-    "baseIri" : "http://schema.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "WebPage"
-    },
-    "attributes" : [ "external" ],
-    "id" : "9",
-    "superClasses" : [ "7" ]
-  }, {
     "iri" : "https://data.niod.nl/Bekendmaking",
     "baseIri" : "https://data.niod.nl",
     "instances" : 0,
@@ -2013,6 +1969,16 @@
     "attributes" : [ "external" ],
     "id" : "64",
     "superClasses" : [ "1", "15" ]
+  }, {
+    "iri" : "http://schema.org/WebPage",
+    "baseIri" : "http://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "WebPage"
+    },
+    "attributes" : [ "external" ],
+    "id" : "9",
+    "superClasses" : [ "8" ]
   } ],
   "property" : [ {
     "id" : "3",
@@ -2228,7 +2194,7 @@
     "id" : "10"
   }, {
     "range" : "1",
-    "domain" : "8",
+    "domain" : "6",
     "attributes" : [ "object", "anonymous" ],
     "id" : "12"
   }, {
@@ -2388,7 +2354,7 @@
     "id" : "90"
   }, {
     "range" : "1",
-    "domain" : "27",
+    "domain" : "26",
     "attributes" : [ "object", "anonymous" ],
     "id" : "102"
   }, {
@@ -2403,7 +2369,7 @@
     "id" : "104"
   }, {
     "range" : "1",
-    "domain" : "26",
+    "domain" : "27",
     "attributes" : [ "object", "anonymous" ],
     "id" : "105"
   }, {
@@ -2458,12 +2424,12 @@
     "id" : "115"
   }, {
     "range" : "1",
-    "domain" : "59",
+    "domain" : "58",
     "attributes" : [ "object", "anonymous" ],
     "id" : "116"
   }, {
     "range" : "1",
-    "domain" : "58",
+    "domain" : "59",
     "attributes" : [ "object", "anonymous" ],
     "id" : "117"
   }, {
@@ -2542,13 +2508,13 @@
     "attributes" : [ "object", "anonymous" ],
     "id" : "135"
   }, {
-    "range" : "7",
+    "range" : "8",
     "domain" : "9",
     "attributes" : [ "object", "anonymous" ],
     "id" : "136"
   }, {
-    "range" : "7",
-    "domain" : "6",
+    "range" : "8",
+    "domain" : "7",
     "attributes" : [ "object", "anonymous" ],
     "id" : "137"
   } ]

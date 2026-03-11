@@ -497,7 +497,7 @@ picom:PersonReconstruction a rdfs:Class ;
 :Rule_subject            sh:path dc:subject ;          sh:node :Base_StringOrIRI .
 :Rule_about              sh:path schema:about ;        sh:node :Base_StringOrIRI .
 
-:Rule_type               sh:path rdf:type ;            sh:node :Base_IRI .
+:Rule_type               sh:path rdf:type ;             sh:node :Base_IRI .
 :Rule_additionalType     sh:path schema:additionalType ;sh:node :Base_IRI .
 
 # --- Data en Tijd ---
@@ -513,20 +513,23 @@ picom:PersonReconstruction a rdfs:Class ;
 :Rule_temporal           sh:path schema:temporal ;      sh:node :Base_String .
 
 # --- Locatie ---
-:Rule_birthPlace         sh:path schema:birthPlace ;    sh:node :Base_StringOrIRI ; sh:maxCount 1 .
-:Rule_deathPlace         sh:path schema:deathPlace ;    sh:node :Base_StringOrIRI ; sh:maxCount 1 .
-:Rule_location           sh:path schema:location ;      sh:node :Base_StringOrIRI .
+:Rule_birthPlace         sh:path schema:birthPlace ;     sh:node :Base_StringOrIRI ; sh:maxCount 1 .
+:Rule_deathPlace         sh:path schema:deathPlace ;     sh:node :Base_StringOrIRI ; sh:maxCount 1 .
+:Rule_location           sh:path schema:location ;       sh:node :Base_StringOrIRI .
 :Rule_contentLocation    sh:path schema:contentLocation ;sh:node :Base_StringOrIRI .
-:Rule_homeLocation       sh:path schema:homeLocation ;  sh:node :Base_StringOrIRI .
-:Rule_address            sh:path schema:address ;       sh:node :Base_StringOrIRI .
-:Rule_fromLocation       sh:path schema:fromLocation ;  sh:node :Base_StringOrIRI .
-:Rule_toLocation         sh:path schema:toLocation ;    sh:node :Base_StringOrIRI .
+:Rule_homeLocation       sh:path schema:homeLocation ;   sh:node :Base_StringOrIRI .
+:Rule_address            sh:path schema:address ;        sh:node :Base_StringOrIRI .
+:Rule_fromLocation       sh:path schema:fromLocation ;   sh:node :Base_StringOrIRI .
+:Rule_toLocation         sh:path schema:toLocation ;     sh:node :Base_StringOrIRI .
 
 # --- Personen en Organisaties (Relaties) ---
+:Rule_children           sh:path schema:children;       sh:node :Base_IRI .
+:Rule_parent             sh:path schema:parent ;        sh:node :Base_IRI .
+:Rule_sibling            sh:path schema:sibling ;       sh:node :Base_IRI .
 :Rule_actor              sh:path schema:actor ;         sh:node :Base_IRI .
-:Rule_publisher          sh:path dc:publisher ;        sh:node :Base_IRI .
-:Rule_provider         sh:path schema:provider ;    sh:node :Base_IRI .
-:Rule_creator            sh:path dc:creator ;          sh:node :Base_StringOrIRI .
+:Rule_publisher          sh:path dc:publisher ;         sh:node :Base_IRI .
+:Rule_provider           sh:path schema:provider ;      sh:node :Base_IRI .
+:Rule_creator            sh:path dc:creator ;           sh:node :Base_StringOrIRI .
 :Rule_gender             sh:path schema:gender ;        sh:node :Base_StringOrIRI .
 
 # --- Media en Web ---
@@ -551,116 +554,6 @@ picom:PersonReconstruction a rdfs:Class ;
 # 2. TOEPASSING OP KLASSEN (Context-specifieke labels voor Widoco)
 # =================================================================
 
-### --- PERSOONSVERMELDING ---
-:PersoonsvermeldingShape a sh:NodeShape ;
-    sh:targetClass picom:PersonObservation ;
-    sh:name "Persoonsvermelding"@nl ;
-    sh:description "Een observatie of vermelding van een persoon binnen een specifieke historische bron."@nl ;
-    
-    # --- Naamgeving ---
-    sh:property [
-        sh:path schema:name ;
-        sh:name "Volledige naam"@nl ;
-        sh:description "De volledige naam zoals deze letterlijk in de bron staat."@nl ;
-        sh:node :Rule_name ;
-    ] ;
-    sh:property [
-        sh:path schema:givenName ;
-        sh:name "Voornaam"@nl ;
-        sh:description "De roepnaam of eerste voornaam van de persoon."@nl ;
-        sh:node :Rule_givenName ;
-    ] ;
-    sh:property [
-        sh:path schema:familyName ;
-        sh:name "Achternaam"@nl ;
-        sh:description "De geslachtsnaam, inclusief tussenvoegsels."@nl ;
-        sh:node :Rule_familyName ;
-    ] ;
-    sh:property [
-        sh:path pnv:initials ;
-        sh:name "Initialen"@nl ;
-        sh:description "De voorletters van de persoon."@nl ;
-        sh:node :Rule_initials ;
-    ] ;
-    sh:property [
-        sh:path schema:alternateName ;
-        sh:name "Alias of roepnaam"@nl ;
-        sh:description "Andere namen waaronder de persoon bekend was (bijv. schuilnaam)."@nl ;
-        sh:node :Rule_alternateName ;
-    ] ;
-
-    # --- Identificatie en Type ---
-    sh:property [
-        sh:path schema:identifier ;
-        sh:name "Identificatiecode"@nl ;
-        sh:description "Een uniek kenmerk of registratienummer uit de bron."@nl ;
-        sh:node :Rule_identifier_schema ;
-    ] ;
-    sh:property [
-        sh:path rdf:type ;
-        sh:name "Type observatie"@nl ;
-        sh:description "Classificatie van het type persoonsvermelding."@nl ;
-        sh:node :Rule_type ;
-    ] ;
-
-    # --- Geboorte en Overlijden ---
-    sh:property [
-        sh:path schema:birthDate ;
-        sh:name "Geboortedatum"@nl ;
-        sh:description "Datum waarop de persoon is geboren."@nl ;
-        sh:node :Rule_birthDate ;
-    ] ;
-    sh:property [
-        sh:path schema:birthPlace ;
-        sh:name "Geboorteplaats"@nl ;
-        sh:description "De geografische locatie waar de persoon is geboren."@nl ;
-        sh:node :Rule_birthPlace ;
-    ] ;
-    sh:property [
-        sh:path schema:deathDate ;
-        sh:name "Datum van overlijden"@nl ;
-        sh:description "De datum waarop de persoon is gestorven."@nl ;
-        sh:node :Rule_deathDate ;
-    ] ;
-    sh:property [
-        sh:path schema:deathPlace ;
-        sh:name "Plaats van overlijden"@nl ;
-        sh:description "De geografische locatie waar de persoon is gestorven."@nl ;
-        sh:node :Rule_deathPlace ;
-    ] ;
-
-    # --- Kenmerken en Context ---
-    sh:property [
-        sh:path schema:hasOccupation ;
-        sh:name "Beroep of functie"@nl ;
-        sh:description "Het beroep of de maatschappelijke rol van de persoon."@nl ;
-        sh:node :Rule_hasOccupation ;
-    ] ;
-    sh:property [
-        sh:path schema:address ;
-        sh:name "Adresgegevens"@nl ;
-        sh:description "Woonplaats of laatst bekende adres."@nl ;
-        sh:node :Rule_address ;
-    ] ;
-    sh:property [
-        sh:path schema:about ;
-        sh:name "Betreft"@nl ;
-        sh:description "Onderwerp of entiteit waar deze vermelding over gaat."@nl ;
-        sh:node :Rule_about ;
-    ] ;
-    sh:property [
-        sh:path prov:hadPrimarySource ;
-        sh:name "Primaire bron"@nl ;
-        sh:description "De originele bron waaruit deze informatie afkomstig is."@nl ;
-        sh:node :Rule_hadPrimarySource ;
-    ] ;
-    sh:property [
-        sh:path schema:description ;
-        sh:name "Biografische schets"@nl ;
-        sh:description "Een korte beschrijving van de persoon of diens rol."@nl ;
-        sh:node :Rule_description_schema ;
-    ] .
-
 ### --- PERSOONSRECONSTRUCTIE ---
 :PersoonReconstructionShape a sh:NodeShape ;
     sh:targetClass picom:PersonReconstruction ;
@@ -671,13 +564,13 @@ picom:PersonReconstruction a rdfs:Class ;
     sh:property [
         sh:path schema:identifier ;
         sh:name "Persoons-ID"@nl ;
-        sh:description "De unieke identifier van de gereconstrueerde persoon (bijv. een P-nummer)."@nl ;
+        sh:description "De unieke identifier van de gereconstrueerde persoon."@nl ;
         sh:node :Rule_identifier_schema ;
     ] ;
     sh:property [
         sh:path rdf:type ;
         sh:name "Type entiteit"@nl ;
-        sh:description "Classificatie van de entiteit (meestal schema:Person)."@nl ;
+        sh:description "Classificatie van de entiteit."@nl ;
         sh:node :Rule_type ;
     ] ;
 
@@ -758,6 +651,70 @@ picom:PersonReconstruction a rdfs:Class ;
         sh:name "Trefwoorden"@nl ;
         sh:description "Categorisering of kenmerken van de persoon uit een thesaurus."@nl ;
         sh:node :Rule_keywords ;
+    ] .
+
+### --- PERSOONSVERMELDING ---
+:PersoonsvermeldingShape a sh:NodeShape ;
+    sh:targetClass picom:PersonObservation ;
+    sh:name "Persoonsvermelding"@nl ;
+    sh:description "Een observatie of vermelding van een persoon binnen een specifieke historische bron."@nl ;
+
+    # 1. Hergebruik alle regels van PersonReconstruction
+    sh:node :PersoonReconstructionShape ;
+
+    # 2. Sluit specifiek uit
+    sh:property [
+        sh:path prov:wasDerivedFrom ;
+        sh:maxCount 0 ;
+        sh:name "Afgeleid van (niet toegestaan)"@nl ;
+        sh:description "Voor persoonsvermeldingen wordt prov:wasDerivedFrom niet toegestaan."@nl ;
+    ] ;
+
+    # 3. Voeg extra properties toe
+    # --- Naamgeving ---
+    sh:property [
+        sh:path schema:givenName ;
+        sh:name "Voornaam"@nl ;
+        sh:description "De roepnaam of eerste voornaam van de persoon."@nl ;
+        sh:node :Rule_givenName ;
+    ] ;
+    sh:property [
+        sh:path schema:familyName ;
+        sh:name "Achternaam"@nl ;
+        sh:description "De geslachtsnaam, inclusief tussenvoegsels."@nl ;
+        sh:node :Rule_familyName ;
+    ] ;
+    sh:property [
+        sh:path pnv:initials ;
+        sh:name "Initialen"@nl ;
+        sh:description "De voorletters van de persoon."@nl ;
+        sh:node :Rule_initials ;
+    ] ;
+
+    # --- Kenmerken en Context ---
+    sh:property [
+        sh:path schema:hasOccupation ;
+        sh:name "Beroep of functie"@nl ;
+        sh:description "Het beroep of de maatschappelijke rol van de persoon."@nl ;
+        sh:node :Rule_hasOccupation ;
+    ] ;
+    sh:property [
+        sh:path schema:address ;
+        sh:name "Adresgegevens"@nl ;
+        sh:description "Woonplaats of laatst bekende adres."@nl ;
+        sh:node :Rule_address ;
+    ] ;
+    sh:property [
+        sh:path prov:hadPrimarySource ;
+        sh:name "Primaire bron"@nl ;
+        sh:description "De originele bron waaruit deze informatie afkomstig is."@nl ;
+        sh:node :Rule_hadPrimarySource ;
+    ] ;
+    sh:property [
+        sh:path schema:description ;
+        sh:name "Biografische schets"@nl ;
+        sh:description "Een korte beschrijving van de persoon of diens rol."@nl ;
+        sh:node :Rule_description_schema ;
     ] .
 
 ### --- BRON EN OBJECT TYPEN ---
