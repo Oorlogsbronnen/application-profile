@@ -543,7 +543,7 @@ picom:PersonReconstruction a rdfs:Class ;
 :Rule_position           sh:path schema:position ;      sh:node :Base_Integer .
 
 # --- Herkomst en Verwijzingen ---
-:Rule_sameAs             sh:path schema:sameAs ;        sh:node :Base_StringOrIRI .
+:Rule_sameAs             sh:path schema:sameAs ;        sh:node :Base_IRI .
 :Rule_wasDerivedFrom     sh:path prov:wasDerivedFrom ;  sh:node :Base_IRI .
 :Rule_hadPrimarySource   sh:path prov:hadPrimarySource ;sh:node :Base_IRI .
 
@@ -884,7 +884,7 @@ picom:PersonReconstruction a rdfs:Class ;
         niod:ArchiveFile ;
     sh:name "Archieven en Archiefstukken"@nl ;
     
-    # 1. Hergebruik ALLE regels van CreativeWork in één keer
+    # 1. Hergebruik alle regels van CreativeWork
     sh:node :CreativeWorkShape ;
 
     # 2. Voeg extra properties toe
@@ -893,6 +893,23 @@ picom:PersonReconstruction a rdfs:Class ;
         sh:name "Onderdeel van"@nl ;
         sh:description "Dit archiefstuk is onderdeel van een archiefserie of archief"@nl ;
         sh:node :Rule_isPartOf ;
+    ] .
+
+### --- AUDIO EN VIDEO OBJECTEN (Uitbreiding) ---
+:MediaShape a sh:NodeShape ;
+    sh:targetClass 
+        schema:VideoObject,
+        schema:AudioObject ;
+    sh:name "Audio en Video objecten"@nl ;
+    
+    # 1. Hergebruik alle regels van CreativeWork
+    sh:node :CreativeWorkShape ;
+
+    # 2. Voeg extra properties toe
+    sh:property [
+        sh:path schema:contentUrl ;
+        sh:name "Url van het media object"@nl ;
+        sh:node :Rule_contentUrl ;
     ] .
 
 ### --- GEBEURTENIS ---
