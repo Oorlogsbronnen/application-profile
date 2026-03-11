@@ -1094,96 +1094,96 @@
         <shacl:targetClass rdf:resource="https://data.niod.nl/Monument"/>
     </NamedIndividual>
     <rdf:Description rdf:nodeID="genid5">
-        <shacl:description xml:lang="nl">De verzameling waar dit object deel van uitmaakt.</shacl:description>
-        <shacl:name xml:lang="nl">Collectie</shacl:name>
-        <shacl:node rdf:resource="http://data.niod.nl/Rule_collection"/>
-        <shacl:path rdf:resource="http://purl.org/dc/dcmitype/Collection"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid6">
-        <shacl:name xml:lang="nl">Onderwerp</shacl:name>
-        <shacl:node rdf:resource="http://data.niod.nl/Rule_subject"/>
-        <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/subject"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid7">
-        <shacl:name xml:lang="nl">Betreft entiteit</shacl:name>
-        <shacl:node rdf:resource="http://data.niod.nl/Rule_about"/>
-        <shacl:path rdf:resource="http://schema.org/about"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid8">
-        <shacl:name xml:lang="nl">Periodisering</shacl:name>
-        <shacl:node rdf:resource="http://data.niod.nl/Rule_temporal"/>
-        <shacl:path rdf:resource="http://schema.org/temporal"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid9">
-        <shacl:name xml:lang="nl">Inhoudelijke locatie</shacl:name>
-        <shacl:node rdf:resource="http://data.niod.nl/Rule_contentLocation"/>
-        <shacl:path rdf:resource="http://schema.org/contentLocation"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid10">
-        <shacl:name xml:lang="nl">Maker</shacl:name>
-        <shacl:node rdf:resource="http://data.niod.nl/Rule_creator"/>
-        <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/creator"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid11">
         <shacl:name xml:lang="nl">Uitgever</shacl:name>
         <shacl:node rdf:resource="http://data.niod.nl/Rule_publisher"/>
         <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/publisher"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid12">
+    <rdf:Description rdf:nodeID="genid6">
         <shacl:description xml:lang="nl">De instelling die het object digitaal beschikbaar stelt.</shacl:description>
         <shacl:name xml:lang="nl">Provider</shacl:name>
         <shacl:node rdf:resource="http://data.niod.nl/Rule_provider"/>
         <shacl:path rdf:resource="http://schema.org/provider"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid13">
-        <shacl:name xml:lang="nl">Bron</shacl:name>
-        <shacl:node rdf:resource="http://data.niod.nl/Rule_source"/>
-        <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/source"/>
+    <rdf:Description rdf:nodeID="genid7">
+        <shacl:name xml:lang="nl">Inhoudelijke locatie</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/Rule_contentLocation"/>
+        <shacl:path rdf:resource="http://schema.org/contentLocation"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid14">
-        <shacl:name xml:lang="nl">Beschrijving</shacl:name>
-        <shacl:node rdf:resource="http://data.niod.nl/Rule_description_dc"/>
-        <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/description"/>
+    <rdf:Description rdf:nodeID="genid8">
+        <shacl:name xml:lang="nl">Maker</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/Rule_creator"/>
+        <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/creator"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid15">
-        <shacl:name xml:lang="nl">Type (RDF)</shacl:name>
-        <shacl:node rdf:resource="http://data.niod.nl/Rule_type"/>
-        <shacl:path rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+    <rdf:Description rdf:nodeID="genid9">
+        <shacl:description xml:lang="nl">De verzameling waar dit object deel van uitmaakt.</shacl:description>
+        <shacl:name xml:lang="nl">Collectie</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/Rule_collection"/>
+        <shacl:path rdf:resource="http://purl.org/dc/dcmitype/Collection"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid16">
-        <shacl:name xml:lang="nl">Type (DC)</shacl:name>
-        <shacl:node rdf:resource="http://data.niod.nl/Rule_type_dc"/>
-        <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/type"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid17">
-        <shacl:name xml:lang="nl">Identifier (DC)</shacl:name>
-        <shacl:node rdf:resource="http://data.niod.nl/Rule_identifier_dc"/>
-        <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/identifier"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid18">
-        <shacl:name xml:lang="nl">Titel</shacl:name>
-        <shacl:node rdf:resource="http://data.niod.nl/Rule_title"/>
-        <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/title"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid19">
+    <rdf:Description rdf:nodeID="genid10">
         <shacl:name xml:lang="nl">Datum</shacl:name>
         <shacl:node rdf:resource="http://data.niod.nl/Rule_date"/>
         <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/date"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid20">
+    <rdf:Description rdf:nodeID="genid11">
+        <shacl:name xml:lang="nl">Bron</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/Rule_source"/>
+        <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/source"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid12">
+        <shacl:name xml:lang="nl">Thumbnail</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/Rule_thumbnail"/>
+        <shacl:path rdf:resource="http://schema.org/thumbnail"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid13">
         <shacl:name xml:lang="nl">Startdatum</shacl:name>
         <shacl:node rdf:resource="http://data.niod.nl/Rule_startDate"/>
         <shacl:path rdf:resource="http://schema.org/startDate"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid21">
+    <rdf:Description rdf:nodeID="genid14">
         <shacl:name xml:lang="nl">Einddatum</shacl:name>
         <shacl:node rdf:resource="http://data.niod.nl/Rule_endDate"/>
         <shacl:path rdf:resource="http://schema.org/endDate"/>
     </rdf:Description>
+    <rdf:Description rdf:nodeID="genid15">
+        <shacl:name xml:lang="nl">Identifier (DC)</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/Rule_identifier_dc"/>
+        <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/identifier"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid16">
+        <shacl:name xml:lang="nl">Titel</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/Rule_title"/>
+        <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/title"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid17">
+        <shacl:name xml:lang="nl">Type (RDF)</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/Rule_type"/>
+        <shacl:path rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid18">
+        <shacl:name xml:lang="nl">Type (DC)</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/Rule_type_dc"/>
+        <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/type"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid19">
+        <shacl:name xml:lang="nl">Betreft entiteit</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/Rule_about"/>
+        <shacl:path rdf:resource="http://schema.org/about"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid20">
+        <shacl:name xml:lang="nl">Periodisering</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/Rule_temporal"/>
+        <shacl:path rdf:resource="http://schema.org/temporal"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid21">
+        <shacl:name xml:lang="nl">Beschrijving</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/Rule_description_dc"/>
+        <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/description"/>
+    </rdf:Description>
     <rdf:Description rdf:nodeID="genid22">
-        <shacl:name xml:lang="nl">Thumbnail</shacl:name>
-        <shacl:node rdf:resource="http://data.niod.nl/Rule_thumbnail"/>
-        <shacl:path rdf:resource="http://schema.org/thumbnail"/>
+        <shacl:name xml:lang="nl">Onderwerp</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/Rule_subject"/>
+        <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/subject"/>
     </rdf:Description>
     
 
@@ -1209,20 +1209,21 @@
         <shacl:targetClass rdf:resource="http://schema.org/Event"/>
     </NamedIndividual>
     <rdf:Description rdf:nodeID="genid23">
+        <shacl:name xml:lang="nl">Einddatum</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/Rule_endDate"/>
+        <shacl:path rdf:resource="http://schema.org/endDate"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid24">
+        <shacl:description xml:lang="nl">Classificatie van de gebeurtenis als persoonlijke gebeurtenis uit de WO2 thesaurus</shacl:description>
+        <shacl:name xml:lang="nl">type gebeurtenis</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/Rule_type"/>
+        <shacl:path rdf:resource="http://schema.org/additionalType"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid25">
         <shacl:description xml:lang="nl">De naam van de gebeurtenis.</shacl:description>
         <shacl:name xml:lang="nl">Naam</shacl:name>
         <shacl:node rdf:resource="http://data.niod.nl/Rule_hasOccupation"/>
         <shacl:path rdf:resource="http://schema.org/name"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid24">
-        <shacl:name xml:lang="nl">Locatie</shacl:name>
-        <shacl:node rdf:resource="http://data.niod.nl/Rule_location"/>
-        <shacl:path rdf:resource="http://schema.org/location"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid25">
-        <shacl:name xml:lang="nl">Beginlocatie</shacl:name>
-        <shacl:node rdf:resource="http://data.niod.nl/Rule_fromLocation"/>
-        <shacl:path rdf:resource="http://schema.org/fromLocation"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid26">
         <shacl:description xml:lang="nl">Classificatie van de entiteit als schema:Event</shacl:description>
@@ -1231,41 +1232,40 @@
         <shacl:path rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid27">
-        <shacl:description xml:lang="nl">Classificatie van de gebeurtenis als persoonlijke gebeurtenis uit de WO2 thesaurus</shacl:description>
-        <shacl:name xml:lang="nl">type gebeurtenis</shacl:name>
-        <shacl:node rdf:resource="http://data.niod.nl/Rule_type"/>
-        <shacl:path rdf:resource="http://schema.org/additionalType"/>
+        <shacl:name xml:lang="nl">Locatie</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/Rule_location"/>
+        <shacl:path rdf:resource="http://schema.org/location"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid28">
+        <shacl:name xml:lang="nl">Beginlocatie</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/Rule_fromLocation"/>
+        <shacl:path rdf:resource="http://schema.org/fromLocation"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid29">
         <shacl:name xml:lang="nl">Eindlocatie</shacl:name>
         <shacl:node rdf:resource="http://data.niod.nl/Rule_toLocation"/>
         <shacl:path rdf:resource="http://schema.org/toLocation"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid29">
-        <shacl:name xml:lang="nl">Persoon in de gebeurtenis</shacl:name>
-        <shacl:node rdf:resource="http://data.niod.nl/Rule_actor"/>
-        <shacl:path rdf:resource="http://schema.org/actor"/>
-    </rdf:Description>
     <rdf:Description rdf:nodeID="genid30">
-        <shacl:name xml:lang="nl">Grotere gebeurtenis</shacl:name>
-        <shacl:node rdf:resource="http://data.niod.nl/Rule_superEvent"/>
-        <shacl:path rdf:resource="http://schema.org/superEvent"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid31">
         <shacl:description xml:lang="nl">De originele bron waaruit deze informatie afkomstig is.</shacl:description>
         <shacl:name xml:lang="nl">Primaire bron</shacl:name>
         <shacl:node rdf:resource="http://data.niod.nl/Rule_hadPrimarySource"/>
         <shacl:path rdf:resource="http://www.w3.org/ns/prov#hadPrimarySource"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid32">
+    <rdf:Description rdf:nodeID="genid31">
         <shacl:name xml:lang="nl">Startdatum</shacl:name>
         <shacl:node rdf:resource="http://data.niod.nl/Rule_startDate"/>
         <shacl:path rdf:resource="http://schema.org/startDate"/>
     </rdf:Description>
+    <rdf:Description rdf:nodeID="genid32">
+        <shacl:name xml:lang="nl">Persoon in de gebeurtenis</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/Rule_actor"/>
+        <shacl:path rdf:resource="http://schema.org/actor"/>
+    </rdf:Description>
     <rdf:Description rdf:nodeID="genid33">
-        <shacl:name xml:lang="nl">Einddatum</shacl:name>
-        <shacl:node rdf:resource="http://data.niod.nl/Rule_endDate"/>
-        <shacl:path rdf:resource="http://schema.org/endDate"/>
+        <shacl:name xml:lang="nl">Grotere gebeurtenis</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/Rule_superEvent"/>
+        <shacl:path rdf:resource="http://schema.org/superEvent"/>
     </rdf:Description>
     
 
@@ -1281,16 +1281,16 @@
         <shacl:targetClass rdf:resource="http://schema.org/Event"/>
     </NamedIndividual>
     <rdf:Description rdf:nodeID="genid34">
-        <shacl:description xml:lang="nl">Bijv: &apos;Transport vanuit Kamp Amersfoort&apos; of &apos;Razzia van Rotterdam&apos;.</shacl:description>
-        <shacl:name xml:lang="nl">Titel van gebeurtenis</shacl:name>
-        <shacl:node rdf:resource="http://data.niod.nl/TechnicalNameRule"/>
-        <shacl:path rdf:resource="http://schema.org/name"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid35">
         <shacl:description xml:lang="nl">De dag waarop de gebeurtenis startte.</shacl:description>
         <shacl:name xml:lang="nl">Datum van plaatsvinden</shacl:name>
         <shacl:node rdf:resource="http://data.niod.nl/TechnicalDateRule"/>
         <shacl:path rdf:resource="http://schema.org/datePublished"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid35">
+        <shacl:description xml:lang="nl">Bijv: &apos;Transport vanuit Kamp Amersfoort&apos; of &apos;Razzia van Rotterdam&apos;.</shacl:description>
+        <shacl:name xml:lang="nl">Titel van gebeurtenis</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/TechnicalNameRule"/>
+        <shacl:path rdf:resource="http://schema.org/name"/>
     </rdf:Description>
     
 
@@ -1466,61 +1466,87 @@
         <shacl:targetClass rdf:resource="https://personsincontext.org/model/#PersonObservation"/>
     </NamedIndividual>
     <rdf:Description rdf:nodeID="genid55">
-        <shacl:description xml:lang="nl">De voorletters van de persoon.</shacl:description>
-        <shacl:name xml:lang="nl">Initialen</shacl:name>
-        <shacl:node rdf:resource="http://data.niod.nl/Rule_initials"/>
-        <shacl:path rdf:resource="https://w3id.org/pnv#initials"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid56">
-        <shacl:description xml:lang="nl">Het beroep of de maatschappelijke rol van de persoon.</shacl:description>
-        <shacl:name xml:lang="nl">Beroep of functie</shacl:name>
-        <shacl:node rdf:resource="http://data.niod.nl/Rule_hasOccupation"/>
-        <shacl:path rdf:resource="http://schema.org/hasOccupation"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid57">
-        <shacl:description xml:lang="nl">Woonplaats of laatst bekende adres.</shacl:description>
-        <shacl:name xml:lang="nl">Adresgegevens</shacl:name>
-        <shacl:node rdf:resource="http://data.niod.nl/Rule_address"/>
-        <shacl:path rdf:resource="http://schema.org/address"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid58">
-        <shacl:description xml:lang="nl">De originele bron waaruit deze informatie afkomstig is.</shacl:description>
-        <shacl:name xml:lang="nl">Primaire bron</shacl:name>
-        <shacl:node rdf:resource="http://data.niod.nl/Rule_hadPrimarySource"/>
-        <shacl:path rdf:resource="http://www.w3.org/ns/prov#hadPrimarySource"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid59">
-        <shacl:description xml:lang="nl">Een korte beschrijving van de persoon of diens rol tijdens de Tweede Wereldoorlog.</shacl:description>
-        <shacl:name xml:lang="nl">Biografische schets</shacl:name>
-        <shacl:node rdf:resource="http://data.niod.nl/Rule_description_schema"/>
-        <shacl:path rdf:resource="http://schema.org/description"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid60">
         <shacl:description xml:lang="nl">Voor persoonsvermeldingen wordt prov:wasDerivedFrom niet toegestaan.</shacl:description>
         <shacl:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</shacl:maxCount>
         <shacl:name xml:lang="nl">Afgeleid van (niet toegestaan)</shacl:name>
         <shacl:path rdf:resource="http://www.w3.org/ns/prov#wasDerivedFrom"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid61">
+    <rdf:Description rdf:nodeID="genid56">
         <shacl:description xml:lang="nl">De roepnaam of eerste voornaam van de persoon.</shacl:description>
         <shacl:name xml:lang="nl">Voornaam</shacl:name>
         <shacl:node rdf:resource="http://data.niod.nl/Rule_givenName"/>
         <shacl:path rdf:resource="http://schema.org/givenName"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid62">
+    <rdf:Description rdf:nodeID="genid57">
         <shacl:description xml:lang="nl">De geslachtsnaam, inclusief tussenvoegsels.</shacl:description>
         <shacl:name xml:lang="nl">Achternaam</shacl:name>
         <shacl:node rdf:resource="http://data.niod.nl/Rule_familyName"/>
         <shacl:path rdf:resource="http://schema.org/familyName"/>
     </rdf:Description>
-    <rdf:Description>
-        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdf:Description rdf:nodeID="genid58">
+        <shacl:description xml:lang="nl">De voorletters van de persoon.</shacl:description>
+        <shacl:name xml:lang="nl">Initialen</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/Rule_initials"/>
+        <shacl:path rdf:resource="https://w3id.org/pnv#initials"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid59">
+        <shacl:description xml:lang="nl">Het beroep of de maatschappelijke rol van de persoon.</shacl:description>
+        <shacl:name xml:lang="nl">Beroep of functie</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/Rule_hasOccupation"/>
+        <shacl:path rdf:resource="http://schema.org/hasOccupation"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid60">
+        <shacl:description xml:lang="nl">Woonplaats of laatst bekende adres.</shacl:description>
+        <shacl:name xml:lang="nl">Adresgegevens</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/Rule_address"/>
+        <shacl:path rdf:resource="http://schema.org/address"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid61">
+        <shacl:description xml:lang="nl">De originele bron waaruit deze informatie afkomstig is.</shacl:description>
+        <shacl:name xml:lang="nl">Primaire bron</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/Rule_hadPrimarySource"/>
+        <shacl:path rdf:resource="http://www.w3.org/ns/prov#hadPrimarySource"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid62">
+        <shacl:description xml:lang="nl">Een korte beschrijving van de persoon of diens rol tijdens de Tweede Wereldoorlog.</shacl:description>
+        <shacl:name xml:lang="nl">Biografische schets</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/Rule_description_schema"/>
+        <shacl:path rdf:resource="http://schema.org/description"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://data.niod.nl/SourceShape -->
+
+
+    <NamedIndividual rdf:about="http://data.niod.nl/SourceShape">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+        <shacl:description xml:lang="nl">De archiefstukken, maar ook andere (onderzoeks)datasets en webpagina&apos;s waarin de persoonsvermeldingen zijn aangetroffen (bronvermelding).</shacl:description>
+        <shacl:name xml:lang="nl">Bronnen van persoonsvermeldingen</shacl:name>
+        <shacl:property rdf:nodeID="genid63"/>
+        <shacl:property rdf:nodeID="genid64"/>
+        <shacl:targetClass rdf:resource="http://schema.org/ArchiveComponent"/>
+        <shacl:targetClass rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    </NamedIndividual>
+    <rdf:Description rdf:nodeID="genid63">
+        <shacl:name xml:lang="nl">Url van de bron</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/Rule_url"/>
+        <shacl:path rdf:resource="http://schema.org/url"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid64">
+        <shacl:description xml:lang="nl">Classificatie van de entiteit</shacl:description>
+        <shacl:name xml:lang="nl">Type entiteit</shacl:name>
+        <shacl:node rdf:resource="http://data.niod.nl/Rule_type"/>
+        <shacl:path rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
     </rdf:Description>
     <rdf:Description>
         <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
     </rdf:Description>
     <rdf:Description>
-        <shacl:class rdf:resource="https://personsincontext.org/model/#PersonReconstruction"/>
+        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </rdf:Description>
+    <rdf:Description>
+        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
     </rdf:Description>
     <rdf:Description>
         <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -1529,31 +1555,31 @@
         <shacl:class rdf:resource="https://personsincontext.org/model/#PersonObservation"/>
     </rdf:Description>
     <rdf:Description>
-        <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
-    </rdf:Description>
-    <rdf:Description>
         <shacl:class rdf:resource="https://personsincontext.org/model/#PersonReconstruction"/>
-    </rdf:Description>
-    <rdf:Description>
-        <shacl:class rdf:resource="https://personsincontext.org/model/#PersonReconstruction"/>
-    </rdf:Description>
-    <rdf:Description>
-        <shacl:class rdf:resource="https://personsincontext.org/model/#PersonObservation"/>
-    </rdf:Description>
-    <rdf:Description>
-        <shacl:class rdf:resource="https://personsincontext.org/model/#PersonObservation"/>
-    </rdf:Description>
-    <rdf:Description>
-        <shacl:class rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     </rdf:Description>
     <rdf:Description>
         <shacl:class rdf:resource="http://schema.org/ArchiveComponent"/>
     </rdf:Description>
     <rdf:Description>
+        <shacl:class rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    </rdf:Description>
+    <rdf:Description>
         <shacl:class rdf:resource="https://personsincontext.org/model/#PersonObservation"/>
     </rdf:Description>
     <rdf:Description>
         <shacl:class rdf:resource="https://personsincontext.org/model/#PersonReconstruction"/>
+    </rdf:Description>
+    <rdf:Description>
+        <shacl:class rdf:resource="https://personsincontext.org/model/#PersonObservation"/>
+    </rdf:Description>
+    <rdf:Description>
+        <shacl:class rdf:resource="https://personsincontext.org/model/#PersonReconstruction"/>
+    </rdf:Description>
+    <rdf:Description>
+        <shacl:class rdf:resource="https://personsincontext.org/model/#PersonReconstruction"/>
+    </rdf:Description>
+    <rdf:Description>
+        <shacl:class rdf:resource="https://personsincontext.org/model/#PersonObservation"/>
     </rdf:Description>
     
 
