@@ -88,7 +88,7 @@
 :Rule_sibling            sh:path schema:sibling ;       sh:node :Base_IRI ;  sh:or ([ sh:class picom:PersonReconstruction ] [ sh:class picom:PersonObservation ]) .
 :Rule_actor              sh:path schema:actor ;          sh:node :Base_IRI ; sh:or ([ sh:class picom:PersonReconstruction ] [ sh:class picom:PersonObservation ]) .
 :Rule_publisher          sh:path dc:publisher ;         sh:node :Base_IRI  ; sh:class schema:Organization .
-:Rule_provider           sh:path schema:provider ;      sh:node :Base_IRI  ; sh:class schema:Organization .
+:Rule_provider           sh:path schema:provider ;      sh:node :Base_StringOrIRI .
 :Rule_creator            sh:path dc:creator ;           sh:node :Base_StringOrIRI .
 :Rule_gender             sh:path schema:gender ;        sh:node :Base_StringOrIRI .
 
@@ -108,8 +108,8 @@
 # --- Herkomst en Verwijzingen ---
 :Rule_sameAs             sh:path schema:sameAs ;        sh:node :Base_IRI .
 :Rule_wasDerivedFrom     sh:path prov:wasDerivedFrom ;  sh:node :Base_IRI ; sh:class picom:PersonObservation .
-:Rule_hadPrimarySource   sh:path prov:hadPrimarySource ;sh:node :Base_IRI ;  sh:or ([ sh:class prov:Entity ] [ sh:class schema:ArchiveComponent ]) .
-:Rule_inDataset          sh:path niod:inDataset ;       sh:node :Base_IRI .
+:Rule_hadPrimarySource   sh:path prov:hadPrimarySource ;sh:node :Base_IRI ; sh:or ([ sh:class prov:Entity ] [ sh:class schema:ArchiveComponent ]) .
+:Rule_inDataset          sh:path niod:inDataset ;       sh:node :Base_IRI ; sh:class schema:Dataset .
 
 # =================================================================
 # 2. TOEPASSING OP KLASSEN (Context-specifieke labels voor Widoco)
@@ -121,7 +121,7 @@
     sh:name "Persoonsreconstructie"@nl ;
     sh:description "De geaggregeerde en gevalideerde gegevens van een persoon, samengesteld uit één of meerdere persoonsvermeldingen."@nl ;
 
-    # --- Identificatie en Type ---
+    # --- Identificatie ---
     sh:property [
         sh:path schema:identifier ;
         sh:name "Identifier"@nl ;
@@ -379,7 +379,7 @@
     
     sh:property [
         sh:path rdf:type ;
-        sh:name "Type record"@nl ;
+        sh:name "Type entiteit"@nl ;
         sh:description "Classificatie van het record als archiefstuk of anders."@nl ;
         sh:node :Rule_type ;
     ] ;
@@ -392,6 +392,48 @@
         sh:path niod:inDataset ;
         sh:name "Herkomst van het record"@nl ;
         sh:node :Rule_inDataset ;
+    ] .
+
+:SourceShape a sh:NodeShape ;
+    sh:targetClass 
+        schema:Dataset ;
+    sh:name "Dataset waaruit een record afkomstig is"@nl ;
+    sh:description "Records  maken altijd onderdeel uit van een dataset."@nl ;
+    
+    # --- Identificatie ---
+    sh:property [
+        sh:path schema:identifier ;
+        sh:name "Identifier"@nl ;
+        sh:description "De unieke identifier van de dataset."@nl ;
+        sh:node :Rule_identifier_schema ;
+    ] ;
+    sh:property [
+        sh:path rdf:type ;
+        sh:name "Type entiteit"@nl ;
+        sh:description "Classificatie van de entiteit als schema:Dataset"@nl ;
+        sh:node :Rule_type ;
+    ] ;
+
+    # --- Kenmerken en context ---
+    sh:property [
+        sh:path schema:name ;
+        sh:name "Naam van de dataset"@nl ;
+        sh:node :Rule_name ;
+    ] ;
+    sh:property [
+        sh:path schema:description ;
+        sh:name "Beschrijving van de dataset"@nl ;
+        sh:node :Rule_description ;
+    ] ;
+    sh:property [
+        sh:path schema:url ;
+        sh:name "Bronverwijzing voor de dataset"@nl ;
+        sh:node :Rule_url ;
+    ] ;
+    sh:property [
+        sh:path schema:provider ;
+        sh:name "Leverancier van de dataset"@nl ;
+        sh:node :Rule_provider ;
     ] .
 
 ### --- BRON EN OBJECT TYPEN ---
