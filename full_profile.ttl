@@ -1,4 +1,4 @@
-@prefix : <http://data.niod.nl/> .
+@prefix : <http://data.oorlogsbronnen.nl/model#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcam: <http://purl.org/dc/dcam/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
@@ -454,6 +454,10 @@ picom:PersonObservation a rdfs:Class ;
 picom:PersonReconstruction a rdfs:Class ;
         rdfs:label "Persoonsreconstructie"@nl ;
         rdf:comment "Persoon gemodelleerd op basis van een of meer persoonsvermeldingen"@nl .
+
+<https://data.oorlogsbronnen.nl/oorlogsbronnen-shapes> a owl:Ontology ;
+    owl:imports <http://datashapes.org/dash> ;
+    rdfs:label "Oorlogsbronnen SHACL Shapes"@nl .
 
 # =================================================================
 # BASIS LOGICA (Interne herbruikbare blokken)
