@@ -1,3 +1,4 @@
+@prefix : <http://data.oorlogsbronnen.nl/model#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <http://schema.org/> .
@@ -29,7 +30,7 @@ schema:Person rdfs:label "Persoon"@nl .
 schema:Place rdfs:label "Locatie"@nl .
 
 ## Additional level of classes between CreativeWork and specific types
-niod:Afbeelding a rdfs:Class ;
+:Afbeelding a rdfs:Class ;
 	rdfs:label "Afbeelding"@nl ;
 	rdfs:subClassOf schema:CreativeWork ;
 	rdf:comment "Superclass of all collection objects with a visuel element."@en .
@@ -38,62 +39,62 @@ schema:Photograph rdfs:subClassOf niod:Afbeelding .
 schema:ImageObject rdfs:subClassOf niod:Afbeelding .
 schema:VisualArtwork rdfs:subClassOf niod:Afbeelding .
 schema:SheetMusic rdfs:subClassOf niod:Afbeelding .
-niod:Bekendmaking rdfs:subClassOf niod:Afbeelding .
+:Bekendmaking rdfs:subClassOf niod:Afbeelding .
 
-niod:Archiefmateriaal a rdfs:Class ;
+:Archiefmateriaal a rdfs:Class ;
 	rdfs:label "Archiefmateriaal"@nl ;
 	rdfs:subClassOf schema:CreativeWork ;
 	rdf:comment "Class for all archivematerial"@en .
 
-niod:Archive rdfs:subClassOf niod:Archiefmateriaal .
-niod:ArchiveSeries rdfs:subClassOf niod:Archiefmateriaal .
-niod:ArchiveFile rdfs:subClassOf niod:Archiefmateriaal .
+:Archive rdfs:subClassOf :Archiefmateriaal .
+:ArchiveSeries rdfs:subClassOf :Archiefmateriaal .
+:ArchiveFile rdfs:subClassOf :Archiefmateriaal .
 
 ## Specific subclasses of schema:CreativeWork
 
-niod:Monument a rdfs:Class ;
+:Monument a rdfs:Class ;
 	rdfs:label "Monument"@nl ;
 	rdfs:subClassOf schema:CreativeWork ;
 	rdf:comment "Class for monuments"@en .
 
-niod:Archive a rdfs:Class ;
+:Archive a rdfs:Class ;
 	rdfs:label "Archief"@nl ;
 	rdfs:subClassOf schema:CreativeWork ;
 	rdf:comment "Class for an archive"@en .
 
-niod:ArchiveSeries a rdfs:Class ;
+:ArchiveSeries a rdfs:Class ;
 	rdfs:label "Archiefreeks"@nl ;
 	rdfs:subClassOf niod:Archive ;
 	rdf:comment "Class for a collection of archival documents"@en .
 
-niod:ArchiveFile a rdfs:Class ;
+:ArchiveFile a rdfs:Class ;
 	rdfs:label "Archiefstuk"@nl ;
 	rdfs:subClassOf niod:Archive ;
 	rdf:comment "Class for archival documents"@en .
 
-niod:Certificate a rdfs:Class ;
+:Certificate a rdfs:Class ;
   	rdfs:label "Akte"@nl ;
   	rdfs:subClassOf schema:CreativeWork ;
   	rdf:comment "Class for archival certificates"@en .
 
-niod:Interview a rdfs:Class ;
+:Interview a rdfs:Class ;
 	rdfs:label "Interview"@nl ;
 	rdfs:subClassOf schema:CreativeWork ;
 	rdf:comment "Class for interviews"@en .
 
-niod:InterviewSegment a rdfs:Class ;
+:InterviewSegment a rdfs:Class ;
 	rdfs:label "Fragment"@nl ;
 	rdfs:subClassOf schema:CreativeWork ;
 	rdf:comment "Class for interviews segments"@en .
 
 ## Curated content
 
-niod:Webpagina a rdfs:Class ;
+:Webpagina a rdfs:Class ;
 	rdfs:label "Webpagina"@nl ;
 	rdf:comment "Class for all web content created by Oorlogsbronnen"@en .
 
-schema:WebPage rdfs:subClassOf niod:Webpagina .
-skos:Concept rdfs:subClassOf niod:Webpagina . # hack to get all thesaurus content available as webpagina
+schema:WebPage rdfs:subClassOf :Webpagina .
+skos:Concept rdfs:subClassOf :Webpagina . # hack to get all thesaurus content available as webpagina
 
 ## More specific classes of schema:Event
 
@@ -419,14 +420,14 @@ niod:genoemde a rdf:Property ;
 
 ## Other NIOD properties
 
-niod:imageIIIF a rdf:Property ;
+:imageIIIF a rdf:Property ;
 	rdfs:label "IIIF Manifest"@nl ;
 	rdfs:subPropertyOf schema:image ;
 	rdf:comment "IIIF manifest van afbeeldingen die bij de bron beschikbaar zijn in IIIF formaat"@nl .
 
 ## Class for rights statements
 
-niod:Rights a rdfs:Class ;
+:Rights a rdfs:Class ;
 	rdfs:label "Rechten"@nl ;
 	rdf:comment "Rights Statement"@en .
 
