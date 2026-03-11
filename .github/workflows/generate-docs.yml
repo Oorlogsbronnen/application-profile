@@ -53,7 +53,7 @@ jobs:
             -rewriteAll \
             -webVowl \
             -getOntologyMetadata \
-            -includeImportedOntologies \
+            # -includeImportedOntologies \
             -lang nl-en
 
           # ... rest van je verplaats-logica (index.html fix etc.) ...
