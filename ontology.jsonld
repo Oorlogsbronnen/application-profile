@@ -17,44 +17,32 @@
   "@id" : "_:genid11",
   "http://www.w3.org/ns/shacl#description" : [ {
     "@language" : "nl",
-    "@value" : "De instelling die het object digitaal beschikbaar stelt."
+    "@value" : "De verzameling waar dit object deel van uitmaakt."
   } ],
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Provider"
+    "@value" : "Collectie"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.niod.nl/Rule_provider"
+    "@id" : "http://data.niod.nl/Rule_collection"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/provider"
+    "@id" : "http://purl.org/dc/dcmitype/Collection"
   } ]
 }, {
   "@id" : "_:genid12",
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Onderwerp"
+    "@value" : "Bron"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.niod.nl/Rule_subject"
+    "@id" : "http://data.niod.nl/Rule_source"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://purl.org/dc/elements/1.1/subject"
+    "@id" : "http://purl.org/dc/elements/1.1/source"
   } ]
 }, {
   "@id" : "_:genid13",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Betreft entiteit"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.niod.nl/Rule_about"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/about"
-  } ]
-}, {
-  "@id" : "_:genid14",
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
     "@value" : "Periodisering"
@@ -66,40 +54,52 @@
     "@id" : "http://schema.org/temporal"
   } ]
 }, {
+  "@id" : "_:genid14",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Betreft entiteit"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.niod.nl/Rule_about"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://schema.org/about"
+  } ]
+}, {
   "@id" : "_:genid15",
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Titel"
+    "@value" : "Maker"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.niod.nl/Rule_title"
+    "@id" : "http://data.niod.nl/Rule_creator"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://purl.org/dc/elements/1.1/title"
+    "@id" : "http://purl.org/dc/elements/1.1/creator"
   } ]
 }, {
   "@id" : "_:genid16",
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Type (RDF)"
+    "@value" : "Inhoudelijke locatie"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.niod.nl/Rule_type"
+    "@id" : "http://data.niod.nl/Rule_contentLocation"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+    "@id" : "http://schema.org/contentLocation"
   } ]
 }, {
   "@id" : "_:genid17",
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Type (DC)"
+    "@value" : "Onderwerp"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.niod.nl/Rule_type_dc"
+    "@id" : "http://data.niod.nl/Rule_subject"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://purl.org/dc/elements/1.1/type"
+    "@id" : "http://purl.org/dc/elements/1.1/subject"
   } ]
 }, {
   "@id" : "_:genid18",
@@ -117,13 +117,13 @@
   "@id" : "_:genid19",
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Identifier (DC)"
+    "@value" : "Type (DC)"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.niod.nl/Rule_identifier_dc"
+    "@id" : "http://data.niod.nl/Rule_type_dc"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://purl.org/dc/elements/1.1/identifier"
+    "@id" : "http://purl.org/dc/elements/1.1/type"
   } ]
 }, {
   "@id" : "_:genid2",
@@ -145,6 +145,42 @@
   "@id" : "_:genid20",
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
+    "@value" : "Identifier (DC)"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.niod.nl/Rule_identifier_dc"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://purl.org/dc/elements/1.1/identifier"
+  } ]
+}, {
+  "@id" : "_:genid21",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Type (RDF)"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.niod.nl/Rule_type"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+  } ]
+}, {
+  "@id" : "_:genid22",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Titel"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.niod.nl/Rule_title"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://purl.org/dc/elements/1.1/title"
+  } ]
+}, {
+  "@id" : "_:genid23",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
     "@value" : "Startdatum"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
@@ -154,67 +190,7 @@
     "@id" : "http://schema.org/startDate"
   } ]
 }, {
-  "@id" : "_:genid21",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Einddatum"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.niod.nl/Rule_endDate"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/endDate"
-  } ]
-}, {
-  "@id" : "_:genid22",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Thumbnail"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.niod.nl/Rule_thumbnail"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/thumbnail"
-  } ]
-}, {
-  "@id" : "_:genid23",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Einddatum"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.niod.nl/Rule_endDate"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/endDate"
-  } ]
-}, {
   "@id" : "_:genid24",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Persoon in de gebeurtenis"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.niod.nl/Rule_actor"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/actor"
-  } ]
-}, {
-  "@id" : "_:genid25",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Grotere gebeurtenis"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.niod.nl/Rule_superEvent"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/superEvent"
-  } ]
-}, {
-  "@id" : "_:genid26",
   "http://www.w3.org/ns/shacl#description" : [ {
     "@language" : "nl",
     "@value" : "De originele bron waaruit deze informatie afkomstig is."
@@ -230,19 +206,19 @@
     "@id" : "http://www.w3.org/ns/prov#hadPrimarySource"
   } ]
 }, {
-  "@id" : "_:genid27",
+  "@id" : "_:genid25",
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Startdatum"
+    "@value" : "Einddatum"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.niod.nl/Rule_startDate"
+    "@id" : "http://data.niod.nl/Rule_endDate"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/startDate"
+    "@id" : "http://schema.org/endDate"
   } ]
 }, {
-  "@id" : "_:genid28",
+  "@id" : "_:genid26",
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
     "@value" : "Eindlocatie"
@@ -254,63 +230,31 @@
     "@id" : "http://schema.org/toLocation"
   } ]
 }, {
+  "@id" : "_:genid27",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Grotere gebeurtenis"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.niod.nl/Rule_superEvent"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://schema.org/superEvent"
+  } ]
+}, {
+  "@id" : "_:genid28",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Persoon in de gebeurtenis"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.niod.nl/Rule_actor"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://schema.org/actor"
+  } ]
+}, {
   "@id" : "_:genid29",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Locatie"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.niod.nl/Rule_location"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/location"
-  } ]
-}, {
-  "@id" : "_:genid30",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Beginlocatie"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.niod.nl/Rule_fromLocation"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/fromLocation"
-  } ]
-}, {
-  "@id" : "_:genid31",
-  "http://www.w3.org/ns/shacl#description" : [ {
-    "@language" : "nl",
-    "@value" : "Classificatie van de entiteit als schema:Event"
-  } ],
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Type entiteit"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.niod.nl/Rule_type"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-  } ]
-}, {
-  "@id" : "_:genid32",
-  "http://www.w3.org/ns/shacl#description" : [ {
-    "@language" : "nl",
-    "@value" : "Classificatie van de gebeurtenis als persoonlijke gebeurtenis uit de WO2 thesaurus"
-  } ],
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "type gebeurtenis"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.niod.nl/Rule_type"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/additionalType"
-  } ]
-}, {
-  "@id" : "_:genid33",
   "http://www.w3.org/ns/shacl#description" : [ {
     "@language" : "nl",
     "@value" : "De naam van de gebeurtenis."
@@ -326,23 +270,63 @@
     "@id" : "http://schema.org/name"
   } ]
 }, {
-  "@id" : "_:genid34",
+  "@id" : "_:genid30",
   "http://www.w3.org/ns/shacl#description" : [ {
     "@language" : "nl",
-    "@value" : "Bijv: 'Transport vanuit Kamp Amersfoort' of 'Razzia van Rotterdam'."
+    "@value" : "Classificatie van de gebeurtenis als persoonlijke gebeurtenis uit de WO2 thesaurus"
   } ],
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Titel van gebeurtenis"
+    "@value" : "type gebeurtenis"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.niod.nl/TechnicalNameRule"
+    "@id" : "http://data.niod.nl/Rule_type"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/name"
+    "@id" : "http://schema.org/additionalType"
   } ]
 }, {
-  "@id" : "_:genid35",
+  "@id" : "_:genid31",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Beginlocatie"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.niod.nl/Rule_fromLocation"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://schema.org/fromLocation"
+  } ]
+}, {
+  "@id" : "_:genid32",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Locatie"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.niod.nl/Rule_location"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://schema.org/location"
+  } ]
+}, {
+  "@id" : "_:genid33",
+  "http://www.w3.org/ns/shacl#description" : [ {
+    "@language" : "nl",
+    "@value" : "Classificatie van de entiteit als schema:Event"
+  } ],
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Type entiteit"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.niod.nl/Rule_type"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+  } ]
+}, {
+  "@id" : "_:genid34",
   "http://www.w3.org/ns/shacl#description" : [ {
     "@language" : "nl",
     "@value" : "De dag waarop de gebeurtenis startte."
@@ -356,6 +340,22 @@
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
     "@id" : "http://schema.org/datePublished"
+  } ]
+}, {
+  "@id" : "_:genid35",
+  "http://www.w3.org/ns/shacl#description" : [ {
+    "@language" : "nl",
+    "@value" : "Bijv: 'Transport vanuit Kamp Amersfoort' of 'Razzia van Rotterdam'."
+  } ],
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Titel van gebeurtenis"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.niod.nl/TechnicalNameRule"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://schema.org/name"
   } ]
 }, {
   "@id" : "_:genid36",
@@ -561,13 +561,13 @@
   "@id" : "_:genid5",
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Bron"
+    "@value" : "Thumbnail"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.niod.nl/Rule_source"
+    "@id" : "http://data.niod.nl/Rule_thumbnail"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://purl.org/dc/elements/1.1/source"
+    "@id" : "http://schema.org/thumbnail"
   } ]
 }, {
   "@id" : "_:genid50",
@@ -732,19 +732,15 @@
   } ]
 }, {
   "@id" : "_:genid6",
-  "http://www.w3.org/ns/shacl#description" : [ {
-    "@language" : "nl",
-    "@value" : "De verzameling waar dit object deel van uitmaakt."
-  } ],
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Collectie"
+    "@value" : "Einddatum"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.niod.nl/Rule_collection"
+    "@id" : "http://data.niod.nl/Rule_endDate"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://purl.org/dc/dcmitype/Collection"
+    "@id" : "http://schema.org/endDate"
   } ]
 }, {
   "@id" : "_:genid60",
@@ -798,30 +794,6 @@
   "@id" : "_:genid63",
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Beschrijving van de dataset"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.niod.nl/Rule_description"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/description"
-  } ]
-}, {
-  "@id" : "_:genid64",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Bronverwijzing voor de dataset"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.niod.nl/Rule_url"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/url"
-  } ]
-}, {
-  "@id" : "_:genid65",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
     "@value" : "Leverancier van de dataset"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
@@ -831,7 +803,19 @@
     "@id" : "http://schema.org/provider"
   } ]
 }, {
-  "@id" : "_:genid66",
+  "@id" : "_:genid64",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Naam van de dataset"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.niod.nl/Rule_name"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://schema.org/name"
+  } ]
+}, {
+  "@id" : "_:genid65",
   "http://www.w3.org/ns/shacl#description" : [ {
     "@language" : "nl",
     "@value" : "Classificatie van de entiteit als schema:Dataset"
@@ -847,19 +831,67 @@
     "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
   } ]
 }, {
+  "@id" : "_:genid66",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Bronverwijzing voor de dataset"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.niod.nl/Rule_url"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://schema.org/url"
+  } ]
+}, {
   "@id" : "_:genid67",
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Naam van de dataset"
+    "@value" : "Beschrijving van de dataset"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.niod.nl/Rule_name"
+    "@id" : "http://data.niod.nl/Rule_description"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/name"
+    "@id" : "http://schema.org/description"
   } ]
 }, {
   "@id" : "_:genid68",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Herkomst van het record"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.niod.nl/Rule_inDataset"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "https://data.niod.nl/inDataset"
+  } ]
+}, {
+  "@id" : "_:genid69",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Url van de bron"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.niod.nl/Rule_url"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://schema.org/url"
+  } ]
+}, {
+  "@id" : "_:genid7",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Startdatum"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.niod.nl/Rule_startDate"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://schema.org/startDate"
+  } ]
+}, {
+  "@id" : "_:genid70",
   "http://www.w3.org/ns/shacl#description" : [ {
     "@language" : "nl",
     "@value" : "De unieke identifier van de dataset."
@@ -875,7 +907,7 @@
     "@id" : "http://schema.org/identifier"
   } ]
 }, {
-  "@id" : "_:genid69",
+  "@id" : "_:genid71",
   "http://www.w3.org/ns/shacl#description" : [ {
     "@language" : "nl",
     "@value" : "Classificatie van het record als archiefstuk of anders."
@@ -891,7 +923,47 @@
     "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
   } ]
 }, {
-  "@id" : "_:genid7",
+  "@id" : "_:genid72",
+  "http://www.w3.org/ns/shacl#datatype" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ]
+}, {
+  "@id" : "_:genid73",
+  "http://www.w3.org/ns/shacl#datatype" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#date"
+  } ]
+}, {
+  "@id" : "_:genid74",
+  "http://www.w3.org/ns/shacl#nodeKind" : [ {
+    "@id" : "http://www.w3.org/ns/shacl#IRI"
+  } ]
+}, {
+  "@id" : "_:genid75",
+  "http://www.w3.org/ns/shacl#datatype" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#integer"
+  } ]
+}, {
+  "@id" : "_:genid76",
+  "http://www.w3.org/ns/shacl#class" : [ {
+    "@id" : "http://schema.org/ArchiveComponent"
+  } ]
+}, {
+  "@id" : "_:genid77",
+  "http://www.w3.org/ns/shacl#class" : [ {
+    "@id" : "https://personsincontext.org/model/#PersonObservation"
+  } ]
+}, {
+  "@id" : "_:genid78",
+  "http://www.w3.org/ns/shacl#class" : [ {
+    "@id" : "http://www.w3.org/ns/prov#Entity"
+  } ]
+}, {
+  "@id" : "_:genid79",
+  "http://www.w3.org/ns/shacl#class" : [ {
+    "@id" : "https://personsincontext.org/model/#PersonObservation"
+  } ]
+}, {
+  "@id" : "_:genid8",
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
     "@value" : "Datum"
@@ -903,105 +975,29 @@
     "@id" : "http://purl.org/dc/elements/1.1/date"
   } ]
 }, {
-  "@id" : "_:genid70",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Url van de bron"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.niod.nl/Rule_url"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/url"
-  } ]
-}, {
-  "@id" : "_:genid71",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Herkomst van het record"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.niod.nl/Rule_inDataset"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "https://data.niod.nl/inDataset"
-  } ]
-}, {
-  "@id" : "_:genid72",
-  "http://www.w3.org/ns/shacl#datatype" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#date"
-  } ]
-}, {
-  "@id" : "_:genid73",
-  "http://www.w3.org/ns/shacl#datatype" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#integer"
-  } ]
-}, {
-  "@id" : "_:genid74",
-  "http://www.w3.org/ns/shacl#datatype" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
-  } ]
-}, {
-  "@id" : "_:genid75",
-  "http://www.w3.org/ns/shacl#nodeKind" : [ {
-    "@id" : "http://www.w3.org/ns/shacl#IRI"
-  } ]
-}, {
-  "@id" : "_:genid76",
-  "http://www.w3.org/ns/shacl#class" : [ {
-    "@id" : "http://www.w3.org/ns/prov#Entity"
-  } ]
-}, {
-  "@id" : "_:genid77",
-  "http://www.w3.org/ns/shacl#class" : [ {
-    "@id" : "http://schema.org/ArchiveComponent"
-  } ]
-}, {
-  "@id" : "_:genid78",
-  "http://www.w3.org/ns/shacl#class" : [ {
-    "@id" : "https://personsincontext.org/model/#PersonReconstruction"
-  } ]
-}, {
-  "@id" : "_:genid79",
-  "http://www.w3.org/ns/shacl#class" : [ {
-    "@id" : "https://personsincontext.org/model/#PersonObservation"
-  } ]
-}, {
-  "@id" : "_:genid8",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Inhoudelijke locatie"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.niod.nl/Rule_contentLocation"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/contentLocation"
-  } ]
-}, {
   "@id" : "_:genid80",
   "http://www.w3.org/ns/shacl#class" : [ {
-    "@id" : "https://personsincontext.org/model/#PersonObservation"
+    "@id" : "https://personsincontext.org/model/#PersonReconstruction"
   } ]
 }, {
   "@id" : "_:genid81",
   "http://www.w3.org/ns/shacl#class" : [ {
-    "@id" : "https://personsincontext.org/model/#PersonReconstruction"
+    "@id" : "https://personsincontext.org/model/#PersonObservation"
   } ]
 }, {
   "@id" : "_:genid82",
   "http://www.w3.org/ns/shacl#class" : [ {
-    "@id" : "https://personsincontext.org/model/#PersonObservation"
+    "@id" : "https://personsincontext.org/model/#PersonReconstruction"
   } ]
 }, {
   "@id" : "_:genid83",
   "http://www.w3.org/ns/shacl#class" : [ {
-    "@id" : "https://personsincontext.org/model/#PersonReconstruction"
+    "@id" : "https://personsincontext.org/model/#PersonObservation"
   } ]
 }, {
   "@id" : "_:genid84",
   "http://www.w3.org/ns/shacl#class" : [ {
-    "@id" : "https://personsincontext.org/model/#PersonObservation"
+    "@id" : "https://personsincontext.org/model/#PersonReconstruction"
   } ]
 }, {
   "@id" : "_:genid85",
@@ -1010,15 +1006,19 @@
   } ]
 }, {
   "@id" : "_:genid9",
+  "http://www.w3.org/ns/shacl#description" : [ {
+    "@language" : "nl",
+    "@value" : "De instelling die het object digitaal beschikbaar stelt."
+  } ],
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Maker"
+    "@value" : "Provider"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.niod.nl/Rule_creator"
+    "@id" : "http://data.niod.nl/Rule_provider"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://purl.org/dc/elements/1.1/creator"
+    "@id" : "http://schema.org/provider"
   } ]
 }, {
   "@id" : "http://data.niod.nl/ArchiveShape",
