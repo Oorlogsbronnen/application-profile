@@ -36,8 +36,12 @@ jobs:
 
       - name: Download Latest Widoco
         run: |
-          WIDOCO_URL=$(curl -s https://api.github.com/repos/dgarijo/Widoco/releases/latest | grep "browser_download_url.*jar" | cut -d '\"' -f 4 | head -n 1)
-          wget $WIDOCO_URL -O widoco.jar
+          # Gebruik de GitHub CLI om de download URL direct te pakken
+          WIDOCO_URL=$(gh release view --repo dgarijo/Widoco --json assets --jq '.assets[] | select(.name | endswith(".jar")) | .url' | head -n 1)
+          echo "Downloading from: $WIDOCO_URL"
+          wget "$WIDOCO_URL" -O widoco.jar
+        env:
+          GH_TOKEN: ${{ github.token }}
 
       # STAP 2: Documentatie genereren op basis van het samengevoegde bestand
       - name: Generate Documentation
