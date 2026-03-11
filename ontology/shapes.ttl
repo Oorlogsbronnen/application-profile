@@ -41,10 +41,10 @@
 :Rule_identifier_schema sh:path schema:identifier ;    sh:node :Base_String ; sh:minCount 1 ; sh:maxCount 1 .
 :Rule_deceased          sh:path picom:deceased ;       sh:node :Base_String ; sh:maxCount 1 .
 
+:Rule_additionalName    sh:path schema:additionalName ;sh:node :Base_String .
 :Rule_alternateName     sh:path schema:alternateName ; sh:node :Base_String .
 :Rule_givenName         sh:path schema:givenName ;     sh:node :Base_String .
 :Rule_familyName        sh:path schema:familyName ;    sh:node :Base_String .
-:Rule_additionalName    sh:path schema:additionalName ;sh:node :Base_String .
 :Rule_initials          sh:path pnv:initials ;         sh:node :Base_String .
 
 # --- Beschrijving en Categorisering ---
@@ -57,7 +57,7 @@
 :Rule_type_dc            sh:path dc:type ;             sh:node :Base_String .
 :Rule_collection         sh:path dcmit:Collection ;    sh:node :Base_String .
 
-:Rule_keywords           sh:path schema:keywords ;     sh:node :Base_IRI .
+:Rule_keywords           sh:path schema:keywords ;     sh:node :Base_IRI ; sh:class skos:Concept .
 :Rule_subject            sh:path dc:subject ;          sh:node :Base_StringOrIRI .
 :Rule_about              sh:path schema:about ;        sh:node :Base_StringOrIRI .
 
@@ -87,12 +87,12 @@
 :Rule_toLocation         sh:path schema:toLocation ;     sh:node :Base_StringOrIRI .
 
 # --- Personen en Organisaties (Relaties) ---
-:Rule_children           sh:path schema:children;       sh:node :Base_IRI .
-:Rule_parent             sh:path schema:parent ;        sh:node :Base_IRI .
-:Rule_sibling            sh:path schema:sibling ;       sh:node :Base_IRI .
-:Rule_actor              sh:path schema:actor ;         sh:node :Base_IRI .
-:Rule_publisher          sh:path dc:publisher ;         sh:node :Base_IRI .
-:Rule_provider           sh:path schema:provider ;      sh:node :Base_IRI .
+:Rule_children           sh:path schema:children;       sh:node :Base_IRI ;  sh:or ([ sh:class picom:PersonReconstruction ] [ sh:class picom:PersonObservation ]) .
+:Rule_parent             sh:path schema:parent ;        sh:node :Base_IRI ;  sh:or ([ sh:class picom:PersonReconstruction ] [ sh:class picom:PersonObservation ]) .
+:Rule_sibling            sh:path schema:sibling ;       sh:node :Base_IRI ;  sh:or ([ sh:class picom:PersonReconstruction ] [ sh:class picom:PersonObservation ]) .
+:Rule_actor              sh:path schema:actor           sh:nodeKind sh:IRI ; sh:class schema:Event .
+:Rule_publisher          sh:path dc:publisher ;         sh:node :Base_IRI  ; sh:class schema:Organization .
+:Rule_provider           sh:path schema:provider ;      sh:node :Base_IRI  ; sh:class schema:Organization .
 :Rule_creator            sh:path dc:creator ;           sh:node :Base_StringOrIRI .
 :Rule_gender             sh:path schema:gender ;        sh:node :Base_StringOrIRI .
 
@@ -105,14 +105,14 @@
 
 # --- Structureel en Rechten ---
 :Rule_isPartOf           sh:path dct:isPartOf ;         sh:node :Base_IRI .
-:Rule_superEvent         sh:path schema:superEvent ;    sh:node :Base_IRI .
-:Rule_license            sh:path schema:license ;       sh:node :Base_IRI .
+:Rule_superEvent         sh:path schema:superEvent ;    sh:node :Base_IRI ; sh:class schema:Event .
+:Rule_license            sh:path schema:license ;       sh:node :Base_IRI ; sh:class niod:Rights .
 :Rule_position           sh:path schema:position ;      sh:node :Base_Integer .
 
 # --- Herkomst en Verwijzingen ---
 :Rule_sameAs             sh:path schema:sameAs ;        sh:node :Base_IRI .
-:Rule_wasDerivedFrom     sh:path prov:wasDerivedFrom ;  sh:node :Base_IRI .
-:Rule_hadPrimarySource   sh:path prov:hadPrimarySource ;sh:node :Base_IRI .
+:Rule_wasDerivedFrom     sh:path prov:wasDerivedFrom ;  sh:node :Base_IRI ; sh:class picom:PersonObservation .
+:Rule_hadPrimarySource   sh:path prov:hadPrimarySource ;sh:node :Base_IRI ;  sh:or ([ sh:class prov:Entity ] [ sh:class schema:ArchiveComponent ]) .
 
 # =================================================================
 # 2. TOEPASSING OP KLASSEN (Context-specifieke labels voor Widoco)
@@ -122,7 +122,7 @@
 :PersoonReconstructionShape a sh:NodeShape ;
     sh:targetClass picom:PersonReconstruction ;
     sh:name "Persoonsreconstructie"@nl ;
-    sh:description "De geaggregeerde en gevalideerde gegevens van een persoon, samengesteld uit één of meerdere bronvermeldingen."@nl ;
+    sh:description "De geaggregeerde en gevalideerde gegevens van een persoon, samengesteld uit één of meerdere persoonsvermeldingen."@nl ;
 
     # --- Identificatie en Type ---
     sh:property [
