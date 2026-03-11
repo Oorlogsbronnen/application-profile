@@ -106,10 +106,10 @@
     "id" : "87",
     "type" : "owl:Class"
   }, {
-    "id" : "77",
+    "id" : "86",
     "type" : "owl:Class"
   }, {
-    "id" : "86",
+    "id" : "77",
     "type" : "owl:Class"
   }, {
     "id" : "80",
@@ -118,10 +118,10 @@
     "id" : "91",
     "type" : "owl:Class"
   }, {
-    "id" : "15",
+    "id" : "52",
     "type" : "owl:Class"
   }, {
-    "id" : "52",
+    "id" : "15",
     "type" : "owl:Class"
   }, {
     "id" : "92",
@@ -259,25 +259,6 @@
     "id" : "2",
     "superClasses" : [ "1" ]
   }, {
-    "iri" : "https://data.niod.nl/Gestorven",
-    "baseIri" : "https://data.niod.nl",
-    "instances" : 0,
-    "annotations" : {
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "undefined",
-        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6361",
-        "type" : "iri"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "Gestorven",
-      "nl" : "Gestorven"
-    },
-    "attributes" : [ "external" ],
-    "id" : "5",
-    "superClasses" : [ "1" ]
-  }, {
     "iri" : "https://data.niod.nl/Vrijgelaten",
     "baseIri" : "https://data.niod.nl",
     "instances" : 0,
@@ -292,6 +273,25 @@
     "label" : {
       "IRI-based" : "Vrijgelaten",
       "nl" : "Vrijgelaten"
+    },
+    "attributes" : [ "external" ],
+    "id" : "5",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://data.niod.nl/Gestorven",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6361",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Gestorven",
+      "nl" : "Gestorven"
     },
     "attributes" : [ "external" ],
     "id" : "6",
@@ -820,6 +820,25 @@
     "id" : "87",
     "superClasses" : [ "1" ]
   }, {
+    "iri" : "https://data.niod.nl/Gevochten",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6359",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Gevochten",
+      "nl" : "Gevochten"
+    },
+    "attributes" : [ "external" ],
+    "id" : "86",
+    "superClasses" : [ "1" ]
+  }, {
     "iri" : "https://data.niod.nl/Geïnterneerd",
     "baseIri" : "https://data.niod.nl",
     "instances" : 0,
@@ -840,25 +859,6 @@
     },
     "attributes" : [ "external" ],
     "id" : "77",
-    "superClasses" : [ "1" ]
-  }, {
-    "iri" : "https://data.niod.nl/Gevochten",
-    "baseIri" : "https://data.niod.nl",
-    "instances" : 0,
-    "annotations" : {
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "undefined",
-        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6359",
-        "type" : "iri"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "Gevochten",
-      "nl" : "Gevochten"
-    },
-    "attributes" : [ "external" ],
-    "id" : "86",
     "superClasses" : [ "1" ]
   }, {
     "iri" : "https://data.niod.nl/Geland",
@@ -905,6 +905,17 @@
     "id" : "91",
     "superClasses" : [ "1" ]
   }, {
+    "iri" : "http://schema.org/Photograph",
+    "baseIri" : "http://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Photograph",
+      "nl" : "Foto"
+    },
+    "attributes" : [ "external" ],
+    "id" : "52",
+    "superClasses" : [ "15" ]
+  }, {
     "iri" : "https://data.niod.nl/Afbeelding",
     "baseIri" : "https://data.niod.nl",
     "instances" : 0,
@@ -919,17 +930,6 @@
     "attributes" : [ "external" ],
     "id" : "15",
     "superClasses" : [ "44" ]
-  }, {
-    "iri" : "http://schema.org/Photograph",
-    "baseIri" : "http://schema.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Photograph",
-      "nl" : "Foto"
-    },
-    "attributes" : [ "external" ],
-    "id" : "52",
-    "superClasses" : [ "15" ]
   }, {
     "iri" : "https://data.niod.nl/Rights",
     "baseIri" : "https://data.niod.nl",
@@ -964,7 +964,7 @@
     "label" : {
       "IRI-based" : "Event"
     },
-    "subClasses" : [ "56", "0", "24", "30", "2", "5", "17", "22", "20", "6", "11", "4", "93", "94", "13", "74", "95", "96", "81", "26", "27", "87", "31", "32", "83", "33", "86", "77", "34", "80", "36", "70", "37", "72", "91", "41", "97", "42", "43", "98", "99", "50", "64", "58", "59", "62", "100", "101" ],
+    "subClasses" : [ "56", "0", "24", "30", "2", "6", "17", "22", "20", "5", "11", "4", "93", "94", "13", "74", "95", "96", "81", "26", "27", "87", "31", "32", "83", "33", "86", "77", "34", "80", "36", "70", "37", "72", "91", "41", "97", "42", "43", "98", "99", "50", "64", "58", "59", "62", "100", "101" ],
     "attributes" : [ "external" ],
     "id" : "1"
   }, {
@@ -1220,7 +1220,7 @@
         "or" : [ {
           "identifier" : "or",
           "language" : "undefined",
-          "value" : "_:genid2147483680",
+          "value" : "_:genid2147483683",
           "type" : "label"
         } ]
       },
@@ -1262,7 +1262,7 @@
         "or" : [ {
           "identifier" : "or",
           "language" : "undefined",
-          "value" : "_:genid2147483686",
+          "value" : "_:genid2147483696",
           "type" : "label"
         } ]
       },
@@ -1357,34 +1357,74 @@
         "targetClass" : [ {
           "identifier" : "targetClass",
           "language" : "undefined",
-          "value" : "http://www.w3.org/ns/prov#Entity",
+          "value" : "http://schema.org/ArchiveComponent",
           "type" : "iri"
         }, {
           "identifier" : "targetClass",
           "language" : "undefined",
-          "value" : "http://schema.org/ArchiveComponent",
+          "value" : "http://schema.org/Dataset",
+          "type" : "iri"
+        }, {
+          "identifier" : "targetClass",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/prov#Entity",
           "type" : "iri"
         } ],
         "property" : [ {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483718",
+          "value" : "_:genid2147483716",
           "type" : "label"
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483719",
+          "value" : "_:genid2147483693",
           "type" : "label"
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483717",
+          "value" : "_:genid2147483694",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483689",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483690",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483712",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483715",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483714",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483688",
           "type" : "label"
         } ],
         "name" : [ {
           "identifier" : "name",
           "language" : "nl",
           "value" : "Record waarop de persoonsvermelding is aangetroffen",
+          "type" : "label"
+        }, {
+          "identifier" : "name",
+          "language" : "nl",
+          "value" : "Dataset waaruit een record afkomstig is",
           "type" : "label"
         } ]
       },
@@ -1401,17 +1441,12 @@
         "targetClass" : [ {
           "identifier" : "targetClass",
           "language" : "undefined",
-          "value" : "http://schema.org/SheetMusic",
-          "type" : "iri"
-        }, {
-          "identifier" : "targetClass",
-          "language" : "undefined",
-          "value" : "http://schema.org/CreativeWork",
-          "type" : "iri"
-        }, {
-          "identifier" : "targetClass",
-          "language" : "undefined",
           "value" : "http://schema.org/Photograph",
+          "type" : "iri"
+        }, {
+          "identifier" : "targetClass",
+          "language" : "undefined",
+          "value" : "http://schema.org/SheetMusic",
           "type" : "iri"
         }, {
           "identifier" : "targetClass",
@@ -1421,12 +1456,7 @@
         }, {
           "identifier" : "targetClass",
           "language" : "undefined",
-          "value" : "http://schema.org/Article",
-          "type" : "iri"
-        }, {
-          "identifier" : "targetClass",
-          "language" : "undefined",
-          "value" : "http://schema.org/Sculpture",
+          "value" : "http://schema.org/Book",
           "type" : "iri"
         }, {
           "identifier" : "targetClass",
@@ -1441,63 +1471,38 @@
         }, {
           "identifier" : "targetClass",
           "language" : "undefined",
-          "value" : "http://schema.org/Book",
+          "value" : "http://schema.org/VisualArtwork",
           "type" : "iri"
         }, {
           "identifier" : "targetClass",
           "language" : "undefined",
-          "value" : "http://schema.org/VisualArtwork",
+          "value" : "http://schema.org/CreativeWork",
+          "type" : "iri"
+        }, {
+          "identifier" : "targetClass",
+          "language" : "undefined",
+          "value" : "http://schema.org/Article",
+          "type" : "iri"
+        }, {
+          "identifier" : "targetClass",
+          "language" : "undefined",
+          "value" : "http://schema.org/Sculpture",
           "type" : "iri"
         } ],
         "property" : [ {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483711",
+          "value" : "_:genid2147483672",
           "type" : "label"
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483699",
+          "value" : "_:genid2147483678",
           "type" : "label"
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483701",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483702",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483696",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483713",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483707",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483709",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483703",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483697",
+          "value" : "_:genid2147483681",
           "type" : "label"
         }, {
           "identifier" : "property",
@@ -1507,37 +1512,72 @@
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483706",
+          "value" : "_:genid2147483674",
           "type" : "label"
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483708",
+          "value" : "_:genid2147483685",
           "type" : "label"
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483698",
+          "value" : "_:genid2147483675",
           "type" : "label"
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483710",
+          "value" : "_:genid2147483687",
           "type" : "label"
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483712",
+          "value" : "_:genid2147483676",
           "type" : "label"
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483704",
+          "value" : "_:genid2147483680",
           "type" : "label"
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483705",
+          "value" : "_:genid2147483691",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483679",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483673",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483684",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483702",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483701",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483677",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483686",
           "type" : "label"
         } ],
         "name" : [ {
@@ -1563,12 +1603,12 @@
         "property" : [ {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483715",
+          "value" : "_:genid2147483699",
           "type" : "label"
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483714",
+          "value" : "_:genid2147483698",
           "type" : "label"
         } ],
         "name" : [ {
@@ -1592,20 +1632,31 @@
           "value" : "http://schema.org/Event",
           "type" : "iri"
         } ],
+        "name" : [ {
+          "identifier" : "name",
+          "language" : "nl",
+          "value" : "Gebeurtenis",
+          "type" : "label"
+        } ],
         "property" : [ {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483725",
+          "value" : "_:genid2147483713",
           "type" : "label"
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483727",
+          "value" : "_:genid2147483717",
           "type" : "label"
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483726",
+          "value" : "_:genid2147483721",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483720",
           "type" : "label"
         }, {
           "identifier" : "property",
@@ -1620,7 +1671,7 @@
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483730",
+          "value" : "_:genid2147483719",
           "type" : "label"
         }, {
           "identifier" : "property",
@@ -1630,28 +1681,17 @@
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483728",
+          "value" : "_:genid2147483725",
           "type" : "label"
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483721",
+          "value" : "_:genid2147483718",
           "type" : "label"
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483729",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483720",
-          "type" : "label"
-        } ],
-        "name" : [ {
-          "identifier" : "name",
-          "language" : "nl",
-          "value" : "Gebeurtenis",
+          "value" : "_:genid2147483726",
           "type" : "label"
         } ]
       },
@@ -1677,51 +1717,51 @@
           "value" : "https://personsincontext.org/model/#PersonObservation",
           "type" : "iri"
         } ],
-        "property" : [ {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483691",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483693",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483687",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483692",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483688",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483690",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483694",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483689",
-          "type" : "label"
-        } ],
         "name" : [ {
           "identifier" : "name",
           "language" : "nl",
           "value" : "Persoonsvermelding",
+          "type" : "label"
+        } ],
+        "property" : [ {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483708",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483706",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483710",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483705",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483704",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483703",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483707",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483709",
           "type" : "label"
         } ]
       },
@@ -1744,52 +1784,12 @@
         "property" : [ {
           "identifier" : "property",
           "language" : "undefined",
+          "value" : "_:genid2147483661",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
           "value" : "_:genid2147483659",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483651",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483665",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483655",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483648",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483666",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483664",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483649",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483652",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483656",
           "type" : "label"
         }, {
           "identifier" : "property",
@@ -1799,7 +1799,7 @@
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483663",
+          "value" : "_:genid2147483662",
           "type" : "label"
         }, {
           "identifier" : "property",
@@ -1809,17 +1809,12 @@
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483653",
+          "value" : "_:genid2147483650",
           "type" : "label"
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483661",
-          "type" : "label"
-        }, {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483662",
+          "value" : "_:genid2147483660",
           "type" : "label"
         }, {
           "identifier" : "property",
@@ -1829,7 +1824,52 @@
         }, {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483660",
+          "value" : "_:genid2147483649",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483653",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483656",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483652",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483664",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483666",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483665",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483651",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483655",
+          "type" : "label"
+        }, {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483663",
           "type" : "label"
         } ],
         "name" : [ {
@@ -1855,18 +1895,18 @@
         "targetClass" : [ {
           "identifier" : "targetClass",
           "language" : "undefined",
-          "value" : "https://data.niod.nl/ArchiveFile",
+          "value" : "https://data.niod.nl/Archive",
           "type" : "iri"
         }, {
           "identifier" : "targetClass",
           "language" : "undefined",
-          "value" : "https://data.niod.nl/Archive",
+          "value" : "https://data.niod.nl/ArchiveFile",
           "type" : "iri"
         } ],
         "property" : [ {
           "identifier" : "property",
           "language" : "undefined",
-          "value" : "_:genid2147483684",
+          "value" : "_:genid2147483692",
           "type" : "label"
         } ],
         "name" : [ {
@@ -1892,24 +1932,24 @@
         "targetClass" : [ {
           "identifier" : "targetClass",
           "language" : "undefined",
-          "value" : "http://schema.org/VideoObject",
+          "value" : "http://schema.org/AudioObject",
           "type" : "iri"
         }, {
           "identifier" : "targetClass",
           "language" : "undefined",
-          "value" : "http://schema.org/AudioObject",
+          "value" : "http://schema.org/VideoObject",
           "type" : "iri"
-        } ],
-        "property" : [ {
-          "identifier" : "property",
-          "language" : "undefined",
-          "value" : "_:genid2147483716",
-          "type" : "label"
         } ],
         "name" : [ {
           "identifier" : "name",
           "language" : "nl",
           "value" : "Audio en Video objecten",
+          "type" : "label"
+        } ],
+        "property" : [ {
+          "identifier" : "property",
+          "language" : "undefined",
+          "value" : "_:genid2147483697",
           "type" : "label"
         } ]
       },
@@ -2321,337 +2361,337 @@
   "propertyAttribute" : [ {
     "range" : "1",
     "domain" : "4",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "3"
   }, {
     "range" : "1",
     "domain" : "11",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "10"
   }, {
     "range" : "1",
-    "domain" : "6",
-    "attributes" : [ "anonymous", "object" ],
+    "domain" : "5",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "12"
   }, {
     "range" : "1",
     "domain" : "17",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "16"
   }, {
     "range" : "1",
-    "domain" : "5",
-    "attributes" : [ "anonymous", "object" ],
+    "domain" : "6",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "18"
   }, {
     "range" : "1",
     "domain" : "20",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "19"
   }, {
     "range" : "1",
     "domain" : "22",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "21"
   }, {
     "range" : "1",
     "domain" : "24",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "23"
   }, {
     "range" : "1",
     "domain" : "0",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "25"
   }, {
     "range" : "1",
     "domain" : "2",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "28"
   }, {
     "range" : "1",
     "domain" : "30",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "29"
   }, {
     "range" : "15",
     "domain" : "52",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "51"
   }, {
     "range" : "15",
     "domain" : "54",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "53"
   }, {
     "range" : "1",
     "domain" : "56",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "55"
   }, {
     "range" : "15",
     "domain" : "49",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "57"
   }, {
     "range" : "39",
     "domain" : "61",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "60"
   }, {
     "range" : "15",
     "domain" : "64",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "63"
   }, {
     "range" : "15",
     "domain" : "14",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "65"
   }, {
     "range" : "40",
     "domain" : "38",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "66"
   }, {
     "range" : "39",
     "domain" : "38",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "67"
   }, {
     "range" : "40",
     "domain" : "61",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "68"
   }, {
     "range" : "1",
     "domain" : "70",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "69"
   }, {
     "range" : "1",
     "domain" : "72",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "71"
   }, {
     "range" : "1",
     "domain" : "37",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "73"
   }, {
     "range" : "1",
     "domain" : "34",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "75"
   }, {
     "range" : "1",
     "domain" : "77",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "76"
   }, {
     "range" : "1",
     "domain" : "36",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "78"
   }, {
     "range" : "1",
     "domain" : "80",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "79"
   }, {
     "range" : "1",
     "domain" : "83",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "82"
   }, {
     "range" : "1",
     "domain" : "32",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "84"
   }, {
     "range" : "1",
     "domain" : "86",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "85"
   }, {
     "range" : "1",
     "domain" : "33",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "88"
   }, {
     "range" : "1",
     "domain" : "31",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "89"
   }, {
     "range" : "1",
     "domain" : "87",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "90"
   }, {
     "range" : "1",
     "domain" : "27",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "102"
   }, {
     "range" : "1",
     "domain" : "96",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "103"
   }, {
     "range" : "1",
     "domain" : "95",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "104"
   }, {
     "range" : "1",
     "domain" : "26",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "105"
   }, {
     "range" : "1",
     "domain" : "81",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "106"
   }, {
     "range" : "1",
     "domain" : "94",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "107"
   }, {
     "range" : "1",
     "domain" : "93",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "108"
   }, {
     "range" : "1",
     "domain" : "74",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "109"
   }, {
     "range" : "1",
     "domain" : "13",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "110"
   }, {
     "range" : "1",
     "domain" : "100",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "111"
   }, {
     "range" : "1",
     "domain" : "62",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "112"
   }, {
     "range" : "1",
     "domain" : "101",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "113"
   }, {
     "range" : "1",
     "domain" : "64",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "114"
   }, {
     "range" : "1",
     "domain" : "50",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "115"
   }, {
     "range" : "1",
     "domain" : "59",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "116"
   }, {
     "range" : "1",
     "domain" : "58",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "117"
   }, {
     "range" : "1",
     "domain" : "98",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "118"
   }, {
     "range" : "1",
     "domain" : "43",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "119"
   }, {
     "range" : "1",
     "domain" : "99",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "120"
   }, {
     "range" : "1",
     "domain" : "41",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "122"
   }, {
     "range" : "1",
     "domain" : "91",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "123"
   }, {
     "range" : "1",
     "domain" : "42",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "124"
   }, {
     "range" : "1",
     "domain" : "97",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "125"
   }, {
     "range" : "44",
     "domain" : "45",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "128"
   }, {
     "range" : "44",
     "domain" : "46",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "129"
   }, {
     "range" : "44",
     "domain" : "39",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "130"
   }, {
     "range" : "44",
     "domain" : "40",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "131"
   }, {
     "range" : "44",
     "domain" : "47",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "132"
   }, {
     "range" : "44",
     "domain" : "15",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "133"
   }, {
     "range" : "44",
     "domain" : "48",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "134"
   }, {
     "range" : "40",
     "domain" : "39",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "135"
   }, {
     "range" : "8",
     "domain" : "9",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "136"
   }, {
     "range" : "8",
     "domain" : "7",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "137"
   } ]
 }
