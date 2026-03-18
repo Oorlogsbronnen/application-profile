@@ -67,6 +67,7 @@
 :Rule_description_schema sh:path schema:description ;    sh:node :Base_String .
 :Rule_hasOccupation      sh:path schema:hasOccupation ;  sh:node :Base_String .
 :Rule_keywords           sh:path schema:keywords ;       sh:node :Base_IRI ; sh:class skos:Concept .
+:Rule_text               sh:path schema:text ;           sh:node :Base_String .
 
 # --- Data en Tijd ---
 :Rule_date               sh:path dc:date ;              sh:node :Base_DateOrInteger ; sh:maxCount 1 .
@@ -664,6 +665,28 @@
         sh:name "Longitude"@nl ;
         sh:description "Lengtegraad van de locatie van het monument"@nl ;
         sh:node :Rule_long_schema ;
+    ] .
+
+### --- BEKENDMAKINGEN (Uitbreiding  op CreativeWorkShape) ---
+:BekendmakingShape a sh:NodeShape ;
+    sh:targetClass niod:Bekendmaking ;
+    sh:name "Bekendmakingen"@nl ;
+    
+    # 1. Hergebruik alle regels van CreativeWork
+    sh:node :CreativeWorkShape ;
+
+    # 2. Voeg extra properties toe
+    sh:property [
+        sh:path schema:text ;
+        sh:name "Tekst"@nl ;
+        sh:description "Transcriptie van de tekst op het document"@nl ;
+        sh:node :Rule_text ;
+    ] ;
+    sh:property [
+        sh:path schema:datePublished ;
+        sh:name "Publicatiedatum"@nl ;
+        sh:description "Publicatiedatum van het document"@nl ;
+        sh:node :Rule_datePublished ;
     ] .
 
 ### --- THESAURUSCONCEPTEN ---
