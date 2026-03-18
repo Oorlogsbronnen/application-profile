@@ -340,10 +340,10 @@ picom:PersonReconstruction a rdfs:Class ;
 :ArchiveShape a sh:NodeShape ;
     sh:name "Archieven en Archiefstukken"@nl ;
     sh:node :CreativeWorkShape ;
-    sh:property [ sh:description "Dit archiefstuk is onderdeel van een archiefserie of archief"@nl ;
-            sh:name "Onderdeel van"@nl ;
-            sh:node :Rule_isPartOf ;
-            sh:path dct:isPartOf ] ;
+    sh:property [ sh:description "Mate van openbaarheid van het archief of archiefstuk"@nl ;
+            sh:name "Openbaarheid"@nl ;
+            sh:node :Rule_accessRights ;
+            sh:path dct:accessRights ] ;
     sh:targetClass niod1:Archive,
         niod1:ArchiveFile .
 
@@ -352,7 +352,10 @@ picom:PersonReconstruction a rdfs:Class ;
 :ConceptShape a sh:NodeShape ;
     sh:description "Een abstract idee of een term uit een gecontroleerde woordenlijst of thesaurus."@nl ;
     sh:name "Thesaurusconcept"@nl ;
-    sh:property [ sh:description "De officiële naam van het concept in de thesaurus."@nl ;
+    sh:property [ sh:name "Type (RDF)"@nl ;
+            sh:node :Rule_type ;
+            sh:path rdf:type ],
+        [ sh:description "De officiële naam van het concept in de thesaurus."@nl ;
             sh:name "Voorkeursterm"@nl ;
             sh:node :Rule_prefLabel ;
             sh:path skos:prefLabel ],
@@ -394,7 +397,7 @@ picom:PersonReconstruction a rdfs:Class ;
             sh:path skos:exactMatch ],
         [ sh:description "Locatie van het concept."@nl ;
             sh:name "Locatie"@nl ;
-            sh:node :Rule_wgslocation ;
+            sh:node :Rule_wgsLocation ;
             sh:path wgs1:location ],
         [ sh:description "Breedtegraad van de locatie van het concept."@nl ;
             sh:name "Latitude"@nl ;
@@ -415,10 +418,7 @@ picom:PersonReconstruction a rdfs:Class ;
             sh:path schema1:startDate ],
         [ sh:name "Einddatum"@nl ;
             sh:node :Rule_endDate ;
-            sh:path schema1:endDate ],
-        [ sh:name "Type (RDF)"@nl ;
-            sh:node :Rule_type ;
-            sh:path rdf:type ] ;
+            sh:path schema1:endDate ] ;
     sh:targetClass skos:Concept .
 
 :DatasetShape a sh:NodeShape ;
@@ -436,7 +436,7 @@ picom:PersonReconstruction a rdfs:Class ;
             sh:node :Rule_name ;
             sh:path schema1:name ],
         [ sh:name "Beschrijving van de dataset"@nl ;
-            sh:node :Rule_description ;
+            sh:node :Rule_description_schema ;
             sh:path schema1:description ],
         [ sh:name "Bronverwijzing voor de dataset"@nl ;
             sh:node :Rule_url ;
@@ -496,6 +496,19 @@ picom:PersonReconstruction a rdfs:Class ;
             sh:path schema1:contentUrl ] ;
     sh:targetClass schema1:AudioObject,
         schema1:VideoObject .
+
+:MonumentShape a sh:NodeShape ;
+    sh:name "Monumenten"@nl ;
+    sh:node :CreativeWorkShape ;
+    sh:property [ sh:description "Breedtegraad van de locatie van het monument."@nl ;
+            sh:name "Latitude"@nl ;
+            sh:node :Rule_lat_schema ;
+            sh:path schema1:latitude ],
+        [ sh:description "Lengtegraad van de locatie van het monument"@nl ;
+            sh:name "Longitude"@nl ;
+            sh:node :Rule_long_schema ;
+            sh:path schema1:longitude ] ;
+    sh:targetClass niod1:Monument .
 
 :PersoonsvermeldingShape a sh:NodeShape ;
     sh:description "Een observatie of vermelding van een persoon binnen een specifieke historische bron."@nl ;
@@ -562,15 +575,8 @@ picom:PersonReconstruction a rdfs:Class ;
 :Rule_position sh:node :Base_Integer ;
     sh:path schema1:position .
 
-:Rule_rights sh:node :Base_String ;
-    sh:path dc:rights .
-
 :Rule_thumbnailUrl sh:node :Base_StringOrIRI ;
     sh:path schema1:thumbnailUrl .
-
-:Rule_wgsLocation sh:node :Base_IRI ;
-    sh:or ( [ sh:class skos:Concept ] [ sh:class wgs1:SpatialTing ] ) ;
-    sh:path wgs1:location .
 
 :SourceShape a sh:NodeShape ;
     sh:description "Archiefstukken, maar ook records uit andere (onderzoeks)datasets en webpagina's kunnen persoonsvermeldingen bevatten. Dit is hiervoor de bronvermelding."@nl ;
@@ -699,6 +705,9 @@ niod:slachtoffer a rdf:Property ;
 :Rule_about sh:node :Base_StringOrIRI ;
     sh:path schema1:about .
 
+:Rule_accessRights sh:node :Base_String ;
+    sh:path dct:accessRights .
+
 :Rule_actor sh:node :Base_IRI ;
     sh:or ( [ sh:class picom1:PersonReconstruction ] [ sh:class picom1:PersonObservation ] ) ;
     sh:path schema1:actor .
@@ -740,6 +749,9 @@ niod:slachtoffer a rdf:Property ;
 :Rule_contentUrl sh:node :Base_StringOrIRI ;
     sh:path schema1:contentUrl .
 
+:Rule_contributor sh:node :Base_StringOrIRI ;
+    sh:path dc:contributor .
+
 :Rule_created sh:maxCount 1 ;
     sh:node :Base_Date ;
     sh:path dct:created .
@@ -777,14 +789,14 @@ niod:slachtoffer a rdf:Property ;
 :Rule_description_dc sh:node :Base_String ;
     sh:path dc:description .
 
-:Rule_description_schema sh:node :Base_String ;
-    sh:path schema1:description .
-
 :Rule_exactMatch sh:node :Base_IRI ;
     sh:path skos:exactMatch .
 
 :Rule_familyName sh:node :Base_String ;
     sh:path schema1:familyName .
+
+:Rule_format sh:node :Base_String ;
+    sh:path dc:format .
 
 :Rule_fromLocation sh:node :Base_StringOrIRI ;
     sh:path schema1:fromLocation .
@@ -818,7 +830,8 @@ niod:slachtoffer a rdf:Property ;
 :Rule_initials sh:node :Base_String ;
     sh:path pnv:initials .
 
-:Rule_isPartOf sh:node :Base_IRI ;
+:Rule_isPartOf sh:class niod1:Archive ;
+    sh:node :Base_IRI ;
     sh:path dct:isPartOf .
 
 :Rule_keywords sh:class skos:Concept ;
@@ -829,12 +842,20 @@ niod:slachtoffer a rdf:Property ;
     sh:node :Base_Double ;
     sh:path wgs1:lat .
 
+:Rule_lat_schema sh:maxCount 1 ;
+    sh:node :Base_String ;
+    sh:path schema1:latitude .
+
 :Rule_location sh:node :Base_StringOrIRI ;
     sh:path schema1:location .
 
 :Rule_long sh:maxCount 1 ;
     sh:node :Base_Double ;
     sh:path wgs1:long .
+
+:Rule_long_schema sh:maxCount 1 ;
+    sh:node :Base_String ;
+    sh:path schema1:longitude .
 
 :Rule_modified sh:maxCount 1 ;
     sh:node :Base_Date ;
@@ -859,6 +880,9 @@ niod:slachtoffer a rdf:Property ;
 :Rule_related sh:class skos:Concept ;
     sh:node :Base_IRI ;
     sh:path skos:related .
+
+:Rule_rights sh:node :Base_StringOrIRI ;
+    sh:path dc:rights .
 
 :Rule_sameAs sh:node :Base_IRI ;
     sh:path schema1:sameAs .
@@ -901,6 +925,10 @@ niod:slachtoffer a rdf:Property ;
     sh:node :Base_IRI ;
     sh:path prov:wasDerivedFrom .
 
+:Rule_wgsLocation sh:node :Base_IRI ;
+    sh:or ( [ sh:class skos:Concept ] [ sh:class wgs1:SpatialTing ] ) ;
+    sh:path wgs1:location .
+
 schema1:Article rdfs:label "Krantartikel"@nl .
 
 schema1:AudioObject rdfs:label "Audio"@nl .
@@ -927,75 +955,8 @@ schema1:VisualArtwork rdfs:label "Kunstwerk"@nl ;
 :Base_Double a sh:PropertyShape ;
     sh:datatype xsd:double .
 
-:CreativeWorkShape a sh:NodeShape ;
-    sh:description "Verschillende typen bronnen en objecten die binnen de collectie worden beschreven, zoals artikelen, foto's en kunstwerken."@nl ;
-    sh:name "Bronnen en Objecten"@nl ;
-    sh:property [ sh:name "Identifier (DC)"@nl ;
-            sh:node :Rule_identifier_dc ;
-            sh:path dc:identifier ],
-        [ sh:name "Titel"@nl ;
-            sh:node :Rule_title ;
-            sh:path dc:title ],
-        [ sh:name "Type (RDF)"@nl ;
-            sh:node :Rule_type ;
-            sh:path rdf:type ],
-        [ sh:name "Type (DC)"@nl ;
-            sh:node :Rule_type_dc ;
-            sh:path dc:type ],
-        [ sh:name "Beschrijving"@nl ;
-            sh:node :Rule_description_dc ;
-            sh:path dc:description ],
-        [ sh:name "Onderwerp"@nl ;
-            sh:node :Rule_subject ;
-            sh:path dc:subject ],
-        [ sh:name "Betreft entiteit"@nl ;
-            sh:node :Rule_about ;
-            sh:path schema1:about ],
-        [ sh:name "Periodisering"@nl ;
-            sh:node :Rule_temporal ;
-            sh:path schema1:temporal ],
-        [ sh:name "Inhoudelijke locatie"@nl ;
-            sh:node :Rule_contentLocation ;
-            sh:path schema1:contentLocation ],
-        [ sh:name "Maker"@nl ;
-            sh:node :Rule_creator ;
-            sh:path dc:creator ],
-        [ sh:name "Uitgever"@nl ;
-            sh:node :Rule_publisher ;
-            sh:path dc:publisher ],
-        [ sh:description "De instelling die het object digitaal beschikbaar stelt."@nl ;
-            sh:name "Provider"@nl ;
-            sh:node :Rule_provider ;
-            sh:path schema1:provider ],
-        [ sh:name "Bron"@nl ;
-            sh:node :Rule_source ;
-            sh:path dc:source ],
-        [ sh:description "De verzameling waar dit object deel van uitmaakt."@nl ;
-            sh:name "Collectie"@nl ;
-            sh:node :Rule_collection ;
-            sh:path dcmit:Collection ],
-        [ sh:name "Datum"@nl ;
-            sh:node :Rule_date ;
-            sh:path dc:date ],
-        [ sh:name "Startdatum"@nl ;
-            sh:node :Rule_startDate ;
-            sh:path schema1:startDate ],
-        [ sh:name "Einddatum"@nl ;
-            sh:node :Rule_endDate ;
-            sh:path schema1:endDate ],
-        [ sh:name "Thumbnail"@nl ;
-            sh:node :Rule_thumbnail ;
-            sh:path schema1:thumbnail ] ;
-    sh:targetClass niod1:Monument,
-        schema1:Article,
-        schema1:Book,
-        schema1:CreativeWork,
-        schema1:Newspaper,
-        schema1:Painting,
-        schema1:Photograph,
-        schema1:Sculpture,
-        schema1:SheetMusic,
-        schema1:VisualArtwork .
+:Rule_description_schema sh:node :Base_String ;
+    sh:path schema1:description .
 
 :Rule_hadPrimarySource sh:node :Base_IRI ;
     sh:or ( [ sh:class prov:Entity ] [ sh:class schema1:ArchiveComponent ] ) ;
@@ -1014,6 +975,88 @@ schema1:VisualArtwork rdfs:label "Kunstwerk"@nl ;
 
 :Base_DateOrInteger a sh:PropertyShape ;
     sh:or ( [ sh:datatype xsd:date ] [ sh:datatype xsd:integer ] ) .
+
+:CreativeWorkShape a sh:NodeShape ;
+    sh:description "Verschillende typen bronnen en objecten die binnen de collectie worden beschreven, zoals artikelen, foto's en kunstwerken."@nl ;
+    sh:name "Bronnen en Objecten"@nl ;
+    sh:property [ sh:name "Thumbnail"@nl ;
+            sh:node :Rule_thumbnail ;
+            sh:path schema1:thumbnail ],
+        [ sh:name "Identifier (DC)"@nl ;
+            sh:node :Rule_identifier_dc ;
+            sh:path dc:identifier ],
+        [ sh:name "Type (RDF)"@nl ;
+            sh:node :Rule_type ;
+            sh:path rdf:type ],
+        [ sh:name "Type (DC)"@nl ;
+            sh:node :Rule_type_dc ;
+            sh:path dc:type ],
+        [ sh:name "Type (DC)"@nl ;
+            sh:node :Rule_format ;
+            sh:path dc:format ],
+        [ sh:description "Dit object of archiefstuk is onderdeel van een serie of collectie"@nl ;
+            sh:name "Onderdeel van"@nl ;
+            sh:node :Rule_isPartOf ;
+            sh:path dct:isPartOf ],
+        [ sh:name "Titel"@nl ;
+            sh:node :Rule_title ;
+            sh:path dc:title ],
+        [ sh:name "Beschrijving"@nl ;
+            sh:node :Rule_description_dc ;
+            sh:path dc:description ],
+        [ sh:name "Onderwerp"@nl ;
+            sh:node :Rule_subject ;
+            sh:path dc:subject ],
+        [ sh:name "Persoon of organisatie als onderwerp van het werk"@nl ;
+            sh:node :Rule_about ;
+            sh:path schema1:about ],
+        [ sh:name "Inhoudelijke locatie"@nl ;
+            sh:node :Rule_contentLocation ;
+            sh:path schema1:contentLocation ],
+        [ sh:name "Maker van het werk"@nl ;
+            sh:node :Rule_creator ;
+            sh:path dc:creator ],
+        [ sh:name "Persoon die heeft bijgedragen aan het werk"@nl ;
+            sh:node :Rule_contributor ;
+            sh:path dc:contributor ],
+        [ sh:name "Uitgever"@nl ;
+            sh:node :Rule_publisher ;
+            sh:path dc:publisher ],
+        [ sh:description "De instelling die het object digitaal beschikbaar stelt."@nl ;
+            sh:name "Provider"@nl ;
+            sh:node :Rule_provider ;
+            sh:path schema1:provider ],
+        [ sh:name "Rechten"@nl ;
+            sh:node :Rule_rights ;
+            sh:path dc:rights ],
+        [ sh:name "Bron"@nl ;
+            sh:node :Rule_source ;
+            sh:path dc:source ],
+        [ sh:description "De verzameling waar dit object deel van uitmaakt."@nl ;
+            sh:name "Collectie"@nl ;
+            sh:node :Rule_collection ;
+            sh:path dcmit:Collection ],
+        [ sh:name "Datum"@nl ;
+            sh:node :Rule_date ;
+            sh:path dc:date ],
+        [ sh:name "Startdatum"@nl ;
+            sh:node :Rule_startDate ;
+            sh:path schema1:startDate ],
+        [ sh:name "Einddatum"@nl ;
+            sh:node :Rule_endDate ;
+            sh:path schema1:endDate ],
+        [ sh:name "Periodisering"@nl ;
+            sh:node :Rule_temporal ;
+            sh:path schema1:temporal ] ;
+    sh:targetClass schema1:Article,
+        schema1:Book,
+        schema1:CreativeWork,
+        schema1:Newspaper,
+        schema1:Painting,
+        schema1:Photograph,
+        schema1:Sculpture,
+        schema1:SheetMusic,
+        schema1:VisualArtwork .
 
 :Rule_endDate sh:maxCount 1 ;
     sh:node :Base_DateOrInteger ;

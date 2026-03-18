@@ -585,10 +585,10 @@ rdf:comment rdf:type owl:AnnotationProperty .
                                                                                             <http://data.niod.nl/WO2_Thesaurus/ArchiveFile> ;
                                                    <http://www.w3.org/ns/shacl#name> "Archieven en Archiefstukken"@nl .
 
-_:genid1 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_isPartOf> ;
-          <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/terms/isPartOf> ;
-          <http://www.w3.org/ns/shacl#description> "Dit archiefstuk is onderdeel van een archiefserie of archief"@nl ;
-          <http://www.w3.org/ns/shacl#name> "Onderdeel van"@nl .
+_:genid1 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_accessRights> ;
+          <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/terms/accessRights> ;
+          <http://www.w3.org/ns/shacl#description> "Mate van openbaarheid van het archief of archiefstuk"@nl ;
+          <http://www.w3.org/ns/shacl#name> "Openbaarheid"@nl .
 
 
 ###  http://data.oorlogsbronnen.nl/model#Base_Date
@@ -658,90 +658,90 @@ _:genid1 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#
                                                    <http://www.w3.org/ns/shacl#description> "Een abstract idee of een term uit een gecontroleerde woordenlijst of thesaurus."@nl ;
                                                    <http://www.w3.org/ns/shacl#name> "Thesaurusconcept"@nl .
 
-_:genid4 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_exactMatch> ;
-          <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#exactMatch> ;
-          <http://www.w3.org/ns/shacl#description> "Verwijzing naar een identiek concept in een externe bron (bijv. AAT of WO2-thesaurus)."@nl ;
-          <http://www.w3.org/ns/shacl#name> "Exacte match"@nl .
+_:genid4 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_type> ;
+          <http://www.w3.org/ns/shacl#path> rdf:type ;
+          <http://www.w3.org/ns/shacl#name> "Type (RDF)"@nl .
 
-_:genid5 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_wgslocation> ;
-          <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2003/01/geo/wgs84_poslocation> ;
-          <http://www.w3.org/ns/shacl#description> "Locatie van het concept."@nl ;
-          <http://www.w3.org/ns/shacl#name> "Locatie"@nl .
+_:genid5 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_prefLabel> ;
+          <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#prefLabel> ;
+          <http://www.w3.org/ns/shacl#description> "De officiële naam van het concept in de thesaurus."@nl ;
+          <http://www.w3.org/ns/shacl#name> "Voorkeursterm"@nl .
 
-_:genid6 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_related> ;
-          <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#related> ;
-          <http://www.w3.org/ns/shacl#description> "Verwijzing naar een concept dat inhoudelijk verwant is, maar niet in de hiërarchie staat."@nl ;
-          <http://www.w3.org/ns/shacl#name> "Gerelateerd concept"@nl .
+_:genid6 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_altLabel> ;
+          <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#altLabel> ;
+          <http://www.w3.org/ns/shacl#description> "Synoniemen of andere schrijfwijzen van het concept."@nl ;
+          <http://www.w3.org/ns/shacl#name> "Alternatieve term"@nl .
 
-_:genid7 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_created> ;
-          <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/terms/created> ;
-          <http://www.w3.org/ns/shacl#name> "Aanmaakdatum"@nl .
+_:genid7 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_hiddenLabel> ;
+          <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#hiddenLabel> ;
+          <http://www.w3.org/ns/shacl#description> "Termen zoals spelfouten die wel doorzoekbaar moeten zijn, maar niet getoond worden."@nl ;
+          <http://www.w3.org/ns/shacl#name> "Verborgen term"@nl .
 
-_:genid8 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_modified> ;
-          <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/terms/modified> ;
-          <http://www.w3.org/ns/shacl#name> "Wijzigingsdatum"@nl .
+_:genid8 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_scopeNote> ;
+          <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#scopeNote> ;
+          <http://www.w3.org/ns/shacl#description> "Een tekstuele beschrijving van het concept."@nl ;
+          <http://www.w3.org/ns/shacl#name> "Beschrijving"@nl .
 
-_:genid9 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_lat> ;
-          <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2003/01/geo/wgs84_poslat> ;
-          <http://www.w3.org/ns/shacl#description> "Breedtegraad van de locatie van het concept."@nl ;
-          <http://www.w3.org/ns/shacl#name> "Latitude"@nl .
+_:genid9 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_definition> ;
+          <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#definition> ;
+          <http://www.w3.org/ns/shacl#description> "Een tekstuele uitleg van de betekenis van het concept."@nl ;
+          <http://www.w3.org/ns/shacl#name> "Definitie"@nl .
 
-_:genid10 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_long> ;
-           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2003/01/geo/wgs84_poslong> ;
-           <http://www.w3.org/ns/shacl#description> "Lengtegraad van de locatie van het concept."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Longitude"@nl .
-
-_:genid11 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_type> ;
-           <http://www.w3.org/ns/shacl#path> rdf:type ;
-           <http://www.w3.org/ns/shacl#name> "Type (RDF)"@nl .
-
-_:genid12 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_startDate> ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/startDate> ;
-           <http://www.w3.org/ns/shacl#name> "Startdatum"@nl .
-
-_:genid13 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_endDate> ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/endDate> ;
-           <http://www.w3.org/ns/shacl#name> "Einddatum"@nl .
-
-_:genid14 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_prefLabel> ;
-           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#prefLabel> ;
-           <http://www.w3.org/ns/shacl#description> "De officiële naam van het concept in de thesaurus."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Voorkeursterm"@nl .
-
-_:genid15 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_altLabel> ;
-           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#altLabel> ;
-           <http://www.w3.org/ns/shacl#description> "Synoniemen of andere schrijfwijzen van het concept."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Alternatieve term"@nl .
-
-_:genid16 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_hiddenLabel> ;
-           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#hiddenLabel> ;
-           <http://www.w3.org/ns/shacl#description> "Termen zoals spelfouten die wel doorzoekbaar moeten zijn, maar niet getoond worden."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Verborgen term"@nl .
-
-_:genid17 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_scopeNote> ;
-           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#scopeNote> ;
-           <http://www.w3.org/ns/shacl#description> "Een tekstuele beschrijving van het concept."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Beschrijving"@nl .
-
-_:genid18 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_definition> ;
-           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#definition> ;
-           <http://www.w3.org/ns/shacl#description> "Een tekstuele uitleg van de betekenis van het concept."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Definitie"@nl .
-
-_:genid19 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_inScheme> ;
+_:genid10 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_inScheme> ;
            <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#inScheme> ;
            <http://www.w3.org/ns/shacl#description> "De overkoepelende thesaurus of conceptenlijst waar dit concept deel van uitmaakt."@nl ;
            <http://www.w3.org/ns/shacl#name> "Behoort tot thesaurus"@nl .
 
-_:genid20 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_broader> ;
+_:genid11 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_broader> ;
            <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#broader> ;
            <http://www.w3.org/ns/shacl#description> "Verwijzing naar een concept dat hoger in de hiërarchie staat."@nl ;
            <http://www.w3.org/ns/shacl#name> "Breder concept"@nl .
 
-_:genid21 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_narrower> ;
+_:genid12 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_narrower> ;
            <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#narrower> ;
            <http://www.w3.org/ns/shacl#description> "Verwijzing naar een concept dat lager in de hiërarchie staat."@nl ;
            <http://www.w3.org/ns/shacl#name> "Kleiner concept"@nl .
+
+_:genid13 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_related> ;
+           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#related> ;
+           <http://www.w3.org/ns/shacl#description> "Verwijzing naar een concept dat inhoudelijk verwant is, maar niet in de hiërarchie staat."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Gerelateerd concept"@nl .
+
+_:genid14 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_exactMatch> ;
+           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#exactMatch> ;
+           <http://www.w3.org/ns/shacl#description> "Verwijzing naar een identiek concept in een externe bron (bijv. AAT of WO2-thesaurus)."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Exacte match"@nl .
+
+_:genid15 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_wgsLocation> ;
+           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2003/01/geo/wgs84_poslocation> ;
+           <http://www.w3.org/ns/shacl#description> "Locatie van het concept."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Locatie"@nl .
+
+_:genid16 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_lat> ;
+           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2003/01/geo/wgs84_poslat> ;
+           <http://www.w3.org/ns/shacl#description> "Breedtegraad van de locatie van het concept."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Latitude"@nl .
+
+_:genid17 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_long> ;
+           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2003/01/geo/wgs84_poslong> ;
+           <http://www.w3.org/ns/shacl#description> "Lengtegraad van de locatie van het concept."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Longitude"@nl .
+
+_:genid18 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_created> ;
+           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/terms/created> ;
+           <http://www.w3.org/ns/shacl#name> "Aanmaakdatum"@nl .
+
+_:genid19 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_modified> ;
+           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/terms/modified> ;
+           <http://www.w3.org/ns/shacl#name> "Wijzigingsdatum"@nl .
+
+_:genid20 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_startDate> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/startDate> ;
+           <http://www.w3.org/ns/shacl#name> "Startdatum"@nl .
+
+_:genid21 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_endDate> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/endDate> ;
+           <http://www.w3.org/ns/shacl#name> "Einddatum"@nl .
 
 
 ###  http://data.oorlogsbronnen.nl/model#CreativeWorkShape
@@ -764,9 +764,12 @@ _:genid21 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model
                                                                                               _:genid36 ,
                                                                                               _:genid37 ,
                                                                                               _:genid38 ,
-                                                                                              _:genid39 ;
-                                                        <http://www.w3.org/ns/shacl#targetClass> <http://data.niod.nl/WO2_Thesaurus/Monument> ,
-                                                                                                 <http://schema.org/Article> ,
+                                                                                              _:genid39 ,
+                                                                                              _:genid40 ,
+                                                                                              _:genid41 ,
+                                                                                              _:genid42 ,
+                                                                                              _:genid43 ;
+                                                        <http://www.w3.org/ns/shacl#targetClass> <http://schema.org/Article> ,
                                                                                                  <http://schema.org/Book> ,
                                                                                                  <http://schema.org/CreativeWork> ,
                                                                                                  <http://schema.org/Newspaper> ,
@@ -778,212 +781,243 @@ _:genid21 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model
                                                         <http://www.w3.org/ns/shacl#description> "Verschillende typen bronnen en objecten die binnen de collectie worden beschreven, zoals artikelen, foto's en kunstwerken."@nl ;
                                                         <http://www.w3.org/ns/shacl#name> "Bronnen en Objecten"@nl .
 
-_:genid22 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_collection> ;
-           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/dcmitype/Collection> ;
-           <http://www.w3.org/ns/shacl#description> "De verzameling waar dit object deel van uitmaakt."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Collectie"@nl .
-
-_:genid23 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_endDate> ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/endDate> ;
-           <http://www.w3.org/ns/shacl#name> "Einddatum"@nl .
-
-_:genid24 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_thumbnail> ;
+_:genid22 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_thumbnail> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/thumbnail> ;
            <http://www.w3.org/ns/shacl#name> "Thumbnail"@nl .
 
-_:genid25 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_date> ;
-           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/date> ;
-           <http://www.w3.org/ns/shacl#name> "Datum"@nl .
-
-_:genid26 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_startDate> ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/startDate> ;
-           <http://www.w3.org/ns/shacl#name> "Startdatum"@nl .
-
-_:genid27 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_title> ;
-           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/title> ;
-           <http://www.w3.org/ns/shacl#name> "Titel"@nl .
-
-_:genid28 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_type> ;
+_:genid23 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_type> ;
            <http://www.w3.org/ns/shacl#path> rdf:type ;
            <http://www.w3.org/ns/shacl#name> "Type (RDF)"@nl .
 
-_:genid29 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_identifier_dc> ;
+_:genid24 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_identifier_dc> ;
            <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/identifier> ;
            <http://www.w3.org/ns/shacl#name> "Identifier (DC)"@nl .
 
-_:genid30 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_source> ;
-           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/source> ;
-           <http://www.w3.org/ns/shacl#name> "Bron"@nl .
-
-_:genid31 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_publisher> ;
-           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/publisher> ;
-           <http://www.w3.org/ns/shacl#name> "Uitgever"@nl .
-
-_:genid32 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_provider> ;
+_:genid25 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_provider> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/provider> ;
            <http://www.w3.org/ns/shacl#description> "De instelling die het object digitaal beschikbaar stelt."@nl ;
            <http://www.w3.org/ns/shacl#name> "Provider"@nl .
 
-_:genid33 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_description_dc> ;
-           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/description> ;
-           <http://www.w3.org/ns/shacl#name> "Beschrijving"@nl .
+_:genid26 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_rights> ;
+           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/rights> ;
+           <http://www.w3.org/ns/shacl#name> "Rechten"@nl .
 
-_:genid34 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_subject> ;
-           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/subject> ;
-           <http://www.w3.org/ns/shacl#name> "Onderwerp"@nl .
+_:genid27 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_source> ;
+           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/source> ;
+           <http://www.w3.org/ns/shacl#name> "Bron"@nl .
 
-_:genid35 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_type_dc> ;
+_:genid28 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_collection> ;
+           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/dcmitype/Collection> ;
+           <http://www.w3.org/ns/shacl#description> "De verzameling waar dit object deel van uitmaakt."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Collectie"@nl .
+
+_:genid29 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_date> ;
+           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/date> ;
+           <http://www.w3.org/ns/shacl#name> "Datum"@nl .
+
+_:genid30 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_startDate> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/startDate> ;
+           <http://www.w3.org/ns/shacl#name> "Startdatum"@nl .
+
+_:genid31 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_endDate> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/endDate> ;
+           <http://www.w3.org/ns/shacl#name> "Einddatum"@nl .
+
+_:genid32 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_temporal> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/temporal> ;
+           <http://www.w3.org/ns/shacl#name> "Periodisering"@nl .
+
+_:genid33 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_type_dc> ;
            <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/type> ;
            <http://www.w3.org/ns/shacl#name> "Type (DC)"@nl .
 
-_:genid36 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_contentLocation> ;
+_:genid34 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_format> ;
+           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/format> ;
+           <http://www.w3.org/ns/shacl#name> "Type (DC)"@nl .
+
+_:genid35 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_isPartOf> ;
+           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/terms/isPartOf> ;
+           <http://www.w3.org/ns/shacl#description> "Dit object of archiefstuk is onderdeel van een serie of collectie"@nl ;
+           <http://www.w3.org/ns/shacl#name> "Onderdeel van"@nl .
+
+_:genid36 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_title> ;
+           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/title> ;
+           <http://www.w3.org/ns/shacl#name> "Titel"@nl .
+
+_:genid37 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_description_dc> ;
+           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/description> ;
+           <http://www.w3.org/ns/shacl#name> "Beschrijving"@nl .
+
+_:genid38 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_subject> ;
+           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/subject> ;
+           <http://www.w3.org/ns/shacl#name> "Onderwerp"@nl .
+
+_:genid39 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_about> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/about> ;
+           <http://www.w3.org/ns/shacl#name> "Persoon of organisatie als onderwerp van het werk"@nl .
+
+_:genid40 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_contentLocation> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/contentLocation> ;
            <http://www.w3.org/ns/shacl#name> "Inhoudelijke locatie"@nl .
 
-_:genid37 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_creator> ;
+_:genid41 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_creator> ;
            <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/creator> ;
-           <http://www.w3.org/ns/shacl#name> "Maker"@nl .
+           <http://www.w3.org/ns/shacl#name> "Maker van het werk"@nl .
 
-_:genid38 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_about> ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/about> ;
-           <http://www.w3.org/ns/shacl#name> "Betreft entiteit"@nl .
+_:genid42 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_contributor> ;
+           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/contributor> ;
+           <http://www.w3.org/ns/shacl#name> "Persoon die heeft bijgedragen aan het werk"@nl .
 
-_:genid39 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_temporal> ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/temporal> ;
-           <http://www.w3.org/ns/shacl#name> "Periodisering"@nl .
+_:genid43 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_publisher> ;
+           <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/publisher> ;
+           <http://www.w3.org/ns/shacl#name> "Uitgever"@nl .
 
 
 ###  http://data.oorlogsbronnen.nl/model#DatasetShape
 <http://data.oorlogsbronnen.nl/model#DatasetShape> rdf:type owl:NamedIndividual ,
                                                             <http://www.w3.org/ns/shacl#NodeShape> ;
-                                                   <http://www.w3.org/ns/shacl#property> _:genid40 ,
-                                                                                         _:genid41 ,
-                                                                                         _:genid42 ,
-                                                                                         _:genid43 ,
-                                                                                         _:genid44 ,
-                                                                                         _:genid45 ;
+                                                   <http://www.w3.org/ns/shacl#property> _:genid44 ,
+                                                                                         _:genid45 ,
+                                                                                         _:genid46 ,
+                                                                                         _:genid47 ,
+                                                                                         _:genid48 ,
+                                                                                         _:genid49 ;
                                                    <http://www.w3.org/ns/shacl#targetClass> <http://schema.org/Dataset> ;
                                                    <http://www.w3.org/ns/shacl#description> "Records  maken altijd onderdeel uit van een dataset."@nl ;
                                                    <http://www.w3.org/ns/shacl#name> "Dataset waaruit een record afkomstig is"@nl .
 
-_:genid40 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_name> ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/name> ;
-           <http://www.w3.org/ns/shacl#name> "Naam van de dataset"@nl .
-
-_:genid41 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_description> ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/description> ;
-           <http://www.w3.org/ns/shacl#name> "Beschrijving van de dataset"@nl .
-
-_:genid42 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_identifier_schema> ;
+_:genid44 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_identifier_schema> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/identifier> ;
            <http://www.w3.org/ns/shacl#description> "De unieke identifier van de dataset."@nl ;
            <http://www.w3.org/ns/shacl#name> "Identifier"@nl .
-
-_:genid43 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_type> ;
-           <http://www.w3.org/ns/shacl#path> rdf:type ;
-           <http://www.w3.org/ns/shacl#description> "Classificatie van de entiteit als schema:Dataset"@nl ;
-           <http://www.w3.org/ns/shacl#name> "Type entiteit"@nl .
-
-_:genid44 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_url> ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/url> ;
-           <http://www.w3.org/ns/shacl#name> "Bronverwijzing voor de dataset"@nl .
 
 _:genid45 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_provider> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/provider> ;
            <http://www.w3.org/ns/shacl#name> "Leverancier van de dataset"@nl .
 
+_:genid46 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_url> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/url> ;
+           <http://www.w3.org/ns/shacl#name> "Bronverwijzing voor de dataset"@nl .
+
+_:genid47 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_description_schema> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/description> ;
+           <http://www.w3.org/ns/shacl#name> "Beschrijving van de dataset"@nl .
+
+_:genid48 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_name> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/name> ;
+           <http://www.w3.org/ns/shacl#name> "Naam van de dataset"@nl .
+
+_:genid49 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_type> ;
+           <http://www.w3.org/ns/shacl#path> rdf:type ;
+           <http://www.w3.org/ns/shacl#description> "Classificatie van de entiteit als schema:Dataset"@nl ;
+           <http://www.w3.org/ns/shacl#name> "Type entiteit"@nl .
+
 
 ###  http://data.oorlogsbronnen.nl/model#EventShape
 <http://data.oorlogsbronnen.nl/model#EventShape> rdf:type owl:NamedIndividual ,
                                                           <http://www.w3.org/ns/shacl#NodeShape> ;
-                                                 <http://www.w3.org/ns/shacl#property> _:genid46 ,
-                                                                                       _:genid47 ,
-                                                                                       _:genid48 ,
-                                                                                       _:genid49 ,
-                                                                                       _:genid50 ,
+                                                 <http://www.w3.org/ns/shacl#property> _:genid50 ,
                                                                                        _:genid51 ,
                                                                                        _:genid52 ,
                                                                                        _:genid53 ,
                                                                                        _:genid54 ,
                                                                                        _:genid55 ,
-                                                                                       _:genid56 ;
+                                                                                       _:genid56 ,
+                                                                                       _:genid57 ,
+                                                                                       _:genid58 ,
+                                                                                       _:genid59 ,
+                                                                                       _:genid60 ;
                                                  <http://www.w3.org/ns/shacl#targetClass> <http://schema.org/Event> ;
                                                  <http://www.w3.org/ns/shacl#description> ""@nl ;
                                                  <http://www.w3.org/ns/shacl#name> "Gebeurtenis"@nl .
 
-_:genid46 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_type> ;
+_:genid50 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_type> ;
            <http://www.w3.org/ns/shacl#path> rdf:type ;
            <http://www.w3.org/ns/shacl#description> "Classificatie van de entiteit als schema:Event"@nl ;
            <http://www.w3.org/ns/shacl#name> "Type entiteit"@nl .
 
-_:genid47 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_additionalType> ;
+_:genid51 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_additionalType> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/additionalType> ;
            <http://www.w3.org/ns/shacl#description> "Classificatie van de gebeurtenis als persoonlijke gebeurtenis uit de WO2 thesaurus"@nl ;
            <http://www.w3.org/ns/shacl#name> "type gebeurtenis"@nl .
 
-_:genid48 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_name> ;
+_:genid52 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_name> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/name> ;
            <http://www.w3.org/ns/shacl#description> "De naam van de gebeurtenis."@nl ;
            <http://www.w3.org/ns/shacl#name> "Naam"@nl .
 
-_:genid49 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_location> ;
+_:genid53 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_location> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/location> ;
            <http://www.w3.org/ns/shacl#name> "Locatie"@nl .
 
-_:genid50 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_superEvent> ;
+_:genid54 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_fromLocation> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/fromLocation> ;
+           <http://www.w3.org/ns/shacl#name> "Beginlocatie"@nl .
+
+_:genid55 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_toLocation> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/toLocation> ;
+           <http://www.w3.org/ns/shacl#name> "Eindlocatie"@nl .
+
+_:genid56 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_actor> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/actor> ;
+           <http://www.w3.org/ns/shacl#name> "Persoon in de gebeurtenis"@nl .
+
+_:genid57 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_superEvent> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/superEvent> ;
            <http://www.w3.org/ns/shacl#name> "Grotere gebeurtenis"@nl .
 
-_:genid51 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_hadPrimarySource> ;
+_:genid58 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_hadPrimarySource> ;
            <http://www.w3.org/ns/shacl#path> <http://www.w3.org/ns/prov#hadPrimarySource> ;
            <http://www.w3.org/ns/shacl#description> "De originele bron waaruit deze informatie afkomstig is."@nl ;
            <http://www.w3.org/ns/shacl#name> "Primaire bron"@nl .
 
-_:genid52 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_toLocation> ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/toLocation> ;
-           <http://www.w3.org/ns/shacl#name> "Eindlocatie"@nl .
-
-_:genid53 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_actor> ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/actor> ;
-           <http://www.w3.org/ns/shacl#name> "Persoon in de gebeurtenis"@nl .
-
-_:genid54 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_startDate> ;
+_:genid59 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_startDate> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/startDate> ;
            <http://www.w3.org/ns/shacl#name> "Startdatum"@nl .
 
-_:genid55 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_endDate> ;
+_:genid60 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_endDate> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/endDate> ;
            <http://www.w3.org/ns/shacl#name> "Einddatum"@nl .
-
-_:genid56 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_fromLocation> ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/fromLocation> ;
-           <http://www.w3.org/ns/shacl#name> "Beginlocatie"@nl .
 
 
 ###  http://data.oorlogsbronnen.nl/model#MediaShape
 <http://data.oorlogsbronnen.nl/model#MediaShape> rdf:type owl:NamedIndividual ,
                                                           <http://www.w3.org/ns/shacl#NodeShape> ;
                                                  <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#CreativeWorkShape> ;
-                                                 <http://www.w3.org/ns/shacl#property> _:genid57 ;
+                                                 <http://www.w3.org/ns/shacl#property> _:genid61 ;
                                                  <http://www.w3.org/ns/shacl#targetClass> <http://schema.org/AudioObject> ,
                                                                                           <http://schema.org/VideoObject> ;
                                                  <http://www.w3.org/ns/shacl#name> "Audio en Video objecten"@nl .
 
-_:genid57 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_contentUrl> ;
+_:genid61 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_contentUrl> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/contentUrl> ;
            <http://www.w3.org/ns/shacl#name> "Url van het media object"@nl .
+
+
+###  http://data.oorlogsbronnen.nl/model#MonumentShape
+<http://data.oorlogsbronnen.nl/model#MonumentShape> rdf:type owl:NamedIndividual ,
+                                                             <http://www.w3.org/ns/shacl#NodeShape> ;
+                                                    <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#CreativeWorkShape> ;
+                                                    <http://www.w3.org/ns/shacl#property> _:genid62 ,
+                                                                                          _:genid63 ;
+                                                    <http://www.w3.org/ns/shacl#targetClass> <http://data.niod.nl/WO2_Thesaurus/Monument> ;
+                                                    <http://www.w3.org/ns/shacl#name> "Monumenten"@nl .
+
+_:genid62 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_lat_schema> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/latitude> ;
+           <http://www.w3.org/ns/shacl#description> "Breedtegraad van de locatie van het monument."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Latitude"@nl .
+
+_:genid63 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_long_schema> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/longitude> ;
+           <http://www.w3.org/ns/shacl#description> "Lengtegraad van de locatie van het monument"@nl ;
+           <http://www.w3.org/ns/shacl#name> "Longitude"@nl .
 
 
 ###  http://data.oorlogsbronnen.nl/model#PersoonReconstructionShape
 <http://data.oorlogsbronnen.nl/model#PersoonReconstructionShape> rdf:type owl:NamedIndividual ,
                                                                           <http://www.w3.org/ns/shacl#NodeShape> ;
-                                                                 <http://www.w3.org/ns/shacl#property> _:genid58 ,
-                                                                                                       _:genid59 ,
-                                                                                                       _:genid60 ,
-                                                                                                       _:genid61 ,
-                                                                                                       _:genid62 ,
-                                                                                                       _:genid63 ,
-                                                                                                       _:genid64 ,
+                                                                 <http://www.w3.org/ns/shacl#property> _:genid64 ,
                                                                                                        _:genid65 ,
                                                                                                        _:genid66 ,
                                                                                                        _:genid67 ,
@@ -994,149 +1028,155 @@ _:genid57 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model
                                                                                                        _:genid72 ,
                                                                                                        _:genid73 ,
                                                                                                        _:genid74 ,
-                                                                                                       _:genid75 ;
+                                                                                                       _:genid75 ,
+                                                                                                       _:genid76 ,
+                                                                                                       _:genid77 ,
+                                                                                                       _:genid78 ,
+                                                                                                       _:genid79 ,
+                                                                                                       _:genid80 ,
+                                                                                                       _:genid81 ;
                                                                  <http://www.w3.org/ns/shacl#targetClass> <https://personsincontext.org/model/#PersonReconstruction> ;
                                                                  <http://www.w3.org/ns/shacl#description> "De geaggregeerde en gevalideerde gegevens van een persoon, samengesteld uit één of meerdere persoonsvermeldingen."@nl ;
                                                                  <http://www.w3.org/ns/shacl#name> "Persoonsreconstructie"@nl .
 
-_:genid58 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_dateCreated> ;
+_:genid64 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_dateCreated> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/dateCreated> ;
            <http://www.w3.org/ns/shacl#description> "Datum waarop deze reconstructie voor het eerst is aangemaakt."@nl ;
            <http://www.w3.org/ns/shacl#name> "Aanmaakdatum"@nl .
 
-_:genid59 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_dateModified> ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/dateModified> ;
-           <http://www.w3.org/ns/shacl#description> "Datum waarop deze reconstructie voor het laatst is bijgewerkt."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Wijzigingsdatum"@nl .
-
-_:genid60 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_parent> ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/parent> ;
-           <http://www.w3.org/ns/shacl#description> "Verwijzing naar een ouder van deze persoon."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Ouder"@nl .
-
-_:genid61 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_sibling> ;
+_:genid65 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_sibling> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/sibling> ;
            <http://www.w3.org/ns/shacl#description> "Verwijzing naar een broer of zus van deze persoon."@nl ;
            <http://www.w3.org/ns/shacl#name> "Broer of zus"@nl .
 
-_:genid62 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_wasDerivedFrom> ;
-           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/ns/prov#wasDerivedFrom> ;
-           <http://www.w3.org/ns/shacl#description> "Verwijzing naar de persoonsvermeldingen waaruit deze reconstructie is opgebouwd."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Afgeleid van"@nl .
+_:genid66 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_parent> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/parent> ;
+           <http://www.w3.org/ns/shacl#description> "Verwijzing naar een ouder van deze persoon."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Ouder"@nl .
 
-_:genid63 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_sameAs> ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/sameAs> ;
-           <http://www.w3.org/ns/shacl#description> "Externe links naar dezelfde persoon in andere systemen (bijv. Wikidata)."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Andere autoriteit"@nl .
-
-_:genid64 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_gender> ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/gender> ;
-           <http://www.w3.org/ns/shacl#name> "Geslacht"@nl .
-
-_:genid65 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_children> ;
+_:genid67 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_children> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/children> ;
            <http://www.w3.org/ns/shacl#description> "Verwijzing naar de kinderen van deze persoon."@nl ;
            <http://www.w3.org/ns/shacl#name> "Kinderen"@nl .
 
-_:genid66 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_deathPlace> ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/deathPlace> ;
-           <http://www.w3.org/ns/shacl#name> "Plaats van overlijden"@nl .
+_:genid68 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_gender> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/gender> ;
+           <http://www.w3.org/ns/shacl#name> "Geslacht"@nl .
 
-_:genid67 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_deceased> ;
-           <http://www.w3.org/ns/shacl#path> <https://personsincontext.org/model/#deceased> ;
-           <http://www.w3.org/ns/shacl#description> "Indicatie of de persoon is overleden."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Overleden status"@nl .
-
-_:genid68 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_keywords> ;
+_:genid69 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_keywords> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/keywords> ;
            <http://www.w3.org/ns/shacl#description> "Categorisering of trefwoorden van toepassing op de persoon (uit de WO2 thesaurus)."@nl ;
            <http://www.w3.org/ns/shacl#name> "Trefwoorden"@nl .
 
-_:genid69 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_name> ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/name> ;
-           <http://www.w3.org/ns/shacl#description> "De gestandaardiseerde volledige naam van de persoon."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Naam"@nl .
+_:genid70 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_sameAs> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/sameAs> ;
+           <http://www.w3.org/ns/shacl#description> "Externe links naar dezelfde persoon in andere systemen (bijv. Wikidata)."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Andere autoriteit"@nl .
 
-_:genid70 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_alternateName> ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/alternateName> ;
-           <http://www.w3.org/ns/shacl#description> "Varianten, aliassen of historische schrijfwijzen van de naam."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Andere namen"@nl .
+_:genid71 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_wasDerivedFrom> ;
+           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/ns/prov#wasDerivedFrom> ;
+           <http://www.w3.org/ns/shacl#description> "Verwijzing naar de persoonsvermeldingen waaruit deze reconstructie is opgebouwd."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Afgeleid van"@nl .
 
-_:genid71 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_identifier_schema> ;
+_:genid72 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_dateModified> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/dateModified> ;
+           <http://www.w3.org/ns/shacl#description> "Datum waarop deze reconstructie voor het laatst is bijgewerkt."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Wijzigingsdatum"@nl .
+
+_:genid73 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_identifier_schema> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/identifier> ;
            <http://www.w3.org/ns/shacl#description> "De unieke identifier van persoon."@nl ;
            <http://www.w3.org/ns/shacl#name> "Identifier"@nl .
 
-_:genid72 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_type> ;
+_:genid74 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_type> ;
            <http://www.w3.org/ns/shacl#path> rdf:type ;
            <http://www.w3.org/ns/shacl#description> "Classificatie van de entiteit volgens Persons in Context."@nl ;
            <http://www.w3.org/ns/shacl#name> "Type entiteit"@nl .
 
-_:genid73 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_deathDate> ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/deathDate> ;
-           <http://www.w3.org/ns/shacl#name> "Datum van overlijden"@nl .
+_:genid75 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_name> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/name> ;
+           <http://www.w3.org/ns/shacl#description> "De gestandaardiseerde volledige naam van de persoon."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Naam"@nl .
 
-_:genid74 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_birthDate> ;
+_:genid76 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_alternateName> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/alternateName> ;
+           <http://www.w3.org/ns/shacl#description> "Varianten, aliassen of historische schrijfwijzen van de naam."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Andere namen"@nl .
+
+_:genid77 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_birthDate> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/birthDate> ;
            <http://www.w3.org/ns/shacl#name> "Geboortedatum"@nl .
 
-_:genid75 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_birthPlace> ;
+_:genid78 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_birthPlace> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/birthPlace> ;
            <http://www.w3.org/ns/shacl#name> "Geboorteplaats"@nl .
+
+_:genid79 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_deathDate> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/deathDate> ;
+           <http://www.w3.org/ns/shacl#name> "Datum van overlijden"@nl .
+
+_:genid80 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_deathPlace> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/deathPlace> ;
+           <http://www.w3.org/ns/shacl#name> "Plaats van overlijden"@nl .
+
+_:genid81 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_deceased> ;
+           <http://www.w3.org/ns/shacl#path> <https://personsincontext.org/model/#deceased> ;
+           <http://www.w3.org/ns/shacl#description> "Indicatie of de persoon is overleden."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Overleden status"@nl .
 
 
 ###  http://data.oorlogsbronnen.nl/model#PersoonsvermeldingShape
 <http://data.oorlogsbronnen.nl/model#PersoonsvermeldingShape> rdf:type owl:NamedIndividual ,
                                                                        <http://www.w3.org/ns/shacl#NodeShape> ;
                                                               <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#PersoonReconstructionShape> ;
-                                                              <http://www.w3.org/ns/shacl#property> _:genid76 ,
-                                                                                                    _:genid77 ,
-                                                                                                    _:genid78 ,
-                                                                                                    _:genid79 ,
-                                                                                                    _:genid80 ,
-                                                                                                    _:genid81 ,
-                                                                                                    _:genid82 ,
-                                                                                                    _:genid83 ;
+                                                              <http://www.w3.org/ns/shacl#property> _:genid82 ,
+                                                                                                    _:genid83 ,
+                                                                                                    _:genid84 ,
+                                                                                                    _:genid85 ,
+                                                                                                    _:genid86 ,
+                                                                                                    _:genid87 ,
+                                                                                                    _:genid88 ,
+                                                                                                    _:genid89 ;
                                                               <http://www.w3.org/ns/shacl#targetClass> <https://personsincontext.org/model/#PersonObservation> ;
                                                               <http://www.w3.org/ns/shacl#description> "Een observatie of vermelding van een persoon binnen een specifieke historische bron."@nl ;
                                                               <http://www.w3.org/ns/shacl#name> "Persoonsvermelding"@nl .
-
-_:genid76 <http://www.w3.org/ns/shacl#path> <http://www.w3.org/ns/prov#wasDerivedFrom> ;
-           <http://www.w3.org/ns/shacl#maxCount> 0 ;
-           <http://www.w3.org/ns/shacl#description> "Voor persoonsvermeldingen wordt prov:wasDerivedFrom niet toegestaan."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Afgeleid van (niet toegestaan)"@nl .
-
-_:genid77 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_givenName> ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/givenName> ;
-           <http://www.w3.org/ns/shacl#description> "De roepnaam of eerste voornaam van de persoon."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Voornaam"@nl .
-
-_:genid78 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_hadPrimarySource> ;
-           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/ns/prov#hadPrimarySource> ;
-           <http://www.w3.org/ns/shacl#description> "De originele bron waaruit deze informatie afkomstig is."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Primaire bron"@nl .
-
-_:genid79 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_description_schema> ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/description> ;
-           <http://www.w3.org/ns/shacl#description> "Een korte beschrijving van de persoon of diens rol tijdens de Tweede Wereldoorlog."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Biografische schets"@nl .
-
-_:genid80 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_hasOccupation> ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/hasOccupation> ;
-           <http://www.w3.org/ns/shacl#description> "Het beroep of de maatschappelijke rol van de persoon."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Beroep of functie"@nl .
-
-_:genid81 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_address> ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/address> ;
-           <http://www.w3.org/ns/shacl#description> "Woonplaats of laatst bekende adres."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Adresgegevens"@nl .
 
 _:genid82 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_familyName> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/familyName> ;
            <http://www.w3.org/ns/shacl#description> "De geslachtsnaam, inclusief tussenvoegsels."@nl ;
            <http://www.w3.org/ns/shacl#name> "Achternaam"@nl .
 
-_:genid83 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_initials> ;
+_:genid83 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_givenName> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/givenName> ;
+           <http://www.w3.org/ns/shacl#description> "De roepnaam of eerste voornaam van de persoon."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Voornaam"@nl .
+
+_:genid84 <http://www.w3.org/ns/shacl#path> <http://www.w3.org/ns/prov#wasDerivedFrom> ;
+           <http://www.w3.org/ns/shacl#maxCount> 0 ;
+           <http://www.w3.org/ns/shacl#description> "Voor persoonsvermeldingen wordt prov:wasDerivedFrom niet toegestaan."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Afgeleid van (niet toegestaan)"@nl .
+
+_:genid85 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_description_schema> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/description> ;
+           <http://www.w3.org/ns/shacl#description> "Een korte beschrijving van de persoon of diens rol tijdens de Tweede Wereldoorlog."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Biografische schets"@nl .
+
+_:genid86 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_hadPrimarySource> ;
+           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/ns/prov#hadPrimarySource> ;
+           <http://www.w3.org/ns/shacl#description> "De originele bron waaruit deze informatie afkomstig is."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Primaire bron"@nl .
+
+_:genid87 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_address> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/address> ;
+           <http://www.w3.org/ns/shacl#description> "Woonplaats of laatst bekende adres."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Adresgegevens"@nl .
+
+_:genid88 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_hasOccupation> ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/hasOccupation> ;
+           <http://www.w3.org/ns/shacl#description> "Het beroep of de maatschappelijke rol van de persoon."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Beroep of functie"@nl .
+
+_:genid89 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_initials> ;
            <http://www.w3.org/ns/shacl#path> <https://w3id.org/pnv#initials> ;
            <http://www.w3.org/ns/shacl#description> "De voorletters van de persoon."@nl ;
            <http://www.w3.org/ns/shacl#name> "Initialen"@nl .
@@ -1146,6 +1186,12 @@ _:genid83 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model
 <http://data.oorlogsbronnen.nl/model#Rule_about> rdf:type owl:NamedIndividual ;
                                                  <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Base_StringOrIRI> ;
                                                  <http://www.w3.org/ns/shacl#path> <http://schema.org/about> .
+
+
+###  http://data.oorlogsbronnen.nl/model#Rule_accessRights
+<http://data.oorlogsbronnen.nl/model#Rule_accessRights> rdf:type owl:NamedIndividual ;
+                                                        <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Base_String> ;
+                                                        <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/terms/accessRights> .
 
 
 ###  http://data.oorlogsbronnen.nl/model#Rule_actor
@@ -1244,6 +1290,12 @@ _:genid83 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model
                                                       <http://www.w3.org/ns/shacl#path> <http://schema.org/contentUrl> .
 
 
+###  http://data.oorlogsbronnen.nl/model#Rule_contributor
+<http://data.oorlogsbronnen.nl/model#Rule_contributor> rdf:type owl:NamedIndividual ;
+                                                       <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Base_StringOrIRI> ;
+                                                       <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/contributor> .
+
+
 ###  http://data.oorlogsbronnen.nl/model#Rule_created
 <http://data.oorlogsbronnen.nl/model#Rule_created> rdf:type owl:NamedIndividual ;
                                                    <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Base_Date> ;
@@ -1312,10 +1364,6 @@ _:genid83 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model
                                                       <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#definition> .
 
 
-###  http://data.oorlogsbronnen.nl/model#Rule_description
-<http://data.oorlogsbronnen.nl/model#Rule_description> rdf:type owl:NamedIndividual .
-
-
 ###  http://data.oorlogsbronnen.nl/model#Rule_description_dc
 <http://data.oorlogsbronnen.nl/model#Rule_description_dc> rdf:type owl:NamedIndividual ;
                                                           <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Base_String> ;
@@ -1345,6 +1393,12 @@ _:genid83 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model
 <http://data.oorlogsbronnen.nl/model#Rule_familyName> rdf:type owl:NamedIndividual ;
                                                       <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Base_String> ;
                                                       <http://www.w3.org/ns/shacl#path> <http://schema.org/familyName> .
+
+
+###  http://data.oorlogsbronnen.nl/model#Rule_format
+<http://data.oorlogsbronnen.nl/model#Rule_format> rdf:type owl:NamedIndividual ;
+                                                  <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Base_String> ;
+                                                  <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/format> .
 
 
 ###  http://data.oorlogsbronnen.nl/model#Rule_fromLocation
@@ -1435,6 +1489,7 @@ _:genid83 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model
 
 ###  http://data.oorlogsbronnen.nl/model#Rule_isPartOf
 <http://data.oorlogsbronnen.nl/model#Rule_isPartOf> rdf:type owl:NamedIndividual ;
+                                                    <http://www.w3.org/ns/shacl#class> <http://data.niod.nl/WO2_Thesaurus/Archive> ;
                                                     <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Base_IRI> ;
                                                     <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/terms/isPartOf> .
 
@@ -1451,6 +1506,13 @@ _:genid83 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model
                                                <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Base_Double> ;
                                                <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2003/01/geo/wgs84_poslat> ;
                                                <http://www.w3.org/ns/shacl#maxCount> 1 .
+
+
+###  http://data.oorlogsbronnen.nl/model#Rule_lat_schema
+<http://data.oorlogsbronnen.nl/model#Rule_lat_schema> rdf:type owl:NamedIndividual ;
+                                                      <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Base_String> ;
+                                                      <http://www.w3.org/ns/shacl#path> <http://schema.org/latitude> ;
+                                                      <http://www.w3.org/ns/shacl#maxCount> 1 .
 
 
 ###  http://data.oorlogsbronnen.nl/model#Rule_license
@@ -1471,6 +1533,13 @@ _:genid83 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model
                                                 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Base_Double> ;
                                                 <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2003/01/geo/wgs84_poslong> ;
                                                 <http://www.w3.org/ns/shacl#maxCount> 1 .
+
+
+###  http://data.oorlogsbronnen.nl/model#Rule_long_schema
+<http://data.oorlogsbronnen.nl/model#Rule_long_schema> rdf:type owl:NamedIndividual ;
+                                                       <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Base_String> ;
+                                                       <http://www.w3.org/ns/shacl#path> <http://schema.org/longitude> ;
+                                                       <http://www.w3.org/ns/shacl#maxCount> 1 .
 
 
 ###  http://data.oorlogsbronnen.nl/model#Rule_modified
@@ -1537,7 +1606,7 @@ _:genid83 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model
 
 ###  http://data.oorlogsbronnen.nl/model#Rule_rights
 <http://data.oorlogsbronnen.nl/model#Rule_rights> rdf:type owl:NamedIndividual ;
-                                                  <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Base_String> ;
+                                                  <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Base_StringOrIRI> ;
                                                   <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/elements/1.1/rights> .
 
 
@@ -1650,37 +1719,37 @@ _:genid83 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model
 <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2003/01/geo/wgs84_poslocation> .
 
 
-###  http://data.oorlogsbronnen.nl/model#Rule_wgslocation
-<http://data.oorlogsbronnen.nl/model#Rule_wgslocation> rdf:type owl:NamedIndividual .
-
-
 ###  http://data.oorlogsbronnen.nl/model#SourceShape
 <http://data.oorlogsbronnen.nl/model#SourceShape> rdf:type owl:NamedIndividual ,
                                                            <http://www.w3.org/ns/shacl#NodeShape> ;
-                                                  <http://www.w3.org/ns/shacl#property> _:genid90 ,
-                                                                                        _:genid91 ,
-                                                                                        _:genid92 ;
+                                                  <http://www.w3.org/ns/shacl#property> _:genid96 ,
+                                                                                        _:genid97 ,
+                                                                                        _:genid98 ;
                                                   <http://www.w3.org/ns/shacl#targetClass> <http://schema.org/ArchiveComponent> ,
                                                                                            <http://www.w3.org/ns/prov#Entity> ;
                                                   <http://www.w3.org/ns/shacl#description> "Archiefstukken, maar ook records uit andere (onderzoeks)datasets en webpagina's kunnen persoonsvermeldingen bevatten. Dit is hiervoor de bronvermelding."@nl ;
                                                   <http://www.w3.org/ns/shacl#name> "Record waarop de persoonsvermelding is aangetroffen"@nl .
 
-_:genid90 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_type> ;
+_:genid96 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_type> ;
            <http://www.w3.org/ns/shacl#path> rdf:type ;
            <http://www.w3.org/ns/shacl#description> "Classificatie van het record als archiefstuk of anders."@nl ;
            <http://www.w3.org/ns/shacl#name> "Type entiteit"@nl .
 
-_:genid91 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_url> ;
+_:genid97 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_url> ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/url> ;
            <http://www.w3.org/ns/shacl#name> "Url van de bron"@nl .
 
-_:genid92 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_inDataset> ;
+_:genid98 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model#Rule_inDataset> ;
            <http://www.w3.org/ns/shacl#path> <http://data.niod.nl/WO2_Thesaurus/inDataset> ;
            <http://www.w3.org/ns/shacl#name> "Herkomst van het record"@nl .
 
 
 ###  http://purl.org/dc/dcmitype/Collection
 <http://purl.org/dc/dcmitype/Collection> rdf:type owl:NamedIndividual .
+
+
+###  http://purl.org/dc/elements/1.1/contributor
+<http://purl.org/dc/elements/1.1/contributor> rdf:type owl:NamedIndividual .
 
 
 ###  http://purl.org/dc/elements/1.1/creator
@@ -1693,6 +1762,10 @@ _:genid92 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model
 
 ###  http://purl.org/dc/elements/1.1/description
 <http://purl.org/dc/elements/1.1/description> rdf:type owl:NamedIndividual .
+
+
+###  http://purl.org/dc/elements/1.1/format
+<http://purl.org/dc/elements/1.1/format> rdf:type owl:NamedIndividual .
 
 
 ###  http://purl.org/dc/elements/1.1/identifier
@@ -1721,6 +1794,10 @@ _:genid92 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model
 
 ###  http://purl.org/dc/elements/1.1/type
 <http://purl.org/dc/elements/1.1/type> rdf:type owl:NamedIndividual .
+
+
+###  http://purl.org/dc/terms/accessRights
+<http://purl.org/dc/terms/accessRights> rdf:type owl:NamedIndividual .
 
 
 ###  http://purl.org/dc/terms/created
@@ -1914,12 +1991,20 @@ _:genid92 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/model
 <http://schema.org/keywords> rdf:type owl:NamedIndividual .
 
 
+###  http://schema.org/latitude
+<http://schema.org/latitude> rdf:type owl:NamedIndividual .
+
+
 ###  http://schema.org/license
 <http://schema.org/license> rdf:type owl:NamedIndividual .
 
 
 ###  http://schema.org/location
 <http://schema.org/location> rdf:type owl:NamedIndividual .
+
+
+###  http://schema.org/longitude
+<http://schema.org/longitude> rdf:type owl:NamedIndividual .
 
 
 ###  http://schema.org/name
@@ -2078,24 +2163,9 @@ xsd:double rdf:type owl:NamedIndividual .
 <https://w3id.org/pnv#initials> rdf:type owl:NamedIndividual .
 
 
-[ <http://www.w3.org/ns/shacl#class> <http://schema.org/ArchiveComponent>
+[ <http://www.w3.org/ns/shacl#class> <http://www.w3.org/2004/02/skos/core#Concept>
 ] .
 
-[ <http://www.w3.org/ns/shacl#class> <http://www.w3.org/ns/prov#Entity>
- ] .
-
-[ <http://www.w3.org/ns/shacl#datatype> xsd:date
- ] .
-
-[ <http://www.w3.org/ns/shacl#datatype> xsd:string
- ] .
-
-[ <http://www.w3.org/ns/shacl#datatype> xsd:integer
- ] .
-
-[ <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI>
- ] .
-
 [ <http://www.w3.org/ns/shacl#class> <https://personsincontext.org/model/#PersonObservation>
  ] .
 
@@ -2103,15 +2173,27 @@ xsd:double rdf:type owl:NamedIndividual .
  ] .
 
 [ <http://www.w3.org/ns/shacl#class> <https://personsincontext.org/model/#PersonObservation>
- ] .
-
-[ <http://www.w3.org/ns/shacl#class> <https://personsincontext.org/model/#PersonReconstruction>
  ] .
 
 [ <http://www.w3.org/ns/shacl#class> <http://www.w3.org/2003/01/geo/wgs84_posSpatialTing>
  ] .
 
-[ <http://www.w3.org/ns/shacl#class> <http://www.w3.org/2004/02/skos/core#Concept>
+[ <http://www.w3.org/ns/shacl#datatype> xsd:integer
+ ] .
+
+[ <http://www.w3.org/ns/shacl#datatype> xsd:date
+ ] .
+
+[ <http://www.w3.org/ns/shacl#class> <http://schema.org/ArchiveComponent>
+ ] .
+
+[ <http://www.w3.org/ns/shacl#class> <http://www.w3.org/ns/prov#Entity>
+ ] .
+
+[ <http://www.w3.org/ns/shacl#datatype> xsd:string
+ ] .
+
+[ <http://www.w3.org/ns/shacl#class> <https://personsincontext.org/model/#PersonReconstruction>
  ] .
 
 [ <http://www.w3.org/ns/shacl#class> <https://personsincontext.org/model/#PersonObservation>
@@ -2124,6 +2206,9 @@ xsd:double rdf:type owl:NamedIndividual .
  ] .
 
 [ <http://www.w3.org/ns/shacl#class> <https://personsincontext.org/model/#PersonObservation>
+ ] .
+
+[ <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI>
  ] .
 
 #################################################################
