@@ -349,6 +349,19 @@ picom:PersonReconstruction a rdfs:Class ;
 
 :Bekendmaking rdfs:subClassOf niod:Afbeelding .
 
+:BekendmakingShape a sh:NodeShape ;
+    sh:name "Bekendmakingen"@nl ;
+    sh:node :CreativeWorkShape ;
+    sh:property [ sh:description "Transcriptie van de tekst op het document"@nl ;
+            sh:name "Tekst"@nl ;
+            sh:node :Rule_text ;
+            sh:path schema1:text ],
+        [ sh:description "Publicatiedatum van het document"@nl ;
+            sh:name "Publicatiedatum"@nl ;
+            sh:node :Rule_datePublished ;
+            sh:path schema1:datePublished ] ;
+    sh:targetClass niod1:Bekendmaking .
+
 :ConceptShape a sh:NodeShape ;
     sh:description "Een abstract idee of een term uit een gecontroleerde woordenlijst of thesaurus."@nl ;
     sh:name "Thesaurusconcept"@nl ;
@@ -557,10 +570,6 @@ picom:PersonReconstruction a rdfs:Class ;
 
 :Rule_closeMatch sh:node :Base_IRI ;
     sh:path skos:closeMatch .
-
-:Rule_datePublished sh:maxCount 1 ;
-    sh:node :Base_Date ;
-    sh:path schema1:datePublished .
 
 :Rule_homeLocation sh:node :Base_StringOrIRI ;
     sh:path schema1:homeLocation .
@@ -771,6 +780,10 @@ niod:slachtoffer a rdf:Property ;
     sh:node :Base_Date ;
     sh:path schema1:dateModified .
 
+:Rule_datePublished sh:maxCount 1 ;
+    sh:node :Base_Date ;
+    sh:path schema1:datePublished .
+
 :Rule_deathDate sh:maxCount 1 ;
     sh:node :Base_Date ;
     sh:path schema1:deathDate .
@@ -907,6 +920,9 @@ niod:slachtoffer a rdf:Property ;
 :Rule_temporal sh:node :Base_String ;
     sh:path schema1:temporal .
 
+:Rule_text sh:node :Base_String ;
+    sh:path schema1:text .
+
 :Rule_thumbnail sh:node :Base_StringOrIRI ;
     sh:path schema1:thumbnail .
 
@@ -975,6 +991,19 @@ schema1:VisualArtwork rdfs:label "Kunstwerk"@nl ;
 
 :Base_DateOrInteger a sh:PropertyShape ;
     sh:or ( [ sh:datatype xsd:date ] [ sh:datatype xsd:integer ] ) .
+
+:Rule_endDate sh:maxCount 1 ;
+    sh:node :Base_DateOrInteger ;
+    sh:path schema1:endDate .
+
+:Rule_name sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:node :Base_String ;
+    sh:path schema1:name .
+
+:Rule_startDate sh:maxCount 1 ;
+    sh:node :Base_DateOrInteger ;
+    sh:path schema1:startDate .
 
 :CreativeWorkShape a sh:NodeShape ;
     sh:description "Verschillende typen bronnen en objecten die binnen de collectie worden beschreven, zoals artikelen, foto's en kunstwerken."@nl ;
@@ -1057,19 +1086,6 @@ schema1:VisualArtwork rdfs:label "Kunstwerk"@nl ;
         schema1:Sculpture,
         schema1:SheetMusic,
         schema1:VisualArtwork .
-
-:Rule_endDate sh:maxCount 1 ;
-    sh:node :Base_DateOrInteger ;
-    sh:path schema1:endDate .
-
-:Rule_name sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:node :Base_String ;
-    sh:path schema1:name .
-
-:Rule_startDate sh:maxCount 1 ;
-    sh:node :Base_DateOrInteger ;
-    sh:path schema1:startDate .
 
 :Rule_type sh:node :Base_IRI ;
     sh:path rdf:type .

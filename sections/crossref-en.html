@@ -1331,6 +1331,7 @@ This section provides details for each class and property defined by Oorlogsbron
   <li><a href="#http://data.oorlogsbronnen.nl/model#Base_String" title="http://data.oorlogsbronnen.nl/model#Base_String"> <span>Base String</span> </a></li>
   <li><a href="#http://data.oorlogsbronnen.nl/model#Base_StringOrIRI" title="http://data.oorlogsbronnen.nl/model#Base_StringOrIRI"> <span>Base String Or I R I</span> </a></li>
   <li><a href="#http://schema.org/Sculpture" title="http://schema.org/Sculpture">Beeldhouwwerk</a></li>
+  <li><a href="#http://data.oorlogsbronnen.nl/model#BekendmakingShape" title="http://data.oorlogsbronnen.nl/model#BekendmakingShape"> <span>Bekendmaking Shape</span> </a></li>
   <li><a href="#http://schema.org/Book" title="http://schema.org/Book">Boek</a></li>
   <li><a href="#http://data.oorlogsbronnen.nl/model#ConceptShape" title="http://data.oorlogsbronnen.nl/model#ConceptShape"> <span>Concept Shape</span> </a></li>
   <li><a href="#http://data.oorlogsbronnen.nl/model#CreativeWorkShape" title="http://data.oorlogsbronnen.nl/model#CreativeWorkShape"> <span>Creative Work Shape</span> </a></li>
@@ -1415,6 +1416,7 @@ This section provides details for each class and property defined by Oorlogsbron
   <li><a href="#http://data.oorlogsbronnen.nl/model#Rule_subject" title="http://data.oorlogsbronnen.nl/model#Rule_subject"> <span>Rule subject</span> </a></li>
   <li><a href="#http://data.oorlogsbronnen.nl/model#Rule_superEvent" title="http://data.oorlogsbronnen.nl/model#Rule_superEvent"> <span>Rule super Event</span> </a></li>
   <li><a href="#http://data.oorlogsbronnen.nl/model#Rule_temporal" title="http://data.oorlogsbronnen.nl/model#Rule_temporal"> <span>Rule temporal</span> </a></li>
+  <li><a href="#http://data.oorlogsbronnen.nl/model#Rule_text" title="http://data.oorlogsbronnen.nl/model#Rule_text"> <span>Rule text</span> </a></li>
   <li><a href="#http://data.oorlogsbronnen.nl/model#Rule_thumbnail" title="http://data.oorlogsbronnen.nl/model#Rule_thumbnail"> <span>Rule thumbnail</span> </a></li>
   <li><a href="#http://data.oorlogsbronnen.nl/model#Rule_thumbnailUrl" title="http://data.oorlogsbronnen.nl/model#Rule_thumbnailUrl"> <span>Rule thumbnail Url</span> </a></li>
   <li><a href="#http://data.oorlogsbronnen.nl/model#Rule_title" title="http://data.oorlogsbronnen.nl/model#Rule_title"> <span>Rule title</span> </a></li>
@@ -1592,6 +1594,36 @@ This section provides details for each class and property defined by Oorlogsbron
   <h3>Beeldhouwwerk<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://schema.org/Sculpture</p>
  </div>
+ <div class="entity" id="http://data.oorlogsbronnen.nl/model#BekendmakingShape">
+  <h3>Bekendmaking Shape<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://data.oorlogsbronnen.nl/model#BekendmakingShape</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/ns/shacl#NodeShape" target="_blank" title="http://www.w3.org/ns/shacl#NodeShape">Node shape</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/ns/shacl#node" target="_blank" title="http://www.w3.org/ns/shacl#node">node</a> <sup class="type-op" title="object property">op</sup> <a href="#http://data.oorlogsbronnen.nl/model#CreativeWorkShape" title="http://data.oorlogsbronnen.nl/model#CreativeWorkShape">Creative Work Shape</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/ns/shacl#property" target="_blank" title="http://www.w3.org/ns/shacl#property">property</a> <sup class="type-op" title="object property">op</sup> <span class="literal">""</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/ns/shacl#property" target="_blank" title="http://www.w3.org/ns/shacl#property">property</a> <sup class="type-op" title="object property">op</sup> <span class="literal">""</span>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/ns/shacl#targetClass" target="_blank" title="http://www.w3.org/ns/shacl#targetClass">target class</a> <sup class="type-op" title="object property">op</sup> <a href="http://data.niod.nl/WO2_Thesaurus/Bekendmaking" target="_blank" title="http://data.niod.nl/WO2_Thesaurus/Bekendmaking">Bekendmaking</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="http://www.w3.org/ns/shacl#name" target="_blank" title="http://www.w3.org/ns/shacl#name">name</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Bekendmakingen"@nl</span>
+   </dd>
+  </dl>
+ </div>
  <div class="entity" id="http://schema.org/Book">
   <h3>Boek<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://schema.org/Book</p>
@@ -1760,7 +1792,7 @@ This section provides details for each class and property defined by Oorlogsbron
     <a href="http://www.w3.org/ns/shacl#targetClass" target="_blank" title="http://www.w3.org/ns/shacl#targetClass">target class</a> <sup class="type-op" title="object property">op</sup> <a href="#http://schema.org/Book" title="http://schema.org/Book">Boek</a> <sup class="type-ni" title="named individual">ni</sup>
    </dd>
    <dd>
-    <a href="http://www.w3.org/ns/shacl#targetClass" target="_blank" title="http://www.w3.org/ns/shacl#targetClass">target class</a> <sup class="type-op" title="object property">op</sup> <a href="#d4e3951" title="http://schema.org/CreativeWork">Object</a> <sup class="type-ni" title="named individual">ni</sup>
+    <a href="http://www.w3.org/ns/shacl#targetClass" target="_blank" title="http://www.w3.org/ns/shacl#targetClass">target class</a> <sup class="type-op" title="object property">op</sup> <a href="#d4e4014" title="http://schema.org/CreativeWork">Object</a> <sup class="type-ni" title="named individual">ni</sup>
    </dd>
    <dd>
     <a href="http://www.w3.org/ns/shacl#targetClass" target="_blank" title="http://www.w3.org/ns/shacl#targetClass">target class</a> <sup class="type-op" title="object property">op</sup> <a href="#http://schema.org/Newspaper" title="http://schema.org/Newspaper">Krant</a> <sup class="type-ni" title="named individual">ni</sup>
@@ -2375,6 +2407,10 @@ This section provides details for each class and property defined by Oorlogsbron
  <div class="entity" id="http://data.oorlogsbronnen.nl/model#Rule_temporal">
   <h3>Rule temporal<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://data.oorlogsbronnen.nl/model#Rule_temporal</p>
+ </div>
+ <div class="entity" id="http://data.oorlogsbronnen.nl/model#Rule_text">
+  <h3>Rule text<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://data.oorlogsbronnen.nl/model#Rule_text</p>
  </div>
  <div class="entity" id="http://data.oorlogsbronnen.nl/model#Rule_thumbnail">
   <h3>Rule thumbnail<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
