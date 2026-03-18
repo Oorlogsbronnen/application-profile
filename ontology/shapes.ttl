@@ -54,7 +54,8 @@
 
 # --- Beschrijving en Categorisering ---
 :Rule_description_dc     sh:path dc:description ;        sh:node :Base_String .
-:Rule_rights             sh:path dc:rights ;             sh:node :Base_String .
+:Rule_format             sh:path dc:format ;             sh:node :Base_String .
+:Rule_rights             sh:path dc:rights ;             sh:node :Base_StringOrIRI .
 :Rule_source             sh:path dc:source ;             sh:node :Base_String .
 :Rule_subject            sh:path dc:subject ;            sh:node :Base_StringOrIRI .
 :Rule_type_dc            sh:path dc:type ;               sh:node :Base_String .
@@ -87,11 +88,14 @@
 :Rule_deathPlace         sh:path schema:deathPlace ;      sh:node :Base_StringOrIRI ; sh:maxCount 1 .
 :Rule_fromLocation       sh:path schema:fromLocation ;    sh:node :Base_StringOrIRI .
 :Rule_homeLocation       sh:path schema:homeLocation ;    sh:node :Base_StringOrIRI .
+:Rule_lat_schema         sh:path schema:latitude ;        sh:node :Base_String ; sh:maxCount 1 .
+:Rule_long_schema        sh:path schema:longitude ;       sh:node :Base_String ; sh:maxCount 1 .
 :Rule_location           sh:path schema:location ;        sh:node :Base_StringOrIRI .
 :Rule_toLocation         sh:path schema:toLocation ;      sh:node :Base_StringOrIRI .
 
 # --- Personen en Organisaties (Relaties) ---
 :Rule_creator            sh:path dc:creator ;      sh:node :Base_StringOrIRI .
+:Rule_contributor        sh:path dc:contributor ;  sh:node :Base_StringOrIRI .
 :Rule_publisher          sh:path dc:publisher ;    sh:node :Base_IRI  ; sh:class schema:Organization .
 :Rule_actor              sh:path schema:actor ;    sh:node :Base_IRI ; sh:or ([ sh:class picom:PersonReconstruction ] [ sh:class picom:PersonObservation ]) .
 :Rule_children           sh:path schema:children;  sh:node :Base_IRI ;  sh:or ([ sh:class picom:PersonReconstruction ] [ sh:class picom:PersonObservation ]) .
@@ -108,7 +112,8 @@
 :Rule_url                sh:path schema:url ;          sh:node :Base_StringOrIRI .
 
 # --- Structureel en Rechten ---
-:Rule_isPartOf           sh:path dct:isPartOf ;      sh:node :Base_IRI .
+:Rule_accessRights       sh:path dct:accessRights ;  sh:node :Base_String .
+:Rule_isPartOf           sh:path dct:isPartOf ;      sh:node :Base_IRI ; sh:class niod:Archive .
 :Rule_license            sh:path schema:license ;    sh:node :Base_IRI ; sh:class niod:Rights .
 :Rule_position           sh:path schema:position ;   sh:node :Base_Integer .
 :Rule_superEvent         sh:path schema:superEvent ; sh:node :Base_IRI ; sh:class schema:Event .
@@ -453,7 +458,7 @@
     sh:property [
         sh:path schema:description ;
         sh:name "Beschrijving van de dataset"@nl ;
-        sh:node :Rule_description ;
+        sh:node :Rule_description_schema ;
     ] ;
     sh:property [
         sh:path schema:url ;
@@ -466,7 +471,7 @@
         sh:node :Rule_provider ;
     ] .
 
-### --- BRON EN OBJECT TYPEN ---
+### --- KUNSTWERKEN, BRONNEN EN ANDERE OBJECT TYPEN ---
 :CreativeWorkShape a sh:NodeShape ;
     sh:targetClass 
         schema:CreativeWork,
@@ -477,20 +482,15 @@
         schema:VisualArtwork, 
         schema:Painting, 
         schema:Sculpture, 
-        schema:SheetMusic,
-        niod:Monument ;
+        schema:SheetMusic ;
     sh:name "Bronnen en Objecten"@nl ;
     sh:description "Verschillende typen bronnen en objecten die binnen de collectie worden beschreven, zoals artikelen, foto's en kunstwerken."@nl ;
+    
     # --- Identificatie en Basis ---
     sh:property [
         sh:path dc:identifier ;
         sh:name "Identifier (DC)"@nl ;
         sh:node :Rule_identifier_dc ;
-    ] ;
-    sh:property [
-        sh:path dc:title ;
-        sh:name "Titel"@nl ;
-        sh:node :Rule_title ;
     ] ;
     sh:property [
         sh:path rdf:type ;
@@ -502,8 +502,24 @@
         sh:name "Type (DC)"@nl ;
         sh:node :Rule_type_dc ;
     ] ;
+    sh:property [
+        sh:path dc:format ;
+        sh:name "Type (DC)"@nl ;
+        sh:node :Rule_format ;
+    ] ;
+    sh:property [
+        sh:path dct:isPartOf ;
+        sh:name "Onderdeel van"@nl ;
+        sh:description "Dit object of archiefstuk is onderdeel van een serie of collectie"@nl ;
+        sh:node :Rule_isPartOf ;
+    ] ;
 
     # --- Inhoud en Onderwerp ---
+        sh:property [
+        sh:path dc:title ;
+        sh:name "Titel"@nl ;
+        sh:node :Rule_title ;
+    ] ;
     sh:property [
         sh:path dc:description ;
         sh:name "Beschrijving"@nl ;
@@ -516,13 +532,8 @@
     ] ;
     sh:property [
         sh:path schema:about ;
-        sh:name "Betreft entiteit"@nl ;
+        sh:name "Persoon of organisatie als onderwerp van het werk"@nl ;
         sh:node :Rule_about ;
-    ] ;
-    sh:property [
-        sh:path schema:temporal ;
-        sh:name "Periodisering"@nl ;
-        sh:node :Rule_temporal ;
     ] ;
     sh:property [
         sh:path schema:contentLocation ;
@@ -533,8 +544,13 @@
     # --- Creatie en Herkomst ---
     sh:property [
         sh:path dc:creator ;
-        sh:name "Maker"@nl ;
+        sh:name "Maker van het werk"@nl ;
         sh:node :Rule_creator ;
+    ] ;
+    sh:property [
+        sh:path dc:contributor ;
+        sh:name "Persoon die heeft bijgedragen aan het werk"@nl ;
+        sh:node :Rule_contributor ;
     ] ;
     sh:property [
         sh:path dc:publisher ;
@@ -546,6 +562,11 @@
         sh:name "Provider"@nl ;
         sh:description "De instelling die het object digitaal beschikbaar stelt."@nl ;
         sh:node :Rule_provider ;
+    ] ;
+    sh:property [
+        sh:path dc:rights ;
+        sh:name "Rechten"@nl ;
+        sh:node :Rule_rights ;
     ] ;
     sh:property [
         sh:path dc:source ;
@@ -575,6 +596,11 @@
         sh:name "Einddatum"@nl ;
         sh:node :Rule_endDate ;
     ] ;
+        sh:property [
+        sh:path schema:temporal ;
+        sh:name "Periodisering"@nl ;
+        sh:node :Rule_temporal ;
+    ] ;
 
     # --- Visueel ---
     sh:property [
@@ -595,10 +621,10 @@
 
     # 2. Voeg extra properties toe
     sh:property [
-        sh:path dct:isPartOf ;
-        sh:name "Onderdeel van"@nl ;
-        sh:description "Dit archiefstuk is onderdeel van een archiefserie of archief"@nl ;
-        sh:node :Rule_isPartOf ;
+        sh:path dct:accessRights ;
+        sh:name "Openbaarheid"@nl ;
+        sh:description "Mate van openbaarheid van het archief of archiefstuk"@nl ;
+        sh:node :Rule_accessRights ;
     ] .
 
 ### --- AUDIO EN VIDEO OBJECTEN (Uitbreiding  op CreativeWorkShape) ---
@@ -616,6 +642,28 @@
         sh:path schema:contentUrl ;
         sh:name "Url van het media object"@nl ;
         sh:node :Rule_contentUrl ;
+    ] .
+
+### --- MONUMENTEN (Uitbreiding  op CreativeWorkShape) ---
+:MonumentShape a sh:NodeShape ;
+    sh:targetClass niod:Monument ;
+    sh:name "Monumenten"@nl ;
+    
+    # 1. Hergebruik alle regels van CreativeWork
+    sh:node :CreativeWorkShape ;
+
+    # 2. Voeg extra properties toe
+    sh:property [
+        sh:path schema:latitude ;
+        sh:name "Latitude"@nl ;
+        sh:description "Breedtegraad van de locatie van het monument."@nl ;
+        sh:node :Rule_lat_schema ;
+    ] ;
+    sh:property [
+        sh:path schema:longitude ;
+        sh:name "Longitude"@nl ;
+        sh:description "Lengtegraad van de locatie van het monument"@nl ;
+        sh:node :Rule_long_schema ;
     ] .
 
 ### --- THESAURUSCONCEPTEN ---
@@ -708,7 +756,7 @@
         sh:path wgs:location ;
         sh:name "Locatie"@nl ;
         sh:description "Locatie van het concept."@nl ;
-        sh:node :Rule_wgslocation ;
+        sh:node :Rule_wgsLocation ;
     ] ;
 
     sh:property [
