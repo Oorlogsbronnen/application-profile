@@ -348,6 +348,79 @@ picom:PersonReconstruction a rdfs:Class ;
 
 :Bekendmaking rdfs:subClassOf niod:Afbeelding .
 
+:ConceptShape a sh:NodeShape ;
+    sh:description "Een abstract idee of een term uit een gecontroleerde woordenlijst of thesaurus."@nl ;
+    sh:name "Thesaurusconcept"@nl ;
+    sh:property [ sh:description "Een tekstuele uitleg van de betekenis van het concept."@nl ;
+            sh:name "Definitie"@nl ;
+            sh:node :Rule_definition ;
+            sh:path skos:definition ],
+        [ sh:description "De overkoepelende thesaurus of conceptenlijst waar dit concept deel van uitmaakt."@nl ;
+            sh:name "Behoort tot thesaurus"@nl ;
+            sh:node :Rule_inScheme ;
+            sh:path skos:inScheme ],
+        [ sh:description "Verwijzing naar een concept dat hoger in de hiërarchie staat."@nl ;
+            sh:name "Breder concept"@nl ;
+            sh:node :Rule_broader ;
+            sh:path skos:broader ],
+        [ sh:description "Verwijzing naar een concept dat lager in de hiërarchie staat."@nl ;
+            sh:name "Kleiner concept"@nl ;
+            sh:node :Rule_narrower ;
+            sh:path skos:narrower ],
+        [ sh:description "Verwijzing naar een concept dat inhoudelijk verwant is, maar niet in de hiërarchie staat."@nl ;
+            sh:name "Gerelateerd concept"@nl ;
+            sh:node :Rule_related ;
+            sh:path skos:related ],
+        [ sh:description "Verwijzing naar een identiek concept in een externe bron (bijv. AAT of WO2-thesaurus)."@nl ;
+            sh:name "Exacte match"@nl ;
+            sh:node :Rule_exactMatch ;
+            sh:path skos:exactMatch ],
+        [ sh:name "Type (RDF)"@nl ;
+            sh:node :Rule_type ;
+            sh:path rdf:type ],
+        [ sh:description "De officiële naam van het concept in de thesaurus."@nl ;
+            sh:name "Voorkeursterm"@nl ;
+            sh:node :Rule_prefLabel ;
+            sh:path skos:prefLabel ],
+        [ sh:description "Synoniemen of andere schrijfwijzen van het concept."@nl ;
+            sh:name "Alternatieve term"@nl ;
+            sh:node :Rule_altLabel ;
+            sh:path skos:altLabel ],
+        [ sh:description "Termen zoals spelfouten die wel doorzoekbaar moeten zijn, maar niet getoond worden."@nl ;
+            sh:name "Verborgen term"@nl ;
+            sh:node :Rule_hiddenLabel ;
+            sh:path skos:hiddenLabel ],
+        [ sh:description "Een tekstuele beschrijving van het concept."@nl ;
+            sh:name "Beschrijving"@nl ;
+            sh:node :Rule_scopeNote ;
+            sh:path skos:scopeNote ] ;
+    sh:targetClass skos:Concept .
+
+:DatasetShape a sh:NodeShape ;
+    sh:description "Records  maken altijd onderdeel uit van een dataset."@nl ;
+    sh:name "Dataset waaruit een record afkomstig is"@nl ;
+    sh:property [ sh:description "De unieke identifier van de dataset."@nl ;
+            sh:name "Identifier"@nl ;
+            sh:node :Rule_identifier_schema ;
+            sh:path schema1:identifier ],
+        [ sh:description "Classificatie van de entiteit als schema:Dataset"@nl ;
+            sh:name "Type entiteit"@nl ;
+            sh:node :Rule_type ;
+            sh:path rdf:type ],
+        [ sh:name "Naam van de dataset"@nl ;
+            sh:node :Rule_name ;
+            sh:path schema1:name ],
+        [ sh:name "Beschrijving van de dataset"@nl ;
+            sh:node :Rule_description ;
+            sh:path schema1:description ],
+        [ sh:name "Bronverwijzing voor de dataset"@nl ;
+            sh:node :Rule_url ;
+            sh:path schema1:url ],
+        [ sh:name "Leverancier van de dataset"@nl ;
+            sh:node :Rule_provider ;
+            sh:path schema1:provider ] ;
+    sh:targetClass schema1:Dataset .
+
 :EventShape a sh:NodeShape ;
     sh:description ""@nl ;
     sh:name "Gebeurtenis"@nl ;
@@ -357,11 +430,11 @@ picom:PersonReconstruction a rdfs:Class ;
             sh:path rdf:type ],
         [ sh:description "Classificatie van de gebeurtenis als persoonlijke gebeurtenis uit de WO2 thesaurus"@nl ;
             sh:name "type gebeurtenis"@nl ;
-            sh:node :Rule_type ;
+            sh:node :Rule_additionalType ;
             sh:path schema1:additionalType ],
         [ sh:description "De naam van de gebeurtenis."@nl ;
             sh:name "Naam"@nl ;
-            sh:node :Rule_hasOccupation ;
+            sh:node :Rule_name ;
             sh:path schema1:name ],
         [ sh:name "Locatie"@nl ;
             sh:node :Rule_location ;
@@ -388,18 +461,6 @@ picom:PersonReconstruction a rdfs:Class ;
         [ sh:name "Einddatum"@nl ;
             sh:node :Rule_endDate ;
             sh:path schema1:endDate ] ;
-    sh:targetClass schema1:Event .
-
-:GebeurtenisShape a sh:NodeShape ;
-    sh:name "Gebeurtenis"@nl ;
-    sh:property [ sh:description "Bijv: 'Transport vanuit Kamp Amersfoort' of 'Razzia van Rotterdam'."@nl ;
-            sh:name "Titel van gebeurtenis"@nl ;
-            sh:node :TechnicalNameRule ;
-            sh:path schema1:name ],
-        [ sh:description "De dag waarop de gebeurtenis startte."@nl ;
-            sh:name "Datum van plaatsvinden"@nl ;
-            sh:node :TechnicalDateRule ;
-            sh:path schema1:datePublished ] ;
     sh:targetClass schema1:Event .
 
 :MediaShape a sh:NodeShape ;
@@ -452,12 +513,12 @@ picom:PersonReconstruction a rdfs:Class ;
 :Rule_additionalName sh:node :Base_String ;
     sh:path schema1:additionalName .
 
-:Rule_additionalType sh:node :Base_IRI ;
-    sh:path schema1:additionalType .
-
 :Rule_caption sh:maxCount 1 ;
     sh:node :Base_String ;
     sh:path schema1:caption .
+
+:Rule_closeMatch sh:node :Base_IRI ;
+    sh:path skos:closeMatch .
 
 :Rule_datePublished sh:maxCount 1 ;
     sh:node :Base_Date ;
@@ -483,10 +544,8 @@ picom:PersonReconstruction a rdfs:Class ;
     sh:path schema1:thumbnailUrl .
 
 :SourceShape a sh:NodeShape ;
-    sh:description "Archiefstukken, maar ook records uit andere (onderzoeks)datasets en webpagina's kunnen persoonsvermeldingen bevatten. Dit is hiervoor de bronvermelding."@nl,
-        "Records  maken altijd onderdeel uit van een dataset."@nl ;
-    sh:name "Dataset waaruit een record afkomstig is"@nl,
-        "Record waarop de persoonsvermelding is aangetroffen"@nl ;
+    sh:description "Archiefstukken, maar ook records uit andere (onderzoeks)datasets en webpagina's kunnen persoonsvermeldingen bevatten. Dit is hiervoor de bronvermelding."@nl ;
+    sh:name "Record waarop de persoonsvermelding is aangetroffen"@nl ;
     sh:property [ sh:description "Classificatie van het record als archiefstuk of anders."@nl ;
             sh:name "Type entiteit"@nl ;
             sh:node :Rule_type ;
@@ -496,29 +555,8 @@ picom:PersonReconstruction a rdfs:Class ;
             sh:path schema1:url ],
         [ sh:name "Herkomst van het record"@nl ;
             sh:node :Rule_inDataset ;
-            sh:path niod1:inDataset ],
-        [ sh:description "De unieke identifier van de dataset."@nl ;
-            sh:name "Identifier"@nl ;
-            sh:node :Rule_identifier_schema ;
-            sh:path schema1:identifier ],
-        [ sh:description "Classificatie van de entiteit als schema:Dataset"@nl ;
-            sh:name "Type entiteit"@nl ;
-            sh:node :Rule_type ;
-            sh:path rdf:type ],
-        [ sh:name "Naam van de dataset"@nl ;
-            sh:node :Rule_name ;
-            sh:path schema1:name ],
-        [ sh:name "Beschrijving van de dataset"@nl ;
-            sh:node :Rule_description ;
-            sh:path schema1:description ],
-        [ sh:name "Bronverwijzing voor de dataset"@nl ;
-            sh:node :Rule_url ;
-            sh:path schema1:url ],
-        [ sh:name "Leverancier van de dataset"@nl ;
-            sh:node :Rule_provider ;
-            sh:path schema1:provider ] ;
+            sh:path niod1:inDataset ] ;
     sh:targetClass schema1:ArchiveComponent,
-        schema1:Dataset,
         prov:Entity .
 
 :imageIIIF a rdf:Property ;
@@ -636,8 +674,14 @@ niod:slachtoffer a rdf:Property ;
     sh:or ( [ sh:class picom1:PersonReconstruction ] [ sh:class picom1:PersonObservation ] ) ;
     sh:path schema1:actor .
 
+:Rule_additionalType sh:node :Base_IRI ;
+    sh:path schema1:additionalType .
+
 :Rule_address sh:node :Base_StringOrIRI ;
     sh:path schema1:address .
+
+:Rule_altLabel sh:node :Base_String ;
+    sh:path skos:altLabel .
 
 :Rule_alternateName sh:node :Base_String ;
     sh:path schema1:alternateName .
@@ -649,6 +693,10 @@ niod:slachtoffer a rdf:Property ;
 :Rule_birthPlace sh:maxCount 1 ;
     sh:node :Base_StringOrIRI ;
     sh:path schema1:birthPlace .
+
+:Rule_broader sh:class skos:Concept ;
+    sh:node :Base_IRI ;
+    sh:path skos:broader .
 
 :Rule_children sh:node :Base_IRI ;
     sh:or ( [ sh:class picom1:PersonReconstruction ] [ sh:class picom1:PersonObservation ] ) ;
@@ -690,11 +738,17 @@ niod:slachtoffer a rdf:Property ;
     sh:node :Base_String ;
     sh:path picom1:deceased .
 
+:Rule_definition sh:node :Base_String ;
+    sh:path skos:definition .
+
 :Rule_description_dc sh:node :Base_String ;
     sh:path dc:description .
 
 :Rule_description_schema sh:node :Base_String ;
     sh:path schema1:description .
+
+:Rule_exactMatch sh:node :Base_IRI ;
+    sh:path skos:exactMatch .
 
 :Rule_familyName sh:node :Base_String ;
     sh:path schema1:familyName .
@@ -708,6 +762,12 @@ niod:slachtoffer a rdf:Property ;
 :Rule_givenName sh:node :Base_String ;
     sh:path schema1:givenName .
 
+:Rule_hasOccupation sh:node :Base_String ;
+    sh:path schema1:hasOccupation .
+
+:Rule_hiddenLabel sh:node :Base_String ;
+    sh:path skos:hiddenLabel .
+
 :Rule_identifier_dc sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:node :Base_String ;
@@ -716,6 +776,11 @@ niod:slachtoffer a rdf:Property ;
 :Rule_inDataset sh:class schema1:Dataset ;
     sh:node :Base_IRI ;
     sh:path niod1:inDataset .
+
+:Rule_inScheme sh:class skos:ConceptScheme ;
+    sh:minCount 1 ;
+    sh:node :Base_IRI ;
+    sh:path skos:inScheme .
 
 :Rule_initials sh:node :Base_String ;
     sh:path pnv:initials .
@@ -730,16 +795,31 @@ niod:slachtoffer a rdf:Property ;
 :Rule_location sh:node :Base_StringOrIRI ;
     sh:path schema1:location .
 
+:Rule_narrower sh:class skos:Concept ;
+    sh:node :Base_IRI ;
+    sh:path skos:narrower .
+
 :Rule_parent sh:node :Base_IRI ;
     sh:or ( [ sh:class picom1:PersonReconstruction ] [ sh:class picom1:PersonObservation ] ) ;
     sh:path schema1:parent .
+
+:Rule_prefLabel sh:minCount 1 ;
+    sh:node :Base_String ;
+    sh:path skos:prefLabel .
 
 :Rule_publisher sh:class schema1:Organization ;
     sh:node :Base_IRI ;
     sh:path dc:publisher .
 
+:Rule_related sh:class skos:Concept ;
+    sh:node :Base_IRI ;
+    sh:path skos:related .
+
 :Rule_sameAs sh:node :Base_IRI ;
     sh:path schema1:sameAs .
+
+:Rule_scopeNote sh:node :Base_String ;
+    sh:path skos:scopeNote .
 
 :Rule_sibling sh:node :Base_IRI ;
     sh:or ( [ sh:class picom1:PersonReconstruction ] [ sh:class picom1:PersonObservation ] ) ;
@@ -798,8 +878,6 @@ schema1:VideoObject rdfs:label "Video"@nl .
 
 schema1:VisualArtwork rdfs:label "Kunstwerk"@nl ;
     rdfs:subClassOf niod:Afbeelding .
-
-skos:Concept rdfs:subClassOf :Webpagina .
 
 :CreativeWorkShape a sh:NodeShape ;
     sh:description "Verschillende typen bronnen en objecten die binnen de collectie worden beschreven, zoals artikelen, foto's en kunstwerken."@nl ;
@@ -879,18 +957,10 @@ skos:Concept rdfs:subClassOf :Webpagina .
     sh:or ( [ sh:class prov:Entity ] [ sh:class schema1:ArchiveComponent ] ) ;
     sh:path prov:hadPrimarySource .
 
-:Rule_hasOccupation sh:node :Base_String ;
-    sh:path schema1:hasOccupation .
-
 :Rule_identifier_schema sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:node :Base_String ;
     sh:path schema1:identifier .
-
-:Rule_name sh:maxCount 1 ;
-    sh:minCount 1 ;
-    sh:node :Base_String ;
-    sh:path schema1:name .
 
 :Rule_provider sh:node :Base_StringOrIRI ;
     sh:path schema1:provider .
@@ -905,19 +975,26 @@ skos:Concept rdfs:subClassOf :Webpagina .
 :Base_DateOrInteger a sh:PropertyShape ;
     sh:or ( [ sh:datatype xsd:date ] [ sh:datatype xsd:integer ] ) .
 
+:Rule_name sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:node :Base_String ;
+    sh:path schema1:name .
+
 :Base_Date a sh:PropertyShape ;
     sh:datatype xsd:date .
+
+skos:Concept rdfs:subClassOf :Webpagina .
 
 :Rule_type sh:node :Base_IRI ;
     sh:path rdf:type .
 
 schema1:CreativeWork rdfs:label "Object"@nl .
 
-:Base_IRI a sh:PropertyShape ;
-    sh:nodeKind sh:IRI .
-
 :Base_StringOrIRI a sh:PropertyShape ;
     sh:or ( [ sh:datatype xsd:string ] [ sh:nodeKind sh:IRI ] ) .
+
+:Base_IRI a sh:PropertyShape ;
+    sh:nodeKind sh:IRI .
 
 :Base_String a sh:PropertyShape ;
     sh:datatype xsd:string .
