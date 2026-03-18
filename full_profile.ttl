@@ -14,6 +14,7 @@
 @prefix schema1: <http://schema.org/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix wgs1: <http://www.w3.org/2003/01/geo/wgs84_pos> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 :Afbeelding a rdfs:Class ;
@@ -351,7 +352,23 @@ picom:PersonReconstruction a rdfs:Class ;
 :ConceptShape a sh:NodeShape ;
     sh:description "Een abstract idee of een term uit een gecontroleerde woordenlijst of thesaurus."@nl ;
     sh:name "Thesaurusconcept"@nl ;
-    sh:property [ sh:description "Een tekstuele uitleg van de betekenis van het concept."@nl ;
+    sh:property [ sh:description "De officiële naam van het concept in de thesaurus."@nl ;
+            sh:name "Voorkeursterm"@nl ;
+            sh:node :Rule_prefLabel ;
+            sh:path skos:prefLabel ],
+        [ sh:description "Synoniemen of andere schrijfwijzen van het concept."@nl ;
+            sh:name "Alternatieve term"@nl ;
+            sh:node :Rule_altLabel ;
+            sh:path skos:altLabel ],
+        [ sh:description "Termen zoals spelfouten die wel doorzoekbaar moeten zijn, maar niet getoond worden."@nl ;
+            sh:name "Verborgen term"@nl ;
+            sh:node :Rule_hiddenLabel ;
+            sh:path skos:hiddenLabel ],
+        [ sh:description "Een tekstuele beschrijving van het concept."@nl ;
+            sh:name "Beschrijving"@nl ;
+            sh:node :Rule_scopeNote ;
+            sh:path skos:scopeNote ],
+        [ sh:description "Een tekstuele uitleg van de betekenis van het concept."@nl ;
             sh:name "Definitie"@nl ;
             sh:node :Rule_definition ;
             sh:path skos:definition ],
@@ -375,25 +392,33 @@ picom:PersonReconstruction a rdfs:Class ;
             sh:name "Exacte match"@nl ;
             sh:node :Rule_exactMatch ;
             sh:path skos:exactMatch ],
+        [ sh:description "Locatie van het concept."@nl ;
+            sh:name "Locatie"@nl ;
+            sh:node :Rule_wgslocation ;
+            sh:path wgs1:location ],
+        [ sh:description "Breedtegraad van de locatie van het concept."@nl ;
+            sh:name "Latitude"@nl ;
+            sh:node :Rule_lat ;
+            sh:path wgs1:lat ],
+        [ sh:description "Lengtegraad van de locatie van het concept."@nl ;
+            sh:name "Longitude"@nl ;
+            sh:node :Rule_long ;
+            sh:path wgs1:long ],
+        [ sh:name "Aanmaakdatum"@nl ;
+            sh:node :Rule_created ;
+            sh:path dct:created ],
+        [ sh:name "Wijzigingsdatum"@nl ;
+            sh:node :Rule_modified ;
+            sh:path dct:modified ],
+        [ sh:name "Startdatum"@nl ;
+            sh:node :Rule_startDate ;
+            sh:path schema1:startDate ],
+        [ sh:name "Einddatum"@nl ;
+            sh:node :Rule_endDate ;
+            sh:path schema1:endDate ],
         [ sh:name "Type (RDF)"@nl ;
             sh:node :Rule_type ;
-            sh:path rdf:type ],
-        [ sh:description "De officiële naam van het concept in de thesaurus."@nl ;
-            sh:name "Voorkeursterm"@nl ;
-            sh:node :Rule_prefLabel ;
-            sh:path skos:prefLabel ],
-        [ sh:description "Synoniemen of andere schrijfwijzen van het concept."@nl ;
-            sh:name "Alternatieve term"@nl ;
-            sh:node :Rule_altLabel ;
-            sh:path skos:altLabel ],
-        [ sh:description "Termen zoals spelfouten die wel doorzoekbaar moeten zijn, maar niet getoond worden."@nl ;
-            sh:name "Verborgen term"@nl ;
-            sh:node :Rule_hiddenLabel ;
-            sh:path skos:hiddenLabel ],
-        [ sh:description "Een tekstuele beschrijving van het concept."@nl ;
-            sh:name "Beschrijving"@nl ;
-            sh:node :Rule_scopeNote ;
-            sh:path skos:scopeNote ] ;
+            sh:path rdf:type ] ;
     sh:targetClass skos:Concept .
 
 :DatasetShape a sh:NodeShape ;
@@ -542,6 +567,10 @@ picom:PersonReconstruction a rdfs:Class ;
 
 :Rule_thumbnailUrl sh:node :Base_StringOrIRI ;
     sh:path schema1:thumbnailUrl .
+
+:Rule_wgsLocation sh:node :Base_IRI ;
+    sh:or ( [ sh:class skos:Concept ] [ sh:class wgs1:SpatialTing ] ) ;
+    sh:path wgs1:location .
 
 :SourceShape a sh:NodeShape ;
     sh:description "Archiefstukken, maar ook records uit andere (onderzoeks)datasets en webpagina's kunnen persoonsvermeldingen bevatten. Dit is hiervoor de bronvermelding."@nl ;
@@ -711,6 +740,10 @@ niod:slachtoffer a rdf:Property ;
 :Rule_contentUrl sh:node :Base_StringOrIRI ;
     sh:path schema1:contentUrl .
 
+:Rule_created sh:maxCount 1 ;
+    sh:node :Base_Date ;
+    sh:path dct:created .
+
 :Rule_creator sh:node :Base_StringOrIRI ;
     sh:path dc:creator .
 
@@ -792,8 +825,20 @@ niod:slachtoffer a rdf:Property ;
     sh:node :Base_IRI ;
     sh:path schema1:keywords .
 
+:Rule_lat sh:maxCount 1 ;
+    sh:node :Base_Double ;
+    sh:path wgs1:lat .
+
 :Rule_location sh:node :Base_StringOrIRI ;
     sh:path schema1:location .
+
+:Rule_long sh:maxCount 1 ;
+    sh:node :Base_Double ;
+    sh:path wgs1:long .
+
+:Rule_modified sh:maxCount 1 ;
+    sh:node :Base_Date ;
+    sh:path dct:modified .
 
 :Rule_narrower sh:class skos:Concept ;
     sh:node :Base_IRI ;
@@ -879,6 +924,9 @@ schema1:VideoObject rdfs:label "Video"@nl .
 schema1:VisualArtwork rdfs:label "Kunstwerk"@nl ;
     rdfs:subClassOf niod:Afbeelding .
 
+:Base_Double a sh:PropertyShape ;
+    sh:datatype xsd:double .
+
 :CreativeWorkShape a sh:NodeShape ;
     sh:description "Verschillende typen bronnen en objecten die binnen de collectie worden beschreven, zoals artikelen, foto's en kunstwerken."@nl ;
     sh:name "Bronnen en Objecten"@nl ;
@@ -949,10 +997,6 @@ schema1:VisualArtwork rdfs:label "Kunstwerk"@nl ;
         schema1:SheetMusic,
         schema1:VisualArtwork .
 
-:Rule_endDate sh:maxCount 1 ;
-    sh:node :Base_DateOrInteger ;
-    sh:path schema1:endDate .
-
 :Rule_hadPrimarySource sh:node :Base_IRI ;
     sh:or ( [ sh:class prov:Entity ] [ sh:class schema1:ArchiveComponent ] ) ;
     sh:path prov:hadPrimarySource .
@@ -965,28 +1009,32 @@ schema1:VisualArtwork rdfs:label "Kunstwerk"@nl ;
 :Rule_provider sh:node :Base_StringOrIRI ;
     sh:path schema1:provider .
 
-:Rule_startDate sh:maxCount 1 ;
-    sh:node :Base_DateOrInteger ;
-    sh:path schema1:startDate .
-
 :Rule_url sh:node :Base_StringOrIRI ;
     sh:path schema1:url .
 
 :Base_DateOrInteger a sh:PropertyShape ;
     sh:or ( [ sh:datatype xsd:date ] [ sh:datatype xsd:integer ] ) .
 
+:Rule_endDate sh:maxCount 1 ;
+    sh:node :Base_DateOrInteger ;
+    sh:path schema1:endDate .
+
 :Rule_name sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:node :Base_String ;
     sh:path schema1:name .
 
-:Base_Date a sh:PropertyShape ;
-    sh:datatype xsd:date .
-
-skos:Concept rdfs:subClassOf :Webpagina .
+:Rule_startDate sh:maxCount 1 ;
+    sh:node :Base_DateOrInteger ;
+    sh:path schema1:startDate .
 
 :Rule_type sh:node :Base_IRI ;
     sh:path rdf:type .
+
+skos:Concept rdfs:subClassOf :Webpagina .
+
+:Base_Date a sh:PropertyShape ;
+    sh:datatype xsd:date .
 
 schema1:CreativeWork rdfs:label "Object"@nl .
 

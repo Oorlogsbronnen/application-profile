@@ -280,7 +280,7 @@
     "id" : "357",
     "type" : "owl:Class"
   }, {
-    "id" : "374",
+    "id" : "373",
     "type" : "owl:Class"
   }, {
     "id" : "24",
@@ -289,16 +289,16 @@
     "id" : "89",
     "type" : "owl:Class"
   }, {
-    "id" : "377",
+    "id" : "376",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "261",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "378",
+    "id" : "377",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "379",
+    "id" : "378",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "320",
@@ -307,7 +307,7 @@
     "id" : "350",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "380",
+    "id" : "379",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "181",
@@ -316,19 +316,22 @@
     "id" : "99",
     "type" : "rdfs:Datatype"
   }, {
+    "id" : "381",
+    "type" : "rdfs:Datatype"
+  }, {
     "id" : "382",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "383",
-    "type" : "rdfs:Datatype"
-  }, {
-    "id" : "385",
+    "id" : "384",
     "type" : "owl:Class"
   }, {
     "id" : "139",
     "type" : "owl:Class"
   }, {
     "id" : "300",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "391",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "392",
@@ -340,16 +343,13 @@
     "id" : "394",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "395",
-    "type" : "rdfs:Datatype"
-  }, {
     "id" : "352",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "102",
     "type" : "owl:Class"
   }, {
-    "id" : "396",
+    "id" : "395",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "86",
@@ -373,10 +373,10 @@
     "id" : "138",
     "type" : "owl:Class"
   }, {
-    "id" : "391",
+    "id" : "390",
     "type" : "owl:Class"
   }, {
-    "id" : "421",
+    "id" : "415",
     "type" : "owl:Class"
   }, {
     "id" : "93",
@@ -403,10 +403,10 @@
     "id" : "159",
     "type" : "owl:Thing"
   }, {
-    "id" : "433",
+    "id" : "46",
     "type" : "owl:Class"
   }, {
-    "id" : "46",
+    "id" : "433",
     "type" : "owl:Class"
   }, {
     "id" : "98",
@@ -445,10 +445,10 @@
     "id" : "64",
     "type" : "owl:Class"
   }, {
-    "id" : "179",
+    "id" : "180",
     "type" : "owl:Class"
   }, {
-    "id" : "180",
+    "id" : "179",
     "type" : "owl:Class"
   }, {
     "id" : "5",
@@ -481,7 +481,7 @@
     "id" : "471",
     "type" : "owl:Thing"
   }, {
-    "id" : "407",
+    "id" : "406",
     "type" : "owl:Thing"
   }, {
     "id" : "134",
@@ -493,10 +493,10 @@
     "id" : "298",
     "type" : "owl:Class"
   }, {
-    "id" : "170",
+    "id" : "169",
     "type" : "owl:Class"
   }, {
-    "id" : "169",
+    "id" : "170",
     "type" : "owl:Class"
   }, {
     "id" : "176",
@@ -511,7 +511,7 @@
     "id" : "186",
     "type" : "owl:Class"
   }, {
-    "id" : "403",
+    "id" : "413",
     "type" : "owl:Class"
   }, {
     "id" : "122",
@@ -538,7 +538,7 @@
     "id" : "487",
     "type" : "owl:Class"
   }, {
-    "id" : "371",
+    "id" : "399",
     "type" : "owl:Class"
   }, {
     "id" : "9",
@@ -547,7 +547,7 @@
     "id" : "285",
     "type" : "owl:Class"
   }, {
-    "id" : "432",
+    "id" : "435",
     "type" : "owl:Class"
   }, {
     "id" : "201",
@@ -586,10 +586,10 @@
     "id" : "116",
     "type" : "owl:Class"
   }, {
-    "id" : "387",
+    "id" : "168",
     "type" : "owl:Class"
   }, {
-    "id" : "168",
+    "id" : "386",
     "type" : "owl:Class"
   }, {
     "id" : "315",
@@ -601,7 +601,7 @@
     "id" : "7",
     "type" : "owl:Class"
   }, {
-    "id" : "458",
+    "id" : "443",
     "type" : "owl:Class"
   }, {
     "id" : "29",
@@ -613,7 +613,7 @@
     "id" : "11",
     "type" : "owl:Class"
   }, {
-    "id" : "388",
+    "id" : "387",
     "type" : "owl:Class"
   }, {
     "id" : "129",
@@ -700,13 +700,13 @@
     "id" : "521",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "449",
+    "id" : "451",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "19",
     "type" : "owl:Class"
   }, {
-    "id" : "446",
+    "id" : "420",
     "type" : "owl:Class"
   }, {
     "id" : "205",
@@ -718,10 +718,10 @@
     "id" : "131",
     "type" : "owl:Class"
   }, {
-    "id" : "386",
+    "id" : "197",
     "type" : "owl:Class"
   }, {
-    "id" : "197",
+    "id" : "385",
     "type" : "owl:Class"
   }, {
     "id" : "280",
@@ -882,16 +882,6 @@
         "undefined" : "has max length"
       }
     }, {
-      "iri" : "http://datashapes.org/dash#hasMinExclusive",
-      "baseIri" : "http://datashapes.org/dash",
-      "comment" : {
-        "undefined" : "Checks whether a given node (?value) has value greater than (>) the provided ?minExclusive. Returns false if this cannot be determined, e.g. because values do not have comparable types."
-      },
-      "labels" : {
-        "IRI-based" : "hasMinExclusive",
-        "undefined" : "has min exclusive"
-      }
-    }, {
       "iri" : "http://datashapes.org/dash#hasPattern",
       "baseIri" : "http://datashapes.org/dash",
       "comment" : {
@@ -900,6 +890,16 @@
       "labels" : {
         "IRI-based" : "hasPattern",
         "undefined" : "has pattern"
+      }
+    }, {
+      "iri" : "http://datashapes.org/dash#hasMinExclusive",
+      "baseIri" : "http://datashapes.org/dash",
+      "comment" : {
+        "undefined" : "Checks whether a given node (?value) has value greater than (>) the provided ?minExclusive. Returns false if this cannot be determined, e.g. because values do not have comparable types."
+      },
+      "labels" : {
+        "IRI-based" : "hasMinExclusive",
+        "undefined" : "has min exclusive"
       }
     }, {
       "iri" : "http://datashapes.org/dash#hasStem",
@@ -927,16 +927,6 @@
         "undefined" : "has class"
       }
     }, {
-      "iri" : "http://datashapes.org/dash#hasNodeKind",
-      "baseIri" : "http://datashapes.org/dash",
-      "comment" : {
-        "undefined" : "Checks whether a given node (?value) has a given sh:NodeKind (?nodeKind). For example, sh:hasNodeKind(42, sh:Literal) = true."
-      },
-      "labels" : {
-        "IRI-based" : "hasNodeKind",
-        "undefined" : "has node kind"
-      }
-    }, {
       "iri" : "http://datashapes.org/dash#hasMaxInclusive",
       "baseIri" : "http://datashapes.org/dash",
       "comment" : {
@@ -945,6 +935,16 @@
       "labels" : {
         "IRI-based" : "hasMaxInclusive",
         "undefined" : "has max inclusive"
+      }
+    }, {
+      "iri" : "http://datashapes.org/dash#hasNodeKind",
+      "baseIri" : "http://datashapes.org/dash",
+      "comment" : {
+        "undefined" : "Checks whether a given node (?value) has a given sh:NodeKind (?nodeKind). For example, sh:hasNodeKind(42, sh:Literal) = true."
+      },
+      "labels" : {
+        "IRI-based" : "hasNodeKind",
+        "undefined" : "has node kind"
       }
     }, {
       "iri" : "http://datashapes.org/dash#hasMinInclusive",
@@ -964,6 +964,13 @@
         "undefined" : "is language in"
       }
     }, {
+      "iri" : "http://datashapes.org/dash#isIn",
+      "baseIri" : "http://datashapes.org/dash",
+      "labels" : {
+        "IRI-based" : "isIn",
+        "undefined" : "is in"
+      }
+    }, {
       "iri" : "http://datashapes.org/dash#hasMinLength",
       "baseIri" : "http://datashapes.org/dash",
       "comment" : {
@@ -972,13 +979,6 @@
       "labels" : {
         "IRI-based" : "hasMinLength",
         "undefined" : "has min length"
-      }
-    }, {
-      "iri" : "http://datashapes.org/dash#isIn",
-      "baseIri" : "http://datashapes.org/dash",
-      "labels" : {
-        "IRI-based" : "isIn",
-        "undefined" : "is in"
       }
     } ],
     "comment" : {
@@ -1211,16 +1211,6 @@
         "undefined" : "to string"
       }
     }, {
-      "iri" : "http://datashapes.org/dash#isNodeKindLiteral",
-      "baseIri" : "http://datashapes.org/dash",
-      "comment" : {
-        "undefined" : "Checks if a given sh:NodeKind is one that includes Literals."
-      },
-      "labels" : {
-        "IRI-based" : "isNodeKindLiteral",
-        "undefined" : "is NodeKind Literal"
-      }
-    }, {
       "iri" : "http://datashapes.org/dash#isNodeKindIRI",
       "baseIri" : "http://datashapes.org/dash",
       "comment" : {
@@ -1229,6 +1219,16 @@
       "labels" : {
         "IRI-based" : "isNodeKindIRI",
         "undefined" : "is NodeKind IRI"
+      }
+    }, {
+      "iri" : "http://datashapes.org/dash#isNodeKindLiteral",
+      "baseIri" : "http://datashapes.org/dash",
+      "comment" : {
+        "undefined" : "Checks if a given sh:NodeKind is one that includes Literals."
+      },
+      "labels" : {
+        "IRI-based" : "isNodeKindLiteral",
+        "undefined" : "is NodeKind Literal"
       }
     } ],
     "comment" : {
@@ -1541,24 +1541,6 @@
         "en" : "Literal"
       }
     }, {
-      "iri" : "http://www.w3.org/ns/shacl#BlankNodeOrIRI",
-      "baseIri" : "http://www.w3.org/ns/shacl",
-      "annotations" : {
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "http://www.w3.org/ns/shacl#",
-          "type" : "iri"
-        } ]
-      },
-      "comment" : {
-        "en" : "The node kind of all blank nodes or IRIs."
-      },
-      "labels" : {
-        "IRI-based" : "BlankNodeOrIRI",
-        "en" : "Blank node or IRI"
-      }
-    }, {
       "iri" : "http://www.w3.org/ns/shacl#BlankNode",
       "baseIri" : "http://www.w3.org/ns/shacl",
       "annotations" : {
@@ -1593,6 +1575,24 @@
       "labels" : {
         "IRI-based" : "IRIOrLiteral",
         "en" : "IRI or literal"
+      }
+    }, {
+      "iri" : "http://www.w3.org/ns/shacl#BlankNodeOrIRI",
+      "baseIri" : "http://www.w3.org/ns/shacl",
+      "annotations" : {
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#",
+          "type" : "iri"
+        } ]
+      },
+      "comment" : {
+        "en" : "The node kind of all blank nodes or IRIs."
+      },
+      "labels" : {
+        "IRI-based" : "BlankNodeOrIRI",
+        "en" : "Blank node or IRI"
       }
     }, {
       "iri" : "http://www.w3.org/ns/shacl#BlankNodeOrLiteral",
@@ -2460,7 +2460,7 @@
       "nl" : "Persoon gemodelleerd op basis van een of meer persoonsvermeldingen"
     },
     "attributes" : [ "external" ],
-    "id" : "374"
+    "id" : "373"
   }, {
     "iri" : "http://datashapes.org/dash#SPARQLConstructTemplate",
     "baseIri" : "http://datashapes.org/dash",
@@ -2492,7 +2492,7 @@
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "377",
+    "id" : "376",
     "label" : {
       "IRI-based" : "string"
     }
@@ -2506,14 +2506,14 @@
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "378",
+    "id" : "377",
     "label" : {
       "IRI-based" : "boolean"
     }
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "379",
+    "id" : "378",
     "label" : {
       "IRI-based" : "boolean"
     }
@@ -2534,7 +2534,7 @@
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#integer",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "380",
+    "id" : "379",
     "label" : {
       "IRI-based" : "integer"
     }
@@ -2570,14 +2570,14 @@
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "382",
+    "id" : "381",
     "label" : {
       "IRI-based" : "decimal"
     }
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "383",
+    "id" : "382",
     "label" : {
       "IRI-based" : "boolean"
     }
@@ -2589,12 +2589,12 @@
       "IRI-based" : "Webpagina",
       "nl" : "Webpagina"
     },
-    "subClasses" : [ "386", "387" ],
+    "subClasses" : [ "385", "386" ],
     "comment" : {
       "en" : "Class for all web content created by Oorlogsbronnen"
     },
     "attributes" : [ "external" ],
-    "id" : "385"
+    "id" : "384"
   }, {
     "iri" : "https://data.niod.nl/Afbeelding",
     "baseIri" : "https://data.niod.nl",
@@ -2602,7 +2602,7 @@
     "label" : {
       "IRI-based" : "Afbeelding"
     },
-    "subClasses" : [ "388", "339", "138", "141", "143" ],
+    "subClasses" : [ "387", "339", "138", "141", "143" ],
     "attributes" : [ "external" ],
     "id" : "139"
   }, {
@@ -2611,6 +2611,13 @@
     "id" : "300",
     "label" : {
       "IRI-based" : "anyURI"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#integer",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "391",
+    "label" : {
+      "IRI-based" : "integer"
     }
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#integer",
@@ -2634,13 +2641,6 @@
       "IRI-based" : "integer"
     }
   }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#integer",
-    "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "395",
-    "label" : {
-      "IRI-based" : "integer"
-    }
-  }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
     "id" : "352",
@@ -2659,7 +2659,7 @@
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "396",
+    "id" : "395",
     "label" : {
       "IRI-based" : "boolean"
     }
@@ -2809,7 +2809,7 @@
       "IRI-based" : "Datatype"
     },
     "attributes" : [ "external" ],
-    "id" : "391"
+    "id" : "390"
   }, {
     "iri" : "http://datashapes.org/dash#InferencingTestCase",
     "baseIri" : "http://datashapes.org/dash",
@@ -2822,7 +2822,7 @@
       "undefined" : "A test case to verify whether an inferencing engine is producing identical results to those stored as expected results."
     },
     "attributes" : [ "external" ],
-    "id" : "421",
+    "id" : "415",
     "superClasses" : [ "70" ]
   }, {
     "iri" : "http://www.w3.org/ns/shacl#PropertyShape",
@@ -2900,6 +2900,12 @@
       "baseIri" : "http://data.oorlogsbronnen.nl/model",
       "labels" : {
         "IRI-based" : "Base_String"
+      }
+    }, {
+      "iri" : "http://data.oorlogsbronnen.nl/model#Base_Double",
+      "baseIri" : "http://data.oorlogsbronnen.nl/model",
+      "labels" : {
+        "IRI-based" : "Base_Double"
       }
     }, {
       "iri" : "http://datashapes.org/dash#ScriptAPIShape-generatePrefixClasses",
@@ -3004,16 +3010,6 @@
         "undefined" : "Instances select editor"
       }
     }, {
-      "iri" : "http://datashapes.org/dash#DatePickerEditor",
-      "baseIri" : "http://datashapes.org/dash",
-      "comment" : {
-        "undefined" : "An editor for xsd:date literals, offering a calendar-like date picker."
-      },
-      "labels" : {
-        "IRI-based" : "DatePickerEditor",
-        "undefined" : "Date picker editor"
-      }
-    }, {
       "iri" : "http://datashapes.org/dash#AutoCompleteEditor",
       "baseIri" : "http://datashapes.org/dash",
       "comment" : {
@@ -3022,6 +3018,16 @@
       "labels" : {
         "IRI-based" : "AutoCompleteEditor",
         "undefined" : "Auto-complete editor"
+      }
+    }, {
+      "iri" : "http://datashapes.org/dash#DatePickerEditor",
+      "baseIri" : "http://datashapes.org/dash",
+      "comment" : {
+        "undefined" : "An editor for xsd:date literals, offering a calendar-like date picker."
+      },
+      "labels" : {
+        "IRI-based" : "DatePickerEditor",
+        "undefined" : "Date picker editor"
       }
     }, {
       "iri" : "http://datashapes.org/dash#SubClassEditor",
@@ -3202,39 +3208,6 @@
     "label" : {
       "undefined" : "Thing"
     }
-  }, {
-    "iri" : "http://datashapes.org/dash#AllObjectsTarget",
-    "baseIri" : "http://datashapes.org/dash",
-    "instances" : 0,
-    "annotations" : {
-      "labelTemplate" : [ {
-        "identifier" : "labelTemplate",
-        "language" : "undefined",
-        "value" : "All objects",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "AllObjectsTarget",
-      "undefined" : "All objects target"
-    },
-    "individuals" : [ {
-      "iri" : "http://datashapes.org/dash#AllObjects",
-      "baseIri" : "http://datashapes.org/dash",
-      "comment" : {
-        "undefined" : "A reusable instance of dash:AllObjectsTarget."
-      },
-      "labels" : {
-        "IRI-based" : "AllObjects",
-        "undefined" : "All objects"
-      }
-    } ],
-    "comment" : {
-      "undefined" : "A target containing all objects in the data graph as focus nodes."
-    },
-    "attributes" : [ "external" ],
-    "id" : "433",
-    "superClasses" : [ "111" ]
   }, {
     "iri" : "http://www.w3.org/ns/shacl#NodeShape",
     "baseIri" : "http://www.w3.org/ns/shacl",
@@ -3455,6 +3428,39 @@
     "id" : "46",
     "superClasses" : [ "101" ]
   }, {
+    "iri" : "http://datashapes.org/dash#AllObjectsTarget",
+    "baseIri" : "http://datashapes.org/dash",
+    "instances" : 0,
+    "annotations" : {
+      "labelTemplate" : [ {
+        "identifier" : "labelTemplate",
+        "language" : "undefined",
+        "value" : "All objects",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "AllObjectsTarget",
+      "undefined" : "All objects target"
+    },
+    "individuals" : [ {
+      "iri" : "http://datashapes.org/dash#AllObjects",
+      "baseIri" : "http://datashapes.org/dash",
+      "comment" : {
+        "undefined" : "A reusable instance of dash:AllObjectsTarget."
+      },
+      "labels" : {
+        "IRI-based" : "AllObjects",
+        "undefined" : "All objects"
+      }
+    } ],
+    "comment" : {
+      "undefined" : "A target containing all objects in the data graph as focus nodes."
+    },
+    "attributes" : [ "external" ],
+    "id" : "433",
+    "superClasses" : [ "111" ]
+  }, {
     "iri" : "http://www.w3.org/2002/07/owl#Thing",
     "baseIri" : "http://owl2vowl.de",
     "id" : "98",
@@ -3641,6 +3647,25 @@
     "id" : "64",
     "superClasses" : [ "21" ]
   }, {
+    "iri" : "https://data.niod.nl/Vermist",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/10946",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Vermist",
+      "nl" : "Vermist"
+    },
+    "attributes" : [ "external" ],
+    "id" : "180",
+    "superClasses" : [ "41" ]
+  }, {
     "iri" : "https://data.niod.nl/Executeert",
     "baseIri" : "https://data.niod.nl",
     "instances" : 0,
@@ -3661,25 +3686,6 @@
     },
     "attributes" : [ "external" ],
     "id" : "179",
-    "superClasses" : [ "41" ]
-  }, {
-    "iri" : "https://data.niod.nl/Vermist",
-    "baseIri" : "https://data.niod.nl",
-    "instances" : 0,
-    "annotations" : {
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "undefined",
-        "value" : "https://data.niod.nl/WO2_Thesaurus/events/10946",
-        "type" : "iri"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "Vermist",
-      "nl" : "Vermist"
-    },
-    "attributes" : [ "external" ],
-    "id" : "180",
     "superClasses" : [ "41" ]
   }, {
     "iri" : "http://www.w3.org/ns/shacl#JSExecutable",
@@ -3866,7 +3872,7 @@
   }, {
     "iri" : "http://www.w3.org/2002/07/owl#Thing",
     "baseIri" : "http://owl2vowl.de",
-    "id" : "407",
+    "id" : "406",
     "label" : {
       "undefined" : "Thing"
     }
@@ -4508,6 +4514,20 @@
         "IRI-based" : "ClassConstraintComponent-class"
       }
     }, {
+      "iri" : "http://www.w3.org/ns/shacl#MinInclusiveConstraintComponent-minInclusive",
+      "baseIri" : "http://www.w3.org/ns/shacl",
+      "annotations" : {
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "MinInclusiveConstraintComponent-minInclusive"
+      }
+    }, {
       "iri" : "http://www.w3.org/ns/shacl#NotConstraintComponent-not",
       "baseIri" : "http://www.w3.org/ns/shacl",
       "annotations" : {
@@ -4534,20 +4554,6 @@
       },
       "labels" : {
         "IRI-based" : "XoneConstraintComponent-xone"
-      }
-    }, {
-      "iri" : "http://www.w3.org/ns/shacl#MinInclusiveConstraintComponent-minInclusive",
-      "baseIri" : "http://www.w3.org/ns/shacl",
-      "annotations" : {
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "http://www.w3.org/ns/shacl#",
-          "type" : "iri"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "MinInclusiveConstraintComponent-minInclusive"
       }
     }, {
       "iri" : "http://www.w3.org/ns/shacl#ClosedConstraintComponent-ignoredProperties",
@@ -4734,25 +4740,6 @@
     "id" : "298",
     "superClasses" : [ "263" ]
   }, {
-    "iri" : "https://data.niod.nl/Ondergedoken",
-    "baseIri" : "https://data.niod.nl",
-    "instances" : 0,
-    "annotations" : {
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "undefined",
-        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6351",
-        "type" : "iri"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "Ondergedoken",
-      "nl" : "Ondergedoken"
-    },
-    "attributes" : [ "external" ],
-    "id" : "170",
-    "superClasses" : [ "41" ]
-  }, {
     "iri" : "https://data.niod.nl/Gevangen",
     "baseIri" : "https://data.niod.nl",
     "instances" : 0,
@@ -4773,6 +4760,25 @@
     },
     "attributes" : [ "external" ],
     "id" : "169",
+    "superClasses" : [ "41" ]
+  }, {
+    "iri" : "https://data.niod.nl/Ondergedoken",
+    "baseIri" : "https://data.niod.nl",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://data.niod.nl/WO2_Thesaurus/events/6351",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Ondergedoken",
+      "nl" : "Ondergedoken"
+    },
+    "attributes" : [ "external" ],
+    "id" : "170",
     "superClasses" : [ "41" ]
   }, {
     "iri" : "https://data.niod.nl/Veroordeeld",
@@ -4855,7 +4861,7 @@
       "undefined" : "A test case that evaluates a dash:Action using provided input parameters. Requires exactly one value for dash:action and will operate on the test case's graph (with imports) as both data and shapes graph.\n\nCurrently only supports read-only actions, allowing the comparison of actual results with the expected results."
     },
     "attributes" : [ "external" ],
-    "id" : "403",
+    "id" : "413",
     "superClasses" : [ "70" ]
   }, {
     "iri" : "http://datashapes.org/dash#PropertyRole",
@@ -5047,7 +5053,7 @@
       "undefined" : "A test case that can be used to verify that an RDF file could be loaded (from a file) and that the resulting RDF graph is equivalent to a given TTL file."
     },
     "attributes" : [ "external" ],
-    "id" : "371",
+    "id" : "399",
     "superClasses" : [ "70" ]
   }, {
     "iri" : "http://www.w3.org/ns/shacl#JSTargetType",
@@ -5105,7 +5111,7 @@
       "undefined" : "A target type for all subjects where a given predicate has a certain object value."
     },
     "attributes" : [ "external" ],
-    "id" : "432",
+    "id" : "435",
     "superClasses" : [ "111" ]
   }, {
     "iri" : "https://data.niod.nl/Geroyeerd",
@@ -5309,16 +5315,6 @@
     "id" : "116",
     "superClasses" : [ "21" ]
   }, {
-    "iri" : "http://www.w3.org/2004/02/skos/core#Concept",
-    "baseIri" : "http://www.w3.org/2004/02/skos/core",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Concept"
-    },
-    "attributes" : [ "external" ],
-    "id" : "387",
-    "superClasses" : [ "385" ]
-  }, {
     "iri" : "https://data.niod.nl/Gestorven",
     "baseIri" : "https://data.niod.nl",
     "instances" : 0,
@@ -5337,6 +5333,16 @@
     "attributes" : [ "external" ],
     "id" : "168",
     "superClasses" : [ "41" ]
+  }, {
+    "iri" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "baseIri" : "http://www.w3.org/2004/02/skos/core",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Concept"
+    },
+    "attributes" : [ "external" ],
+    "id" : "386",
+    "superClasses" : [ "384" ]
   }, {
     "iri" : "http://datashapes.org/dash#CommitScript",
     "baseIri" : "http://datashapes.org/dash",
@@ -5399,7 +5405,7 @@
       "undefined" : "A test case that verifies that a given SPARQL expression produces a given, expected result."
     },
     "attributes" : [ "external" ],
-    "id" : "458",
+    "id" : "443",
     "superClasses" : [ "70" ]
   }, {
     "iri" : "http://www.w3.org/ns/shacl#SPARQLTarget",
@@ -5466,7 +5472,7 @@
       "nl" : "Bladmuziek"
     },
     "attributes" : [ "external" ],
-    "id" : "388",
+    "id" : "387",
     "superClasses" : [ "139" ]
   }, {
     "iri" : "http://www.w3.org/ns/shacl#Parameterizable",
@@ -5637,7 +5643,7 @@
       "IRI-based" : "Target",
       "en" : "Target"
     },
-    "subClasses" : [ "58", "29", "251", "433", "432" ],
+    "subClasses" : [ "58", "29", "251", "433", "435" ],
     "comment" : {
       "en" : "The base class of targets such as those based on SPARQL queries."
     },
@@ -5698,7 +5704,7 @@
       "IRI-based" : "Viewer",
       "undefined" : "Viewer"
     },
-    "subClasses" : [ "103", "446" ],
+    "subClasses" : [ "103", "420" ],
     "comment" : {
       "undefined" : "The class of widgets for viewing value nodes."
     },
@@ -5760,7 +5766,7 @@
       "IRI-based" : "TestCase",
       "undefined" : "Test case"
     },
-    "subClasses" : [ "69", "421", "403", "371", "285", "218", "458" ],
+    "subClasses" : [ "69", "415", "413", "399", "285", "218", "443" ],
     "comment" : {
       "undefined" : "A test case to verify that a (SHACL-based) feature works as expected."
     },
@@ -5848,7 +5854,7 @@
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "449",
+    "id" : "451",
     "label" : {
       "IRI-based" : "string"
     }
@@ -6017,7 +6023,7 @@
       "undefined" : "A viewer for a single value."
     },
     "attributes" : [ "external" ],
-    "id" : "446",
+    "id" : "420",
     "superClasses" : [ "43" ]
   }, {
     "iri" : "http://www.w3.org/ns/shacl#ValidationResult",
@@ -6149,16 +6155,6 @@
     "id" : "131",
     "superClasses" : [ "21" ]
   }, {
-    "iri" : "http://schema.org/WebPage",
-    "baseIri" : "http://schema.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "WebPage"
-    },
-    "attributes" : [ "external" ],
-    "id" : "386",
-    "superClasses" : [ "385" ]
-  }, {
     "iri" : "https://data.niod.nl/Bekendmaking",
     "baseIri" : "https://data.niod.nl",
     "instances" : 0,
@@ -6172,6 +6168,16 @@
     "attributes" : [ "external" ],
     "id" : "197",
     "superClasses" : [ "41" ]
+  }, {
+    "iri" : "http://schema.org/WebPage",
+    "baseIri" : "http://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "WebPage"
+    },
+    "attributes" : [ "external" ],
+    "id" : "385",
+    "superClasses" : [ "384" ]
   }, {
     "iri" : "http://www.w3.org/ns/shacl#ConstraintComponent",
     "baseIri" : "http://www.w3.org/ns/shacl",
@@ -6273,24 +6279,6 @@
         "en" : "SPARQL constraint component"
       }
     }, {
-      "iri" : "http://datashapes.org/dash#CoExistsWithConstraintComponent",
-      "baseIri" : "http://datashapes.org/dash",
-      "annotations" : {
-        "message" : [ {
-          "identifier" : "message",
-          "language" : "undefined",
-          "value" : "Values must co-exist with values of {$coExistsWith}",
-          "type" : "label"
-        } ]
-      },
-      "comment" : {
-        "undefined" : "A constraint component that can be used to express a constraint on property shapes so that if the property path has any value then the given property must also have a value, and vice versa."
-      },
-      "labels" : {
-        "IRI-based" : "CoExistsWithConstraintComponent",
-        "undefined" : "Co-exists-with constraint component"
-      }
-    }, {
       "iri" : "http://datashapes.org/dash#SubSetOfConstraintComponent",
       "baseIri" : "http://datashapes.org/dash",
       "annotations" : {
@@ -6307,6 +6295,24 @@
       "labels" : {
         "IRI-based" : "SubSetOfConstraintComponent",
         "undefined" : "Sub set of constraint component"
+      }
+    }, {
+      "iri" : "http://datashapes.org/dash#CoExistsWithConstraintComponent",
+      "baseIri" : "http://datashapes.org/dash",
+      "annotations" : {
+        "message" : [ {
+          "identifier" : "message",
+          "language" : "undefined",
+          "value" : "Values must co-exist with values of {$coExistsWith}",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "undefined" : "A constraint component that can be used to express a constraint on property shapes so that if the property path has any value then the given property must also have a value, and vice versa."
+      },
+      "labels" : {
+        "IRI-based" : "CoExistsWithConstraintComponent",
+        "undefined" : "Co-exists-with constraint component"
       }
     }, {
       "iri" : "http://www.w3.org/ns/shacl#UniqueLangConstraintComponent",
@@ -6363,60 +6369,6 @@
         "undefined" : "Root class constraint component"
       }
     }, {
-      "iri" : "http://www.w3.org/ns/shacl#DatatypeConstraintComponent",
-      "baseIri" : "http://www.w3.org/ns/shacl",
-      "annotations" : {
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "http://www.w3.org/ns/shacl#",
-          "type" : "iri"
-        } ],
-        "message" : [ {
-          "identifier" : "message",
-          "language" : "undefined",
-          "value" : "Value does not have datatype {$datatype}",
-          "type" : "label"
-        } ],
-        "labelTemplate" : [ {
-          "identifier" : "labelTemplate",
-          "language" : "undefined",
-          "value" : "Values must have datatype {$datatype}",
-          "type" : "label"
-        } ]
-      },
-      "comment" : {
-        "en" : "A constraint component that can be used to restrict the datatype of all value nodes."
-      },
-      "labels" : {
-        "IRI-based" : "DatatypeConstraintComponent",
-        "en" : "Datatype constraint component"
-      }
-    }, {
-      "iri" : "http://www.w3.org/ns/shacl#ClassConstraintComponent",
-      "baseIri" : "http://www.w3.org/ns/shacl",
-      "annotations" : {
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "http://www.w3.org/ns/shacl#",
-          "type" : "iri"
-        } ],
-        "labelTemplate" : [ {
-          "identifier" : "labelTemplate",
-          "language" : "undefined",
-          "value" : "Value needs to have class {$class}",
-          "type" : "label"
-        } ]
-      },
-      "comment" : {
-        "en" : "A constraint component that can be used to verify that each value node is an instance of a given type."
-      },
-      "labels" : {
-        "IRI-based" : "ClassConstraintComponent",
-        "en" : "Class constraint component"
-      }
-    }, {
       "iri" : "http://www.w3.org/ns/shacl#MaxCountConstraintComponent",
       "baseIri" : "http://www.w3.org/ns/shacl",
       "annotations" : {
@@ -6445,6 +6397,60 @@
       "labels" : {
         "IRI-based" : "MaxCountConstraintComponent",
         "en" : "Max-count constraint component"
+      }
+    }, {
+      "iri" : "http://www.w3.org/ns/shacl#ClassConstraintComponent",
+      "baseIri" : "http://www.w3.org/ns/shacl",
+      "annotations" : {
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#",
+          "type" : "iri"
+        } ],
+        "labelTemplate" : [ {
+          "identifier" : "labelTemplate",
+          "language" : "undefined",
+          "value" : "Value needs to have class {$class}",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "en" : "A constraint component that can be used to verify that each value node is an instance of a given type."
+      },
+      "labels" : {
+        "IRI-based" : "ClassConstraintComponent",
+        "en" : "Class constraint component"
+      }
+    }, {
+      "iri" : "http://www.w3.org/ns/shacl#DatatypeConstraintComponent",
+      "baseIri" : "http://www.w3.org/ns/shacl",
+      "annotations" : {
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#",
+          "type" : "iri"
+        } ],
+        "message" : [ {
+          "identifier" : "message",
+          "language" : "undefined",
+          "value" : "Value does not have datatype {$datatype}",
+          "type" : "label"
+        } ],
+        "labelTemplate" : [ {
+          "identifier" : "labelTemplate",
+          "language" : "undefined",
+          "value" : "Values must have datatype {$datatype}",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "en" : "A constraint component that can be used to restrict the datatype of all value nodes."
+      },
+      "labels" : {
+        "IRI-based" : "DatatypeConstraintComponent",
+        "en" : "Datatype constraint component"
       }
     }, {
       "iri" : "http://www.w3.org/ns/shacl#LessThanOrEqualsConstraintComponent",
@@ -6531,36 +6537,6 @@
         "en" : "Node constraint component"
       }
     }, {
-      "iri" : "http://www.w3.org/ns/shacl#MinLengthConstraintComponent",
-      "baseIri" : "http://www.w3.org/ns/shacl",
-      "annotations" : {
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "http://www.w3.org/ns/shacl#",
-          "type" : "iri"
-        } ],
-        "message" : [ {
-          "identifier" : "message",
-          "language" : "undefined",
-          "value" : "Value has less than {$minLength} characters",
-          "type" : "label"
-        } ],
-        "labelTemplate" : [ {
-          "identifier" : "labelTemplate",
-          "language" : "undefined",
-          "value" : "Value must have less than {$minLength} characters",
-          "type" : "label"
-        } ]
-      },
-      "comment" : {
-        "en" : "A constraint component that can be used to restrict the minimum string length of value nodes."
-      },
-      "labels" : {
-        "IRI-based" : "MinLengthConstraintComponent",
-        "en" : "Min-length constraint component"
-      }
-    }, {
       "iri" : "http://www.w3.org/ns/shacl#NotConstraintComponent",
       "baseIri" : "http://www.w3.org/ns/shacl",
       "annotations" : {
@@ -6591,7 +6567,7 @@
         "en" : "Not constraint component"
       }
     }, {
-      "iri" : "http://www.w3.org/ns/shacl#MaxInclusiveConstraintComponent",
+      "iri" : "http://www.w3.org/ns/shacl#MinLengthConstraintComponent",
       "baseIri" : "http://www.w3.org/ns/shacl",
       "annotations" : {
         "isDefinedBy" : [ {
@@ -6603,22 +6579,22 @@
         "message" : [ {
           "identifier" : "message",
           "language" : "undefined",
-          "value" : "Value is not <= {$maxInclusive}",
+          "value" : "Value has less than {$minLength} characters",
           "type" : "label"
         } ],
         "labelTemplate" : [ {
           "identifier" : "labelTemplate",
           "language" : "undefined",
-          "value" : "Value must be <= {$maxInclusive}",
+          "value" : "Value must have less than {$minLength} characters",
           "type" : "label"
         } ]
       },
       "comment" : {
-        "en" : "A constraint component that can be used to restrict the range of value nodes with a maximum inclusive value."
+        "en" : "A constraint component that can be used to restrict the minimum string length of value nodes."
       },
       "labels" : {
-        "IRI-based" : "MaxInclusiveConstraintComponent",
-        "en" : "Max-inclusive constraint component"
+        "IRI-based" : "MinLengthConstraintComponent",
+        "en" : "Min-length constraint component"
       }
     }, {
       "iri" : "http://www.w3.org/ns/shacl#LanguageInConstraintComponent",
@@ -6649,6 +6625,36 @@
       "labels" : {
         "IRI-based" : "LanguageInConstraintComponent",
         "en" : "Language-in constraint component"
+      }
+    }, {
+      "iri" : "http://www.w3.org/ns/shacl#MaxInclusiveConstraintComponent",
+      "baseIri" : "http://www.w3.org/ns/shacl",
+      "annotations" : {
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#",
+          "type" : "iri"
+        } ],
+        "message" : [ {
+          "identifier" : "message",
+          "language" : "undefined",
+          "value" : "Value is not <= {$maxInclusive}",
+          "type" : "label"
+        } ],
+        "labelTemplate" : [ {
+          "identifier" : "labelTemplate",
+          "language" : "undefined",
+          "value" : "Value must be <= {$maxInclusive}",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "en" : "A constraint component that can be used to restrict the range of value nodes with a maximum inclusive value."
+      },
+      "labels" : {
+        "IRI-based" : "MaxInclusiveConstraintComponent",
+        "en" : "Max-inclusive constraint component"
       }
     }, {
       "iri" : "http://datashapes.org/dash#NonRecursiveConstraintComponent",
@@ -6819,6 +6825,36 @@
         "en" : "Has-value constraint component"
       }
     }, {
+      "iri" : "http://www.w3.org/ns/shacl#PatternConstraintComponent",
+      "baseIri" : "http://www.w3.org/ns/shacl",
+      "annotations" : {
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#",
+          "type" : "iri"
+        } ],
+        "message" : [ {
+          "identifier" : "message",
+          "language" : "undefined",
+          "value" : "Value does not match pattern \"{$pattern}\"",
+          "type" : "label"
+        } ],
+        "labelTemplate" : [ {
+          "identifier" : "labelTemplate",
+          "language" : "undefined",
+          "value" : "Value must match pattern \"{$pattern}\"",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "en" : "A constraint component that can be used to verify that every value node matches a given regular expression."
+      },
+      "labels" : {
+        "IRI-based" : "PatternConstraintComponent",
+        "en" : "Pattern constraint component"
+      }
+    }, {
       "iri" : "http://www.w3.org/ns/shacl#MinInclusiveConstraintComponent",
       "baseIri" : "http://www.w3.org/ns/shacl",
       "annotations" : {
@@ -6877,36 +6913,6 @@
       "labels" : {
         "IRI-based" : "MaxExclusiveConstraintComponent",
         "en" : "Max-exclusive constraint component"
-      }
-    }, {
-      "iri" : "http://www.w3.org/ns/shacl#PatternConstraintComponent",
-      "baseIri" : "http://www.w3.org/ns/shacl",
-      "annotations" : {
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "http://www.w3.org/ns/shacl#",
-          "type" : "iri"
-        } ],
-        "message" : [ {
-          "identifier" : "message",
-          "language" : "undefined",
-          "value" : "Value does not match pattern \"{$pattern}\"",
-          "type" : "label"
-        } ],
-        "labelTemplate" : [ {
-          "identifier" : "labelTemplate",
-          "language" : "undefined",
-          "value" : "Value must match pattern \"{$pattern}\"",
-          "type" : "label"
-        } ]
-      },
-      "comment" : {
-        "en" : "A constraint component that can be used to verify that every value node matches a given regular expression."
-      },
-      "labels" : {
-        "IRI-based" : "PatternConstraintComponent",
-        "en" : "Pattern constraint component"
       }
     }, {
       "iri" : "http://datashapes.org/dash#HasValueWithClassConstraintComponent",
@@ -7003,36 +7009,6 @@
         "undefined" : "Indexed constraint component"
       }
     }, {
-      "iri" : "http://www.w3.org/ns/shacl#QualifiedMaxCountConstraintComponent",
-      "baseIri" : "http://www.w3.org/ns/shacl",
-      "annotations" : {
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "http://www.w3.org/ns/shacl#",
-          "type" : "iri"
-        } ],
-        "message" : [ {
-          "identifier" : "message",
-          "language" : "undefined",
-          "value" : "More than {$qualifiedMaxCount} values have shape {$qualifiedValueShape}",
-          "type" : "label"
-        } ],
-        "labelTemplate" : [ {
-          "identifier" : "labelTemplate",
-          "language" : "undefined",
-          "value" : "No more than {$qualifiedMaxCount} values can have shape {$qualifiedValueShape}",
-          "type" : "label"
-        } ]
-      },
-      "comment" : {
-        "en" : "A constraint component that can be used to verify that a specified maximum number of value nodes conforms to a given shape."
-      },
-      "labels" : {
-        "IRI-based" : "QualifiedMaxCountConstraintComponent",
-        "en" : "Qualified-max-count constraint component"
-      }
-    }, {
       "iri" : "http://www.w3.org/ns/shacl#MaxLengthConstraintComponent",
       "baseIri" : "http://www.w3.org/ns/shacl",
       "annotations" : {
@@ -7061,6 +7037,36 @@
       "labels" : {
         "IRI-based" : "MaxLengthConstraintComponent",
         "en" : "Max-length constraint component"
+      }
+    }, {
+      "iri" : "http://www.w3.org/ns/shacl#QualifiedMaxCountConstraintComponent",
+      "baseIri" : "http://www.w3.org/ns/shacl",
+      "annotations" : {
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/shacl#",
+          "type" : "iri"
+        } ],
+        "message" : [ {
+          "identifier" : "message",
+          "language" : "undefined",
+          "value" : "More than {$qualifiedMaxCount} values have shape {$qualifiedValueShape}",
+          "type" : "label"
+        } ],
+        "labelTemplate" : [ {
+          "identifier" : "labelTemplate",
+          "language" : "undefined",
+          "value" : "No more than {$qualifiedMaxCount} values can have shape {$qualifiedValueShape}",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "en" : "A constraint component that can be used to verify that a specified maximum number of value nodes conforms to a given shape."
+      },
+      "labels" : {
+        "IRI-based" : "QualifiedMaxCountConstraintComponent",
+        "en" : "Qualified-max-count constraint component"
       }
     }, {
       "iri" : "http://datashapes.org/dash#SingleLineConstraintComponent",
@@ -7794,37 +7800,37 @@
     "id" : "370",
     "type" : "rdf:Property"
   }, {
-    "id" : "372",
+    "id" : "371",
     "type" : "rdf:Property"
   }, {
-    "id" : "373",
+    "id" : "372",
     "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "374",
+    "type" : "owl:objectProperty"
   }, {
     "id" : "375",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "376",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "381",
+    "id" : "380",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "384",
+    "id" : "383",
     "type" : "owl:objectProperty"
+  }, {
+    "id" : "388",
+    "type" : "owl:datatypeProperty"
   }, {
     "id" : "389",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "390",
     "type" : "owl:objectProperty"
+  }, {
+    "id" : "396",
+    "type" : "rdf:Property"
   }, {
     "id" : "397",
     "type" : "rdf:Property"
   }, {
     "id" : "398",
-    "type" : "rdf:Property"
-  }, {
-    "id" : "399",
     "type" : "rdf:Property"
   }, {
     "id" : "400",
@@ -7836,14 +7842,17 @@
     "id" : "402",
     "type" : "rdf:Property"
   }, {
-    "id" : "404",
+    "id" : "403",
     "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "404",
+    "type" : "owl:objectProperty"
   }, {
     "id" : "405",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "406",
-    "type" : "owl:objectProperty"
+    "id" : "407",
+    "type" : "rdf:Property"
   }, {
     "id" : "408",
     "type" : "rdf:Property"
@@ -7860,47 +7869,41 @@
     "id" : "412",
     "type" : "rdf:Property"
   }, {
-    "id" : "413",
-    "type" : "rdf:Property"
-  }, {
     "id" : "414",
-    "type" : "rdf:Property"
-  }, {
-    "id" : "415",
     "type" : "rdf:Property"
   }, {
     "id" : "416",
     "type" : "rdf:Property"
   }, {
     "id" : "417",
-    "type" : "owl:objectProperty"
+    "type" : "rdf:Property"
   }, {
     "id" : "418",
-    "type" : "rdf:Property"
-  }, {
-    "id" : "419",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "420",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "422",
+    "id" : "419",
     "type" : "rdf:Property"
+  }, {
+    "id" : "421",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "422",
+    "type" : "owl:objectProperty"
   }, {
     "id" : "423",
     "type" : "rdf:Property"
   }, {
     "id" : "424",
-    "type" : "owl:objectProperty"
+    "type" : "rdf:Property"
   }, {
     "id" : "425",
-    "type" : "rdf:Property"
+    "type" : "owl:objectProperty"
   }, {
     "id" : "426",
-    "type" : "owl:datatypeProperty"
+    "type" : "rdf:Property"
   }, {
     "id" : "427",
-    "type" : "rdf:Property"
+    "type" : "owl:datatypeProperty"
   }, {
     "id" : "428",
     "type" : "rdf:Property"
@@ -7914,14 +7917,14 @@
     "id" : "431",
     "type" : "rdf:Property"
   }, {
+    "id" : "432",
+    "type" : "rdf:Property"
+  }, {
     "id" : "434",
     "type" : "rdf:Property"
   }, {
-    "id" : "435",
-    "type" : "owl:objectProperty"
-  }, {
     "id" : "436",
-    "type" : "rdf:Property"
+    "type" : "owl:objectProperty"
   }, {
     "id" : "437",
     "type" : "rdf:Property"
@@ -7941,35 +7944,35 @@
     "id" : "442",
     "type" : "rdf:Property"
   }, {
-    "id" : "443",
-    "type" : "rdf:Property"
-  }, {
     "id" : "444",
     "type" : "rdf:Property"
   }, {
     "id" : "445",
     "type" : "rdf:Property"
   }, {
+    "id" : "446",
+    "type" : "rdf:Property"
+  }, {
     "id" : "447",
-    "type" : "owl:objectProperty"
+    "type" : "rdf:Property"
   }, {
     "id" : "448",
-    "type" : "owl:datatypeProperty"
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "449",
+    "type" : "owl:objectProperty"
   }, {
     "id" : "450",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "451",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "452",
-    "type" : "rdf:Property"
-  }, {
-    "id" : "453",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "454",
+    "id" : "452",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "453",
     "type" : "rdf:Property"
+  }, {
+    "id" : "454",
+    "type" : "owl:datatypeProperty"
   }, {
     "id" : "455",
     "type" : "rdf:Property"
@@ -7978,6 +7981,9 @@
     "type" : "rdf:Property"
   }, {
     "id" : "457",
+    "type" : "rdf:Property"
+  }, {
+    "id" : "458",
     "type" : "rdf:Property"
   }, {
     "id" : "459",
@@ -8352,77 +8358,77 @@
   "propertyAttribute" : [ {
     "range" : "2",
     "domain" : "1",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "0"
   }, {
     "range" : "5",
     "domain" : "4",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "3"
   }, {
     "range" : "2",
     "domain" : "7",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "6"
   }, {
     "range" : "5",
     "domain" : "9",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "8"
   }, {
     "range" : "2",
     "domain" : "13",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "12"
   }, {
     "range" : "5",
     "domain" : "7",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "14"
   }, {
     "range" : "17",
     "domain" : "16",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "15"
   }, {
     "range" : "5",
     "domain" : "19",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "18"
   }, {
     "range" : "17",
     "domain" : "24",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "23"
   }, {
     "range" : "27",
     "domain" : "26",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "25"
   }, {
     "range" : "30",
     "domain" : "29",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "28"
   }, {
     "range" : "27",
     "domain" : "32",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "31"
   }, {
     "range" : "30",
     "domain" : "34",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "33"
   }, {
     "range" : "37",
     "domain" : "36",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "35"
   }, {
     "range" : "30",
     "domain" : "39",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "38"
   }, {
     "iri" : "http://www.w3.org/ns/shacl#node",
@@ -8449,67 +8455,67 @@
   }, {
     "range" : "46",
     "domain" : "55",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "54"
   }, {
     "range" : "50",
     "domain" : "52",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "56"
   }, {
     "range" : "5",
     "domain" : "58",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "57"
   }, {
     "range" : "2",
     "domain" : "53",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "59"
   }, {
     "range" : "5",
     "domain" : "61",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "60"
   }, {
     "range" : "21",
     "domain" : "64",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "63"
   }, {
     "range" : "21",
     "domain" : "68",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "67"
   }, {
     "range" : "21",
     "domain" : "2",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "72"
   }, {
     "range" : "21",
     "domain" : "76",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "75"
   }, {
     "range" : "20",
     "domain" : "22",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "77"
   }, {
     "range" : "21",
     "domain" : "79",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "78"
   }, {
     "range" : "42",
     "domain" : "27",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "81"
   }, {
     "range" : "84",
     "domain" : "83",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "82"
   }, {
     "iri" : "http://www.w3.org/ns/shacl#jsLibraryURL",
@@ -8536,27 +8542,27 @@
   }, {
     "range" : "42",
     "domain" : "43",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "87"
   }, {
     "range" : "84",
     "domain" : "89",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "88"
   }, {
     "range" : "50",
     "domain" : "51",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "90"
   }, {
     "range" : "93",
     "domain" : "92",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "91"
   }, {
     "range" : "50",
     "domain" : "48",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "96"
   }, {
     "iri" : "http://www.w3.org/ns/shacl#qualifiedMaxCount",
@@ -8649,57 +8655,57 @@
   }, {
     "range" : "21",
     "domain" : "111",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "110"
   }, {
     "range" : "21",
     "domain" : "70",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "113"
   }, {
     "range" : "21",
     "domain" : "119",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "118"
   }, {
     "range" : "21",
     "domain" : "84",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "120"
   }, {
     "range" : "21",
     "domain" : "122",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "121"
   }, {
     "range" : "21",
     "domain" : "42",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "123"
   }, {
     "range" : "21",
     "domain" : "125",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "124"
   }, {
     "range" : "21",
     "domain" : "104",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "126"
   }, {
     "range" : "21",
     "domain" : "37",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "127"
   }, {
     "range" : "21",
     "domain" : "129",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "128"
   }, {
     "range" : "21",
     "domain" : "131",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "130"
   }, {
     "iri" : "http://datashapes.org/dash#suggestionGenerator",
@@ -8718,32 +8724,32 @@
   }, {
     "range" : "21",
     "domain" : "136",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "135"
   }, {
     "range" : "139",
     "domain" : "138",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "137"
   }, {
     "range" : "139",
     "domain" : "141",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "140"
   }, {
     "range" : "139",
     "domain" : "143",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "142"
   }, {
     "range" : "21",
     "domain" : "145",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "144"
   }, {
     "range" : "21",
     "domain" : "148",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "147"
   }, {
     "iri" : "http://datashapes.org/dash#addedTriple",
@@ -8762,27 +8768,27 @@
   }, {
     "range" : "21",
     "domain" : "5",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "151"
   }, {
     "range" : "21",
     "domain" : "116",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "152"
   }, {
     "range" : "21",
     "domain" : "20",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "153"
   }, {
     "range" : "21",
     "domain" : "101",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "154"
   }, {
     "range" : "21",
     "domain" : "156",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "155"
   }, {
     "iri" : "http://www.w3.org/ns/shacl#qualifiedValueShape",
@@ -8897,37 +8903,37 @@
   }, {
     "range" : "41",
     "domain" : "190",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "203"
   }, {
     "range" : "129",
     "domain" : "24",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "204"
   }, {
     "range" : "41",
     "domain" : "191",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "209"
   }, {
     "range" : "129",
     "domain" : "211",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "210"
   }, {
     "range" : "41",
     "domain" : "192",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "212"
   }, {
     "range" : "129",
     "domain" : "214",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "213"
   }, {
     "range" : "41",
     "domain" : "193",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "215"
   }, {
     "iri" : "http://www.w3.org/ns/shacl#closed",
@@ -8954,37 +8960,37 @@
   }, {
     "range" : "11",
     "domain" : "50",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "220"
   }, {
     "range" : "41",
     "domain" : "146",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "221"
   }, {
     "range" : "11",
     "domain" : "223",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "222"
   }, {
     "range" : "41",
     "domain" : "80",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "224"
   }, {
     "range" : "11",
     "domain" : "226",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "225"
   }, {
     "range" : "41",
     "domain" : "187",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "227"
   }, {
     "range" : "129",
     "domain" : "36",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "228"
   }, {
     "iri" : "http://www.w3.org/ns/shacl#ask",
@@ -9033,77 +9039,77 @@
   }, {
     "range" : "41",
     "domain" : "188",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "232"
   }, {
     "range" : "129",
     "domain" : "95",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "233"
   }, {
     "range" : "41",
     "domain" : "189",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "234"
   }, {
     "range" : "129",
     "domain" : "236",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "235"
   }, {
     "range" : "41",
     "domain" : "157",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "238"
   }, {
     "range" : "129",
     "domain" : "240",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "239"
   }, {
     "range" : "41",
     "domain" : "183",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "241"
   }, {
     "range" : "11",
     "domain" : "243",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "242"
   }, {
     "range" : "41",
     "domain" : "184",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "244"
   }, {
     "range" : "11",
     "domain" : "51",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "245"
   }, {
     "range" : "41",
     "domain" : "185",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "246"
   }, {
     "range" : "11",
     "domain" : "10",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "247"
   }, {
     "range" : "41",
     "domain" : "186",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "248"
   }, {
     "range" : "11",
     "domain" : "250",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "249"
   }, {
     "range" : "41",
     "domain" : "73",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "252"
   }, {
     "iri" : "http://www.w3.org/ns/shacl#annotationVarName",
@@ -9202,67 +9208,67 @@
   }, {
     "range" : "116",
     "domain" : "94",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "264"
   }, {
     "range" : "41",
     "domain" : "179",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "265"
   }, {
     "range" : "116",
     "domain" : "256",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "266"
   }, {
     "range" : "41",
     "domain" : "180",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "267"
   }, {
     "range" : "116",
     "domain" : "30",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "268"
   }, {
     "range" : "41",
     "domain" : "181",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "269"
   }, {
     "range" : "156",
     "domain" : "16",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "270"
   }, {
     "range" : "41",
     "domain" : "182",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "271"
   }, {
     "range" : "156",
     "domain" : "273",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "272"
   }, {
     "range" : "41",
     "domain" : "65",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "274"
   }, {
     "range" : "156",
     "domain" : "4",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "275"
   }, {
     "range" : "41",
     "domain" : "175",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "276"
   }, {
     "range" : "278",
     "domain" : "214",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "277"
   }, {
     "iri" : "http://www.w3.org/ns/shacl#propertyValidator",
@@ -9289,62 +9295,62 @@
   }, {
     "range" : "41",
     "domain" : "47",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "281"
   }, {
     "range" : "278",
     "domain" : "283",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "282"
   }, {
     "range" : "41",
     "domain" : "176",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "287"
   }, {
     "range" : "49",
     "domain" : "48",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "288"
   }, {
     "range" : "41",
     "domain" : "177",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "289"
   }, {
     "range" : "49",
     "domain" : "52",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "290"
   }, {
     "range" : "41",
     "domain" : "178",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "291"
   }, {
     "range" : "116",
     "domain" : "17",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "292"
   }, {
     "range" : "41",
     "domain" : "132",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "293"
   }, {
     "range" : "37",
     "domain" : "295",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "294"
   }, {
     "range" : "41",
     "domain" : "40",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "296"
   }, {
     "range" : "263",
     "domain" : "298",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "297"
   }, {
     "iri" : "http://www.w3.org/ns/shacl#namespace",
@@ -9371,82 +9377,82 @@
   }, {
     "range" : "41",
     "domain" : "172",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "301"
   }, {
     "range" : "263",
     "domain" : "262",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "302"
   }, {
     "range" : "41",
     "domain" : "173",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "303"
   }, {
     "range" : "240",
     "domain" : "286",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "304"
   }, {
     "range" : "41",
     "domain" : "174",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "305"
   }, {
     "range" : "278",
     "domain" : "55",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "306"
   }, {
     "range" : "41",
     "domain" : "165",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "307"
   }, {
     "range" : "37",
     "domain" : "236",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "308"
   }, {
     "range" : "41",
     "domain" : "166",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "309"
   }, {
     "range" : "37",
     "domain" : "53",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "310"
   }, {
     "range" : "41",
     "domain" : "167",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "311"
   }, {
     "range" : "37",
     "domain" : "89",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "312"
   }, {
     "range" : "41",
     "domain" : "168",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "313"
   }, {
     "range" : "37",
     "domain" : "315",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "314"
   }, {
     "range" : "41",
     "domain" : "169",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "316"
   }, {
     "range" : "37",
     "domain" : "318",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "317"
   }, {
     "iri" : "http://www.w3.org/ns/shacl#prefix",
@@ -9473,17 +9479,17 @@
   }, {
     "range" : "41",
     "domain" : "170",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "321"
   }, {
     "range" : "37",
     "domain" : "323",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "322"
   }, {
     "range" : "41",
     "domain" : "171",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "324"
   }, {
     "iri" : "http://datashapes.org/dash#apiStatus",
@@ -9524,37 +9530,37 @@
   }, {
     "range" : "37",
     "domain" : "328",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "327"
   }, {
     "range" : "30",
     "domain" : "13",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "329"
   }, {
     "range" : "37",
     "domain" : "69",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "330"
   }, {
     "range" : "41",
     "domain" : "117",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "331"
   }, {
     "range" : "37",
     "domain" : "333",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "332"
   }, {
     "range" : "41",
     "domain" : "164",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "334"
   }, {
     "range" : "37",
     "domain" : "336",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "335"
   }, {
     "iri" : "http://datashapes.org/dash#mimeTypes",
@@ -9696,7 +9702,7 @@
     "id" : "365"
   }, {
     "domain" : "55",
-    "range" : "371",
+    "range" : "328",
     "id" : "370",
     "label" : {
       "IRI-based" : "52",
@@ -9704,8 +9710,8 @@
     }
   }, {
     "domain" : "55",
-    "range" : "218",
-    "id" : "372",
+    "range" : "69",
+    "id" : "371",
     "label" : {
       "IRI-based" : "51",
       "undefined" : "is a"
@@ -9723,7 +9729,7 @@
       "undefined" : "An optional confidence between 0% and 100%. Suggestions with 100% confidence are strongly recommended. Can be used to sort recommended updates."
     },
     "attributes" : [ "datatype", "external" ],
-    "id" : "373"
+    "id" : "372"
   }, {
     "iri" : "http://datashapes.org/dash#viewer",
     "baseIri" : "http://datashapes.org/dash",
@@ -9737,7 +9743,7 @@
       "undefined" : "Can be used to link a property shape with a viewer, to state a preferred viewing widget in user interfaces."
     },
     "attributes" : [ "object", "external" ],
-    "id" : "375"
+    "id" : "374"
   }, {
     "iri" : "http://datashapes.org/dash#suggestion",
     "baseIri" : "http://datashapes.org/dash",
@@ -9751,11 +9757,11 @@
       "undefined" : "Can be used to link a result with one or more suggestions on how to address or improve the underlying issue."
     },
     "attributes" : [ "object", "external" ],
-    "id" : "376"
+    "id" : "375"
   }, {
     "iri" : "http://www.w3.org/ns/shacl#order",
     "baseIri" : "http://www.w3.org/ns/shacl",
-    "range" : "382",
+    "range" : "381",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -9773,7 +9779,7 @@
       "en" : "Specifies the relative order of this compared to its siblings. For example use 0 for the first, 1 for the second."
     },
     "attributes" : [ "datatype", "external" ],
-    "id" : "381"
+    "id" : "380"
   }, {
     "iri" : "http://www.w3.org/ns/shacl#annotationProperty",
     "baseIri" : "http://www.w3.org/ns/shacl",
@@ -9795,7 +9801,7 @@
       "en" : "The annotation property that shall be set."
     },
     "attributes" : [ "object", "external" ],
-    "id" : "384"
+    "id" : "383"
   }, {
     "iri" : "http://datashapes.org/dash#js",
     "baseIri" : "http://datashapes.org/dash",
@@ -9809,11 +9815,11 @@
       "undefined" : "The JavaScript source code of a Script."
     },
     "attributes" : [ "datatype", "external" ],
-    "id" : "389"
+    "id" : "388"
   }, {
     "iri" : "http://www.w3.org/ns/shacl#datatype",
     "baseIri" : "http://www.w3.org/ns/shacl",
-    "range" : "391",
+    "range" : "390",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -9831,34 +9837,34 @@
       "en" : "Specifies an RDF datatype that all value nodes must have."
     },
     "attributes" : [ "object", "external" ],
-    "id" : "390"
+    "id" : "389"
   }, {
     "domain" : "55",
-    "range" : "328",
-    "id" : "397",
+    "range" : "315",
+    "id" : "396",
     "label" : {
       "IRI-based" : "72",
       "undefined" : "is a"
     }
   }, {
     "domain" : "55",
-    "range" : "36",
-    "id" : "398",
+    "range" : "262",
+    "id" : "397",
     "label" : {
       "IRI-based" : "71",
       "undefined" : "is a"
     }
   }, {
     "domain" : "55",
-    "range" : "219",
-    "id" : "399",
+    "range" : "399",
+    "id" : "398",
     "label" : {
       "IRI-based" : "74",
       "undefined" : "is a"
     }
   }, {
     "domain" : "55",
-    "range" : "69",
+    "range" : "236",
     "id" : "400",
     "label" : {
       "IRI-based" : "73",
@@ -9880,7 +9886,7 @@
     "id" : "401"
   }, {
     "domain" : "55",
-    "range" : "403",
+    "range" : "219",
     "id" : "402",
     "label" : {
       "IRI-based" : "70",
@@ -9899,7 +9905,7 @@
       "undefined" : "The y position."
     },
     "attributes" : [ "datatype", "external" ],
-    "id" : "404"
+    "id" : "403"
   }, {
     "iri" : "http://www.w3.org/ns/shacl#js",
     "baseIri" : "http://www.w3.org/ns/shacl",
@@ -9921,7 +9927,7 @@
       "undefined" : "Constraints expressed in JavaScript."
     },
     "attributes" : [ "object", "external" ],
-    "id" : "405"
+    "id" : "404"
   }, {
     "iri" : "http://datashapes.org/dash#dependencyPredicate",
     "baseIri" : "http://datashapes.org/dash",
@@ -9930,63 +9936,63 @@
       "IRI-based" : "dependencyPredicate",
       "undefined" : "dependency predicate"
     },
-    "domain" : "407",
+    "domain" : "406",
     "comment" : {
       "undefined" : "Can be used in dash:js node expressions to enumerate the predicates that the computation of the values may depend on. This can be used by clients to determine whether an edit requires re-computation of values on a form or elsewhere. For example, if the dash:js is something like \"focusNode.firstName + focusNode.lastName\" then the dependency predicates should be ex:firstName and ex:lastName."
     },
     "attributes" : [ "object", "external" ],
-    "id" : "406"
+    "id" : "405"
   }, {
     "domain" : "55",
-    "range" : "298",
-    "id" : "408",
+    "range" : "336",
+    "id" : "407",
     "label" : {
       "IRI-based" : "69",
       "undefined" : "is a"
     }
   }, {
     "domain" : "55",
-    "range" : "70",
-    "id" : "409",
+    "range" : "68",
+    "id" : "408",
     "label" : {
       "IRI-based" : "68",
       "undefined" : "is a"
     }
   }, {
     "domain" : "55",
-    "range" : "262",
-    "id" : "410",
+    "range" : "55",
+    "id" : "409",
     "label" : {
       "IRI-based" : "65",
       "undefined" : "is a"
     }
   }, {
     "domain" : "55",
-    "range" : "295",
-    "id" : "411",
+    "range" : "103",
+    "id" : "410",
     "label" : {
       "IRI-based" : "64",
       "undefined" : "is a"
     }
   }, {
     "domain" : "55",
-    "range" : "89",
-    "id" : "412",
+    "range" : "53",
+    "id" : "411",
     "label" : {
       "IRI-based" : "67",
       "undefined" : "is a"
     }
   }, {
     "domain" : "55",
-    "range" : "336",
-    "id" : "413",
+    "range" : "413",
+    "id" : "412",
     "label" : {
       "IRI-based" : "66",
       "undefined" : "is a"
     }
   }, {
     "domain" : "55",
-    "range" : "43",
+    "range" : "415",
     "id" : "414",
     "label" : {
       "IRI-based" : "61",
@@ -9994,16 +10000,16 @@
     }
   }, {
     "domain" : "55",
-    "range" : "68",
-    "id" : "415",
+    "range" : "323",
+    "id" : "416",
     "label" : {
       "IRI-based" : "60",
       "undefined" : "is a"
     }
   }, {
     "domain" : "55",
-    "range" : "26",
-    "id" : "416",
+    "range" : "42",
+    "id" : "417",
     "label" : {
       "IRI-based" : "63",
       "undefined" : "is a"
@@ -10029,11 +10035,11 @@
       "en" : "Links a resource with its namespace prefix declarations."
     },
     "attributes" : [ "object", "external" ],
-    "id" : "417"
+    "id" : "418"
   }, {
     "domain" : "55",
-    "range" : "32",
-    "id" : "418",
+    "range" : "420",
+    "id" : "419",
     "label" : {
       "IRI-based" : "62",
       "undefined" : "is a"
@@ -10041,7 +10047,7 @@
   }, {
     "iri" : "http://www.w3.org/ns/shacl#maxCount",
     "baseIri" : "http://www.w3.org/ns/shacl",
-    "range" : "393",
+    "range" : "392",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -10059,7 +10065,7 @@
       "en" : "Specifies the maximum number of values in the set of value nodes."
     },
     "attributes" : [ "datatype", "external" ],
-    "id" : "419"
+    "id" : "421"
   }, {
     "iri" : "http://datashapes.org/dash#reifiableBy",
     "baseIri" : "http://datashapes.org/dash",
@@ -10073,19 +10079,19 @@
       "undefined" : "Can be used to specify the node shape that may be applied to reified statements produced by a property shape. The property shape must have a URI resource as its sh:path. The values of this property must be node shapes. User interfaces can use this information to determine which properties to present to users when reified statements are explored or edited. Use dash:None to indicate that no reification should be permitted."
     },
     "attributes" : [ "object", "external" ],
-    "id" : "420"
+    "id" : "422"
   }, {
     "domain" : "55",
-    "range" : "355",
-    "id" : "422",
+    "range" : "298",
+    "id" : "423",
     "label" : {
       "IRI-based" : "58",
       "undefined" : "is a"
     }
   }, {
     "domain" : "55",
-    "range" : "323",
-    "id" : "423",
+    "range" : "354",
+    "id" : "424",
     "label" : {
       "IRI-based" : "57",
       "undefined" : "is a"
@@ -10111,11 +10117,11 @@
       "en" : "The validator(s) used to evaluate a constraint in the context of a node shape."
     },
     "attributes" : [ "object", "external" ],
-    "id" : "424"
+    "id" : "425"
   }, {
     "domain" : "55",
-    "range" : "285",
-    "id" : "425",
+    "range" : "37",
+    "id" : "426",
     "label" : {
       "IRI-based" : "59",
       "undefined" : "is a"
@@ -10141,50 +10147,50 @@
       "en" : "True if the validation did not produce any validation results, and false otherwise."
     },
     "attributes" : [ "datatype", "external" ],
-    "id" : "426"
+    "id" : "427"
   }, {
     "domain" : "55",
-    "range" : "103",
-    "id" : "427",
+    "range" : "32",
+    "id" : "428",
     "label" : {
       "IRI-based" : "54",
       "undefined" : "is a"
     }
   }, {
     "domain" : "55",
-    "range" : "263",
-    "id" : "428",
+    "range" : "218",
+    "id" : "429",
     "label" : {
       "IRI-based" : "53",
       "undefined" : "is a"
     }
   }, {
     "domain" : "55",
-    "range" : "421",
-    "id" : "429",
+    "range" : "285",
+    "id" : "430",
     "label" : {
       "IRI-based" : "56",
       "undefined" : "is a"
     }
   }, {
     "domain" : "55",
-    "range" : "37",
-    "id" : "430",
+    "range" : "355",
+    "id" : "431",
     "label" : {
       "IRI-based" : "55",
       "undefined" : "is a"
     }
   }, {
     "domain" : "39",
-    "range" : "432",
-    "id" : "431",
+    "range" : "433",
+    "id" : "432",
     "label" : {
       "IRI-based" : "90",
       "undefined" : "is a"
     }
   }, {
     "domain" : "39",
-    "range" : "251",
+    "range" : "435",
     "id" : "434",
     "label" : {
       "IRI-based" : "91",
@@ -10211,83 +10217,83 @@
       "en" : "Links a shape to a target specified by an extension language, for example instances of sh:SPARQLTarget."
     },
     "attributes" : [ "object", "external" ],
-    "id" : "435"
+    "id" : "436"
   }, {
     "domain" : "46",
-    "range" : "240",
-    "id" : "436",
+    "range" : "122",
+    "id" : "437",
     "label" : {
       "IRI-based" : "87",
       "undefined" : "is a"
     }
   }, {
     "domain" : "46",
-    "range" : "286",
-    "id" : "437",
+    "range" : "240",
+    "id" : "438",
     "label" : {
       "IRI-based" : "86",
       "undefined" : "is a"
     }
   }, {
     "domain" : "39",
-    "range" : "433",
-    "id" : "438",
+    "range" : "251",
+    "id" : "439",
     "label" : {
       "IRI-based" : "89",
       "undefined" : "is a"
     }
   }, {
     "domain" : "46",
-    "range" : "318",
-    "id" : "439",
+    "range" : "148",
+    "id" : "440",
     "label" : {
       "IRI-based" : "88",
       "undefined" : "is a"
     }
   }, {
     "domain" : "55",
-    "range" : "236",
-    "id" : "440",
+    "range" : "263",
+    "id" : "441",
     "label" : {
       "IRI-based" : "83",
       "undefined" : "is a"
     }
   }, {
     "domain" : "55",
-    "range" : "42",
-    "id" : "441",
+    "range" : "443",
+    "id" : "442",
     "label" : {
       "IRI-based" : "82",
       "undefined" : "is a"
     }
   }, {
     "domain" : "46",
-    "range" : "122",
-    "id" : "442",
+    "range" : "286",
+    "id" : "444",
     "label" : {
       "IRI-based" : "85",
       "undefined" : "is a"
     }
   }, {
     "domain" : "46",
-    "range" : "148",
-    "id" : "443",
+    "range" : "318",
+    "id" : "445",
     "label" : {
       "IRI-based" : "84",
       "undefined" : "is a"
     }
   }, {
     "domain" : "55",
-    "range" : "354",
-    "id" : "444",
+    "range" : "89",
+    "id" : "446",
     "label" : {
       "IRI-based" : "81",
       "undefined" : "is a"
     }
   }, {
     "domain" : "55",
-    "range" : "446",
-    "id" : "445",
+    "range" : "295",
+    "id" : "447",
     "label" : {
       "IRI-based" : "80",
       "undefined" : "is a"
@@ -10313,20 +10319,6 @@
       "en" : "The validator(s) used to evaluate constraints of either node or property shapes."
     },
     "attributes" : [ "object", "external" ],
-    "id" : "447"
-  }, {
-    "iri" : "http://datashapes.org/dash#actionIconClass",
-    "baseIri" : "http://datashapes.org/dash",
-    "range" : "449",
-    "label" : {
-      "IRI-based" : "actionIconClass",
-      "undefined" : "action icon class"
-    },
-    "domain" : "36",
-    "comment" : {
-      "undefined" : "The (CSS) class of an Action for display purposes alongside the label."
-    },
-    "attributes" : [ "datatype", "external" ],
     "id" : "448"
   }, {
     "iri" : "http://www.w3.org/ns/shacl#in",
@@ -10349,6 +10341,20 @@
       "en" : "Specifies a list of allowed values so that each value node must be among the members of the given list."
     },
     "attributes" : [ "object", "external" ],
+    "id" : "449"
+  }, {
+    "iri" : "http://datashapes.org/dash#actionIconClass",
+    "baseIri" : "http://datashapes.org/dash",
+    "range" : "451",
+    "label" : {
+      "IRI-based" : "actionIconClass",
+      "undefined" : "action icon class"
+    },
+    "domain" : "36",
+    "comment" : {
+      "undefined" : "The (CSS) class of an Action for display purposes alongside the label."
+    },
+    "attributes" : [ "datatype", "external" ],
     "id" : "450"
   }, {
     "iri" : "http://datashapes.org/dash#coExistsWith",
@@ -10358,16 +10364,16 @@
       "IRI-based" : "coExistsWith",
       "undefined" : "co-exists with"
     },
-    "domain" : "407",
+    "domain" : "406",
     "comment" : {
       "undefined" : "Specifies a property that must have a value whenever the property path has a value, and must have no value whenever the property path has no value."
     },
     "attributes" : [ "object", "external" ],
-    "id" : "451"
+    "id" : "452"
   }, {
     "domain" : "55",
-    "range" : "55",
-    "id" : "452",
+    "range" : "70",
+    "id" : "453",
     "label" : {
       "IRI-based" : "79",
       "undefined" : "is a"
@@ -10381,19 +10387,19 @@
     },
     "domain" : "93",
     "attributes" : [ "datatype", "external" ],
-    "id" : "453"
+    "id" : "454"
   }, {
     "domain" : "55",
-    "range" : "315",
-    "id" : "454",
+    "range" : "26",
+    "id" : "455",
     "label" : {
       "IRI-based" : "76",
       "undefined" : "is a"
     }
   }, {
     "domain" : "55",
-    "range" : "53",
-    "id" : "455",
+    "range" : "43",
+    "id" : "456",
     "label" : {
       "IRI-based" : "75",
       "undefined" : "is a"
@@ -10401,15 +10407,15 @@
   }, {
     "domain" : "55",
     "range" : "27",
-    "id" : "456",
+    "id" : "457",
     "label" : {
       "IRI-based" : "78",
       "undefined" : "is a"
     }
   }, {
     "domain" : "55",
-    "range" : "458",
-    "id" : "457",
+    "range" : "36",
+    "id" : "458",
     "label" : {
       "IRI-based" : "77",
       "undefined" : "is a"
@@ -10558,7 +10564,7 @@
   }, {
     "iri" : "http://www.w3.org/ns/shacl#deactivated",
     "baseIri" : "http://www.w3.org/ns/shacl",
-    "range" : "396",
+    "range" : "395",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -10615,7 +10621,7 @@
       "IRI-based" : "disjoint",
       "en" : "disjoint"
     },
-    "domain" : "407",
+    "domain" : "406",
     "comment" : {
       "en" : "Specifies a property where the set of values must be disjoint with the value nodes."
     },
@@ -10646,7 +10652,7 @@
   }, {
     "iri" : "http://www.w3.org/ns/shacl#optional",
     "baseIri" : "http://www.w3.org/ns/shacl",
-    "range" : "383",
+    "range" : "382",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -10668,7 +10674,7 @@
   }, {
     "iri" : "http://www.w3.org/ns/shacl#uniqueLang",
     "baseIri" : "http://www.w3.org/ns/shacl",
-    "range" : "378",
+    "range" : "377",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -10922,7 +10928,7 @@
   }, {
     "iri" : "http://www.w3.org/ns/shacl#qualifiedMinCount",
     "baseIri" : "http://www.w3.org/ns/shacl",
-    "range" : "380",
+    "range" : "379",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -11016,7 +11022,7 @@
   }, {
     "iri" : "http://www.w3.org/ns/shacl#maxLength",
     "baseIri" : "http://www.w3.org/ns/shacl",
-    "range" : "392",
+    "range" : "391",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -11160,57 +11166,57 @@
   }, {
     "range" : "323",
     "domain" : "354",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "507"
   }, {
     "range" : "323",
     "domain" : "355",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "508"
   }, {
     "range" : "115",
     "domain" : "114",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "509"
   }, {
     "range" : "115",
     "domain" : "357",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "510"
   }, {
     "range" : "214",
     "domain" : "39",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "511"
   }, {
     "range" : "214",
     "domain" : "9",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "512"
   }, {
-    "range" : "385",
-    "domain" : "386",
-    "attributes" : [ "object", "anonymous" ],
+    "range" : "384",
+    "domain" : "385",
+    "attributes" : [ "anonymous", "object" ],
     "id" : "513"
   }, {
-    "range" : "385",
-    "domain" : "387",
-    "attributes" : [ "object", "anonymous" ],
+    "range" : "384",
+    "domain" : "386",
+    "attributes" : [ "anonymous", "object" ],
     "id" : "514"
   }, {
     "range" : "139",
-    "domain" : "388",
-    "attributes" : [ "object", "anonymous" ],
+    "domain" : "387",
+    "attributes" : [ "anonymous", "object" ],
     "id" : "515"
   }, {
     "range" : "139",
     "domain" : "339",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "516"
   }, {
     "range" : "101",
     "domain" : "93",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "517"
   }, {
     "iri" : "http://datashapes.org/dash#actionGroup",
@@ -11229,7 +11235,7 @@
   }, {
     "iri" : "http://www.w3.org/ns/shacl#minCount",
     "baseIri" : "http://www.w3.org/ns/shacl",
-    "range" : "395",
+    "range" : "394",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -11301,72 +11307,72 @@
   }, {
     "range" : "94",
     "domain" : "1",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "524"
   }, {
     "range" : "94",
     "domain" : "39",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "525"
   }, {
     "range" : "94",
     "domain" : "284",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "526"
   }, {
     "range" : "94",
     "domain" : "285",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "527"
   }, {
     "range" : "94",
     "domain" : "286",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "528"
   }, {
     "range" : "95",
     "domain" : "61",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "529"
   }, {
     "range" : "95",
     "domain" : "34",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "530"
   }, {
     "range" : "95",
     "domain" : "318",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "531"
   }, {
     "range" : "101",
     "domain" : "46",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "532"
   }, {
     "range" : "94",
     "domain" : "211",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "533"
   }, {
     "range" : "94",
     "domain" : "34",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "534"
   }, {
     "range" : "70",
-    "domain" : "421",
-    "attributes" : [ "object", "anonymous" ],
+    "domain" : "415",
+    "attributes" : [ "anonymous", "object" ],
     "id" : "535"
   }, {
     "range" : "145",
     "domain" : "205",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "536"
   }, {
     "range" : "70",
-    "domain" : "403",
-    "attributes" : [ "object", "anonymous" ],
+    "domain" : "413",
+    "attributes" : [ "anonymous", "object" ],
     "id" : "537"
   }, {
     "iri" : "http://datashapes.org/dash#shape",
@@ -11385,62 +11391,62 @@
   }, {
     "range" : "145",
     "domain" : "206",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "539"
   }, {
     "range" : "70",
-    "domain" : "371",
-    "attributes" : [ "object", "anonymous" ],
+    "domain" : "399",
+    "attributes" : [ "anonymous", "object" ],
     "id" : "540"
   }, {
     "range" : "145",
     "domain" : "207",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "541"
   }, {
     "range" : "70",
     "domain" : "285",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "542"
   }, {
     "range" : "145",
     "domain" : "208",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "543"
   }, {
     "range" : "70",
     "domain" : "218",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "544"
   }, {
     "range" : "218",
     "domain" : "219",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "545"
   }, {
     "range" : "70",
-    "domain" : "458",
-    "attributes" : [ "object", "anonymous" ],
+    "domain" : "443",
+    "attributes" : [ "anonymous", "object" ],
     "id" : "546"
   }, {
     "range" : "256",
     "domain" : "83",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "547"
   }, {
     "range" : "36",
     "domain" : "263",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "548"
   }, {
     "range" : "94",
     "domain" : "83",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "549"
   }, {
     "range" : "94",
     "domain" : "29",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "550"
   }, {
     "iri" : "http://www.w3.org/ns/shacl#construct",
@@ -11467,12 +11473,12 @@
   }, {
     "range" : "41",
     "domain" : "200",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "552"
   }, {
     "range" : "43",
-    "domain" : "446",
-    "attributes" : [ "object", "anonymous" ],
+    "domain" : "420",
+    "attributes" : [ "anonymous", "object" ],
     "id" : "553"
   }, {
     "iri" : "http://datashapes.org/dash#expectedResultIsJSON",
@@ -11491,17 +11497,17 @@
   }, {
     "range" : "41",
     "domain" : "201",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "556"
   }, {
     "range" : "70",
     "domain" : "69",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "557"
   }, {
     "iri" : "http://www.w3.org/ns/shacl#minLength",
     "baseIri" : "http://www.w3.org/ns/shacl",
-    "range" : "394",
+    "range" : "393",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -11523,7 +11529,7 @@
   }, {
     "range" : "145",
     "domain" : "115",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "559"
   }, {
     "iri" : "http://www.w3.org/ns/shacl#equals",
@@ -11541,7 +11547,7 @@
       "IRI-based" : "equals",
       "en" : "equals"
     },
-    "domain" : "407",
+    "domain" : "406",
     "comment" : {
       "en" : "Specifies a property that must have the same values as the value nodes."
     },
@@ -11550,7 +11556,7 @@
   }, {
     "iri" : "http://www.w3.org/ns/shacl#shapesGraphWellFormed",
     "baseIri" : "http://www.w3.org/ns/shacl",
-    "range" : "379",
+    "range" : "378",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -11594,77 +11600,77 @@
   }, {
     "range" : "129",
     "domain" : "323",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "563"
   }, {
     "range" : "41",
     "domain" : "194",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "564"
   }, {
     "range" : "129",
     "domain" : "280",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "565"
   }, {
     "range" : "41",
     "domain" : "195",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "566"
   }, {
     "range" : "111",
     "domain" : "58",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "567"
   }, {
     "range" : "41",
     "domain" : "196",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "568"
   }, {
     "range" : "111",
     "domain" : "29",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "569"
   }, {
     "range" : "41",
     "domain" : "197",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "570"
   }, {
     "range" : "111",
     "domain" : "251",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "571"
   }, {
     "range" : "41",
     "domain" : "108",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "572"
   }, {
     "range" : "111",
     "domain" : "433",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "573"
   }, {
     "range" : "41",
     "domain" : "198",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "574"
   }, {
     "range" : "111",
-    "domain" : "432",
-    "attributes" : [ "object", "anonymous" ],
+    "domain" : "435",
+    "attributes" : [ "anonymous", "object" ],
     "id" : "575"
   }, {
     "range" : "41",
     "domain" : "199",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "576"
   }, {
     "range" : "43",
     "domain" : "103",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "577"
   }, {
     "iri" : "http://www.w3.org/ns/shacl#suggestedShapesGraph",
@@ -11718,7 +11724,7 @@
       "IRI-based" : "lessThanOrEquals",
       "en" : "less than or equals"
     },
-    "domain" : "407",
+    "domain" : "406",
     "comment" : {
       "en" : "Specifies a property that must have smaller or equal values than the value nodes."
     },
@@ -11776,7 +11782,7 @@
       "IRI-based" : "lessThan",
       "en" : "less than"
     },
-    "domain" : "407",
+    "domain" : "406",
     "comment" : {
       "en" : "Specifies a property that must have smaller values than the value nodes."
     },
@@ -11849,7 +11855,7 @@
   }, {
     "iri" : "http://www.w3.org/ns/shacl#select",
     "baseIri" : "http://www.w3.org/ns/shacl",
-    "range" : "377",
+    "range" : "376",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
