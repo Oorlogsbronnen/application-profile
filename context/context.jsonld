@@ -2,8 +2,8 @@
   "@context": {
     "type": "@type",
     "id": "@id",
-    "@vocab": "http://data.niod.nl/",
-    "niod": "http://data.niod.nl/WO2_Thesaurus",
+    "@vocab": "http://data.oorlogsbronnen.nl/schema#",
+    "niod": "http://data.niod.nl/WO2_Thesaurus/",
     "dc": "http://purl.org/dc/elements/1.1/",
     "dct": "http://purl.org/dc/terms/",
     "dcat": "http://www.w3.org/ns/dcat#",
@@ -12,7 +12,7 @@
     "edm": "http://www.europeana.eu/schemas/edm/",
     "foaf": "http://xmlns.com/foaf/0.1/",
     "owl": "http://www.w3.org/2002/07/owl#",
-    "picom": "https://personsincontext.org/model/#",
+    "picom": "https://personsincontext.org/model#",
     "pnv": "https://w3id.org/pnv#",
     "prov": "http://www.w3.org/ns/prov#",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
@@ -22,33 +22,130 @@
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "xml": "http://www.w3.org/XML/1998/namespace",
+    
     "Afbeelding": {
+      "id": "Afbeelding",
       "type": "rdfs:Class"
     },
     "Archiefmateriaal": {
+      "id": "Archiefmateriaal",
       "type": "rdfs:Class"
     },
     "Archive": {
+      "id": "Archive",
       "type": "rdfs:Class"
     },
     "ArchiveFile": {
+      "id": "ArchiveFile",
       "type": "rdfs:Class"
     },
     "ArchiveSeries": {
+      "id": "ArchiveSeries",
+      "type": "rdfs:Class"
+    },
+    "Bekendmaking": {
+      "id": "Bekendmaking",
       "type": "rdfs:Class"
     },
     "Certificate": {
+      "id": "Certificate",
+      "type": "rdfs:Class"
+    },
+    "Interview": {
+      "id": "Interview",
+      "type": "rdfs:Class"
+    },
+    "InterviewSegment": {
+      "id": "InterviewSegment",
       "type": "rdfs:Class"
     },
     "Monument": {
+      "id": "Monument",
       "type": "rdfs:Class"
     },
     "Rights": {
+      "id": "Rights",
       "type": "rdfs:Class"
     },
     "Webpagina": {
+      "id": "Webpagina",
       "type": "rdfs:Class"
     },
+    
+    "PersonObservation": {
+      "@id": "picom:PersonObservation",
+      "type": "rdfs:Class"
+    },
+    "PersonReconstruction": {
+      "@id": "picom:PersonReconstruction",
+       "type": "rdfs:Class"
+    },
+    "LifeEvent": {
+      "@id": "picom:LifeEvent",
+       "type": "rdfs:Class"
+    },
+    "ArchiveComponent": {
+      "@id": "sdo:ArchiveComponent",
+       "type": "rdfs:Class"
+    },
+    "Entity": {
+      "@id": "prov:Entity",
+       "type": "rdfs:Class"
+    },
+    "Dataset": {
+      "@id": "sdo:Dataset",
+       "type": "rdfs:Class"
+    },
+
+    "CreativeWork": {
+      "@id": "sdo:CreativeWork",
+       "type": "rdfs:Class"
+    },
+    "Article": {
+      "@id": "sdo:Article",
+      "type": "rdfs:Class"
+    },
+    "AudioObject": {
+      "@id": "sdo:AudioObject",
+      "type": "rdfs:Class"
+    },
+    "Book": {
+      "@id": "sdo:Book",
+      "type": "rdfs:Class"
+    },
+    "CreativeWork": {
+      "@id": "sdo:CreativeWork",
+      "type": "rdfs:Class"
+    },
+    "Newspaper": {
+      "@id": "sdo:Newspaper",
+      "type": "rdfs:Class"
+    },
+    "Painting": {
+      "@id": "sdo:Painting",
+      "type": "rdfs:Class"
+    },
+    "Photograph": {
+      "@id": "sdo:Photograph",
+      "type": "rdfs:Class"
+    },
+    "Sculpture": {
+      "@id": "sdo:Sculpture",
+      "type": "rdfs:Class"
+    },
+    "SheetMusic": {
+      "@id": "sdo:SheetMusic",
+      "type": "rdfs:Class"
+    },
+    "VideoObject": {
+      "@id": "sdo:VideoObject",
+      "type": "rdfs:Class"
+    },
+    "VisualArtwork": {
+      "@id": "sdo:VisualArtwork",
+      "type": "rdfs:Class"
+    },
+    
     "Omgekomen": {
       "id": "niod:events/8772",
       "type": "rdfs:Class"
@@ -249,6 +346,7 @@
       "id": "vocab:genoemde",
       "type": "rdfs:Property"
     },
+    
     "imageIIIF": {
       "id": "vocab:imageIIIF",
       "type": "rdfs:Property"
