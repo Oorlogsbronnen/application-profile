@@ -24,26 +24,11 @@
     "xml": "http://www.w3.org/XML/1998/namespace",
 
     # Classes for Objects
-    "Afbeelding": {
-      "id": "Afbeelding",
+    
+    "ArchiveComponent": {
+      "id": "sdo:ArchiveComponent",
       "type": "rdfs:Class"
-    },
-    "Archiefmateriaal": {
-      "id": "Archiefmateriaal",
-      "type": "rdfs:Class"
-    },
-    "Archive": {
-      "id": "Archive",
-      "type": "rdfs:Class"
-    },
-    "ArchiveFile": {
-      "id": "ArchiveFile",
-      "type": "rdfs:Class"
-    },
-    "ArchiveSeries": {
-      "id": "ArchiveSeries",
-      "type": "rdfs:Class"
-    },
+    
     "Bekendmaking": {
       "id": "Bekendmaking",
       "type": "rdfs:Class"
@@ -64,12 +49,60 @@
       "id": "Monument",
       "type": "rdfs:Class"
     },
-    "Rights": {
-      "id": "Rights",
-      "type": "rdfs:Class"
-    },
     "Webpagina": {
       "id": "Webpagina",
+      "type": "rdfs:Class"
+    },
+    "CreativeWork": {
+      "@id": "sdo:CreativeWork",
+       "type": "rdfs:Class"
+    },
+    "Article": {
+      "@id": "sdo:Article",
+      "type": "rdfs:Class"
+    },
+    "AudioObject": {
+      "@id": "sdo:AudioObject",
+      "type": "rdfs:Class"
+    },
+    "Book": {
+      "@id": "sdo:Book",
+      "type": "rdfs:Class"
+    },
+    "ImageObject": {
+      "@id": "sdo:ImageObject",
+      "type": "rdfs:Class"
+    },
+    "MediaObject": {
+      "@id": "sdo:VisualArtwork",
+      "type": "rdfs:Class"
+    },
+    "Newspaper": {
+      "@id": "sdo:Newspaper",
+      "type": "rdfs:Class"
+    },
+    "Painting": {
+      "@id": "sdo:Painting",
+      "type": "rdfs:Class"
+    },
+    "Photograph": {
+      "@id": "sdo:Photograph",
+      "type": "rdfs:Class"
+    },
+    "Sculpture": {
+      "@id": "sdo:Sculpture",
+      "type": "rdfs:Class"
+    },
+    "SheetMusic": {
+      "@id": "sdo:SheetMusic",
+      "type": "rdfs:Class"
+    },
+    "VideoObject": {
+      "@id": "sdo:VideoObject",
+      "type": "rdfs:Class"
+    },
+    "VisualArtwork": {
+      "@id": "sdo:VisualArtwork",
       "type": "rdfs:Class"
     },
 
@@ -103,52 +136,9 @@
        "type": "rdfs:Class"
     },
 
-    "CreativeWork": {
-      "@id": "sdo:CreativeWork",
-       "type": "rdfs:Class"
-    },
-    "Article": {
-      "@id": "sdo:Article",
-      "type": "rdfs:Class"
-    },
-    "AudioObject": {
-      "@id": "sdo:AudioObject",
-      "type": "rdfs:Class"
-    },
-    "Book": {
-      "@id": "sdo:Book",
-      "type": "rdfs:Class"
-    },
-    "Newspaper": {
-      "@id": "sdo:Newspaper",
-      "type": "rdfs:Class"
-    },
-    "Painting": {
-      "@id": "sdo:Painting",
-      "type": "rdfs:Class"
-    },
-    "Photograph": {
-      "@id": "sdo:Photograph",
-      "type": "rdfs:Class"
-    },
-    "Sculpture": {
-      "@id": "sdo:Sculpture",
-      "type": "rdfs:Class"
-    },
-    "SheetMusic": {
-      "@id": "sdo:SheetMusic",
-      "type": "rdfs:Class"
-    },
-    "VideoObject": {
-      "@id": "sdo:VideoObject",
-      "type": "rdfs:Class"
-    },
-    "VisualArtwork": {
-      "@id": "sdo:VisualArtwork",
-      "type": "rdfs:Class"
-    },
+    
 
-    # Classes for additionaltype of LifeEvents
+    # Classes for additionalType of LifeEvent
     "Overleden": {
       "id": "niod:events/8772",
       "type": "rdfs:Class"
@@ -344,8 +334,61 @@
       "type": "rdfs:Property"
     },
     
-    "imageIIIF": {
-      "id": "vocab:imageIIIF",
+    # Properties for CreativeWorks
+    "name": {
+      "id": "sdo:name",
+      "type": "rdfs:Property"
+    },
+    "isPartOf": {
+      "id": "sdo:isPartOf",
+      "type": "rdfs:Property"
+    },
+    "associatedMedia": {
+      "id": "sdo:associatedMedia",
+      "type": "rdfs:Property"
+    },
+    "creator": {
+      "id": "sdo:creator",
+      "type": "rdfs:Property"
+    },
+    "identifier": {
+      "id": "sdo:identifier",
+      "type": "rdfs:Property"
+    },
+    "additionalType": {
+      "id": "sdo:additionalType",
+      "type": "rdfs:Property"
+    },
+    "description": {
+      "id": "sdo:description",
+      "type": "rdfs:Property"
+    },
+    "text": {
+      "id": "sdo:text",
+      "type": "rdfs:Property"
+    },
+    "contentLocation": {
+      "id": "sdo:associatedMedia",
+      "type": "rdfs:Property"
+    },
+    "temporalCoverage": {
+      "id": "sdo:temporalCoverage",
+      "type": "rdfs:Property"
+    },
+    "dateCreated": {
+      "id": "sdo:dateCreated",
+      "type": "rdfs:Property"
+    },
+    "startDate": {
+      "id": "sdo:startDate",
+      "type": "rdfs:Property"
+    },
+    "endDate": {
+      "id": "sdo:endDate",
+      "type": "rdfs:Property"
+    },
+    "about": {
+      "id": "sdo:about",
       "type": "rdfs:Property"
     }
   }
