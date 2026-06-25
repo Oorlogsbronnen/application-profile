@@ -119,6 +119,10 @@
       "@id": "sdo:SheetMusic",
       "type": "rdfs:Class"
     },
+    "Trip": {
+      "@id": "sdo:Trip",
+      "type": "rdfs:Class"
+    },
     "VideoObject": {
       "@id": "sdo:VideoObject",
       "type": "rdfs:Class"
@@ -317,6 +321,10 @@
       "id": "sdo:about",
       "type": "rdfs:Property"
     },
+    "actor": {
+      "id": "sdo:actor",
+      "type": "rdfs:Property"
+    },
     "additionalType": {
       "id": "sdo:additionalType",
       "type": "rdfs:Property"
@@ -381,6 +389,14 @@
       "id": "sdo:familyName",
       "type": "rdfs:Property"
     },
+    "fromLocation": {
+      "id": "sdo:fromLocation",
+      "type": "rdfs:Property"
+    },
+    "genoemde": {
+      "id": "vocab:genoemde",
+      "type": "rdfs:Property"
+    }
     "givenName": {
       "id": "sdo:givenName",
       "type": "rdfs:Property"
@@ -425,12 +441,20 @@
       "id": "sdo:name",
       "type": "rdfs:Property"
     },
+    "opdrachtgever": {
+      "id": "vocab:opdrachtgever",
+      "type": "rdfs:Property"
+    },
     "provider": {
       "id": "sdo:provider",
       "type": "rdfs:Property"
     },
     "publisher": {
       "id": "sdo:publisher",
+      "type": "rdfs:Property"
+    },
+    "slachtoffer": {
+      "id": "vocab:slachtoffer",
       "type": "rdfs:Property"
     },
     "startDate": {
@@ -449,21 +473,16 @@
       "id": "sdo:thumbnailUrl",
       "type": "rdfs:Property"
     },
+    "toLocation": {
+      "id": "sdo:toLocation",
+      "type": "rdfs:Property"
+    },
+    "url": {
+      "@id": "sdo:url",
+      "type": "rdfs:Property"
+    },
     "wasDerivedFrom": {
       "id": "prov:wasDerivedFrom",
-      "type": "rdfs:Property"
-    },
-
-    "slachtoffer": {
-      "id": "vocab:slachtoffer",
-      "type": "rdfs:Property"
-    },
-    "opdrachtgever": {
-      "id": "vocab:opdrachtgever",
-      "type": "rdfs:Property"
-    },
-    "genoemde": {
-      "id": "vocab:genoemde",
       "type": "rdfs:Property"
     }
   }
