@@ -22,19 +22,49 @@
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "xml": "http://www.w3.org/XML/1998/namespace",
-
-    # Classes for Objects
     
     "ArchiveComponent": {
       "id": "sdo:ArchiveComponent",
       "type": "rdfs:Class"
-    
+    },
+    "Article": {
+      "@id": "sdo:Article",
+      "type": "rdfs:Class"
+    },
+    "AudioObject": {
+      "@id": "sdo:AudioObject",
+      "type": "rdfs:Class"
+    },
     "Bekendmaking": {
       "id": "Bekendmaking",
       "type": "rdfs:Class"
     },
+    "Book": {
+      "@id": "sdo:Book",
+      "type": "rdfs:Class"
+    },
     "Certificate": {
       "id": "Certificate",
+      "type": "rdfs:Class"
+    },
+    "CreativeWork": {
+      "@id": "sdo:CreativeWork",
+      "type": "rdfs:Class"
+    },
+    "Dataset": {
+      "@id": "sdo:Dataset",
+      "type": "rdfs:Class"
+    },
+    "Entity": {
+      "@id": "prov:Entity",
+      "type": "rdfs:Class"
+    },
+    "Event": {
+      "@id": "sdo:Event",
+      "type": "rdfs:Class"
+    },
+    "ImageObject": {
+      "@id": "sdo:ImageObject",
       "type": "rdfs:Class"
     },
     "Interview": {
@@ -45,44 +75,36 @@
       "id": "InterviewSegment",
       "type": "rdfs:Class"
     },
-    "Monument": {
-      "id": "Monument",
-      "type": "rdfs:Class"
-    },
-    "Webpagina": {
-      "id": "Webpagina",
-      "type": "rdfs:Class"
-    },
-    "CreativeWork": {
-      "@id": "sdo:CreativeWork",
-       "type": "rdfs:Class"
-    },
-    "Article": {
-      "@id": "sdo:Article",
-      "type": "rdfs:Class"
-    },
-    "AudioObject": {
-      "@id": "sdo:AudioObject",
-      "type": "rdfs:Class"
-    },
-    "Book": {
-      "@id": "sdo:Book",
-      "type": "rdfs:Class"
-    },
-    "ImageObject": {
-      "@id": "sdo:ImageObject",
+    "LifeEvent": {
+      "@id": "picom:LifeEvent",
       "type": "rdfs:Class"
     },
     "MediaObject": {
       "@id": "sdo:VisualArtwork",
       "type": "rdfs:Class"
     },
+    "Monument": {
+      "id": "Monument",
+      "type": "rdfs:Class"
+    },
     "Newspaper": {
       "@id": "sdo:Newspaper",
       "type": "rdfs:Class"
     },
+    "Organization": {
+      "@id": "sdo:Organization",
+      "type": "rdfs:Class"
+    },
     "Painting": {
       "@id": "sdo:Painting",
+      "type": "rdfs:Class"
+    },
+    "PersonObservation": {
+      "@id": "picom:PersonObservation",
+      "type": "rdfs:Class"
+    },
+    "PersonReconstruction": {
+      "@id": "picom:PersonReconstruction",
       "type": "rdfs:Class"
     },
     "Photograph": {
@@ -105,222 +127,333 @@
       "@id": "sdo:VisualArtwork",
       "type": "rdfs:Class"
     },
-
-    # Classes for Persons
-    "PersonObservation": {
-      "@id": "picom:PersonObservation",
+    "Webpagina": {
+      "id": "Webpagina",
       "type": "rdfs:Class"
-    },
-    "PersonReconstruction": {
-      "@id": "picom:PersonReconstruction",
-       "type": "rdfs:Class"
-    },
-    "LifeEvent": {
-      "@id": "picom:LifeEvent",
-       "type": "rdfs:Class"
-    },
-    "ArchiveComponent": {
-      "@id": "sdo:ArchiveComponent",
-       "type": "rdfs:Class"
-    },
-    "Entity": {
-      "@id": "prov:Entity",
-       "type": "rdfs:Class"
-    },
-    "ImageObject": {
-      "@id": "sdo:ImageObject",
-       "type": "rdfs:Class"
-    },
-    "Dataset": {
-      "@id": "sdo:Dataset",
-       "type": "rdfs:Class"
     },
 
-    
-
-    # Classes for additionalType of LifeEvent
-    "Overleden": {
-      "id": "niod:events/8772",
-      "type": "rdfs:Class"
-    },
-    "Geboren": {
-      "id": "niod:events/6360",
-      "type": "rdfs:Class"
-    },
-    "Gevangen": {
-      "id": "niod:events/6354",
-      "type": "rdfs:Class"
-    },
-    "BevrijdUit": {
-      "id": "niod:events/6347",
-      "type": "rdfs:Class"
-    },
-    "Gearresteerd": {
-      "id": "niod:events/6344",
-      "type": "rdfs:Class"
-    },
-    "Ontsnapt": {
-      "id": "niod:events/8795",
-      "type": "rdfs:Class"
-    },
-    "Opgepakt": {
-      "id": "niod:events/6345",
-      "type": "rdfs:Class"
-    },
-    "Getransporteerd": {
-      "id": "niod:events/6348",
-      "type": "rdfs:Class"
-    },
-    "Tewerkgesteld": {
-      "id": "niod:events/8514",
-      "type": "rdfs:Class"
-    },
-    "Teruggekeerd": {
-      "id": "niod:18496",
-      "type": "rdfs:Class"
-    },
-    "Gevlucht": {
-      "id": "niod:events/6353",
-      "type": "rdfs:Class"
-    },
-    "Vrijgelaten": {
-      "id": "niod:events/6346",
-      "type": "rdfs:Class"
-    },
-    "LidGeweest": {
-      "id": "niod:events/6352",
-      "type": "rdfs:Class"
-    },
-    "Geëxecuteerd": {
-      "id": "niod:events/6357",
-      "type": "rdfs:Class"
-    },
-    "Verraden": {
-      "id": "niod:events/6358",
-      "type": "rdfs:Class"
-    },
-    "Getroffen": {
-      "id": "niod:events/6356",
-      "type": "rdfs:Class"
-    },
-    "Geïnterneerd": {
-      "id": "niod:events/6349",
-      "type": "rdfs:Class"
-    },
     "Afgepakt": {
       "id": "niod:19486",
-      "type": "rdfs:Class"
-    },
-    "Opgeroepen": {
-      "id": "niod:events/8542",
-      "type": "rdfs:Class"
-    },
-    "Gehuwd": {
-      "id": "niod:18966",
-      "type": "rdfs:Class"
-    },
-    "Opgericht": {
-      "id": "niod:13792",
-      "type": "rdfs:Class"
-    },
-    "Benoemd": {
-      "id": "niod:13790",
-      "type": "rdfs:Class"
-    },
-    "Veroordeeld": {
-      "id": "niod:events/6563",
-      "type": "rdfs:Class"
-    },
-    "Geleid": {
-      "id": "niod:events/11182",
       "type": "rdfs:Class"
     },
     "Arresteert": {
       "id": "niod:events/11179",
       "type": "rdfs:Class"
     },
-    "Gerecruteerd": {
-      "id": "niod:events/6362",
-      "type": "rdfs:Class"
-    },
-    "Vertrokken": {
-      "id": "niod:13791",
-      "type": "rdfs:Class"
-    },
-    "Vrijgesproken": {
-      "id": "niod:14203",
-      "type": "rdfs:Class"
-    },
-    "Gevochten": {
-      "id": "niod:events/6359",
-      "type": "rdfs:Class"
-    },
-    "Verraadt": {
-      "id": "niod:events/11177",
-      "type": "rdfs:Class"
-    },
-    "Gedecoreerd": {
-      "id": "niod:events/6365",
-      "type": "rdfs:Class"
-    },
-    "Geroyeerd": {
-      "id": "niod:events/11178",
-      "type": "rdfs:Class"
-    },
-    "Ondergedoken": {
-      "id": "niod:events/6351",
-      "type": "rdfs:Class"
-    },
-    "Executeert": {
-      "id": "niod:events/11176",
-      "type": "rdfs:Class"
-    },
-    "Opgevangen": {
-      "id": "niod:events/10956",
-      "type": "rdfs:Class"
-    },
-    "Gevaren": {
-      "id": "niod:events/11181",
-      "type": "rdfs:Class"
-    },
-    "Geliquideerd": {
-      "id": "niod:16379",
+    "Benoemd": {
+      "id": "niod:13790",
       "type": "rdfs:Class"
     },
     "BevrijdIn": {
       "id": "niod:events/11173",
       "type": "rdfs:Class"
     },
-    "Geland": {
-      "id": "niod:events/6363",
+    "BevrijdUit": {
+      "id": "niod:events/6347",
       "type": "rdfs:Class"
     },
-    "Gepleegd": {
-      "id": "niod:events/6355",
+    "Executeert": {
+      "id": "niod:events/11176",
       "type": "rdfs:Class"
     },
-    "OpPadGegaan": {
-      "id": "niod:17064",
+    "Gearresteerd": {
+      "id": "niod:events/6344",
       "type": "rdfs:Class"
     },
-    "Vrijgesteld": {
-      "id": "niod:events/6562",
-      "type": "rdfs:Class"
-    },
-    "Geëvacueerd": {
-      "id": "niod:events/11174",
-      "type": "rdfs:Class"
-    },
-    "Vermist": {
-      "id": "niod:events/10946",
+    "Gedecoreerd": {
+      "id": "niod:events/6365",
       "type": "rdfs:Class"
     },
     "GedwongenVerhuisd": {
       "id": "niod:19198",
       "type": "rdfs:Class"
     },
+    "Geëvacueerd": {
+      "id": "niod:events/11174",
+      "type": "rdfs:Class"
+    },
+    "Geëxecuteerd": {
+      "id": "niod:events/6357",
+      "type": "rdfs:Class"
+    },
+    "Geboren": {
+      "id": "niod:events/6360",
+      "type": "rdfs:Class"
+    },
+    "Gehuwd": {
+      "id": "niod:18966",
+      "type": "rdfs:Class"
+    },
+    "Geïnterneerd": {
+      "id": "niod:events/6349",
+      "type": "rdfs:Class"
+    },
+    "Geland": {
+      "id": "niod:events/6363",
+      "type": "rdfs:Class"
+    },
+    "Geleid": {
+      "id": "niod:events/11182",
+      "type": "rdfs:Class"
+    },
+    "Geliquideerd": {
+      "id": "niod:16379",
+      "type": "rdfs:Class"
+    },
+    "Gepleegd": {
+      "id": "niod:events/6355",
+      "type": "rdfs:Class"
+    },
+    "Gerecruteerd": {
+      "id": "niod:events/6362",
+      "type": "rdfs:Class"
+    },
+    "Geroyeerd": {
+      "id": "niod:events/11178",
+      "type": "rdfs:Class"
+    },
+    "Getransporteerd": {
+      "id": "niod:events/6348",
+      "type": "rdfs:Class"
+    },
+    "Getroffen": {
+      "id": "niod:events/6356",
+      "type": "rdfs:Class"
+    },
+    "Gevangen": {
+      "id": "niod:events/6354",
+      "type": "rdfs:Class"
+    },
+    "Gevaren": {
+      "id": "niod:events/11181",
+      "type": "rdfs:Class"
+    },
+    "Gevlucht": {
+      "id": "niod:events/6353",
+      "type": "rdfs:Class"
+    },
+    "Gevochten": {
+      "id": "niod:events/6359",
+      "type": "rdfs:Class"
+    },
+    "LidGeweest": {
+      "id": "niod:events/6352",
+      "type": "rdfs:Class"
+    },
+    "Ondergedoken": {
+      "id": "niod:events/6351",
+      "type": "rdfs:Class"
+    },
+    "Ontsnapt": {
+      "id": "niod:events/8795",
+      "type": "rdfs:Class"
+    },
+    "Opgevangen": {
+      "id": "niod:events/10956",
+      "type": "rdfs:Class"
+    },
+    "Opgepakt": {
+      "id": "niod:events/6345",
+      "type": "rdfs:Class"
+    },
+    "Opgeroepen": {
+      "id": "niod:events/8542",
+      "type": "rdfs:Class"
+    },
+    "Opgericht": {
+      "id": "niod:13792",
+      "type": "rdfs:Class"
+    },
+    "OpPadGegaan": {
+      "id": "niod:17064",
+      "type": "rdfs:Class"
+    },
+    "Overleden": {
+      "id": "niod:events/8772",
+      "type": "rdfs:Class"
+    },
+    "Teruggekeerd": {
+      "id": "niod:18496",
+      "type": "rdfs:Class"
+    },
+    "Tewerkgesteld": {
+      "id": "niod:events/8514",
+      "type": "rdfs:Class"
+    },
+    "Vermist": {
+      "id": "niod:events/10946",
+      "type": "rdfs:Class"
+    },
+    "Veroordeeld": {
+      "id": "niod:events/6563",
+      "type": "rdfs:Class"
+    },
+    "Verraadt": {
+      "id": "niod:events/11177",
+      "type": "rdfs:Class"
+    },
+    "Verraden": {
+      "id": "niod:events/6358",
+      "type": "rdfs:Class"
+    },
+    "Vertrokken": {
+      "id": "niod:13791",
+      "type": "rdfs:Class"
+    },
+    "Vrijgelaten": {
+      "id": "niod:events/6346",
+      "type": "rdfs:Class"
+    },
+    "Vrijgesproken": {
+      "id": "niod:14203",
+      "type": "rdfs:Class"
+    },
+    "Vrijgesteld": {
+      "id": "niod:events/6562",
+      "type": "rdfs:Class"
+    },
 
-    # Properties for Bekendmakingen
+    "about": {
+      "id": "sdo:about",
+      "type": "rdfs:Property"
+    },
+    "additionalType": {
+      "id": "sdo:additionalType",
+      "type": "rdfs:Property"
+    },
+    "address": {
+      "id": "sdo:address",
+      "type": "rdfs:Property"
+    },
+    "associatedMedia": {
+      "id": "sdo:associatedMedia",
+      "type": "rdfs:Property"
+    },
+    "birthDate": {
+      "id": "sdo:birthDate",
+      "type": "rdfs:Property"
+    },
+    "birthPlace": {
+      "id": "sdo:birthPlace",
+      "type": "rdfs:Property"
+    },
+    "contentLocation": {
+      "id": "sdo:associatedMedia",
+      "type": "rdfs:Property"
+    },
+    "contentUrl": {
+      "id": "sdo:contentUrl",
+      "type": "rdfs:Property"
+    },
+    "contributor": {
+      "id": "sdo:contributor",
+      "type": "rdfs:Property"
+    },
+    "creator": {
+      "id": "sdo:creator",
+      "type": "rdfs:Property"
+    },
+    "dateCreated": {
+      "id": "sdo:dateCreated",
+      "type": "rdfs:Property"
+    },
+    "datePublished": {
+      "id": "sdo:datePublished",
+      "type": "rdfs:Property"
+    },
+    "deathDate": {
+      "id": "sdo:deathDate",
+      "type": "rdfs:Property"
+    },
+    "deathPlace": {
+      "id": "sdo:deathPlace",
+      "type": "rdfs:Property"
+    },
+    "description": {
+      "id": "sdo:description",
+      "type": "rdfs:Property"
+    },
+    "endDate": {
+      "id": "sdo:endDate",
+      "type": "rdfs:Property"
+    },
+    "familyName": {
+      "id": "sdo:familyName",
+      "type": "rdfs:Property"
+    },
+    "givenName": {
+      "id": "sdo:givenName",
+      "type": "rdfs:Property"
+    },
+    "hadPrimarySource": {
+      "id": "prov:hadPrimarySource",
+      "type": "rdfs:Property"
+    },
+    "hasOccupation": {
+      "id": "sdo:hasOccupation",
+      "type": "rdfs:Property"
+    },
+    "identifier": {
+      "id": "sdo:identifier",
+      "type": "rdfs:Property"
+    },
+    "image": {
+      "id": "sdo:image",
+      "type": "rdfs:Property"
+    },
+    "initials": {
+      "id": "pnv:initials",
+      "type": "rdfs:Property"
+    },
+    "isPartOf": {
+      "id": "sdo:isPartOf",
+      "type": "rdfs:Property"
+    },
+    "keywords": {
+      "id": "sdo:keywords",
+      "type": "rdfs:Property"
+    },
+    "license": {
+      "id": "sdo:license",
+      "type": "rdfs:Property"
+    },
+    "material": {
+      "id": "sdo:material",
+      "type": "rdfs:Property"
+    },
+    "name": {
+      "id": "sdo:name",
+      "type": "rdfs:Property"
+    },
+    "provider": {
+      "id": "sdo:provider",
+      "type": "rdfs:Property"
+    },
+    "publisher": {
+      "id": "sdo:publisher",
+      "type": "rdfs:Property"
+    },
+    "startDate": {
+      "id": "sdo:startDate",
+      "type": "rdfs:Property"
+    },
+    "temporalCoverage": {
+      "id": "sdo:temporalCoverage",
+      "type": "rdfs:Property"
+    },
+    "text": {
+      "id": "sdo:text",
+      "type": "rdfs:Property"
+    },
+    "thumbnailUrl": {
+      "id": "sdo:thumbnailUrl",
+      "type": "rdfs:Property"
+    },
+    "wasDerivedFrom": {
+      "id": "prov:wasDerivedFrom",
+      "type": "rdfs:Property"
+    },
+
     "slachtoffer": {
       "id": "vocab:slachtoffer",
       "type": "rdfs:Property"
@@ -331,64 +464,6 @@
     },
     "genoemde": {
       "id": "vocab:genoemde",
-      "type": "rdfs:Property"
-    },
-    
-    # Properties for CreativeWorks
-    "name": {
-      "id": "sdo:name",
-      "type": "rdfs:Property"
-    },
-    "isPartOf": {
-      "id": "sdo:isPartOf",
-      "type": "rdfs:Property"
-    },
-    "associatedMedia": {
-      "id": "sdo:associatedMedia",
-      "type": "rdfs:Property"
-    },
-    "creator": {
-      "id": "sdo:creator",
-      "type": "rdfs:Property"
-    },
-    "identifier": {
-      "id": "sdo:identifier",
-      "type": "rdfs:Property"
-    },
-    "additionalType": {
-      "id": "sdo:additionalType",
-      "type": "rdfs:Property"
-    },
-    "description": {
-      "id": "sdo:description",
-      "type": "rdfs:Property"
-    },
-    "text": {
-      "id": "sdo:text",
-      "type": "rdfs:Property"
-    },
-    "contentLocation": {
-      "id": "sdo:associatedMedia",
-      "type": "rdfs:Property"
-    },
-    "temporalCoverage": {
-      "id": "sdo:temporalCoverage",
-      "type": "rdfs:Property"
-    },
-    "dateCreated": {
-      "id": "sdo:dateCreated",
-      "type": "rdfs:Property"
-    },
-    "startDate": {
-      "id": "sdo:startDate",
-      "type": "rdfs:Property"
-    },
-    "endDate": {
-      "id": "sdo:endDate",
-      "type": "rdfs:Property"
-    },
-    "about": {
-      "id": "sdo:about",
       "type": "rdfs:Property"
     }
   }
