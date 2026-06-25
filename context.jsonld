@@ -22,7 +22,8 @@
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "xml": "http://www.w3.org/XML/1998/namespace",
-    
+
+    # Classes for Objects
     "Afbeelding": {
       "id": "Afbeelding",
       "type": "rdfs:Class"
@@ -71,7 +72,8 @@
       "id": "Webpagina",
       "type": "rdfs:Class"
     },
-    
+
+    # Classes for Persons
     "PersonObservation": {
       "@id": "picom:PersonObservation",
       "type": "rdfs:Class"
@@ -90,6 +92,10 @@
     },
     "Entity": {
       "@id": "prov:Entity",
+       "type": "rdfs:Class"
+    },
+    "ImageObject": {
+      "@id": "sdo:ImageObject",
        "type": "rdfs:Class"
     },
     "Dataset": {
@@ -111,10 +117,6 @@
     },
     "Book": {
       "@id": "sdo:Book",
-      "type": "rdfs:Class"
-    },
-    "CreativeWork": {
-      "@id": "sdo:CreativeWork",
       "type": "rdfs:Class"
     },
     "Newspaper": {
@@ -145,8 +147,9 @@
       "@id": "sdo:VisualArtwork",
       "type": "rdfs:Class"
     },
-    
-    "Omgekomen": {
+
+    # Classes for additionaltype of LifeEvents
+    "Overleden": {
       "id": "niod:events/8772",
       "type": "rdfs:Class"
     },
@@ -190,10 +193,6 @@
       "id": "niod:events/6353",
       "type": "rdfs:Class"
     },
-    "Gestorven": {
-      "id": "niod:events/6361",
-      "type": "rdfs:Class"
-    },
     "Vrijgelaten": {
       "id": "niod:events/6346",
       "type": "rdfs:Class"
@@ -204,10 +203,6 @@
     },
     "Geëxecuteerd": {
       "id": "niod:events/6357",
-      "type": "rdfs:Class"
-    },
-    "Overleden": {
-      "id": "niod:events/8771",
       "type": "rdfs:Class"
     },
     "Verraden": {
@@ -334,6 +329,8 @@
       "id": "niod:19198",
       "type": "rdfs:Class"
     },
+
+    # Properties for Bekendmakingen
     "slachtoffer": {
       "id": "vocab:slachtoffer",
       "type": "rdfs:Property"
