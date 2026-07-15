@@ -346,7 +346,7 @@
       "@type": "rdfs:Property"
     },
     "contentLocation": {
-      "@id": "sdo:associatedMedia",
+      "@id": "sdo:contentLocation",
       "@type": "rdfs:Property"
     },
     "contentUrl": {
@@ -429,8 +429,16 @@
       "@id": "sdo:keywords",
       "@type": "rdfs:Property"
     },
+    "latitude": {
+      "@id": "sdo:latitude",
+      "@type": "rdfs:Property"
+    },
     "license": {
       "@id": "sdo:license",
+      "@type": "rdfs:Property"
+    },
+    "longitude": {
+      "@id": "sdo:longitude",
       "@type": "rdfs:Property"
     },
     "material": {
@@ -459,6 +467,10 @@
     },
     "startDate": {
       "@id": "sdo:startDate",
+      "@type": "rdfs:Property"
+    },
+    "temporal": {
+      "@id": "sdo:temporal",
       "@type": "rdfs:Property"
     },
     "temporalCoverage": {
