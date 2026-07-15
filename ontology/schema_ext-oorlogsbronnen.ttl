@@ -1,13 +1,12 @@
-@prefix : <http://data.oorlogsbronnen.nl/model#> .
+@prefix : <http://data.oorlogsbronnen.nl/schema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sdo: <http://schema.org/> .
 @prefix niod: <https://data.niod.nl/> .
-@prefix edm: <http://www.europeana.eu/schemas/edm/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix picom: <https://personsincontext.org/model#> .
 
-### This file defines oorlogsbronnen specific classes and properties
+### This file defines Oorlogsbronnen specific classes and properties
 
 ## Dutch labels for classes used in Oorlogsbronnen
 
