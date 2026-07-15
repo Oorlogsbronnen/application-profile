@@ -1,7 +1,8 @@
-@prefix : <http://data.oorlogsbronnen.nl/model#> .
+@prefix : <http://data.oorlogsbronnen.nl/schema#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcmit: <http://purl.org/dc/dcmitype/> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix default1: <http://data.oorlogsbronnen.nl/model#> .
 @prefix niod: <https://data.niod.nl/> .
 @prefix niod1: <http://data.niod.nl/WO2_Thesaurus/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -338,266 +339,266 @@ picom:PersonReconstruction a rdfs:Class ;
     rdfs:label "Persoonsreconstructie"@nl ;
     rdf:comment "Persoon gemodelleerd op basis van een of meer persoonsvermeldingen"@nl .
 
-:ArchiveShape a sh:NodeShape ;
+default1:ArchiveShape a sh:NodeShape ;
     sh:name "Archieven en Archiefstukken"@nl ;
-    sh:node :CreativeWorkShape ;
+    sh:node default1:CreativeWorkShape ;
     sh:property [ sh:description "Mate van openbaarheid van het archief of archiefstuk"@nl ;
             sh:name "Openbaarheid"@nl ;
-            sh:node :Rule_accessRights ;
+            sh:node default1:Rule_accessRights ;
             sh:path dct:accessRights ] ;
     sh:targetClass niod1:Archive,
         niod1:ArchiveFile .
 
-:BekendmakingShape a sh:NodeShape ;
+default1:BekendmakingShape a sh:NodeShape ;
     sh:name "Bekendmakingen"@nl ;
-    sh:node :CreativeWorkShape ;
+    sh:node default1:CreativeWorkShape ;
     sh:property [ sh:description "Transcriptie van de tekst op het document"@nl ;
             sh:name "Tekst"@nl ;
-            sh:node :Rule_text ;
+            sh:node default1:Rule_text ;
             sh:path schema1:text ],
         [ sh:description "Publicatiedatum van het document"@nl ;
             sh:name "Publicatiedatum"@nl ;
-            sh:node :Rule_datePublished ;
+            sh:node default1:Rule_datePublished ;
             sh:path schema1:datePublished ] ;
     sh:targetClass niod1:Bekendmaking .
 
-:ConceptShape a sh:NodeShape ;
+default1:ConceptShape a sh:NodeShape ;
     sh:description "Een abstract idee of een term uit een gecontroleerde woordenlijst of thesaurus."@nl ;
     sh:name "Thesaurusconcept"@nl ;
     sh:property [ sh:name "Type (RDF)"@nl ;
-            sh:node :Rule_type ;
+            sh:node default1:Rule_type ;
             sh:path rdf:type ],
         [ sh:description "De officiële naam van het concept in de thesaurus."@nl ;
             sh:name "Voorkeursterm"@nl ;
-            sh:node :Rule_prefLabel ;
+            sh:node default1:Rule_prefLabel ;
             sh:path skos:prefLabel ],
         [ sh:description "Synoniemen of andere schrijfwijzen van het concept."@nl ;
             sh:name "Alternatieve term"@nl ;
-            sh:node :Rule_altLabel ;
+            sh:node default1:Rule_altLabel ;
             sh:path skos:altLabel ],
         [ sh:description "Termen zoals spelfouten die wel doorzoekbaar moeten zijn, maar niet getoond worden."@nl ;
             sh:name "Verborgen term"@nl ;
-            sh:node :Rule_hiddenLabel ;
+            sh:node default1:Rule_hiddenLabel ;
             sh:path skos:hiddenLabel ],
         [ sh:description "Een tekstuele beschrijving van het concept."@nl ;
             sh:name "Beschrijving"@nl ;
-            sh:node :Rule_scopeNote ;
+            sh:node default1:Rule_scopeNote ;
             sh:path skos:scopeNote ],
         [ sh:description "Een tekstuele uitleg van de betekenis van het concept."@nl ;
             sh:name "Definitie"@nl ;
-            sh:node :Rule_definition ;
+            sh:node default1:Rule_definition ;
             sh:path skos:definition ],
         [ sh:description "De overkoepelende thesaurus of conceptenlijst waar dit concept deel van uitmaakt."@nl ;
             sh:name "Behoort tot thesaurus"@nl ;
-            sh:node :Rule_inScheme ;
+            sh:node default1:Rule_inScheme ;
             sh:path skos:inScheme ],
         [ sh:description "Verwijzing naar een concept dat hoger in de hiërarchie staat."@nl ;
             sh:name "Breder concept"@nl ;
-            sh:node :Rule_broader ;
+            sh:node default1:Rule_broader ;
             sh:path skos:broader ],
         [ sh:description "Verwijzing naar een concept dat lager in de hiërarchie staat."@nl ;
             sh:name "Kleiner concept"@nl ;
-            sh:node :Rule_narrower ;
+            sh:node default1:Rule_narrower ;
             sh:path skos:narrower ],
         [ sh:description "Verwijzing naar een concept dat inhoudelijk verwant is, maar niet in de hiërarchie staat."@nl ;
             sh:name "Gerelateerd concept"@nl ;
-            sh:node :Rule_related ;
+            sh:node default1:Rule_related ;
             sh:path skos:related ],
         [ sh:description "Verwijzing naar een identiek concept in een externe bron (bijv. AAT of WO2-thesaurus)."@nl ;
             sh:name "Exacte match"@nl ;
-            sh:node :Rule_exactMatch ;
+            sh:node default1:Rule_exactMatch ;
             sh:path skos:exactMatch ],
         [ sh:description "Locatie van het concept."@nl ;
             sh:name "Locatie"@nl ;
-            sh:node :Rule_wgsLocation ;
+            sh:node default1:Rule_wgsLocation ;
             sh:path wgs1:location ],
         [ sh:description "Breedtegraad van de locatie van het concept."@nl ;
             sh:name "Latitude"@nl ;
-            sh:node :Rule_lat ;
+            sh:node default1:Rule_lat ;
             sh:path wgs1:lat ],
         [ sh:description "Lengtegraad van de locatie van het concept."@nl ;
             sh:name "Longitude"@nl ;
-            sh:node :Rule_long ;
+            sh:node default1:Rule_long ;
             sh:path wgs1:long ],
         [ sh:name "Aanmaakdatum"@nl ;
-            sh:node :Rule_created ;
+            sh:node default1:Rule_created ;
             sh:path dct:created ],
         [ sh:name "Wijzigingsdatum"@nl ;
-            sh:node :Rule_modified ;
+            sh:node default1:Rule_modified ;
             sh:path dct:modified ],
         [ sh:name "Startdatum"@nl ;
-            sh:node :Rule_startDate ;
+            sh:node default1:Rule_startDate ;
             sh:path schema1:startDate ],
         [ sh:name "Einddatum"@nl ;
-            sh:node :Rule_endDate ;
+            sh:node default1:Rule_endDate ;
             sh:path schema1:endDate ] ;
     sh:targetClass skos:Concept .
 
-:DatasetShape a sh:NodeShape ;
+default1:DatasetShape a sh:NodeShape ;
     sh:description "Records  maken altijd onderdeel uit van een dataset."@nl ;
     sh:name "Dataset waaruit een record afkomstig is"@nl ;
     sh:property [ sh:description "De unieke identifier van de dataset."@nl ;
             sh:name "Identifier"@nl ;
-            sh:node :Rule_identifier_schema ;
+            sh:node default1:Rule_identifier_schema ;
             sh:path schema1:identifier ],
         [ sh:description "Classificatie van de entiteit als schema:Dataset"@nl ;
             sh:name "Type entiteit"@nl ;
-            sh:node :Rule_type ;
+            sh:node default1:Rule_type ;
             sh:path rdf:type ],
         [ sh:name "Naam van de dataset"@nl ;
-            sh:node :Rule_name ;
+            sh:node default1:Rule_name ;
             sh:path schema1:name ],
         [ sh:name "Beschrijving van de dataset"@nl ;
-            sh:node :Rule_description_schema ;
+            sh:node default1:Rule_description_schema ;
             sh:path schema1:description ],
         [ sh:name "Bronverwijzing voor de dataset"@nl ;
-            sh:node :Rule_url ;
+            sh:node default1:Rule_url ;
             sh:path schema1:url ],
         [ sh:name "Leverancier van de dataset"@nl ;
-            sh:node :Rule_provider ;
+            sh:node default1:Rule_provider ;
             sh:path schema1:provider ] ;
     sh:targetClass schema1:Dataset .
 
-:EventShape a sh:NodeShape ;
+default1:EventShape a sh:NodeShape ;
     sh:description ""@nl ;
     sh:name "Gebeurtenis"@nl ;
     sh:property [ sh:description "Classificatie van de entiteit als schema:Event"@nl ;
             sh:name "Type entiteit"@nl ;
-            sh:node :Rule_type ;
+            sh:node default1:Rule_type ;
             sh:path rdf:type ],
         [ sh:description "Classificatie van de gebeurtenis als persoonlijke gebeurtenis uit de WO2 thesaurus"@nl ;
             sh:name "type gebeurtenis"@nl ;
-            sh:node :Rule_additionalType ;
+            sh:node default1:Rule_additionalType ;
             sh:path schema1:additionalType ],
         [ sh:description "De naam van de gebeurtenis."@nl ;
             sh:name "Naam"@nl ;
-            sh:node :Rule_name ;
+            sh:node default1:Rule_name ;
             sh:path schema1:name ],
         [ sh:name "Locatie"@nl ;
-            sh:node :Rule_location ;
+            sh:node default1:Rule_location ;
             sh:path schema1:location ],
         [ sh:name "Beginlocatie"@nl ;
-            sh:node :Rule_fromLocation ;
+            sh:node default1:Rule_fromLocation ;
             sh:path schema1:fromLocation ],
         [ sh:name "Eindlocatie"@nl ;
-            sh:node :Rule_toLocation ;
+            sh:node default1:Rule_toLocation ;
             sh:path schema1:toLocation ],
         [ sh:name "Persoon in de gebeurtenis"@nl ;
-            sh:node :Rule_actor ;
+            sh:node default1:Rule_actor ;
             sh:path schema1:actor ],
         [ sh:name "Grotere gebeurtenis"@nl ;
-            sh:node :Rule_superEvent ;
+            sh:node default1:Rule_superEvent ;
             sh:path schema1:superEvent ],
         [ sh:description "De originele bron waaruit deze informatie afkomstig is."@nl ;
             sh:name "Primaire bron"@nl ;
-            sh:node :Rule_hadPrimarySource ;
+            sh:node default1:Rule_hadPrimarySource ;
             sh:path prov:hadPrimarySource ],
         [ sh:name "Startdatum"@nl ;
-            sh:node :Rule_startDate ;
+            sh:node default1:Rule_startDate ;
             sh:path schema1:startDate ],
         [ sh:name "Einddatum"@nl ;
-            sh:node :Rule_endDate ;
+            sh:node default1:Rule_endDate ;
             sh:path schema1:endDate ] ;
     sh:targetClass schema1:Event .
 
-:MediaShape a sh:NodeShape ;
+default1:MediaShape a sh:NodeShape ;
     sh:name "Audio en Video objecten"@nl ;
-    sh:node :CreativeWorkShape ;
+    sh:node default1:CreativeWorkShape ;
     sh:property [ sh:name "Url van het media object"@nl ;
-            sh:node :Rule_contentUrl ;
+            sh:node default1:Rule_contentUrl ;
             sh:path schema1:contentUrl ] ;
     sh:targetClass schema1:AudioObject,
         schema1:VideoObject .
 
-:MonumentShape a sh:NodeShape ;
+default1:MonumentShape a sh:NodeShape ;
     sh:name "Monumenten"@nl ;
-    sh:node :CreativeWorkShape ;
+    sh:node default1:CreativeWorkShape ;
     sh:property [ sh:description "Breedtegraad van de locatie van het monument."@nl ;
             sh:name "Latitude"@nl ;
-            sh:node :Rule_lat_schema ;
+            sh:node default1:Rule_lat_schema ;
             sh:path schema1:latitude ],
         [ sh:description "Lengtegraad van de locatie van het monument"@nl ;
             sh:name "Longitude"@nl ;
-            sh:node :Rule_long_schema ;
+            sh:node default1:Rule_long_schema ;
             sh:path schema1:longitude ] ;
     sh:targetClass niod1:Monument .
 
-:PersoonsvermeldingShape a sh:NodeShape ;
+default1:PersoonsvermeldingShape a sh:NodeShape ;
     sh:description "Een observatie of vermelding van een persoon binnen een specifieke historische bron."@nl ;
     sh:name "Persoonsvermelding"@nl ;
-    sh:node :PersoonReconstructionShape ;
+    sh:node default1:PersoonReconstructionShape ;
     sh:property [ sh:description "Voor persoonsvermeldingen wordt prov:wasDerivedFrom niet toegestaan."@nl ;
             sh:maxCount 0 ;
             sh:name "Afgeleid van (niet toegestaan)"@nl ;
             sh:path prov:wasDerivedFrom ],
         [ sh:description "De roepnaam of eerste voornaam van de persoon."@nl ;
             sh:name "Voornaam"@nl ;
-            sh:node :Rule_givenName ;
+            sh:node default1:Rule_givenName ;
             sh:path schema1:givenName ],
         [ sh:description "De geslachtsnaam, inclusief tussenvoegsels."@nl ;
             sh:name "Achternaam"@nl ;
-            sh:node :Rule_familyName ;
+            sh:node default1:Rule_familyName ;
             sh:path schema1:familyName ],
         [ sh:description "De voorletters van de persoon."@nl ;
             sh:name "Initialen"@nl ;
-            sh:node :Rule_initials ;
+            sh:node default1:Rule_initials ;
             sh:path pnv:initials ],
         [ sh:description "Het beroep of de maatschappelijke rol van de persoon."@nl ;
             sh:name "Beroep of functie"@nl ;
-            sh:node :Rule_hasOccupation ;
+            sh:node default1:Rule_hasOccupation ;
             sh:path schema1:hasOccupation ],
         [ sh:description "Woonplaats of laatst bekende adres."@nl ;
             sh:name "Adresgegevens"@nl ;
-            sh:node :Rule_address ;
+            sh:node default1:Rule_address ;
             sh:path schema1:address ],
         [ sh:description "De originele bron waaruit deze informatie afkomstig is."@nl ;
             sh:name "Primaire bron"@nl ;
-            sh:node :Rule_hadPrimarySource ;
+            sh:node default1:Rule_hadPrimarySource ;
             sh:path prov:hadPrimarySource ],
         [ sh:description "Een korte beschrijving van de persoon of diens rol tijdens de Tweede Wereldoorlog."@nl ;
             sh:name "Biografische schets"@nl ;
-            sh:node :Rule_description_schema ;
+            sh:node default1:Rule_description_schema ;
             sh:path schema1:description ] ;
     sh:targetClass picom1:PersonObservation .
 
-:Rule_additionalName sh:node :Base_String ;
+default1:Rule_additionalName sh:node default1:Base_String ;
     sh:path schema1:additionalName .
 
-:Rule_caption sh:maxCount 1 ;
-    sh:node :Base_String ;
+default1:Rule_caption sh:maxCount 1 ;
+    sh:node default1:Base_String ;
     sh:path schema1:caption .
 
-:Rule_closeMatch sh:node :Base_IRI ;
+default1:Rule_closeMatch sh:node default1:Base_IRI ;
     sh:path skos:closeMatch .
 
-:Rule_homeLocation sh:node :Base_StringOrIRI ;
+default1:Rule_homeLocation sh:node default1:Base_StringOrIRI ;
     sh:path schema1:homeLocation .
 
-:Rule_image sh:node :Base_IRI ;
+default1:Rule_image sh:node default1:Base_IRI ;
     sh:path schema1:image .
 
-:Rule_license sh:class niod1:Rights ;
-    sh:node :Base_IRI ;
+default1:Rule_license sh:class niod1:Rights ;
+    sh:node default1:Base_IRI ;
     sh:path schema1:license .
 
-:Rule_position sh:node :Base_Integer ;
+default1:Rule_position sh:node default1:Base_Integer ;
     sh:path schema1:position .
 
-:Rule_thumbnailUrl sh:node :Base_StringOrIRI ;
+default1:Rule_thumbnailUrl sh:node default1:Base_StringOrIRI ;
     sh:path schema1:thumbnailUrl .
 
-:SourceShape a sh:NodeShape ;
+default1:SourceShape a sh:NodeShape ;
     sh:description "Archiefstukken, maar ook records uit andere (onderzoeks)datasets en webpagina's kunnen persoonsvermeldingen bevatten. Dit is hiervoor de bronvermelding."@nl ;
     sh:name "Record waarop de persoonsvermelding is aangetroffen"@nl ;
     sh:property [ sh:description "Classificatie van het record als archiefstuk of anders."@nl ;
             sh:name "Type entiteit"@nl ;
-            sh:node :Rule_type ;
+            sh:node default1:Rule_type ;
             sh:path rdf:type ],
         [ sh:name "Url van de bron"@nl ;
-            sh:node :Rule_url ;
+            sh:node default1:Rule_url ;
             sh:path schema1:url ],
         [ sh:name "Herkomst van het record"@nl ;
-            sh:node :Rule_inDataset ;
+            sh:node default1:Rule_inDataset ;
             sh:path niod1:inDataset ] ;
     sh:targetClass schema1:ArchiveComponent,
         prov:Entity .
@@ -635,312 +636,312 @@ schema1:WebPage rdfs:subClassOf :Webpagina .
     rdfs:label "Oorlogsbronnen SHACL Shapes"@nl ;
     owl:imports <http://datashapes.org/dash> .
 
-:Base_Integer a sh:PropertyShape ;
+default1:Base_Integer a sh:PropertyShape ;
     sh:datatype xsd:integer .
 
-:PersoonReconstructionShape a sh:NodeShape ;
+default1:PersoonReconstructionShape a sh:NodeShape ;
     sh:description "De geaggregeerde en gevalideerde gegevens van een persoon, samengesteld uit één of meerdere persoonsvermeldingen."@nl ;
     sh:name "Persoonsreconstructie"@nl ;
     sh:property [ sh:description "De unieke identifier van persoon."@nl ;
             sh:name "Identifier"@nl ;
-            sh:node :Rule_identifier_schema ;
+            sh:node default1:Rule_identifier_schema ;
             sh:path schema1:identifier ],
         [ sh:description "Classificatie van de entiteit volgens Persons in Context."@nl ;
             sh:name "Type entiteit"@nl ;
-            sh:node :Rule_type ;
+            sh:node default1:Rule_type ;
             sh:path rdf:type ],
         [ sh:description "De gestandaardiseerde volledige naam van de persoon."@nl ;
             sh:name "Naam"@nl ;
-            sh:node :Rule_name ;
+            sh:node default1:Rule_name ;
             sh:path schema1:name ],
         [ sh:description "Varianten, aliassen of historische schrijfwijzen van de naam."@nl ;
             sh:name "Andere namen"@nl ;
-            sh:node :Rule_alternateName ;
+            sh:node default1:Rule_alternateName ;
             sh:path schema1:alternateName ],
         [ sh:name "Geboortedatum"@nl ;
-            sh:node :Rule_birthDate ;
+            sh:node default1:Rule_birthDate ;
             sh:path schema1:birthDate ],
         [ sh:name "Geboorteplaats"@nl ;
-            sh:node :Rule_birthPlace ;
+            sh:node default1:Rule_birthPlace ;
             sh:path schema1:birthPlace ],
         [ sh:name "Datum van overlijden"@nl ;
-            sh:node :Rule_deathDate ;
+            sh:node default1:Rule_deathDate ;
             sh:path schema1:deathDate ],
         [ sh:name "Plaats van overlijden"@nl ;
-            sh:node :Rule_deathPlace ;
+            sh:node default1:Rule_deathPlace ;
             sh:path schema1:deathPlace ],
         [ sh:description "Indicatie of de persoon is overleden."@nl ;
             sh:name "Overleden status"@nl ;
-            sh:node :Rule_deceased ;
+            sh:node default1:Rule_deceased ;
             sh:path picom1:deceased ],
         [ sh:name "Geslacht"@nl ;
-            sh:node :Rule_gender ;
+            sh:node default1:Rule_gender ;
             sh:path schema1:gender ],
         [ sh:description "Verwijzing naar de kinderen van deze persoon."@nl ;
             sh:name "Kinderen"@nl ;
-            sh:node :Rule_children ;
+            sh:node default1:Rule_children ;
             sh:path schema1:children ],
         [ sh:description "Verwijzing naar een ouder van deze persoon."@nl ;
             sh:name "Ouder"@nl ;
-            sh:node :Rule_parent ;
+            sh:node default1:Rule_parent ;
             sh:path schema1:parent ],
         [ sh:description "Verwijzing naar een broer of zus van deze persoon."@nl ;
             sh:name "Broer of zus"@nl ;
-            sh:node :Rule_sibling ;
+            sh:node default1:Rule_sibling ;
             sh:path schema1:sibling ],
         [ sh:description "Datum waarop deze reconstructie voor het eerst is aangemaakt."@nl ;
             sh:name "Aanmaakdatum"@nl ;
-            sh:node :Rule_dateCreated ;
+            sh:node default1:Rule_dateCreated ;
             sh:path schema1:dateCreated ],
         [ sh:description "Datum waarop deze reconstructie voor het laatst is bijgewerkt."@nl ;
             sh:name "Wijzigingsdatum"@nl ;
-            sh:node :Rule_dateModified ;
+            sh:node default1:Rule_dateModified ;
             sh:path schema1:dateModified ],
         [ sh:description "Verwijzing naar de persoonsvermeldingen waaruit deze reconstructie is opgebouwd."@nl ;
             sh:name "Afgeleid van"@nl ;
-            sh:node :Rule_wasDerivedFrom ;
+            sh:node default1:Rule_wasDerivedFrom ;
             sh:path prov:wasDerivedFrom ],
         [ sh:description "Externe links naar dezelfde persoon in andere systemen (bijv. Wikidata)."@nl ;
             sh:name "Andere autoriteit"@nl ;
-            sh:node :Rule_sameAs ;
+            sh:node default1:Rule_sameAs ;
             sh:path schema1:sameAs ],
         [ sh:description "Categorisering of trefwoorden van toepassing op de persoon (uit de WO2 thesaurus)."@nl ;
             sh:name "Trefwoorden"@nl ;
-            sh:node :Rule_keywords ;
+            sh:node default1:Rule_keywords ;
             sh:path schema1:keywords ] ;
     sh:targetClass picom1:PersonReconstruction .
 
-:Rule_about sh:node :Base_StringOrIRI ;
+default1:Rule_about sh:node default1:Base_StringOrIRI ;
     sh:path schema1:about .
 
-:Rule_accessRights sh:node :Base_String ;
+default1:Rule_accessRights sh:node default1:Base_String ;
     sh:path dct:accessRights .
 
-:Rule_actor sh:node :Base_IRI ;
+default1:Rule_actor sh:node default1:Base_IRI ;
     sh:or ( [ sh:class picom1:PersonReconstruction ] [ sh:class picom1:PersonObservation ] ) ;
     sh:path schema1:actor .
 
-:Rule_additionalType sh:node :Base_IRI ;
+default1:Rule_additionalType sh:node default1:Base_IRI ;
     sh:path schema1:additionalType .
 
-:Rule_address sh:node :Base_StringOrIRI ;
+default1:Rule_address sh:node default1:Base_StringOrIRI ;
     sh:path schema1:address .
 
-:Rule_altLabel sh:node :Base_String ;
+default1:Rule_altLabel sh:node default1:Base_String ;
     sh:path skos:altLabel .
 
-:Rule_alternateName sh:node :Base_String ;
+default1:Rule_alternateName sh:node default1:Base_String ;
     sh:path schema1:alternateName .
 
-:Rule_birthDate sh:maxCount 1 ;
-    sh:node :Base_Date ;
+default1:Rule_birthDate sh:maxCount 1 ;
+    sh:node default1:Base_Date ;
     sh:path schema1:birthDate .
 
-:Rule_birthPlace sh:maxCount 1 ;
-    sh:node :Base_StringOrIRI ;
+default1:Rule_birthPlace sh:maxCount 1 ;
+    sh:node default1:Base_StringOrIRI ;
     sh:path schema1:birthPlace .
 
-:Rule_broader sh:class skos:Concept ;
-    sh:node :Base_IRI ;
+default1:Rule_broader sh:class skos:Concept ;
+    sh:node default1:Base_IRI ;
     sh:path skos:broader .
 
-:Rule_children sh:node :Base_IRI ;
+default1:Rule_children sh:node default1:Base_IRI ;
     sh:or ( [ sh:class picom1:PersonReconstruction ] [ sh:class picom1:PersonObservation ] ) ;
     sh:path schema1:children .
 
-:Rule_collection sh:node :Base_String ;
+default1:Rule_collection sh:node default1:Base_String ;
     sh:path dcmit:Collection .
 
-:Rule_contentLocation sh:node :Base_StringOrIRI ;
+default1:Rule_contentLocation sh:node default1:Base_StringOrIRI ;
     sh:path schema1:contentLocation .
 
-:Rule_contentUrl sh:node :Base_StringOrIRI ;
+default1:Rule_contentUrl sh:node default1:Base_StringOrIRI ;
     sh:path schema1:contentUrl .
 
-:Rule_contributor sh:node :Base_StringOrIRI ;
+default1:Rule_contributor sh:node default1:Base_StringOrIRI ;
     sh:path dc:contributor .
 
-:Rule_created sh:maxCount 1 ;
-    sh:node :Base_Date ;
+default1:Rule_created sh:maxCount 1 ;
+    sh:node default1:Base_Date ;
     sh:path dct:created .
 
-:Rule_creator sh:node :Base_StringOrIRI ;
+default1:Rule_creator sh:node default1:Base_StringOrIRI ;
     sh:path dc:creator .
 
-:Rule_date sh:maxCount 1 ;
-    sh:node :Base_DateOrInteger ;
+default1:Rule_date sh:maxCount 1 ;
+    sh:node default1:Base_DateOrInteger ;
     sh:path dc:date .
 
-:Rule_dateCreated sh:maxCount 1 ;
-    sh:node :Base_Date ;
+default1:Rule_dateCreated sh:maxCount 1 ;
+    sh:node default1:Base_Date ;
     sh:path schema1:dateCreated .
 
-:Rule_dateModified sh:maxCount 1 ;
-    sh:node :Base_Date ;
+default1:Rule_dateModified sh:maxCount 1 ;
+    sh:node default1:Base_Date ;
     sh:path schema1:dateModified .
 
-:Rule_datePublished sh:maxCount 1 ;
-    sh:node :Base_Date ;
+default1:Rule_datePublished sh:maxCount 1 ;
+    sh:node default1:Base_Date ;
     sh:path schema1:datePublished .
 
-:Rule_deathDate sh:maxCount 1 ;
-    sh:node :Base_Date ;
+default1:Rule_deathDate sh:maxCount 1 ;
+    sh:node default1:Base_Date ;
     sh:path schema1:deathDate .
 
-:Rule_deathPlace sh:maxCount 1 ;
-    sh:node :Base_StringOrIRI ;
+default1:Rule_deathPlace sh:maxCount 1 ;
+    sh:node default1:Base_StringOrIRI ;
     sh:path schema1:deathPlace .
 
-:Rule_deceased sh:maxCount 1 ;
-    sh:node :Base_String ;
+default1:Rule_deceased sh:maxCount 1 ;
+    sh:node default1:Base_String ;
     sh:path picom1:deceased .
 
-:Rule_definition sh:node :Base_String ;
+default1:Rule_definition sh:node default1:Base_String ;
     sh:path skos:definition .
 
-:Rule_description_dc sh:node :Base_String ;
+default1:Rule_description_dc sh:node default1:Base_String ;
     sh:path dc:description .
 
-:Rule_exactMatch sh:node :Base_IRI ;
+default1:Rule_exactMatch sh:node default1:Base_IRI ;
     sh:path skos:exactMatch .
 
-:Rule_familyName sh:node :Base_String ;
+default1:Rule_familyName sh:node default1:Base_String ;
     sh:path schema1:familyName .
 
-:Rule_format sh:node :Base_String ;
+default1:Rule_format sh:node default1:Base_String ;
     sh:path dc:format .
 
-:Rule_fromLocation sh:node :Base_StringOrIRI ;
+default1:Rule_fromLocation sh:node default1:Base_StringOrIRI ;
     sh:path schema1:fromLocation .
 
-:Rule_gender sh:node :Base_StringOrIRI ;
+default1:Rule_gender sh:node default1:Base_StringOrIRI ;
     sh:path schema1:gender .
 
-:Rule_givenName sh:node :Base_String ;
+default1:Rule_givenName sh:node default1:Base_String ;
     sh:path schema1:givenName .
 
-:Rule_hasOccupation sh:node :Base_String ;
+default1:Rule_hasOccupation sh:node default1:Base_String ;
     sh:path schema1:hasOccupation .
 
-:Rule_hiddenLabel sh:node :Base_String ;
+default1:Rule_hiddenLabel sh:node default1:Base_String ;
     sh:path skos:hiddenLabel .
 
-:Rule_identifier_dc sh:maxCount 1 ;
+default1:Rule_identifier_dc sh:maxCount 1 ;
     sh:minCount 1 ;
-    sh:node :Base_String ;
+    sh:node default1:Base_String ;
     sh:path dc:identifier .
 
-:Rule_inDataset sh:class schema1:Dataset ;
-    sh:node :Base_IRI ;
+default1:Rule_inDataset sh:class schema1:Dataset ;
+    sh:node default1:Base_IRI ;
     sh:path niod1:inDataset .
 
-:Rule_inScheme sh:class skos:ConceptScheme ;
+default1:Rule_inScheme sh:class skos:ConceptScheme ;
     sh:minCount 1 ;
-    sh:node :Base_IRI ;
+    sh:node default1:Base_IRI ;
     sh:path skos:inScheme .
 
-:Rule_initials sh:node :Base_String ;
+default1:Rule_initials sh:node default1:Base_String ;
     sh:path pnv:initials .
 
-:Rule_isPartOf sh:class niod1:Archive ;
-    sh:node :Base_IRI ;
+default1:Rule_isPartOf sh:class niod1:Archive ;
+    sh:node default1:Base_IRI ;
     sh:path dct:isPartOf .
 
-:Rule_keywords sh:class skos:Concept ;
-    sh:node :Base_IRI ;
+default1:Rule_keywords sh:class skos:Concept ;
+    sh:node default1:Base_IRI ;
     sh:path schema1:keywords .
 
-:Rule_lat sh:maxCount 1 ;
-    sh:node :Base_Double ;
+default1:Rule_lat sh:maxCount 1 ;
+    sh:node default1:Base_Double ;
     sh:path wgs1:lat .
 
-:Rule_lat_schema sh:maxCount 1 ;
-    sh:node :Base_String ;
+default1:Rule_lat_schema sh:maxCount 1 ;
+    sh:node default1:Base_String ;
     sh:path schema1:latitude .
 
-:Rule_location sh:node :Base_StringOrIRI ;
+default1:Rule_location sh:node default1:Base_StringOrIRI ;
     sh:path schema1:location .
 
-:Rule_long sh:maxCount 1 ;
-    sh:node :Base_Double ;
+default1:Rule_long sh:maxCount 1 ;
+    sh:node default1:Base_Double ;
     sh:path wgs1:long .
 
-:Rule_long_schema sh:maxCount 1 ;
-    sh:node :Base_String ;
+default1:Rule_long_schema sh:maxCount 1 ;
+    sh:node default1:Base_String ;
     sh:path schema1:longitude .
 
-:Rule_modified sh:maxCount 1 ;
-    sh:node :Base_Date ;
+default1:Rule_modified sh:maxCount 1 ;
+    sh:node default1:Base_Date ;
     sh:path dct:modified .
 
-:Rule_narrower sh:class skos:Concept ;
-    sh:node :Base_IRI ;
+default1:Rule_narrower sh:class skos:Concept ;
+    sh:node default1:Base_IRI ;
     sh:path skos:narrower .
 
-:Rule_parent sh:node :Base_IRI ;
+default1:Rule_parent sh:node default1:Base_IRI ;
     sh:or ( [ sh:class picom1:PersonReconstruction ] [ sh:class picom1:PersonObservation ] ) ;
     sh:path schema1:parent .
 
-:Rule_prefLabel sh:minCount 1 ;
-    sh:node :Base_String ;
+default1:Rule_prefLabel sh:minCount 1 ;
+    sh:node default1:Base_String ;
     sh:path skos:prefLabel .
 
-:Rule_publisher sh:class schema1:Organization ;
-    sh:node :Base_IRI ;
+default1:Rule_publisher sh:class schema1:Organization ;
+    sh:node default1:Base_IRI ;
     sh:path dc:publisher .
 
-:Rule_related sh:class skos:Concept ;
-    sh:node :Base_IRI ;
+default1:Rule_related sh:class skos:Concept ;
+    sh:node default1:Base_IRI ;
     sh:path skos:related .
 
-:Rule_rights sh:node :Base_StringOrIRI ;
+default1:Rule_rights sh:node default1:Base_StringOrIRI ;
     sh:path dc:rights .
 
-:Rule_sameAs sh:node :Base_IRI ;
+default1:Rule_sameAs sh:node default1:Base_IRI ;
     sh:path schema1:sameAs .
 
-:Rule_scopeNote sh:node :Base_String ;
+default1:Rule_scopeNote sh:node default1:Base_String ;
     sh:path skos:scopeNote .
 
-:Rule_sibling sh:node :Base_IRI ;
+default1:Rule_sibling sh:node default1:Base_IRI ;
     sh:or ( [ sh:class picom1:PersonReconstruction ] [ sh:class picom1:PersonObservation ] ) ;
     sh:path schema1:sibling .
 
-:Rule_source sh:node :Base_String ;
+default1:Rule_source sh:node default1:Base_String ;
     sh:path dc:source .
 
-:Rule_subject sh:node :Base_StringOrIRI ;
+default1:Rule_subject sh:node default1:Base_StringOrIRI ;
     sh:path dc:subject .
 
-:Rule_superEvent sh:class schema1:Event ;
-    sh:node :Base_IRI ;
+default1:Rule_superEvent sh:class schema1:Event ;
+    sh:node default1:Base_IRI ;
     sh:path schema1:superEvent .
 
-:Rule_temporal sh:node :Base_String ;
+default1:Rule_temporal sh:node default1:Base_String ;
     sh:path schema1:temporal .
 
-:Rule_text sh:node :Base_String ;
+default1:Rule_text sh:node default1:Base_String ;
     sh:path schema1:text .
 
-:Rule_thumbnail sh:node :Base_StringOrIRI ;
+default1:Rule_thumbnail sh:node default1:Base_StringOrIRI ;
     sh:path schema1:thumbnail .
 
-:Rule_title sh:maxCount 1 ;
+default1:Rule_title sh:maxCount 1 ;
     sh:minCount 1 ;
-    sh:node :Base_String ;
+    sh:node default1:Base_String ;
     sh:path dc:title .
 
-:Rule_toLocation sh:node :Base_StringOrIRI ;
+default1:Rule_toLocation sh:node default1:Base_StringOrIRI ;
     sh:path schema1:toLocation .
 
-:Rule_type_dc sh:node :Base_String ;
+default1:Rule_type_dc sh:node default1:Base_String ;
     sh:path dc:type .
 
-:Rule_wasDerivedFrom sh:class picom1:PersonObservation ;
-    sh:node :Base_IRI ;
+default1:Rule_wasDerivedFrom sh:class picom1:PersonObservation ;
+    sh:node default1:Base_IRI ;
     sh:path prov:wasDerivedFrom .
 
-:Rule_wgsLocation sh:node :Base_IRI ;
+default1:Rule_wgsLocation sh:node default1:Base_IRI ;
     sh:or ( [ sh:class skos:Concept ] [ sh:class wgs1:SpatialTing ] ) ;
     sh:path wgs1:location .
 
@@ -967,114 +968,114 @@ schema1:VideoObject rdfs:label "Video"@nl .
 schema1:VisualArtwork rdfs:label "Kunstwerk"@nl ;
     rdfs:subClassOf :Afbeelding .
 
-:Base_Double a sh:PropertyShape ;
+default1:Base_Double a sh:PropertyShape ;
     sh:datatype xsd:double .
 
-:Rule_description_schema sh:node :Base_String ;
+default1:Rule_description_schema sh:node default1:Base_String ;
     sh:path schema1:description .
 
-:Rule_hadPrimarySource sh:node :Base_IRI ;
+default1:Rule_hadPrimarySource sh:node default1:Base_IRI ;
     sh:or ( [ sh:class prov:Entity ] [ sh:class schema1:ArchiveComponent ] ) ;
     sh:path prov:hadPrimarySource .
 
-:Rule_identifier_schema sh:maxCount 1 ;
+default1:Rule_identifier_schema sh:maxCount 1 ;
     sh:minCount 1 ;
-    sh:node :Base_String ;
+    sh:node default1:Base_String ;
     sh:path schema1:identifier .
 
-:Rule_provider sh:node :Base_StringOrIRI ;
+default1:Rule_provider sh:node default1:Base_StringOrIRI ;
     sh:path schema1:provider .
 
-:Rule_url sh:node :Base_StringOrIRI ;
+default1:Rule_url sh:node default1:Base_StringOrIRI ;
     sh:path schema1:url .
 
-:Base_DateOrInteger a sh:PropertyShape ;
+default1:Base_DateOrInteger a sh:PropertyShape ;
     sh:or ( [ sh:datatype xsd:date ] [ sh:datatype xsd:integer ] ) .
 
-:Rule_endDate sh:maxCount 1 ;
-    sh:node :Base_DateOrInteger ;
+default1:Rule_endDate sh:maxCount 1 ;
+    sh:node default1:Base_DateOrInteger ;
     sh:path schema1:endDate .
 
-:Rule_name sh:maxCount 1 ;
+default1:Rule_name sh:maxCount 1 ;
     sh:minCount 1 ;
-    sh:node :Base_String ;
+    sh:node default1:Base_String ;
     sh:path schema1:name .
 
-:Rule_startDate sh:maxCount 1 ;
-    sh:node :Base_DateOrInteger ;
+default1:Rule_startDate sh:maxCount 1 ;
+    sh:node default1:Base_DateOrInteger ;
     sh:path schema1:startDate .
 
-:CreativeWorkShape a sh:NodeShape ;
+default1:CreativeWorkShape a sh:NodeShape ;
     sh:description "Verschillende typen bronnen en objecten die binnen de collectie worden beschreven, zoals artikelen, foto's en kunstwerken."@nl ;
     sh:name "Bronnen en Objecten"@nl ;
     sh:property [ sh:name "Thumbnail"@nl ;
-            sh:node :Rule_thumbnail ;
+            sh:node default1:Rule_thumbnail ;
             sh:path schema1:thumbnail ],
         [ sh:name "Identifier (DC)"@nl ;
-            sh:node :Rule_identifier_dc ;
+            sh:node default1:Rule_identifier_dc ;
             sh:path dc:identifier ],
         [ sh:name "Type (RDF)"@nl ;
-            sh:node :Rule_type ;
+            sh:node default1:Rule_type ;
             sh:path rdf:type ],
         [ sh:name "Type (DC)"@nl ;
-            sh:node :Rule_type_dc ;
+            sh:node default1:Rule_type_dc ;
             sh:path dc:type ],
         [ sh:name "Type (DC)"@nl ;
-            sh:node :Rule_format ;
+            sh:node default1:Rule_format ;
             sh:path dc:format ],
         [ sh:description "Dit object of archiefstuk is onderdeel van een serie of collectie"@nl ;
             sh:name "Onderdeel van"@nl ;
-            sh:node :Rule_isPartOf ;
+            sh:node default1:Rule_isPartOf ;
             sh:path dct:isPartOf ],
         [ sh:name "Titel"@nl ;
-            sh:node :Rule_title ;
+            sh:node default1:Rule_title ;
             sh:path dc:title ],
         [ sh:name "Beschrijving"@nl ;
-            sh:node :Rule_description_dc ;
+            sh:node default1:Rule_description_dc ;
             sh:path dc:description ],
         [ sh:name "Onderwerp"@nl ;
-            sh:node :Rule_subject ;
+            sh:node default1:Rule_subject ;
             sh:path dc:subject ],
         [ sh:name "Persoon of organisatie als onderwerp van het werk"@nl ;
-            sh:node :Rule_about ;
+            sh:node default1:Rule_about ;
             sh:path schema1:about ],
         [ sh:name "Inhoudelijke locatie"@nl ;
-            sh:node :Rule_contentLocation ;
+            sh:node default1:Rule_contentLocation ;
             sh:path schema1:contentLocation ],
         [ sh:name "Maker van het werk"@nl ;
-            sh:node :Rule_creator ;
+            sh:node default1:Rule_creator ;
             sh:path dc:creator ],
         [ sh:name "Persoon die heeft bijgedragen aan het werk"@nl ;
-            sh:node :Rule_contributor ;
+            sh:node default1:Rule_contributor ;
             sh:path dc:contributor ],
         [ sh:name "Uitgever"@nl ;
-            sh:node :Rule_publisher ;
+            sh:node default1:Rule_publisher ;
             sh:path dc:publisher ],
         [ sh:description "De instelling die het object digitaal beschikbaar stelt."@nl ;
             sh:name "Provider"@nl ;
-            sh:node :Rule_provider ;
+            sh:node default1:Rule_provider ;
             sh:path schema1:provider ],
         [ sh:name "Rechten"@nl ;
-            sh:node :Rule_rights ;
+            sh:node default1:Rule_rights ;
             sh:path dc:rights ],
         [ sh:name "Bron"@nl ;
-            sh:node :Rule_source ;
+            sh:node default1:Rule_source ;
             sh:path dc:source ],
         [ sh:description "De verzameling waar dit object deel van uitmaakt."@nl ;
             sh:name "Collectie"@nl ;
-            sh:node :Rule_collection ;
+            sh:node default1:Rule_collection ;
             sh:path dcmit:Collection ],
         [ sh:name "Datum"@nl ;
-            sh:node :Rule_date ;
+            sh:node default1:Rule_date ;
             sh:path dc:date ],
         [ sh:name "Startdatum"@nl ;
-            sh:node :Rule_startDate ;
+            sh:node default1:Rule_startDate ;
             sh:path schema1:startDate ],
         [ sh:name "Einddatum"@nl ;
-            sh:node :Rule_endDate ;
+            sh:node default1:Rule_endDate ;
             sh:path schema1:endDate ],
         [ sh:name "Periodisering"@nl ;
-            sh:node :Rule_temporal ;
+            sh:node default1:Rule_temporal ;
             sh:path schema1:temporal ] ;
     sh:targetClass schema1:Article,
         schema1:Book,
@@ -1086,22 +1087,22 @@ schema1:VisualArtwork rdfs:label "Kunstwerk"@nl ;
         schema1:SheetMusic,
         schema1:VisualArtwork .
 
-:Rule_type sh:node :Base_IRI ;
+default1:Rule_type sh:node default1:Base_IRI ;
     sh:path rdf:type .
 
 skos:Concept rdfs:subClassOf :Webpagina .
 
-:Base_Date a sh:PropertyShape ;
+default1:Base_Date a sh:PropertyShape ;
     sh:datatype xsd:date .
 
 schema1:CreativeWork rdfs:label "Object"@nl .
 
-:Base_StringOrIRI a sh:PropertyShape ;
+default1:Base_StringOrIRI a sh:PropertyShape ;
     sh:or ( [ sh:datatype xsd:string ] [ sh:nodeKind sh:IRI ] ) .
 
-:Base_IRI a sh:PropertyShape ;
+default1:Base_IRI a sh:PropertyShape ;
     sh:nodeKind sh:IRI .
 
-:Base_String a sh:PropertyShape ;
+default1:Base_String a sh:PropertyShape ;
     sh:datatype xsd:string .
 
