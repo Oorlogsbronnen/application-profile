@@ -16,15 +16,19 @@
   } ]
 }, {
   "@id" : "_:genid10",
+  "http://www.w3.org/ns/shacl#description" : [ {
+    "@language" : "nl",
+    "@value" : "Lengtegraad van de locatie van het concept."
+  } ],
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Wijzigingsdatum"
+    "@value" : "Longitude"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_modified"
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_long"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://purl.org/dc/terms/modified"
+    "@id" : "http://www.w3.org/2003/01/geo/wgs84_poslong"
   } ]
 }, {
   "@id" : "_:genid100",
@@ -44,33 +48,33 @@
   } ]
 }, {
   "@id" : "_:genid101",
-  "http://www.w3.org/ns/shacl#datatype" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  "http://www.w3.org/ns/shacl#class" : [ {
+    "@id" : "https://personsincontext.org/model/#PersonReconstruction"
   } ]
 }, {
   "@id" : "_:genid102",
   "http://www.w3.org/ns/shacl#class" : [ {
-    "@id" : "http://schema.org/ArchiveComponent"
+    "@id" : "https://personsincontext.org/model/#PersonObservation"
   } ]
 }, {
   "@id" : "_:genid103",
-  "http://www.w3.org/ns/shacl#datatype" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#integer"
+  "http://www.w3.org/ns/shacl#class" : [ {
+    "@id" : "https://personsincontext.org/model/#PersonReconstruction"
   } ]
 }, {
   "@id" : "_:genid104",
-  "http://www.w3.org/ns/shacl#datatype" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#date"
+  "http://www.w3.org/ns/shacl#class" : [ {
+    "@id" : "https://personsincontext.org/model/#PersonObservation"
   } ]
 }, {
   "@id" : "_:genid105",
   "http://www.w3.org/ns/shacl#class" : [ {
-    "@id" : "http://www.w3.org/ns/prov#Entity"
+    "@id" : "https://personsincontext.org/model/#PersonReconstruction"
   } ]
 }, {
   "@id" : "_:genid106",
   "http://www.w3.org/ns/shacl#class" : [ {
-    "@id" : "http://www.w3.org/2003/01/geo/wgs84_posSpatialTing"
+    "@id" : "https://personsincontext.org/model/#PersonObservation"
   } ]
 }, {
   "@id" : "_:genid107",
@@ -80,7 +84,7 @@
 }, {
   "@id" : "_:genid108",
   "http://www.w3.org/ns/shacl#class" : [ {
-    "@id" : "https://personsincontext.org/model/#PersonObservation"
+    "@id" : "http://www.w3.org/2003/01/geo/wgs84_posSpatialTing"
   } ]
 }, {
   "@id" : "_:genid109",
@@ -89,133 +93,6 @@
   } ]
 }, {
   "@id" : "_:genid11",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Aanmaakdatum"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_created"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://purl.org/dc/terms/created"
-  } ]
-}, {
-  "@id" : "_:genid110",
-  "http://www.w3.org/ns/shacl#class" : [ {
-    "@id" : "https://personsincontext.org/model/#PersonReconstruction"
-  } ]
-}, {
-  "@id" : "_:genid111",
-  "http://www.w3.org/ns/shacl#class" : [ {
-    "@id" : "https://personsincontext.org/model/#PersonObservation"
-  } ]
-}, {
-  "@id" : "_:genid112",
-  "http://www.w3.org/ns/shacl#class" : [ {
-    "@id" : "https://personsincontext.org/model/#PersonReconstruction"
-  } ]
-}, {
-  "@id" : "_:genid113",
-  "http://www.w3.org/ns/shacl#class" : [ {
-    "@id" : "https://personsincontext.org/model/#PersonObservation"
-  } ]
-}, {
-  "@id" : "_:genid114",
-  "http://www.w3.org/ns/shacl#class" : [ {
-    "@id" : "https://personsincontext.org/model/#PersonObservation"
-  } ]
-}, {
-  "@id" : "_:genid115",
-  "http://www.w3.org/ns/shacl#nodeKind" : [ {
-    "@id" : "http://www.w3.org/ns/shacl#IRI"
-  } ]
-}, {
-  "@id" : "_:genid116",
-  "http://www.w3.org/ns/shacl#class" : [ {
-    "@id" : "https://personsincontext.org/model/#PersonReconstruction"
-  } ]
-}, {
-  "@id" : "_:genid12",
-  "http://www.w3.org/ns/shacl#description" : [ {
-    "@language" : "nl",
-    "@value" : "Lengtegraad van de locatie van het concept."
-  } ],
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Longitude"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_long"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://www.w3.org/2003/01/geo/wgs84_poslong"
-  } ]
-}, {
-  "@id" : "_:genid13",
-  "http://www.w3.org/ns/shacl#description" : [ {
-    "@language" : "nl",
-    "@value" : "Breedtegraad van de locatie van het concept."
-  } ],
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Latitude"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_lat"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://www.w3.org/2003/01/geo/wgs84_poslat"
-  } ]
-}, {
-  "@id" : "_:genid14",
-  "http://www.w3.org/ns/shacl#description" : [ {
-    "@language" : "nl",
-    "@value" : "Locatie van het concept."
-  } ],
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Locatie"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_wgsLocation"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://www.w3.org/2003/01/geo/wgs84_poslocation"
-  } ]
-}, {
-  "@id" : "_:genid15",
-  "http://www.w3.org/ns/shacl#description" : [ {
-    "@language" : "nl",
-    "@value" : "Verwijzing naar een identiek concept in een externe bron (bijv. AAT of WO2-thesaurus)."
-  } ],
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Exacte match"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_exactMatch"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://www.w3.org/2004/02/skos/core#exactMatch"
-  } ]
-}, {
-  "@id" : "_:genid16",
-  "http://www.w3.org/ns/shacl#description" : [ {
-    "@language" : "nl",
-    "@value" : "Verwijzing naar een concept dat inhoudelijk verwant is, maar niet in de hiërarchie staat."
-  } ],
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Gerelateerd concept"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_related"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://www.w3.org/2004/02/skos/core#related"
-  } ]
-}, {
-  "@id" : "_:genid17",
   "http://www.w3.org/ns/shacl#description" : [ {
     "@language" : "nl",
     "@value" : "Verwijzing naar een concept dat lager in de hiërarchie staat."
@@ -231,35 +108,126 @@
     "@id" : "http://www.w3.org/2004/02/skos/core#narrower"
   } ]
 }, {
-  "@id" : "_:genid18",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Type (RDF)"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_type"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+  "@id" : "_:genid110",
+  "http://www.w3.org/ns/shacl#class" : [ {
+    "@id" : "https://personsincontext.org/model/#PersonObservation"
   } ]
 }, {
-  "@id" : "_:genid19",
+  "@id" : "_:genid111",
+  "http://www.w3.org/ns/shacl#class" : [ {
+    "@id" : "http://www.w3.org/ns/prov#Entity"
+  } ]
+}, {
+  "@id" : "_:genid112",
+  "http://www.w3.org/ns/shacl#datatype" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#integer"
+  } ]
+}, {
+  "@id" : "_:genid113",
+  "http://www.w3.org/ns/shacl#datatype" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#date"
+  } ]
+}, {
+  "@id" : "_:genid114",
+  "http://www.w3.org/ns/shacl#class" : [ {
+    "@id" : "http://schema.org/ArchiveComponent"
+  } ]
+}, {
+  "@id" : "_:genid115",
+  "http://www.w3.org/ns/shacl#nodeKind" : [ {
+    "@id" : "http://www.w3.org/ns/shacl#IRI"
+  } ]
+}, {
+  "@id" : "_:genid116",
+  "http://www.w3.org/ns/shacl#datatype" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ]
+}, {
+  "@id" : "_:genid12",
   "http://www.w3.org/ns/shacl#description" : [ {
     "@language" : "nl",
-    "@value" : "De officiële naam van het concept in de thesaurus."
+    "@value" : "Verwijzing naar een concept dat hoger in de hiërarchie staat."
   } ],
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Voorkeursterm"
+    "@value" : "Breder concept"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_prefLabel"
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_broader"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://www.w3.org/2004/02/skos/core#prefLabel"
+    "@id" : "http://www.w3.org/2004/02/skos/core#broader"
   } ]
 }, {
-  "@id" : "_:genid20",
+  "@id" : "_:genid13",
+  "http://www.w3.org/ns/shacl#description" : [ {
+    "@language" : "nl",
+    "@value" : "Verwijzing naar een identiek concept in een externe bron (bijv. AAT of WO2-thesaurus)."
+  } ],
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Exacte match"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_exactMatch"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://www.w3.org/2004/02/skos/core#exactMatch"
+  } ]
+}, {
+  "@id" : "_:genid14",
+  "http://www.w3.org/ns/shacl#description" : [ {
+    "@language" : "nl",
+    "@value" : "Verwijzing naar een concept dat inhoudelijk verwant is, maar niet in de hiërarchie staat."
+  } ],
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Gerelateerd concept"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_related"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://www.w3.org/2004/02/skos/core#related"
+  } ]
+}, {
+  "@id" : "_:genid15",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Wijzigingsdatum"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_modified"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://purl.org/dc/terms/modified"
+  } ]
+}, {
+  "@id" : "_:genid16",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Einddatum"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_endDate"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://schema.org/endDate"
+  } ]
+}, {
+  "@id" : "_:genid17",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Startdatum"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_startDate"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://schema.org/startDate"
+  } ]
+}, {
+  "@id" : "_:genid18",
   "http://www.w3.org/ns/shacl#description" : [ {
     "@language" : "nl",
     "@value" : "Synoniemen of andere schrijfwijzen van het concept."
@@ -275,7 +243,7 @@
     "@id" : "http://www.w3.org/2004/02/skos/core#altLabel"
   } ]
 }, {
-  "@id" : "_:genid21",
+  "@id" : "_:genid19",
   "http://www.w3.org/ns/shacl#description" : [ {
     "@language" : "nl",
     "@value" : "Termen zoals spelfouten die wel doorzoekbaar moeten zijn, maar niet getoond worden."
@@ -289,6 +257,34 @@
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
     "@id" : "http://www.w3.org/2004/02/skos/core#hiddenLabel"
+  } ]
+}, {
+  "@id" : "_:genid20",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Type (RDF)"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_type"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+  } ]
+}, {
+  "@id" : "_:genid21",
+  "http://www.w3.org/ns/shacl#description" : [ {
+    "@language" : "nl",
+    "@value" : "De officiële naam van het concept in de thesaurus."
+  } ],
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Voorkeursterm"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_prefLabel"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://www.w3.org/2004/02/skos/core#prefLabel"
   } ]
 }, {
   "@id" : "_:genid22",
@@ -326,105 +322,101 @@
   "@id" : "_:genid24",
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Bron"
+    "@value" : "Maker van het werk"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_source"
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_creator"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://purl.org/dc/elements/1.1/source"
+    "@id" : "http://purl.org/dc/elements/1.1/creator"
   } ]
 }, {
   "@id" : "_:genid25",
-  "http://www.w3.org/ns/shacl#description" : [ {
-    "@language" : "nl",
-    "@value" : "De verzameling waar dit object deel van uitmaakt."
-  } ],
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Collectie"
+    "@value" : "Inhoudelijke locatie"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_collection"
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_contentLocation"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://purl.org/dc/dcmitype/Collection"
+    "@id" : "http://schema.org/contentLocation"
   } ]
 }, {
   "@id" : "_:genid26",
-  "http://www.w3.org/ns/shacl#description" : [ {
-    "@language" : "nl",
-    "@value" : "De instelling die het object digitaal beschikbaar stelt."
-  } ],
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Provider"
+    "@value" : "Persoon of organisatie als onderwerp van het werk"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_provider"
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_about"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/provider"
+    "@id" : "http://schema.org/about"
   } ]
 }, {
   "@id" : "_:genid27",
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Rechten"
+    "@value" : "Onderwerp"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_rights"
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_subject"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://purl.org/dc/elements/1.1/rights"
+    "@id" : "http://purl.org/dc/elements/1.1/subject"
   } ]
 }, {
   "@id" : "_:genid28",
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Einddatum"
+    "@value" : "Beschrijving"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_endDate"
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_description_dc"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/endDate"
+    "@id" : "http://purl.org/dc/elements/1.1/description"
   } ]
 }, {
   "@id" : "_:genid29",
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Periodisering"
+    "@value" : "Titel"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_temporal"
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_title"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/temporal"
+    "@id" : "http://purl.org/dc/elements/1.1/title"
   } ]
 }, {
   "@id" : "_:genid30",
+  "http://www.w3.org/ns/shacl#description" : [ {
+    "@language" : "nl",
+    "@value" : "Dit object of archiefstuk is onderdeel van een serie of collectie"
+  } ],
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Datum"
+    "@value" : "Onderdeel van"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_date"
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_isPartOf"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://purl.org/dc/elements/1.1/date"
+    "@id" : "http://purl.org/dc/terms/isPartOf"
   } ]
 }, {
   "@id" : "_:genid31",
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Startdatum"
+    "@value" : "Type (DC)"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_startDate"
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_format"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/startDate"
+    "@id" : "http://purl.org/dc/elements/1.1/format"
   } ]
 }, {
   "@id" : "_:genid32",
@@ -442,18 +434,6 @@
   "@id" : "_:genid33",
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Maker van het werk"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_creator"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://purl.org/dc/elements/1.1/creator"
-  } ]
-}, {
-  "@id" : "_:genid34",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
     "@value" : "Persoon die heeft bijgedragen aan het werk"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
@@ -463,32 +443,40 @@
     "@id" : "http://purl.org/dc/elements/1.1/contributor"
   } ]
 }, {
-  "@id" : "_:genid35",
-  "http://www.w3.org/ns/shacl#description" : [ {
-    "@language" : "nl",
-    "@value" : "Dit object of archiefstuk is onderdeel van een serie of collectie"
-  } ],
+  "@id" : "_:genid34",
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Onderdeel van"
+    "@value" : "Thumbnail"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_isPartOf"
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_thumbnail"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://purl.org/dc/terms/isPartOf"
+    "@id" : "http://schema.org/thumbnail"
+  } ]
+}, {
+  "@id" : "_:genid35",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Identifier (DC)"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_identifier_dc"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://purl.org/dc/elements/1.1/identifier"
   } ]
 }, {
   "@id" : "_:genid36",
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Titel"
+    "@value" : "Type (RDF)"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_title"
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_type"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://purl.org/dc/elements/1.1/title"
+    "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
   } ]
 }, {
   "@id" : "_:genid37",
@@ -497,34 +485,38 @@
     "@value" : "Type (DC)"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_format"
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_type_dc"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://purl.org/dc/elements/1.1/format"
+    "@id" : "http://purl.org/dc/elements/1.1/type"
   } ]
 }, {
   "@id" : "_:genid38",
+  "http://www.w3.org/ns/shacl#description" : [ {
+    "@language" : "nl",
+    "@value" : "De instelling die het object digitaal beschikbaar stelt."
+  } ],
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Persoon of organisatie als onderwerp van het werk"
+    "@value" : "Provider"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_about"
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_provider"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/about"
+    "@id" : "http://schema.org/provider"
   } ]
 }, {
   "@id" : "_:genid39",
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Inhoudelijke locatie"
+    "@value" : "Rechten"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_contentLocation"
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_rights"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/contentLocation"
+    "@id" : "http://purl.org/dc/elements/1.1/rights"
   } ]
 }, {
   "@id" : "_:genid4",
@@ -546,31 +538,111 @@
   "@id" : "_:genid40",
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Beschrijving"
+    "@value" : "Bron"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_description_dc"
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_source"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://purl.org/dc/elements/1.1/description"
+    "@id" : "http://purl.org/dc/elements/1.1/source"
   } ]
 }, {
   "@id" : "_:genid41",
+  "http://www.w3.org/ns/shacl#description" : [ {
+    "@language" : "nl",
+    "@value" : "De verzameling waar dit object deel van uitmaakt."
+  } ],
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Onderwerp"
+    "@value" : "Collectie"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_subject"
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_collection"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://purl.org/dc/elements/1.1/subject"
+    "@id" : "http://purl.org/dc/dcmitype/Collection"
   } ]
 }, {
   "@id" : "_:genid42",
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Type (RDF)"
+    "@value" : "Datum"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_date"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://purl.org/dc/elements/1.1/date"
+  } ]
+}, {
+  "@id" : "_:genid43",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Startdatum"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_startDate"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://schema.org/startDate"
+  } ]
+}, {
+  "@id" : "_:genid44",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Einddatum"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_endDate"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://schema.org/endDate"
+  } ]
+}, {
+  "@id" : "_:genid45",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Periodisering"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_temporal"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://schema.org/temporal"
+  } ]
+}, {
+  "@id" : "_:genid46",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Leverancier van de dataset"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_provider"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://schema.org/provider"
+  } ]
+}, {
+  "@id" : "_:genid47",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Bronverwijzing voor de dataset"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_url"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://schema.org/url"
+  } ]
+}, {
+  "@id" : "_:genid48",
+  "http://www.w3.org/ns/shacl#description" : [ {
+    "@language" : "nl",
+    "@value" : "Classificatie van de entiteit als schema:Dataset"
+  } ],
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Type entiteit"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
     "@id" : "http://data.oorlogsbronnen.nl/model#Rule_type"
@@ -579,43 +651,7 @@
     "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
   } ]
 }, {
-  "@id" : "_:genid43",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Type (DC)"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_type_dc"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://purl.org/dc/elements/1.1/type"
-  } ]
-}, {
-  "@id" : "_:genid44",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Thumbnail"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_thumbnail"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/thumbnail"
-  } ]
-}, {
-  "@id" : "_:genid45",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Identifier (DC)"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_identifier_dc"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://purl.org/dc/elements/1.1/identifier"
-  } ]
-}, {
-  "@id" : "_:genid46",
+  "@id" : "_:genid49",
   "http://www.w3.org/ns/shacl#description" : [ {
     "@language" : "nl",
     "@value" : "De unieke identifier van de dataset."
@@ -629,42 +665,6 @@
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
     "@id" : "http://schema.org/identifier"
-  } ]
-}, {
-  "@id" : "_:genid47",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Leverancier van de dataset"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_provider"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/provider"
-  } ]
-}, {
-  "@id" : "_:genid48",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Bronverwijzing voor de dataset"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_url"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/url"
-  } ]
-}, {
-  "@id" : "_:genid49",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Beschrijving van de dataset"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_description_schema"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/description"
   } ]
 }, {
   "@id" : "_:genid5",
@@ -686,6 +686,18 @@
   "@id" : "_:genid50",
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
+    "@value" : "Beschrijving van de dataset"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_description_schema"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://schema.org/description"
+  } ]
+}, {
+  "@id" : "_:genid51",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
     "@value" : "Naam van de dataset"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
@@ -693,22 +705,6 @@
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
     "@id" : "http://schema.org/name"
-  } ]
-}, {
-  "@id" : "_:genid51",
-  "http://www.w3.org/ns/shacl#description" : [ {
-    "@language" : "nl",
-    "@value" : "Classificatie van de entiteit als schema:Dataset"
-  } ],
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Type entiteit"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_type"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
   } ]
 }, {
   "@id" : "_:genid52",
@@ -744,15 +740,19 @@
   } ]
 }, {
   "@id" : "_:genid54",
+  "http://www.w3.org/ns/shacl#description" : [ {
+    "@language" : "nl",
+    "@value" : "De naam van de gebeurtenis."
+  } ],
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Eindlocatie"
+    "@value" : "Naam"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_toLocation"
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_name"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/toLocation"
+    "@id" : "http://schema.org/name"
   } ]
 }, {
   "@id" : "_:genid55",
@@ -780,46 +780,6 @@
   } ]
 }, {
   "@id" : "_:genid57",
-  "http://www.w3.org/ns/shacl#description" : [ {
-    "@language" : "nl",
-    "@value" : "De naam van de gebeurtenis."
-  } ],
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Naam"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_name"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/name"
-  } ]
-}, {
-  "@id" : "_:genid58",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Persoon in de gebeurtenis"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_actor"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/actor"
-  } ]
-}, {
-  "@id" : "_:genid59",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Grotere gebeurtenis"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_superEvent"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/superEvent"
-  } ]
-}, {
-  "@id" : "_:genid6",
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
     "@value" : "Einddatum"
@@ -831,7 +791,59 @@
     "@id" : "http://schema.org/endDate"
   } ]
 }, {
+  "@id" : "_:genid58",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Startdatum"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_startDate"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://schema.org/startDate"
+  } ]
+}, {
+  "@id" : "_:genid59",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Persoon in de gebeurtenis"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_actor"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://schema.org/actor"
+  } ]
+}, {
+  "@id" : "_:genid6",
+  "http://www.w3.org/ns/shacl#description" : [ {
+    "@language" : "nl",
+    "@value" : "De overkoepelende thesaurus of conceptenlijst waar dit concept deel van uitmaakt."
+  } ],
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Behoort tot thesaurus"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_inScheme"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://www.w3.org/2004/02/skos/core#inScheme"
+  } ]
+}, {
   "@id" : "_:genid60",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Eindlocatie"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_toLocation"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://schema.org/toLocation"
+  } ]
+}, {
+  "@id" : "_:genid61",
   "http://www.w3.org/ns/shacl#description" : [ {
     "@language" : "nl",
     "@value" : "De originele bron waaruit deze informatie afkomstig is."
@@ -847,28 +859,16 @@
     "@id" : "http://www.w3.org/ns/prov#hadPrimarySource"
   } ]
 }, {
-  "@id" : "_:genid61",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Startdatum"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_startDate"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/startDate"
-  } ]
-}, {
   "@id" : "_:genid62",
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Einddatum"
+    "@value" : "Grotere gebeurtenis"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_endDate"
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_superEvent"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/endDate"
+    "@id" : "http://schema.org/superEvent"
   } ]
 }, {
   "@id" : "_:genid63",
@@ -916,42 +916,6 @@
   } ]
 }, {
   "@id" : "_:genid66",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Datum van overlijden"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_deathDate"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/deathDate"
-  } ]
-}, {
-  "@id" : "_:genid67",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Geboorteplaats"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_birthPlace"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/birthPlace"
-  } ]
-}, {
-  "@id" : "_:genid68",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Geboortedatum"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_birthDate"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/birthDate"
-  } ]
-}, {
-  "@id" : "_:genid69",
   "http://www.w3.org/ns/shacl#description" : [ {
     "@language" : "nl",
     "@value" : "Varianten, aliassen of historische schrijfwijzen van de naam."
@@ -967,19 +931,7 @@
     "@id" : "http://schema.org/alternateName"
   } ]
 }, {
-  "@id" : "_:genid7",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Startdatum"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_startDate"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/startDate"
-  } ]
-}, {
-  "@id" : "_:genid70",
+  "@id" : "_:genid67",
   "http://www.w3.org/ns/shacl#description" : [ {
     "@language" : "nl",
     "@value" : "De gestandaardiseerde volledige naam van de persoon."
@@ -995,7 +947,47 @@
     "@id" : "http://schema.org/name"
   } ]
 }, {
-  "@id" : "_:genid71",
+  "@id" : "_:genid68",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Geboorteplaats"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_birthPlace"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://schema.org/birthPlace"
+  } ]
+}, {
+  "@id" : "_:genid69",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Geboortedatum"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_birthDate"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://schema.org/birthDate"
+  } ]
+}, {
+  "@id" : "_:genid7",
+  "http://www.w3.org/ns/shacl#description" : [ {
+    "@language" : "nl",
+    "@value" : "Breedtegraad van de locatie van het concept."
+  } ],
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Latitude"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_lat"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://www.w3.org/2003/01/geo/wgs84_poslat"
+  } ]
+}, {
+  "@id" : "_:genid70",
   "http://www.w3.org/ns/shacl#description" : [ {
     "@language" : "nl",
     "@value" : "Classificatie van de entiteit volgens Persons in Context."
@@ -1011,7 +1003,7 @@
     "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
   } ]
 }, {
-  "@id" : "_:genid72",
+  "@id" : "_:genid71",
   "http://www.w3.org/ns/shacl#description" : [ {
     "@language" : "nl",
     "@value" : "De unieke identifier van persoon."
@@ -1027,7 +1019,31 @@
     "@id" : "http://schema.org/identifier"
   } ]
 }, {
+  "@id" : "_:genid72",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Plaats van overlijden"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_deathPlace"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://schema.org/deathPlace"
+  } ]
+}, {
   "@id" : "_:genid73",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Datum van overlijden"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_deathDate"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://schema.org/deathDate"
+  } ]
+}, {
+  "@id" : "_:genid74",
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
     "@value" : "Geslacht"
@@ -1039,7 +1055,7 @@
     "@id" : "http://schema.org/gender"
   } ]
 }, {
-  "@id" : "_:genid74",
+  "@id" : "_:genid75",
   "http://www.w3.org/ns/shacl#description" : [ {
     "@language" : "nl",
     "@value" : "Indicatie of de persoon is overleden."
@@ -1055,99 +1071,7 @@
     "@id" : "https://personsincontext.org/model/#deceased"
   } ]
 }, {
-  "@id" : "_:genid75",
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Plaats van overlijden"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_deathPlace"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/deathPlace"
-  } ]
-}, {
   "@id" : "_:genid76",
-  "http://www.w3.org/ns/shacl#description" : [ {
-    "@language" : "nl",
-    "@value" : "Verwijzing naar de kinderen van deze persoon."
-  } ],
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Kinderen"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_children"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/children"
-  } ]
-}, {
-  "@id" : "_:genid77",
-  "http://www.w3.org/ns/shacl#description" : [ {
-    "@language" : "nl",
-    "@value" : "Verwijzing naar een ouder van deze persoon."
-  } ],
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Ouder"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_parent"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/parent"
-  } ]
-}, {
-  "@id" : "_:genid78",
-  "http://www.w3.org/ns/shacl#description" : [ {
-    "@language" : "nl",
-    "@value" : "Verwijzing naar een broer of zus van deze persoon."
-  } ],
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Broer of zus"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_sibling"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/sibling"
-  } ]
-}, {
-  "@id" : "_:genid79",
-  "http://www.w3.org/ns/shacl#description" : [ {
-    "@language" : "nl",
-    "@value" : "Datum waarop deze reconstructie voor het eerst is aangemaakt."
-  } ],
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Aanmaakdatum"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_dateCreated"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/dateCreated"
-  } ]
-}, {
-  "@id" : "_:genid8",
-  "http://www.w3.org/ns/shacl#description" : [ {
-    "@language" : "nl",
-    "@value" : "Verwijzing naar een concept dat hoger in de hiërarchie staat."
-  } ],
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Breder concept"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_broader"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://www.w3.org/2004/02/skos/core#broader"
-  } ]
-}, {
-  "@id" : "_:genid80",
   "http://www.w3.org/ns/shacl#description" : [ {
     "@language" : "nl",
     "@value" : "Datum waarop deze reconstructie voor het laatst is bijgewerkt."
@@ -1163,7 +1087,39 @@
     "@id" : "http://schema.org/dateModified"
   } ]
 }, {
-  "@id" : "_:genid81",
+  "@id" : "_:genid77",
+  "http://www.w3.org/ns/shacl#description" : [ {
+    "@language" : "nl",
+    "@value" : "Datum waarop deze reconstructie voor het eerst is aangemaakt."
+  } ],
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Aanmaakdatum"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_dateCreated"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://schema.org/dateCreated"
+  } ]
+}, {
+  "@id" : "_:genid78",
+  "http://www.w3.org/ns/shacl#description" : [ {
+    "@language" : "nl",
+    "@value" : "Externe links naar dezelfde persoon in andere systemen (bijv. Wikidata)."
+  } ],
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Andere autoriteit"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_sameAs"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://schema.org/sameAs"
+  } ]
+}, {
+  "@id" : "_:genid79",
   "http://www.w3.org/ns/shacl#description" : [ {
     "@language" : "nl",
     "@value" : "Verwijzing naar de persoonsvermeldingen waaruit deze reconstructie is opgebouwd."
@@ -1179,20 +1135,68 @@
     "@id" : "http://www.w3.org/ns/prov#wasDerivedFrom"
   } ]
 }, {
-  "@id" : "_:genid82",
+  "@id" : "_:genid8",
   "http://www.w3.org/ns/shacl#description" : [ {
     "@language" : "nl",
-    "@value" : "Externe links naar dezelfde persoon in andere systemen (bijv. Wikidata)."
+    "@value" : "Locatie van het concept."
   } ],
   "http://www.w3.org/ns/shacl#name" : [ {
     "@language" : "nl",
-    "@value" : "Andere autoriteit"
+    "@value" : "Locatie"
   } ],
   "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_sameAs"
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_wgsLocation"
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/sameAs"
+    "@id" : "http://www.w3.org/2003/01/geo/wgs84_poslocation"
+  } ]
+}, {
+  "@id" : "_:genid80",
+  "http://www.w3.org/ns/shacl#description" : [ {
+    "@language" : "nl",
+    "@value" : "Verwijzing naar de kinderen van deze persoon."
+  } ],
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Kinderen"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_children"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://schema.org/children"
+  } ]
+}, {
+  "@id" : "_:genid81",
+  "http://www.w3.org/ns/shacl#description" : [ {
+    "@language" : "nl",
+    "@value" : "Verwijzing naar een broer of zus van deze persoon."
+  } ],
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Broer of zus"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_sibling"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://schema.org/sibling"
+  } ]
+}, {
+  "@id" : "_:genid82",
+  "http://www.w3.org/ns/shacl#description" : [ {
+    "@language" : "nl",
+    "@value" : "Verwijzing naar een ouder van deze persoon."
+  } ],
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Ouder"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_parent"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://schema.org/parent"
   } ]
 }, {
   "@id" : "_:genid83",
@@ -1214,22 +1218,6 @@
   "@id" : "_:genid84",
   "http://www.w3.org/ns/shacl#description" : [ {
     "@language" : "nl",
-    "@value" : "De geslachtsnaam, inclusief tussenvoegsels."
-  } ],
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Achternaam"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_familyName"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://schema.org/familyName"
-  } ]
-}, {
-  "@id" : "_:genid85",
-  "http://www.w3.org/ns/shacl#description" : [ {
-    "@language" : "nl",
     "@value" : "De roepnaam of eerste voornaam van de persoon."
   } ],
   "http://www.w3.org/ns/shacl#name" : [ {
@@ -1243,7 +1231,7 @@
     "@id" : "http://schema.org/givenName"
   } ]
 }, {
-  "@id" : "_:genid86",
+  "@id" : "_:genid85",
   "http://www.w3.org/ns/shacl#description" : [ {
     "@language" : "nl",
     "@value" : "Voor persoonsvermeldingen wordt prov:wasDerivedFrom niet toegestaan."
@@ -1260,7 +1248,7 @@
     "@id" : "http://www.w3.org/ns/prov#wasDerivedFrom"
   } ]
 }, {
-  "@id" : "_:genid87",
+  "@id" : "_:genid86",
   "http://www.w3.org/ns/shacl#description" : [ {
     "@language" : "nl",
     "@value" : "Een korte beschrijving van de persoon of diens rol tijdens de Tweede Wereldoorlog."
@@ -1276,7 +1264,7 @@
     "@id" : "http://schema.org/description"
   } ]
 }, {
-  "@id" : "_:genid88",
+  "@id" : "_:genid87",
   "http://www.w3.org/ns/shacl#description" : [ {
     "@language" : "nl",
     "@value" : "De originele bron waaruit deze informatie afkomstig is."
@@ -1292,7 +1280,51 @@
     "@id" : "http://www.w3.org/ns/prov#hadPrimarySource"
   } ]
 }, {
+  "@id" : "_:genid88",
+  "http://www.w3.org/ns/shacl#description" : [ {
+    "@language" : "nl",
+    "@value" : "De voorletters van de persoon."
+  } ],
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Initialen"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_initials"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "https://w3id.org/pnv#initials"
+  } ]
+}, {
   "@id" : "_:genid89",
+  "http://www.w3.org/ns/shacl#description" : [ {
+    "@language" : "nl",
+    "@value" : "De geslachtsnaam, inclusief tussenvoegsels."
+  } ],
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Achternaam"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_familyName"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://schema.org/familyName"
+  } ]
+}, {
+  "@id" : "_:genid9",
+  "http://www.w3.org/ns/shacl#name" : [ {
+    "@language" : "nl",
+    "@value" : "Aanmaakdatum"
+  } ],
+  "http://www.w3.org/ns/shacl#node" : [ {
+    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_created"
+  } ],
+  "http://www.w3.org/ns/shacl#path" : [ {
+    "@id" : "http://purl.org/dc/terms/created"
+  } ]
+}, {
+  "@id" : "_:genid90",
   "http://www.w3.org/ns/shacl#description" : [ {
     "@language" : "nl",
     "@value" : "Woonplaats of laatst bekende adres."
@@ -1308,23 +1340,7 @@
     "@id" : "http://schema.org/address"
   } ]
 }, {
-  "@id" : "_:genid9",
-  "http://www.w3.org/ns/shacl#description" : [ {
-    "@language" : "nl",
-    "@value" : "De overkoepelende thesaurus of conceptenlijst waar dit concept deel van uitmaakt."
-  } ],
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Behoort tot thesaurus"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_inScheme"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "http://www.w3.org/2004/02/skos/core#inScheme"
-  } ]
-}, {
-  "@id" : "_:genid90",
+  "@id" : "_:genid91",
   "http://www.w3.org/ns/shacl#description" : [ {
     "@language" : "nl",
     "@value" : "Het beroep of de maatschappelijke rol van de persoon."
@@ -1338,22 +1354,6 @@
   } ],
   "http://www.w3.org/ns/shacl#path" : [ {
     "@id" : "http://schema.org/hasOccupation"
-  } ]
-}, {
-  "@id" : "_:genid91",
-  "http://www.w3.org/ns/shacl#description" : [ {
-    "@language" : "nl",
-    "@value" : "De voorletters van de persoon."
-  } ],
-  "http://www.w3.org/ns/shacl#name" : [ {
-    "@language" : "nl",
-    "@value" : "Initialen"
-  } ],
-  "http://www.w3.org/ns/shacl#node" : [ {
-    "@id" : "http://data.oorlogsbronnen.nl/model#Rule_initials"
-  } ],
-  "http://www.w3.org/ns/shacl#path" : [ {
-    "@id" : "https://w3id.org/pnv#initials"
   } ]
 }, {
   "@id" : "_:genid98",
