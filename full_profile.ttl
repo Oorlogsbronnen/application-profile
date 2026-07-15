@@ -45,6 +45,12 @@
     rdfs:subClassOf :Archiefmateriaal,
         niod:Archive .
 
+:Bekendmaking a rdfs:Class ;
+    rdfs:label "Bekendmaking"@nl ;
+    rdf:comment "Class for official announcements, treated as events "@en ;
+    rdfs:subClassOf :Afbeelding,
+        schema1:Event .
+
 :Certificate a rdfs:Class ;
     rdfs:label "Akte"@nl ;
     rdf:comment "Class for archival certificates"@en ;
@@ -83,11 +89,6 @@ niod:Arresteert a rdfs:Class ;
     rdfs:label "Arresteert"@nl ;
     rdfs:comment "Het actief arresteren of oppakken van mensen. Werkwoord om de arresterende persoon te benoemen."@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11179> ;
-    rdfs:subClassOf schema1:Event .
-
-niod:Bekendmaking a rdfs:Class ;
-    rdfs:label "Bekendmaking"@nl ;
-    rdf:comment "Class for official announcements, treated as events "@en ;
     rdfs:subClassOf schema1:Event .
 
 niod:Benoemd a rdfs:Class ;
@@ -347,8 +348,6 @@ picom:PersonReconstruction a rdfs:Class ;
     sh:targetClass niod1:Archive,
         niod1:ArchiveFile .
 
-:Bekendmaking rdfs:subClassOf niod:Afbeelding .
-
 :BekendmakingShape a sh:NodeShape ;
     sh:name "Bekendmakingen"@nl ;
     sh:node :CreativeWorkShape ;
@@ -603,34 +602,34 @@ picom:PersonReconstruction a rdfs:Class ;
     sh:targetClass schema1:ArchiveComponent,
         prov:Entity .
 
+:genoemde a rdf:Property ;
+    rdfs:label "genoemde"@nl ;
+    rdf:comment "Een persoon die genoemd wordt bij een bekendmaking"@nl ;
+    rdfs:subPropertyOf schema1:actor .
+
 :imageIIIF a rdf:Property ;
     rdfs:label "IIIF Manifest"@nl ;
     rdf:comment "IIIF manifest van afbeeldingen die bij de bron beschikbaar zijn in IIIF formaat"@nl ;
     rdfs:subPropertyOf schema1:image .
 
+:opdrachtgever a rdf:Property ;
+    rdfs:label "opdrachtgever"@nl ;
+    rdf:comment "Een persoon die de opdrachtgever was van een bekendmaking"@nl ;
+    rdfs:subPropertyOf schema1:actor .
+
+:slachtoffer a rdf:Property ;
+    rdfs:label "slachtoffer"@nl ;
+    rdf:comment "Een persoon die slachtoffer was in een gebeurtenis"@nl ;
+    rdfs:subPropertyOf schema1:actor .
+
 schema1:ImageObject rdfs:label "Afbeelding"@nl ;
-    rdfs:subClassOf niod:Afbeelding .
+    rdfs:subClassOf :Afbeelding .
 
 schema1:Person rdfs:label "Persoon"@nl .
 
 schema1:Place rdfs:label "Locatie"@nl .
 
 schema1:WebPage rdfs:subClassOf :Webpagina .
-
-niod:genoemde a rdf:Property ;
-    rdfs:label "genoemde"@nl ;
-    rdf:comment "Een persoon die genoemd wordt bij een bekendmaking"@nl ;
-    rdfs:subPropertyOf schema1:actor .
-
-niod:opdrachtgever a rdf:Property ;
-    rdfs:label "opdrachtgever"@nl ;
-    rdf:comment "Een persoon die de opdrachtgever was van een bekendmaking"@nl ;
-    rdfs:subPropertyOf schema1:actor .
-
-niod:slachtoffer a rdf:Property ;
-    rdfs:label "slachtoffer"@nl ;
-    rdf:comment "Een persoon die slachtoffer was in een gebeurtenis"@nl ;
-    rdfs:subPropertyOf schema1:actor .
 
 <https://data.oorlogsbronnen.nl/oorlogsbronnen-shapes> a owl:Ontology ;
     rdfs:label "Oorlogsbronnen SHACL Shapes"@nl ;
@@ -956,17 +955,17 @@ schema1:Newspaper rdfs:label "Krant"@nl .
 schema1:Painting rdfs:label "Schilderij"@nl .
 
 schema1:Photograph rdfs:label "Foto"@nl ;
-    rdfs:subClassOf niod:Afbeelding .
+    rdfs:subClassOf :Afbeelding .
 
 schema1:Sculpture rdfs:label "Beeldhouwwerk"@nl .
 
 schema1:SheetMusic rdfs:label "Bladmuziek"@nl ;
-    rdfs:subClassOf niod:Afbeelding .
+    rdfs:subClassOf :Afbeelding .
 
 schema1:VideoObject rdfs:label "Video"@nl .
 
 schema1:VisualArtwork rdfs:label "Kunstwerk"@nl ;
-    rdfs:subClassOf niod:Afbeelding .
+    rdfs:subClassOf :Afbeelding .
 
 :Base_Double a sh:PropertyShape ;
     sh:datatype xsd:double .
