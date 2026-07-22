@@ -11,7 +11,8 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix schema1: <http://schema.org/> .
+@prefix schema: <http://schema.org/> .
+@prefix sdo: <https://schema.org/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix wgs1: <http://www.w3.org/2003/01/geo/wgs84_pos> .
@@ -19,57 +20,49 @@
 
 :Afbeelding a rdfs:Class ;
     rdfs:label "Afbeelding"@nl ;
-    rdf:comment "Superclass of all collection objects with a visuel element."@en ;
-    rdfs:subClassOf schema1:CreativeWork .
-
-:Archiefmateriaal a rdfs:Class ;
-    rdfs:label "Archiefmateriaal"@nl ;
-    rdf:comment "Class for all archivematerial"@en ;
-    rdfs:subClassOf schema1:CreativeWork .
+    rdf:comment "Superclass voor alle collectie objecten met een afbeelding"@nl ;
+    rdfs:subClassOf sdo:CreativeWork .
 
 :Archive a rdfs:Class ;
     rdfs:label "Archief"@nl ;
     rdf:comment "Class for an archive"@en ;
-    rdfs:subClassOf :Archiefmateriaal,
-        schema1:CreativeWork .
+    rdfs:subClassOf sdo:ArchiveComponent .
 
 :ArchiveFile a rdfs:Class ;
     rdfs:label "Archiefstuk"@nl ;
     rdf:comment "Class for archival documents"@en ;
-    rdfs:subClassOf :Archiefmateriaal,
-        niod:Archive .
+    rdfs:subClassOf sdo:ArchiveComponent .
 
 :ArchiveSeries a rdfs:Class ;
     rdfs:label "Archiefreeks"@nl ;
     rdf:comment "Class for a collection of archival documents"@en ;
-    rdfs:subClassOf :Archiefmateriaal,
-        niod:Archive .
+    rdfs:subClassOf sdo:ArchiveComponent .
 
 :Bekendmaking a rdfs:Class ;
     rdfs:label "Bekendmaking"@nl ;
     rdf:comment "Class for official announcements, treated as events "@en ;
     rdfs:subClassOf :Afbeelding,
-        schema1:Event .
+        sdo:Event .
 
 :Certificate a rdfs:Class ;
     rdfs:label "Akte"@nl ;
     rdf:comment "Class for archival certificates"@en ;
-    rdfs:subClassOf schema1:CreativeWork .
+    rdfs:subClassOf sdo:CreativeWork .
 
 :Interview a rdfs:Class ;
     rdfs:label "Interview"@nl ;
     rdf:comment "Class for interviews"@en ;
-    rdfs:subClassOf schema1:CreativeWork .
+    rdfs:subClassOf sdo:CreativeWork .
 
 :InterviewSegment a rdfs:Class ;
     rdfs:label "Fragment"@nl ;
     rdf:comment "Class for interviews segments"@en ;
-    rdfs:subClassOf schema1:CreativeWork .
+    rdfs:subClassOf sdo:CreativeWork .
 
 :Monument a rdfs:Class ;
     rdfs:label "Monument"@nl ;
     rdf:comment "Class for monuments"@en ;
-    rdfs:subClassOf schema1:CreativeWork .
+    rdfs:subClassOf sdo:CreativeWork .
 
 :Rights a rdfs:Class ;
     rdfs:label "Rechten"@nl ;
@@ -83,252 +76,252 @@ niod:Afgepakt a rdfs:Class ;
     rdfs:label "Afgepakt"@nl ;
     rdfs:comment "Afgepakt is de term voor de persoonlijke gebeurtenis waarbij roerende of onroerende bezittingen afgenomen worden van de eigenaar."@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/19486> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Arresteert a rdfs:Class ;
     rdfs:label "Arresteert"@nl ;
     rdfs:comment "Het actief arresteren of oppakken van mensen. Werkwoord om de arresterende persoon te benoemen."@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11179> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Benoemd a rdfs:Class ;
     rdfs:label "Benoemd"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/13790> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:BevrijdIn a rdfs:Class ;
     rdfs:label "Bevrijd in"@nl ;
     rdfs:comment "Plaats/stad of land waarin een persoon bevrijd wordt."@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11173> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:BevrijdUit a rdfs:Class ;
     rdfs:label "Bevrijd uit"@nl ;
     rdfs:comment "Bevrijd worden uit een kamp of gevangenis."@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6347> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Executeert a rdfs:Class ;
     rdfs:label "Executeert"@nl ;
     rdfs:comment "Het actief ombrengen van een persoon (in opdracht van..). Werkwoord om uitvoerder van de executie te benoemen."@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11176> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Gearresteerd a rdfs:Class ;
     rdfs:label "Gearresteerd"@nl ;
     rdfs:comment "Aangehouden of opgepakt worden."@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6344> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Geboren a rdfs:Class ;
     rdfs:label "Geboren"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6360> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Gedecoreerd a rdfs:Class ;
     rdfs:label "Gedecoreerd"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6365> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:GedwongenVerhuisd a rdfs:Class ;
     rdfs:label "Gedwongen verhuisd"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/19198> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
+
+niod:Geevacueerd a rdfs:Class ;
+    rdfs:label "Geëvacueerd"@nl ;
+    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11174> ;
+    rdfs:subClassOf sdo:Event .
 
 niod:Gehuwd a rdfs:Class ;
     rdfs:label "Gehuwd"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/18966> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Geland a rdfs:Class ;
     rdfs:label "Geland"@nl ;
     rdfs:comment "Het aan land komen (zowel per boot als vliegtuig) van een persoon."@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6363> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Geleid a rdfs:Class ;
     rdfs:label "Geleid"@nl ;
     rdfs:comment "Leider zijn van, baas zijn over. Werkwoord om het leiden van een partij, groep of organisatie te beschrijven."@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11182> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Geliquideerd a rdfs:Class ;
     rdfs:label "Geliquideerd"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/16379> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Gepleegd a rdfs:Class ;
     rdfs:label "Gepleegd"@nl ;
     rdfs:comment "Het uitvoeren van een (ondermijnende) activiteit, zoals een aanslag of overval. Werkwoord om de uitvoerder van de aanslag te benoemen."@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6355> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Gerecruteerd a rdfs:Class ;
     rdfs:label "Gerecruteerd"@nl ;
     rdfs:comment "Gerecruteerd betekent geworven voor militaire of geheime diensten."@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6362> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Geroyeerd a rdfs:Class ;
     rdfs:label "Geroyeerd"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11178> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Gestorven a rdfs:Class ;
     rdfs:label "Gestorven"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6361> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Getransporteerd a rdfs:Class ;
     rdfs:label "Getransporteerd"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6348> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Getroffen a rdfs:Class ;
     rdfs:label "Getroffen"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6356> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Gevangen a rdfs:Class ;
     rdfs:label "Gevangen"@nl ;
     rdfs:comment "Gevangen verwijst naar de gevangenschap van burgers in (concentratie)kampen en gevangenissen. Voor krijgsgevangenen gebruiken we 'Geïnterneerd'. Ook voor gevangen burgers uit Nederlands-Indië wordt de term 'Geïnterneerd' gebruikt."@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6354> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Gevaren a rdfs:Class ;
     rdfs:label "Gevaren"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11181> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Gevlucht a rdfs:Class ;
     rdfs:label "Gevlucht"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6353> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Gevochten a rdfs:Class ;
     rdfs:label "Gevochten"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6359> ;
-    rdfs:subClassOf schema1:Event .
-
-niod:Geëvacueerd a rdfs:Class ;
-    rdfs:label "Geëvacueerd"@nl ;
-    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11174> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Geëxecuteerd a rdfs:Class ;
     rdfs:label "Geëxecuteerd"@nl ;
     rdfs:comment "Standrechtelijk omgebracht worden. Geëxecuteerd is het werkwoord om het slachtoffer van de executie te benoemen."@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6357> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Geïnterneerd a rdfs:Class ;
     rdfs:label "Geïnterneerd"@nl ;
     rdfs:comment "Geïnterneerd verwijst naar militairen die gevangen zitten in kampen of gevangenissen. Ook naar burgers in Nederlands-Indië die gevangen zitten in kampen wordt verwezen als geïnterneerden. Voor alle overige burgers in kampen en gevangenissen gebruiken we 'Gevangen'."@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6349> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:LidGeweest a rdfs:Class ;
     rdfs:label "Lid geweest"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6352> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Omgekomen a rdfs:Class ;
     rdfs:label "Omgekomen"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/8772> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Ondergedoken a rdfs:Class ;
     rdfs:label "Ondergedoken"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6351> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Ontsnapt a rdfs:Class ;
     rdfs:label "Ontsnapt"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/8795> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:OpPadGegaan a rdfs:Class ;
     rdfs:label "Op pad gegaan"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/17064> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Opgepakt a rdfs:Class ;
     rdfs:label "Opgepakt"@nl ;
     rdfs:comment "Opgepakt betekent de aanhouding van een persoon zonder dat daarna een juridisch traject gestart is. Opgepakt wordt meestal gebruikt voor personen die (willekeurig) aangehouden zijn tijdens razzia's en repressailles."@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6345> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Opgericht a rdfs:Class ;
     rdfs:label "Opgericht"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/13792> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Opgeroepen a rdfs:Class ;
     rdfs:label "Opgeroepen"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/8542> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Opgevangen a rdfs:Class ;
     rdfs:label "Opgevangen"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/10956> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Overleden a rdfs:Class ;
     rdfs:label "Overleden"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/8771> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Teruggekeerd a rdfs:Class ;
     rdfs:label "Teruggekeerd"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/18496> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Tewerkgesteld a rdfs:Class ;
     rdfs:label "Tewerkgesteld"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/8514> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Vermist a rdfs:Class ;
     rdfs:label "Vermist"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/10946> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Veroordeeld a rdfs:Class ;
     rdfs:label "Veroordeeld"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6563> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Verraadt a rdfs:Class ;
     rdfs:label "Verraadt"@nl ;
     rdfs:comment "Het verraden van een ander mens. Werkwoord om de verrader te benoemen."@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11177> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Verraden a rdfs:Class ;
     rdfs:label "Verraden"@nl ;
     rdfs:comment "Verraden worden. Werkwoord om de persoon te beschrijven die verraden is."@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6358> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Vertrokken a rdfs:Class ;
     rdfs:label "Vertrokken"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/13791> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Vrijgelaten a rdfs:Class ;
     rdfs:label "Vrijgelaten"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6346> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Vrijgesproken a rdfs:Class ;
     rdfs:label "Vrijgesproken"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/14203> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 niod:Vrijgesteld a rdfs:Class ;
     rdfs:label "Vrijgesteld"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6562> ;
-    rdfs:subClassOf schema1:Event .
+    rdfs:subClassOf sdo:Event .
 
 picom:PersonObservation a rdfs:Class ;
     rdfs:label "Persoonsvermelding"@nl ;
@@ -354,11 +347,11 @@ picom:PersonReconstruction a rdfs:Class ;
     sh:property [ sh:description "Transcriptie van de tekst op het document"@nl ;
             sh:name "Tekst"@nl ;
             sh:node :Rule_text ;
-            sh:path schema1:text ],
+            sh:path schema:text ],
         [ sh:description "Publicatiedatum van het document"@nl ;
             sh:name "Publicatiedatum"@nl ;
             sh:node :Rule_datePublished ;
-            sh:path schema1:datePublished ] ;
+            sh:path schema:datePublished ] ;
     sh:targetClass niod1:Bekendmaking .
 
 :ConceptShape a sh:NodeShape ;
@@ -427,10 +420,10 @@ picom:PersonReconstruction a rdfs:Class ;
             sh:path dct:modified ],
         [ sh:name "Startdatum"@nl ;
             sh:node :Rule_startDate ;
-            sh:path schema1:startDate ],
+            sh:path schema:startDate ],
         [ sh:name "Einddatum"@nl ;
             sh:node :Rule_endDate ;
-            sh:path schema1:endDate ] ;
+            sh:path schema:endDate ] ;
     sh:targetClass skos:Concept .
 
 :DatasetShape a sh:NodeShape ;
@@ -439,24 +432,24 @@ picom:PersonReconstruction a rdfs:Class ;
     sh:property [ sh:description "De unieke identifier van de dataset."@nl ;
             sh:name "Identifier"@nl ;
             sh:node :Rule_identifier_schema ;
-            sh:path schema1:identifier ],
+            sh:path schema:identifier ],
         [ sh:description "Classificatie van de entiteit als schema:Dataset"@nl ;
             sh:name "Type entiteit"@nl ;
             sh:node :Rule_type ;
             sh:path rdf:type ],
         [ sh:name "Naam van de dataset"@nl ;
             sh:node :Rule_name ;
-            sh:path schema1:name ],
+            sh:path schema:name ],
         [ sh:name "Beschrijving van de dataset"@nl ;
             sh:node :Rule_description_schema ;
-            sh:path schema1:description ],
+            sh:path schema:description ],
         [ sh:name "Bronverwijzing voor de dataset"@nl ;
             sh:node :Rule_url ;
-            sh:path schema1:url ],
+            sh:path schema:url ],
         [ sh:name "Leverancier van de dataset"@nl ;
             sh:node :Rule_provider ;
-            sh:path schema1:provider ] ;
-    sh:targetClass schema1:Dataset .
+            sh:path schema:provider ] ;
+    sh:targetClass schema:Dataset .
 
 :EventShape a sh:NodeShape ;
     sh:description ""@nl ;
@@ -468,46 +461,46 @@ picom:PersonReconstruction a rdfs:Class ;
         [ sh:description "Classificatie van de gebeurtenis als persoonlijke gebeurtenis uit de WO2 thesaurus"@nl ;
             sh:name "type gebeurtenis"@nl ;
             sh:node :Rule_additionalType ;
-            sh:path schema1:additionalType ],
+            sh:path schema:additionalType ],
         [ sh:description "De naam van de gebeurtenis."@nl ;
             sh:name "Naam"@nl ;
             sh:node :Rule_name ;
-            sh:path schema1:name ],
+            sh:path schema:name ],
         [ sh:name "Locatie"@nl ;
             sh:node :Rule_location ;
-            sh:path schema1:location ],
+            sh:path schema:location ],
         [ sh:name "Beginlocatie"@nl ;
             sh:node :Rule_fromLocation ;
-            sh:path schema1:fromLocation ],
+            sh:path schema:fromLocation ],
         [ sh:name "Eindlocatie"@nl ;
             sh:node :Rule_toLocation ;
-            sh:path schema1:toLocation ],
+            sh:path schema:toLocation ],
         [ sh:name "Persoon in de gebeurtenis"@nl ;
             sh:node :Rule_actor ;
-            sh:path schema1:actor ],
+            sh:path schema:actor ],
         [ sh:name "Grotere gebeurtenis"@nl ;
             sh:node :Rule_superEvent ;
-            sh:path schema1:superEvent ],
+            sh:path schema:superEvent ],
         [ sh:description "De originele bron waaruit deze informatie afkomstig is."@nl ;
             sh:name "Primaire bron"@nl ;
             sh:node :Rule_hadPrimarySource ;
             sh:path prov:hadPrimarySource ],
         [ sh:name "Startdatum"@nl ;
             sh:node :Rule_startDate ;
-            sh:path schema1:startDate ],
+            sh:path schema:startDate ],
         [ sh:name "Einddatum"@nl ;
             sh:node :Rule_endDate ;
-            sh:path schema1:endDate ] ;
-    sh:targetClass schema1:Event .
+            sh:path schema:endDate ] ;
+    sh:targetClass schema:Event .
 
 :MediaShape a sh:NodeShape ;
     sh:name "Audio en Video objecten"@nl ;
     sh:node :CreativeWorkShape ;
     sh:property [ sh:name "Url van het media object"@nl ;
             sh:node :Rule_contentUrl ;
-            sh:path schema1:contentUrl ] ;
-    sh:targetClass schema1:AudioObject,
-        schema1:VideoObject .
+            sh:path schema:contentUrl ] ;
+    sh:targetClass schema:AudioObject,
+        schema:VideoObject .
 
 :MonumentShape a sh:NodeShape ;
     sh:name "Monumenten"@nl ;
@@ -515,11 +508,11 @@ picom:PersonReconstruction a rdfs:Class ;
     sh:property [ sh:description "Breedtegraad van de locatie van het monument."@nl ;
             sh:name "Latitude"@nl ;
             sh:node :Rule_lat_schema ;
-            sh:path schema1:latitude ],
+            sh:path schema:latitude ],
         [ sh:description "Lengtegraad van de locatie van het monument"@nl ;
             sh:name "Longitude"@nl ;
             sh:node :Rule_long_schema ;
-            sh:path schema1:longitude ] ;
+            sh:path schema:longitude ] ;
     sh:targetClass niod1:Monument .
 
 :PersoonsvermeldingShape a sh:NodeShape ;
@@ -533,11 +526,11 @@ picom:PersonReconstruction a rdfs:Class ;
         [ sh:description "De roepnaam of eerste voornaam van de persoon."@nl ;
             sh:name "Voornaam"@nl ;
             sh:node :Rule_givenName ;
-            sh:path schema1:givenName ],
+            sh:path schema:givenName ],
         [ sh:description "De geslachtsnaam, inclusief tussenvoegsels."@nl ;
             sh:name "Achternaam"@nl ;
             sh:node :Rule_familyName ;
-            sh:path schema1:familyName ],
+            sh:path schema:familyName ],
         [ sh:description "De voorletters van de persoon."@nl ;
             sh:name "Initialen"@nl ;
             sh:node :Rule_initials ;
@@ -545,11 +538,11 @@ picom:PersonReconstruction a rdfs:Class ;
         [ sh:description "Het beroep of de maatschappelijke rol van de persoon."@nl ;
             sh:name "Beroep of functie"@nl ;
             sh:node :Rule_hasOccupation ;
-            sh:path schema1:hasOccupation ],
+            sh:path schema:hasOccupation ],
         [ sh:description "Woonplaats of laatst bekende adres."@nl ;
             sh:name "Adresgegevens"@nl ;
             sh:node :Rule_address ;
-            sh:path schema1:address ],
+            sh:path schema:address ],
         [ sh:description "De originele bron waaruit deze informatie afkomstig is."@nl ;
             sh:name "Primaire bron"@nl ;
             sh:node :Rule_hadPrimarySource ;
@@ -557,34 +550,34 @@ picom:PersonReconstruction a rdfs:Class ;
         [ sh:description "Een korte beschrijving van de persoon of diens rol tijdens de Tweede Wereldoorlog."@nl ;
             sh:name "Biografische schets"@nl ;
             sh:node :Rule_description_schema ;
-            sh:path schema1:description ] ;
+            sh:path schema:description ] ;
     sh:targetClass picom1:PersonObservation .
 
 :Rule_additionalName sh:node :Base_String ;
-    sh:path schema1:additionalName .
+    sh:path schema:additionalName .
 
 :Rule_caption sh:maxCount 1 ;
     sh:node :Base_String ;
-    sh:path schema1:caption .
+    sh:path schema:caption .
 
 :Rule_closeMatch sh:node :Base_IRI ;
     sh:path skos:closeMatch .
 
 :Rule_homeLocation sh:node :Base_StringOrIRI ;
-    sh:path schema1:homeLocation .
+    sh:path schema:homeLocation .
 
 :Rule_image sh:node :Base_IRI ;
-    sh:path schema1:image .
+    sh:path schema:image .
 
 :Rule_license sh:class niod1:Rights ;
     sh:node :Base_IRI ;
-    sh:path schema1:license .
+    sh:path schema:license .
 
 :Rule_position sh:node :Base_Integer ;
-    sh:path schema1:position .
+    sh:path schema:position .
 
 :Rule_thumbnailUrl sh:node :Base_StringOrIRI ;
-    sh:path schema1:thumbnailUrl .
+    sh:path schema:thumbnailUrl .
 
 :SourceShape a sh:NodeShape ;
     sh:description "Archiefstukken, maar ook records uit andere (onderzoeks)datasets en webpagina's kunnen persoonsvermeldingen bevatten. Dit is hiervoor de bronvermelding."@nl ;
@@ -595,45 +588,63 @@ picom:PersonReconstruction a rdfs:Class ;
             sh:path rdf:type ],
         [ sh:name "Url van de bron"@nl ;
             sh:node :Rule_url ;
-            sh:path schema1:url ],
+            sh:path schema:url ],
         [ sh:name "Herkomst van het record"@nl ;
             sh:node :Rule_inDataset ;
             sh:path niod1:inDataset ] ;
-    sh:targetClass schema1:ArchiveComponent,
+    sh:targetClass schema:ArchiveComponent,
         prov:Entity .
 
 :genoemde a rdf:Property ;
     rdfs:label "genoemde"@nl ;
     rdf:comment "Een persoon die genoemd wordt bij een bekendmaking"@nl ;
-    rdfs:subPropertyOf schema1:actor .
-
-:imageIIIF a rdf:Property ;
-    rdfs:label "IIIF Manifest"@nl ;
-    rdf:comment "IIIF manifest van afbeeldingen die bij de bron beschikbaar zijn in IIIF formaat"@nl ;
-    rdfs:subPropertyOf schema1:image .
+    rdfs:subPropertyOf sdo:actor .
 
 :opdrachtgever a rdf:Property ;
     rdfs:label "opdrachtgever"@nl ;
     rdf:comment "Een persoon die de opdrachtgever was van een bekendmaking"@nl ;
-    rdfs:subPropertyOf schema1:actor .
+    rdfs:subPropertyOf sdo:actor .
 
 :slachtoffer a rdf:Property ;
     rdfs:label "slachtoffer"@nl ;
     rdf:comment "Een persoon die slachtoffer was in een gebeurtenis"@nl ;
-    rdfs:subPropertyOf schema1:actor .
-
-schema1:ImageObject rdfs:label "Afbeelding"@nl ;
-    rdfs:subClassOf :Afbeelding .
-
-schema1:Person rdfs:label "Persoon"@nl .
-
-schema1:Place rdfs:label "Locatie"@nl .
-
-schema1:WebPage rdfs:subClassOf :Webpagina .
+    rdfs:subPropertyOf sdo:actor .
 
 <https://data.oorlogsbronnen.nl/oorlogsbronnen-shapes> a owl:Ontology ;
     rdfs:label "Oorlogsbronnen SHACL Shapes"@nl ;
     owl:imports <http://datashapes.org/dash> .
+
+sdo:Article rdfs:label "Krantartikel"@nl .
+
+sdo:AudioObject rdfs:label "Audio"@nl .
+
+sdo:Book rdfs:label "Boek"@nl .
+
+sdo:ImageObject rdfs:label "Afbeelding"@nl ;
+    rdfs:subClassOf :Afbeelding .
+
+sdo:Newspaper rdfs:label "Krant"@nl .
+
+sdo:Painting rdfs:label "Schilderij"@nl .
+
+sdo:Person rdfs:label "Persoon"@nl .
+
+sdo:Photograph rdfs:label "Foto"@nl ;
+    rdfs:subClassOf :Afbeelding .
+
+sdo:Place rdfs:label "Locatie"@nl .
+
+sdo:Sculpture rdfs:label "Beeldhouwwerk"@nl .
+
+sdo:SheetMusic rdfs:label "Bladmuziek"@nl ;
+    rdfs:subClassOf :Afbeelding .
+
+sdo:VideoObject rdfs:label "Video"@nl .
+
+sdo:VisualArtwork rdfs:label "Kunstwerk"@nl ;
+    rdfs:subClassOf :Afbeelding .
+
+sdo:WebPage rdfs:subClassOf :Webpagina .
 
 :Base_Integer a sh:PropertyShape ;
     sh:datatype xsd:integer .
@@ -644,7 +655,7 @@ schema1:WebPage rdfs:subClassOf :Webpagina .
     sh:property [ sh:description "De unieke identifier van persoon."@nl ;
             sh:name "Identifier"@nl ;
             sh:node :Rule_identifier_schema ;
-            sh:path schema1:identifier ],
+            sh:path schema:identifier ],
         [ sh:description "Classificatie van de entiteit volgens Persons in Context."@nl ;
             sh:name "Type entiteit"@nl ;
             sh:node :Rule_type ;
@@ -652,50 +663,50 @@ schema1:WebPage rdfs:subClassOf :Webpagina .
         [ sh:description "De gestandaardiseerde volledige naam van de persoon."@nl ;
             sh:name "Naam"@nl ;
             sh:node :Rule_name ;
-            sh:path schema1:name ],
+            sh:path schema:name ],
         [ sh:description "Varianten, aliassen of historische schrijfwijzen van de naam."@nl ;
             sh:name "Andere namen"@nl ;
             sh:node :Rule_alternateName ;
-            sh:path schema1:alternateName ],
+            sh:path schema:alternateName ],
         [ sh:name "Geboortedatum"@nl ;
             sh:node :Rule_birthDate ;
-            sh:path schema1:birthDate ],
+            sh:path schema:birthDate ],
         [ sh:name "Geboorteplaats"@nl ;
             sh:node :Rule_birthPlace ;
-            sh:path schema1:birthPlace ],
+            sh:path schema:birthPlace ],
         [ sh:name "Datum van overlijden"@nl ;
             sh:node :Rule_deathDate ;
-            sh:path schema1:deathDate ],
+            sh:path schema:deathDate ],
         [ sh:name "Plaats van overlijden"@nl ;
             sh:node :Rule_deathPlace ;
-            sh:path schema1:deathPlace ],
+            sh:path schema:deathPlace ],
         [ sh:description "Indicatie of de persoon is overleden."@nl ;
             sh:name "Overleden status"@nl ;
             sh:node :Rule_deceased ;
             sh:path picom1:deceased ],
         [ sh:name "Geslacht"@nl ;
             sh:node :Rule_gender ;
-            sh:path schema1:gender ],
+            sh:path schema:gender ],
         [ sh:description "Verwijzing naar de kinderen van deze persoon."@nl ;
             sh:name "Kinderen"@nl ;
             sh:node :Rule_children ;
-            sh:path schema1:children ],
+            sh:path schema:children ],
         [ sh:description "Verwijzing naar een ouder van deze persoon."@nl ;
             sh:name "Ouder"@nl ;
             sh:node :Rule_parent ;
-            sh:path schema1:parent ],
+            sh:path schema:parent ],
         [ sh:description "Verwijzing naar een broer of zus van deze persoon."@nl ;
             sh:name "Broer of zus"@nl ;
             sh:node :Rule_sibling ;
-            sh:path schema1:sibling ],
+            sh:path schema:sibling ],
         [ sh:description "Datum waarop deze reconstructie voor het eerst is aangemaakt."@nl ;
             sh:name "Aanmaakdatum"@nl ;
             sh:node :Rule_dateCreated ;
-            sh:path schema1:dateCreated ],
+            sh:path schema:dateCreated ],
         [ sh:description "Datum waarop deze reconstructie voor het laatst is bijgewerkt."@nl ;
             sh:name "Wijzigingsdatum"@nl ;
             sh:node :Rule_dateModified ;
-            sh:path schema1:dateModified ],
+            sh:path schema:dateModified ],
         [ sh:description "Verwijzing naar de persoonsvermeldingen waaruit deze reconstructie is opgebouwd."@nl ;
             sh:name "Afgeleid van"@nl ;
             sh:node :Rule_wasDerivedFrom ;
@@ -703,42 +714,42 @@ schema1:WebPage rdfs:subClassOf :Webpagina .
         [ sh:description "Externe links naar dezelfde persoon in andere systemen (bijv. Wikidata)."@nl ;
             sh:name "Andere autoriteit"@nl ;
             sh:node :Rule_sameAs ;
-            sh:path schema1:sameAs ],
+            sh:path schema:sameAs ],
         [ sh:description "Categorisering of trefwoorden van toepassing op de persoon (uit de WO2 thesaurus)."@nl ;
             sh:name "Trefwoorden"@nl ;
             sh:node :Rule_keywords ;
-            sh:path schema1:keywords ] ;
+            sh:path schema:keywords ] ;
     sh:targetClass picom1:PersonReconstruction .
 
 :Rule_about sh:node :Base_StringOrIRI ;
-    sh:path schema1:about .
+    sh:path schema:about .
 
 :Rule_accessRights sh:node :Base_String ;
     sh:path dct:accessRights .
 
 :Rule_actor sh:node :Base_IRI ;
     sh:or ( [ sh:class picom1:PersonReconstruction ] [ sh:class picom1:PersonObservation ] ) ;
-    sh:path schema1:actor .
+    sh:path schema:actor .
 
 :Rule_additionalType sh:node :Base_IRI ;
-    sh:path schema1:additionalType .
+    sh:path schema:additionalType .
 
 :Rule_address sh:node :Base_StringOrIRI ;
-    sh:path schema1:address .
+    sh:path schema:address .
 
 :Rule_altLabel sh:node :Base_String ;
     sh:path skos:altLabel .
 
 :Rule_alternateName sh:node :Base_String ;
-    sh:path schema1:alternateName .
+    sh:path schema:alternateName .
 
 :Rule_birthDate sh:maxCount 1 ;
     sh:node :Base_Date ;
-    sh:path schema1:birthDate .
+    sh:path schema:birthDate .
 
 :Rule_birthPlace sh:maxCount 1 ;
     sh:node :Base_StringOrIRI ;
-    sh:path schema1:birthPlace .
+    sh:path schema:birthPlace .
 
 :Rule_broader sh:class skos:Concept ;
     sh:node :Base_IRI ;
@@ -746,16 +757,16 @@ schema1:WebPage rdfs:subClassOf :Webpagina .
 
 :Rule_children sh:node :Base_IRI ;
     sh:or ( [ sh:class picom1:PersonReconstruction ] [ sh:class picom1:PersonObservation ] ) ;
-    sh:path schema1:children .
+    sh:path schema:children .
 
 :Rule_collection sh:node :Base_String ;
     sh:path dcmit:Collection .
 
 :Rule_contentLocation sh:node :Base_StringOrIRI ;
-    sh:path schema1:contentLocation .
+    sh:path schema:contentLocation .
 
 :Rule_contentUrl sh:node :Base_StringOrIRI ;
-    sh:path schema1:contentUrl .
+    sh:path schema:contentUrl .
 
 :Rule_contributor sh:node :Base_StringOrIRI ;
     sh:path dc:contributor .
@@ -773,23 +784,23 @@ schema1:WebPage rdfs:subClassOf :Webpagina .
 
 :Rule_dateCreated sh:maxCount 1 ;
     sh:node :Base_Date ;
-    sh:path schema1:dateCreated .
+    sh:path schema:dateCreated .
 
 :Rule_dateModified sh:maxCount 1 ;
     sh:node :Base_Date ;
-    sh:path schema1:dateModified .
+    sh:path schema:dateModified .
 
 :Rule_datePublished sh:maxCount 1 ;
     sh:node :Base_Date ;
-    sh:path schema1:datePublished .
+    sh:path schema:datePublished .
 
 :Rule_deathDate sh:maxCount 1 ;
     sh:node :Base_Date ;
-    sh:path schema1:deathDate .
+    sh:path schema:deathDate .
 
 :Rule_deathPlace sh:maxCount 1 ;
     sh:node :Base_StringOrIRI ;
-    sh:path schema1:deathPlace .
+    sh:path schema:deathPlace .
 
 :Rule_deceased sh:maxCount 1 ;
     sh:node :Base_String ;
@@ -805,22 +816,22 @@ schema1:WebPage rdfs:subClassOf :Webpagina .
     sh:path skos:exactMatch .
 
 :Rule_familyName sh:node :Base_String ;
-    sh:path schema1:familyName .
+    sh:path schema:familyName .
 
 :Rule_format sh:node :Base_String ;
     sh:path dc:format .
 
 :Rule_fromLocation sh:node :Base_StringOrIRI ;
-    sh:path schema1:fromLocation .
+    sh:path schema:fromLocation .
 
 :Rule_gender sh:node :Base_StringOrIRI ;
-    sh:path schema1:gender .
+    sh:path schema:gender .
 
 :Rule_givenName sh:node :Base_String ;
-    sh:path schema1:givenName .
+    sh:path schema:givenName .
 
 :Rule_hasOccupation sh:node :Base_String ;
-    sh:path schema1:hasOccupation .
+    sh:path schema:hasOccupation .
 
 :Rule_hiddenLabel sh:node :Base_String ;
     sh:path skos:hiddenLabel .
@@ -830,7 +841,7 @@ schema1:WebPage rdfs:subClassOf :Webpagina .
     sh:node :Base_String ;
     sh:path dc:identifier .
 
-:Rule_inDataset sh:class schema1:Dataset ;
+:Rule_inDataset sh:class schema:Dataset ;
     sh:node :Base_IRI ;
     sh:path niod1:inDataset .
 
@@ -848,7 +859,7 @@ schema1:WebPage rdfs:subClassOf :Webpagina .
 
 :Rule_keywords sh:class skos:Concept ;
     sh:node :Base_IRI ;
-    sh:path schema1:keywords .
+    sh:path schema:keywords .
 
 :Rule_lat sh:maxCount 1 ;
     sh:node :Base_Double ;
@@ -856,10 +867,10 @@ schema1:WebPage rdfs:subClassOf :Webpagina .
 
 :Rule_lat_schema sh:maxCount 1 ;
     sh:node :Base_String ;
-    sh:path schema1:latitude .
+    sh:path schema:latitude .
 
 :Rule_location sh:node :Base_StringOrIRI ;
-    sh:path schema1:location .
+    sh:path schema:location .
 
 :Rule_long sh:maxCount 1 ;
     sh:node :Base_Double ;
@@ -867,7 +878,7 @@ schema1:WebPage rdfs:subClassOf :Webpagina .
 
 :Rule_long_schema sh:maxCount 1 ;
     sh:node :Base_String ;
-    sh:path schema1:longitude .
+    sh:path schema:longitude .
 
 :Rule_modified sh:maxCount 1 ;
     sh:node :Base_Date ;
@@ -879,13 +890,13 @@ schema1:WebPage rdfs:subClassOf :Webpagina .
 
 :Rule_parent sh:node :Base_IRI ;
     sh:or ( [ sh:class picom1:PersonReconstruction ] [ sh:class picom1:PersonObservation ] ) ;
-    sh:path schema1:parent .
+    sh:path schema:parent .
 
 :Rule_prefLabel sh:minCount 1 ;
     sh:node :Base_String ;
     sh:path skos:prefLabel .
 
-:Rule_publisher sh:class schema1:Organization ;
+:Rule_publisher sh:class schema:Organization ;
     sh:node :Base_IRI ;
     sh:path dc:publisher .
 
@@ -897,14 +908,14 @@ schema1:WebPage rdfs:subClassOf :Webpagina .
     sh:path dc:rights .
 
 :Rule_sameAs sh:node :Base_IRI ;
-    sh:path schema1:sameAs .
+    sh:path schema:sameAs .
 
 :Rule_scopeNote sh:node :Base_String ;
     sh:path skos:scopeNote .
 
 :Rule_sibling sh:node :Base_IRI ;
     sh:or ( [ sh:class picom1:PersonReconstruction ] [ sh:class picom1:PersonObservation ] ) ;
-    sh:path schema1:sibling .
+    sh:path schema:sibling .
 
 :Rule_source sh:node :Base_String ;
     sh:path dc:source .
@@ -912,18 +923,18 @@ schema1:WebPage rdfs:subClassOf :Webpagina .
 :Rule_subject sh:node :Base_StringOrIRI ;
     sh:path dc:subject .
 
-:Rule_superEvent sh:class schema1:Event ;
+:Rule_superEvent sh:class schema:Event ;
     sh:node :Base_IRI ;
-    sh:path schema1:superEvent .
+    sh:path schema:superEvent .
 
 :Rule_temporal sh:node :Base_String ;
-    sh:path schema1:temporal .
+    sh:path schema:temporal .
 
 :Rule_text sh:node :Base_String ;
-    sh:path schema1:text .
+    sh:path schema:text .
 
 :Rule_thumbnail sh:node :Base_StringOrIRI ;
-    sh:path schema1:thumbnail .
+    sh:path schema:thumbnail .
 
 :Rule_title sh:maxCount 1 ;
     sh:minCount 1 ;
@@ -931,7 +942,7 @@ schema1:WebPage rdfs:subClassOf :Webpagina .
     sh:path dc:title .
 
 :Rule_toLocation sh:node :Base_StringOrIRI ;
-    sh:path schema1:toLocation .
+    sh:path schema:toLocation .
 
 :Rule_type_dc sh:node :Base_String ;
     sh:path dc:type .
@@ -944,72 +955,51 @@ schema1:WebPage rdfs:subClassOf :Webpagina .
     sh:or ( [ sh:class skos:Concept ] [ sh:class wgs1:SpatialTing ] ) ;
     sh:path wgs1:location .
 
-schema1:Article rdfs:label "Krantartikel"@nl .
-
-schema1:AudioObject rdfs:label "Audio"@nl .
-
-schema1:Book rdfs:label "Boek"@nl .
-
-schema1:Newspaper rdfs:label "Krant"@nl .
-
-schema1:Painting rdfs:label "Schilderij"@nl .
-
-schema1:Photograph rdfs:label "Foto"@nl ;
-    rdfs:subClassOf :Afbeelding .
-
-schema1:Sculpture rdfs:label "Beeldhouwwerk"@nl .
-
-schema1:SheetMusic rdfs:label "Bladmuziek"@nl ;
-    rdfs:subClassOf :Afbeelding .
-
-schema1:VideoObject rdfs:label "Video"@nl .
-
-schema1:VisualArtwork rdfs:label "Kunstwerk"@nl ;
-    rdfs:subClassOf :Afbeelding .
-
 :Base_Double a sh:PropertyShape ;
     sh:datatype xsd:double .
 
 :Rule_description_schema sh:node :Base_String ;
-    sh:path schema1:description .
+    sh:path schema:description .
 
 :Rule_hadPrimarySource sh:node :Base_IRI ;
-    sh:or ( [ sh:class prov:Entity ] [ sh:class schema1:ArchiveComponent ] ) ;
+    sh:or ( [ sh:class prov:Entity ] [ sh:class schema:ArchiveComponent ] ) ;
     sh:path prov:hadPrimarySource .
 
 :Rule_identifier_schema sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:node :Base_String ;
-    sh:path schema1:identifier .
+    sh:path schema:identifier .
 
 :Rule_provider sh:node :Base_StringOrIRI ;
-    sh:path schema1:provider .
+    sh:path schema:provider .
 
 :Rule_url sh:node :Base_StringOrIRI ;
-    sh:path schema1:url .
+    sh:path schema:url .
 
 :Base_DateOrInteger a sh:PropertyShape ;
     sh:or ( [ sh:datatype xsd:date ] [ sh:datatype xsd:integer ] ) .
 
 :Rule_endDate sh:maxCount 1 ;
     sh:node :Base_DateOrInteger ;
-    sh:path schema1:endDate .
+    sh:path schema:endDate .
 
 :Rule_name sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:node :Base_String ;
-    sh:path schema1:name .
+    sh:path schema:name .
 
 :Rule_startDate sh:maxCount 1 ;
     sh:node :Base_DateOrInteger ;
-    sh:path schema1:startDate .
+    sh:path schema:startDate .
+
+sdo:ArchiveComponent rdfs:label "Archiefmateriaal"@nl .
 
 :CreativeWorkShape a sh:NodeShape ;
     sh:description "Verschillende typen bronnen en objecten die binnen de collectie worden beschreven, zoals artikelen, foto's en kunstwerken."@nl ;
     sh:name "Bronnen en Objecten"@nl ;
     sh:property [ sh:name "Thumbnail"@nl ;
             sh:node :Rule_thumbnail ;
-            sh:path schema1:thumbnail ],
+            sh:path schema:thumbnail ],
         [ sh:name "Identifier (DC)"@nl ;
             sh:node :Rule_identifier_dc ;
             sh:path dc:identifier ],
@@ -1037,10 +1027,10 @@ schema1:VisualArtwork rdfs:label "Kunstwerk"@nl ;
             sh:path dc:subject ],
         [ sh:name "Persoon of organisatie als onderwerp van het werk"@nl ;
             sh:node :Rule_about ;
-            sh:path schema1:about ],
+            sh:path schema:about ],
         [ sh:name "Inhoudelijke locatie"@nl ;
             sh:node :Rule_contentLocation ;
-            sh:path schema1:contentLocation ],
+            sh:path schema:contentLocation ],
         [ sh:name "Maker van het werk"@nl ;
             sh:node :Rule_creator ;
             sh:path dc:creator ],
@@ -1053,7 +1043,7 @@ schema1:VisualArtwork rdfs:label "Kunstwerk"@nl ;
         [ sh:description "De instelling die het object digitaal beschikbaar stelt."@nl ;
             sh:name "Provider"@nl ;
             sh:node :Rule_provider ;
-            sh:path schema1:provider ],
+            sh:path schema:provider ],
         [ sh:name "Rechten"@nl ;
             sh:node :Rule_rights ;
             sh:path dc:rights ],
@@ -1069,22 +1059,24 @@ schema1:VisualArtwork rdfs:label "Kunstwerk"@nl ;
             sh:path dc:date ],
         [ sh:name "Startdatum"@nl ;
             sh:node :Rule_startDate ;
-            sh:path schema1:startDate ],
+            sh:path schema:startDate ],
         [ sh:name "Einddatum"@nl ;
             sh:node :Rule_endDate ;
-            sh:path schema1:endDate ],
+            sh:path schema:endDate ],
         [ sh:name "Periodisering"@nl ;
             sh:node :Rule_temporal ;
-            sh:path schema1:temporal ] ;
-    sh:targetClass schema1:Article,
-        schema1:Book,
-        schema1:CreativeWork,
-        schema1:Newspaper,
-        schema1:Painting,
-        schema1:Photograph,
-        schema1:Sculpture,
-        schema1:SheetMusic,
-        schema1:VisualArtwork .
+            sh:path schema:temporal ] ;
+    sh:targetClass schema:Article,
+        schema:Book,
+        schema:CreativeWork,
+        schema:Newspaper,
+        schema:Painting,
+        schema:Photograph,
+        schema:Sculpture,
+        schema:SheetMusic,
+        schema:VisualArtwork .
+
+sdo:CreativeWork rdfs:label "Object"@nl .
 
 :Rule_type sh:node :Base_IRI ;
     sh:path rdf:type .
@@ -1093,8 +1085,6 @@ skos:Concept rdfs:subClassOf :Webpagina .
 
 :Base_Date a sh:PropertyShape ;
     sh:datatype xsd:date .
-
-schema1:CreativeWork rdfs:label "Object"@nl .
 
 :Base_StringOrIRI a sh:PropertyShape ;
     sh:or ( [ sh:datatype xsd:string ] [ sh:nodeKind sh:IRI ] ) .

@@ -18,40 +18,29 @@
 <http://data.oorlogsbronnen.nl/schema#genoemde> rdf:comment "Een persoon die genoemd wordt bij een bekendmaking"@nl ;
                                                 rdfs:label "genoemde"@nl ;
                                                 rdf:type owl:AnnotationProperty ;
-                                                rdfs:subPropertyOf <http://schema.org/actor> .
-
-
-###  http://data.oorlogsbronnen.nl/schema#imageIIIF
-<http://data.oorlogsbronnen.nl/schema#imageIIIF> rdf:comment "IIIF manifest van afbeeldingen die bij de bron beschikbaar zijn in IIIF formaat"@nl ;
-                                                 rdfs:label "IIIF Manifest"@nl ;
-                                                 rdf:type owl:AnnotationProperty ;
-                                                 rdfs:subPropertyOf <http://schema.org/image> .
+                                                rdfs:subPropertyOf <https://schema.org/actor> .
 
 
 ###  http://data.oorlogsbronnen.nl/schema#opdrachtgever
 <http://data.oorlogsbronnen.nl/schema#opdrachtgever> rdf:comment "Een persoon die de opdrachtgever was van een bekendmaking"@nl ;
                                                      rdfs:label "opdrachtgever"@nl ;
                                                      rdf:type owl:AnnotationProperty ;
-                                                     rdfs:subPropertyOf <http://schema.org/actor> .
+                                                     rdfs:subPropertyOf <https://schema.org/actor> .
 
 
 ###  http://data.oorlogsbronnen.nl/schema#slachtoffer
 <http://data.oorlogsbronnen.nl/schema#slachtoffer> rdf:comment "Een persoon die slachtoffer was in een gebeurtenis"@nl ;
                                                    rdfs:label "slachtoffer"@nl ;
                                                    rdf:type owl:AnnotationProperty ;
-                                                   rdfs:subPropertyOf <http://schema.org/actor> .
-
-
-###  http://schema.org/actor
-<http://schema.org/actor> rdf:type owl:AnnotationProperty .
-
-
-###  http://schema.org/image
-<http://schema.org/image> rdf:type owl:AnnotationProperty .
+                                                   rdfs:subPropertyOf <https://schema.org/actor> .
 
 
 ###  http://www.w3.org/1999/02/22-rdf-syntax-ns#comment
 rdf:comment rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/actor
+<https://schema.org/actor> rdf:type owl:AnnotationProperty .
 
 
 #################################################################
@@ -60,38 +49,28 @@ rdf:comment rdf:type owl:AnnotationProperty .
 
 ###  http://data.oorlogsbronnen.nl/schema#Afbeelding
 <http://data.oorlogsbronnen.nl/schema#Afbeelding> rdf:type owl:Class ;
-                                                  rdfs:subClassOf <http://schema.org/CreativeWork> ;
-                                                  rdf:comment "Superclass of all collection objects with a visuel element."@en ;
+                                                  rdfs:subClassOf <https://schema.org/CreativeWork> ;
+                                                  rdf:comment "Superclass voor alle collectie objecten met een afbeelding"@nl ;
                                                   rdfs:label "Afbeelding"@nl .
-
-
-###  http://data.oorlogsbronnen.nl/schema#Archiefmateriaal
-<http://data.oorlogsbronnen.nl/schema#Archiefmateriaal> rdf:type owl:Class ;
-                                                        rdfs:subClassOf <http://schema.org/CreativeWork> ;
-                                                        rdf:comment "Class for all archivematerial"@en ;
-                                                        rdfs:label "Archiefmateriaal"@nl .
 
 
 ###  http://data.oorlogsbronnen.nl/schema#Archive
 <http://data.oorlogsbronnen.nl/schema#Archive> rdf:type owl:Class ;
-                                               rdfs:subClassOf <http://data.oorlogsbronnen.nl/schema#Archiefmateriaal> ,
-                                                               <http://schema.org/CreativeWork> ;
+                                               rdfs:subClassOf <https://schema.org/ArchiveComponent> ;
                                                rdf:comment "Class for an archive"@en ;
                                                rdfs:label "Archief"@nl .
 
 
 ###  http://data.oorlogsbronnen.nl/schema#ArchiveFile
 <http://data.oorlogsbronnen.nl/schema#ArchiveFile> rdf:type owl:Class ;
-                                                   rdfs:subClassOf <http://data.oorlogsbronnen.nl/schema#Archiefmateriaal> ,
-                                                                   <https://data.niod.nl/Archive> ;
+                                                   rdfs:subClassOf <https://schema.org/ArchiveComponent> ;
                                                    rdf:comment "Class for archival documents"@en ;
                                                    rdfs:label "Archiefstuk"@nl .
 
 
 ###  http://data.oorlogsbronnen.nl/schema#ArchiveSeries
 <http://data.oorlogsbronnen.nl/schema#ArchiveSeries> rdf:type owl:Class ;
-                                                     rdfs:subClassOf <http://data.oorlogsbronnen.nl/schema#Archiefmateriaal> ,
-                                                                     <https://data.niod.nl/Archive> ;
+                                                     rdfs:subClassOf <https://schema.org/ArchiveComponent> ;
                                                      rdf:comment "Class for a collection of archival documents"@en ;
                                                      rdfs:label "Archiefreeks"@nl .
 
@@ -99,35 +78,35 @@ rdf:comment rdf:type owl:AnnotationProperty .
 ###  http://data.oorlogsbronnen.nl/schema#Bekendmaking
 <http://data.oorlogsbronnen.nl/schema#Bekendmaking> rdf:type owl:Class ;
                                                     rdfs:subClassOf <http://data.oorlogsbronnen.nl/schema#Afbeelding> ,
-                                                                    <http://schema.org/Event> ;
+                                                                    <https://schema.org/Event> ;
                                                     rdf:comment "Class for official announcements, treated as events "@en ;
                                                     rdfs:label "Bekendmaking"@nl .
 
 
 ###  http://data.oorlogsbronnen.nl/schema#Certificate
 <http://data.oorlogsbronnen.nl/schema#Certificate> rdf:type owl:Class ;
-                                                   rdfs:subClassOf <http://schema.org/CreativeWork> ;
+                                                   rdfs:subClassOf <https://schema.org/CreativeWork> ;
                                                    rdf:comment "Class for archival certificates"@en ;
                                                    rdfs:label "Akte"@nl .
 
 
 ###  http://data.oorlogsbronnen.nl/schema#Interview
 <http://data.oorlogsbronnen.nl/schema#Interview> rdf:type owl:Class ;
-                                                 rdfs:subClassOf <http://schema.org/CreativeWork> ;
+                                                 rdfs:subClassOf <https://schema.org/CreativeWork> ;
                                                  rdf:comment "Class for interviews"@en ;
                                                  rdfs:label "Interview"@nl .
 
 
 ###  http://data.oorlogsbronnen.nl/schema#InterviewSegment
 <http://data.oorlogsbronnen.nl/schema#InterviewSegment> rdf:type owl:Class ;
-                                                        rdfs:subClassOf <http://schema.org/CreativeWork> ;
+                                                        rdfs:subClassOf <https://schema.org/CreativeWork> ;
                                                         rdf:comment "Class for interviews segments"@en ;
                                                         rdfs:label "Fragment"@nl .
 
 
 ###  http://data.oorlogsbronnen.nl/schema#Monument
 <http://data.oorlogsbronnen.nl/schema#Monument> rdf:type owl:Class ;
-                                                rdfs:subClassOf <http://schema.org/CreativeWork> ;
+                                                rdfs:subClassOf <https://schema.org/CreativeWork> ;
                                                 rdf:comment "Class for monuments"@en ;
                                                 rdfs:label "Monument"@nl .
 
@@ -144,40 +123,6 @@ rdf:comment rdf:type owl:AnnotationProperty .
                                                  rdfs:label "Webpagina"@nl .
 
 
-###  http://schema.org/CreativeWork
-<http://schema.org/CreativeWork> rdf:type owl:Class .
-
-
-###  http://schema.org/Event
-<http://schema.org/Event> rdf:type owl:Class .
-
-
-###  http://schema.org/ImageObject
-<http://schema.org/ImageObject> rdf:type owl:Class ;
-                                rdfs:subClassOf <http://data.oorlogsbronnen.nl/schema#Afbeelding> ;
-                                rdfs:label "Afbeelding"@nl .
-
-
-###  http://schema.org/Photograph
-<http://schema.org/Photograph> rdf:type owl:Class ;
-                               rdfs:subClassOf <http://data.oorlogsbronnen.nl/schema#Afbeelding> .
-
-
-###  http://schema.org/SheetMusic
-<http://schema.org/SheetMusic> rdf:type owl:Class ;
-                               rdfs:subClassOf <http://data.oorlogsbronnen.nl/schema#Afbeelding> .
-
-
-###  http://schema.org/VisualArtwork
-<http://schema.org/VisualArtwork> rdf:type owl:Class ;
-                                  rdfs:subClassOf <http://data.oorlogsbronnen.nl/schema#Afbeelding> .
-
-
-###  http://schema.org/WebPage
-<http://schema.org/WebPage> rdf:type owl:Class ;
-                            rdfs:subClassOf <http://data.oorlogsbronnen.nl/schema#Webpagina> .
-
-
 ###  http://www.w3.org/2004/02/skos/core#Concept
 <http://www.w3.org/2004/02/skos/core#Concept> rdf:type owl:Class ;
                                               rdfs:subClassOf <http://data.oorlogsbronnen.nl/schema#Webpagina> .
@@ -185,19 +130,15 @@ rdf:comment rdf:type owl:AnnotationProperty .
 
 ###  https://data.niod.nl/Afgepakt
 <https://data.niod.nl/Afgepakt> rdf:type owl:Class ;
-                                rdfs:subClassOf <http://schema.org/Event> ;
+                                rdfs:subClassOf <https://schema.org/Event> ;
                                 rdfs:comment "Afgepakt is de term voor de persoonlijke gebeurtenis waarbij roerende of onroerende bezittingen afgenomen worden van de eigenaar."@nl ;
                                 rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/19486> ;
                                 rdfs:label "Afgepakt"@nl .
 
 
-###  https://data.niod.nl/Archive
-<https://data.niod.nl/Archive> rdf:type owl:Class .
-
-
 ###  https://data.niod.nl/Arresteert
 <https://data.niod.nl/Arresteert> rdf:type owl:Class ;
-                                  rdfs:subClassOf <http://schema.org/Event> ;
+                                  rdfs:subClassOf <https://schema.org/Event> ;
                                   rdfs:comment "Het actief arresteren of oppakken van mensen. Werkwoord om de arresterende persoon te benoemen."@nl ;
                                   rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11179> ;
                                   rdfs:label "Arresteert"@nl .
@@ -205,14 +146,14 @@ rdf:comment rdf:type owl:AnnotationProperty .
 
 ###  https://data.niod.nl/Benoemd
 <https://data.niod.nl/Benoemd> rdf:type owl:Class ;
-                               rdfs:subClassOf <http://schema.org/Event> ;
+                               rdfs:subClassOf <https://schema.org/Event> ;
                                rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/13790> ;
                                rdfs:label "Benoemd"@nl .
 
 
 ###  https://data.niod.nl/BevrijdIn
 <https://data.niod.nl/BevrijdIn> rdf:type owl:Class ;
-                                 rdfs:subClassOf <http://schema.org/Event> ;
+                                 rdfs:subClassOf <https://schema.org/Event> ;
                                  rdfs:comment "Plaats/stad of land waarin een persoon bevrijd wordt."@nl ;
                                  rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11173> ;
                                  rdfs:label "Bevrijd in"@nl .
@@ -220,7 +161,7 @@ rdf:comment rdf:type owl:AnnotationProperty .
 
 ###  https://data.niod.nl/BevrijdUit
 <https://data.niod.nl/BevrijdUit> rdf:type owl:Class ;
-                                  rdfs:subClassOf <http://schema.org/Event> ;
+                                  rdfs:subClassOf <https://schema.org/Event> ;
                                   rdfs:comment "Bevrijd worden uit een kamp of gevangenis."@nl ;
                                   rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6347> ;
                                   rdfs:label "Bevrijd uit"@nl .
@@ -228,7 +169,7 @@ rdf:comment rdf:type owl:AnnotationProperty .
 
 ###  https://data.niod.nl/Executeert
 <https://data.niod.nl/Executeert> rdf:type owl:Class ;
-                                  rdfs:subClassOf <http://schema.org/Event> ;
+                                  rdfs:subClassOf <https://schema.org/Event> ;
                                   rdfs:comment "Het actief ombrengen van een persoon (in opdracht van..). Werkwoord om uitvoerder van de executie te benoemen."@nl ;
                                   rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11176> ;
                                   rdfs:label "Executeert"@nl .
@@ -236,7 +177,7 @@ rdf:comment rdf:type owl:AnnotationProperty .
 
 ###  https://data.niod.nl/Gearresteerd
 <https://data.niod.nl/Gearresteerd> rdf:type owl:Class ;
-                                    rdfs:subClassOf <http://schema.org/Event> ;
+                                    rdfs:subClassOf <https://schema.org/Event> ;
                                     rdfs:comment "Aangehouden of opgepakt worden."@nl ;
                                     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6344> ;
                                     rdfs:label "Gearresteerd"@nl .
@@ -244,35 +185,42 @@ rdf:comment rdf:type owl:AnnotationProperty .
 
 ###  https://data.niod.nl/Geboren
 <https://data.niod.nl/Geboren> rdf:type owl:Class ;
-                               rdfs:subClassOf <http://schema.org/Event> ;
+                               rdfs:subClassOf <https://schema.org/Event> ;
                                rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6360> ;
                                rdfs:label "Geboren"@nl .
 
 
 ###  https://data.niod.nl/Gedecoreerd
 <https://data.niod.nl/Gedecoreerd> rdf:type owl:Class ;
-                                   rdfs:subClassOf <http://schema.org/Event> ;
+                                   rdfs:subClassOf <https://schema.org/Event> ;
                                    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6365> ;
                                    rdfs:label "Gedecoreerd"@nl .
 
 
 ###  https://data.niod.nl/GedwongenVerhuisd
 <https://data.niod.nl/GedwongenVerhuisd> rdf:type owl:Class ;
-                                         rdfs:subClassOf <http://schema.org/Event> ;
+                                         rdfs:subClassOf <https://schema.org/Event> ;
                                          rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/19198> ;
                                          rdfs:label "Gedwongen verhuisd"@nl .
 
 
+###  https://data.niod.nl/Geevacueerd
+<https://data.niod.nl/Geevacueerd> rdf:type owl:Class ;
+                                   rdfs:subClassOf <https://schema.org/Event> ;
+                                   rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11174> ;
+                                   rdfs:label "Geëvacueerd"@nl .
+
+
 ###  https://data.niod.nl/Gehuwd
 <https://data.niod.nl/Gehuwd> rdf:type owl:Class ;
-                              rdfs:subClassOf <http://schema.org/Event> ;
+                              rdfs:subClassOf <https://schema.org/Event> ;
                               rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/18966> ;
                               rdfs:label "Gehuwd"@nl .
 
 
 ###  https://data.niod.nl/Geland
 <https://data.niod.nl/Geland> rdf:type owl:Class ;
-                              rdfs:subClassOf <http://schema.org/Event> ;
+                              rdfs:subClassOf <https://schema.org/Event> ;
                               rdfs:comment "Het aan land komen (zowel per boot als vliegtuig) van een persoon."@nl ;
                               rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6363> ;
                               rdfs:label "Geland"@nl .
@@ -280,7 +228,7 @@ rdf:comment rdf:type owl:AnnotationProperty .
 
 ###  https://data.niod.nl/Geleid
 <https://data.niod.nl/Geleid> rdf:type owl:Class ;
-                              rdfs:subClassOf <http://schema.org/Event> ;
+                              rdfs:subClassOf <https://schema.org/Event> ;
                               rdfs:comment "Leider zijn van, baas zijn over. Werkwoord om het leiden van een partij, groep of organisatie te beschrijven."@nl ;
                               rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11182> ;
                               rdfs:label "Geleid"@nl .
@@ -288,14 +236,14 @@ rdf:comment rdf:type owl:AnnotationProperty .
 
 ###  https://data.niod.nl/Geliquideerd
 <https://data.niod.nl/Geliquideerd> rdf:type owl:Class ;
-                                    rdfs:subClassOf <http://schema.org/Event> ;
+                                    rdfs:subClassOf <https://schema.org/Event> ;
                                     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/16379> ;
                                     rdfs:label "Geliquideerd"@nl .
 
 
 ###  https://data.niod.nl/Gepleegd
 <https://data.niod.nl/Gepleegd> rdf:type owl:Class ;
-                                rdfs:subClassOf <http://schema.org/Event> ;
+                                rdfs:subClassOf <https://schema.org/Event> ;
                                 rdfs:comment "Het uitvoeren van een (ondermijnende) activiteit, zoals een aanslag of overval. Werkwoord om de uitvoerder van de aanslag te benoemen."@nl ;
                                 rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6355> ;
                                 rdfs:label "Gepleegd"@nl .
@@ -303,7 +251,7 @@ rdf:comment rdf:type owl:AnnotationProperty .
 
 ###  https://data.niod.nl/Gerecruteerd
 <https://data.niod.nl/Gerecruteerd> rdf:type owl:Class ;
-                                    rdfs:subClassOf <http://schema.org/Event> ;
+                                    rdfs:subClassOf <https://schema.org/Event> ;
                                     rdfs:comment "Gerecruteerd betekent geworven voor militaire of geheime diensten."@nl ;
                                     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6362> ;
                                     rdfs:label "Gerecruteerd"@nl .
@@ -311,35 +259,35 @@ rdf:comment rdf:type owl:AnnotationProperty .
 
 ###  https://data.niod.nl/Geroyeerd
 <https://data.niod.nl/Geroyeerd> rdf:type owl:Class ;
-                                 rdfs:subClassOf <http://schema.org/Event> ;
+                                 rdfs:subClassOf <https://schema.org/Event> ;
                                  rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11178> ;
                                  rdfs:label "Geroyeerd"@nl .
 
 
 ###  https://data.niod.nl/Gestorven
 <https://data.niod.nl/Gestorven> rdf:type owl:Class ;
-                                 rdfs:subClassOf <http://schema.org/Event> ;
+                                 rdfs:subClassOf <https://schema.org/Event> ;
                                  rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6361> ;
                                  rdfs:label "Gestorven"@nl .
 
 
 ###  https://data.niod.nl/Getransporteerd
 <https://data.niod.nl/Getransporteerd> rdf:type owl:Class ;
-                                       rdfs:subClassOf <http://schema.org/Event> ;
+                                       rdfs:subClassOf <https://schema.org/Event> ;
                                        rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6348> ;
                                        rdfs:label "Getransporteerd"@nl .
 
 
 ###  https://data.niod.nl/Getroffen
 <https://data.niod.nl/Getroffen> rdf:type owl:Class ;
-                                 rdfs:subClassOf <http://schema.org/Event> ;
+                                 rdfs:subClassOf <https://schema.org/Event> ;
                                  rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6356> ;
                                  rdfs:label "Getroffen"@nl .
 
 
 ###  https://data.niod.nl/Gevangen
 <https://data.niod.nl/Gevangen> rdf:type owl:Class ;
-                                rdfs:subClassOf <http://schema.org/Event> ;
+                                rdfs:subClassOf <https://schema.org/Event> ;
                                 rdfs:comment "Gevangen verwijst naar de gevangenschap van burgers in (concentratie)kampen en gevangenissen. Voor krijgsgevangenen gebruiken we 'Geïnterneerd'. Ook voor gevangen burgers uit Nederlands-Indië wordt de term 'Geïnterneerd' gebruikt."@nl ;
                                 rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6354> ;
                                 rdfs:label "Gevangen"@nl .
@@ -347,35 +295,28 @@ rdf:comment rdf:type owl:AnnotationProperty .
 
 ###  https://data.niod.nl/Gevaren
 <https://data.niod.nl/Gevaren> rdf:type owl:Class ;
-                               rdfs:subClassOf <http://schema.org/Event> ;
+                               rdfs:subClassOf <https://schema.org/Event> ;
                                rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11181> ;
                                rdfs:label "Gevaren"@nl .
 
 
 ###  https://data.niod.nl/Gevlucht
 <https://data.niod.nl/Gevlucht> rdf:type owl:Class ;
-                                rdfs:subClassOf <http://schema.org/Event> ;
+                                rdfs:subClassOf <https://schema.org/Event> ;
                                 rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6353> ;
                                 rdfs:label "Gevlucht"@nl .
 
 
 ###  https://data.niod.nl/Gevochten
 <https://data.niod.nl/Gevochten> rdf:type owl:Class ;
-                                 rdfs:subClassOf <http://schema.org/Event> ;
+                                 rdfs:subClassOf <https://schema.org/Event> ;
                                  rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6359> ;
                                  rdfs:label "Gevochten"@nl .
 
 
-###  https://data.niod.nl/Geëvacueerd
-<https://data.niod.nl/Geëvacueerd> rdf:type owl:Class ;
-                                   rdfs:subClassOf <http://schema.org/Event> ;
-                                   rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11174> ;
-                                   rdfs:label "Geëvacueerd"@nl .
-
-
 ###  https://data.niod.nl/Geëxecuteerd
 <https://data.niod.nl/Geëxecuteerd> rdf:type owl:Class ;
-                                    rdfs:subClassOf <http://schema.org/Event> ;
+                                    rdfs:subClassOf <https://schema.org/Event> ;
                                     rdfs:comment "Standrechtelijk omgebracht worden. Geëxecuteerd is het werkwoord om het slachtoffer van de executie te benoemen."@nl ;
                                     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6357> ;
                                     rdfs:label "Geëxecuteerd"@nl .
@@ -383,7 +324,7 @@ rdf:comment rdf:type owl:AnnotationProperty .
 
 ###  https://data.niod.nl/Geïnterneerd
 <https://data.niod.nl/Geïnterneerd> rdf:type owl:Class ;
-                                    rdfs:subClassOf <http://schema.org/Event> ;
+                                    rdfs:subClassOf <https://schema.org/Event> ;
                                     rdfs:comment "Geïnterneerd verwijst naar militairen die gevangen zitten in kampen of gevangenissen. Ook naar burgers in Nederlands-Indië die gevangen zitten in kampen wordt verwezen als geïnterneerden. Voor alle overige burgers in kampen en gevangenissen gebruiken we 'Gevangen'."@nl ;
                                     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6349> ;
                                     rdfs:label "Geïnterneerd"@nl .
@@ -391,42 +332,42 @@ rdf:comment rdf:type owl:AnnotationProperty .
 
 ###  https://data.niod.nl/LidGeweest
 <https://data.niod.nl/LidGeweest> rdf:type owl:Class ;
-                                  rdfs:subClassOf <http://schema.org/Event> ;
+                                  rdfs:subClassOf <https://schema.org/Event> ;
                                   rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6352> ;
                                   rdfs:label "Lid geweest"@nl .
 
 
 ###  https://data.niod.nl/Omgekomen
 <https://data.niod.nl/Omgekomen> rdf:type owl:Class ;
-                                 rdfs:subClassOf <http://schema.org/Event> ;
+                                 rdfs:subClassOf <https://schema.org/Event> ;
                                  rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/8772> ;
                                  rdfs:label "Omgekomen"@nl .
 
 
 ###  https://data.niod.nl/Ondergedoken
 <https://data.niod.nl/Ondergedoken> rdf:type owl:Class ;
-                                    rdfs:subClassOf <http://schema.org/Event> ;
+                                    rdfs:subClassOf <https://schema.org/Event> ;
                                     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6351> ;
                                     rdfs:label "Ondergedoken"@nl .
 
 
 ###  https://data.niod.nl/Ontsnapt
 <https://data.niod.nl/Ontsnapt> rdf:type owl:Class ;
-                                rdfs:subClassOf <http://schema.org/Event> ;
+                                rdfs:subClassOf <https://schema.org/Event> ;
                                 rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/8795> ;
                                 rdfs:label "Ontsnapt"@nl .
 
 
 ###  https://data.niod.nl/OpPadGegaan
 <https://data.niod.nl/OpPadGegaan> rdf:type owl:Class ;
-                                   rdfs:subClassOf <http://schema.org/Event> ;
+                                   rdfs:subClassOf <https://schema.org/Event> ;
                                    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/17064> ;
                                    rdfs:label "Op pad gegaan"@nl .
 
 
 ###  https://data.niod.nl/Opgepakt
 <https://data.niod.nl/Opgepakt> rdf:type owl:Class ;
-                                rdfs:subClassOf <http://schema.org/Event> ;
+                                rdfs:subClassOf <https://schema.org/Event> ;
                                 rdfs:comment "Opgepakt betekent de aanhouding van een persoon zonder dat daarna een juridisch traject gestart is. Opgepakt wordt meestal gebruikt voor personen die (willekeurig) aangehouden zijn tijdens razzia's en repressailles."@nl ;
                                 rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6345> ;
                                 rdfs:label "Opgepakt"@nl .
@@ -434,63 +375,63 @@ rdf:comment rdf:type owl:AnnotationProperty .
 
 ###  https://data.niod.nl/Opgericht
 <https://data.niod.nl/Opgericht> rdf:type owl:Class ;
-                                 rdfs:subClassOf <http://schema.org/Event> ;
+                                 rdfs:subClassOf <https://schema.org/Event> ;
                                  rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/13792> ;
                                  rdfs:label "Opgericht"@nl .
 
 
 ###  https://data.niod.nl/Opgeroepen
 <https://data.niod.nl/Opgeroepen> rdf:type owl:Class ;
-                                  rdfs:subClassOf <http://schema.org/Event> ;
+                                  rdfs:subClassOf <https://schema.org/Event> ;
                                   rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/8542> ;
                                   rdfs:label "Opgeroepen"@nl .
 
 
 ###  https://data.niod.nl/Opgevangen
 <https://data.niod.nl/Opgevangen> rdf:type owl:Class ;
-                                  rdfs:subClassOf <http://schema.org/Event> ;
+                                  rdfs:subClassOf <https://schema.org/Event> ;
                                   rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/10956> ;
                                   rdfs:label "Opgevangen"@nl .
 
 
 ###  https://data.niod.nl/Overleden
 <https://data.niod.nl/Overleden> rdf:type owl:Class ;
-                                 rdfs:subClassOf <http://schema.org/Event> ;
+                                 rdfs:subClassOf <https://schema.org/Event> ;
                                  rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/8771> ;
                                  rdfs:label "Overleden"@nl .
 
 
 ###  https://data.niod.nl/Teruggekeerd
 <https://data.niod.nl/Teruggekeerd> rdf:type owl:Class ;
-                                    rdfs:subClassOf <http://schema.org/Event> ;
+                                    rdfs:subClassOf <https://schema.org/Event> ;
                                     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/18496> ;
                                     rdfs:label "Teruggekeerd"@nl .
 
 
 ###  https://data.niod.nl/Tewerkgesteld
 <https://data.niod.nl/Tewerkgesteld> rdf:type owl:Class ;
-                                     rdfs:subClassOf <http://schema.org/Event> ;
+                                     rdfs:subClassOf <https://schema.org/Event> ;
                                      rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/8514> ;
                                      rdfs:label "Tewerkgesteld"@nl .
 
 
 ###  https://data.niod.nl/Vermist
 <https://data.niod.nl/Vermist> rdf:type owl:Class ;
-                               rdfs:subClassOf <http://schema.org/Event> ;
+                               rdfs:subClassOf <https://schema.org/Event> ;
                                rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/10946> ;
                                rdfs:label "Vermist"@nl .
 
 
 ###  https://data.niod.nl/Veroordeeld
 <https://data.niod.nl/Veroordeeld> rdf:type owl:Class ;
-                                   rdfs:subClassOf <http://schema.org/Event> ;
+                                   rdfs:subClassOf <https://schema.org/Event> ;
                                    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6563> ;
                                    rdfs:label "Veroordeeld"@nl .
 
 
 ###  https://data.niod.nl/Verraadt
 <https://data.niod.nl/Verraadt> rdf:type owl:Class ;
-                                rdfs:subClassOf <http://schema.org/Event> ;
+                                rdfs:subClassOf <https://schema.org/Event> ;
                                 rdfs:comment "Het verraden van een ander mens. Werkwoord om de verrader te benoemen."@nl ;
                                 rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11177> ;
                                 rdfs:label "Verraadt"@nl .
@@ -498,7 +439,7 @@ rdf:comment rdf:type owl:AnnotationProperty .
 
 ###  https://data.niod.nl/Verraden
 <https://data.niod.nl/Verraden> rdf:type owl:Class ;
-                                rdfs:subClassOf <http://schema.org/Event> ;
+                                rdfs:subClassOf <https://schema.org/Event> ;
                                 rdfs:comment "Verraden worden. Werkwoord om de persoon te beschrijven die verraden is."@nl ;
                                 rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6358> ;
                                 rdfs:label "Verraden"@nl .
@@ -506,28 +447,28 @@ rdf:comment rdf:type owl:AnnotationProperty .
 
 ###  https://data.niod.nl/Vertrokken
 <https://data.niod.nl/Vertrokken> rdf:type owl:Class ;
-                                  rdfs:subClassOf <http://schema.org/Event> ;
+                                  rdfs:subClassOf <https://schema.org/Event> ;
                                   rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/13791> ;
                                   rdfs:label "Vertrokken"@nl .
 
 
 ###  https://data.niod.nl/Vrijgelaten
 <https://data.niod.nl/Vrijgelaten> rdf:type owl:Class ;
-                                   rdfs:subClassOf <http://schema.org/Event> ;
+                                   rdfs:subClassOf <https://schema.org/Event> ;
                                    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6346> ;
                                    rdfs:label "Vrijgelaten"@nl .
 
 
 ###  https://data.niod.nl/Vrijgesproken
 <https://data.niod.nl/Vrijgesproken> rdf:type owl:Class ;
-                                     rdfs:subClassOf <http://schema.org/Event> ;
+                                     rdfs:subClassOf <https://schema.org/Event> ;
                                      rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/14203> ;
                                      rdfs:label "Vrijgesproken"@nl .
 
 
 ###  https://data.niod.nl/Vrijgesteld
 <https://data.niod.nl/Vrijgesteld> rdf:type owl:Class ;
-                                   rdfs:subClassOf <http://schema.org/Event> ;
+                                   rdfs:subClassOf <https://schema.org/Event> ;
                                    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6562> ;
                                    rdfs:label "Vrijgesteld"@nl .
 
@@ -542,6 +483,49 @@ rdf:comment rdf:type owl:AnnotationProperty .
 <https://personsincontext.org/model#PersonReconstruction> rdf:type owl:Class ;
                                                           rdf:comment "Persoon gemodelleerd op basis van een of meer persoonsvermeldingen"@nl ;
                                                           rdfs:label "Persoonsreconstructie"@nl .
+
+
+###  https://schema.org/ArchiveComponent
+<https://schema.org/ArchiveComponent> rdf:type owl:Class ;
+                                      rdfs:label "Archiefmateriaal"@nl .
+
+
+###  https://schema.org/CreativeWork
+<https://schema.org/CreativeWork> rdf:type owl:Class ;
+                                  rdfs:label "Object"@nl .
+
+
+###  https://schema.org/Event
+<https://schema.org/Event> rdf:type owl:Class .
+
+
+###  https://schema.org/ImageObject
+<https://schema.org/ImageObject> rdf:type owl:Class ;
+                                 rdfs:subClassOf <http://data.oorlogsbronnen.nl/schema#Afbeelding> ;
+                                 rdfs:label "Afbeelding"@nl .
+
+
+###  https://schema.org/Photograph
+<https://schema.org/Photograph> rdf:type owl:Class ;
+                                rdfs:subClassOf <http://data.oorlogsbronnen.nl/schema#Afbeelding> ;
+                                rdfs:label "Foto"@nl .
+
+
+###  https://schema.org/SheetMusic
+<https://schema.org/SheetMusic> rdf:type owl:Class ;
+                                rdfs:subClassOf <http://data.oorlogsbronnen.nl/schema#Afbeelding> ;
+                                rdfs:label "Bladmuziek"@nl .
+
+
+###  https://schema.org/VisualArtwork
+<https://schema.org/VisualArtwork> rdf:type owl:Class ;
+                                   rdfs:subClassOf <http://data.oorlogsbronnen.nl/schema#Afbeelding> ;
+                                   rdfs:label "Kunstwerk"@nl .
+
+
+###  https://schema.org/WebPage
+<https://schema.org/WebPage> rdf:type owl:Class ;
+                             rdfs:subClassOf <http://data.oorlogsbronnen.nl/schema#Webpagina> .
 
 
 #################################################################
@@ -630,15 +614,15 @@ _:genid1 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema
                                                          <http://www.w3.org/ns/shacl#targetClass> <http://data.niod.nl/WO2_Thesaurus/Bekendmaking> ;
                                                          <http://www.w3.org/ns/shacl#name> "Bekendmakingen"@nl .
 
-_:genid4 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_text> ;
-          <http://www.w3.org/ns/shacl#description> "Transcriptie van de tekst op het document"@nl ;
-          <http://www.w3.org/ns/shacl#name> "Tekst"@nl ;
-          <http://www.w3.org/ns/shacl#path> <http://schema.org/text> .
-
-_:genid5 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_datePublished> ;
+_:genid4 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_datePublished> ;
           <http://www.w3.org/ns/shacl#description> "Publicatiedatum van het document"@nl ;
           <http://www.w3.org/ns/shacl#name> "Publicatiedatum"@nl ;
           <http://www.w3.org/ns/shacl#path> <http://schema.org/datePublished> .
+
+_:genid5 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_text> ;
+          <http://www.w3.org/ns/shacl#description> "Transcriptie van de tekst op het document"@nl ;
+          <http://www.w3.org/ns/shacl#name> "Tekst"@nl ;
+          <http://www.w3.org/ns/shacl#path> <http://schema.org/text> .
 
 
 ###  http://data.oorlogsbronnen.nl/schema#ConceptShape
@@ -666,45 +650,42 @@ _:genid5 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema
                                                     <http://www.w3.org/ns/shacl#description> "Een abstract idee of een term uit een gecontroleerde woordenlijst of thesaurus."@nl ;
                                                     <http://www.w3.org/ns/shacl#name> "Thesaurusconcept"@nl .
 
-_:genid6 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_narrower> ;
-          <http://www.w3.org/ns/shacl#description> "Verwijzing naar een concept dat lager in de hiërarchie staat."@nl ;
-          <http://www.w3.org/ns/shacl#name> "Kleiner concept"@nl ;
-          <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#narrower> .
+_:genid6 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_altLabel> ;
+          <http://www.w3.org/ns/shacl#description> "Synoniemen of andere schrijfwijzen van het concept."@nl ;
+          <http://www.w3.org/ns/shacl#name> "Alternatieve term"@nl ;
+          <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#altLabel> .
 
-_:genid7 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_related> ;
-          <http://www.w3.org/ns/shacl#description> "Verwijzing naar een concept dat inhoudelijk verwant is, maar niet in de hiërarchie staat."@nl ;
-          <http://www.w3.org/ns/shacl#name> "Gerelateerd concept"@nl ;
-          <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#related> .
+_:genid7 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_prefLabel> ;
+          <http://www.w3.org/ns/shacl#description> "De officiële naam van het concept in de thesaurus."@nl ;
+          <http://www.w3.org/ns/shacl#name> "Voorkeursterm"@nl ;
+          <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#prefLabel> .
 
-_:genid8 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_inScheme> ;
-          <http://www.w3.org/ns/shacl#description> "De overkoepelende thesaurus of conceptenlijst waar dit concept deel van uitmaakt."@nl ;
-          <http://www.w3.org/ns/shacl#name> "Behoort tot thesaurus"@nl ;
-          <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#inScheme> .
+_:genid8 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_type> ;
+          <http://www.w3.org/ns/shacl#name> "Type (RDF)"@nl ;
+          <http://www.w3.org/ns/shacl#path> rdf:type .
 
-_:genid9 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_broader> ;
-          <http://www.w3.org/ns/shacl#description> "Verwijzing naar een concept dat hoger in de hiërarchie staat."@nl ;
-          <http://www.w3.org/ns/shacl#name> "Breder concept"@nl ;
-          <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#broader> .
+_:genid9 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_definition> ;
+          <http://www.w3.org/ns/shacl#description> "Een tekstuele uitleg van de betekenis van het concept."@nl ;
+          <http://www.w3.org/ns/shacl#name> "Definitie"@nl ;
+          <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#definition> .
 
-_:genid10 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_lat> ;
-           <http://www.w3.org/ns/shacl#description> "Breedtegraad van de locatie van het concept."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Latitude"@nl ;
-           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2003/01/geo/wgs84_poslat> .
+_:genid10 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_scopeNote> ;
+           <http://www.w3.org/ns/shacl#description> "Een tekstuele beschrijving van het concept."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Beschrijving"@nl ;
+           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#scopeNote> .
 
-_:genid11 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_long> ;
-           <http://www.w3.org/ns/shacl#description> "Lengtegraad van de locatie van het concept."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Longitude"@nl ;
-           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2003/01/geo/wgs84_poslong> .
+_:genid11 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_hiddenLabel> ;
+           <http://www.w3.org/ns/shacl#description> "Termen zoals spelfouten die wel doorzoekbaar moeten zijn, maar niet getoond worden."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Verborgen term"@nl ;
+           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#hiddenLabel> .
 
-_:genid12 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_exactMatch> ;
-           <http://www.w3.org/ns/shacl#description> "Verwijzing naar een identiek concept in een externe bron (bijv. AAT of WO2-thesaurus)."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Exacte match"@nl ;
-           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#exactMatch> .
+_:genid12 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_endDate> ;
+           <http://www.w3.org/ns/shacl#name> "Einddatum"@nl ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/endDate> .
 
-_:genid13 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_wgsLocation> ;
-           <http://www.w3.org/ns/shacl#description> "Locatie van het concept."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Locatie"@nl ;
-           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2003/01/geo/wgs84_poslocation> .
+_:genid13 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_startDate> ;
+           <http://www.w3.org/ns/shacl#name> "Startdatum"@nl ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/startDate> .
 
 _:genid14 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_created> ;
            <http://www.w3.org/ns/shacl#name> "Aanmaakdatum"@nl ;
@@ -714,42 +695,45 @@ _:genid15 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schem
            <http://www.w3.org/ns/shacl#name> "Wijzigingsdatum"@nl ;
            <http://www.w3.org/ns/shacl#path> <http://purl.org/dc/terms/modified> .
 
-_:genid16 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_startDate> ;
-           <http://www.w3.org/ns/shacl#name> "Startdatum"@nl ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/startDate> .
+_:genid16 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_lat> ;
+           <http://www.w3.org/ns/shacl#description> "Breedtegraad van de locatie van het concept."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Latitude"@nl ;
+           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2003/01/geo/wgs84_poslat> .
 
-_:genid17 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_endDate> ;
-           <http://www.w3.org/ns/shacl#name> "Einddatum"@nl ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/endDate> .
+_:genid17 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_long> ;
+           <http://www.w3.org/ns/shacl#description> "Lengtegraad van de locatie van het concept."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Longitude"@nl ;
+           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2003/01/geo/wgs84_poslong> .
 
-_:genid18 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_type> ;
-           <http://www.w3.org/ns/shacl#name> "Type (RDF)"@nl ;
-           <http://www.w3.org/ns/shacl#path> rdf:type .
+_:genid18 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_inScheme> ;
+           <http://www.w3.org/ns/shacl#description> "De overkoepelende thesaurus of conceptenlijst waar dit concept deel van uitmaakt."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Behoort tot thesaurus"@nl ;
+           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#inScheme> .
 
-_:genid19 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_prefLabel> ;
-           <http://www.w3.org/ns/shacl#description> "De officiële naam van het concept in de thesaurus."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Voorkeursterm"@nl ;
-           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#prefLabel> .
+_:genid19 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_broader> ;
+           <http://www.w3.org/ns/shacl#description> "Verwijzing naar een concept dat hoger in de hiërarchie staat."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Breder concept"@nl ;
+           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#broader> .
 
-_:genid20 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_altLabel> ;
-           <http://www.w3.org/ns/shacl#description> "Synoniemen of andere schrijfwijzen van het concept."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Alternatieve term"@nl ;
-           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#altLabel> .
+_:genid20 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_exactMatch> ;
+           <http://www.w3.org/ns/shacl#description> "Verwijzing naar een identiek concept in een externe bron (bijv. AAT of WO2-thesaurus)."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Exacte match"@nl ;
+           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#exactMatch> .
 
-_:genid21 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_hiddenLabel> ;
-           <http://www.w3.org/ns/shacl#description> "Termen zoals spelfouten die wel doorzoekbaar moeten zijn, maar niet getoond worden."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Verborgen term"@nl ;
-           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#hiddenLabel> .
+_:genid21 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_wgsLocation> ;
+           <http://www.w3.org/ns/shacl#description> "Locatie van het concept."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Locatie"@nl ;
+           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2003/01/geo/wgs84_poslocation> .
 
-_:genid22 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_scopeNote> ;
-           <http://www.w3.org/ns/shacl#description> "Een tekstuele beschrijving van het concept."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Beschrijving"@nl ;
-           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#scopeNote> .
+_:genid22 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_narrower> ;
+           <http://www.w3.org/ns/shacl#description> "Verwijzing naar een concept dat lager in de hiërarchie staat."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Kleiner concept"@nl ;
+           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#narrower> .
 
-_:genid23 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_definition> ;
-           <http://www.w3.org/ns/shacl#description> "Een tekstuele uitleg van de betekenis van het concept."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Definitie"@nl ;
-           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#definition> .
+_:genid23 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_related> ;
+           <http://www.w3.org/ns/shacl#description> "Verwijzing naar een concept dat inhoudelijk verwant is, maar niet in de hiërarchie staat."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Gerelateerd concept"@nl ;
+           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/2004/02/skos/core#related> .
 
 
 ###  http://data.oorlogsbronnen.nl/schema#CreativeWorkShape
@@ -894,31 +878,31 @@ _:genid45 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schem
                                                     <http://www.w3.org/ns/shacl#description> "Records  maken altijd onderdeel uit van een dataset."@nl ;
                                                     <http://www.w3.org/ns/shacl#name> "Dataset waaruit een record afkomstig is"@nl .
 
-_:genid46 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_type> ;
-           <http://www.w3.org/ns/shacl#description> "Classificatie van de entiteit als schema:Dataset"@nl ;
-           <http://www.w3.org/ns/shacl#name> "Type entiteit"@nl ;
-           <http://www.w3.org/ns/shacl#path> rdf:type .
+_:genid46 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_provider> ;
+           <http://www.w3.org/ns/shacl#name> "Leverancier van de dataset"@nl ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/provider> .
 
-_:genid47 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_name> ;
-           <http://www.w3.org/ns/shacl#name> "Naam van de dataset"@nl ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/name> .
-
-_:genid48 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_identifier_schema> ;
+_:genid47 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_identifier_schema> ;
            <http://www.w3.org/ns/shacl#description> "De unieke identifier van de dataset."@nl ;
            <http://www.w3.org/ns/shacl#name> "Identifier"@nl ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/identifier> .
 
-_:genid49 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_provider> ;
-           <http://www.w3.org/ns/shacl#name> "Leverancier van de dataset"@nl ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/provider> .
-
-_:genid50 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_description_schema> ;
+_:genid48 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_description_schema> ;
            <http://www.w3.org/ns/shacl#name> "Beschrijving van de dataset"@nl ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/description> .
 
-_:genid51 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_url> ;
+_:genid49 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_url> ;
            <http://www.w3.org/ns/shacl#name> "Bronverwijzing voor de dataset"@nl ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/url> .
+
+_:genid50 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_type> ;
+           <http://www.w3.org/ns/shacl#description> "Classificatie van de entiteit als schema:Dataset"@nl ;
+           <http://www.w3.org/ns/shacl#name> "Type entiteit"@nl ;
+           <http://www.w3.org/ns/shacl#path> rdf:type .
+
+_:genid51 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_name> ;
+           <http://www.w3.org/ns/shacl#name> "Naam van de dataset"@nl ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/name> .
 
 
 ###  http://data.oorlogsbronnen.nl/schema#EventShape
@@ -1011,15 +995,15 @@ _:genid63 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schem
                                                      <http://www.w3.org/ns/shacl#targetClass> <http://data.niod.nl/WO2_Thesaurus/Monument> ;
                                                      <http://www.w3.org/ns/shacl#name> "Monumenten"@nl .
 
-_:genid64 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_lat_schema> ;
-           <http://www.w3.org/ns/shacl#description> "Breedtegraad van de locatie van het monument."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Latitude"@nl ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/latitude> .
-
-_:genid65 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_long_schema> ;
+_:genid64 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_long_schema> ;
            <http://www.w3.org/ns/shacl#description> "Lengtegraad van de locatie van het monument"@nl ;
            <http://www.w3.org/ns/shacl#name> "Longitude"@nl ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/longitude> .
+
+_:genid65 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_lat_schema> ;
+           <http://www.w3.org/ns/shacl#description> "Breedtegraad van de locatie van het monument."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Latitude"@nl ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/latitude> .
 
 
 ###  http://data.oorlogsbronnen.nl/schema#PersoonReconstructionShape
@@ -1047,90 +1031,90 @@ _:genid65 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schem
                                                                   <http://www.w3.org/ns/shacl#description> "De geaggregeerde en gevalideerde gegevens van een persoon, samengesteld uit één of meerdere persoonsvermeldingen."@nl ;
                                                                   <http://www.w3.org/ns/shacl#name> "Persoonsreconstructie"@nl .
 
-_:genid66 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_identifier_schema> ;
-           <http://www.w3.org/ns/shacl#description> "De unieke identifier van persoon."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Identifier"@nl ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/identifier> .
-
-_:genid67 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_type> ;
-           <http://www.w3.org/ns/shacl#description> "Classificatie van de entiteit volgens Persons in Context."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Type entiteit"@nl ;
-           <http://www.w3.org/ns/shacl#path> rdf:type .
-
-_:genid68 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_name> ;
-           <http://www.w3.org/ns/shacl#description> "De gestandaardiseerde volledige naam van de persoon."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Naam"@nl ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/name> .
-
-_:genid69 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_alternateName> ;
-           <http://www.w3.org/ns/shacl#description> "Varianten, aliassen of historische schrijfwijzen van de naam."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Andere namen"@nl ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/alternateName> .
-
-_:genid70 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_birthDate> ;
-           <http://www.w3.org/ns/shacl#name> "Geboortedatum"@nl ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/birthDate> .
-
-_:genid71 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_birthPlace> ;
-           <http://www.w3.org/ns/shacl#name> "Geboorteplaats"@nl ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/birthPlace> .
-
-_:genid72 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_deathDate> ;
-           <http://www.w3.org/ns/shacl#name> "Datum van overlijden"@nl ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/deathDate> .
-
-_:genid73 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_deathPlace> ;
-           <http://www.w3.org/ns/shacl#name> "Plaats van overlijden"@nl ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/deathPlace> .
-
-_:genid74 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_deceased> ;
-           <http://www.w3.org/ns/shacl#description> "Indicatie of de persoon is overleden."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Overleden status"@nl ;
-           <http://www.w3.org/ns/shacl#path> <https://personsincontext.org/model/#deceased> .
-
-_:genid75 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_gender> ;
-           <http://www.w3.org/ns/shacl#name> "Geslacht"@nl ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/gender> .
-
-_:genid76 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_children> ;
-           <http://www.w3.org/ns/shacl#description> "Verwijzing naar de kinderen van deze persoon."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Kinderen"@nl ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/children> .
-
-_:genid77 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_parent> ;
-           <http://www.w3.org/ns/shacl#description> "Verwijzing naar een ouder van deze persoon."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Ouder"@nl ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/parent> .
-
-_:genid78 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_sibling> ;
-           <http://www.w3.org/ns/shacl#description> "Verwijzing naar een broer of zus van deze persoon."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Broer of zus"@nl ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/sibling> .
-
-_:genid79 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_dateCreated> ;
-           <http://www.w3.org/ns/shacl#description> "Datum waarop deze reconstructie voor het eerst is aangemaakt."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Aanmaakdatum"@nl ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/dateCreated> .
-
-_:genid80 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_dateModified> ;
-           <http://www.w3.org/ns/shacl#description> "Datum waarop deze reconstructie voor het laatst is bijgewerkt."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Wijzigingsdatum"@nl ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/dateModified> .
-
-_:genid81 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_wasDerivedFrom> ;
-           <http://www.w3.org/ns/shacl#description> "Verwijzing naar de persoonsvermeldingen waaruit deze reconstructie is opgebouwd."@nl ;
-           <http://www.w3.org/ns/shacl#name> "Afgeleid van"@nl ;
-           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/ns/prov#wasDerivedFrom> .
-
-_:genid82 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_sameAs> ;
+_:genid66 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_sameAs> ;
            <http://www.w3.org/ns/shacl#description> "Externe links naar dezelfde persoon in andere systemen (bijv. Wikidata)."@nl ;
            <http://www.w3.org/ns/shacl#name> "Andere autoriteit"@nl ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/sameAs> .
 
-_:genid83 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_keywords> ;
+_:genid67 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_keywords> ;
            <http://www.w3.org/ns/shacl#description> "Categorisering of trefwoorden van toepassing op de persoon (uit de WO2 thesaurus)."@nl ;
            <http://www.w3.org/ns/shacl#name> "Trefwoorden"@nl ;
            <http://www.w3.org/ns/shacl#path> <http://schema.org/keywords> .
+
+_:genid68 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_dateModified> ;
+           <http://www.w3.org/ns/shacl#description> "Datum waarop deze reconstructie voor het laatst is bijgewerkt."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Wijzigingsdatum"@nl ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/dateModified> .
+
+_:genid69 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_wasDerivedFrom> ;
+           <http://www.w3.org/ns/shacl#description> "Verwijzing naar de persoonsvermeldingen waaruit deze reconstructie is opgebouwd."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Afgeleid van"@nl ;
+           <http://www.w3.org/ns/shacl#path> <http://www.w3.org/ns/prov#wasDerivedFrom> .
+
+_:genid70 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_sibling> ;
+           <http://www.w3.org/ns/shacl#description> "Verwijzing naar een broer of zus van deze persoon."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Broer of zus"@nl ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/sibling> .
+
+_:genid71 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_dateCreated> ;
+           <http://www.w3.org/ns/shacl#description> "Datum waarop deze reconstructie voor het eerst is aangemaakt."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Aanmaakdatum"@nl ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/dateCreated> .
+
+_:genid72 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_children> ;
+           <http://www.w3.org/ns/shacl#description> "Verwijzing naar de kinderen van deze persoon."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Kinderen"@nl ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/children> .
+
+_:genid73 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_parent> ;
+           <http://www.w3.org/ns/shacl#description> "Verwijzing naar een ouder van deze persoon."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Ouder"@nl ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/parent> .
+
+_:genid74 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_birthPlace> ;
+           <http://www.w3.org/ns/shacl#name> "Geboorteplaats"@nl ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/birthPlace> .
+
+_:genid75 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_deathDate> ;
+           <http://www.w3.org/ns/shacl#name> "Datum van overlijden"@nl ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/deathDate> .
+
+_:genid76 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_alternateName> ;
+           <http://www.w3.org/ns/shacl#description> "Varianten, aliassen of historische schrijfwijzen van de naam."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Andere namen"@nl ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/alternateName> .
+
+_:genid77 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_birthDate> ;
+           <http://www.w3.org/ns/shacl#name> "Geboortedatum"@nl ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/birthDate> .
+
+_:genid78 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_gender> ;
+           <http://www.w3.org/ns/shacl#name> "Geslacht"@nl ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/gender> .
+
+_:genid79 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_deathPlace> ;
+           <http://www.w3.org/ns/shacl#name> "Plaats van overlijden"@nl ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/deathPlace> .
+
+_:genid80 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_deceased> ;
+           <http://www.w3.org/ns/shacl#description> "Indicatie of de persoon is overleden."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Overleden status"@nl ;
+           <http://www.w3.org/ns/shacl#path> <https://personsincontext.org/model/#deceased> .
+
+_:genid81 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_type> ;
+           <http://www.w3.org/ns/shacl#description> "Classificatie van de entiteit volgens Persons in Context."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Type entiteit"@nl ;
+           <http://www.w3.org/ns/shacl#path> rdf:type .
+
+_:genid82 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_name> ;
+           <http://www.w3.org/ns/shacl#description> "De gestandaardiseerde volledige naam van de persoon."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Naam"@nl ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/name> .
+
+_:genid83 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_identifier_schema> ;
+           <http://www.w3.org/ns/shacl#description> "De unieke identifier van persoon."@nl ;
+           <http://www.w3.org/ns/shacl#name> "Identifier"@nl ;
+           <http://www.w3.org/ns/shacl#path> <http://schema.org/identifier> .
 
 
 ###  http://data.oorlogsbronnen.nl/schema#PersoonsvermeldingShape
@@ -1744,18 +1728,18 @@ _:genid91 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schem
                                                    <http://www.w3.org/ns/shacl#description> "Archiefstukken, maar ook records uit andere (onderzoeks)datasets en webpagina's kunnen persoonsvermeldingen bevatten. Dit is hiervoor de bronvermelding."@nl ;
                                                    <http://www.w3.org/ns/shacl#name> "Record waarop de persoonsvermelding is aangetroffen"@nl .
 
-_:genid98 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_type> ;
+_:genid98 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_inDataset> ;
+           <http://www.w3.org/ns/shacl#name> "Herkomst van het record"@nl ;
+           <http://www.w3.org/ns/shacl#path> <http://data.niod.nl/WO2_Thesaurus/inDataset> .
+
+_:genid99 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_type> ;
            <http://www.w3.org/ns/shacl#description> "Classificatie van het record als archiefstuk of anders."@nl ;
            <http://www.w3.org/ns/shacl#name> "Type entiteit"@nl ;
            <http://www.w3.org/ns/shacl#path> rdf:type .
 
-_:genid99 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_url> ;
-           <http://www.w3.org/ns/shacl#name> "Url van de bron"@nl ;
-           <http://www.w3.org/ns/shacl#path> <http://schema.org/url> .
-
-_:genid100 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_inDataset> ;
-            <http://www.w3.org/ns/shacl#name> "Herkomst van het record"@nl ;
-            <http://www.w3.org/ns/shacl#path> <http://data.niod.nl/WO2_Thesaurus/inDataset> .
+_:genid100 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/schema#Rule_url> ;
+            <http://www.w3.org/ns/shacl#name> "Url van de bron"@nl ;
+            <http://www.w3.org/ns/shacl#path> <http://schema.org/url> .
 
 
 ###  http://schema.org/ArchiveComponent
@@ -1763,18 +1747,15 @@ _:genid100 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/sche
 
 
 ###  http://schema.org/Article
-<http://schema.org/Article> rdf:type owl:NamedIndividual ;
-                            rdfs:label "Krantartikel"@nl .
+<http://schema.org/Article> rdf:type owl:NamedIndividual .
 
 
 ###  http://schema.org/AudioObject
-<http://schema.org/AudioObject> rdf:type owl:NamedIndividual ;
-                                rdfs:label "Audio"@nl .
+<http://schema.org/AudioObject> rdf:type owl:NamedIndividual .
 
 
 ###  http://schema.org/Book
-<http://schema.org/Book> rdf:type owl:NamedIndividual ;
-                         rdfs:label "Boek"@nl .
+<http://schema.org/Book> rdf:type owl:NamedIndividual .
 
 
 ###  http://schema.org/CreativeWork
@@ -1790,13 +1771,11 @@ _:genid100 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/sche
 
 
 ###  http://schema.org/Newspaper
-<http://schema.org/Newspaper> rdf:type owl:NamedIndividual ;
-                              rdfs:label "Krant"@nl .
+<http://schema.org/Newspaper> rdf:type owl:NamedIndividual .
 
 
 ###  http://schema.org/Painting
-<http://schema.org/Painting> rdf:type owl:NamedIndividual ;
-                             rdfs:label "Schilderij"@nl .
+<http://schema.org/Painting> rdf:type owl:NamedIndividual .
 
 
 ###  http://schema.org/Photograph
@@ -1804,8 +1783,7 @@ _:genid100 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/sche
 
 
 ###  http://schema.org/Sculpture
-<http://schema.org/Sculpture> rdf:type owl:NamedIndividual ;
-                              rdfs:label "Beeldhouwwerk"@nl .
+<http://schema.org/Sculpture> rdf:type owl:NamedIndividual .
 
 
 ###  http://schema.org/SheetMusic
@@ -1813,8 +1791,7 @@ _:genid100 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/sche
 
 
 ###  http://schema.org/VideoObject
-<http://schema.org/VideoObject> rdf:type owl:NamedIndividual ;
-                                rdfs:label "Video"@nl .
+<http://schema.org/VideoObject> rdf:type owl:NamedIndividual .
 
 
 ###  http://schema.org/VisualArtwork
@@ -1837,74 +1814,83 @@ _:genid100 <http://www.w3.org/ns/shacl#node> <http://data.oorlogsbronnen.nl/sche
 <https://personsincontext.org/model/#PersonReconstruction> rdf:type owl:NamedIndividual .
 
 
-[ <http://www.w3.org/ns/shacl#class> <http://www.w3.org/2003/01/geo/wgs84_posSpatialTing>
+[ <http://www.w3.org/ns/shacl#class> <https://personsincontext.org/model/#PersonReconstruction>
 ] .
 
-[ <http://www.w3.org/ns/shacl#class> <http://www.w3.org/2004/02/skos/core#Concept>
+[ <http://www.w3.org/ns/shacl#class> <https://personsincontext.org/model/#PersonObservation>
  ] .
 
-[ <http://www.w3.org/ns/shacl#class> <http://www.w3.org/ns/prov#Entity>
- ] .
-
-[ <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI>
- ] .
-
-[ <http://www.w3.org/ns/shacl#datatype> xsd:string
+[ <http://www.w3.org/ns/shacl#class> <https://personsincontext.org/model/#PersonObservation>
  ] .
 
 [ <http://www.w3.org/ns/shacl#class> <https://personsincontext.org/model/#PersonReconstruction>
  ] .
 
 [ <http://www.w3.org/ns/shacl#class> <https://personsincontext.org/model/#PersonObservation>
+ ] .
+
+[ <http://www.w3.org/ns/shacl#class> <https://personsincontext.org/model/#PersonReconstruction>
  ] .
 
 [ <http://www.w3.org/ns/shacl#datatype> xsd:integer
  ] .
 
-[ <http://www.w3.org/ns/shacl#class> <https://personsincontext.org/model/#PersonObservation>
- ] .
-
-[ <http://www.w3.org/ns/shacl#class> <https://personsincontext.org/model/#PersonReconstruction>
- ] .
-
-[ <http://www.w3.org/ns/shacl#class> <https://personsincontext.org/model/#PersonObservation>
- ] .
-
-[ <http://www.w3.org/ns/shacl#class> <https://personsincontext.org/model/#PersonReconstruction>
+[ <http://www.w3.org/ns/shacl#datatype> xsd:date
  ] .
 
 [ <http://www.w3.org/ns/shacl#class> <http://schema.org/ArchiveComponent>
  ] .
 
-[ <http://www.w3.org/ns/shacl#class> <https://personsincontext.org/model/#PersonObservation>
+[ <http://www.w3.org/ns/shacl#datatype> xsd:string
  ] .
 
-[ <http://www.w3.org/ns/shacl#datatype> xsd:date
+[ <http://www.w3.org/ns/shacl#class> <http://www.w3.org/ns/prov#Entity>
+ ] .
+
+[ <http://www.w3.org/ns/shacl#class> <http://www.w3.org/2003/01/geo/wgs84_posSpatialTing>
  ] .
 
 [ <http://www.w3.org/ns/shacl#class> <https://personsincontext.org/model/#PersonReconstruction>
+ ] .
+
+[ <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI>
+ ] .
+
+[ <http://www.w3.org/ns/shacl#class> <http://www.w3.org/2004/02/skos/core#Concept>
+ ] .
+
+[ <http://www.w3.org/ns/shacl#class> <https://personsincontext.org/model/#PersonObservation>
  ] .
 
 #################################################################
 #    Annotations
 #################################################################
 
-<http://schema.org/CreativeWork> rdfs:label "Object"@nl .
+<https://schema.org/Article> rdfs:label "Krantartikel"@nl .
 
 
-<http://schema.org/Person> rdfs:label "Persoon"@nl .
+<https://schema.org/AudioObject> rdfs:label "Audio"@nl .
 
 
-<http://schema.org/Photograph> rdfs:label "Foto"@nl .
+<https://schema.org/Book> rdfs:label "Boek"@nl .
 
 
-<http://schema.org/Place> rdfs:label "Locatie"@nl .
+<https://schema.org/Newspaper> rdfs:label "Krant"@nl .
 
 
-<http://schema.org/SheetMusic> rdfs:label "Bladmuziek"@nl .
+<https://schema.org/Painting> rdfs:label "Schilderij"@nl .
 
 
-<http://schema.org/VisualArtwork> rdfs:label "Kunstwerk"@nl .
+<https://schema.org/Person> rdfs:label "Persoon"@nl .
+
+
+<https://schema.org/Place> rdfs:label "Locatie"@nl .
+
+
+<https://schema.org/Sculpture> rdfs:label "Beeldhouwwerk"@nl .
+
+
+<https://schema.org/VideoObject> rdfs:label "Video"@nl .
 
 
 ###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
