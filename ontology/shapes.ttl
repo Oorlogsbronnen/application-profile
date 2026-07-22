@@ -1,4 +1,4 @@
-@prefix : <http://data.oorlogsbronnen.nl/model#> .
+@prefix : <http://data.oorlogsbronnen.nl/schema#> .
 @prefix niod: <http://data.niod.nl/WO2_Thesaurus/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dct: <http://purl.org/dc/terms/> .
