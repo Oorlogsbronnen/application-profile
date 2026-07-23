@@ -3,7 +3,7 @@
 @prefix dcmit: <http://purl.org/dc/dcmitype/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix niod: <https://data.niod.nl/> .
-@prefix niod1: <http://data.niod.nl/WO2_Thesaurus/> .
+@prefix niod1: <https://data.niod.nl/WO2_Thesaurus/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix picom: <https://personsincontext.org/model#> .
 @prefix picom1: <https://personsincontext.org/model/#> .
@@ -20,7 +20,7 @@
 niod:Afgepakt a rdfs:Class ;
     rdfs:label "Afgepakt"@nl ;
     rdfs:comment "Afgepakt is de term voor de persoonlijke gebeurtenis waarbij roerende of onroerende bezittingen afgenomen worden van de eigenaar."@nl ;
-    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/19486> ;
+    rdfs:isDefinedBy niod1:19486 ;
     rdfs:subClassOf schema:Event .
 
 niod:Arresteert a rdfs:Class ;
@@ -31,7 +31,7 @@ niod:Arresteert a rdfs:Class ;
 
 niod:Benoemd a rdfs:Class ;
     rdfs:label "Benoemd"@nl ;
-    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/13790> ;
+    rdfs:isDefinedBy niod1:13790 ;
     rdfs:subClassOf schema:Event .
 
 niod:BevrijdIn a rdfs:Class ;
@@ -70,7 +70,7 @@ niod:Gedecoreerd a rdfs:Class ;
 
 niod:GedwongenVerhuisd a rdfs:Class ;
     rdfs:label "Gedwongen verhuisd"@nl ;
-    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/19198> ;
+    rdfs:isDefinedBy niod1:19198 ;
     rdfs:subClassOf schema:Event .
 
 niod:Geevacueerd a rdfs:Class ;
@@ -80,7 +80,7 @@ niod:Geevacueerd a rdfs:Class ;
 
 niod:Gehuwd a rdfs:Class ;
     rdfs:label "Gehuwd"@nl ;
-    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/18966> ;
+    rdfs:isDefinedBy niod1:18966 ;
     rdfs:subClassOf schema:Event .
 
 niod:Geland a rdfs:Class ;
@@ -97,7 +97,7 @@ niod:Geleid a rdfs:Class ;
 
 niod:Geliquideerd a rdfs:Class ;
     rdfs:label "Geliquideerd"@nl ;
-    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/16379> ;
+    rdfs:isDefinedBy niod1:16379 ;
     rdfs:subClassOf schema:Event .
 
 niod:Gepleegd a rdfs:Class ;
@@ -187,7 +187,7 @@ niod:Ontsnapt a rdfs:Class ;
 
 niod:OpPadGegaan a rdfs:Class ;
     rdfs:label "Op pad gegaan"@nl ;
-    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/17064> ;
+    rdfs:isDefinedBy niod1:17064 ;
     rdfs:subClassOf schema:Event .
 
 niod:Opgepakt a rdfs:Class ;
@@ -198,7 +198,7 @@ niod:Opgepakt a rdfs:Class ;
 
 niod:Opgericht a rdfs:Class ;
     rdfs:label "Opgericht"@nl ;
-    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/13792> ;
+    rdfs:isDefinedBy niod1:13792 ;
     rdfs:subClassOf schema:Event .
 
 niod:Opgeroepen a rdfs:Class ;
@@ -218,7 +218,7 @@ niod:Overleden a rdfs:Class ;
 
 niod:Teruggekeerd a rdfs:Class ;
     rdfs:label "Teruggekeerd"@nl ;
-    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/18496> ;
+    rdfs:isDefinedBy niod1:18496 ;
     rdfs:subClassOf schema:Event .
 
 niod:Tewerkgesteld a rdfs:Class ;
@@ -250,7 +250,7 @@ niod:Verraden a rdfs:Class ;
 
 niod:Vertrokken a rdfs:Class ;
     rdfs:label "Vertrokken"@nl ;
-    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/13791> ;
+    rdfs:isDefinedBy niod1:13791 ;
     rdfs:subClassOf schema:Event .
 
 niod:Vrijgelaten a rdfs:Class ;
@@ -260,7 +260,7 @@ niod:Vrijgelaten a rdfs:Class ;
 
 niod:Vrijgesproken a rdfs:Class ;
     rdfs:label "Vrijgesproken"@nl ;
-    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/14203> ;
+    rdfs:isDefinedBy niod1:14203 ;
     rdfs:subClassOf schema:Event .
 
 niod:Vrijgesteld a rdfs:Class ;

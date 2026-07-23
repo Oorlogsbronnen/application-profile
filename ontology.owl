@@ -850,34 +850,6 @@
     
 
 
-    <!-- http://data.niod.nl/WO2_Thesaurus/Archive -->
-
-
-    <owl:NamedIndividual rdf:about="http://data.niod.nl/WO2_Thesaurus/Archive"/>
-    
-
-
-    <!-- http://data.niod.nl/WO2_Thesaurus/ArchiveFile -->
-
-
-    <owl:NamedIndividual rdf:about="http://data.niod.nl/WO2_Thesaurus/ArchiveFile"/>
-    
-
-
-    <!-- http://data.niod.nl/WO2_Thesaurus/Bekendmaking -->
-
-
-    <owl:NamedIndividual rdf:about="http://data.niod.nl/WO2_Thesaurus/Bekendmaking"/>
-    
-
-
-    <!-- http://data.niod.nl/WO2_Thesaurus/Monument -->
-
-
-    <owl:NamedIndividual rdf:about="http://data.niod.nl/WO2_Thesaurus/Monument"/>
-    
-
-
     <!-- http://www.w3.org/2004/02/skos/core#Concept -->
 
 
@@ -892,6 +864,34 @@
     
 
 
+    <!-- https://data.niod.nl/WO2_Thesaurus/Archive -->
+
+
+    <owl:NamedIndividual rdf:about="https://data.niod.nl/WO2_Thesaurus/Archive"/>
+    
+
+
+    <!-- https://data.niod.nl/WO2_Thesaurus/ArchiveFile -->
+
+
+    <owl:NamedIndividual rdf:about="https://data.niod.nl/WO2_Thesaurus/ArchiveFile"/>
+    
+
+
+    <!-- https://data.niod.nl/WO2_Thesaurus/Bekendmaking -->
+
+
+    <owl:NamedIndividual rdf:about="https://data.niod.nl/WO2_Thesaurus/Bekendmaking"/>
+    
+
+
+    <!-- https://data.niod.nl/WO2_Thesaurus/Monument -->
+
+
+    <owl:NamedIndividual rdf:about="https://data.niod.nl/WO2_Thesaurus/Monument"/>
+    
+
+
     <!-- https://data.oorlogsbronnen.nl/schema#ArchiveShape -->
 
 
@@ -899,8 +899,8 @@
         <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
         <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#CreativeWorkShape"/>
         <shacl:property rdf:nodeID="genid1"/>
-        <shacl:targetClass rdf:resource="http://data.niod.nl/WO2_Thesaurus/Archive"/>
-        <shacl:targetClass rdf:resource="http://data.niod.nl/WO2_Thesaurus/ArchiveFile"/>
+        <shacl:targetClass rdf:resource="https://data.niod.nl/WO2_Thesaurus/Archive"/>
+        <shacl:targetClass rdf:resource="https://data.niod.nl/WO2_Thesaurus/ArchiveFile"/>
         <shacl:name xml:lang="nl">Archieven en Archiefstukken</shacl:name>
     </owl:NamedIndividual>
     <rdf:Description rdf:nodeID="genid1">
@@ -994,7 +994,7 @@
         <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#CreativeWorkShape"/>
         <shacl:property rdf:nodeID="genid4"/>
         <shacl:property rdf:nodeID="genid5"/>
-        <shacl:targetClass rdf:resource="http://data.niod.nl/WO2_Thesaurus/Bekendmaking"/>
+        <shacl:targetClass rdf:resource="https://data.niod.nl/WO2_Thesaurus/Bekendmaking"/>
         <shacl:name xml:lang="nl">Bekendmakingen</shacl:name>
     </owl:NamedIndividual>
     <rdf:Description rdf:nodeID="genid4">
@@ -1185,117 +1185,117 @@
         <shacl:name xml:lang="nl">Bronnen en Objecten</shacl:name>
     </owl:NamedIndividual>
     <rdf:Description rdf:nodeID="genid24">
-        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_date"/>
-        <shacl:name xml:lang="nl">Datum</shacl:name>
-        <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/date"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid25">
-        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_collection"/>
-        <shacl:description xml:lang="nl">De verzameling waar dit object deel van uitmaakt.</shacl:description>
-        <shacl:name xml:lang="nl">Collectie</shacl:name>
-        <shacl:path rdf:resource="http://purl.org/dc/dcmitype/Collection"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid26">
-        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_source"/>
-        <shacl:name xml:lang="nl">Bron</shacl:name>
-        <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/source"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid27">
-        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_rights"/>
-        <shacl:name xml:lang="nl">Rechten</shacl:name>
-        <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/rights"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid28">
-        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_temporal"/>
-        <shacl:name xml:lang="nl">Periodisering</shacl:name>
-        <shacl:path rdf:resource="https://schema.org/temporal"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid29">
-        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_endDate"/>
-        <shacl:name xml:lang="nl">Einddatum</shacl:name>
-        <shacl:path rdf:resource="https://schema.org/endDate"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid30">
-        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_startDate"/>
-        <shacl:name xml:lang="nl">Startdatum</shacl:name>
-        <shacl:path rdf:resource="https://schema.org/startDate"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid31">
         <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_thumbnail"/>
         <shacl:name xml:lang="nl">Thumbnail</shacl:name>
         <shacl:path rdf:resource="https://schema.org/thumbnail"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid32">
+    <rdf:Description rdf:nodeID="genid25">
         <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_identifier_dc"/>
         <shacl:name xml:lang="nl">Identifier (DC)</shacl:name>
         <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/identifier"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid33">
+    <rdf:Description rdf:nodeID="genid26">
         <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_type"/>
         <shacl:name xml:lang="nl">Type (RDF)</shacl:name>
         <shacl:path rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid34">
+    <rdf:Description rdf:nodeID="genid27">
         <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_type_dc"/>
         <shacl:name xml:lang="nl">Type (DC)</shacl:name>
         <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/type"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid35">
+    <rdf:Description rdf:nodeID="genid28">
         <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_format"/>
         <shacl:name xml:lang="nl">Type (DC)</shacl:name>
         <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/format"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid36">
+    <rdf:Description rdf:nodeID="genid29">
         <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_isPartOf"/>
         <shacl:description xml:lang="nl">Dit object of archiefstuk is onderdeel van een serie of collectie</shacl:description>
         <shacl:name xml:lang="nl">Onderdeel van</shacl:name>
         <shacl:path rdf:resource="http://purl.org/dc/terms/isPartOf"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid37">
+    <rdf:Description rdf:nodeID="genid30">
         <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_title"/>
         <shacl:name xml:lang="nl">Titel</shacl:name>
         <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/title"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid38">
+    <rdf:Description rdf:nodeID="genid31">
         <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_description_dc"/>
         <shacl:name xml:lang="nl">Beschrijving</shacl:name>
         <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/description"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid39">
+    <rdf:Description rdf:nodeID="genid32">
         <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_subject"/>
         <shacl:name xml:lang="nl">Onderwerp</shacl:name>
         <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/subject"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid40">
+    <rdf:Description rdf:nodeID="genid33">
         <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_about"/>
         <shacl:name xml:lang="nl">Persoon of organisatie als onderwerp van het werk</shacl:name>
         <shacl:path rdf:resource="https://schema.org/about"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid41">
+    <rdf:Description rdf:nodeID="genid34">
         <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_contentLocation"/>
         <shacl:name xml:lang="nl">Inhoudelijke locatie</shacl:name>
         <shacl:path rdf:resource="https://schema.org/contentLocation"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid42">
+    <rdf:Description rdf:nodeID="genid35">
         <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_creator"/>
         <shacl:name xml:lang="nl">Maker van het werk</shacl:name>
         <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/creator"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid43">
+    <rdf:Description rdf:nodeID="genid36">
         <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_contributor"/>
         <shacl:name xml:lang="nl">Persoon die heeft bijgedragen aan het werk</shacl:name>
         <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/contributor"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid44">
+    <rdf:Description rdf:nodeID="genid37">
         <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_publisher"/>
         <shacl:name xml:lang="nl">Uitgever</shacl:name>
         <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/publisher"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid45">
+    <rdf:Description rdf:nodeID="genid38">
         <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_provider"/>
         <shacl:description xml:lang="nl">De instelling die het object digitaal beschikbaar stelt.</shacl:description>
         <shacl:name xml:lang="nl">Provider</shacl:name>
         <shacl:path rdf:resource="https://schema.org/provider"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid39">
+        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_rights"/>
+        <shacl:name xml:lang="nl">Rechten</shacl:name>
+        <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/rights"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid40">
+        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_source"/>
+        <shacl:name xml:lang="nl">Bron</shacl:name>
+        <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/source"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid41">
+        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_collection"/>
+        <shacl:description xml:lang="nl">De verzameling waar dit object deel van uitmaakt.</shacl:description>
+        <shacl:name xml:lang="nl">Collectie</shacl:name>
+        <shacl:path rdf:resource="http://purl.org/dc/dcmitype/Collection"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid42">
+        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_date"/>
+        <shacl:name xml:lang="nl">Datum</shacl:name>
+        <shacl:path rdf:resource="http://purl.org/dc/elements/1.1/date"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid43">
+        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_startDate"/>
+        <shacl:name xml:lang="nl">Startdatum</shacl:name>
+        <shacl:path rdf:resource="https://schema.org/startDate"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid44">
+        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_endDate"/>
+        <shacl:name xml:lang="nl">Einddatum</shacl:name>
+        <shacl:path rdf:resource="https://schema.org/endDate"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid45">
+        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_temporal"/>
+        <shacl:name xml:lang="nl">Periodisering</shacl:name>
+        <shacl:path rdf:resource="https://schema.org/temporal"/>
     </rdf:Description>
     
 
@@ -1316,14 +1316,16 @@
         <shacl:name xml:lang="nl">Dataset waaruit een record afkomstig is</shacl:name>
     </owl:NamedIndividual>
     <rdf:Description rdf:nodeID="genid46">
-        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_url"/>
-        <shacl:name xml:lang="nl">Bronverwijzing voor de dataset</shacl:name>
-        <shacl:path rdf:resource="https://schema.org/url"/>
+        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_identifier_schema"/>
+        <shacl:description xml:lang="nl">De unieke identifier van de dataset.</shacl:description>
+        <shacl:name xml:lang="nl">Identifier</shacl:name>
+        <shacl:path rdf:resource="https://schema.org/identifier"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid47">
-        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_provider"/>
-        <shacl:name xml:lang="nl">Leverancier van de dataset</shacl:name>
-        <shacl:path rdf:resource="https://schema.org/provider"/>
+        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_type"/>
+        <shacl:description xml:lang="nl">Classificatie van de entiteit als schema:Dataset</shacl:description>
+        <shacl:name xml:lang="nl">Type entiteit</shacl:name>
+        <shacl:path rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid48">
         <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_name"/>
@@ -1336,16 +1338,14 @@
         <shacl:path rdf:resource="https://schema.org/description"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid50">
-        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_type"/>
-        <shacl:description xml:lang="nl">Classificatie van de entiteit als schema:Dataset</shacl:description>
-        <shacl:name xml:lang="nl">Type entiteit</shacl:name>
-        <shacl:path rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_url"/>
+        <shacl:name xml:lang="nl">Bronverwijzing voor de dataset</shacl:name>
+        <shacl:path rdf:resource="https://schema.org/url"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid51">
-        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_identifier_schema"/>
-        <shacl:description xml:lang="nl">De unieke identifier van de dataset.</shacl:description>
-        <shacl:name xml:lang="nl">Identifier</shacl:name>
-        <shacl:path rdf:resource="https://schema.org/identifier"/>
+        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_provider"/>
+        <shacl:name xml:lang="nl">Leverancier van de dataset</shacl:name>
+        <shacl:path rdf:resource="https://schema.org/provider"/>
     </rdf:Description>
     
 
@@ -1459,7 +1459,7 @@
         <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#CreativeWorkShape"/>
         <shacl:property rdf:nodeID="genid64"/>
         <shacl:property rdf:nodeID="genid65"/>
-        <shacl:targetClass rdf:resource="http://data.niod.nl/WO2_Thesaurus/Monument"/>
+        <shacl:targetClass rdf:resource="https://data.niod.nl/WO2_Thesaurus/Monument"/>
         <shacl:name xml:lang="nl">Monumenten</shacl:name>
     </owl:NamedIndividual>
     <rdf:Description rdf:nodeID="genid64">
@@ -1511,48 +1511,48 @@
         <shacl:path rdf:resource="https://schema.org/identifier"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid67">
-        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_type"/>
-        <shacl:description xml:lang="nl">Classificatie van de entiteit volgens Persons in Context.</shacl:description>
-        <shacl:name xml:lang="nl">Type entiteit</shacl:name>
-        <shacl:path rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_birthDate"/>
+        <shacl:name xml:lang="nl">Geboortedatum</shacl:name>
+        <shacl:path rdf:resource="https://schema.org/birthDate"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid68">
-        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_name"/>
-        <shacl:description xml:lang="nl">De gestandaardiseerde volledige naam van de persoon.</shacl:description>
-        <shacl:name xml:lang="nl">Naam</shacl:name>
-        <shacl:path rdf:resource="https://schema.org/name"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid69">
         <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_alternateName"/>
         <shacl:description xml:lang="nl">Varianten, aliassen of historische schrijfwijzen van de naam.</shacl:description>
         <shacl:name xml:lang="nl">Andere namen</shacl:name>
         <shacl:path rdf:resource="https://schema.org/alternateName"/>
     </rdf:Description>
+    <rdf:Description rdf:nodeID="genid69">
+        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_name"/>
+        <shacl:description xml:lang="nl">De gestandaardiseerde volledige naam van de persoon.</shacl:description>
+        <shacl:name xml:lang="nl">Naam</shacl:name>
+        <shacl:path rdf:resource="https://schema.org/name"/>
+    </rdf:Description>
     <rdf:Description rdf:nodeID="genid70">
-        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_birthDate"/>
-        <shacl:name xml:lang="nl">Geboortedatum</shacl:name>
-        <shacl:path rdf:resource="https://schema.org/birthDate"/>
+        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_type"/>
+        <shacl:description xml:lang="nl">Classificatie van de entiteit volgens Persons in Context.</shacl:description>
+        <shacl:name xml:lang="nl">Type entiteit</shacl:name>
+        <shacl:path rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid71">
-        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_birthPlace"/>
-        <shacl:name xml:lang="nl">Geboorteplaats</shacl:name>
-        <shacl:path rdf:resource="https://schema.org/birthPlace"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid72">
-        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_deathDate"/>
-        <shacl:name xml:lang="nl">Datum van overlijden</shacl:name>
-        <shacl:path rdf:resource="https://schema.org/deathDate"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid73">
-        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_deathPlace"/>
-        <shacl:name xml:lang="nl">Plaats van overlijden</shacl:name>
-        <shacl:path rdf:resource="https://schema.org/deathPlace"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid74">
         <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_deceased"/>
         <shacl:description xml:lang="nl">Indicatie of de persoon is overleden.</shacl:description>
         <shacl:name xml:lang="nl">Overleden status</shacl:name>
         <shacl:path rdf:resource="https://personsincontext.org/model/#deceased"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid72">
+        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_deathPlace"/>
+        <shacl:name xml:lang="nl">Plaats van overlijden</shacl:name>
+        <shacl:path rdf:resource="https://schema.org/deathPlace"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid73">
+        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_deathDate"/>
+        <shacl:name xml:lang="nl">Datum van overlijden</shacl:name>
+        <shacl:path rdf:resource="https://schema.org/deathDate"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid74">
+        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_birthPlace"/>
+        <shacl:name xml:lang="nl">Geboorteplaats</shacl:name>
+        <shacl:path rdf:resource="https://schema.org/birthPlace"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid75">
         <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_gender"/>
@@ -1560,52 +1560,52 @@
         <shacl:path rdf:resource="https://schema.org/gender"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid76">
-        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_children"/>
-        <shacl:description xml:lang="nl">Verwijzing naar de kinderen van deze persoon.</shacl:description>
-        <shacl:name xml:lang="nl">Kinderen</shacl:name>
-        <shacl:path rdf:resource="https://schema.org/children"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid77">
         <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_parent"/>
         <shacl:description xml:lang="nl">Verwijzing naar een ouder van deze persoon.</shacl:description>
         <shacl:name xml:lang="nl">Ouder</shacl:name>
         <shacl:path rdf:resource="https://schema.org/parent"/>
     </rdf:Description>
+    <rdf:Description rdf:nodeID="genid77">
+        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_children"/>
+        <shacl:description xml:lang="nl">Verwijzing naar de kinderen van deze persoon.</shacl:description>
+        <shacl:name xml:lang="nl">Kinderen</shacl:name>
+        <shacl:path rdf:resource="https://schema.org/children"/>
+    </rdf:Description>
     <rdf:Description rdf:nodeID="genid78">
-        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_sibling"/>
-        <shacl:description xml:lang="nl">Verwijzing naar een broer of zus van deze persoon.</shacl:description>
-        <shacl:name xml:lang="nl">Broer of zus</shacl:name>
-        <shacl:path rdf:resource="https://schema.org/sibling"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid79">
-        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_dateCreated"/>
-        <shacl:description xml:lang="nl">Datum waarop deze reconstructie voor het eerst is aangemaakt.</shacl:description>
-        <shacl:name xml:lang="nl">Aanmaakdatum</shacl:name>
-        <shacl:path rdf:resource="https://schema.org/dateCreated"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid80">
-        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_dateModified"/>
-        <shacl:description xml:lang="nl">Datum waarop deze reconstructie voor het laatst is bijgewerkt.</shacl:description>
-        <shacl:name xml:lang="nl">Wijzigingsdatum</shacl:name>
-        <shacl:path rdf:resource="https://schema.org/dateModified"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid81">
         <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_wasDerivedFrom"/>
         <shacl:description xml:lang="nl">Verwijzing naar de persoonsvermeldingen waaruit deze reconstructie is opgebouwd.</shacl:description>
         <shacl:name xml:lang="nl">Afgeleid van</shacl:name>
         <shacl:path rdf:resource="http://www.w3.org/ns/prov#wasDerivedFrom"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid82">
-        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_sameAs"/>
-        <shacl:description xml:lang="nl">Externe links naar dezelfde persoon in andere systemen (bijv. Wikidata).</shacl:description>
-        <shacl:name xml:lang="nl">Andere autoriteit</shacl:name>
-        <shacl:path rdf:resource="https://schema.org/sameAs"/>
+    <rdf:Description rdf:nodeID="genid79">
+        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_dateModified"/>
+        <shacl:description xml:lang="nl">Datum waarop deze reconstructie voor het laatst is bijgewerkt.</shacl:description>
+        <shacl:name xml:lang="nl">Wijzigingsdatum</shacl:name>
+        <shacl:path rdf:resource="https://schema.org/dateModified"/>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid83">
+    <rdf:Description rdf:nodeID="genid80">
+        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_dateCreated"/>
+        <shacl:description xml:lang="nl">Datum waarop deze reconstructie voor het eerst is aangemaakt.</shacl:description>
+        <shacl:name xml:lang="nl">Aanmaakdatum</shacl:name>
+        <shacl:path rdf:resource="https://schema.org/dateCreated"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid81">
+        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_sibling"/>
+        <shacl:description xml:lang="nl">Verwijzing naar een broer of zus van deze persoon.</shacl:description>
+        <shacl:name xml:lang="nl">Broer of zus</shacl:name>
+        <shacl:path rdf:resource="https://schema.org/sibling"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid82">
         <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_keywords"/>
         <shacl:description xml:lang="nl">Categorisering of trefwoorden van toepassing op de persoon (uit de WO2 thesaurus).</shacl:description>
         <shacl:name xml:lang="nl">Trefwoorden</shacl:name>
         <shacl:path rdf:resource="https://schema.org/keywords"/>
+    </rdf:Description>
+    <rdf:Description rdf:nodeID="genid83">
+        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_sameAs"/>
+        <shacl:description xml:lang="nl">Externe links naar dezelfde persoon in andere systemen (bijv. Wikidata).</shacl:description>
+        <shacl:name xml:lang="nl">Andere autoriteit</shacl:name>
+        <shacl:path rdf:resource="https://schema.org/sameAs"/>
     </rdf:Description>
     
 
@@ -1629,16 +1629,16 @@
         <shacl:name xml:lang="nl">Persoonsvermelding</shacl:name>
     </owl:NamedIndividual>
     <rdf:Description rdf:nodeID="genid84">
-        <shacl:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</shacl:maxCount>
-        <shacl:description xml:lang="nl">Voor persoonsvermeldingen wordt prov:wasDerivedFrom niet toegestaan.</shacl:description>
-        <shacl:name xml:lang="nl">Afgeleid van (niet toegestaan)</shacl:name>
-        <shacl:path rdf:resource="http://www.w3.org/ns/prov#wasDerivedFrom"/>
+        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_hasOccupation"/>
+        <shacl:description xml:lang="nl">Het beroep of de maatschappelijke rol van de persoon.</shacl:description>
+        <shacl:name xml:lang="nl">Beroep of functie</shacl:name>
+        <shacl:path rdf:resource="https://schema.org/hasOccupation"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid85">
-        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_givenName"/>
-        <shacl:description xml:lang="nl">De roepnaam of eerste voornaam van de persoon.</shacl:description>
-        <shacl:name xml:lang="nl">Voornaam</shacl:name>
-        <shacl:path rdf:resource="https://schema.org/givenName"/>
+        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_initials"/>
+        <shacl:description xml:lang="nl">De voorletters van de persoon.</shacl:description>
+        <shacl:name xml:lang="nl">Initialen</shacl:name>
+        <shacl:path rdf:resource="https://w3id.org/pnv#initials"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid86">
         <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_familyName"/>
@@ -1647,34 +1647,34 @@
         <shacl:path rdf:resource="https://schema.org/familyName"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid87">
-        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_initials"/>
-        <shacl:description xml:lang="nl">De voorletters van de persoon.</shacl:description>
-        <shacl:name xml:lang="nl">Initialen</shacl:name>
-        <shacl:path rdf:resource="https://w3id.org/pnv#initials"/>
+        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_givenName"/>
+        <shacl:description xml:lang="nl">De roepnaam of eerste voornaam van de persoon.</shacl:description>
+        <shacl:name xml:lang="nl">Voornaam</shacl:name>
+        <shacl:path rdf:resource="https://schema.org/givenName"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid88">
-        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_hasOccupation"/>
-        <shacl:description xml:lang="nl">Het beroep of de maatschappelijke rol van de persoon.</shacl:description>
-        <shacl:name xml:lang="nl">Beroep of functie</shacl:name>
-        <shacl:path rdf:resource="https://schema.org/hasOccupation"/>
+        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_description_schema"/>
+        <shacl:description xml:lang="nl">Een korte beschrijving van de persoon of diens rol tijdens de Tweede Wereldoorlog.</shacl:description>
+        <shacl:name xml:lang="nl">Biografische schets</shacl:name>
+        <shacl:path rdf:resource="https://schema.org/description"/>
     </rdf:Description>
     <rdf:Description rdf:nodeID="genid89">
-        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_address"/>
-        <shacl:description xml:lang="nl">Woonplaats of laatst bekende adres.</shacl:description>
-        <shacl:name xml:lang="nl">Adresgegevens</shacl:name>
-        <shacl:path rdf:resource="https://schema.org/address"/>
-    </rdf:Description>
-    <rdf:Description rdf:nodeID="genid90">
         <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_hadPrimarySource"/>
         <shacl:description xml:lang="nl">De originele bron waaruit deze informatie afkomstig is.</shacl:description>
         <shacl:name xml:lang="nl">Primaire bron</shacl:name>
         <shacl:path rdf:resource="http://www.w3.org/ns/prov#hadPrimarySource"/>
     </rdf:Description>
+    <rdf:Description rdf:nodeID="genid90">
+        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_address"/>
+        <shacl:description xml:lang="nl">Woonplaats of laatst bekende adres.</shacl:description>
+        <shacl:name xml:lang="nl">Adresgegevens</shacl:name>
+        <shacl:path rdf:resource="https://schema.org/address"/>
+    </rdf:Description>
     <rdf:Description rdf:nodeID="genid91">
-        <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_description_schema"/>
-        <shacl:description xml:lang="nl">Een korte beschrijving van de persoon of diens rol tijdens de Tweede Wereldoorlog.</shacl:description>
-        <shacl:name xml:lang="nl">Biografische schets</shacl:name>
-        <shacl:path rdf:resource="https://schema.org/description"/>
+        <shacl:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</shacl:maxCount>
+        <shacl:description xml:lang="nl">Voor persoonsvermeldingen wordt prov:wasDerivedFrom niet toegestaan.</shacl:description>
+        <shacl:name xml:lang="nl">Afgeleid van (niet toegestaan)</shacl:name>
+        <shacl:path rdf:resource="http://www.w3.org/ns/prov#wasDerivedFrom"/>
     </rdf:Description>
     
 
@@ -2151,7 +2151,7 @@
     <owl:NamedIndividual rdf:about="https://data.oorlogsbronnen.nl/schema#Rule_inDataset">
         <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Base_IRI"/>
         <shacl:class rdf:resource="https://schema.org/Dataset"/>
-        <shacl:path rdf:resource="http://data.niod.nl/WO2_Thesaurus/inDataset"/>
+        <shacl:path rdf:resource="https://data.niod.nl/WO2_Thesaurus/inDataset"/>
     </owl:NamedIndividual>
     
 
@@ -2183,7 +2183,7 @@
 
     <owl:NamedIndividual rdf:about="https://data.oorlogsbronnen.nl/schema#Rule_isPartOf">
         <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Base_IRI"/>
-        <shacl:class rdf:resource="http://data.niod.nl/WO2_Thesaurus/Archive"/>
+        <shacl:class rdf:resource="https://data.niod.nl/WO2_Thesaurus/Archive"/>
         <shacl:path rdf:resource="http://purl.org/dc/terms/isPartOf"/>
     </owl:NamedIndividual>
     
@@ -2227,7 +2227,7 @@
 
     <owl:NamedIndividual rdf:about="https://data.oorlogsbronnen.nl/schema#Rule_license">
         <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Base_IRI"/>
-        <shacl:class rdf:resource="http://data.niod.nl/WO2_Thesaurus/Rights"/>
+        <shacl:class rdf:resource="https://data.niod.nl/WO2_Thesaurus/Rights"/>
         <shacl:path rdf:resource="https://schema.org/license"/>
     </owl:NamedIndividual>
     
@@ -2593,7 +2593,7 @@
     <rdf:Description rdf:nodeID="genid100">
         <shacl:node rdf:resource="https://data.oorlogsbronnen.nl/schema#Rule_inDataset"/>
         <shacl:name xml:lang="nl">Herkomst van het record</shacl:name>
-        <shacl:path rdf:resource="http://data.niod.nl/WO2_Thesaurus/inDataset"/>
+        <shacl:path rdf:resource="https://data.niod.nl/WO2_Thesaurus/inDataset"/>
     </rdf:Description>
     
 
@@ -2725,19 +2725,28 @@
         <shacl:nodeKind rdf:resource="http://www.w3.org/ns/shacl#IRI"/>
     </rdf:Description>
     <rdf:Description>
-        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <shacl:class rdf:resource="https://personsincontext.org/model/#PersonObservation"/>
     </rdf:Description>
     <rdf:Description>
-        <shacl:class rdf:resource="https://schema.org/ArchiveComponent"/>
+        <shacl:class rdf:resource="https://personsincontext.org/model/#PersonObservation"/>
     </rdf:Description>
     <rdf:Description>
-        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <shacl:class rdf:resource="https://personsincontext.org/model/#PersonReconstruction"/>
     </rdf:Description>
     <rdf:Description>
-        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <shacl:class rdf:resource="https://personsincontext.org/model/#PersonObservation"/>
     </rdf:Description>
     <rdf:Description>
-        <shacl:class rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <shacl:class rdf:resource="https://personsincontext.org/model/#PersonReconstruction"/>
+    </rdf:Description>
+    <rdf:Description>
+        <shacl:class rdf:resource="https://personsincontext.org/model/#PersonReconstruction"/>
+    </rdf:Description>
+    <rdf:Description>
+        <shacl:class rdf:resource="https://personsincontext.org/model/#PersonObservation"/>
+    </rdf:Description>
+    <rdf:Description>
+        <shacl:class rdf:resource="https://personsincontext.org/model/#PersonReconstruction"/>
     </rdf:Description>
     <rdf:Description>
         <shacl:class rdf:resource="http://www.w3.org/2003/01/geo/wgs84_posSpatialTing"/>
@@ -2746,28 +2755,19 @@
         <shacl:class rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
     </rdf:Description>
     <rdf:Description>
-        <shacl:class rdf:resource="https://personsincontext.org/model/#PersonObservation"/>
+        <shacl:class rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     </rdf:Description>
     <rdf:Description>
-        <shacl:class rdf:resource="https://personsincontext.org/model/#PersonReconstruction"/>
+        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </rdf:Description>
     <rdf:Description>
-        <shacl:class rdf:resource="https://personsincontext.org/model/#PersonObservation"/>
+        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
     </rdf:Description>
     <rdf:Description>
-        <shacl:class rdf:resource="https://personsincontext.org/model/#PersonReconstruction"/>
+        <shacl:class rdf:resource="https://schema.org/ArchiveComponent"/>
     </rdf:Description>
     <rdf:Description>
-        <shacl:class rdf:resource="https://personsincontext.org/model/#PersonObservation"/>
-    </rdf:Description>
-    <rdf:Description>
-        <shacl:class rdf:resource="https://personsincontext.org/model/#PersonReconstruction"/>
-    </rdf:Description>
-    <rdf:Description>
-        <shacl:class rdf:resource="https://personsincontext.org/model/#PersonObservation"/>
-    </rdf:Description>
-    <rdf:Description>
-        <shacl:class rdf:resource="https://personsincontext.org/model/#PersonReconstruction"/>
+        <shacl:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
     </rdf:Description>
     
 
