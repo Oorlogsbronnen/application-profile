@@ -2,8 +2,7 @@
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcmit: <http://purl.org/dc/dcmitype/> .
 @prefix dct: <http://purl.org/dc/terms/> .
-@prefix niod: <https://data.niod.nl/> .
-@prefix niod1: <https://data.niod.nl/WO2_Thesaurus/> .
+@prefix niod: <https://data.niod.nl/WO2_Thesaurus/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix picom: <https://personsincontext.org/model#> .
 @prefix picom1: <https://personsincontext.org/model/#> .
@@ -20,7 +19,7 @@
 niod:Afgepakt a rdfs:Class ;
     rdfs:label "Afgepakt"@nl ;
     rdfs:comment "Afgepakt is de term voor de persoonlijke gebeurtenis waarbij roerende of onroerende bezittingen afgenomen worden van de eigenaar."@nl ;
-    rdfs:isDefinedBy niod1:19486 ;
+    rdfs:isDefinedBy niod:19486 ;
     rdfs:subClassOf schema:Event .
 
 niod:Arresteert a rdfs:Class ;
@@ -31,7 +30,7 @@ niod:Arresteert a rdfs:Class ;
 
 niod:Benoemd a rdfs:Class ;
     rdfs:label "Benoemd"@nl ;
-    rdfs:isDefinedBy niod1:13790 ;
+    rdfs:isDefinedBy niod:13790 ;
     rdfs:subClassOf schema:Event .
 
 niod:BevrijdIn a rdfs:Class ;
@@ -70,7 +69,7 @@ niod:Gedecoreerd a rdfs:Class ;
 
 niod:GedwongenVerhuisd a rdfs:Class ;
     rdfs:label "Gedwongen verhuisd"@nl ;
-    rdfs:isDefinedBy niod1:19198 ;
+    rdfs:isDefinedBy niod:19198 ;
     rdfs:subClassOf schema:Event .
 
 niod:Geevacueerd a rdfs:Class ;
@@ -80,7 +79,7 @@ niod:Geevacueerd a rdfs:Class ;
 
 niod:Gehuwd a rdfs:Class ;
     rdfs:label "Gehuwd"@nl ;
-    rdfs:isDefinedBy niod1:18966 ;
+    rdfs:isDefinedBy niod:18966 ;
     rdfs:subClassOf schema:Event .
 
 niod:Geland a rdfs:Class ;
@@ -97,7 +96,7 @@ niod:Geleid a rdfs:Class ;
 
 niod:Geliquideerd a rdfs:Class ;
     rdfs:label "Geliquideerd"@nl ;
-    rdfs:isDefinedBy niod1:16379 ;
+    rdfs:isDefinedBy niod:16379 ;
     rdfs:subClassOf schema:Event .
 
 niod:Gepleegd a rdfs:Class ;
@@ -187,7 +186,7 @@ niod:Ontsnapt a rdfs:Class ;
 
 niod:OpPadGegaan a rdfs:Class ;
     rdfs:label "Op pad gegaan"@nl ;
-    rdfs:isDefinedBy niod1:17064 ;
+    rdfs:isDefinedBy niod:17064 ;
     rdfs:subClassOf schema:Event .
 
 niod:Opgepakt a rdfs:Class ;
@@ -198,7 +197,7 @@ niod:Opgepakt a rdfs:Class ;
 
 niod:Opgericht a rdfs:Class ;
     rdfs:label "Opgericht"@nl ;
-    rdfs:isDefinedBy niod1:13792 ;
+    rdfs:isDefinedBy niod:13792 ;
     rdfs:subClassOf schema:Event .
 
 niod:Opgeroepen a rdfs:Class ;
@@ -218,7 +217,7 @@ niod:Overleden a rdfs:Class ;
 
 niod:Teruggekeerd a rdfs:Class ;
     rdfs:label "Teruggekeerd"@nl ;
-    rdfs:isDefinedBy niod1:18496 ;
+    rdfs:isDefinedBy niod:18496 ;
     rdfs:subClassOf schema:Event .
 
 niod:Tewerkgesteld a rdfs:Class ;
@@ -250,7 +249,7 @@ niod:Verraden a rdfs:Class ;
 
 niod:Vertrokken a rdfs:Class ;
     rdfs:label "Vertrokken"@nl ;
-    rdfs:isDefinedBy niod1:13791 ;
+    rdfs:isDefinedBy niod:13791 ;
     rdfs:subClassOf schema:Event .
 
 niod:Vrijgelaten a rdfs:Class ;
@@ -260,7 +259,7 @@ niod:Vrijgelaten a rdfs:Class ;
 
 niod:Vrijgesproken a rdfs:Class ;
     rdfs:label "Vrijgesproken"@nl ;
-    rdfs:isDefinedBy niod1:14203 ;
+    rdfs:isDefinedBy niod:14203 ;
     rdfs:subClassOf schema:Event .
 
 niod:Vrijgesteld a rdfs:Class ;
@@ -341,8 +340,8 @@ picom:PersonReconstruction a rdfs:Class ;
             sh:name "Openbaarheid"@nl ;
             sh:node :Rule_accessRights ;
             sh:path dct:accessRights ] ;
-    sh:targetClass niod1:Archive,
-        niod1:ArchiveFile .
+    sh:targetClass niod:Archive,
+        niod:ArchiveFile .
 
 :BekendmakingShape a sh:NodeShape ;
     sh:name "Bekendmakingen"@nl ;
@@ -355,7 +354,7 @@ picom:PersonReconstruction a rdfs:Class ;
             sh:name "Publicatiedatum"@nl ;
             sh:node :Rule_datePublished ;
             sh:path schema:datePublished ] ;
-    sh:targetClass niod1:Bekendmaking .
+    sh:targetClass niod:Bekendmaking .
 
 :ConceptShape a sh:NodeShape ;
     sh:description "Een abstract idee of een term uit een gecontroleerde woordenlijst of thesaurus."@nl ;
@@ -516,7 +515,7 @@ picom:PersonReconstruction a rdfs:Class ;
             sh:name "Longitude"@nl ;
             sh:node :Rule_long_schema ;
             sh:path schema:longitude ] ;
-    sh:targetClass niod1:Monument .
+    sh:targetClass niod:Monument .
 
 :PersoonsvermeldingShape a sh:NodeShape ;
     sh:description "Een observatie of vermelding van een persoon binnen een specifieke historische bron."@nl ;
@@ -572,7 +571,7 @@ picom:PersonReconstruction a rdfs:Class ;
 :Rule_image sh:node :Base_IRI ;
     sh:path schema:image .
 
-:Rule_license sh:class niod1:Rights ;
+:Rule_license sh:class niod:Rights ;
     sh:node :Base_IRI ;
     sh:path schema:license .
 
@@ -594,7 +593,7 @@ picom:PersonReconstruction a rdfs:Class ;
             sh:path schema:url ],
         [ sh:name "Herkomst van het record"@nl ;
             sh:node :Rule_inDataset ;
-            sh:path niod1:inDataset ] ;
+            sh:path niod:inDataset ] ;
     sh:targetClass prov:Entity,
         schema:ArchiveComponent .
 
@@ -819,7 +818,7 @@ schema:WebPage rdfs:subClassOf :Webpagina .
 
 :Rule_inDataset sh:class schema:Dataset ;
     sh:node :Base_IRI ;
-    sh:path niod1:inDataset .
+    sh:path niod:inDataset .
 
 :Rule_inScheme sh:class skos:ConceptScheme ;
     sh:minCount 1 ;
@@ -829,7 +828,7 @@ schema:WebPage rdfs:subClassOf :Webpagina .
 :Rule_initials sh:node :Base_String ;
     sh:path pnv:initials .
 
-:Rule_isPartOf sh:class niod1:Archive ;
+:Rule_isPartOf sh:class niod:Archive ;
     sh:node :Base_IRI ;
     sh:path dct:isPartOf .
 
