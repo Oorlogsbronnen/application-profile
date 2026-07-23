@@ -2,8 +2,8 @@
   "@context": {
     "type": "@type",
     "id": "@id",
-    "@vocab": "http://data.oorlogsbronnen.nl/schema#",
-    "niod": "http://data.niod.nl/WO2_Thesaurus/",
+    "@vocab": "https://data.oorlogsbronnen.nl/schema#",
+    "niod": "https://data.niod.nl/WO2_Thesaurus/",
     "picom": "https://personsincontext.org/model#",
     "pnv": "https://w3id.org/pnv#",
     "prov": "http://www.w3.org/ns/prov#",
