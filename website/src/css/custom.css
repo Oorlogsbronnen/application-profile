@@ -2,31 +2,36 @@
  * Globale styling van de documentatiesite. De classic-template bundelt
  * Infima, een CSS-framework voor content-gerichte websites.
  *
- * De kleuren hieronder zijn placeholders: de definitieve minimale styling
- * volgt het Oorlogsbronnen-ontwerpsysteem (zie de open vraag in
- * specs/2026-07-27-docusaurus-monorepo.md).
+ * De kleuren komen uit het Oorlogsbronnen-ontwerpsysteem in Figma
+ * (NOB | Oorlogsbronnen.nl): primair is Main/Red #ba5345; de tinten zijn
+ * standaard Infima-shades daarvan. Het merk-font "Relative" is gelicenseerd
+ * en wordt niet meegeleverd; de site gebruikt de systeemfont-stack.
+ * https://www.figma.com/design/pL5QrzmTgnXz1SlCPCfofu/NOB-%7C-Oorlogsbronnen.nl?node-id=7898-1837
  */
 
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  /* Main/Red — contrast op wit 4.8:1 (WCAG AA voor tekst en links) */
+  --ifm-color-primary: #ba5345;
+  --ifm-color-primary-dark: #a74b3e;
+  --ifm-color-primary-darker: #9e473b;
+  --ifm-color-primary-darkest: #823a30;
+  --ifm-color-primary-light: #c16458;
+  --ifm-color-primary-lighter: #c46d61;
+  --ifm-color-primary-lightest: #cf877d;
+  /* Border radii/Border radius uit het ontwerpsysteem */
+  --ifm-global-radius: 5px;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
-/* Donkere modus: lichtere tinten voor voldoende contrast. */
+/* Donkere modus: Red 100 als basis — contrast op de donkere achtergrond 6.7:1 */
 [data-theme="dark"] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-primary: #e38a7e;
+  --ifm-color-primary-dark: #cc7c71;
+  --ifm-color-primary-darker: #c1756b;
+  --ifm-color-primary-darkest: #9f6158;
+  --ifm-color-primary-light: #e6968b;
+  --ifm-color-primary-lighter: #e79c91;
+  --ifm-color-primary-lightest: #ebada5;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }

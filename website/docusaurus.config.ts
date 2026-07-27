@@ -13,8 +13,6 @@ const config: Config = {
     v4: true,
   },
 
-  // TODO: definitieve hosting/domein is nog een open vraag in de spec
-  // (specs/2026-07-27-docusaurus-monorepo.md).
   url: "https://data.oorlogsbronnen.nl",
   baseUrl: "/",
 
