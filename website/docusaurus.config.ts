@@ -50,9 +50,14 @@ const config: Config = {
     },
     navbar: {
       title: "data.oorlogsbronnen",
+      logo: {
+        alt: "Oorlogsbronnen",
+        src: "img/logo.svg",
+        srcDark: "img/logo-dark.svg",
+      },
       items: [
         {
-          href: "https://github.com/Oorlogsbronnen/application-profile",
+          href: "https://github.com/Oorlogsbronnen",
           label: "GitHub",
           position: "right",
         },
@@ -93,7 +98,6 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Oorlogsbronnen`,
     },
     prism: {
       theme: prismThemes.github,

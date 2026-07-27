@@ -1,10 +1,11 @@
 ---
-title: REST API
+title: API's
+sidebar_position: 1
 ---
 
-# REST API
+# API's
 
-De data van Oorlogsbronnen is via een REST API te bevragen, gebouwd op [Spinque](https://www.spinque.com/). Deze sectie beschrijft de beschikbare endpoints en hoe je ze gebruikt.
+De data van Oorlogsbronnen is via een REST API te bevragen, gebouwd op [Spinque](https://www.spinque.com/). Deze pagina beschrijft de beschikbare endpoints en hoe je ze gebruikt.
 
 ## Endpoints
 

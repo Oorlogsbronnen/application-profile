@@ -1,18 +1,20 @@
 ---
 slug: /
 sidebar_position: 1
-title: Welkom
+title: Introductie
 ---
 
 # data.oorlogsbronnen
 
-Dit is de documentatie van het **Oorlogsbronnen dataplatform**: de plek waar ontwikkelaars en informatiespecialisten vinden hoe de data van het Oorlogsbronnen-ecosysteem is gestructureerd en hoe je die kunt gebruiken.
+Dit is de documentatie van het **Oorlogsbronnen dataplatform**: de plek waar ontwikkelaars en informatiespecialisten vinden welke data het Oorlogsbronnen-ecosysteem biedt, hoe die is gestructureerd en hoe je die kunt gebruiken.
 
-De documentatie bestaat uit drie onderdelen:
-
-- **[REST API](rest-api/)** — de Spinque API-endpoints en bijbehorende libraries om de data te bevragen.
-- **[Linked Data](linked-data/)** — de LDmax-omgevingen met de gepubliceerde datasets en het SPARQL-endpoint.
-- **[Datamodel](datamodel/)** — de concepten en eigenschappen van het application profile, gegenereerd uit de `.ttl`-bronbestanden.
+- **[Datasets](datasets/datasetregister)** — het datasetregister en de linked data-publicatie op LDmax.
+- **[Services](services/apis)** — de API's, het SPARQL-endpoint en het Termennetwerk.
+- **[Datamodel](datamodel/personen-en-objecten)** — personen en objecten, de WO2 Thesaurus en het Oorlogsbronnen Application Profile.
+- **[IIIF](iiif)** — beelden gebruiken via IIIF.
+- **[Rechten en gebruik](rechten-en-gebruik)** — licenties en gebruiksvoorwaarden van de data.
+- **[Meedoen](meedoen)** — data delen met Oorlogsbronnen.
+- **[Contact](contact)**
 
 ## Bijdragen
 

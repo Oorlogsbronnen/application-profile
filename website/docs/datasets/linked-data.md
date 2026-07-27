@@ -1,8 +1,9 @@
 ---
-title: Linked Data
+title: Linked data (LDmax)
+sidebar_position: 2
 ---
 
-# Linked Data
+# Linked data (LDmax)
 
 De data van Oorlogsbronnen is als Linked Open Data gepubliceerd op [LDmax](https://platform.ldmax.nl/organisaties/wo2net), onder de organisatie **Stichting WO2Net**.
 
@@ -15,10 +16,4 @@ De data van Oorlogsbronnen is als Linked Open Data gepubliceerd op [LDmax](https
 
 Daarnaast publiceert WO2Net de [WO2 Thesaurus](https://platform.ldmax.nl/datasets/wo2net/thesaurus/) (±17.000 termen, CC0 1.0).
 
-## SPARQL-endpoint
-
-De datasets zijn te bevragen via het SPARQL-endpoint van de organisatie:
-
-```
-https://platform.ldmax.nl/organisaties/wo2net/query
-```
+De datasets zijn te bevragen via het [SPARQL-endpoint](../services/sparql).

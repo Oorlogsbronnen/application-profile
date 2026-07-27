@@ -1,8 +1,9 @@
 ---
-title: Datamodel
+title: Oorlogsbronnen Application Profile
+sidebar_position: 3
 ---
 
-# Datamodel
+# Oorlogsbronnen Application Profile
 
 Het application profile van Oorlogsbronnen definieert de concepten (klassen) en eigenschappen (properties) waarmee metadata over personen, gebeurtenissen en bronnen wordt vastgelegd. De bron is de vocabulaire in [`ontology/schema_ext-oorlogsbronnen.ttl`](https://github.com/Oorlogsbronnen/application-profile/blob/main/ontology/schema_ext-oorlogsbronnen.ttl), met bijbehorende SHACL-shapes voor validatie.
 
