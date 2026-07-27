@@ -6,12 +6,41 @@
  * netwerkoorlogsbronnen.nl (bron: styles/cssVars.ts in die repo, en Figma
  * "NOB | Oorlogsbronnen.nl"). Primair is #ba5345; de tinten volgen de
  * rood-schaal van het platform (articleRed100–500 en primaryDark).
- * Het merk-font "Relative" is gelicenseerd en wordt hier niet meegeleverd;
- * de site gebruikt de systeemfont-stack.
+ * Het merk-font "Relative" komt uit dezelfde repo (styles/fonts/); net als
+ * op het platform is Book (300) de lopende tekst en Bold (700) de koppen.
  * https://www.figma.com/design/pL5QrzmTgnXz1SlCPCfofu/NOB-%7C-Oorlogsbronnen.nl?node-id=7898-1837
  */
 
+@font-face {
+  font-family: "Relative";
+  src: url("/fonts/Relative-Book.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Relative";
+  src: url("/fonts/Relative-Medium.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Relative";
+  src: url("/fonts/Relative-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
+  --ifm-font-family-base:
+    "Relative", system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell,
+    "Noto Sans", sans-serif;
+  /* Lopende tekst is Book (300), zoals in TypographyStyle.ts van het platform */
+  --ifm-font-weight-base: 300;
   /* Platform-primary — contrast op wit 4.8:1 (WCAG AA voor tekst en links) */
   --ifm-color-primary: #ba5345;
   --ifm-color-primary-dark: #a73627;
