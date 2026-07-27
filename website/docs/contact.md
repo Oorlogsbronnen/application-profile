@@ -5,7 +5,7 @@ sidebar_position: 8
 
 # Contact
 
-:::note Inhoud volgt
+:::note[Inhoud volgt]
 
 Deze pagina wordt nog geschreven.
 

@@ -120,7 +120,7 @@ function renderClassShape(
   for (const parent of shape.inheritsFrom) {
     lines.push("");
     lines.push(
-      `:::info ${texts.classShape.inheritanceTitle}\n\n${texts.classShape.inheritanceText(blockLink(parent))}\n\n:::`,
+      `:::info[${texts.classShape.inheritanceTitle}]\n\n${texts.classShape.inheritanceText(blockLink(parent))}\n\n:::`,
     );
   }
 

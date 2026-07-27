@@ -7,7 +7,7 @@ sidebar_position: 1
 
 Hoe personen en objecten in de data van Oorlogsbronnen zijn gemodelleerd.
 
-:::note Inhoud volgt
+:::note[Inhoud volgt]
 
 Deze pagina wordt nog geschreven.
 

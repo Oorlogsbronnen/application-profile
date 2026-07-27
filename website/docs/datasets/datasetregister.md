@@ -7,7 +7,7 @@ sidebar_position: 1
 
 Overzicht van de datasets die via het Oorlogsbronnen dataplatform beschikbaar zijn.
 
-:::note Inhoud volgt
+:::note[Inhoud volgt]
 
 Deze pagina wordt nog geschreven.
 
