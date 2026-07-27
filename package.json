@@ -1,0 +1,17 @@
+{
+  "name": "application-profile",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@10.24.0",
+  "scripts": {
+    "start": "pnpm --filter website start",
+    "build": "pnpm --filter website build",
+    "typecheck": "pnpm --filter website typecheck"
+  },
+  "pnpm": {
+    "ignoredBuiltDependencies": [
+      "@swc/core",
+      "core-js"
+    ]
+  }
+}

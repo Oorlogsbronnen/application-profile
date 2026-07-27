@@ -1,0 +1,5 @@
+# Monorepo-workspaces. `website` is de Docusaurus-documentatiesite;
+# packages/* is gereserveerd voor toekomstige tooling (bv. de ttl→docs-generator).
+packages:
+  - website
+  - packages/*
