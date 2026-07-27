@@ -15,8 +15,17 @@ import {
   shapeByTargetClass,
 } from "./presenter.js";
 import { renderDiagram } from "./render-diagram.js";
+import { SCHEMA_NS } from "./parse-shapes.js";
+import { texts } from "./texts.js";
 
-/** Genereert de volledige MDX-pagina voor /schema. */
+/**
+ * Genereert de volledige MDX-pagina voor /schema.
+ *
+ * Koppen van klassen en bouwstenen zijn altijd de Engelse local name van de
+ * IRI, met een anker dat daaraan exact gelijk is — zo blijven identifier,
+ * URL en koptitel één geheel. Secties zijn genummerd (1, 2, 2.1, …) zodat de
+ * inhoudsopgave leest als een specificatie.
+ */
 export function renderPage(profile: ApplicationProfile): string {
   const context: RenderContext = {
     rules: rulesByName(profile),
@@ -25,50 +34,48 @@ export function renderPage(profile: ApplicationProfile): string {
   };
 
   const classSections = profile.classShapes
-    .map((shape) => renderClassShape(shape, context))
+    .map((shape, index) => renderClassShape(shape, `2.${index + 1}`, context))
     .join("\n\n");
 
   return `---
-title: Oorlogsbronnen Application Profile
-sidebar_label: Oorlogsbronnen Application Profile
+title: ${texts.page.title}
+sidebar_label: ${texts.page.title}
 sidebar_position: 3
 slug: /schema
+toc_max_heading_level: 3
 ---
 
-{/* GEGENEREERD BESTAND — niet handmatig bewerken. */}
-{/* Bron: ontology/shapes.ttl · generator: packages/schema-docs */}
+${texts.page.generatedComment.map((line) => `{/* ${line} */}`).join("\n")}
 
-# Oorlogsbronnen Application Profile
+# ${texts.page.title}
 
-Het application profile van Oorlogsbronnen definieert de klassen en properties waarmee metadata over personen, gebeurtenissen en bronnen wordt vastgelegd. Deze pagina is automatisch gegenereerd uit de SHACL-shapes in [\`ontology/shapes.ttl\`](https://github.com/Oorlogsbronnen/application-profile/blob/main/ontology/shapes.ttl) — dat bestand is en blijft de source of truth.
+${texts.page.intro}
 
-- Namespace: \`https://data.oorlogsbronnen.nl/schema#\`
-- Machine-leesbaar: [schema.ttl](/schema.ttl) (Turtle)
+- **${texts.page.namespaceLabel}:** \`${SCHEMA_NS}\`
+- **${texts.page.machineReadableLabel}:** ${texts.page.machineReadableLink}
 
-## Overzicht {#overzicht}
+## 1. ${texts.sections.overview} {#overzicht}
 
 \`\`\`mermaid
 ${renderDiagram(profile)}
 \`\`\`
 
-## Klassen {#klassen}
+## 2. ${texts.sections.classes} {#klassen}
 
 ${classSections}
 
-## Bouwstenen {#bouwstenen}
+## 3. ${texts.sections.buildingBlocks} {#bouwstenen}
 
-De klasse-shapes hierboven zijn opgebouwd uit herbruikbare bouwstenen: **regels** (\`:Rule_*\`) die een property-pad koppelen aan een waardetype en kardinaliteit, en **basistypen** (\`:Base_*\`) die alleen een waardetype definiëren.
+${texts.buildingBlocks.intro}
 
-### Regels {#regels}
+### 3.1 ${texts.sections.rules} {#regels}
 
-| Regel | Property-pad | Kardinaliteit | Waardetype |
-| --- | --- | --- | --- |
+${tableHeader(texts.buildingBlocks.rulesTableHeader)}
 ${profile.rules.map((rule) => renderRuleRow(rule, context)).join("\n")}
 
-### Basistypen {#basistypen}
+### 3.2 ${texts.sections.baseTypes} {#basistypen}
 
-| Basistype | Waardetype |
-| --- | --- |
+${tableHeader(texts.buildingBlocks.baseTypesTableHeader)}
 ${profile.bases.map((base) => renderBaseRow(base, context)).join("\n")}
 `;
 }
@@ -79,15 +86,31 @@ type RenderContext = {
   targetIndex: Map<string, ClassShape>;
 };
 
-function renderClassShape(shape: ClassShape, context: RenderContext): string {
+function renderClassShape(
+  shape: ClassShape,
+  sectionNumber: string,
+  context: RenderContext,
+): string {
   const lines: string[] = [
-    `### ${escapeText(shape.name ?? shape.localName)} {#${shape.localName}}`,
+    `### ${sectionNumber} ${shape.localName} {#${shape.localName}}`,
   ];
 
   lines.push("");
-  lines.push(
-    `\`:${shape.localName}\` · Van toepassing op: ${shape.targetClasses.map((t) => termLink(t, context)).join(", ")}`,
-  );
+  lines.push(`\`${SCHEMA_NS}${shape.localName}\``);
+
+  const facts: string[] = [];
+  if (shape.name) {
+    facts.push(`**${texts.classShape.nameLabel}:** ${escapeText(shape.name)}`);
+  }
+  if (shape.targetClasses.length > 0) {
+    facts.push(
+      `**${texts.classShape.appliesToLabel}:** ${shape.targetClasses.map((t) => termLink(t)).join(", ")}`,
+    );
+  }
+  if (facts.length > 0) {
+    lines.push("");
+    lines.push(facts.join(" · "));
+  }
 
   if (shape.description) {
     lines.push("");
@@ -97,15 +120,12 @@ function renderClassShape(shape: ClassShape, context: RenderContext): string {
   for (const parent of shape.inheritsFrom) {
     lines.push("");
     lines.push(
-      `:::info Overerving\n\nDeze shape erft alle regels van [\`:${parent}\`](#${parent}); de tabel hieronder toont alleen de eigen properties.\n\n:::`,
+      `:::info ${texts.classShape.inheritanceTitle}\n\n${texts.classShape.inheritanceText(blockLink(parent))}\n\n:::`,
     );
   }
 
   lines.push("");
-  lines.push(
-    "| Property | Naam en beschrijving | Kardinaliteit | Waardetype | Regel |",
-  );
-  lines.push("| --- | --- | --- | --- | --- |");
+  lines.push(tableHeader(texts.classShape.tableHeader));
   for (const property of shape.properties) {
     lines.push(renderPropertyRow(property, context));
   }
@@ -131,18 +151,18 @@ function renderPropertyRow(
     .join("<br/>");
 
   return tableRow([
-    termLink(property.path, context),
+    termLink(property.path),
     nameAndDescription,
     cardinality,
     rule ? ruleValueTypeText(rule, context) : "",
-    property.ruleRef ? `[\`:${property.ruleRef}\`](#${property.ruleRef})` : "",
+    property.ruleRef ? blockLink(property.ruleRef) : "",
   ]);
 }
 
 function renderRuleRow(rule: RuleBlock, context: RenderContext): string {
   return tableRow([
-    `<a id="${rule.localName}"></a>\`:${rule.localName}\``,
-    termLink(rule.path, context),
+    blockAnchor(rule.localName),
+    termLink(rule.path),
     cardinalityText(rule.cardinality),
     ruleValueTypeText(rule, context),
   ]);
@@ -150,7 +170,7 @@ function renderRuleRow(rule: RuleBlock, context: RenderContext): string {
 
 function renderBaseRow(base: BaseBlock, context: RenderContext): string {
   return tableRow([
-    `<a id="${base.localName}"></a>\`:${base.localName}\``,
+    blockAnchor(base.localName),
     valueTypeLabel(base.valueType, context),
   ]);
 }
@@ -162,7 +182,9 @@ function renderBaseRow(base: BaseBlock, context: RenderContext): string {
 function ruleValueTypeText(rule: RuleBlock, context: RenderContext): string {
   const classes = allowedClasses(rule);
   if (classes.length > 0) {
-    return `IRI van ${classes.map((c) => classLink(c, context)).join(" of ")}`;
+    return `${texts.valueType.iriOfClass} ${classes
+      .map((c) => classLink(c, context))
+      .join(` ${texts.valueType.or} `)}`;
   }
   if (rule.orValueType) {
     return valueTypeLabel(rule.orValueType, context);
@@ -176,13 +198,15 @@ function valueTypeLabel(valueType: ValueType, context: RenderContext): string {
     case "datatype":
       return `\`${valueType.datatype.compact}\``;
     case "iri":
-      return "IRI";
+      return texts.valueType.iri;
     case "class":
-      return valueType.classes.map((c) => classLink(c, context)).join(" of ");
+      return valueType.classes
+        .map((c) => classLink(c, context))
+        .join(` ${texts.valueType.or} `);
     case "or":
       return valueType.options
         .map((option) => valueTypeLabel(option, context))
-        .join(" of ");
+        .join(` ${texts.valueType.or} `);
   }
 }
 
@@ -192,11 +216,25 @@ function classLink(term: Term, context: RenderContext): string {
   if (shape) {
     return `[\`${term.compact}\`](#${shape.localName})`;
   }
-  return termLink(term, context);
+  return termLink(term);
 }
 
-function termLink(term: Term, _context: RenderContext): string {
+function termLink(term: Term): string {
   return `[\`${term.compact}\`](${term.iri})`;
+}
+
+/** Interne link naar een bouwsteen of shape, op local name. */
+function blockLink(name: string): string {
+  return `[\`${name}\`](#${name})`;
+}
+
+/** Ankerpunt + label voor een bouwsteen in een tabelcel. */
+function blockAnchor(name: string): string {
+  return `<a id="${name}"></a>\`${name}\``;
+}
+
+function tableHeader(columns: readonly string[]): string {
+  return `${tableRow([...columns])}\n${tableRow(columns.map(() => "---"))}`;
 }
 
 function tableRow(cells: string[]): string {

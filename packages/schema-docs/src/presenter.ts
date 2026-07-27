@@ -6,6 +6,7 @@ import type {
   Term,
   ValueType,
 } from "./model.js";
+import { texts } from "./texts.js";
 
 /**
  * Weergavelogica die parser en renderers delen: effectieve kardinaliteit,
@@ -26,14 +27,14 @@ export function effectiveCardinality(
 export function cardinalityText(cardinality: Cardinality): string {
   const { min, max } = cardinality;
   if (max === 0) {
-    return "0 — niet toegestaan";
+    return texts.cardinality.notAllowed;
   }
   if (min === null || min === 0) {
     return max === null ? "0..n" : `0..${max}`;
   }
   const range =
     max === null ? `${min}..n` : min === max ? `${min}` : `${min}..${max}`;
-  return `${range} — verplicht`;
+  return `${range} — ${texts.cardinality.required}`;
 }
 
 /** De klassen die een regel als waarde toestaat (via sh:class of sh:or). */

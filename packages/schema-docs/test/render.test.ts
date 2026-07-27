@@ -14,10 +14,26 @@ const { profile } = parseShapes(turtle);
 describe("renderPage", () => {
   const page = renderPage(profile);
 
-  it("geeft elke klasse-shape een anker gelijk aan de local name", () => {
+  it("gebruikt de local name als genummerde koptitel én anker", () => {
     for (const shape of profile.classShapes) {
-      expect(page).toContain(`{#${shape.localName}}`);
+      expect(page).toMatch(
+        new RegExp(`### 2\\.\\d+ ${shape.localName} \\{#${shape.localName}\\}`),
+      );
     }
+  });
+
+  it("toont de volledige IRI onder elke klasse-kop", () => {
+    expect(page).toContain(
+      "`https://data.oorlogsbronnen.nl/schema#ArchiveShape`",
+    );
+  });
+
+  it("nummert de hoofdsecties", () => {
+    expect(page).toContain("## 1. Overzicht {#overzicht}");
+    expect(page).toContain("## 2. Klassen {#klassen}");
+    expect(page).toContain("## 3. Bouwstenen {#bouwstenen}");
+    expect(page).toContain("### 3.1 Regels {#regels}");
+    expect(page).toContain("### 3.2 Basistypen {#basistypen}");
   });
 
   it("geeft elke bouwsteen een anker gelijk aan de local name", () => {
@@ -31,8 +47,12 @@ describe("renderPage", () => {
 
   it("verwijst bij overerving naar de basis-shape", () => {
     expect(page).toContain(
-      "erft alle regels van [`:CreativeWorkShape`](#CreativeWorkShape)",
+      "erft alle regels van [`CreativeWorkShape`](#CreativeWorkShape)",
     );
+  });
+
+  it("toont de Nederlandse naam als omschrijving bij de klasse", () => {
+    expect(page).toContain("**Naam:** Persoonsreconstructie");
   });
 
   it("markeert verplichte en uitgesloten properties in de kardinaliteit", () => {
@@ -56,9 +76,8 @@ describe("renderDiagram", () => {
     );
   });
 
-  it("gebruikt de Nederlandse naam als label", () => {
-    expect(diagram).toContain(
-      'class PersoonReconstructionShape["Persoonsreconstructie"]',
-    );
+  it("gebruikt de local name als knooppunt, gelijk aan kop en anker", () => {
+    expect(diagram).toContain("class PersoonReconstructionShape\n");
+    expect(diagram).not.toContain('["');
   });
 });

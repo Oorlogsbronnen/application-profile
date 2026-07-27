@@ -19,9 +19,9 @@ export function renderDiagram(profile: ApplicationProfile): string {
 
   const lines: string[] = ["classDiagram", "  direction LR"];
 
+  // Labels zijn de local names, zodat het diagram matcht met de koppen en ankers.
   for (const shape of profile.classShapes) {
-    const label = shape.name ?? shape.localName;
-    lines.push(`  class ${shape.localName}["${label}"]`);
+    lines.push(`  class ${shape.localName}`);
   }
 
   const edges = new Set<string>();
