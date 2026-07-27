@@ -8,10 +8,14 @@ Dit repository bevat het **Application Profile (AP)** voor het Oorlogsbronnen-ec
 
 Dit werk voedt de **data.oorlogsbronnen-website**, die bestaat uit:
 
-- uitleg van de REST API;
-- de beschikbare Linked Data-server;
+- uitleg van de REST API (Spinque, met de library [`@spinque/query-api`](https://www.npmjs.com/package/@spinque/query-api));
+- de beschikbare Linked Data-server: [LDmax](https://platform.ldmax.nl/organisaties/wo2net) (organisatie Stichting WO2Net), met SPARQL-endpoint `https://platform.ldmax.nl/organisaties/wo2net/query` en als relevante datasets [`wo2net/personen`](https://platform.ldmax.nl/datasets/wo2net/personen/) en [`wo2net/collecties`](https://platform.ldmax.nl/datasets/wo2net/collecties/) (beide CC-BY-NC-SA 4.0);
 - gegenereerde documentatie van de linked data op basis van de `.ttl`-bestanden.
 
+De repo is een pnpm-monorepo:
+
+- `website/` — de Docusaurus-site (docs-only) die de basis vormt van data.oorlogsbronnen. Documentatie schrijf je als markdown/MDX in `website/docs/`; de sidebar volgt de mappenstructuur.
+- `packages/` — gereserveerd voor toekomstige tooling (bv. de ttl→docs-generator).
 - `ontology/schema_ext-oorlogsbronnen.ttl` — de kern-vocabulaire (de `niod:`-extensie op schema.org). Dit is het hart van het profiel.
 - `ontology/shapes.ttl` — SHACL-shapes voor validatie van data tegen het profiel.
 - `context/context.jsonld` — de JSON-LD context voor gebruik in API's.
@@ -20,8 +24,9 @@ Dit werk voedt de **data.oorlogsbronnen-website**, die bestaat uit:
 
 ## Tooling en commando's
 
-Er is geen package manager of testsuite; de belangrijkste check is dat de Turtle-bestanden syntactisch geldig blijven (de CI-pipeline faalt anders).
+Package manager: **pnpm** (workspaces). Draai `pnpm install` vanaf de root.
 
+- Website: `pnpm start` (dev-server) · `pnpm build` (productie-build) · `pnpm typecheck`
 - Valideer Turtle-syntax (spiegelt stap 1 van de CI, vereist `pip install rdflib`):
   ```sh
   python3 -c "
