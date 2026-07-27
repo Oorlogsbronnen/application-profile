@@ -49,9 +49,10 @@
   --ifm-color-primary-light: #e38a7e;
   --ifm-color-primary-lighter: #ffd0d0;
   --ifm-color-primary-lightest: #ffd8d3;
-  /* Tekst- en voetkleuren van het platform */
+  /* Tekstkleur van het platform */
   --ifm-font-color-base: #282827;
-  --ifm-footer-background-color: #282827;
+  /* Compacte, lichte footer (vgl. docs.nde.nl) */
+  --ifm-footer-padding-vertical: 2rem;
   /* Border-radius "sm" uit het ontwerpsysteem */
   --ifm-global-radius: 5px;
   --ifm-code-font-size: 95%;

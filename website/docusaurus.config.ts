@@ -64,27 +64,18 @@ const config: Config = {
       ],
     },
     footer: {
-      style: "dark",
+      style: "light",
       links: [
         {
-          title: "Linked Data",
+          title: "Services",
           items: [
             {
-              label: "LDmax (Stichting WO2Net)",
+              label: "LDmax",
               href: "https://platform.ldmax.nl/organisaties/wo2net",
             },
-          ],
-        },
-        {
-          title: "REST API",
-          items: [
             {
               label: "Spinque API-documentatie",
               href: "https://docs.spinque.com/3.0/using-apis/basic.html",
-            },
-            {
-              label: "@spinque/query-api",
-              href: "https://www.npmjs.com/package/@spinque/query-api",
             },
           ],
         },
@@ -92,8 +83,21 @@ const config: Config = {
           title: "Meer",
           items: [
             {
+              label: "Oorlogsbronnen.nl",
+              href: "https://www.oorlogsbronnen.nl",
+            },
+            {
               label: "GitHub",
-              href: "https://github.com/Oorlogsbronnen/application-profile",
+              href: "https://github.com/Oorlogsbronnen",
+            },
+          ],
+        },
+        {
+          title: "Contact",
+          items: [
+            {
+              label: "Contact",
+              to: "/contact",
             },
           ],
         },
