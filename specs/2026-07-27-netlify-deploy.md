@@ -4,7 +4,9 @@
 
 ## Waarom
 
-De documentatiesite (zie `2026-07-27-docusaurus-monorepo.md`, daar bewust buiten scope gelaten) moet zonder handwerk live komen. `data` is de integratie-branch: wat daar landt is gereviewd en mag zichtbaar zijn. Netlify is gekozen als hosting voor `data.oorlogsbronnen.nl`.
+De documentatiesite (zie `2026-07-27-docusaurus-monorepo.md`, daar bewust buiten scope gelaten) moet zonder handwerk live komen. `data` is de integratie-branch: wat daar landt is gereviewd en mag zichtbaar zijn.
+
+**Netlify is tijdelijk, voor de testfase.** Uiteindelijk gaat data.oorlogsbronnen.nl op shared hosting draaien; de deploy-stap in de workflow wordt dan vervangen (de build-stappen blijven gelijk). Die migratie krijgt te zijner tijd een eigen spec.
 
 ## Scope
 
