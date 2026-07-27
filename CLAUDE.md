@@ -6,6 +6,12 @@ Dit bestand geldt voor iedereen die Claude Code in deze repo gebruikt. Lees het 
 
 Dit repository bevat het **Application Profile (AP)** voor het Oorlogsbronnen-ecosysteem: het definieert hoe metadata over personen, gebeurtenissen en bronnen gestructureerd wordt met Linked Data-standaarden. Er is geen applicatiecode — de deliverables zijn RDF-bestanden en de daaruit gegenereerde documentatie.
 
+Dit werk voedt de **data.oorlogsbronnen-website**, die bestaat uit:
+
+- uitleg van de REST API;
+- de beschikbare Linked Data-server;
+- gegenereerde documentatie van de linked data op basis van de `.ttl`-bestanden.
+
 - `ontology/schema_ext-oorlogsbronnen.ttl` — de kern-vocabulaire (de `niod:`-extensie op schema.org). Dit is het hart van het profiel.
 - `ontology/shapes.ttl` — SHACL-shapes voor validatie van data tegen het profiel.
 - `context/context.jsonld` — de JSON-LD context voor gebruik in API's.
@@ -28,6 +34,14 @@ Er is geen package manager of testsuite; de belangrijkste check is dat de Turtle
   ```
 - Valideer JSON-LD: `python3 -c "import json; json.load(open('context/context.jsonld'))"`
 - Format (markdown/JSON): `npx prettier@latest --write <bestand>` — voor `.ttl` bestaat geen formatter; volg de bestaande serialisatie-stijl van het bestand.
+
+## Branch-strategie
+
+**`data` is de base branch voor nieuw werk**, niet `main`. Concreet:
+
+- Maak feature branches aan vanaf `origin/data`: `git fetch origin data && git switch -c <naam> --no-track origin/data`.
+- Richt pull requests op `data` (`gh pr create --base data`); features landen daar eerst.
+- `main` blijft de publicatie-branch: een push daarheen triggert de docs-pipeline naar GitHub Pages. Promotie van `data` naar `main` gaat óók via een PR, nooit via een directe merge of push.
 
 ## Werkafspraken voor dit profiel
 
