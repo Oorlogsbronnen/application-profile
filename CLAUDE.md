@@ -12,7 +12,7 @@ Dit werk voedt de **data.oorlogsbronnen-website**, die bestaat uit:
 - de beschikbare Linked Data-server: [LDmax](https://platform.ldmax.nl/organisaties/wo2net) (organisatie Stichting WO2Net), met SPARQL-endpoint `https://platform.ldmax.nl/organisaties/wo2net/query` en als relevante datasets [`wo2net/personen`](https://platform.ldmax.nl/datasets/wo2net/personen/) en [`wo2net/collecties`](https://platform.ldmax.nl/datasets/wo2net/collecties/) (beide CC-BY-NC-SA 4.0);
 - gegenereerde documentatie van de linked data op basis van de `.ttl`-bestanden.
 
-De site draait op `data.oorlogsbronnen.nl` en is uitsluitend Nederlandstalig. De styling volgt het Oorlogsbronnen-ontwerpsysteem in [Figma (NOB | Oorlogsbronnen.nl)](https://www.figma.com/design/pL5QrzmTgnXz1SlCPCfofu/NOB-%7C-Oorlogsbronnen.nl?node-id=7898-1837); primaire merkkleur is Main/Red `#ba5345`.
+De site draait op `data.oorlogsbronnen.nl` en is uitsluitend Nederlandstalig. De styling volgt het Oorlogsbronnen-ontwerpsysteem: het hoofdplatform is de **NetwerkOorlogsbronnen**-repo (netwerkoorlogsbronnen.nl, Next.js) — de design tokens staan daar in `styles/cssVars.ts` en de Relative-fontbestanden in `styles/fonts/`. Referentie-ontwerp in [Figma (NOB | Oorlogsbronnen.nl)](https://www.figma.com/design/pL5QrzmTgnXz1SlCPCfofu/NOB-%7C-Oorlogsbronnen.nl?node-id=7898-1837); primaire merkkleur is `#ba5345`.
 
 De repo is een pnpm-monorepo:
 

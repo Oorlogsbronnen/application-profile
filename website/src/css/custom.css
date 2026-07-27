@@ -2,36 +2,42 @@
  * Globale styling van de documentatiesite. De classic-template bundelt
  * Infima, een CSS-framework voor content-gerichte websites.
  *
- * De kleuren komen uit het Oorlogsbronnen-ontwerpsysteem in Figma
- * (NOB | Oorlogsbronnen.nl): primair is Main/Red #ba5345; de tinten zijn
- * standaard Infima-shades daarvan. Het merk-font "Relative" is gelicenseerd
- * en wordt niet meegeleverd; de site gebruikt de systeemfont-stack.
+ * De kleuren komen uit het ontwerpsysteem van het hoofdplatform
+ * netwerkoorlogsbronnen.nl (bron: styles/cssVars.ts in die repo, en Figma
+ * "NOB | Oorlogsbronnen.nl"). Primair is #ba5345; de tinten volgen de
+ * rood-schaal van het platform (articleRed100–500 en primaryDark).
+ * Het merk-font "Relative" is gelicenseerd en wordt hier niet meegeleverd;
+ * de site gebruikt de systeemfont-stack.
  * https://www.figma.com/design/pL5QrzmTgnXz1SlCPCfofu/NOB-%7C-Oorlogsbronnen.nl?node-id=7898-1837
  */
 
 :root {
-  /* Main/Red — contrast op wit 4.8:1 (WCAG AA voor tekst en links) */
+  /* Platform-primary — contrast op wit 4.8:1 (WCAG AA voor tekst en links) */
   --ifm-color-primary: #ba5345;
-  --ifm-color-primary-dark: #a74b3e;
-  --ifm-color-primary-darker: #9e473b;
-  --ifm-color-primary-darkest: #823a30;
-  --ifm-color-primary-light: #c16458;
-  --ifm-color-primary-lighter: #c46d61;
-  --ifm-color-primary-lightest: #cf877d;
-  /* Border radii/Border radius uit het ontwerpsysteem */
+  --ifm-color-primary-dark: #a73627;
+  --ifm-color-primary-darker: #9d2c1e;
+  --ifm-color-primary-darkest: #78291f;
+  --ifm-color-primary-light: #e38a7e;
+  --ifm-color-primary-lighter: #ffd0d0;
+  --ifm-color-primary-lightest: #ffd8d3;
+  /* Tekst- en voetkleuren van het platform */
+  --ifm-font-color-base: #282827;
+  --ifm-footer-background-color: #282827;
+  /* Border-radius "sm" uit het ontwerpsysteem */
   --ifm-global-radius: 5px;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
-/* Donkere modus: Red 100 als basis — contrast op de donkere achtergrond 6.7:1 */
+/* Donkere modus: articleRed200 als basis — contrast op donkere achtergrond 6.7:1 */
 [data-theme="dark"] {
   --ifm-color-primary: #e38a7e;
   --ifm-color-primary-dark: #cc7c71;
   --ifm-color-primary-darker: #c1756b;
-  --ifm-color-primary-darkest: #9f6158;
+  --ifm-color-primary-darkest: #ba5345;
   --ifm-color-primary-light: #e6968b;
-  --ifm-color-primary-lighter: #e79c91;
-  --ifm-color-primary-lightest: #ebada5;
+  --ifm-color-primary-lighter: #ffd0d0;
+  --ifm-color-primary-lightest: #ffd8d3;
+  --ifm-font-color-base: #f2f3f5;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
