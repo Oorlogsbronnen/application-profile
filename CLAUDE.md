@@ -17,7 +17,7 @@ De site draait op `data.oorlogsbronnen.nl` en is uitsluitend Nederlandstalig. De
 De repo is een pnpm-monorepo:
 
 - `website/` — de Docusaurus-site (docs-only) die de basis vormt van data.oorlogsbronnen. Documentatie schrijf je als markdown/MDX in `website/docs/`; de sidebar volgt de mappenstructuur.
-- `packages/` — gereserveerd voor toekomstige tooling (bv. de ttl→docs-generator).
+- `packages/schema-docs/` — TypeScript-generator die uit `ontology/shapes.ttl` de application profile-pagina op `/schema` genereert (plus `/schema.ttl`). Draait automatisch mee in `pnpm start`/`pnpm build`; de gegenereerde bestanden zijn ge-gitignored. Zie `specs/2026-07-27-schema-docs-generator.md`.
 - `ontology/schema_ext-oorlogsbronnen.ttl` — de kern-vocabulaire (de `niod:`-extensie op schema.org). Dit is het hart van het profiel.
 - `ontology/shapes.ttl` — SHACL-shapes voor validatie van data tegen het profiel.
 - `context/context.jsonld` — de JSON-LD context voor gebruik in API's.
@@ -28,7 +28,7 @@ De repo is een pnpm-monorepo:
 
 Package manager: **pnpm** (workspaces). Draai `pnpm install` vanaf de root.
 
-- Website: `pnpm start` (dev-server) · `pnpm build` (productie-build) · `pnpm typecheck`
+- Website: `pnpm start` (dev-server) · `pnpm build` (productie-build) · `pnpm typecheck` · `pnpm test` (unit tests van de generator)
 - Valideer Turtle-syntax (spiegelt stap 1 van de CI, vereist `pip install rdflib`):
   ```sh
   python3 -c "

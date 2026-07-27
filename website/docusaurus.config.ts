@@ -26,6 +26,16 @@ const config: Config = {
     locales: ["nl"],
   },
 
+  markdown: {
+    mermaid: true,
+    // De gegenereerde /schema-pagina gebruikt expliciete heading-ankers
+    // ({#LocalName}); die syntax staat achter deze compat-vlag.
+    mdx1Compat: {
+      headingIds: true,
+    },
+  },
+  themes: ["@docusaurus/theme-mermaid"],
+
   presets: [
     [
       "classic",

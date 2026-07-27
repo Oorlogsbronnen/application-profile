@@ -6,7 +6,8 @@
   "scripts": {
     "start": "pnpm --filter website start",
     "build": "pnpm --filter website build",
-    "typecheck": "pnpm --filter website typecheck"
+    "test": "pnpm --recursive test",
+    "typecheck": "pnpm --recursive typecheck"
   },
   "pnpm": {
     "ignoredBuiltDependencies": [
