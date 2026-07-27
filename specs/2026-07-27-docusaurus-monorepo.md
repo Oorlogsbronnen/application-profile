@@ -19,8 +19,8 @@ Team Oorlogsbronnen wil de documentatie van het data.oorlogsbronnen-platform zel
 4. Nieuwe documentatie is toe te voegen door een `.md`/`.mdx`-bestand in `website/docs/` te zetten, zonder code aan te raken.
 5. Bestaande bestanden (`ontology/`, `context/`, `schemas/`) en de Widoco-workflow blijven ongewijzigd.
 
-## Open vragen
+## Besluiten
 
-- Waar wordt de site gehost en onder welk domein (data.oorlogsbronnen.nl?) — bepaalt `url`/`baseUrl` in de config.
-- Wat is de bron van het Oorlogsbronnen-ontwerpsysteem (tokens, CSS, Figma?) voor de minimale styling?
-- Eén- of tweetalig (nl/en)? De ontologie is tweetalig; de site start nu eentalig Nederlands.
+- Domein: `data.oorlogsbronnen.nl` (`url`/`baseUrl` in de Docusaurus-config).
+- De minimale styling volgt het Oorlogsbronnen-ontwerpsysteem in [Figma (NOB | Oorlogsbronnen.nl)](https://www.figma.com/design/pL5QrzmTgnXz1SlCPCfofu/NOB-%7C-Oorlogsbronnen.nl?node-id=7898-1837); de uitwerking blijft buiten scope van deze spec.
+- De site is uitsluitend Nederlandstalig.
