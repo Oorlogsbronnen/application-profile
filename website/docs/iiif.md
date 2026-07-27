@@ -5,7 +5,7 @@ sidebar_position: 5
 
 # IIIF
 
-:::note Inhoud volgt
+:::note[Inhoud volgt]
 
 Deze pagina wordt nog geschreven.
 

@@ -7,7 +7,7 @@ sidebar_position: 6
 
 Licenties en gebruiksvoorwaarden van de data van Oorlogsbronnen.
 
-:::note Inhoud volgt
+:::note[Inhoud volgt]
 
 Deze pagina wordt nog geschreven.
 
