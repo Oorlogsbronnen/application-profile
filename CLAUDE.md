@@ -23,6 +23,7 @@ De repo is een pnpm-monorepo:
 - `context/context.jsonld` — de JSON-LD context voor gebruik in API's.
 - `schemas/schema.ttl` — een gevendorde kopie van de volledige schema.org-vocabulaire (~20k regels). Alleen referentie; **nooit handmatig bewerken**.
 - `.github/workflows/generate-docs.yml` — bij elke push naar `main`: TTL-bestanden samenvoegen met rdflib, documentatie genereren met Widoco en publiceren naar `gh-pages` ([live documentatie](https://oorlogsbronnen.github.io/application-profile/)).
+- `.github/workflows/deploy-website.yml` — bij elke push naar `data`: de website bouwen en naar Netlify deployen (productie). Vereist de repository-secrets `NETLIFY_AUTH_TOKEN` en `NETLIFY_SITE_ID`.
 
 ## Tooling en commando's
 
