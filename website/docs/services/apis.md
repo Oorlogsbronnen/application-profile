@@ -15,7 +15,7 @@ _De lijst met beschikbare Spinque API-endpoints volgt hier._
 
 Voor JavaScript/TypeScript is er een officiële client-library:
 
-- [`@spinque/query-api`](https://www.npmjs.com/package/@spinque/query-api) — npm-package voor het bevragen van de Spinque API.
+- [`@spinque/query-api`](https://www.npmjs.com/package/@spinque/query-api): npm-package voor het bevragen van de Spinque API.
 
 ```ts
 import { Query } from "@spinque/query-api";
