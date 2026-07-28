@@ -5,8 +5,10 @@ import type {
   BaseBlock,
   Cardinality,
   ClassShape,
+  GroupId,
   PropertyDoc,
   RuleBlock,
+  ShapeSet,
   ValueType,
 } from "./model.js";
 import { localName, toTerm, type Prefixes } from "./iri.js";
@@ -20,9 +22,55 @@ const sh = (name: string) => `${SH}${name}`;
 const rdf = (name: string) => `${RDF}${name}`;
 
 export type ParseResult = {
-  profile: ApplicationProfile;
+  shapes: ShapeSet;
   prefixes: Prefixes;
 };
+
+/** Eén kennisgraaf als Turtle-bron; de bouwstenen komen uit een gedeeld bestand. */
+export type GroupSource = {
+  id: GroupId;
+  turtle: string;
+};
+
+/**
+ * Bouwt het volledige profiel uit de gedeelde bouwstenen en de shapes-bestanden
+ * van de kennisgrafen. Elke graaf wordt samen met de bouwstenen geparseerd,
+ * zodat de regels en basistypen binnen elke graaf resolven.
+ */
+export function parseProfile(
+  bouwstenen: string,
+  groupSources: GroupSource[],
+): ApplicationProfile {
+  const shared = parseShapes(bouwstenen).shapes;
+  const groups = groupSources.map(({ id, turtle }) => ({
+    id,
+    shapes: parseShapes(combineTurtle(bouwstenen, turtle)).shapes.classShapes,
+  }));
+  return { groups, rules: shared.rules, bases: shared.bases };
+}
+
+/** Voegt Turtle-bronnen samen; `@prefix`-regels die al voorkwamen worden niet herhaald. */
+export function combineTurtle(...parts: string[]): string {
+  const seen = new Set<string>();
+  return parts
+    .map((part) =>
+      part
+        .split("\n")
+        .filter((line) => {
+          if (!line.startsWith("@prefix")) {
+            return true;
+          }
+          if (seen.has(line)) {
+            return false;
+          }
+          seen.add(line);
+          return true;
+        })
+        .join("\n")
+        .trim(),
+    )
+    .join("\n\n");
+}
 
 export function parseShapes(turtle: string): ParseResult {
   const parser = new Parser();
@@ -38,9 +86,9 @@ export function parseShapes(turtle: string): ParseResult {
     classShapeSubjects.map((subject) => subject.value),
   );
 
-  // Documentvolgorde van shapes.ttl: de N3-store geeft subjects terug in
-  // volgorde van eerste voorkomen, zodat de redactie de leesvolgorde bepaalt
-  // door de shapes in shapes.ttl te herordenen.
+  // Documentvolgorde van het shapes-bestand: de N3-store geeft subjects terug
+  // in volgorde van eerste voorkomen, zodat de redactie de leesvolgorde
+  // bepaalt door de shapes in het bestand te herordenen.
   const classShapes = classShapeSubjects.map((subject) =>
     parseClassShape(store, subject, prefixes),
   );
@@ -67,12 +115,12 @@ export function parseShapes(turtle: string): ParseResult {
   rules.sort(byLocalName);
   bases.sort(byLocalName);
 
-  return { profile: { classShapes, rules, bases }, prefixes };
+  return { shapes: { classShapes, rules, bases }, prefixes };
 }
 
 /**
  * N3's synchrone parse-API geeft de prefixes niet terug; ze staan in de
- * vaste `@prefix`-kop van shapes.ttl en worden daar uitgelezen.
+ * vaste `@prefix`-kop van de shapes-bestanden en worden daar uitgelezen.
  */
 function extractPrefixes(turtle: string): Prefixes {
   const prefixes: Prefixes = {};

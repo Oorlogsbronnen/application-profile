@@ -10,24 +10,29 @@ export const texts = {
   page: {
     title: "Oorlogsbronnen Application Profile",
     metaDescription:
-      "De klassen, properties en bouwstenen van het Oorlogsbronnen application profile, gegenereerd uit de SHACL-shapes in ontology/shapes.ttl.",
+      "De klassen en properties van de kennisgrafen personen en objecten van Oorlogsbronnen, gegenereerd uit de SHACL-shapes in ontology/.",
     intro:
-      "Het application profile van Oorlogsbronnen definieert de klassen en properties waarmee metadata over personen, gebeurtenissen en bronnen wordt vastgelegd. Deze pagina is automatisch gegenereerd uit de SHACL-shapes in [`ontology/shapes.ttl`](https://github.com/Oorlogsbronnen/application-profile/blob/main/ontology/shapes.ttl) — dat bestand is en blijft de source of truth.",
+      "Het application profile van Oorlogsbronnen definieert de klassen en properties waarmee metadata over personen, gebeurtenissen en bronnen wordt vastgelegd, verdeeld over twee kennisgrafen: **personen** en **objecten**. Deze pagina is automatisch gegenereerd uit de SHACL-shapes in [`ontology/`](https://github.com/Oorlogsbronnen/application-profile/tree/main/ontology) (`shapes-bouwstenen.ttl`, `shapes-personen.ttl` en `shapes-collecties.ttl`) — die bestanden zijn en blijven de source of truth.",
     namespaceLabel: "Namespace",
     machineReadableLabel: "Machine-leesbaar",
-    machineReadableLink: "[schema.ttl](/schema.ttl) (Turtle)",
+    machineReadableLink:
+      "[schema.ttl](/schema.ttl) (volledig) · [schema-personen.ttl](/schema-personen.ttl) · [schema-collecties.ttl](/schema-collecties.ttl) (Turtle)",
     generatedComment: [
       "GEGENEREERD BESTAND — niet handmatig bewerken.",
-      "Bron: ontology/shapes.ttl · generator: packages/schema-docs",
+      "Bron: ontology/shapes-*.ttl · generator: packages/schema-docs",
       "Toelichting-hoofdstuk bewerken: website/docs/datamodel/_schema-toelichting.mdx",
+      "Intro's van de kennisgraaf-hoofdstukken: website/docs/datamodel/_schema-personen.mdx en _schema-objecten.mdx",
       "Voorbeelden toevoegen: ontology/examples/ (zie packages/schema-docs/README.md)",
     ],
   },
 
   sections: {
     overview: "Overzicht",
-    editorial: "Gebruikte datamodellen en vocabulaires",
-    classes: "Klassen",
+    editorial: "Datamodellen en vocabulaires",
+    groups: {
+      personen: "Personen",
+      objecten: "Objecten",
+    },
     fullExamples: "Volledige voorbeelden",
   },
 

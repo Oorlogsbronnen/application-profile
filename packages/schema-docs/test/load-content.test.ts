@@ -5,14 +5,22 @@ import { loadPageContent } from "../src/load-content.js";
 const fixtures = resolve(__dirname, "fixtures");
 
 describe("loadPageContent", () => {
-  it("laadt toelichting en voorbeelden van schijf", () => {
+  it("laadt toelichting, groep-intro's en voorbeelden van schijf", () => {
     const content = loadPageContent({
       editorialPath: resolve(fixtures, "_toelichting.mdx"),
+      groupIntroPaths: {
+        personen: resolve(fixtures, "_personen.mdx"),
+        objecten: resolve(fixtures, "bestaat-niet.mdx"),
+      },
       classExamplesDir: resolve(fixtures, "examples"),
       fullExamplesDir: resolve(fixtures, "examples/volledig"),
     });
 
     expect(content.editorial).toBe("Toelichting uit het fixture-bestand.");
+    expect(content.groupIntros.personen).toBe(
+      "Personen-intro uit het fixture-bestand.",
+    );
+    expect(content.groupIntros.objecten).toBeUndefined();
     expect([...content.classExamples.keys()]).toEqual(["EventShape"]);
     expect(content.classExamples.get("EventShape")).toContain(
       "Voorbeeldgebeurtenis",
@@ -25,11 +33,16 @@ describe("loadPageContent", () => {
   it("levert lege inhoud als bestanden en mappen ontbreken", () => {
     const content = loadPageContent({
       editorialPath: resolve(fixtures, "bestaat-niet.mdx"),
+      groupIntroPaths: {
+        personen: resolve(fixtures, "bestaat-niet.mdx"),
+        objecten: resolve(fixtures, "bestaat-niet.mdx"),
+      },
       classExamplesDir: resolve(fixtures, "bestaat-niet"),
       fullExamplesDir: resolve(fixtures, "bestaat-niet/volledig"),
     });
 
     expect(content.editorial).toBeNull();
+    expect(content.groupIntros).toEqual({});
     expect(content.classExamples.size).toBe(0);
     expect(content.fullExamples).toEqual([]);
   });
@@ -38,6 +51,10 @@ describe("loadPageContent", () => {
     expect(() =>
       loadPageContent({
         editorialPath: resolve(fixtures, "bestaat-niet.mdx"),
+        groupIntroPaths: {
+          personen: resolve(fixtures, "bestaat-niet.mdx"),
+          objecten: resolve(fixtures, "bestaat-niet.mdx"),
+        },
         classExamplesDir: resolve(fixtures, "kapot"),
         fullExamplesDir: resolve(fixtures, "bestaat-niet"),
       }),

@@ -4,6 +4,7 @@ import type {
   ClassShape,
   PropertyDoc,
   RuleBlock,
+  ShapeGroup,
   Term,
   ValueType,
 } from "./model.js";
@@ -15,19 +16,21 @@ import {
   rulesByName,
   shapeByTargetClass,
 } from "./presenter.js";
-import { renderDiagram } from "./render-diagram.js";
+import { renderGroupDiagram } from "./render-diagram.js";
 import { SCHEMA_NS } from "./parse-shapes.js";
 import { texts } from "./texts.js";
 
 /**
  * Genereert de volledige MDX-pagina voor /schema.
  *
+ * Elke kennisgraaf (personen, objecten) krijgt een eigen hoofdstuk; de
+ * klassen daarbinnen volgen de documentvolgorde van hun shapes-bestand.
  * Koppen van klassen tonen de Nederlandse naam (`sh:name`) zodat de
  * inhoudsopgave leesbaar is; het anker blijft altijd exact de Engelse local
- * name van de IRI, zodat `…/schema#<LocalName>` blijft resolven. De klassen
- * volgen de documentvolgorde van shapes.ttl. Secties zijn genummerd
- * (1, 2, 2.1, …) zodat de inhoudsopgave leest als een specificatie; de
- * nummering schuift op wanneer het redactionele hoofdstuk aanwezig is.
+ * name van de IRI, zodat `…/schema#<LocalName>` blijft resolven. Secties
+ * zijn genummerd (1, 2, 2.1, …) zodat de inhoudsopgave leest als een
+ * specificatie; de nummering schuift op wanneer het redactionele hoofdstuk
+ * aanwezig is.
  */
 export function renderPage(
   profile: ApplicationProfile,
@@ -39,32 +42,20 @@ export function renderPage(
     targetIndex: shapeByTargetClass(profile),
   };
 
-  const classChapter = content.editorial ? 3 : 2;
-
-  const classSections = profile.classShapes
-    .map((shape, index) =>
-      renderClassShape(
-        shape,
-        `${classChapter}.${index + 1}`,
-        context,
-        content.classExamples.get(shape.localName) ?? null,
-      ),
-    )
-    .join("\n\n");
-
-  const chapters: string[] = [
-    `## 1. ${texts.sections.overview} {#overzicht}\n\n\`\`\`mermaid\n${renderDiagram(profile)}\n\`\`\``,
-  ];
+  let chapterNumber = 1;
+  const chapters: string[] = [renderOverview(profile, chapterNumber)];
   if (content.editorial) {
+    chapterNumber += 1;
     chapters.push(
-      `## 2. ${texts.sections.editorial} {#datamodellen}\n\n${content.editorial}`,
+      `## ${chapterNumber}. ${texts.sections.editorial} {#datamodellen}\n\n${content.editorial}`,
     );
   }
-  chapters.push(
-    `## ${classChapter}. ${texts.sections.classes} {#klassen}\n\n${classSections}`,
-  );
+  for (const group of profile.groups) {
+    chapterNumber += 1;
+    chapters.push(renderGroup(group, chapterNumber, context, content));
+  }
   if (content.fullExamples.length > 0) {
-    chapters.push(renderFullExamples(content.fullExamples, classChapter + 1));
+    chapters.push(renderFullExamples(content.fullExamples, chapterNumber + 1));
   }
 
   return `---
@@ -94,6 +85,48 @@ type RenderContext = {
   bases: Map<string, BaseBlock>;
   targetIndex: Map<string, ClassShape>;
 };
+
+/** Hoofdstuk 1: per kennisgraaf een klassendiagram, met de graafnaam als caption. */
+function renderOverview(
+  profile: ApplicationProfile,
+  chapterNumber: number,
+): string {
+  const parts = [
+    `## ${chapterNumber}. ${texts.sections.overview} {#overzicht}`,
+  ];
+  for (const group of profile.groups) {
+    parts.push(`**${texts.sections.groups[group.id]}**`);
+    parts.push(`\`\`\`mermaid\n${renderGroupDiagram(group, profile)}\n\`\`\``);
+  }
+  return parts.join("\n\n");
+}
+
+/** Hoofdstuk per kennisgraaf: optionele redactionele intro, dan de klassen. */
+function renderGroup(
+  group: ShapeGroup,
+  chapterNumber: number,
+  context: RenderContext,
+  content: PageContent,
+): string {
+  const parts = [
+    `## ${chapterNumber}. ${texts.sections.groups[group.id]} {#${group.id}}`,
+  ];
+  const intro = content.groupIntros[group.id];
+  if (intro) {
+    parts.push(intro);
+  }
+  for (const [index, shape] of group.shapes.entries()) {
+    parts.push(
+      renderClassShape(
+        shape,
+        `${chapterNumber}.${index + 1}`,
+        context,
+        content.classExamples.get(shape.localName) ?? null,
+      ),
+    );
+  }
+  return parts.join("\n\n");
+}
 
 function renderClassShape(
   shape: ClassShape,

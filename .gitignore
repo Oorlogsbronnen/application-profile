@@ -1,6 +1,8 @@
 node_modules/
 .DS_Store
 
-# Gegenereerd door packages/schema-docs (bron: ontology/shapes.ttl)
+# Gegenereerd door packages/schema-docs (bron: ontology/shapes-*.ttl)
 website/docs/datamodel/application-profile.mdx
 website/static/schema.ttl
+website/static/schema-personen.ttl
+website/static/schema-collecties.ttl

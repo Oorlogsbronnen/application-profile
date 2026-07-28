@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "description": "Genereert de application profile-documentatie (/schema) uit ontology/shapes.ttl",
+  "description": "Genereert de application profile-documentatie (/schema) uit de shapes-bestanden in ontology/",
   "scripts": {
     "generate": "tsx src/cli.ts",
     "test": "vitest run",
