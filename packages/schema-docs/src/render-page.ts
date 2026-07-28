@@ -7,6 +7,7 @@ import type {
   Term,
   ValueType,
 } from "./model.js";
+import type { Example, PageContent } from "./page-content.js";
 import {
   allowedClasses,
   cardinalityText,
@@ -23,19 +24,48 @@ import { texts } from "./texts.js";
  *
  * Koppen van klassen tonen de Nederlandse naam (`sh:name`) zodat de
  * inhoudsopgave leesbaar is; het anker blijft altijd exact de Engelse local
- * name van de IRI, zodat `…/schema#<LocalName>` blijft resolven. Secties zijn
- * genummerd (1, 2, 2.1, …) zodat de inhoudsopgave leest als een specificatie.
+ * name van de IRI, zodat `…/schema#<LocalName>` blijft resolven. De klassen
+ * volgen de documentvolgorde van shapes.ttl. Secties zijn genummerd
+ * (1, 2, 2.1, …) zodat de inhoudsopgave leest als een specificatie; de
+ * nummering schuift op wanneer het redactionele hoofdstuk aanwezig is.
  */
-export function renderPage(profile: ApplicationProfile): string {
+export function renderPage(
+  profile: ApplicationProfile,
+  content: PageContent,
+): string {
   const context: RenderContext = {
     rules: rulesByName(profile),
     bases: new Map(profile.bases.map((base) => [base.localName, base])),
     targetIndex: shapeByTargetClass(profile),
   };
 
+  const classChapter = content.editorial ? 3 : 2;
+
   const classSections = profile.classShapes
-    .map((shape, index) => renderClassShape(shape, `2.${index + 1}`, context))
+    .map((shape, index) =>
+      renderClassShape(
+        shape,
+        `${classChapter}.${index + 1}`,
+        context,
+        content.classExamples.get(shape.localName) ?? null,
+      ),
+    )
     .join("\n\n");
+
+  const chapters: string[] = [
+    `## 1. ${texts.sections.overview} {#overzicht}\n\n\`\`\`mermaid\n${renderDiagram(profile)}\n\`\`\``,
+  ];
+  if (content.editorial) {
+    chapters.push(
+      `## 2. ${texts.sections.editorial} {#datamodellen}\n\n${content.editorial}`,
+    );
+  }
+  chapters.push(
+    `## ${classChapter}. ${texts.sections.classes} {#klassen}\n\n${classSections}`,
+  );
+  if (content.fullExamples.length > 0) {
+    chapters.push(renderFullExamples(content.fullExamples, classChapter + 1));
+  }
 
   return `---
 title: ${texts.page.title}
@@ -55,29 +85,7 @@ ${texts.page.intro}
 - **${texts.page.namespaceLabel}:** \`${SCHEMA_NS}\`
 - **${texts.page.machineReadableLabel}:** ${texts.page.machineReadableLink}
 
-## 1. ${texts.sections.overview} {#overzicht}
-
-\`\`\`mermaid
-${renderDiagram(profile)}
-\`\`\`
-
-## 2. ${texts.sections.classes} {#klassen}
-
-${classSections}
-
-## 3. ${texts.sections.buildingBlocks} {#bouwstenen}
-
-${texts.buildingBlocks.intro}
-
-### 3.1 ${texts.sections.rules} {#regels}
-
-${tableHeader(texts.buildingBlocks.rulesTableHeader)}
-${profile.rules.map((rule) => renderRuleRow(rule, context)).join("\n")}
-
-### 3.2 ${texts.sections.baseTypes} {#basistypen}
-
-${tableHeader(texts.buildingBlocks.baseTypesTableHeader)}
-${profile.bases.map((base) => renderBaseRow(base, context)).join("\n")}
+${chapters.join("\n\n")}
 `;
 }
 
@@ -91,6 +99,7 @@ function renderClassShape(
   shape: ClassShape,
   sectionNumber: string,
   context: RenderContext,
+  example: string | null,
 ): string {
   const heading = shape.name ? escapeText(shape.name) : shape.localName;
   const lines: string[] = [
@@ -100,15 +109,11 @@ function renderClassShape(
   lines.push("");
   lines.push(`\`${SCHEMA_NS}${shape.localName}\``);
 
-  const facts: string[] = [];
   if (shape.targetClasses.length > 0) {
-    facts.push(
+    lines.push("");
+    lines.push(
       `**${texts.classShape.appliesToLabel}:** ${shape.targetClasses.map((t) => termLink(t)).join(", ")}`,
     );
-  }
-  if (facts.length > 0) {
-    lines.push("");
-    lines.push(facts.join(" · "));
   }
 
   if (shape.description) {
@@ -129,7 +134,36 @@ function renderClassShape(
     lines.push(renderPropertyRow(property, context));
   }
 
+  if (example) {
+    lines.push("");
+    lines.push(
+      `#### ${texts.examples.classExampleTitle} {#voorbeeld-${shape.localName}}`,
+    );
+    lines.push("");
+    lines.push(jsonBlock(example));
+  }
+
   return lines.join("\n");
+}
+
+function renderFullExamples(
+  examples: Example[],
+  chapterNumber: number,
+): string {
+  const sections = examples.map((example, index) =>
+    [
+      `### ${chapterNumber}.${index + 1} ${escapeText(example.name)} {#voorbeeld-${example.name}}`,
+      "",
+      jsonBlock(example.json),
+    ].join("\n"),
+  );
+  return [
+    `## ${chapterNumber}. ${texts.sections.fullExamples} {#volledige-voorbeelden}`,
+    "",
+    texts.examples.fullExamplesIntro,
+    "",
+    sections.join("\n\n"),
+  ].join("\n");
 }
 
 function renderPropertyRow(
@@ -154,23 +188,6 @@ function renderPropertyRow(
     nameAndDescription,
     cardinality,
     rule ? ruleValueTypeText(rule, context) : "",
-    property.ruleRef ? blockLink(property.ruleRef) : "",
-  ]);
-}
-
-function renderRuleRow(rule: RuleBlock, context: RenderContext): string {
-  return tableRow([
-    blockAnchor(rule.localName),
-    termLink(rule.path),
-    cardinalityText(rule.cardinality),
-    ruleValueTypeText(rule, context),
-  ]);
-}
-
-function renderBaseRow(base: BaseBlock, context: RenderContext): string {
-  return tableRow([
-    blockAnchor(base.localName),
-    valueTypeLabel(base.valueType, context),
   ]);
 }
 
@@ -222,14 +239,13 @@ function termLink(term: Term): string {
   return `[\`${term.compact}\`](${term.iri})`;
 }
 
-/** Interne link naar een bouwsteen of shape, op local name. */
+/** Interne link naar een shape, op local name. */
 function blockLink(name: string): string {
   return `[\`${name}\`](#${name})`;
 }
 
-/** Ankerpunt + label voor een bouwsteen in een tabelcel. */
-function blockAnchor(name: string): string {
-  return `<a id="${name}"></a>\`${name}\``;
+function jsonBlock(json: string): string {
+  return ["```json", json, "```"].join("\n");
 }
 
 function tableHeader(columns: readonly string[]): string {

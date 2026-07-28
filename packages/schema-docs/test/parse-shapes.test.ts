@@ -123,6 +123,13 @@ describe("parseShapes op de echte shapes.ttl", () => {
   );
   const { profile } = parseShapes(turtle);
 
+  it("houdt de documentvolgorde van shapes.ttl aan", () => {
+    expect(profile.classShapes[0]?.localName).toBe(
+      "PersoonReconstructionShape",
+    );
+    expect(profile.classShapes.at(-1)?.localName).toBe("ConceptShape");
+  });
+
   it("vindt alle klasse-shapes van het profiel", () => {
     const names = profile.classShapes.map((shape) => shape.localName);
     expect(names).toContain("PersoonReconstructionShape");

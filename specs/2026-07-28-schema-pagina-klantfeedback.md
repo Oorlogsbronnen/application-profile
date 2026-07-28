@@ -24,8 +24,5 @@ De klant heeft feedback gegeven op de gegenereerde `/schema`-pagina: de alfabeti
 ## Besluiten
 
 - Dit herroept het eerdere besluit (spec schema-docs-generator, 2026-07-27) om `Rule_*`/`Base_*` zichtbaar te documenteren. Gevolg: ankers als `/schema#Rule_title` verwijzen niet langer naar een sectie op de pagina; de blokken blijven wel bestaan in `shapes.ttl` en `/schema.ttl`.
-
-## Open vragen
-
-- Volstaat documentvolgorde, of wil de klant zichtbare **groepen met tussenkopjes** binnen "Klassen" (bv. "Personen", "Bronnen en objecten", "Context")? Zo ja: welke groepen, en waar leggen we die vast?
-- Voorbeelden alleen in JSON-LD (zoals NDE), of ook als Turtle-tab?
+- Documentvolgorde volstaat; geen zichtbare groepen met tussenkopjes binnen "Klassen" (2026-07-28).
+- Voorbeelden alleen in JSON-LD, geen Turtle-tab (2026-07-28).

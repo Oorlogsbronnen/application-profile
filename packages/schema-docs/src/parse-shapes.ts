@@ -38,9 +38,12 @@ export function parseShapes(turtle: string): ParseResult {
     classShapeSubjects.map((subject) => subject.value),
   );
 
-  const classShapes = classShapeSubjects
-    .map((subject) => parseClassShape(store, subject, prefixes))
-    .sort(byLocalName);
+  // Documentvolgorde van shapes.ttl: de N3-store geeft subjects terug in
+  // volgorde van eerste voorkomen, zodat de redactie de leesvolgorde bepaalt
+  // door de shapes in shapes.ttl te herordenen.
+  const classShapes = classShapeSubjects.map((subject) =>
+    parseClassShape(store, subject, prefixes),
+  );
 
   const blockSubjects = store
     .getSubjects(null, null, null)
