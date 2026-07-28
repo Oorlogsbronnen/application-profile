@@ -19,15 +19,16 @@ export const texts = {
     generatedComment: [
       "GEGENEREERD BESTAND — niet handmatig bewerken.",
       "Bron: ontology/shapes.ttl · generator: packages/schema-docs",
+      "Toelichting-hoofdstuk bewerken: website/docs/datamodel/_schema-toelichting.mdx",
+      "Voorbeelden toevoegen: ontology/examples/ (zie packages/schema-docs/README.md)",
     ],
   },
 
   sections: {
     overview: "Overzicht",
+    editorial: "Gebruikte datamodellen en vocabulaires",
     classes: "Klassen",
-    buildingBlocks: "Bouwstenen",
-    rules: "Regels",
-    baseTypes: "Basistypen",
+    fullExamples: "Volledige voorbeelden",
   },
 
   classShape: {
@@ -40,15 +41,13 @@ export const texts = {
       "Naam en beschrijving",
       "Kardinaliteit",
       "Waardetype",
-      "Regel",
     ],
   },
 
-  buildingBlocks: {
-    intro:
-      "De klasse-shapes hierboven zijn opgebouwd uit herbruikbare bouwstenen: **regels** (`Rule_*`) die een property-pad koppelen aan een waardetype en kardinaliteit, en **basistypen** (`Base_*`) die alleen een waardetype definiëren.",
-    rulesTableHeader: ["Regel", "Property-pad", "Kardinaliteit", "Waardetype"],
-    baseTypesTableHeader: ["Basistype", "Waardetype"],
+  examples: {
+    classExampleTitle: "Voorbeeld",
+    fullExamplesIntro:
+      "Volledige JSON-LD-voorbeelden van records volgens dit profiel. De bestanden staan in [`ontology/examples/volledig/`](https://github.com/Oorlogsbronnen/application-profile/tree/main/ontology/examples/volledig).",
   },
 
   cardinality: {

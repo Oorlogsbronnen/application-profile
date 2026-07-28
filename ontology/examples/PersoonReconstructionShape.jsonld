@@ -1,0 +1,17 @@
+{
+  "@context": "https://data.oorlogsbronnen.nl/context.jsonld",
+  "id": "https://data.oorlogsbronnen.nl/personen/voorbeeld-123",
+  "type": "PersonReconstruction",
+  "identifier": "voorbeeld-123",
+  "name": "Jan Jansen",
+  "birthDate": "1920-03-14",
+  "birthPlace": "Rotterdam",
+  "deathDate": "1944-09-05",
+  "deathPlace": "Vught",
+  "wasDerivedFrom": [
+    {
+      "id": "https://data.oorlogsbronnen.nl/vermeldingen/voorbeeld-456",
+      "type": "PersonObservation"
+    }
+  ]
+}

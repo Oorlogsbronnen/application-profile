@@ -385,7 +385,7 @@
     "genoemde": {
       "@id": "genoemde",
       "@type": "rdfs:Property"
-    }
+    },
     "givenName": {
       "@id": "sdo:givenName",
       "@type": "rdfs:Property"

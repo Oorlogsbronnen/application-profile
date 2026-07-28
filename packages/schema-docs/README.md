@@ -16,13 +16,24 @@ Beide bestanden zijn **ge-gitignored**: ze worden bij elke build opnieuw gemaakt
 De pagina bevat:
 
 1. **Overzicht** — een Mermaid-diagram van de klasse-shapes: overerving (via `sh:node`) en verwijzingen (via `sh:class`-constraints van de gebruikte regels).
-2. **Klassen** — per NodeShape een genummerde sectie met de volledige IRI, de Nederlandse naam en beschrijving, de target classes en een tabel van de properties (kardinaliteit en waardetype).
-3. **Bouwstenen** — de herbruikbare blokken waaruit de klasse-shapes zijn opgebouwd: **regels** (`Rule_*`: property-pad + waardetype + kardinaliteit) en **basistypen** (`Base_*`: alleen een waardetype).
+2. **Gebruikte datamodellen en vocabulaires** _(optioneel)_ — redactionele toelichting uit het handgeschreven fragment [`website/docs/datamodel/_schema-toelichting.mdx`](../../website/docs/datamodel/_schema-toelichting.mdx). Is dat bestand leeg of verwijderd, dan vervalt dit hoofdstuk en schuift de nummering op.
+3. **Klassen** — per NodeShape een genummerde sectie met de volledige IRI, de Nederlandse naam en beschrijving, de target classes en een tabel van de properties (kardinaliteit en waardetype), plus een JSON-LD-voorbeeld als dat bestaat.
+4. **Volledige voorbeelden** _(optioneel)_ — één sectie per bestand in `ontology/examples/volledig/`.
+
+## Voorbeelden toevoegen
+
+Voorbeelden zijn JSON-LD-bestanden in `ontology/examples/`; er is geen generator-aanpassing nodig om er een toe te voegen:
+
+- **Per klasse:** `ontology/examples/<LocalName>.jsonld` (bv. `CreativeWorkShape.jsonld`) verschijnt als "Voorbeeld"-codeblok onderaan de sectie van die klasse. Een bestandsnaam die bij geen enkele shape hoort breekt de build — een typefout verdwijnt dus nooit geruisloos.
+- **Volledig:** bestanden in `ontology/examples/volledig/` verschijnen als eigen sectie in het hoofdstuk "Volledige voorbeelden" (bestandsnaam zonder extensie = sectiekop, alfabetisch gesorteerd).
+
+Elk voorbeeldbestand wordt bij het genereren gevalideerd als JSON; kapotte JSON breekt de build met een melding die het bestand noemt.
 
 ## Gedrag en conventies
 
 - **Koppen tonen de Nederlandse naam, ankers de local name.** De koptitel van een klasse is de `sh:name` van de shape (bv. "Archieven"), zodat de inhoudsopgave leesbaar blijft. Het URL-anker is altijd exact de Engelse local name van de IRI, zodat `https://data.oorlogsbronnen.nl/schema#ArchiveShape` — tegelijk de IRI van de shape én een URL — naar de juiste sectie blijft verwijzen. Ontbreekt de naam, dan valt de kop terug op de local name.
-- **Elke bouwsteen heeft een eigen anker**, ook gelijk aan de local name (`/schema#Rule_title`). De property-tabellen linken ernaar.
+- **Klassen volgen de documentvolgorde van `shapes.ttl`.** Wil je de leesvolgorde op de pagina veranderen, herorden dan de shapes in `shapes.ttl`.
+- **De `Rule_*`/`Base_*`-bouwstenen worden niet getoond.** Ze blijven de bron voor kardinaliteit en waardetype per property, maar krijgen geen eigen hoofdstuk of ankers meer (besluit klantfeedback, zie `specs/2026-07-28-schema-pagina-klantfeedback.md`).
 - **Kardinaliteit** komt uit `sh:minCount`/`sh:maxCount`. Inline constraints op een property gaan vóór die van de regel (zo wordt `sh:maxCount 0` weergegeven als "0 — niet toegestaan").
 - **Waardetypen** worden herleid via de bouwstenen: `sh:datatype` → bv. `xsd:string`, `sh:nodeKind sh:IRI` → "IRI", `sh:class` of `sh:or` van klassen → "IRI van …" met een link. Verwijst een klasse naar een shape uit dit profiel, dan is dat een interne link.
 - **Overerving** (`sh:node` op shape-niveau, zoals `ArchiveShape` → `CreativeWorkShape`) wordt getoond als verwijzing naar de basis-shape; de tabel toont alleen de eigen properties.
@@ -57,9 +68,11 @@ src/
   cli.ts             # entrypoint: lezen → parsen → renderen → wegschrijven
   parse-shapes.ts    # Turtle (N3.js) → domeinmodel
   model.ts           # het domeinmodel: ClassShape, RuleBlock, BaseBlock, …
+  page-content.ts    # types voor redactionele en voorbeeld-inhoud
+  load-content.ts    # laadt toelichting-fragment en voorbeelden van schijf
   presenter.ts       # gedeelde weergavelogica (kardinaliteit, toegestane klassen)
-  render-page.ts     # domeinmodel → MDX-pagina
+  render-page.ts     # domeinmodel + inhoud → MDX-pagina
   render-diagram.ts  # domeinmodel → Mermaid-classDiagram
   texts.ts           # alle vaste teksten van de pagina
-test/                # unit tests op een fixture én op de echte shapes.ttl
+test/                # unit tests op fixtures én op de echte shapes.ttl
 ```

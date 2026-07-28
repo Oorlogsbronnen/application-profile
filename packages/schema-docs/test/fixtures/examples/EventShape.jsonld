@@ -1,0 +1,5 @@
+{
+  "@context": "https://data.oorlogsbronnen.nl/context.jsonld",
+  "@type": "sdo:Event",
+  "sdo:name": "Voorbeeldgebeurtenis"
+}
