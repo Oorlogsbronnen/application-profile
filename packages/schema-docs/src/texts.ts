@@ -2,9 +2,9 @@
  * Alle vaste (Nederlandstalige) teksten van de gegenereerde /schema-pagina
  * op één plek, zodat copy-wijzigingen geen renderlogica raken.
  *
- * Koptitels van klassen en bouwstenen staan hier bewust NIET in: die zijn
- * altijd de Engelse local name van de IRI (bv. `ArchiveShape`), zodat
- * identifier, URL-anker en koptitel exact gelijk blijven.
+ * Koptitels van klassen staan hier bewust NIET in: die komen uit de
+ * `sh:name` van de shape zelf. Hun URL-anker blijft altijd de Engelse local
+ * name van de IRI (bv. `ArchiveShape`), zodat identifier en anker gelijk zijn.
  */
 export const texts = {
   page: {
@@ -31,7 +31,6 @@ export const texts = {
   },
 
   classShape: {
-    nameLabel: "Naam",
     appliesToLabel: "Van toepassing op",
     inheritanceTitle: "Overerving",
     inheritanceText: (parentLink: string): string =>

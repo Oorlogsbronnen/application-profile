@@ -21,10 +21,10 @@ import { texts } from "./texts.js";
 /**
  * Genereert de volledige MDX-pagina voor /schema.
  *
- * Koppen van klassen en bouwstenen zijn altijd de Engelse local name van de
- * IRI, met een anker dat daaraan exact gelijk is — zo blijven identifier,
- * URL en koptitel één geheel. Secties zijn genummerd (1, 2, 2.1, …) zodat de
- * inhoudsopgave leest als een specificatie.
+ * Koppen van klassen tonen de Nederlandse naam (`sh:name`) zodat de
+ * inhoudsopgave leesbaar is; het anker blijft altijd exact de Engelse local
+ * name van de IRI, zodat `…/schema#<LocalName>` blijft resolven. Secties zijn
+ * genummerd (1, 2, 2.1, …) zodat de inhoudsopgave leest als een specificatie.
  */
 export function renderPage(profile: ApplicationProfile): string {
   const context: RenderContext = {
@@ -92,17 +92,15 @@ function renderClassShape(
   sectionNumber: string,
   context: RenderContext,
 ): string {
+  const heading = shape.name ? escapeText(shape.name) : shape.localName;
   const lines: string[] = [
-    `### ${sectionNumber} ${shape.localName} {#${shape.localName}}`,
+    `### ${sectionNumber} ${heading} {#${shape.localName}}`,
   ];
 
   lines.push("");
   lines.push(`\`${SCHEMA_NS}${shape.localName}\``);
 
   const facts: string[] = [];
-  if (shape.name) {
-    facts.push(`**${texts.classShape.nameLabel}:** ${escapeText(shape.name)}`);
-  }
   if (shape.targetClasses.length > 0) {
     facts.push(
       `**${texts.classShape.appliesToLabel}:** ${shape.targetClasses.map((t) => termLink(t)).join(", ")}`,
