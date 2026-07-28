@@ -21,7 +21,7 @@ De pagina bevat:
 
 ## Gedrag en conventies
 
-- **Koppen zijn Engelse local names.** De koptitel van een klasse is exact de local name van de IRI (bv. `ArchiveShape`), en het URL-anker is daaraan gelijk. Zo verwijst `https://data.oorlogsbronnen.nl/schema#ArchiveShape` — tegelijk de IRI van de shape én een URL — altijd naar de juiste sectie. Beschrijvende teksten blijven Nederlands.
+- **Koppen tonen de Nederlandse naam, ankers de local name.** De koptitel van een klasse is de `sh:name` van de shape (bv. "Archieven"), zodat de inhoudsopgave leesbaar blijft. Het URL-anker is altijd exact de Engelse local name van de IRI, zodat `https://data.oorlogsbronnen.nl/schema#ArchiveShape` — tegelijk de IRI van de shape én een URL — naar de juiste sectie blijft verwijzen. Ontbreekt de naam, dan valt de kop terug op de local name.
 - **Elke bouwsteen heeft een eigen anker**, ook gelijk aan de local name (`/schema#Rule_title`). De property-tabellen linken ernaar.
 - **Kardinaliteit** komt uit `sh:minCount`/`sh:maxCount`. Inline constraints op een property gaan vóór die van de regel (zo wordt `sh:maxCount 0` weergegeven als "0 — niet toegestaan").
 - **Waardetypen** worden herleid via de bouwstenen: `sh:datatype` → bv. `xsd:string`, `sh:nodeKind sh:IRI` → "IRI", `sh:class` of `sh:or` van klassen → "IRI van …" met een link. Verwijst een klasse naar een shape uit dit profiel, dan is dat een interne link.
@@ -31,7 +31,7 @@ De pagina bevat:
 
 ## Teksten aanpassen
 
-Alle vaste teksten van de pagina (intro, sectietitels, tabelkoppen, labels) staan bij elkaar in [`src/texts.ts`](src/texts.ts). Copy-wijzigingen kunnen daar, zonder de renderlogica te raken. De koptitels van klassen en bouwstenen staan er bewust niet in: die zijn altijd de local name (zie hierboven).
+Alle vaste teksten van de pagina (intro, sectietitels, tabelkoppen, labels) staan bij elkaar in [`src/texts.ts`](src/texts.ts). Copy-wijzigingen kunnen daar, zonder de renderlogica te raken. De koptitels van klassen staan er bewust niet in: die komen uit de `sh:name` in `shapes.ttl` (zie hierboven).
 
 ## Gebruik
 

@@ -11,15 +11,23 @@ const turtle = readFileSync(
 );
 const { profile } = parseShapes(turtle);
 
+function escapeRegExp(text: string): string {
+  return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
 describe("renderPage", () => {
   const page = renderPage(profile);
 
-  it("gebruikt de local name als genummerde koptitel én anker", () => {
+  it("gebruikt de Nederlandse naam als koptitel en de local name als anker", () => {
     for (const shape of profile.classShapes) {
+      const heading = shape.name ?? shape.localName;
       expect(page).toMatch(
-        new RegExp(`### 2\\.\\d+ ${shape.localName} \\{#${shape.localName}\\}`),
+        new RegExp(
+          `### 2\\.\\d+ ${escapeRegExp(heading)} \\{#${shape.localName}\\}`,
+        ),
       );
     }
+    expect(page).toContain("### 2.1 Archieven {#ArchiveShape}");
   });
 
   it("toont de volledige IRI onder elke klasse-kop", () => {
@@ -51,8 +59,8 @@ describe("renderPage", () => {
     );
   });
 
-  it("toont de Nederlandse naam als omschrijving bij de klasse", () => {
-    expect(page).toContain("**Naam:** Persoonsreconstructie");
+  it("herhaalt de naam niet meer als apart feit onder de kop", () => {
+    expect(page).not.toContain("**Naam:**");
   });
 
   it("markeert verplichte en uitgesloten properties in de kardinaliteit", () => {
