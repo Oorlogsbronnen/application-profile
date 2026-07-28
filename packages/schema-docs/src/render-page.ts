@@ -42,6 +42,7 @@ title: ${texts.page.title}
 sidebar_label: ${texts.page.title}
 sidebar_position: 3
 slug: /schema
+description: ${texts.page.metaDescription}
 toc_max_heading_level: 3
 ---
 

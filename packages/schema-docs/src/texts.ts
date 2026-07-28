@@ -9,6 +9,8 @@
 export const texts = {
   page: {
     title: "Oorlogsbronnen Application Profile",
+    metaDescription:
+      "De klassen, properties en bouwstenen van het Oorlogsbronnen application profile, gegenereerd uit de SHACL-shapes in ontology/shapes.ttl.",
     intro:
       "Het application profile van Oorlogsbronnen definieert de klassen en properties waarmee metadata over personen, gebeurtenissen en bronnen wordt vastgelegd. Deze pagina is automatisch gegenereerd uit de SHACL-shapes in [`ontology/shapes.ttl`](https://github.com/Oorlogsbronnen/application-profile/blob/main/ontology/shapes.ttl) — dat bestand is en blijft de source of truth.",
     namespaceLabel: "Namespace",

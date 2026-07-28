@@ -16,7 +16,7 @@ De site draait op `data.oorlogsbronnen.nl` en is uitsluitend Nederlandstalig. De
 
 De repo is een pnpm-monorepo:
 
-- `website/` — de Docusaurus-site (docs-only) die de basis vormt van data.oorlogsbronnen. Documentatie schrijf je als markdown/MDX in `website/docs/`; de sidebar volgt de mappenstructuur.
+- `website/` — de Docusaurus-site (docs-only) die de basis vormt van data.oorlogsbronnen. Documentatie schrijf je als markdown/MDX in `website/docs/`; de sidebar volgt de mappenstructuur. De build genereert voor AI-agents ook `/llms.txt`, `/llms-full.txt` en een markdown-versie van elke pagina (plugin `docusaurus-plugin-llms`; zie `specs/2026-07-27-llms-txt.md`).
 - `packages/schema-docs/` — TypeScript-generator die uit `ontology/shapes.ttl` de application profile-pagina op `/schema` genereert (plus `/schema.ttl`). Draait automatisch mee in `pnpm start`/`pnpm build`; de gegenereerde bestanden zijn ge-gitignored. Zie `specs/2026-07-27-schema-docs-generator.md`.
 - `ontology/schema_ext-oorlogsbronnen.ttl` — de kern-vocabulaire (de `niod:`-extensie op schema.org). Dit is het hart van het profiel.
 - `ontology/shapes.ttl` — SHACL-shapes voor validatie van data tegen het profiel.
