@@ -93,6 +93,14 @@ const config: Config = {
     colorMode: {
       respectPrefersColorScheme: true,
     },
+    mermaid: {
+      // 'strict' schakelt klik-interacties uit; de klasseboxen in de
+      // /schema-diagrammen linken naar hun sectie. 'antiscript' houdt
+      // HTML-encoding aan maar staat href-links toe.
+      options: {
+        securityLevel: "antiscript",
+      },
+    },
     navbar: {
       title: "data.oorlogsbronnen",
       logo: {

@@ -1,8 +1,13 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
-import { parseShapes } from "../src/parse-shapes.js";
 import {
+  combineTurtle,
+  parseProfile,
+  parseShapes,
+} from "../src/parse-shapes.js";
+import {
+  allShapes,
   allowedClasses,
   cardinalityText,
   effectiveCardinality,
@@ -36,10 +41,10 @@ const FIXTURE = `
 `;
 
 describe("parseShapes", () => {
-  const { profile } = parseShapes(FIXTURE);
+  const { shapes } = parseShapes(FIXTURE);
 
   it("vindt klasse-shapes met naam en target class", () => {
-    const person = profile.classShapes.find(
+    const person = shapes.classShapes.find(
       (shape) => shape.localName === "PersonShape",
     );
     expect(person?.name).toBe("Persoon");
@@ -49,30 +54,28 @@ describe("parseShapes", () => {
   });
 
   it("behandelt een lege beschrijving als afwezig", () => {
-    const person = profile.classShapes.find(
+    const person = shapes.classShapes.find(
       (shape) => shape.localName === "PersonShape",
     );
     expect(person?.description).toBeNull();
   });
 
   it("herkent overerving via sh:node", () => {
-    const extended = profile.classShapes.find(
+    const extended = shapes.classShapes.find(
       (shape) => shape.localName === "ExtendedShape",
     );
     expect(extended?.inheritsFrom).toEqual(["PersonShape"]);
   });
 
   it("parseert regels met kardinaliteit en basistype-verwijzing", () => {
-    const rule = profile.rules.find((r) => r.localName === "Rule_name");
+    const rule = shapes.rules.find((r) => r.localName === "Rule_name");
     expect(rule?.path.compact).toBe("schema:name");
     expect(rule?.baseRef).toBe("Base_String");
     expect(rule?.cardinality).toEqual({ min: 1, max: 1 });
   });
 
   it("parseert sh:or van datatypes in basistypen", () => {
-    const base = profile.bases.find(
-      (b) => b.localName === "Base_DateOrInteger",
-    );
+    const base = shapes.bases.find((b) => b.localName === "Base_DateOrInteger");
     expect(base?.valueType).toEqual({
       kind: "or",
       options: [
@@ -95,7 +98,7 @@ describe("parseShapes", () => {
   });
 
   it("leidt toegestane klassen af uit sh:or met sh:class", () => {
-    const rule = profile.rules.find((r) => r.localName === "Rule_actor");
+    const rule = shapes.rules.find((r) => r.localName === "Rule_actor");
     expect(rule && allowedClasses(rule).map((c) => c.compact)).toEqual([
       "schema:Person",
       "schema:Organization",
@@ -103,11 +106,11 @@ describe("parseShapes", () => {
   });
 
   it("laat inline kardinaliteit voorgaan op de regel", () => {
-    const extended = profile.classShapes.find(
+    const extended = shapes.classShapes.find(
       (shape) => shape.localName === "ExtendedShape",
     );
     const property = extended?.properties[0];
-    const rule = profile.rules.find((r) => r.localName === "Rule_name");
+    const rule = shapes.rules.find((r) => r.localName === "Rule_name");
     const merged = effectiveCardinality(
       property!.inlineCardinality,
       rule!.cardinality,
@@ -116,32 +119,56 @@ describe("parseShapes", () => {
   });
 });
 
-describe("parseShapes op de echte shapes.ttl", () => {
-  const turtle = readFileSync(
-    resolve(__dirname, "../../../ontology/shapes.ttl"),
-    "utf8",
-  );
-  const { profile } = parseShapes(turtle);
+describe("combineTurtle", () => {
+  it("herhaalt @prefix-regels niet die al voorkwamen", () => {
+    const a = '@prefix sh: <http://www.w3.org/ns/shacl#> .\n:A a sh:NodeShape .';
+    const b = '@prefix sh: <http://www.w3.org/ns/shacl#> .\n:B a sh:NodeShape .';
+    const combined = combineTurtle(a, b);
+    expect(combined.match(/@prefix sh:/g)).toHaveLength(1);
+    expect(combined).toContain(":A a sh:NodeShape .");
+    expect(combined).toContain(":B a sh:NodeShape .");
+  });
+});
 
-  it("houdt de documentvolgorde van shapes.ttl aan", () => {
-    expect(profile.classShapes[0]?.localName).toBe(
-      "PersoonReconstructionShape",
-    );
-    expect(profile.classShapes.at(-1)?.localName).toBe("ConceptShape");
+describe("parseProfile op de echte shapes-bestanden", () => {
+  const ontologyDir = resolve(__dirname, "../../../ontology");
+  const read = (file: string): string =>
+    readFileSync(resolve(ontologyDir, file), "utf8");
+
+  const profile = parseProfile(read("shapes-bouwstenen.ttl"), [
+    { id: "personen", turtle: read("shapes-personen.ttl") },
+    { id: "objecten", turtle: read("shapes-collecties.ttl") },
+  ]);
+
+  it("verdeelt de klasse-shapes over de twee kennisgrafen", () => {
+    const names = (id: string) =>
+      profile.groups
+        .find((group) => group.id === id)!
+        .shapes.map((shape) => shape.localName);
+    expect(names("personen")).toEqual([
+      "PersoonsReconstructieShape",
+      "PersoonsvermeldingShape",
+      "EventShape",
+      "SourceShape",
+      "DatasetShape",
+    ]);
+    expect(names("objecten")).toEqual([
+      "CreativeWorkShape",
+      "ArchiveShape",
+      "BekendmakingShape",
+      "MediaShape",
+      "MonumentShape",
+      "ConceptShape",
+    ]);
   });
 
-  it("vindt alle klasse-shapes van het profiel", () => {
-    const names = profile.classShapes.map((shape) => shape.localName);
-    expect(names).toContain("PersoonReconstructionShape");
-    expect(names).toContain("CreativeWorkShape");
-    expect(names).toContain("ConceptShape");
-    expect(profile.classShapes.length).toBeGreaterThanOrEqual(10);
-  });
-
-  it("herkent de overerving van ArchiveShape op CreativeWorkShape", () => {
-    const archive = profile.classShapes.find(
-      (shape) => shape.localName === "ArchiveShape",
+  it("herkent de overerving binnen beide grafen", () => {
+    const shapes = allShapes(profile);
+    const vermelding = shapes.find(
+      (shape) => shape.localName === "PersoonsvermeldingShape",
     );
+    expect(vermelding?.inheritsFrom).toEqual(["PersoonsReconstructieShape"]);
+    const archive = shapes.find((shape) => shape.localName === "ArchiveShape");
     expect(archive?.inheritsFrom).toEqual(["CreativeWorkShape"]);
   });
 
@@ -150,8 +177,22 @@ describe("parseShapes op de echte shapes.ttl", () => {
     expect(profile.bases.length).toBeGreaterThanOrEqual(7);
   });
 
+  it("kent elke gebruikte regel-verwijzing", () => {
+    const ruleNames = new Set(profile.rules.map((rule) => rule.localName));
+    for (const shape of allShapes(profile)) {
+      for (const property of shape.properties) {
+        if (property.ruleRef?.startsWith("Rule_")) {
+          expect(
+            ruleNames.has(property.ruleRef),
+            `${shape.localName} → ${property.ruleRef}`,
+          ).toBe(true);
+        }
+      }
+    }
+  });
+
   it("behandelt de lege beschrijving van EventShape als afwezig", () => {
-    const event = profile.classShapes.find(
+    const event = allShapes(profile).find(
       (shape) => shape.localName === "EventShape",
     );
     expect(event?.description).toBeNull();

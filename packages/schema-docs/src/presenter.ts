@@ -48,12 +48,17 @@ export function allowedClasses(rule: RuleBlock): Term[] {
   return [...rule.classConstraints, ...fromOr];
 }
 
+/** Alle klasse-shapes van het profiel, in leesvolgorde van de kennisgrafen. */
+export function allShapes(profile: ApplicationProfile): ClassShape[] {
+  return profile.groups.flatMap((group) => group.shapes);
+}
+
 /** Index van klasse-IRI naar de shape die die klasse als targetClass heeft. */
 export function shapeByTargetClass(
   profile: ApplicationProfile,
 ): Map<string, ClassShape> {
   const index = new Map<string, ClassShape>();
-  for (const shape of profile.classShapes) {
+  for (const shape of allShapes(profile)) {
     for (const targetClass of shape.targetClasses) {
       index.set(targetClass.iri, shape);
     }
@@ -68,15 +73,20 @@ export function rulesByName(
 }
 
 /** Vlakke tekstweergave van een waardetype, zonder links (voor tests en diagram). */
-export function valueTypeText(valueType: ValueType): string {
+export function valueTypeText(
+  valueType: ValueType,
+  separator = " of ",
+): string {
   switch (valueType.kind) {
     case "datatype":
       return valueType.datatype.compact;
     case "iri":
       return "IRI";
     case "class":
-      return valueType.classes.map((c) => c.compact).join(" of ");
+      return valueType.classes.map((c) => c.compact).join(separator);
     case "or":
-      return valueType.options.map(valueTypeText).join(" of ");
+      return valueType.options
+        .map((option) => valueTypeText(option, separator))
+        .join(separator);
   }
 }

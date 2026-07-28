@@ -1,9 +1,11 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { basename, join } from "node:path";
+import type { GroupId } from "./model.js";
 import type { Example, PageContent } from "./page-content.js";
 
 export type ContentPaths = {
   editorialPath: string;
+  groupIntroPaths: Record<GroupId, string>;
   classExamplesDir: string;
   fullExamplesDir: string;
 };
@@ -15,7 +17,8 @@ export type ContentPaths = {
  */
 export function loadPageContent(paths: ContentPaths): PageContent {
   return {
-    editorial: loadEditorial(paths.editorialPath),
+    editorial: loadFragment(paths.editorialPath),
+    groupIntros: loadGroupIntros(paths.groupIntroPaths),
     classExamples: new Map(
       loadExamples(paths.classExamplesDir).map((example) => [
         example.name,
@@ -26,12 +29,25 @@ export function loadPageContent(paths: ContentPaths): PageContent {
   };
 }
 
-function loadEditorial(path: string): string | null {
+function loadFragment(path: string): string | null {
   if (!existsSync(path)) {
     return null;
   }
   const body = readFileSync(path, "utf8").trim();
   return body === "" ? null : body;
+}
+
+function loadGroupIntros(
+  paths: Record<GroupId, string>,
+): Partial<Record<GroupId, string>> {
+  const intros: Partial<Record<GroupId, string>> = {};
+  for (const [id, path] of Object.entries(paths) as [GroupId, string][]) {
+    const body = loadFragment(path);
+    if (body !== null) {
+      intros[id] = body;
+    }
+  }
+  return intros;
 }
 
 function loadExamples(dir: string): Example[] {

@@ -1,8 +1,9 @@
 /**
  * Domeinmodel van het application profile zoals dat op /schema wordt
- * gedocumenteerd. De taal volgt ontology/shapes.ttl: klasse-shapes
- * (NodeShapes), regels (:Rule_*, property-bouwstenen) en basistypen
- * (:Base_*, waardetype-bouwstenen).
+ * gedocumenteerd. De taal volgt de shapes-bestanden in ontology/:
+ * klasse-shapes (NodeShapes), regels (:Rule_*, property-bouwstenen) en
+ * basistypen (:Base_*, waardetype-bouwstenen), verdeeld over twee
+ * kennisgrafen (personen en objecten).
  */
 
 export type Cardinality = {
@@ -57,8 +58,24 @@ export type ClassShape = {
   properties: PropertyDoc[];
 };
 
-export type ApplicationProfile = {
+/** De shapes, regels en basistypen zoals geparseerd uit één Turtle-bron. */
+export type ShapeSet = {
   classShapes: ClassShape[];
+  rules: RuleBlock[];
+  bases: BaseBlock[];
+};
+
+/** De kennisgrafen die Oorlogsbronnen beheert, in leesvolgorde van de pagina. */
+export type GroupId = "personen" | "objecten";
+
+/** Eén kennisgraaf binnen het profiel, met zijn klasse-shapes in documentvolgorde. */
+export type ShapeGroup = {
+  id: GroupId;
+  shapes: ClassShape[];
+};
+
+export type ApplicationProfile = {
+  groups: ShapeGroup[];
   rules: RuleBlock[];
   bases: BaseBlock[];
 };
