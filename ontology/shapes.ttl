@@ -42,7 +42,7 @@ ob:Base_DateOrInteger   a sh:PropertyShape ; sh:or ([sh:datatype xsd:date] [sh:d
 
 # --- Identificatie en Naamgeving ---
 ob:Rule_name               sh:path sdo:name ;           sh:node ob:Base_String ; sh:minCount 1 ; sh:maxCount 1 .
-ob:Rule_identifier      sh:path sdo:identifier ;     sh:node ob:Base_String ; sh:minCount 1 ; sh:maxCount 1 .
+ob:Rule_identifier         sh:path sdo:identifier ;     sh:node ob:Base_String ; sh:minCount 1 ; sh:maxCount 1 .
 ob:Rule_deceased           sh:path picom:deceased ;     sh:node ob:Base_String ; sh:maxCount 1 .
 ob:Rule_initials           sh:path pnv:initials ;       sh:node ob:Base_String .
 ob:Rule_additionalName     sh:path sdo:additionalName ; sh:node ob:Base_String .
@@ -52,14 +52,14 @@ ob:Rule_givenName          sh:path sdo:givenName ;      sh:node ob:Base_String .
 
 
 # --- Beschrijving en Categorisering ---
-ob:Rule_material           sh:path sdo:material ;          sh:node ob:Base_String .
-ob:Rule_type               sh:path rdf:type ;              sh:node ob:Base_IRI .
-ob:Rule_about              sh:path sdo:about ;          sh:node ob:Base_StringOrIRI .
-ob:Rule_additionalType     sh:path sdo:additionalType ; sh:node ob:Base_IRI .
+ob:Rule_material           sh:path sdo:material ;       sh:node ob:Base_String .
+ob:Rule_type               sh:path rdf:type ;           sh:node ob:Base_IRI .
+ob:Rule_about              sh:path sdo:about ;          sh:node ob:Base_IRI ; sh:or ([ sh:class skos:Concept ] [ sh:class sdo:Place ] [ sh:class sdo:Event ] [ sh:class sdo:Organization ] [ sh:class picom:PersonObservation ] [ sh:class picom:PersonReconstruction ]) .
+ob:Rule_additionalType     sh:path sdo:additionalType ; sh:node ob:Base_StringOrIRI .
 ob:Rule_caption            sh:path sdo:caption ;        sh:node ob:Base_String ; sh:maxCount 1 .
 ob:Rule_description        sh:path sdo:description ;    sh:node ob:Base_String .
 ob:Rule_hasOccupation      sh:path sdo:hasOccupation ;  sh:node ob:Base_String .
-ob:Rule_keywords           sh:path sdo:keywords ;       sh:node ob:Base_IRI ; sh:class skos:Concept .
+ob:Rule_keywords           sh:path sdo:keywords ;       sh:node ob:Base_StringOrIRI .
 ob:Rule_text               sh:path sdo:text ;           sh:node ob:Base_String .
 
 # --- Data en Tijd ---
@@ -94,13 +94,13 @@ ob:Rule_actor              sh:path sdo:actor ;        sh:node ob:Base_IRI ; sh:o
 ob:Rule_children           sh:path sdo:children;      sh:node ob:Base_IRI ;  sh:or ([ sh:class picom:PersonReconstruction ] [ sh:class picom:PersonObservation ]) .
 ob:Rule_gender             sh:path sdo:gender ;       sh:node ob:Base_StringOrIRI .
 ob:Rule_parent             sh:path sdo:parent ;       sh:node ob:Base_IRI ;  sh:or ([ sh:class picom:PersonReconstruction ] [ sh:class picom:PersonObservation ]) .
-ob:Rule_provider           sh:path sdo:provider ;     sh:node ob:Base_StringOrIRI .
+ob:Rule_provider           sh:path sdo:provider ;     sh:node ob:Base_IRI  ; sh:class sdo:Organization .
 ob:Rule_sibling            sh:path sdo:sibling ;      sh:node ob:Base_IRI ;  sh:or ([ sh:class picom:PersonReconstruction ] [ sh:class picom:PersonObservation ]) .
+ob:Rule_spouse             sh:path sdo:spouse ;       sh:node ob:Base_IRI ;  sh:or ([ sh:class picom:PersonReconstruction ] [ sh:class picom:PersonObservation ]) .
 
 # --- Media en Web ---
 ob:Rule_contentUrl         sh:path sdo:contentUrl ;   sh:node ob:Base_StringOrIRI .
 ob:Rule_image              sh:path sdo:image ;        sh:node ob:Base_IRI .
-ob:Rule_thumbnail          sh:path sdo:thumbnail ;    sh:node ob:Base_StringOrIRI .
 ob:Rule_thumbnailUrl       sh:path sdo:thumbnailUrl ; sh:node ob:Base_StringOrIRI .
 ob:Rule_url                sh:path sdo:url ;          sh:node ob:Base_StringOrIRI .
 
@@ -111,10 +111,10 @@ ob:Rule_position           sh:path sdo:position ;   sh:node ob:Base_Integer .
 ob:Rule_superEvent         sh:path sdo:superEvent ; sh:node ob:Base_IRI ; sh:class sdo:Event .
 
 # --- Herkomst en Verwijzingen ---
-ob:Rule_inDataset          sh:path ob:inDataset ;        sh:node ob:Base_IRI ; sh:class sdo:Dataset .
+ob:Rule_inDataset          sh:path ob:inDataset ;          sh:node ob:Base_IRI ; sh:class sdo:Dataset .
 ob:Rule_hadPrimarySource   sh:path prov:hadPrimarySource ; sh:node ob:Base_IRI ; sh:or ([ sh:class prov:Entity ] [ sh:class sdo:ArchiveComponent ]) .
 ob:Rule_wasDerivedFrom     sh:path prov:wasDerivedFrom ;   sh:node ob:Base_IRI ; sh:class picom:PersonObservation .
-ob:Rule_sameAs             sh:path sdo:sameAs ;         sh:node ob:Base_IRI .
+ob:Rule_sameAs             sh:path sdo:sameAs ;            sh:node ob:Base_IRI .
 
 # --- SKOS thesaurus attributen ---
 ob:Rule_prefLabel          sh:path skos:prefLabel ;   sh:node ob:Base_String ; sh:minCount 1 .
@@ -139,8 +139,8 @@ ob:Rule_long               sh:path wgs:long ;     sh:node ob:Base_Double ; sh:ma
 # 2. TOEPASSING OP KLASSEN (Context-specifieke labels voor Widoco)
 # =================================================================
 
-### --- PERSOONSRECONSTRUCTIEs ---
-ob:PersoonReconstructionShape a sh:NodeShape ;
+### --- PERSOONSRECONSTRUCTIES ---
+ob:PersoonsReconstructieShape a sh:NodeShape ;
     sh:targetClass picom:PersonReconstruction ;
     sh:name "Persoonsreconstructies"@nl ;
     sh:description "De geaggregeerde en gevalideerde gegevens van een persoon, samengesteld uit één of meerdere persoonsvermeldingen."@nl ;
@@ -225,6 +225,12 @@ ob:PersoonReconstructionShape a sh:NodeShape ;
         sh:description "Verwijzing naar een broer of zus van deze persoon."@nl ;
         sh:node ob:Rule_sibling ;
     ] ;
+    sh:property [
+        sh:path sdo:spouse ;
+        sh:name "Partner"@nl ;
+        sh:description "Verwijzing naar de (huwelijks)partner van deze persoon."@nl ;
+        sh:node ob:Rule_spouse ;
+    ] ;
 
     # --- Metadata en Herkomst ---
     sh:property [
@@ -258,7 +264,7 @@ ob:PersoonReconstructionShape a sh:NodeShape ;
         sh:node ob:Rule_keywords ;
     ] .
 
-### --- PERSOONSVERMELDING ---
+### --- PERSOONSVERMELDINGEN ---
 ob:PersoonsvermeldingShape a sh:NodeShape ;
     sh:targetClass picom:PersonObservation ;
     sh:name "Persoonsvermeldingen"@nl ;
@@ -400,7 +406,7 @@ ob:SourceShape a sh:NodeShape ;
     sh:targetClass 
         sdo:ArchiveComponent,
         prov:Entity ;
-    sh:name "Archiefrecords (personen)"@nl ;
+    sh:name "Archiefrecords"@nl ;
     sh:description "Archiefstukken, maar ook records uit andere (onderzoeks)datasets en webpagina's kunnen persoonsvermeldingen bevatten. Dit is hiervoor de bronvermelding."@nl ;
     
     sh:property [
@@ -415,7 +421,7 @@ ob:SourceShape a sh:NodeShape ;
         sh:node ob:Rule_url ;
     ] ;
     sh:property [
-        sh:path niod:inDataset ;
+        sh:path ob:inDataset ;
         sh:name "Herkomst van het record"@nl ;
         sh:node ob:Rule_inDataset ;
     ] .
@@ -596,9 +602,9 @@ ob:CreativeWorkShape a sh:NodeShape ;
 
     # --- Visueel ---
     sh:property [
-        sh:path sdo:thumbnail ;
+        sh:path sdo:thumbnailUrl ;
         sh:name "Thumbnail"@nl ;
-        sh:node ob:Rule_thumbnail ;
+        sh:node ob:Rule_thumbnailUrl ;
     ] .
 
 ### --- ARCHIEVEN EN ARCHIEFSTUKKEN (Uitbreiding op CreativeWorkShape) ---
@@ -632,7 +638,7 @@ ob:MediaShape a sh:NodeShape ;
 
 ### --- MONUMENTEN (Uitbreiding  op CreativeWorkShape) ---
 ob:MonumentShape a sh:NodeShape ;
-    sh:targetClass niod:Monument ;
+    sh:targetClass ob:Monument ;
     sh:name "Monumenten"@nl ;
     
     # 1. Hergebruik alle regels van CreativeWork
