@@ -29,7 +29,9 @@ jobs:
           from rdflib import Graph
           g = Graph()
           g.parse('ontology/schema_ext-oorlogsbronnen.ttl', format='turtle')
-          g.parse('ontology/shapes.ttl', format='turtle')
+          g.parse('ontology/shapes-bouwstenen.ttl', format='turtle')
+          g.parse('ontology/shapes-personen.ttl', format='turtle')
+          g.parse('ontology/shapes-collecties.ttl', format='turtle')
           g.serialize(destination='full_profile.ttl', format='turtle')
           print('Merge succesvol: full_profile.ttl aangemaakt.')
           "

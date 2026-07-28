@@ -1,0 +1,354 @@
+@prefix ob: <https://data.oorlogsbronnen.nl/schema#> .
+@prefix niod: <https://data.niod.nl/WO2_Thesaurus/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcmit: <http://purl.org/dc/dcmitype/> .
+@prefix dcam: <http://purl.org/dc/dcam/> .
+@prefix edm: <http://www.europeana.eu/schemas/edm/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix picom: <https://personsincontext.org/model/#> .
+@prefix pnv: <https://w3id.org/pnv#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sdo: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos> .
+
+# Shapes van de kennisgraaf personen (LDmax-dataset wo2net/personen).
+# Valideren en gebruiken samen met shapes-bouwstenen.ttl.
+
+### --- PERSOONSRECONSTRUCTIES ---
+ob:PersoonsReconstructieShape a sh:NodeShape ;
+    sh:targetClass picom:PersonReconstruction ;
+    sh:name "Persoonsreconstructies"@nl ;
+    sh:description "De geaggregeerde en gevalideerde gegevens van een persoon, samengesteld uit één of meerdere persoonsvermeldingen."@nl ;
+
+    # --- Identificatie ---
+    sh:property [
+        sh:path sdo:identifier ;
+        sh:name "Identifier"@nl ;
+        sh:description "De unieke identifier van persoon."@nl ;
+        sh:node ob:Rule_identifier ;
+    ] ;
+    sh:property [
+        sh:path rdf:type ;
+        sh:name "Type entiteit"@nl ;
+        sh:description "Classificatie van de entiteit volgens Persons in Context."@nl ;
+        sh:node ob:Rule_type ;
+    ] ;
+
+    # --- Naamgeving ---
+    sh:property [
+        sh:path sdo:name ;
+        sh:name "Naam"@nl ;
+        sh:description "De gestandaardiseerde volledige naam van de persoon."@nl ;
+        sh:node ob:Rule_name ;
+    ] ;
+    sh:property [
+        sh:path sdo:alternateName ;
+        sh:name "Andere namen"@nl ;
+        sh:description "Varianten, aliassen of historische schrijfwijzen van de naam."@nl ;
+        sh:node ob:Rule_alternateName ;
+    ] ;
+
+    # --- Levensloop en Status ---
+    sh:property [
+        sh:path sdo:birthDate ;
+        sh:name "Geboortedatum"@nl ;
+        sh:node ob:Rule_birthDate ;
+    ] ;
+    sh:property [
+        sh:path sdo:birthPlace ;
+        sh:name "Geboorteplaats"@nl ;
+        sh:node ob:Rule_birthPlace ;
+    ] ;
+    sh:property [
+        sh:path sdo:deathDate ;
+        sh:name "Datum van overlijden"@nl ;
+        sh:node ob:Rule_deathDate ;
+    ] ;
+    sh:property [
+        sh:path sdo:deathPlace ;
+        sh:name "Plaats van overlijden"@nl ;
+        sh:node ob:Rule_deathPlace ;
+    ] ;
+    sh:property [
+        sh:path picom:deceased ;
+        sh:name "Overleden status"@nl ;
+        sh:description "Indicatie of de persoon is overleden."@nl ;
+        sh:node ob:Rule_deceased ;
+    ] ;
+    sh:property [
+        sh:path sdo:gender ;
+        sh:name "Geslacht"@nl ;
+        sh:node ob:Rule_gender ;
+    ] ;
+
+    # --- Familierelaties ---
+    sh:property [
+        sh:path sdo:children ;
+        sh:name "Kinderen"@nl ;
+        sh:description "Verwijzing naar de kinderen van deze persoon."@nl ;
+        sh:node ob:Rule_children ;
+    ] ;
+    sh:property [
+        sh:path sdo:parent ;
+        sh:name "Ouder"@nl ;
+        sh:description "Verwijzing naar een ouder van deze persoon."@nl ;
+        sh:node ob:Rule_parent ;
+    ] ;
+    sh:property [
+        sh:path sdo:sibling ;
+        sh:name "Broer of zus"@nl ;
+        sh:description "Verwijzing naar een broer of zus van deze persoon."@nl ;
+        sh:node ob:Rule_sibling ;
+    ] ;
+    sh:property [
+        sh:path sdo:spouse ;
+        sh:name "Partner"@nl ;
+        sh:description "Verwijzing naar de (huwelijks)partner van deze persoon."@nl ;
+        sh:node ob:Rule_spouse ;
+    ] ;
+
+    # --- Metadata en Herkomst ---
+    sh:property [
+        sh:path sdo:dateCreated ;
+        sh:name "Aanmaakdatum"@nl ;
+        sh:description "Datum waarop deze reconstructie voor het eerst is aangemaakt."@nl ;
+        sh:node ob:Rule_dateCreated ;
+    ] ;
+    sh:property [
+        sh:path sdo:dateModified ;
+        sh:name "Wijzigingsdatum"@nl ;
+        sh:description "Datum waarop deze reconstructie voor het laatst is bijgewerkt."@nl ;
+        sh:node ob:Rule_dateModified ;
+    ] ;
+    sh:property [
+        sh:path prov:wasDerivedFrom ;
+        sh:name "Afgeleid van"@nl ;
+        sh:description "Verwijzing naar de persoonsvermeldingen waaruit deze reconstructie is opgebouwd."@nl ;
+        sh:node ob:Rule_wasDerivedFrom ;
+    ] ;
+    sh:property [
+        sh:path sdo:sameAs ;
+        sh:name "Andere autoriteit"@nl ;
+        sh:description "Externe links naar dezelfde persoon in andere systemen (bijv. Wikidata)."@nl ;
+        sh:node ob:Rule_sameAs ;
+    ] ;
+    sh:property [
+        sh:path sdo:keywords ;
+        sh:name "Trefwoorden"@nl ;
+        sh:description "Categorisering of trefwoorden van toepassing op de persoon (uit de WO2 thesaurus)."@nl ;
+        sh:node ob:Rule_keywords ;
+    ] .
+
+### --- PERSOONSVERMELDINGEN ---
+ob:PersoonsvermeldingShape a sh:NodeShape ;
+    sh:targetClass picom:PersonObservation ;
+    sh:name "Persoonsvermeldingen"@nl ;
+    sh:description "Een observatie of vermelding van een persoon binnen een specifieke historische bron."@nl ;
+
+    # 1. Hergebruik alle regels van PersoonsReconstructieShape
+    sh:node ob:PersoonsReconstructieShape ;
+
+    # 2. Sluit specifiek uit
+    sh:property [
+        sh:path prov:wasDerivedFrom ;
+        sh:maxCount 0 ;
+        sh:name "Afgeleid van (niet toegestaan)"@nl ;
+        sh:description "Voor persoonsvermeldingen wordt prov:wasDerivedFrom niet toegestaan."@nl ;
+    ] ;
+
+    # 3. Voeg extra properties toe
+    # --- Naamgeving ---
+    sh:property [
+        sh:path sdo:givenName ;
+        sh:name "Voornaam"@nl ;
+        sh:description "De roepnaam of eerste voornaam van de persoon."@nl ;
+        sh:node ob:Rule_givenName ;
+    ] ;
+    sh:property [
+        sh:path sdo:familyName ;
+        sh:name "Achternaam"@nl ;
+        sh:description "De geslachtsnaam, inclusief tussenvoegsels."@nl ;
+        sh:node ob:Rule_familyName ;
+    ] ;
+    sh:property [
+        sh:path pnv:initials ;
+        sh:name "Initialen"@nl ;
+        sh:description "De voorletters van de persoon."@nl ;
+        sh:node ob:Rule_initials ;
+    ] ;
+
+    # --- Kenmerken en Context ---
+    sh:property [
+        sh:path sdo:hasOccupation ;
+        sh:name "Beroep of functie"@nl ;
+        sh:description "Het beroep of de maatschappelijke rol van de persoon."@nl ;
+        sh:node ob:Rule_hasOccupation ;
+    ] ;
+    sh:property [
+        sh:path sdo:address ;
+        sh:name "Adresgegevens"@nl ;
+        sh:description "Woonplaats of laatst bekende adres."@nl ;
+        sh:node ob:Rule_address ;
+    ] ;
+    sh:property [
+        sh:path prov:hadPrimarySource ;
+        sh:name "Primaire bron"@nl ;
+        sh:description "De originele bron waaruit deze informatie afkomstig is."@nl ;
+        sh:node ob:Rule_hadPrimarySource ;
+    ] ;
+    sh:property [
+        sh:path sdo:description ;
+        sh:name "Biografische schets"@nl ;
+        sh:description "Een korte beschrijving van de persoon of diens rol tijdens de Tweede Wereldoorlog."@nl ;
+        sh:node ob:Rule_description ;
+    ] .
+
+### --- GEBEURTENISSEN BIJ PERSONEN ---
+ob:EventShape a sh:NodeShape ;
+    sh:targetClass sdo:Event ;
+    sh:name "Gebeurtenissen"@nl ;
+    sh:description ""@nl ;
+
+    # --- Type ---
+    sh:property [
+        sh:path rdf:type ;
+        sh:name "Type entiteit"@nl ;
+        sh:description "Classificatie van de entiteit als sdo:Event"@nl ;
+        sh:node ob:Rule_type ;
+    ] ;
+    sh:property [
+        sh:path sdo:additionalType ;
+        sh:name "type gebeurtenis"@nl ;
+        sh:description "Classificatie van de gebeurtenis als persoonlijke gebeurtenis uit de WO2 thesaurus"@nl ;
+        sh:node ob:Rule_additionalType ;
+    ] ;
+
+    # --- Kenmerken en Context ---
+    sh:property [
+        sh:path sdo:name ;
+        sh:name "Naam"@nl ;
+        sh:description "De naam van de gebeurtenis."@nl ;
+        sh:node ob:Rule_name ;
+    ] ;
+    sh:property [
+        sh:path sdo:location ;
+        sh:name "Locatie"@nl ;
+        sh:node ob:Rule_location ;
+    ] ;
+    sh:property [
+        sh:path sdo:fromLocation ;
+        sh:name "Beginlocatie"@nl ;
+        sh:node ob:Rule_fromLocation ;
+    ] ;
+    sh:property [
+        sh:path sdo:toLocation ;
+        sh:name "Eindlocatie"@nl ;
+        sh:node ob:Rule_toLocation ;
+    ] ;
+    sh:property [
+        sh:path sdo:actor ;
+        sh:name "Persoon in de gebeurtenis"@nl ;
+        sh:node ob:Rule_actor ;
+    ] ;
+    sh:property [
+        sh:path sdo:superEvent ;
+        sh:name "Grotere gebeurtenis"@nl ;
+        sh:node ob:Rule_superEvent ;
+    ] ;
+    sh:property [
+        sh:path prov:hadPrimarySource ;
+        sh:name "Primaire bron"@nl ;
+        sh:description "De originele bron waaruit deze informatie afkomstig is."@nl ;
+        sh:node ob:Rule_hadPrimarySource ;
+    ] ;
+
+    # --- Tijd ---
+    sh:property [
+        sh:path sdo:startDate ;
+        sh:name "Startdatum"@nl ;
+        sh:node ob:Rule_startDate ;
+    ] ;
+    sh:property [
+        sh:path sdo:endDate ;
+        sh:name "Einddatum"@nl ;
+        sh:node ob:Rule_endDate ;
+    ] .
+
+### --- BRONNEN VOOR PERSONEN ---
+
+## --- BRON ---
+ob:SourceShape a sh:NodeShape ;
+    sh:targetClass 
+        sdo:ArchiveComponent,
+        prov:Entity ;
+    sh:name "Archiefrecords (personen)"@nl ;
+    sh:description "Archiefstukken, maar ook records uit andere (onderzoeks)datasets en webpagina's kunnen persoonsvermeldingen bevatten. Dit is hiervoor de bronvermelding."@nl ;
+    
+    sh:property [
+        sh:path rdf:type ;
+        sh:name "Type entiteit"@nl ;
+        sh:description "Classificatie van het record als archiefstuk of anders."@nl ;
+        sh:node ob:Rule_type ;
+    ] ;
+    sh:property [
+        sh:path sdo:url ;
+        sh:name "Url van de bron"@nl ;
+        sh:node ob:Rule_url ;
+    ] ;
+    sh:property [
+        sh:path ob:inDataset ;
+        sh:name "Herkomst van het record"@nl ;
+        sh:node ob:Rule_inDataset ;
+    ] .
+
+## --- DATASET ---
+ob:DatasetShape a sh:NodeShape ;
+    sh:targetClass 
+        sdo:Dataset ;
+    sh:name "Datasets"@nl ;
+    sh:description "Records  maken altijd onderdeel uit van een dataset."@nl ;
+    
+    # --- Identificatie ---
+    sh:property [
+        sh:path sdo:identifier ;
+        sh:name "Identifier"@nl ;
+        sh:description "De unieke identifier van de dataset."@nl ;
+        sh:node ob:Rule_identifier ;
+    ] ;
+    sh:property [
+        sh:path rdf:type ;
+        sh:name "Type entiteit"@nl ;
+        sh:description "Classificatie van de entiteit als sdo:Dataset"@nl ;
+        sh:node ob:Rule_type ;
+    ] ;
+
+    # --- Kenmerken en context ---
+    sh:property [
+        sh:path sdo:name ;
+        sh:name "Naam van de dataset"@nl ;
+        sh:node ob:Rule_name ;
+    ] ;
+    sh:property [
+        sh:path sdo:description ;
+        sh:name "Beschrijving van de dataset"@nl ;
+        sh:node ob:Rule_description ;
+    ] ;
+    sh:property [
+        sh:path sdo:url ;
+        sh:name "Bronverwijzing voor de dataset"@nl ;
+        sh:node ob:Rule_url ;
+    ] ;
+    sh:property [
+        sh:path sdo:provider ;
+        sh:name "Leverancier van de dataset"@nl ;
+        sh:node ob:Rule_provider ;
+    ] .

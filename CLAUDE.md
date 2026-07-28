@@ -17,9 +17,9 @@ De site draait op `data.oorlogsbronnen.nl` en is uitsluitend Nederlandstalig. De
 De repo is een pnpm-monorepo:
 
 - `website/` — de Docusaurus-site (docs-only) die de basis vormt van data.oorlogsbronnen. Documentatie schrijf je als markdown/MDX in `website/docs/`; de sidebar volgt de mappenstructuur. De build genereert voor AI-agents ook `/llms.txt`, `/llms-full.txt` en een markdown-versie van elke pagina (plugin `docusaurus-plugin-llms`; zie `specs/2026-07-27-llms-txt.md`).
-- `packages/schema-docs/` — TypeScript-generator die uit `ontology/shapes.ttl` de application profile-pagina op `/schema` genereert (plus `/schema.ttl`). Draait automatisch mee in `pnpm start`/`pnpm build`; de gegenereerde bestanden zijn ge-gitignored. Zie `specs/2026-07-27-schema-docs-generator.md`.
+- `packages/schema-docs/` — TypeScript-generator die uit de shapes-bestanden in `ontology/` de application profile-pagina op `/schema` genereert (plus de downloads `/schema.ttl`, `/schema-personen.ttl` en `/schema-collecties.ttl`). Draait automatisch mee in `pnpm start`/`pnpm build`; de gegenereerde bestanden zijn ge-gitignored. Zie `specs/2026-07-27-schema-docs-generator.md` en `specs/2026-07-28-schema-pagina-herstructurering.md`.
 - `ontology/schema_ext-oorlogsbronnen.ttl` — de kern-vocabulaire (de `niod:`-extensie op schema.org). Dit is het hart van het profiel.
-- `ontology/shapes.ttl` — SHACL-shapes voor validatie van data tegen het profiel.
+- `ontology/shapes-bouwstenen.ttl`, `ontology/shapes-personen.ttl` en `ontology/shapes-collecties.ttl` — SHACL-shapes voor validatie van data tegen het profiel: gedeelde bouwstenen (`Base_*`/`Rule_*`) plus één bestand per kennisgraaf (personen en objecten/collecties, parallel aan de LDmax-datasets).
 - `context/context.jsonld` — de JSON-LD context voor gebruik in API's.
 - `schemas/schema.ttl` — een gevendorde kopie van de volledige schema.org-vocabulaire (~20k regels). Alleen referentie; **nooit handmatig bewerken**.
 - `.github/workflows/generate-docs.yml` — bij elke push naar `main`: TTL-bestanden samenvoegen met rdflib, documentatie genereren met Widoco en publiceren naar `gh-pages` ([live documentatie](https://oorlogsbronnen.github.io/application-profile/)).
@@ -36,7 +36,9 @@ Package manager: **pnpm** (workspaces). Draai `pnpm install` vanaf de root.
   from rdflib import Graph
   g = Graph()
   g.parse('ontology/schema_ext-oorlogsbronnen.ttl', format='turtle')
-  g.parse('ontology/shapes.ttl', format='turtle')
+  g.parse('ontology/shapes-bouwstenen.ttl', format='turtle')
+  g.parse('ontology/shapes-personen.ttl', format='turtle')
+  g.parse('ontology/shapes-collecties.ttl', format='turtle')
   print('OK:', len(g), 'triples')
   "
   ```
@@ -53,7 +55,7 @@ Package manager: **pnpm** (workspaces). Draai `pnpm install` vanaf de root.
 
 ## Werkafspraken voor dit profiel
 
-- Wijzigingen aan de vocabulaire, shapes en context horen consistent te zijn: een nieuwe of gewijzigde term in `schema_ext-oorlogsbronnen.ttl` heeft meestal ook een aanpassing in `shapes.ttl` en/of `context.jsonld` nodig. Controleer alle drie.
+- Wijzigingen aan de vocabulaire, shapes en context horen consistent te zijn: een nieuwe of gewijzigde term in `schema_ext-oorlogsbronnen.ttl` heeft meestal ook een aanpassing in de shapes-bestanden (`ontology/shapes-*.ttl`) en/of `context.jsonld` nodig. Controleer alle drie.
 - Labels en comments in de ontologie zijn tweetalig (nl/en) waar mogelijk; Widoco genereert de documentatie met `-lang nl-en`.
 - Gebruik de bestaande prefixes en naamgeving (`niod:` voor eigen termen, `schema:` voor schema.org) en voeg geen nieuwe namespaces toe zonder overleg.
 
