@@ -5,6 +5,7 @@ import type * as Preset from "@docusaurus/preset-classic";
 // zodat de proxy hieronder gewoon getypecheckt wordt.
 import type {} from "webpack-dev-server";
 import { SPINQUE_API_BASE, SPINQUE_PROXY_PREFIX } from "./src/lib/spinque";
+import { prismLightTheme } from "./src/lib/prism-light";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -213,7 +214,7 @@ const config: Config = {
       ],
     },
     prism: {
-      theme: prismThemes.github,
+      theme: prismLightTheme,
       darkTheme: prismThemes.dracula,
       additionalLanguages: ["turtle", "sparql", "json"],
     },

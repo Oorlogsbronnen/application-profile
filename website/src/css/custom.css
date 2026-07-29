@@ -57,6 +57,18 @@
   --ifm-global-radius: 5px;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  /* Actieve menu-items en breadcrumbs staan op een grijze achtergrond
+     (#f2f2f2), waar primary maar 4,25:1 haalt; de donkere tint haalt 5,9:1. */
+  --ifm-menu-color-active: var(--ifm-color-primary-dark);
+  --ifm-breadcrumb-color-active: var(--ifm-color-primary-dark);
+}
+
+/* Links in inline-code en op gestreepte tabelrijen staan op een lichtgrijze
+   achtergrond, waar primary net geen AA haalt (4,4:1); de donkere tint haalt
+   daar ruim 6:1. */
+a > code,
+table a {
+  color: var(--ifm-color-primary-dark);
 }
 
 /* Header: logo en sitenaam als één lockup, gescheiden door een subtiele lijn */
@@ -89,4 +101,13 @@
   --ifm-color-primary-lightest: #ffd8d3;
   --ifm-font-color-base: #f2f3f5;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  /* Op de donkere achtergronden haalt primary (#e38a7e) hier wél AA (5,2:1),
+     terwijl primary-dark er juist onder zakt — dus terug naar primary. */
+  --ifm-menu-color-active: var(--ifm-color-primary);
+  --ifm-breadcrumb-color-active: var(--ifm-color-primary);
+}
+
+[data-theme="dark"] a > code,
+[data-theme="dark"] table a {
+  color: var(--ifm-color-primary);
 }
