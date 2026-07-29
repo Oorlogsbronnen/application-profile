@@ -163,13 +163,6 @@ const config: Config = {
     },
     footer: {
       style: "light",
-      logo: {
-        alt: "WO2Net",
-        src: "img/wo2net-logo.svg",
-        href: "https://www.wo2net.nl",
-        width: 145,
-        height: 27,
-      },
       links: [
         {
           title: "Services",
@@ -203,6 +196,17 @@ const config: Config = {
             {
               label: "Contact",
               to: "/contact",
+            },
+          ],
+        },
+        {
+          // Wo2net-logo als vierde kolom. Bewust een html-item in plaats
+          // van footer.logo: dat ondersteunt geen target="_blank". Zonder
+          // extern-icoon; de alt-tekst benoemt het nieuwe tabblad wel.
+          title: null,
+          items: [
+            {
+              html: `<a href="https://www.wo2net.nl" target="_blank" rel="noopener noreferrer"><img src="/img/wo2net-logo.svg" alt="WO2Net (opent in nieuw tabblad)" width="145" height="27" loading="lazy" /></a>`,
             },
           ],
         },
