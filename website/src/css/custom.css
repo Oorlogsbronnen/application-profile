@@ -67,6 +67,17 @@
   font-weight: 700;
 }
 
+/* Footer in het wo2net-blauw ("blue-tint" van wo2net.nl), in beide kleurmodi.
+   De tekstkleuren blijven donker: #282827 op #b1c3ce haalt 8.1:1 en de
+   hover-kleur (primaryDarkest) 5.4:1 — beide WCAG AA. */
+.footer {
+  --ifm-footer-background-color: #b1c3ce;
+  --ifm-footer-color: #282827;
+  --ifm-footer-title-color: #282827;
+  --ifm-footer-link-color: #282827;
+  --ifm-footer-link-hover-color: #78291f;
+}
+
 /* Donkere modus: articleRed200 als basis — contrast op donkere achtergrond 6.7:1 */
 [data-theme="dark"] {
   --ifm-color-primary: #e38a7e;

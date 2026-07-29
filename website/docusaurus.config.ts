@@ -48,6 +48,11 @@ const config: Config = {
   url: "https://data.oorlogsbronnen.nl",
   baseUrl: "/",
 
+  // Naast static/ ook de map met de JSON-LD context serveren, zodat
+  // context/context.jsonld (de bron in de repo-root) publiek beschikbaar
+  // is op /context.jsonld zonder kopieerstap.
+  staticDirectories: ["static", "../context"],
+
   organizationName: "Oorlogsbronnen",
   projectName: "application-profile",
 
@@ -191,6 +196,17 @@ const config: Config = {
             {
               label: "Contact",
               to: "/contact",
+            },
+          ],
+        },
+        {
+          // Wo2net-logo als vierde kolom. Bewust een html-item in plaats
+          // van footer.logo: dat ondersteunt geen target="_blank". Zonder
+          // extern-icoon; de alt-tekst benoemt het nieuwe tabblad wel.
+          title: null,
+          items: [
+            {
+              html: `<a href="https://www.wo2net.nl" target="_blank" rel="noopener noreferrer"><img src="/img/wo2net-logo.svg" alt="WO2Net (opent in nieuw tabblad)" width="145" height="27" loading="lazy" /></a>`,
             },
           ],
         },
