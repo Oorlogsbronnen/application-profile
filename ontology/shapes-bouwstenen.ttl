@@ -45,7 +45,8 @@ ob:Base_DateOrInteger   a sh:PropertyShape ; sh:or ([sh:datatype xsd:date] [sh:d
 # =================================================================
 
 # --- Identificatie en Naamgeving ---
-ob:Rule_name               sh:path sdo:name ;           sh:node ob:Base_String ; sh:minCount 1 ; sh:maxCount 1 .
+ob:Rule_name               sh:path sdo:name ;           sh:node ob:Base_String .
+ob:Rule_name_rec           sh:path sdo:name ;           sh:node ob:Base_String ; sh:minCount 1 ; sh:maxCount 1 .
 ob:Rule_identifier         sh:path sdo:identifier ;     sh:node ob:Base_String ; sh:minCount 1 ; sh:maxCount 1 .
 ob:Rule_deceased           sh:path picom:deceased ;     sh:node ob:Base_String ; sh:maxCount 1 .
 ob:Rule_initials           sh:path pnv:initials ;       sh:node ob:Base_String .
@@ -56,15 +57,16 @@ ob:Rule_givenName          sh:path sdo:givenName ;      sh:node ob:Base_String .
 
 
 # --- Beschrijving en Categorisering ---
-ob:Rule_material           sh:path sdo:material ;       sh:node ob:Base_String .
-ob:Rule_type               sh:path rdf:type ;           sh:node ob:Base_IRI .
-ob:Rule_about              sh:path sdo:about ;          sh:node ob:Base_IRI ; sh:or ([ sh:class skos:Concept ] [ sh:class sdo:Place ] [ sh:class sdo:Event ] [ sh:class sdo:Organization ] [ sh:class picom:PersonObservation ] [ sh:class picom:PersonReconstruction ]) .
-ob:Rule_additionalType     sh:path sdo:additionalType ; sh:node ob:Base_StringOrIRI .
-ob:Rule_caption            sh:path sdo:caption ;        sh:node ob:Base_String ; sh:maxCount 1 .
-ob:Rule_description        sh:path sdo:description ;    sh:node ob:Base_String .
-ob:Rule_hasOccupation      sh:path sdo:hasOccupation ;  sh:node ob:Base_String .
-ob:Rule_keywords           sh:path sdo:keywords ;       sh:node ob:Base_StringOrIRI .
-ob:Rule_text               sh:path sdo:text ;           sh:node ob:Base_String .
+ob:Rule_material               sh:path sdo:material ;       sh:node ob:Base_String .
+ob:Rule_type                   sh:path rdf:type ;           sh:node ob:Base_IRI .
+ob:Rule_about                  sh:path sdo:about ;          sh:node ob:Base_IRI ; sh:or ([ sh:class skos:Concept ] [ sh:class sdo:Place ] [ sh:class sdo:Event ] [ sh:class sdo:Organization ] [ sh:class picom:PersonObservation ] [ sh:class picom:PersonReconstruction ]) .
+ob:Rule_additionalType         sh:path sdo:additionalType ; sh:node ob:Base_StringOr .
+ob:Rule_additionalType_events  sh:path sdo:additionalType ; sh:node ob:Base_IRI ; sh:minCount 1 ; sh:maxCount 1 ; sh:class niod:PersonalEvent .
+ob:Rule_description            sh:path sdo:description ;    sh:node ob:Base_String .
+ob:Rule_hasOccupation          sh:path sdo:hasOccupation ;  sh:node ob:Base_String .
+ob:Rule_keywords               sh:path sdo:keywords ;       sh:node ob:Base_StringOrIRI .
+ob:Rule_keywords_person        sh:path sdo:keywords ;       sh:node ob:Base_IRI ; sh:or ([ sh:class skos:Concept ] [ sh:class sdo:Place ] [ sh:class sdo:Event ] [ sh:class sdo:Organization ] [ sh:class picom:PersonObservation ] [ sh:class picom:PersonReconstruction ]) .
+ob:Rule_text                   sh:path sdo:text ;           sh:node ob:Base_String .
 
 # --- Data en Tijd ---
 ob:Rule_date               sh:path sdo:dateCreated ;   sh:node ob:Base_DateOrInteger ; sh:maxCount 1 .
@@ -97,6 +99,7 @@ ob:Rule_contributor        sh:path sdo:contributor ;  sh:node ob:Base_StringOrIR
 ob:Rule_publisher          sh:path sdo:publisher ;    sh:node ob:Base_IRI  ; sh:class sdo:Organization .
 ob:Rule_actor              sh:path sdo:actor ;        sh:node ob:Base_IRI ; sh:or ([ sh:class picom:PersonReconstruction ] [ sh:class picom:PersonObservation ]) .
 ob:Rule_children           sh:path sdo:children;      sh:node ob:Base_IRI ;  sh:or ([ sh:class picom:PersonReconstruction ] [ sh:class picom:PersonObservation ]) .
+ob:Rule_gender_rec         sh:path sdo:gender ;       sh:node ob:Base_IRI .
 ob:Rule_gender             sh:path sdo:gender ;       sh:node ob:Base_StringOrIRI .
 ob:Rule_parent             sh:path sdo:parent ;       sh:node ob:Base_IRI ;  sh:or ([ sh:class picom:PersonReconstruction ] [ sh:class picom:PersonObservation ]) .
 ob:Rule_provider           sh:path sdo:provider ;     sh:node ob:Base_IRI  ; sh:class sdo:Organization .
@@ -106,7 +109,8 @@ ob:Rule_spouse             sh:path sdo:spouse ;       sh:node ob:Base_IRI ;  sh:
 # --- Media en Web ---
 ob:Rule_contentUrl         sh:path sdo:contentUrl ;   sh:node ob:Base_StringOrIRI .
 ob:Rule_image              sh:path sdo:image ;        sh:node ob:Base_IRI .
-ob:Rule_thumbnailUrl       sh:path sdo:thumbnailUrl ; sh:node ob:Base_StringOrIRI .
+ob:Rule_thumbnail          sh:path sdo:thumbnail ;    sh:node ob:Base_StringOrIRI .
+ob:Rule_caption            sh:path sdo:caption ;      sh:node ob:Base_String ; sh:maxCount 1 .
 ob:Rule_url                sh:path sdo:url ;          sh:node ob:Base_StringOrIRI .
 
 # --- Structureel en Rechten ---
@@ -118,6 +122,8 @@ ob:Rule_superEvent         sh:path sdo:superEvent ; sh:node ob:Base_IRI ; sh:cla
 # --- Herkomst en Verwijzingen ---
 ob:Rule_inDataset          sh:path ob:inDataset ;          sh:node ob:Base_IRI ; sh:class sdo:Dataset .
 ob:Rule_hadPrimarySource   sh:path prov:hadPrimarySource ; sh:node ob:Base_IRI ; sh:or ([ sh:class prov:Entity ] [ sh:class sdo:ArchiveComponent ]) .
+ob:Rule_isPartOf_source    sh:path sdo:isPartOf ;          sh:node ob:Base_IRI  ; sh:class sdo:Dataset .
+ob:Rule_holdingArchive     sh:path sdo:holdingArchive ;    sh:node ob:Base_IRI  ; sh:class sdo:Organization .
 ob:Rule_wasDerivedFrom     sh:path prov:wasDerivedFrom ;   sh:node ob:Base_IRI ; sh:class picom:PersonObservation .
 ob:Rule_sameAs             sh:path sdo:sameAs ;            sh:node ob:Base_IRI .
 

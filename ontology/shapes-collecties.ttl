@@ -36,33 +36,37 @@ ob:CreativeWorkShape a sh:NodeShape ;
         sdo:Sculpture, 
         sdo:SheetMusic ;
     sh:name "Creatieve werken"@nl ;
-    sh:description "Verschillende typen bronnen en objecten die binnen de collectie worden beschreven, zoals artikelen, foto's en kunstwerken."@nl ;
+    sh:description "Bronnen en objecten uit erfgoedcollecties."@nl ;
     
     # --- Identificatie en Basis ---
     sh:property [
         sh:path sdo:identifier ;
         sh:name "Identifier"@nl ;
+        sh:description "De unieke identifier van het werk."@nl ;
         sh:node ob:Rule_identifier ;
     ] ;
     sh:property [
         sh:path rdf:type ;
-        sh:name "Type (RDF)"@nl ;
+        sh:name "Type entiteit"@nl ;
+        sh:description ""Classificatie van het werk volgens schema.org."@nl ;
         sh:node ob:Rule_type ;
     ] ;
     sh:property [
         sh:path sdo:additionalType ;
         sh:name "Type"@nl ;
+        sh:description "Aanvullende classificatie of typering van het werk in tekstvorm."@nl ;
         sh:node ob:Rule_additionalType ;
     ] ;
     sh:property [
         sh:path sdo:material ;
         sh:name "Materiaal"@nl ;
+        sh:description "Materiaalbeschrijving."@nl ;
         sh:node ob:Rule_material ;
     ] ;
     sh:property [
         sh:path sdo:isPartOf ;
-        sh:name "Onderdeel van"@nl ;
-        sh:description "Dit object of archiefstuk is onderdeel van een serie of collectie"@nl ;
+        sh:name "Collectie"@nl ;
+        sh:description "Collectie of deelcollectie waar het werk deel van uitmaakt."@nl ;
         sh:node ob:Rule_isPartOf ;
     ] ;
 
@@ -70,95 +74,104 @@ ob:CreativeWorkShape a sh:NodeShape ;
         sh:property [
         sh:path sdo:name ;
         sh:name "Titel"@nl ;
+        sh:description "Titel of naam van het werk."@nl ;
         sh:node ob:Rule_name ;
     ] ;
     sh:property [
         sh:path sdo:description ;
         sh:name "Beschrijving"@nl ;
+        sh:description "Uitgebreide beschrijving van het werk."@nl ;
         sh:node ob:Rule_description ;
     ] ;
     sh:property [
         sh:path sdo:keywords ;
         sh:name "Onderwerp"@nl ;
+        sh:description "Trefwoorden die het onderwerp van het werk omschrijven."@nl ;
         sh:node ob:Rule_keywords ;
     ] ;
     sh:property [
         sh:path sdo:about ;
-        sh:name "Persoon of organisatie als onderwerp van het werk"@nl ;
+        sh:name "Persoon of organisatie"@nl ;
+        sh:description "Persoon of organisatie als onderwerp van het werk."@nl ;
         sh:node ob:Rule_about ;
     ] ;
     sh:property [
         sh:path sdo:contentLocation ;
-        sh:name "Inhoudelijke locatie"@nl ;
+        sh:name "Locatie"@nl ;
+        sh:description "Locatie als onderwerp van het werk."@nl ;
         sh:node ob:Rule_contentLocation ;
     ] ;
 
     # --- Creatie en Herkomst ---
     sh:property [
         sh:path sdo:creator ;
-        sh:name "Maker van het werk"@nl ;
+        sh:name "Maker"@nl ;
+        sh:description "De maker van het werk."@nl ;
         sh:node ob:Rule_creator ;
     ] ;
     sh:property [
         sh:path sdo:contributor ;
-        sh:name "Persoon die heeft bijgedragen aan het werk"@nl ;
+        sh:name "Bijdrager"@nl ;
+        sh:description "Persoon die heeft bijgedragen aan de totstandkoming van het werk."@nl ;
         sh:node ob:Rule_contributor ;
     ] ;
     sh:property [
         sh:path sdo:publisher ;
-        sh:name "Uitgever"@nl ;
+        sh:name "Bronbeheerder"@nl ;
+        sh:description "Verwijzing de leverancier van het bronrecord."@nl ;
         sh:node ob:Rule_publisher ;
     ] ;
     sh:property [
         sh:path sdo:provider ;
-        sh:name "Provider"@nl ;
-        sh:description "De instelling die het object digitaal beschikbaar stelt."@nl ;
+        sh:name "Bronleverancier"@nl ;
+        sh:description "Verwijzing naar de leverancier van het bronrecord als dit niet de bronbeheerder zelf is."@nl ;
         sh:node ob:Rule_provider ;
     ] ;
     sh:property [
         sh:path sdo:license ;
         sh:name "Rechten"@nl ;
+        sh:description "Rechtenstatement van bijvoorbeeld Creative Commons."@nl ;
         sh:node ob:Rule_license ;
     ] ;
     sh:property [
         sh:path sdo:url ;
-        sh:name "Bron"@nl ;
+        ssh:name "Url"@nl ;
+        sh:description "Verwijzing naar de url van de bron."@nl ;
         sh:node ob:Rule_url ;
-    ] ;
-    sh:property [
-        sh:path sdo:isPartOf ;
-        sh:name "Collectie"@nl ;
-        sh:description "De verzameling waar dit object deel van uitmaakt."@nl ;
-        sh:node ob:Rule_isPartOf ;
     ] ;
 
     # --- Tijd ---
     sh:property [
         sh:path sdo:dateCreated ;
-        sh:name "Datum"@nl ;
+        sh:name "Maakdatum"@nl ;
+        sh:description "Datum of jaar wanneer het werk gemaakt is."@nl ;
         sh:node ob:Rule_date ;
     ] ;
     sh:property [
         sh:path sdo:startDate ;
-        sh:name "Startdatum"@nl ;
+        sh:name "Begindatum"@nl ;
+        sh:description "Datum of jaar wanneer de creatie van het werk begon."@nl ;
         sh:node ob:Rule_startDate ;
     ] ;
     sh:property [
         sh:path sdo:endDate ;
         sh:name "Einddatum"@nl ;
+        sh:description "Datum of jaar wanneer de creatie van het werk eindigde."@nl ;
         sh:node ob:Rule_endDate ;
     ] ;
         sh:property [
         sh:path sdo:temporal ;
-        sh:name "Periodisering"@nl ;
+        sh:name "Periode"@nl ;
+        sh:description "Periode waarin het werk gemaakt is."@nl ;
         sh:node ob:Rule_temporal ;
     ] ;
 
     # --- Visueel ---
     sh:property [
-        sh:path sdo:thumbnailUrl ;
-        sh:name "Thumbnail"@nl ;
-        sh:node ob:Rule_thumbnailUrl ;
+        sh:path sdo:thumbnail ;
+        sh:name "Afbeelding"@nl ;
+        sh:description "Afbeelding van het werk."@nl ;
+        sh:node ob:Rule_thumbnail ;
     ] .
 
 ### --- ARCHIEVEN EN ARCHIEFSTUKKEN (Uitbreiding op CreativeWorkShape) ---
@@ -171,7 +184,7 @@ ob:ArchiveShape a sh:NodeShape ;
     # 1. Hergebruik alle regels van CreativeWork
     sh:node ob:CreativeWorkShape .
 
-    # 2. Voeg extra properties toe (niet meer aan de orde)
+    # 2. Voeg extra properties toe (op dit moment niet aan de orde)
 
 ### --- BEKENDMAKINGEN (Uitbreiding  op CreativeWorkShape) ---
 ob:BekendmakingShape a sh:NodeShape ;
