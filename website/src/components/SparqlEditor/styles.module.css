@@ -9,6 +9,18 @@
   margin-bottom: var(--ifm-leading);
 }
 
+/* Toetsenbordinstructie onder de editor (WCAG 2.1.2: de Esc-uitweg uit de
+   editor moet gemeld worden). emphasis-700 haalt AA op beide achtergronden. */
+.keyboardHint {
+  margin: 0.375rem 0 0;
+  font-size: 0.8125rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.keyboardHint kbd {
+  font-size: 0.75rem;
+}
+
 /* Eén vast endpoint en één query per blok: de tab-balk, endpoint-invoer en
    de externe verwijzing-knop van Yasgui zijn hier ruis. */
 .editor :global(.tabsList),

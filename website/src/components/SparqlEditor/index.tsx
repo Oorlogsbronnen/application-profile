@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useId, useRef } from "react";
 import BrowserOnly from "@docusaurus/BrowserOnly";
 import CodeBlock from "@theme/CodeBlock";
 import type Yasgui from "@zazuko/yasgui";
@@ -39,6 +39,7 @@ function Editor({
   endpoint = DEFAULT_ENDPOINT,
 }: SparqlEditorProps): React.ReactElement {
   const container = useRef<HTMLDivElement>(null);
+  const hintId = useId();
 
   useEffect(() => {
     const element = container.current;
@@ -70,6 +71,13 @@ function Editor({
             autofocus: false,
           });
           instance.getTab()?.setQuery(query);
+          // CodeMirror's invoerveld heeft geen label; zonder accessible name
+          // presenteert het zich aan schermlezers als naamloos invoerveld.
+          // De hint eronder wordt via aria-describedby meegelezen.
+          for (const field of element.querySelectorAll("textarea")) {
+            field.setAttribute("aria-label", "SPARQL-query (bewerkbaar)");
+            field.setAttribute("aria-describedby", hintId);
+          }
         })();
       },
       { rootMargin: "400px" },
@@ -82,7 +90,16 @@ function Editor({
       instance?.destroy();
       element.replaceChildren();
     };
-  }, [query, endpoint]);
+  }, [query, endpoint, hintId]);
 
-  return <div ref={container} className={styles.editor} />;
+  return (
+    <div className={styles.editor}>
+      <div ref={container} />
+      {/* WCAG 2.1.2: Tab springt in de editor in; de Esc-uitweg moet gemeld. */}
+      <p id={hintId} className={styles.keyboardHint}>
+        Tab springt in de editor in; druk op <kbd>Esc</kbd> om de editor met het
+        toetsenbord te verlaten.
+      </p>
+    </div>
+  );
 }
