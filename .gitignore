@@ -3,6 +3,4 @@ node_modules/
 
 # Gegenereerd door packages/schema-docs (bron: ontology/shapes-*.ttl)
 website/docs/datamodel/application-profile.mdx
-website/static/schema.ttl
-website/static/schema-personen.ttl
-website/static/schema-collecties.ttl
+website/static/schema*.ttl

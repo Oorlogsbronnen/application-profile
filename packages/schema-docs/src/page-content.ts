@@ -22,10 +22,3 @@ export type PageContent = {
   /** Volledige voorbeelden voor het afsluitende hoofdstuk. */
   fullExamples: Example[];
 };
-
-export const emptyPageContent: PageContent = {
-  editorial: null,
-  groupIntros: {},
-  classExamples: new Map(),
-  fullExamples: [],
-};

@@ -1,8 +1,15 @@
 import { themes as prismThemes } from "prism-react-renderer";
 import type { Config, Plugin } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
+// Module-augmentatie: geeft webpack's Configuration-type een `devServer`-veld,
+// zodat de proxy hieronder gewoon getypecheckt wordt.
+import type {} from "webpack-dev-server";
+import { SPINQUE_API_BASE, SPINQUE_PROXY_PREFIX } from "./src/lib/spinque";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+
+const spinqueUrl = new URL(SPINQUE_API_BASE);
+const LDMAX_ORG_URL = "https://platform.ldmax.nl/organisaties/wo2net";
 
 /**
  * Lokale tegenhanger van de Netlify-proxy in static/_redirects: de dev-server
@@ -14,22 +21,18 @@ import type * as Preset from "@docusaurus/preset-classic";
 function spinqueDevProxy(): Plugin {
   return {
     name: "spinque-dev-proxy",
-    configureWebpack: () =>
-      // webpack's Configuration-type kent `devServer` alleen wanneer de
-      // typedefinities van webpack-dev-server geladen zijn; dat pakket is
-      // hier alleen transitief aanwezig, vandaar de cast.
-      ({
-        devServer: {
-          proxy: [
-            {
-              context: ["/spinque-api"],
-              target: "https://rest.spinque.com",
-              changeOrigin: true,
-              pathRewrite: { "^/spinque-api": "/4/oorlogsbronnen/api" },
-            },
-          ],
-        },
-      }) as ReturnType<NonNullable<Plugin["configureWebpack"]>>,
+    configureWebpack: () => ({
+      devServer: {
+        proxy: [
+          {
+            context: [SPINQUE_PROXY_PREFIX],
+            target: spinqueUrl.origin,
+            changeOrigin: true,
+            pathRewrite: { [`^${SPINQUE_PROXY_PREFIX}`]: spinqueUrl.pathname },
+          },
+        ],
+      },
+    }),
   };
 }
 
@@ -49,6 +52,9 @@ const config: Config = {
   projectName: "application-profile",
 
   onBrokenLinks: "throw",
+  // De cookbook- en servicepagina's linken naar ankers op de gegenereerde
+  // schema-pagina (/schema#…Shape); een hernoemde shape moet de build breken.
+  onBrokenAnchors: "throw",
 
   i18n: {
     defaultLocale: "nl",
@@ -93,11 +99,11 @@ const config: Config = {
         rootContent: [
           "## Directe toegang tot de data",
           "",
-          "- SPARQL-endpoint: https://sparql.ldmax.nl/wo2net (GET/POST, CORS open; query-UI: https://platform.ldmax.nl/organisaties/wo2net/query)",
+          `- SPARQL-endpoint: https://sparql.ldmax.nl/wo2net (GET/POST, CORS open; query-UI: ${LDMAX_ORG_URL}/query)`,
           "- Namespaces in de data: schema = http://schema.org/ (http, zonder s), pico = https://personsincontext.org/model#",
           "- Machine-leesbaar datamodel (SHACL/Turtle): https://data.oorlogsbronnen.nl/schema.ttl — per kennisgraaf /schema-personen.ttl en /schema-collecties.ttl; leesbare versie op https://data.oorlogsbronnen.nl/schema",
-          "- REST API (Spinque): basis https://rest.spinque.com/4/oorlogsbronnen/api/lod/e/ met ?config=default en resultaatvorm resultpage — uitleg en voorbeelden op https://data.oorlogsbronnen.nl/services/apis",
-          "- Datasets op LDmax (https://platform.ldmax.nl/organisaties/wo2net): WO2 Personen en WO2 Collecties (licentie CC-BY-NC-SA 4.0, niet-commercieel), WO2 Thesaurus (CC0 1.0)",
+          `- REST API (Spinque): basis ${SPINQUE_API_BASE}/lod/e/ met ?config=default en resultaatvorm resultpage — uitleg en voorbeelden op https://data.oorlogsbronnen.nl/services/apis`,
+          `- Datasets op LDmax (${LDMAX_ORG_URL}): WO2 Personen en WO2 Collecties (licentie CC-BY-NC-SA 4.0, niet-commercieel), WO2 Thesaurus (CC0 1.0)`,
           "",
           "Vermeld bij hergebruik de bron en respecteer de licenties: de personen- en collectiedata is niet-commercieel gelicenseerd.",
         ].join("\n"),
@@ -158,7 +164,7 @@ const config: Config = {
           items: [
             {
               label: "LDmax",
-              href: "https://platform.ldmax.nl/organisaties/wo2net",
+              href: LDMAX_ORG_URL,
             },
             {
               label: "Spinque API-documentatie",

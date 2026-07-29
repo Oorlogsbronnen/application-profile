@@ -34,8 +34,9 @@ export type GroupSource = {
 
 /**
  * Bouwt het volledige profiel uit de gedeelde bouwstenen en de shapes-bestanden
- * van de kennisgrafen. Elke graaf wordt samen met de bouwstenen geparseerd,
- * zodat de regels en basistypen binnen elke graaf resolven.
+ * van de kennisgrafen. Elk graafbestand is zelfstandig parseerbaar (eigen
+ * prefix-kop; regel-verwijzingen zijn kale IRI's), dus de bouwstenen hoeven
+ * niet per graaf mee geparseerd te worden.
  */
 export function parseProfile(
   bouwstenen: string,
@@ -44,7 +45,7 @@ export function parseProfile(
   const shared = parseShapes(bouwstenen).shapes;
   const groups = groupSources.map(({ id, turtle }) => ({
     id,
-    shapes: parseShapes(combineTurtle(bouwstenen, turtle)).shapes.classShapes,
+    shapes: parseShapes(turtle).shapes.classShapes,
   }));
   return { groups, rules: shared.rules, bases: shared.bases };
 }
@@ -170,17 +171,25 @@ function parseProperty(
   if (!path) {
     return null;
   }
-  const ruleNode = firstNamedNode(store, propertyNode, sh("node"));
   return {
     path: toTerm(path.value, prefixes),
     name: languageText(store, propertyNode, sh("name")),
     description: languageText(store, propertyNode, sh("description")),
-    ruleRef:
-      ruleNode && ruleNode.value.startsWith(SCHEMA_NS)
-        ? localName(ruleNode.value)
-        : null,
+    ruleRef: schemaRef(store, propertyNode, sh("node")),
     inlineCardinality: cardinality(store, propertyNode),
   };
+}
+
+/** Local name van een verwijzing, mits die in de eigen namespace ligt. */
+function schemaRef(
+  store: Store,
+  subject: Quad_Subject,
+  predicate: string,
+): string | null {
+  const node = firstNamedNode(store, subject, predicate);
+  return node && node.value.startsWith(SCHEMA_NS)
+    ? localName(node.value)
+    : null;
 }
 
 function parseRuleBlock(
@@ -189,14 +198,10 @@ function parseRuleBlock(
   pathIri: string,
   prefixes: Prefixes,
 ): RuleBlock {
-  const baseNode = firstNamedNode(store, subject, sh("node"));
   return {
     localName: localName(subject.value),
     path: toTerm(pathIri, prefixes),
-    baseRef:
-      baseNode && baseNode.value.startsWith(SCHEMA_NS)
-        ? localName(baseNode.value)
-        : null,
+    baseRef: schemaRef(store, subject, sh("node")),
     cardinality: cardinality(store, subject),
     classConstraints: store
       .getObjects(subject, sh("class"), null)

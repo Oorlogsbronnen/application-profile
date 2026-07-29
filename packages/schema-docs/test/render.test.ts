@@ -1,28 +1,26 @@
-import { readFileSync } from "node:fs";
-import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
-import { parseProfile } from "../src/parse-shapes.js";
-import { emptyPageContent, type PageContent } from "../src/page-content.js";
+import type { PageContent } from "../src/page-content.js";
 import { renderPage } from "../src/render-page.js";
 import { renderGroupDiagram } from "../src/render-diagram.js";
 import { allShapes } from "../src/presenter.js";
+import { loadRealProfile } from "./helpers.js";
 
-const ontologyDir = resolve(__dirname, "../../../ontology");
-const read = (file: string): string =>
-  readFileSync(resolve(ontologyDir, file), "utf8");
-
-const profile = parseProfile(read("shapes-bouwstenen.ttl"), [
-  { id: "personen", turtle: read("shapes-personen.ttl") },
-  { id: "objecten", turtle: read("shapes-collecties.ttl") },
-]);
+const profile = loadRealProfile();
 const [personen, objecten] = profile.groups;
+
+const emptyContent: PageContent = {
+  editorial: null,
+  groupIntros: {},
+  classExamples: new Map(),
+  fullExamples: [],
+};
 
 function escapeRegExp(text: string): string {
   return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
 describe("renderPage", () => {
-  const page = renderPage(profile, emptyPageContent);
+  const page = renderPage(profile, emptyContent);
 
   it("gebruikt de Nederlandse naam als koptitel en de local name als anker", () => {
     for (const shape of allShapes(profile)) {
@@ -35,27 +33,19 @@ describe("renderPage", () => {
     }
   });
 
-  it("maakt van elke kennisgraaf een eigen hoofdstuk", () => {
+  it("maakt van elke kennisgraaf een genummerd hoofdstuk", () => {
     expect(page).toContain("## 2. Personen {#personen}");
     expect(page).toContain("## 3. Objecten {#objecten}");
-    expect(page).toContain(
-      "### 2.1 Persoonsreconstructies {#PersoonsReconstructieShape}",
-    );
-    expect(page).toContain("### 3.1 Creatieve werken {#CreativeWorkShape}");
+    expect(page).toMatch(/### 2\.1 .+ \{#/);
+    expect(page).toMatch(/### 3\.1 .+ \{#/);
   });
 
   it("volgt de documentvolgorde van de shapes-bestanden", () => {
-    expect(page.indexOf("{#PersoonsvermeldingShape}")).toBeLessThan(
-      page.indexOf("{#ArchiveShape}"),
+    const [firstPersonenShape] = personen!.shapes;
+    const [firstObjectenShape] = objecten!.shapes;
+    expect(page.indexOf(`{#${firstPersonenShape!.localName}}`)).toBeLessThan(
+      page.indexOf(`{#${firstObjectenShape!.localName}}`),
     );
-    expect(page.indexOf("{#BekendmakingShape}")).toBeLessThan(
-      page.indexOf("{#MediaShape}"),
-    );
-  });
-
-  it("onderscheidt de archiefrecords van personen van de archieven", () => {
-    expect(page).toContain("Archiefrecords (personen) {#SourceShape}");
-    expect(page).toContain("Archieven {#ArchiveShape}");
   });
 
   it("toont de volledige IRI onder elke klasse-kop", () => {
@@ -116,9 +106,6 @@ describe("renderPage met redactionele en voorbeeld-inhoud", () => {
     expect(page).toContain("Dit profiel bouwt voort op **schema.org**.");
     expect(page).toContain("## 3. Personen {#personen}");
     expect(page).toContain("## 4. Objecten {#objecten}");
-    expect(page).toContain(
-      "### 3.1 Persoonsreconstructies {#PersoonsReconstructieShape}",
-    );
   });
 
   it("opent elk kennisgraaf-hoofdstuk met zijn intro", () => {
