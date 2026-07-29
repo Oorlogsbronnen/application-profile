@@ -9,6 +9,19 @@
   margin-bottom: var(--ifm-leading);
 }
 
+/* Statusmeldingen voor schermlezers; visueel verborgen — het resultaten-
+   paneel toont dezelfde informatie al. */
+.status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 /* Toetsenbordinstructie onder de editor (WCAG 2.1.2: de Esc-uitweg uit de
    editor moet gemeld worden). emphasis-700 haalt AA op beide achtergronden. */
 .keyboardHint {

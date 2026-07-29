@@ -18,8 +18,9 @@ Toegankelijkheid is bij Norday een pre-conditie; zolang dit open staat is de ker
   sidebar-link, actieve breadcrumb, links in inline-`code`.
 - **Wel:** SPARQL-editor — accessible name op het invoerveld en zichtbare Esc-instructie.
 - **Wel:** `accTitle`/`accDescr` op de gegenereerde Mermaid-diagrammen (`schema-docs`).
-- **Niet:** herstructurering `aria-live` in `ApiExample`, statusmeldingen bij SPARQL-resultaten
-  en Nederlandse Yasgui-knoplabels (audit-punten 4–6) — apart vervolg.
+- **Wel:** de vervolgpunten 4–6 uit de audit — `aria-live` in `ApiExample` beperken tot een
+  korte statusmelding, statusmeldingen bij SPARQL-resultaten, en Nederlandse accessible
+  names op de zichtbare Yasgui-knoppen.
 - **Niet:** de suggesties uit de audit ("Voorbeeld"-koppen, resize-handle, groepskoppen).
 
 ## Acceptatiecriteria
@@ -39,3 +40,9 @@ Toegankelijkheid is bij Norday een pre-conditie; zolang dit open staat is de ker
 6. Beide diagrammen op `/schema` hebben via `accTitle`/`accDescr` een accessible name en een
    verwijzing naar de tabellen eronder als volwaardig tekstalternatief.
 7. `pnpm build`, `pnpm typecheck` en `pnpm test` zijn groen.
+8. De live-region in `ApiExample` bevat alleen een korte statusmelding ("opgehaald" /
+   "mislukt"), niet de JSON-response zelf (WCAG 4.1.3).
+9. Na het uitvoeren van een SPARQL-query meldt een statuselement dat er resultaten dan wel
+   een foutmelding zijn verschenen (WCAG 4.1.3).
+10. De zichtbare Yasgui-knoppen (uitvoeren, delen) presenteren zich met een Nederlandse
+    accessible name (WCAG 3.1.2).

@@ -39,6 +39,7 @@ function Editor({
   endpoint = DEFAULT_ENDPOINT,
 }: SparqlEditorProps): React.ReactElement {
   const container = useRef<HTMLDivElement>(null);
+  const status = useRef<HTMLParagraphElement>(null);
   const hintId = useId();
 
   useEffect(() => {
@@ -70,13 +71,41 @@ function Editor({
             persistenceId: null,
             autofocus: false,
           });
-          instance.getTab()?.setQuery(query);
+          const tab = instance.getTab();
+          tab?.setQuery(query);
+          // Statusmeldingen (WCAG 4.1.3): Yasgui rendert resultaten zonder
+          // aankondiging; het statuselement hieronder meldt ze kort.
+          tab?.on("query", () => {
+            if (status.current) {
+              status.current.textContent = "Query wordt uitgevoerd…";
+            }
+          });
+          tab?.on("queryResponse", (responded) => {
+            if (!status.current) {
+              return;
+            }
+            status.current.textContent = responded
+              .getYasr()
+              ?.results?.hasError()
+              ? "Query mislukt; de foutmelding staat in het resultatenpaneel."
+              : "Query uitgevoerd; de resultaten staan onder de editor.";
+          });
           // CodeMirror's invoerveld heeft geen label; zonder accessible name
           // presenteert het zich aan schermlezers als naamloos invoerveld.
           // De hint eronder wordt via aria-describedby meegelezen.
           for (const field of element.querySelectorAll("textarea")) {
             field.setAttribute("aria-label", "SPARQL-query (bewerkbaar)");
             field.setAttribute("aria-describedby", hintId);
+          }
+          // Yasgui's knoppen hebben Engelse accessible names; de site is
+          // Nederlandstalig (WCAG 3.1.2).
+          for (const [selector, text] of [
+            [".yasqe_queryButton", "Voer query uit"],
+            [".yasqe_share", "Deel query"],
+          ]) {
+            const button = element.querySelector(selector);
+            button?.setAttribute("aria-label", text);
+            button?.setAttribute("title", text);
           }
         })();
       },
@@ -95,6 +124,7 @@ function Editor({
   return (
     <div className={styles.editor}>
       <div ref={container} />
+      <p ref={status} role="status" className={styles.status} />
       {/* WCAG 2.1.2: Tab springt in de editor in; de Esc-uitweg moet gemeld. */}
       <p id={hintId} className={styles.keyboardHint}>
         Tab springt in de editor in; druk op <kbd>Esc</kbd> om de editor met het
