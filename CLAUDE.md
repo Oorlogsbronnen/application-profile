@@ -30,15 +30,14 @@ De repo is een pnpm-monorepo:
 Package manager: **pnpm** (workspaces). Draai `pnpm install` vanaf de root.
 
 - Website: `pnpm start` (dev-server) · `pnpm build` (productie-build) · `pnpm typecheck` · `pnpm test` (unit tests van de generator)
-- Valideer Turtle-syntax (spiegelt stap 1 van de CI, vereist `pip install rdflib`):
+- Valideer Turtle-syntax (spiegelt stap 1 van de CI, vereist `pip install rdflib`; de glob pakt automatisch alle bronbestanden mee):
   ```sh
   python3 -c "
+  import glob
   from rdflib import Graph
   g = Graph()
-  g.parse('ontology/schema_ext-oorlogsbronnen.ttl', format='turtle')
-  g.parse('ontology/shapes-bouwstenen.ttl', format='turtle')
-  g.parse('ontology/shapes-personen.ttl', format='turtle')
-  g.parse('ontology/shapes-collecties.ttl', format='turtle')
+  for f in sorted(glob.glob('ontology/*.ttl')):
+      g.parse(f, format='turtle')
   print('OK:', len(g), 'triples')
   "
   ```

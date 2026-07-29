@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - main
+    # De Widoco-documentatie verandert alleen als de bronbestanden veranderen;
+    # website-wijzigingen hoeven deze pipeline niet te draaien.
+    paths:
+      - "ontology/**"
+      - "context/**"
+      - ".github/workflows/generate-docs.yml"
   workflow_dispatch:
 
 jobs:
@@ -26,12 +32,12 @@ jobs:
       - name: Merge TTL Files Properly
         run: |
           python -c "
+          import glob
           from rdflib import Graph
           g = Graph()
-          g.parse('ontology/schema_ext-oorlogsbronnen.ttl', format='turtle')
-          g.parse('ontology/shapes-bouwstenen.ttl', format='turtle')
-          g.parse('ontology/shapes-personen.ttl', format='turtle')
-          g.parse('ontology/shapes-collecties.ttl', format='turtle')
+          for f in sorted(glob.glob('ontology/*.ttl')):
+              g.parse(f, format='turtle')
+              print('geparseerd:', f)
           g.serialize(destination='full_profile.ttl', format='turtle')
           print('Merge succesvol: full_profile.ttl aangemaakt.')
           "
