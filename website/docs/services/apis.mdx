@@ -101,19 +101,32 @@ curl "https://rest.spinque.com/4/oorlogsbronnen/api/lod/e/person/p/id/https%3A%2
   <TabItem value="js" label="JavaScript">
 
 ```ts
-const iri = "https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388";
-const url =
-  "https://rest.spinque.com/4/oorlogsbronnen/api/lod/e/person" +
-  `/p/id/${encodeURIComponent(iri)}/resultpage?config=default`;
+import { Api, Query, RequestType } from "@spinque/query-api";
 
-const response = await fetch(url);
-const { items } = await response.json();
+const api = new Api({
+  workspace: "oorlogsbronnen",
+  api: "lod",
+  config: "default",
+  version: "4",
+});
+
+const query: Query = {
+  endpoint: "person",
+  parameters: {
+    id: "https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388",
+  },
+};
+
+// De endpoints van deze API antwoorden op de resultaatvorm `resultpage`.
+const { items } = await api.fetch(query, undefined, RequestType.ResultPage);
 ```
 
   </TabItem>
   <TabItem value="python" label="Python">
 
 ```python
+# De Python-library bouwt (nog) geen resultpage-URL's; een requests-call
+# naar hetzelfde patroon is één regel werk.
 from urllib.parse import quote
 import requests
 
@@ -162,7 +175,7 @@ Spinque biedt officiële client-libraries:
 - [`@spinque/query-api`](https://www.npmjs.com/package/@spinque/query-api) (JavaScript/TypeScript): npm-package voor Node ≥ 18 of de browser.
 - [`spinque-query-api`](https://pypi.org/project/spinque-query-api/) (Python): `pip install spinque-query-api`; zie de [broncode op GitHub](https://github.com/spinque/query-api-python).
 
-Let op: de libraries bouwen alleen de resultaatvormen `results` en `statistics`. De endpoints van deze API antwoorden op `resultpage` — gebruik daarvoor gewone HTTP-requests, zoals in de voorbeelden hierboven.
+De endpoints van deze API antwoorden op de resultaatvorm `resultpage`. De JavaScript-library ondersteunt die via `RequestType.ResultPage`, zoals in het [person-voorbeeld](#eén-persoon-ophalen-person) hierboven. De Python-library bouwt alleen `results` en `statistics`; gebruik voor deze endpoints [`requests`](https://requests.readthedocs.io/), zoals in de voorbeelden.
 
 ## Verder lezen
 
