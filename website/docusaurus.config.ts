@@ -158,6 +158,13 @@ const config: Config = {
     },
     footer: {
       style: "light",
+      logo: {
+        alt: "WO2Net",
+        src: "img/wo2net-logo.svg",
+        href: "https://www.wo2net.nl",
+        width: 145,
+        height: 27,
+      },
       links: [
         {
           title: "Services",
