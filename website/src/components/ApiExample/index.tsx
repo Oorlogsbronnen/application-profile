@@ -3,7 +3,7 @@ import CodeBlock from "@theme/CodeBlock";
 import Admonition from "@theme/Admonition";
 import styles from "./styles.module.css";
 
-const API_BASE = "https://rest.spinque.com/4/oorlogsbronnen/api/in10";
+const API_BASE = "https://rest.spinque.com/4/oorlogsbronnen/api";
 
 type ApiExampleProps = {
   /** Volledige request-URL; op de pagina aanpasbaar voordat hij wordt uitgevoerd. */

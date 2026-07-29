@@ -25,7 +25,7 @@ function spinqueDevProxy(): Plugin {
               context: ["/spinque-api"],
               target: "https://rest.spinque.com",
               changeOrigin: true,
-              pathRewrite: { "^/spinque-api": "/4/oorlogsbronnen/api/in10" },
+              pathRewrite: { "^/spinque-api": "/4/oorlogsbronnen/api" },
             },
           ],
         },

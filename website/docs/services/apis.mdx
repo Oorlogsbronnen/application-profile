@@ -7,7 +7,9 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import ApiExample from "@site/src/components/ApiExample";
 import searchResponse from "@site/src/data/spinque/search-hannie-schaft.json";
-import persoonResponse from "@site/src/data/spinque/persoon-hannie-schaft.json";
+import persoonLodResponse from "@site/src/data/spinque/persoon-hannie-schaft-lod.json";
+import verzetObjectenResponse from "@site/src/data/spinque/verzet-objecten-lod.json";
+import objectTrouwfotoResponse from "@site/src/data/spinque/object-trouwfoto-lod.json";
 
 # API's
 
@@ -15,23 +17,27 @@ De data van Oorlogsbronnen is via een REST API te bevragen, gebouwd op [Spinque]
 
 ## Opbouw van een request
 
-Alle endpoints leven onder één basis-URL:
+Alle endpoints leven onder `https://rest.spinque.com/4/oorlogsbronnen/api/{api}/e/`. Er zijn twee API's:
+
+| API    | Voor wie                                                     | Config              | Resultaatvorm |
+| ------ | ------------------------------------------------------------ | ------------------- | ------------- |
+| `lod`  | **Externe ontwikkelaars** — gecureerde set van ±17 endpoints | `config=default`    | `resultpage`  |
+| `in10` | De API achter oorlogsbronnen.nl (uitgebreider, ruwer)        | `config=production` | `results`     |
+
+Achter de basis volgt het endpoint met zijn parameters volgens het patroon `{endpoint}/p/{parameter}/{waarde}/{resultaatvorm}`, afgesloten met de `config`-queryparameter. Parameterwaarden zijn URL-encoded. Voorbeeld:
 
 ```text
-https://rest.spinque.com/4/oorlogsbronnen/api/in10/e/
+…/api/lod/e/person/p/id/{IRI}/resultpage?config=default
 ```
 
-Daarachter volgt het endpoint met zijn parameters volgens het patroon `{endpoint}/p/{parameter}/{waarde}/results`, afgesloten met `?config=production`. Parameterwaarden zijn URL-encoded. Voorbeeld:
+Handige queryparameters: `count` (aantal resultaten) en `offset` (paginering). Elke API publiceert een machine-leesbare OpenAPI-beschrijving van zijn endpoints:
 
-```text
-…/e/search/p/topic/hannie%20schaft/results?config=production&count=10
-```
-
-Handige queryparameters: `count` (aantal resultaten), `offset` (paginering). Vraag `results,count` op in plaats van `results` om naast de resultaten ook het totaal te krijgen.
+- [`lod` swagger.json](https://rest.spinque.com/4/oorlogsbronnen/api/lod/swagger.json?config=default)
+- [`in10` swagger.json](https://rest.spinque.com/4/oorlogsbronnen/api/in10/swagger.json?config=production)
 
 ## Zoeken: `search`
 
-Vrij zoeken door alle bronnen, personen en thema's. Als rode draad gebruiken we — net als op de [SPARQL-pagina](./sparql) — verzetsstrijder Hannie Schaft:
+Vrij zoeken door alle bronnen, personen en thema's (in10-API). Als rode draad gebruiken we — net als op de [SPARQL-pagina](./sparql) — verzetsstrijder Hannie Schaft:
 
 <Tabs groupId="taal">
   <TabItem value="curl" label="curl">
@@ -84,64 +90,73 @@ results = api.fetch(query, {"count": 10})
 
 Elk resultaat bevat de `id` van de entiteit, de `class` (bijvoorbeeld `http://schema.org/Person`) en de `attributes` met de metadata volgens het [application profile](/schema).
 
-## Eén entiteit ophalen: `person`
+## Eén persoon ophalen: `person`
 
-Met de `id` uit een zoekresultaat haal je de volledige persoonskaart op:
+De lod-API haalt een persoon op met dezelfde ARK-IRI die je in de [linked data](../datasets/linked-data) tegenkomt — API en SPARQL-endpoint verwijzen dus naar hetzelfde ding:
 
 <Tabs groupId="taal">
   <TabItem value="curl" label="curl">
 
 ```sh
-curl "https://rest.spinque.com/4/oorlogsbronnen/api/in10/e/person/p/id/https%3A%2F%2Fwww.oorlogsbronnen.nl%2Fperson%2F48968c01-9f60-492d-8712-58d3b8c2b388/results?config=production"
+curl "https://rest.spinque.com/4/oorlogsbronnen/api/lod/e/person/p/id/https%3A%2F%2Fn2t.net%2Fark%3A%2F59857%2Fp48968c01-9f60-492d-8712-58d3b8c2b388/resultpage?config=default"
 ```
 
   </TabItem>
   <TabItem value="js" label="JavaScript">
 
 ```ts
-import { Api, Query } from "@spinque/query-api";
+const iri = "https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388";
+const url =
+  "https://rest.spinque.com/4/oorlogsbronnen/api/lod/e/person" +
+  `/p/id/${encodeURIComponent(iri)}/resultpage?config=default`;
 
-const api = new Api({
-  workspace: "oorlogsbronnen",
-  api: "in10",
-  config: "production",
-  version: "4",
-});
-
-const query: Query = {
-  endpoint: "person",
-  parameters: {
-    id: "https://www.oorlogsbronnen.nl/person/48968c01-9f60-492d-8712-58d3b8c2b388",
-  },
-};
-
-const results = await api.fetch(query);
+const response = await fetch(url);
+const { items } = await response.json();
 ```
 
   </TabItem>
   <TabItem value="python" label="Python">
 
 ```python
-from spinque_query_api import Api, Query
+from urllib.parse import quote
+import requests
 
-api = Api(workspace="oorlogsbronnen", api="in10", config="production")
-
-query = Query(
-    endpoint="person",
-    parameters=[
-        ("id", "https://www.oorlogsbronnen.nl/person/48968c01-9f60-492d-8712-58d3b8c2b388")
-    ],
+iri = "https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388"
+url = (
+    "https://rest.spinque.com/4/oorlogsbronnen/api/lod/e/person"
+    f"/p/id/{quote(iri, safe='')}/resultpage?config=default"
 )
-results = api.fetch(query)
+
+items = requests.get(url).json()["items"]
 ```
 
   </TabItem>
 </Tabs>
 
 <ApiExample
-  url="https://rest.spinque.com/4/oorlogsbronnen/api/in10/e/person/p/id/https%3A%2F%2Fwww.oorlogsbronnen.nl%2Fperson%2F48968c01-9f60-492d-8712-58d3b8c2b388/results?config=production"
-  recorded={persoonResponse}
-  recordedAt="2026-07-28"
+  url="https://rest.spinque.com/4/oorlogsbronnen/api/lod/e/person/p/id/https%3A%2F%2Fn2t.net%2Fark%3A%2F59857%2Fp48968c01-9f60-492d-8712-58d3b8c2b388/resultpage?config=default"
+  recorded={persoonLodResponse}
+  recordedAt="2026-07-29"
+/>
+
+## Objecten bij een trefwoord: `keyword_objects`
+
+Alle collectie-objecten die gekoppeld zijn aan een concept uit de [WO2 Thesaurus](https://data.niod.nl/WO2_Thesaurus/), hier het concept [Verzet](https://data.niod.nl/WO2_Thesaurus/2657). Wil je alleen `id`, `title` en `type`, gebruik dan de compacte variant `keyword_object_list`; voor personen bij een trefwoord is er `keyword_persons`.
+
+<ApiExample
+  url="https://rest.spinque.com/4/oorlogsbronnen/api/lod/e/keyword_objects/p/id/https%3A%2F%2Fdata.niod.nl%2FWO2_Thesaurus%2F2657/resultpage?config=default&count=2"
+  recorded={verzetObjectenResponse}
+  recordedAt="2026-07-29"
+/>
+
+## Eén object ophalen: `object`
+
+Een collectie-object op zijn eigen IRI, hier een [trouwfoto uit 1942](https://beeldbankwo2.nl/nl/beelden/detail/b6863692-025a-11e7-904b-d89d6717b464/media/96304e31-bc21-473f-9ba0-06f3c28e77ae) uit de collectie van het Joods Cultureel Kwartier. Het `rdf:type` is `schema:Photograph` — in het application profile valt dit object onder [Creatieve werken](/schema#CreativeWorkShape) — en via `subject` en de personen in het veld `about` hangt het aan de thesaurus en de personen-graaf:
+
+<ApiExample
+  url="https://rest.spinque.com/4/oorlogsbronnen/api/lod/e/object/p/id/https%3A%2F%2Fbeeldbankwo2.nl%2Fnl%2Fbeelden%2Fdetail%2Fb6863692-025a-11e7-904b-d89d6717b464%2Fmedia%2F96304e31-bc21-473f-9ba0-06f3c28e77ae/resultpage?count=20&offset=0&config=default"
+  recorded={objectTrouwfotoResponse}
+  recordedAt="2026-07-29"
 />
 
 ## Libraries
@@ -150,6 +165,8 @@ Spinque biedt officiële client-libraries:
 
 - [`@spinque/query-api`](https://www.npmjs.com/package/@spinque/query-api) (JavaScript/TypeScript): npm-package voor Node ≥ 18 of de browser.
 - [`spinque-query-api`](https://pypi.org/project/spinque-query-api/) (Python): `pip install spinque-query-api`; zie de [broncode op GitHub](https://github.com/spinque/query-api-python).
+
+Let op: de libraries bouwen alleen de resultaatvormen `results` en `statistics`. De lod-endpoints antwoorden op `resultpage` — gebruik daarvoor gewone HTTP-requests, zoals in de voorbeelden hierboven.
 
 ## Verder lezen
 

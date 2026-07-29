@@ -1,6 +1,6 @@
-# Tijdelijke same-origin proxy naar de Spinque API, zodat de live
-# API-voorbeelden werken zolang data.oorlogsbronnen.nl nog niet op de
+# Tijdelijke same-origin proxy naar de Spinque API's (in10 en lod), zodat de
+# live API-voorbeelden werken zolang data.oorlogsbronnen.nl nog niet op de
 # origin-allowlist van Spinque staat. Netlify stuurt deze requests
 # server-side door (status 200 = proxy, geen redirect).
 # Zie specs/2026-07-28-data-tastbaar-maken.md.
-/spinque-api/*  https://rest.spinque.com/4/oorlogsbronnen/api/in10/:splat  200
+/spinque-api/*  https://rest.spinque.com/4/oorlogsbronnen/api/:splat  200
