@@ -1,0 +1,57 @@
+{
+  "@context": {
+    "id": "@id",
+    "type": "@type",
+    "schema": "http://schema.org/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "dcmitype": "http://purl.org/dc/dcmitype/",
+    "identifier": "dc:identifier",
+    "title": "dc:title",
+    "description": "dc:description",
+    "objectType": "dc:type",
+    "creator": "dc:creator",
+    "date": "dc:date",
+    "publisher": "dc:publisher",
+    "rights": { "@id": "dc:rights", "@type": "@id" },
+    "source": "dc:source",
+    "subject": "dc:subject",
+    "collection": "dcmitype:Collection",
+    "about": { "@id": "schema:about", "@type": "@id" },
+    "contentLocation": "schema:contentLocation",
+    "provider": { "@id": "schema:provider", "@type": "@id" },
+    "thumbnail": "schema:thumbnail"
+  },
+  "id": "https://beeldbankwo2.nl/nl/beelden/detail/b6863692-025a-11e7-904b-d89d6717b464/media/96304e31-bc21-473f-9ba0-06f3c28e77ae",
+  "type": "schema:Photograph",
+  "identifier": "161036",
+  "title": "Trouwfoto van David van Beetz en Sara Caun gemaakt in Amsterdam op 5 mei 1942, vlak na de invoering van de jodenster, 19...",
+  "description": "Trouwfoto van David van Beetz en Sara Caun gemaakt in Amsterdam op 5 mei 1942, vlak na de invoering van de jodenster, 1942.",
+  "objectType": "Foto",
+  "creator": "Jacobs' Fotobureau",
+  "date": "1942-05-05",
+  "publisher": [
+    "Joods Cultureel Kwartier",
+    { "id": "https://data.niod.nl/Organizations/962" }
+  ],
+  "rights": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source": "https://beeldbankwo2.nl/nl/beelden/detail/b6863692-025a-11e7-904b-d89d6717b464/media/96304e31-bc21-473f-9ba0-06f3c28e77ae",
+  "subject": [
+    "Huwelijk",
+    "Joden",
+    { "id": "https://data.niod.nl/WO2_Thesaurus/2805" }
+  ],
+  "collection": "Joods Historisch Museum",
+  "about": [
+    "https://www.oorlogsbronnen.nl/person/0f68e652-4360-41db-86b6-a04a1d4b8ccf",
+    "https://www.oorlogsbronnen.nl/person/8023b4ec-6b14-43d9-a654-55af557c60bb",
+    "https://www.oorlogslevens.nl/person/David+van+Beetz/niod/1914-06-02",
+    "https://www.oorlogslevens.nl/person/Sara+Caun/niod/1919-10-22"
+  ],
+  "contentLocation": [
+    "Amsterdam",
+    "Noord-Holland",
+    { "id": "https://data.niod.nl/WO2_Thesaurus/locations/9577" }
+  ],
+  "provider": "https://data.niod.nl/Organizations/116",
+  "thumbnail": "https://images.memorix.nl/niod/thumb/1000x1000/96304e31-bc21-473f-9ba0-06f3c28e77ae.jpg"
+}
