@@ -48,6 +48,11 @@ const config: Config = {
   url: "https://data.oorlogsbronnen.nl",
   baseUrl: "/",
 
+  // Naast static/ ook de map met de JSON-LD context serveren, zodat
+  // context/context.jsonld (de bron in de repo-root) publiek beschikbaar
+  // is op /context.jsonld zonder kopieerstap.
+  staticDirectories: ["static", "../context"],
+
   organizationName: "Oorlogsbronnen",
   projectName: "application-profile",
 
