@@ -1,6 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import BrowserOnly from "@docusaurus/BrowserOnly";
 import type Yasgui from "@zazuko/yasgui";
+// Statisch en vóór de module-css: onze overrides winnen dan bij gelijke
+// specificiteit, in zowel de dev- als de productie-build.
+import "@zazuko/yasgui/build/yasgui.min.css";
 import styles from "./styles.module.css";
 
 const DEFAULT_ENDPOINT = "https://sparql.ldmax.nl/wo2net";
@@ -47,10 +50,7 @@ function Editor({
     let instance: Yasgui | undefined;
 
     const init = async (): Promise<void> => {
-      const [{ default: YasguiClass }] = await Promise.all([
-        import("@zazuko/yasgui"),
-        import("@zazuko/yasgui/build/yasgui.min.css"),
-      ]);
+      const { default: YasguiClass } = await import("@zazuko/yasgui");
       if (cancelled) {
         return;
       }
