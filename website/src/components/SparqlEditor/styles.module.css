@@ -1,0 +1,221 @@
+.editor {
+  margin-bottom: var(--ifm-leading);
+}
+
+/* Eén vast endpoint en één query per blok: de tab-balk en endpoint-invoer
+   van Yasgui zijn hier ruis. De externe verwijzing-knop leidt nergens heen. */
+.editor :global(.tabsList),
+.editor :global(.controlbar),
+.editor :global(.yasr_btn.yasr_external_ref_btn) {
+  display: none !important;
+}
+
+/* Chrome in de huisstijl: site-font voor de UI, monospace voor query en
+   resultaten, randen en radius via de Infima-tokens (dark-mode-bewust). */
+.editor :global(.yasgui) {
+  font-family: var(--ifm-font-family-base);
+}
+
+.editor :global(.yasgui .yasqe),
+.editor :global(.yasgui .yasr) {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+  overflow: hidden;
+}
+
+.editor :global(.yasgui .yasqe) {
+  margin-bottom: 0.75rem;
+}
+
+.editor :global(.yasgui .CodeMirror) {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--ifm-font-color-base);
+  background: var(--ifm-background-surface-color);
+}
+
+/* Uitvoerknop: compacter en in de primaire merkkleur (Yasgui kleurt de
+   svg-paden met een vaste fill; paden met fill="none" moeten leeg blijven). */
+.editor :global(.yasqe .yasqe_queryButton) {
+  width: 26px;
+  height: 26px;
+}
+
+.editor :global(.yasqe .yasqe_queryButton svg) {
+  width: 100%;
+  height: 100%;
+}
+
+.editor :global(.yasqe .yasqe_queryButton .queryIcon path):not([fill="none"]) {
+  fill: var(--ifm-color-primary);
+}
+
+.editor
+  :global(.yasqe .yasqe_queryButton:hover .queryIcon path):not([fill="none"]) {
+  fill: var(--ifm-color-primary-dark);
+}
+
+/* Resultatenbalk: alles op één maat en één lijn. */
+.editor :global(.yasr .yasr_header) {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.375rem 0.75rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+  background: var(--ifm-background-surface-color);
+  font-size: 0.8125rem;
+}
+
+.editor :global(.yasr .yasr_btnGroup) {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0;
+}
+
+.editor :global(.yasr .yasr_btnGroup li) {
+  display: block;
+  margin: 0;
+}
+
+.editor :global(.yasr .yasr_btn) {
+  font-family: var(--ifm-font-family-base);
+  font-size: 0.8125rem;
+  font-weight: var(--ifm-font-weight-base);
+  color: var(--ifm-color-emphasis-700);
+  /* Yasgui zet een 2px onderstreping op de actieve knop; de oranje kleur
+     markeert de actieve staat al. !important omdat Yasgui's stylesheet
+     later laadt dan deze module. */
+  border: none !important;
+  border-radius: var(--ifm-global-radius);
+}
+
+.editor :global(.yasr .yasr_btn.selected),
+.editor :global(.yasr .yasr_btn:hover) {
+  color: var(--ifm-color-primary);
+}
+
+/* De spacer tussen links en rechts mag krimpen, zodat de balk op één regel
+   blijft. */
+.editor :global(.yasr .yasr_header .space_element) {
+  flex: 1 1 auto;
+  min-width: 0.5rem;
+}
+
+.editor :global(.yasr .yasr_response_chip) {
+  border: none;
+  background: none;
+  padding: 0;
+  font-size: 0.8125rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.editor :global(.yasr .tableControls) {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8125rem;
+}
+
+.editor :global(.yasr .tableControls .switch .label),
+.editor :global(.yasr .tableControls label) {
+  font-size: 0.8125rem;
+  font-weight: var(--ifm-font-weight-base);
+  color: var(--ifm-color-emphasis-700);
+}
+
+.editor :global(.yasr .tableControls input.tableFilter),
+.editor :global(.yasr .tableControls select) {
+  font-family: var(--ifm-font-family-base);
+  font-size: 0.8125rem;
+  padding: 0.2rem 0.5rem;
+  color: var(--ifm-font-color-base);
+  background: var(--ifm-background-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+}
+
+.editor :global(.yasr .tableControls input.tableFilter) {
+  width: 9rem;
+}
+
+/* Resultaten: tabel en teksten op site-typografie. */
+.editor :global(.yasr .yasr_results) {
+  font-family: var(--ifm-font-family-base);
+  background: var(--ifm-background-color);
+}
+
+.editor :global(.yasr table.dataTable) {
+  font-size: 0.8125rem;
+}
+
+.editor :global(.yasr table.dataTable thead th) {
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+}
+
+.editor :global(.yasr a) {
+  color: var(--ifm-color-primary);
+}
+
+/* Onderbalk (aantal resultaten en paginering, DataTables v2) in dezelfde maat. */
+.editor :global(.yasr .dt-layout-row) {
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+}
+
+.editor :global(.yasr .dt-info) {
+  font-size: 0.8125rem;
+  color: var(--ifm-color-emphasis-600);
+  padding: 0.25rem 0;
+}
+
+.editor :global(.yasr .dt-paging .dt-paging-button) {
+  font-family: var(--ifm-font-family-base);
+  font-size: 0.8125rem;
+  padding: 0.2rem 0.55rem;
+  color: var(--ifm-color-emphasis-700);
+  border: 1px solid transparent;
+  border-radius: var(--ifm-global-radius);
+  background: none;
+}
+
+.editor :global(.yasr .dt-paging .dt-paging-button.current) {
+  color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-emphasis-300);
+  background: var(--ifm-background-surface-color);
+}
+
+.editor :global(.yasr .dt-paging .dt-paging-button:hover:not(.disabled)) {
+  color: var(--ifm-color-primary);
+}
+
+.editor :global(.yasr .dt-paging .dt-paging-button.disabled) {
+  color: var(--ifm-color-emphasis-400);
+}
+
+/* Yasgui's CodeMirror-thema is licht; in dark mode krijgen gutter en de
+   tokens die daar onleesbaar worden een eigen kleur. */
+html[data-theme="dark"] .editor :global(.CodeMirror-gutters) {
+  background: var(--ifm-background-surface-color);
+  border-right: 1px solid var(--ifm-color-emphasis-300);
+}
+
+html[data-theme="dark"] .editor :global(.CodeMirror .CodeMirror-linenumber) {
+  color: var(--ifm-color-emphasis-500);
+}
+
+/* Variabelen (?naam) — standaard donkerblauw. */
+html[data-theme="dark"] .editor :global(.CodeMirror .cm-atom) {
+  color: #8ab4f8;
+}
+
+/* IRI's tussen punthaken. */
+html[data-theme="dark"] .editor :global(.CodeMirror .cm-variable-3) {
+  color: #b5cea8;
+}
+
+html[data-theme="dark"] .editor :global(.CodeMirror .cm-punc) {
+  color: var(--ifm-font-color-base);
+}

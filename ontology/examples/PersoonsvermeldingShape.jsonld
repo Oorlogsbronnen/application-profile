@@ -1,0 +1,49 @@
+{
+  "@context": {
+    "id": "@id",
+    "type": "@type",
+    "schema": "http://schema.org/",
+    "pico": "https://personsincontext.org/model#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "identifier": "schema:identifier",
+    "name": "schema:name",
+    "alternateName": "schema:alternateName",
+    "givenName": "schema:givenName",
+    "familyName": "schema:familyName",
+    "gender": { "@id": "schema:gender", "@type": "@id" },
+    "birthDate": "schema:birthDate",
+    "birthPlace": "schema:birthPlace",
+    "deathDate": "schema:deathDate",
+    "deathPlace": "schema:deathPlace",
+    "hasOccupation": "schema:hasOccupation",
+    "about": "schema:about",
+    "keywords": { "@id": "schema:keywords", "@type": "@id" },
+    "hadPrimarySource": { "@id": "prov:hadPrimarySource", "@type": "@id" }
+  },
+  "id": "https://www.oorlogslevens.nl/person/Hannie-Schaft/03/0004",
+  "type": "pico:PersonObservation",
+  "identifier": "Hannie-Schaft/03/0004",
+  "name": "Hannie Schaft",
+  "alternateName": [
+    "Hanneke Schaft",
+    "Het Meisje met het rode haar",
+    "Jannetje Johanna Schaft",
+    "Johanna Schaft"
+  ],
+  "givenName": "Jannetje Johanna",
+  "familyName": "Schaft",
+  "gender": "schema:Female",
+  "birthDate": "1920-09-16",
+  "birthPlace": "Haarlem",
+  "deathDate": "1945-04-17",
+  "deathPlace": "Bloemendaal",
+  "hasOccupation": "Verzetsstrijder",
+  "about": "<p>Jannetje Johanna Schaft (Haarlem, 16 september 1920 – Bloemendaal, 17 april 1945) was een communistische verzetsstrijdster. Schaft was actief voor de Communistische Partij van Nederland en Raad van Verzet. Ze hielp onderduikers en was betrokken bij meerdere executies van Duitsers en collaborateurs. Uiteindelijk werd Schaft opgepakt en geëxecuteerd.</p><p>Bron: Stichting WO2Net | Oorlogsbronnen.nl</p>",
+  "keywords": [
+    "https://data.niod.nl/WO2_Thesaurus/corporaties/4483",
+    "https://data.niod.nl/WO2_Thesaurus/corporaties/4524",
+    "https://data.niod.nl/WO2_Thesaurus/corporaties/4824",
+    "https://data.niod.nl/WO2_Thesaurus/events/7659"
+  ],
+  "hadPrimarySource": "https://data.niod.nl/WO2_biografieen/Hannie-Schaft"
+}

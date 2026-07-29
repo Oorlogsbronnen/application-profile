@@ -1,0 +1,113 @@
+{
+  "@context": {
+    "id": "@id",
+    "type": "@type",
+    "schema": "http://schema.org/",
+    "pico": "https://personsincontext.org/model#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "identifier": "schema:identifier",
+    "name": "schema:name",
+    "description": "schema:description",
+    "givenName": "schema:givenName",
+    "familyName": "schema:familyName",
+    "gender": { "@id": "schema:gender", "@type": "@id" },
+    "birthDate": { "@id": "schema:birthDate", "@type": "xsd:date" },
+    "birthPlace": "schema:birthPlace",
+    "deathDate": { "@id": "schema:deathDate", "@type": "xsd:date" },
+    "deathPlace": "schema:deathPlace",
+    "deceased": "pico:deceased",
+    "hasOccupation": "schema:hasOccupation",
+    "additionalType": { "@id": "schema:additionalType", "@type": "@id" },
+    "actor": { "@id": "schema:actor", "@type": "@id" },
+    "startDate": { "@id": "schema:startDate", "@type": "xsd:date" },
+    "keywords": { "@id": "schema:keywords", "@type": "@id" },
+    "url": { "@id": "schema:url", "@type": "@id" },
+    "isPartOf": { "@id": "schema:isPartOf", "@type": "@id" },
+    "holdingArchive": { "@id": "schema:holdingArchive", "@type": "@id" },
+    "wasDerivedFrom": { "@id": "prov:wasDerivedFrom", "@type": "@id" },
+    "hadPrimarySource": { "@id": "prov:hadPrimarySource", "@type": "@id" }
+  },
+  "@graph": [
+    {
+      "id": "https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388",
+      "type": "pico:PersonReconstruction",
+      "identifier": "48968c01-9f60-492d-8712-58d3b8c2b388",
+      "name": "Hannie Schaft",
+      "gender": "schema:Female",
+      "birthDate": "1920-09-16",
+      "birthPlace": [
+        "Haarlem",
+        { "id": "https://data.niod.nl/WO2_Thesaurus/locations/9881" }
+      ],
+      "deathDate": "1945-04-17",
+      "deathPlace": [
+        "Overveen",
+        { "id": "https://data.niod.nl/WO2_Thesaurus/locations/10406" }
+      ],
+      "deceased": "true",
+      "keywords": [
+        "https://data.niod.nl/WO2_Thesaurus/2657",
+        "https://data.niod.nl/WO2_Thesaurus/3501",
+        "https://data.niod.nl/WO2_Thesaurus/corporaties/4483",
+        "https://data.niod.nl/WO2_Thesaurus/corporaties/4524",
+        "https://data.niod.nl/WO2_Thesaurus/corporaties/4824",
+        "https://data.niod.nl/WO2_Thesaurus/corporaties/6163",
+        "https://data.niod.nl/WO2_Thesaurus/events/7659"
+      ],
+      "wasDerivedFrom": [
+        "https://www.oorlogslevens.nl/person/Hannie-Schaft/03/0004",
+        "https://www.oorlogslevens.nl/person/Hannie-Schaft/95/1833",
+        "https://www.oorlogslevens.nl/person/Hannie-Schaft/95/1834",
+        "https://www.oorlogslevens.nl/person/Hannie-Schaft/95/1835",
+        "https://www.oorlogslevens.nl/person/Jannetje-Johanna-Schaft/02/135198",
+        "https://www.oorlogslevens.nl/person/Jannetje-Johanna-Schaft/09/16534",
+        "https://www.oorlogslevens.nl/person/Jannetje-Johanna-Schaft/113/874",
+        "https://www.oorlogslevens.nl/person/Jannetje-Johanna-Schaft/128/2938",
+        "https://www.oorlogslevens.nl/person/Jannetje-Johanna-Schaft/37/33654046",
+        "https://www.oorlogslevens.nl/person/Jannetje-Johanna-Schaft/50/730",
+        "https://www.oorlogslevens.nl/person/Jannetje+Johanna+Schaft/86/8859"
+      ]
+    },
+    {
+      "id": "https://www.oorlogslevens.nl/person/Jannetje-Johanna-Schaft/50/730",
+      "type": "pico:PersonObservation",
+      "identifier": "Jannetje-Johanna-Schaft/50/730",
+      "name": "Jannetje Johanna Schaft",
+      "givenName": ["Hannie", "Jannetje Johanna"],
+      "familyName": "Schaft",
+      "gender": "schema:Female",
+      "birthDate": "1920-09-16",
+      "birthPlace": "Haarlem",
+      "deathDate": "1945-04-17",
+      "deathPlace": "Overveen",
+      "hasOccupation": "Studente",
+      "keywords": "https://data.niod.nl/WO2_Thesaurus/corporaties/4483",
+      "hadPrimarySource": "https://www.oorlogslevens.nl/record/Jannetje-Johanna-Schaft/50/730"
+    },
+    {
+      "id": "https://www.oorlogslevens.nl/person/Jannetje-Johanna-Schaft/50/730/arrested",
+      "type": "schema:Event",
+      "name": "Gearresteerd",
+      "additionalType": "https://data.niod.nl/WO2_Thesaurus/events/6344",
+      "actor": "https://www.oorlogslevens.nl/person/Jannetje-Johanna-Schaft/50/730",
+      "startDate": "1945-03-21",
+      "hadPrimarySource": "https://www.oorlogslevens.nl/record/Jannetje-Johanna-Schaft/50/730"
+    },
+    {
+      "id": "https://www.oorlogslevens.nl/record/Jannetje-Johanna-Schaft/50/730",
+      "type": "schema:ArchiveComponent",
+      "url": "https://search.iisg.amsterdam/Record/ARCH00347#A7a148a46a7",
+      "isPartOf": "http://www.oorlogsbronnen.nl/dataset/iisg_cpn",
+      "holdingArchive": "https://data.niod.nl/Organizations/205"
+    },
+    {
+      "id": "http://www.oorlogsbronnen.nl/dataset/iisg_cpn",
+      "type": "schema:Dataset",
+      "name": "Archief Communistische Partij van Nederland (CPN)",
+      "description": "Het archief van de Communistische Partij Nederland (CPN) wordt bewaard bij het IISG. Dit archief bevat informatie over communisten die tijdens de Duitse bezetting werden vervolgd.",
+      "url": "https://search.iisg.amsterdam/Record/ARCH00347/ArchiveContentList#A5cd9a31fba",
+      "holdingArchive": "https://data.niod.nl/Organizations/205"
+    }
+  ]
+}

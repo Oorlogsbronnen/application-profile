@@ -1,0 +1,125 @@
+{
+  "offset": 0,
+  "count": 2,
+  "type": ["OBJ"],
+  "items": [
+    {
+      "rank": 1,
+      "assessment": null,
+      "probability": 1.0,
+      "tuple": [
+        {
+          "contentLocation": [],
+          "creator": [],
+          "date": [],
+          "description": [
+            "Anko Holthuis (1926) werd geboren aan het Wilhelminapark, doorliep de Christelijke ULO in de Nieuwstraat en kwam tijdens de oorlog via zijn vriend Dick Hofman bij de ‘dienst Wim’ terecht, een verzetsgroet onder leiding van de uit Gent afkomstige Gaston van der Meerschen. In 1943 verraadde spion Anton van der Waals de groep en werd Holthuis door de SD (Sicherheitsdienst) gearresteerd en gevangengezet in kamp Haaren. Van de in totaal 51 groepsleden werden er 44, waaronder Holthuis, ter dood veroordeeld. Nadat hij was overgebracht naar Zuchthaus Remscheid in Lüttringhausen (Nordrhein-Westfalen), waar ook Dick Hofman zat, volgde in april 1945 de bevrijding door de Amerikanen, maar voor Hofman kwam dat te laat. Hij was een maand eerder gestorven van de honger. Na de oorlog haalde Holthuis in de avonduren zijn HBS diploma aan het Onze Lieve Vrouwe Lyceum en werkte hij (net als zijn vader) in de verfbranche. Na twintig jaar moest hij stoppen vanwege psychische problemen."
+          ],
+          "endDate": [],
+          "id": "https://www.youtube.com/watch?v=lXmXTPwPfho",
+          "identifier": ["lXmXTPwPfho"],
+          "publisher": ["Stadsarchief Breda"],
+          "rdf:type": ["http://schema.org/VideoObject"],
+          "rights": [
+            {
+              "id": "http://rightsstatements.org/vocab/CNE/1.0/",
+              "label": {
+                "nl": ["Auteursrechtelijke status niet geëvalueerd"]
+              }
+            }
+          ],
+          "source": ["https://www.youtube.com/watch?v=lXmXTPwPfho"],
+          "startDate": [],
+          "subject": [
+            {
+              "id": "https://data.niod.nl/WO2_Thesaurus/2657",
+              "prefLabel": {
+                "de": ["Widerstand"],
+                "en": ["Resistance"],
+                "nl": ["Verzet"]
+              }
+            },
+            {
+              "id": "https://data.niod.nl/WO2_Thesaurus/2047",
+              "prefLabel": {
+                "de": ["Verhaftungen"],
+                "en": ["Arrests"],
+                "nl": ["Arrestaties"]
+              }
+            }
+          ],
+          "thumbnail": [],
+          "title": ["Anko Holthuis 1926 Deel 2 Verzet en arrestatie"],
+          "type": ["Video"]
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "assessment": null,
+      "probability": 1.0,
+      "tuple": [
+        {
+          "contentLocation": [],
+          "creator": [],
+          "date": [],
+          "description": [
+            "Adriana Johanna (zus) Brens-Vriens (1916) had drie zussen en negen oudere broers en werd altijd ‘zus’ genoemd. Leendert en Anton hadden een garagebedrijf en vader was aannemer. In 1899 was hij vanuit Dinteloord naar Breda gekomen voor de bouw van het Diaconessen ziekenhuis. Hij was kerkvoogd van de Nederlands Hervormde gemeente en ook Adriana was als ouderling actief in de diaconie van de Grote Kerk. Ze zat op de Christelijke school in de Nieuwstraat, volgde de MULO en de Kweekschool en was vanaf haar achttiende tevens privéchauffeur van haar vader. Ze studeerde vaak in de auto als ze op hem moest wachten. In 1942 trouwde ze met onderwijzer Arie Brens. Ze gingen wonen in de Hortensiastraat. Toen het ouderlijk huis van Adriana aan de Seeligsingel door de Duitsers gevorderd werd, namen ze vader en moeder in huis. Ook verleenden ze onderdak aan een joodse man en waren ze getuige van de arrestatie van een groep joden bij de familie Hofman aan de Wethouder Romboutsstraat. Een aantal broers van Adriana, waaronder Piet en Bram Vriens, zaten in het verzet."
+          ],
+          "endDate": [],
+          "id": "https://www.youtube.com/watch?v=wJXTza80Vl4",
+          "identifier": ["wJXTza80Vl4"],
+          "publisher": ["Stadsarchief Breda"],
+          "rdf:type": ["http://schema.org/VideoObject"],
+          "rights": [
+            {
+              "id": "http://rightsstatements.org/vocab/CNE/1.0/",
+              "label": {
+                "nl": ["Auteursrechtelijke status niet geëvalueerd"]
+              }
+            }
+          ],
+          "source": ["https://www.youtube.com/watch?v=wJXTza80Vl4"],
+          "startDate": [],
+          "subject": [
+            {
+              "id": "https://data.niod.nl/WO2_Thesaurus/2313",
+              "prefLabel": {
+                "de": ["Okkupation"],
+                "en": ["Occupation"],
+                "nl": ["Bezetting"]
+              }
+            },
+            {
+              "id": "https://data.niod.nl/WO2_Thesaurus/events/9358",
+              "prefLabel": {
+                "nl": ["Evacuatie van Breda"]
+              }
+            },
+            {
+              "id": "https://data.niod.nl/WO2_Thesaurus/2717",
+              "prefLabel": {
+                "de": ["Alltag"],
+                "en": ["Daily life"],
+                "nl": ["Dagelijks leven"]
+              }
+            },
+            {
+              "id": "https://data.niod.nl/WO2_Thesaurus/2657",
+              "prefLabel": {
+                "de": ["Widerstand"],
+                "en": ["Resistance"],
+                "nl": ["Verzet"]
+              }
+            }
+          ],
+          "thumbnail": [],
+          "title": [
+            "Adriana Johanna Zus Brens Vriens 1916 Deel 2 Vlucht, bezetting en verzet"
+          ],
+          "type": ["Video"]
+        }
+      ]
+    }
+  ]
+}

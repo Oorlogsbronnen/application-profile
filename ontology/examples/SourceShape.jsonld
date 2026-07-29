@@ -1,0 +1,15 @@
+{
+  "@context": {
+    "id": "@id",
+    "type": "@type",
+    "schema": "http://schema.org/",
+    "url": { "@id": "schema:url", "@type": "@id" },
+    "isPartOf": { "@id": "schema:isPartOf", "@type": "@id" },
+    "holdingArchive": { "@id": "schema:holdingArchive", "@type": "@id" }
+  },
+  "id": "https://www.oorlogslevens.nl/record/Jannetje-Johanna-Schaft/50/730",
+  "type": "schema:ArchiveComponent",
+  "url": "https://search.iisg.amsterdam/Record/ARCH00347#A7a148a46a7",
+  "isPartOf": "http://www.oorlogsbronnen.nl/dataset/iisg_cpn",
+  "holdingArchive": "https://data.niod.nl/Organizations/205"
+}
