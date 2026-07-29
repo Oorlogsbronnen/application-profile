@@ -1,61 +1,44 @@
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
-import { basename, dirname, resolve } from "node:path";
+import { readFileSync, writeFileSync } from "node:fs";
+import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { GROUPS, type GroupId } from "./groups.js";
 import { loadPageContent } from "./load-content.js";
-import type { GroupId } from "./model.js";
 import { combineTurtle, parseProfile } from "./parse-shapes.js";
 import { renderPage } from "./render-page.js";
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), "../../..");
-
-const bouwstenenPath = resolve(repoRoot, "ontology/shapes-bouwstenen.ttl");
-const groupFiles: { id: GroupId; path: string; staticName: string }[] = [
-  {
-    id: "personen",
-    path: resolve(repoRoot, "ontology/shapes-personen.ttl"),
-    staticName: "schema-personen.ttl",
-  },
-  {
-    id: "objecten",
-    path: resolve(repoRoot, "ontology/shapes-collecties.ttl"),
-    staticName: "schema-collecties.ttl",
-  },
-];
-
-const pagePath = resolve(
-  repoRoot,
-  "website/docs/datamodel/application-profile.mdx",
-);
+const ontologyDir = resolve(repoRoot, "ontology");
+const docsDir = resolve(repoRoot, "website/docs/datamodel");
 const staticDir = resolve(repoRoot, "website/static");
 
+const pagePath = resolve(docsDir, "application-profile.mdx");
+
 try {
-  const bouwstenen = readFileSync(bouwstenenPath, "utf8");
-  const groupSources = groupFiles.map((file) => ({
-    ...file,
-    turtle: readFileSync(file.path, "utf8"),
+  const bouwstenen = readFileSync(
+    resolve(ontologyDir, "shapes-bouwstenen.ttl"),
+    "utf8",
+  );
+  const groupSources = GROUPS.map((group) => ({
+    ...group,
+    turtle: readFileSync(resolve(ontologyDir, group.shapesFile), "utf8"),
   }));
 
   const profile = parseProfile(bouwstenen, groupSources);
-  for (const group of profile.groups) {
+  profile.groups.forEach((group, index) => {
     if (group.shapes.length === 0) {
-      const file = groupFiles.find((candidate) => candidate.id === group.id);
       throw new Error(
-        `Geen NodeShapes gevonden in ${basename(file?.path ?? group.id)}.`,
+        `Geen NodeShapes gevonden in ${groupSources[index]?.shapesFile}.`,
       );
     }
-  }
+  });
 
   const content = loadPageContent({
-    editorialPath: resolve(
-      repoRoot,
-      "website/docs/datamodel/_schema-toelichting.mdx",
-    ),
-    groupIntroPaths: {
-      personen: resolve(repoRoot, "website/docs/datamodel/_schema-personen.mdx"),
-      objecten: resolve(repoRoot, "website/docs/datamodel/_schema-objecten.mdx"),
-    },
-    classExamplesDir: resolve(repoRoot, "ontology/examples"),
-    fullExamplesDir: resolve(repoRoot, "ontology/examples/volledig"),
+    editorialPath: resolve(docsDir, "_schema-toelichting.mdx"),
+    groupIntroPaths: Object.fromEntries(
+      GROUPS.map((group) => [group.id, resolve(docsDir, group.introFile)]),
+    ) as Record<GroupId, string>,
+    classExamplesDir: resolve(ontologyDir, "examples"),
+    fullExamplesDir: resolve(ontologyDir, "examples/volledig"),
   });
 
   // Een voorbeeld met een verkeerde bestandsnaam zou anders geruisloos van de
@@ -73,7 +56,6 @@ try {
     }
   }
 
-  mkdirSync(dirname(pagePath), { recursive: true });
   writeFileSync(pagePath, renderPage(profile, content), "utf8");
 
   // Machine-leesbare downloads: het volledige profiel en één bestand per
@@ -91,10 +73,9 @@ try {
     );
   }
 
-  const classCount = shapeNames.size;
   const exampleCount = content.classExamples.size + content.fullExamples.length;
   console.log(
-    `Schema-documentatie gegenereerd: ${classCount} klassen in ${profile.groups.length} kennisgrafen, ` +
+    `Schema-documentatie gegenereerd: ${shapeNames.size} klassen in ${profile.groups.length} kennisgrafen, ` +
       `${exampleCount} voorbeelden → ${pagePath}`,
   );
 } catch (error) {

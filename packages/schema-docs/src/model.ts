@@ -65,8 +65,9 @@ export type ShapeSet = {
   bases: BaseBlock[];
 };
 
-/** De kennisgrafen die Oorlogsbronnen beheert, in leesvolgorde van de pagina. */
-export type GroupId = "personen" | "objecten";
+import type { GroupId } from "./groups.js";
+
+export type { GroupId } from "./groups.js";
 
 /** Eén kennisgraaf binnen het profiel, met zijn klasse-shapes in documentvolgorde. */
 export type ShapeGroup = {

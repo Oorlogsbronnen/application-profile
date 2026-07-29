@@ -1,6 +1,5 @@
 import type {
   ApplicationProfile,
-  BaseBlock,
   ClassShape,
   PropertyDoc,
   RuleBlock,
@@ -9,12 +8,13 @@ import type {
   ValueType,
 } from "./model.js";
 import type { Example, PageContent } from "./page-content.js";
+import { groupTitle } from "./groups.js";
 import {
-  allowedClasses,
+  buildRenderContext,
   cardinalityText,
   effectiveCardinality,
-  rulesByName,
-  shapeByTargetClass,
+  resolveRuleValueType,
+  type RenderContext,
 } from "./presenter.js";
 import { renderGroupDiagram } from "./render-diagram.js";
 import { SCHEMA_NS } from "./parse-shapes.js";
@@ -36,14 +36,10 @@ export function renderPage(
   profile: ApplicationProfile,
   content: PageContent,
 ): string {
-  const context: RenderContext = {
-    rules: rulesByName(profile),
-    bases: new Map(profile.bases.map((base) => [base.localName, base])),
-    targetIndex: shapeByTargetClass(profile),
-  };
+  const context = buildRenderContext(profile);
 
   let chapterNumber = 1;
-  const chapters: string[] = [renderOverview(profile, chapterNumber)];
+  const chapters: string[] = [renderOverview(profile, chapterNumber, context)];
   if (content.editorial) {
     chapterNumber += 1;
     chapters.push(
@@ -61,8 +57,8 @@ export function renderPage(
   return `---
 title: ${texts.page.title}
 sidebar_label: ${texts.page.title}
-sidebar_position: 3
-slug: /schema
+sidebar_position: ${texts.page.sidebarPosition}
+slug: ${texts.page.slug}
 description: ${texts.page.metaDescription}
 toc_max_heading_level: 3
 ---
@@ -80,23 +76,20 @@ ${chapters.join("\n\n")}
 `;
 }
 
-type RenderContext = {
-  rules: Map<string, RuleBlock>;
-  bases: Map<string, BaseBlock>;
-  targetIndex: Map<string, ClassShape>;
-};
-
 /** Hoofdstuk 1: per kennisgraaf een klassendiagram, met de graafnaam als caption. */
 function renderOverview(
   profile: ApplicationProfile,
   chapterNumber: number,
+  context: RenderContext,
 ): string {
   const parts = [
     `## ${chapterNumber}. ${texts.sections.overview} {#overzicht}`,
   ];
   for (const group of profile.groups) {
-    parts.push(`**${texts.sections.groups[group.id]}**`);
-    parts.push(`\`\`\`mermaid\n${renderGroupDiagram(group, profile)}\n\`\`\``);
+    parts.push(`**${groupTitle(group.id)}**`);
+    parts.push(
+      `\`\`\`mermaid\n${renderGroupDiagram(group, profile, context)}\n\`\`\``,
+    );
   }
   return parts.join("\n\n");
 }
@@ -108,9 +101,7 @@ function renderGroup(
   context: RenderContext,
   content: PageContent,
 ): string {
-  const parts = [
-    `## ${chapterNumber}. ${texts.sections.groups[group.id]} {#${group.id}}`,
-  ];
+  const parts = [`## ${chapterNumber}. ${groupTitle(group.id)} {#${group.id}}`];
   const intro = content.groupIntros[group.id];
   if (intro) {
     parts.push(intro);
@@ -224,22 +215,18 @@ function renderPropertyRow(
   ]);
 }
 
-/**
- * Weergave van het waardetype van een regel: klasse-constraints (sh:class of
- * sh:or van klassen) gaan boven het basistype, dat dan altijd Base_IRI is.
- */
+/** Weergave van het waardetype van een regel, met links naar eigen shapes. */
 function ruleValueTypeText(rule: RuleBlock, context: RenderContext): string {
-  const classes = allowedClasses(rule);
-  if (classes.length > 0) {
-    return `${texts.valueType.iriOfClass} ${classes
+  const resolved = resolveRuleValueType(rule, context.bases);
+  if (!resolved) {
+    return "";
+  }
+  if (resolved.kind === "classes") {
+    return `${texts.valueType.iriOfClass} ${resolved.classes
       .map((c) => classLink(c, context))
       .join(` ${texts.valueType.or} `)}`;
   }
-  if (rule.orValueType) {
-    return valueTypeLabel(rule.orValueType, context);
-  }
-  const base = rule.baseRef ? context.bases.get(rule.baseRef) : undefined;
-  return base ? valueTypeLabel(base.valueType, context) : "";
+  return valueTypeLabel(resolved.valueType, context);
 }
 
 function valueTypeLabel(valueType: ValueType, context: RenderContext): string {

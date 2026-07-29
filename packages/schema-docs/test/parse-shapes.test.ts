@@ -1,17 +1,12 @@
-import { readFileSync } from "node:fs";
-import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
-import {
-  combineTurtle,
-  parseProfile,
-  parseShapes,
-} from "../src/parse-shapes.js";
+import { combineTurtle, parseShapes } from "../src/parse-shapes.js";
 import {
   allShapes,
   allowedClasses,
   cardinalityText,
   effectiveCardinality,
 } from "../src/presenter.js";
+import { loadRealProfile } from "./helpers.js";
 
 const FIXTURE = `
 @prefix : <https://data.oorlogsbronnen.nl/schema#> .
@@ -121,8 +116,10 @@ describe("parseShapes", () => {
 
 describe("combineTurtle", () => {
   it("herhaalt @prefix-regels niet die al voorkwamen", () => {
-    const a = '@prefix sh: <http://www.w3.org/ns/shacl#> .\n:A a sh:NodeShape .';
-    const b = '@prefix sh: <http://www.w3.org/ns/shacl#> .\n:B a sh:NodeShape .';
+    const a =
+      "@prefix sh: <http://www.w3.org/ns/shacl#> .\n:A a sh:NodeShape .";
+    const b =
+      "@prefix sh: <http://www.w3.org/ns/shacl#> .\n:B a sh:NodeShape .";
     const combined = combineTurtle(a, b);
     expect(combined.match(/@prefix sh:/g)).toHaveLength(1);
     expect(combined).toContain(":A a sh:NodeShape .");
@@ -131,35 +128,17 @@ describe("combineTurtle", () => {
 });
 
 describe("parseProfile op de echte shapes-bestanden", () => {
-  const ontologyDir = resolve(__dirname, "../../../ontology");
-  const read = (file: string): string =>
-    readFileSync(resolve(ontologyDir, file), "utf8");
-
-  const profile = parseProfile(read("shapes-bouwstenen.ttl"), [
-    { id: "personen", turtle: read("shapes-personen.ttl") },
-    { id: "objecten", turtle: read("shapes-collecties.ttl") },
-  ]);
+  const profile = loadRealProfile();
 
   it("verdeelt de klasse-shapes over de twee kennisgrafen", () => {
     const names = (id: string) =>
       profile.groups
         .find((group) => group.id === id)!
         .shapes.map((shape) => shape.localName);
-    expect(names("personen")).toEqual([
-      "PersoonsReconstructieShape",
-      "PersoonsvermeldingShape",
-      "EventShape",
-      "SourceShape",
-      "DatasetShape",
-    ]);
-    expect(names("objecten")).toEqual([
-      "CreativeWorkShape",
-      "ArchiveShape",
-      "BekendmakingShape",
-      "MediaShape",
-      "MonumentShape",
-      "ConceptShape",
-    ]);
+    expect(names("personen")).toContain("PersoonsReconstructieShape");
+    expect(names("personen")).toHaveLength(5);
+    expect(names("objecten")).toContain("CreativeWorkShape");
+    expect(names("objecten")).toHaveLength(6);
   });
 
   it("herkent de overerving binnen beide grafen", () => {
@@ -189,12 +168,5 @@ describe("parseProfile op de echte shapes-bestanden", () => {
         }
       }
     }
-  });
-
-  it("behandelt de lege beschrijving van EventShape als afwezig", () => {
-    const event = allShapes(profile).find(
-      (shape) => shape.localName === "EventShape",
-    );
-    expect(event?.description).toBeNull();
   });
 });

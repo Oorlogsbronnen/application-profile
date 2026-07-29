@@ -1,5 +1,6 @@
 import type {
   ApplicationProfile,
+  BaseBlock,
   Cardinality,
   ClassShape,
   RuleBlock,
@@ -70,6 +71,50 @@ export function rulesByName(
   profile: ApplicationProfile,
 ): Map<string, RuleBlock> {
   return new Map(profile.rules.map((rule) => [rule.localName, rule]));
+}
+
+export function basesByName(
+  profile: ApplicationProfile,
+): Map<string, BaseBlock> {
+  return new Map(profile.bases.map((base) => [base.localName, base]));
+}
+
+/** De indexen die de pagina- en diagram-renderer delen. */
+export type RenderContext = {
+  rules: Map<string, RuleBlock>;
+  bases: Map<string, BaseBlock>;
+  targetIndex: Map<string, ClassShape>;
+};
+
+export function buildRenderContext(profile: ApplicationProfile): RenderContext {
+  return {
+    rules: rulesByName(profile),
+    bases: basesByName(profile),
+    targetIndex: shapeByTargetClass(profile),
+  };
+}
+
+/**
+ * Het waardetype van een regel, met de gedeelde precedentie: klasse-constraints
+ * gaan vóór het or-type, dat weer vóór het basistype gaat. De renderers
+ * bepalen alleen nog de weergave.
+ */
+export function resolveRuleValueType(
+  rule: RuleBlock,
+  bases: Map<string, BaseBlock>,
+):
+  | { kind: "classes"; classes: Term[] }
+  | { kind: "type"; valueType: ValueType }
+  | null {
+  const classes = allowedClasses(rule);
+  if (classes.length > 0) {
+    return { kind: "classes", classes };
+  }
+  if (rule.orValueType) {
+    return { kind: "type", valueType: rule.orValueType };
+  }
+  const base = rule.baseRef ? bases.get(rule.baseRef) : undefined;
+  return base ? { kind: "type", valueType: base.valueType } : null;
 }
 
 /** Vlakke tekstweergave van een waardetype, zonder links (voor tests en diagram). */

@@ -1,6 +1,5 @@
 import type {
   ApplicationProfile,
-  BaseBlock,
   Cardinality,
   ClassShape,
   RuleBlock,
@@ -9,10 +8,11 @@ import type {
 import {
   allShapes,
   allowedClasses,
+  buildRenderContext,
   effectiveCardinality,
-  rulesByName,
-  shapeByTargetClass,
+  resolveRuleValueType,
   valueTypeText,
+  type RenderContext,
 } from "./presenter.js";
 import { localName } from "./iri.js";
 
@@ -33,10 +33,8 @@ import { localName } from "./iri.js";
 export function renderGroupDiagram(
   group: ShapeGroup,
   profile: ApplicationProfile,
+  context: RenderContext = buildRenderContext(profile),
 ): string {
-  const targetIndex = shapeByTargetClass(profile);
-  const rules = rulesByName(profile);
-  const bases = new Map(profile.bases.map((base) => [base.localName, base]));
   const groupNames = new Set(group.shapes.map((shape) => shape.localName));
   const labels = new Map(
     allShapes(profile).map((shape) => [
@@ -50,7 +48,7 @@ export function renderGroupDiagram(
   const edges = new Set<string>();
 
   for (const shape of group.shapes) {
-    lines.push(...classBlock(shape, rules, bases));
+    lines.push(...classBlock(shape, context));
 
     for (const parent of shape.inheritsFrom) {
       if (!labels.has(parent)) {
@@ -63,12 +61,14 @@ export function renderGroupDiagram(
     }
 
     for (const property of shape.properties) {
-      const rule = property.ruleRef ? rules.get(property.ruleRef) : undefined;
+      const rule = property.ruleRef
+        ? context.rules.get(property.ruleRef)
+        : undefined;
       if (!rule) {
         continue;
       }
       for (const allowedClass of allowedClasses(rule)) {
-        const target = targetIndex.get(allowedClass.iri);
+        const target = context.targetIndex.get(allowedClass.iri);
         if (!target || target.localName === shape.localName) {
           continue;
         }
@@ -82,30 +82,29 @@ export function renderGroupDiagram(
     }
   }
 
-  for (const name of [...foreign].sort()) {
+  const sortedForeign = [...foreign].sort();
+  for (const name of sortedForeign) {
     lines.push(`  class ${name}["${labels.get(name) ?? name}"]`);
   }
   lines.push(...[...edges].sort());
-  for (const name of [...groupNames, ...[...foreign].sort()]) {
+  for (const name of [...groupNames, ...sortedForeign]) {
     lines.push(`  click ${name} href "#${name}"`);
   }
   return lines.join("\n");
 }
 
-function classBlock(
-  shape: ClassShape,
-  rules: Map<string, RuleBlock>,
-  bases: Map<string, BaseBlock>,
-): string[] {
+function classBlock(shape: ClassShape, context: RenderContext): string[] {
   const label = shape.name ?? shape.localName;
   const lines = [`  class ${shape.localName}["${label}"] {`];
   for (const property of shape.properties) {
-    const rule = property.ruleRef ? rules.get(property.ruleRef) : undefined;
+    const rule = property.ruleRef
+      ? context.rules.get(property.ruleRef)
+      : undefined;
     const cardinality = effectiveCardinality(
       property.inlineCardinality,
       rule?.cardinality ?? null,
     );
-    const type = rule ? ruleTypeText(rule, bases) : null;
+    const type = rule ? ruleTypeText(rule, context) : null;
     // Markdown-bold voor de propertynaam, zoals NDE; mermaid rendert dit in members.
     lines.push(
       `    **${property.path.compact}**${type ? `: ${type}` : ""} ${bracketText(cardinality)}`,
@@ -119,18 +118,12 @@ function classBlock(
  * Waardetype voor in de klassebox. Relaties (regels met klasse-constraints)
  * krijgen géén type: hun doel staat al als pijl in het diagram.
  */
-function ruleTypeText(
-  rule: RuleBlock,
-  bases: Map<string, BaseBlock>,
-): string | null {
-  if (allowedClasses(rule).length > 0) {
+function ruleTypeText(rule: RuleBlock, context: RenderContext): string | null {
+  const resolved = resolveRuleValueType(rule, context.bases);
+  if (!resolved || resolved.kind === "classes") {
     return null;
   }
-  if (rule.orValueType) {
-    return valueTypeText(rule.orValueType, " | ");
-  }
-  const base = rule.baseRef ? bases.get(rule.baseRef) : undefined;
-  return base ? valueTypeText(base.valueType, " | ") : null;
+  return valueTypeText(resolved.valueType, " | ");
 }
 
 /** Compacte kardinaliteit in NDE-stijl: `[1]`, `[0..1]`, `[0..*]`. */
