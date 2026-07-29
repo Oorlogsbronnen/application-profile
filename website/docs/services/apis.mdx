@@ -17,27 +17,23 @@ De data van Oorlogsbronnen is via een REST API te bevragen, gebouwd op [Spinque]
 
 ## Opbouw van een request
 
-Alle endpoints leven onder `https://rest.spinque.com/4/oorlogsbronnen/api/{api}/e/`. Er zijn twee API's:
+Alle endpoints leven onder één basis-URL:
 
-| API    | Voor wie                                                     | Config              | Resultaatvorm |
-| ------ | ------------------------------------------------------------ | ------------------- | ------------- |
-| `lod`  | **Externe ontwikkelaars** — gecureerde set van ±17 endpoints | `config=default`    | `resultpage`  |
-| `in10` | De API achter oorlogsbronnen.nl (uitgebreider, ruwer)        | `config=production` | `results`     |
+```text
+https://rest.spinque.com/4/oorlogsbronnen/api/lod/e/
+```
 
-Achter de basis volgt het endpoint met zijn parameters volgens het patroon `{endpoint}/p/{parameter}/{waarde}/{resultaatvorm}`, afgesloten met de `config`-queryparameter. Parameterwaarden zijn URL-encoded. Voorbeeld:
+Daarachter volgt het endpoint met zijn parameters volgens het patroon `{endpoint}/p/{parameter}/{waarde}/resultpage`, afgesloten met `?config=default`. Parameterwaarden zijn URL-encoded. Voorbeeld:
 
 ```text
 …/api/lod/e/person/p/id/{IRI}/resultpage?config=default
 ```
 
-Handige queryparameters: `count` (aantal resultaten) en `offset` (paginering). Elke API publiceert een machine-leesbare OpenAPI-beschrijving van zijn endpoints:
-
-- [`lod` swagger.json](https://rest.spinque.com/4/oorlogsbronnen/api/lod/swagger.json?config=default)
-- [`in10` swagger.json](https://rest.spinque.com/4/oorlogsbronnen/api/in10/swagger.json?config=production)
+Handige queryparameters: `count` (aantal resultaten) en `offset` (paginering). De API publiceert ook een machine-leesbare OpenAPI-beschrijving van alle endpoints: [swagger.json](https://rest.spinque.com/4/oorlogsbronnen/api/lod/swagger.json?config=default).
 
 ## Zoeken: `search`
 
-Vrij zoeken door alle bronnen, personen en thema's (in10-API). Als rode draad gebruiken we — net als op de [SPARQL-pagina](./sparql) — verzetsstrijder Hannie Schaft:
+Vrij zoeken door alle bronnen, personen en thema's. Als rode draad gebruiken we — net als op de [SPARQL-pagina](./sparql) — verzetsstrijder Hannie Schaft:
 
 <Tabs groupId="taal">
   <TabItem value="curl" label="curl">
@@ -166,7 +162,7 @@ Spinque biedt officiële client-libraries:
 - [`@spinque/query-api`](https://www.npmjs.com/package/@spinque/query-api) (JavaScript/TypeScript): npm-package voor Node ≥ 18 of de browser.
 - [`spinque-query-api`](https://pypi.org/project/spinque-query-api/) (Python): `pip install spinque-query-api`; zie de [broncode op GitHub](https://github.com/spinque/query-api-python).
 
-Let op: de libraries bouwen alleen de resultaatvormen `results` en `statistics`. De lod-endpoints antwoorden op `resultpage` — gebruik daarvoor gewone HTTP-requests, zoals in de voorbeelden hierboven.
+Let op: de libraries bouwen alleen de resultaatvormen `results` en `statistics`. De endpoints van deze API antwoorden op `resultpage` — gebruik daarvoor gewone HTTP-requests, zoals in de voorbeelden hierboven.
 
 ## Verder lezen
 
