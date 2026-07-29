@@ -14,6 +14,7 @@ import {
   valueTypeText,
   type RenderContext,
 } from "./presenter.js";
+import { groupTitle } from "./groups.js";
 import { localName } from "./iri.js";
 
 /**
@@ -43,7 +44,14 @@ export function renderGroupDiagram(
     ]),
   );
 
-  const lines: string[] = ["classDiagram", "  direction TB"];
+  // accTitle/accDescr geven de SVG een accessible name (WCAG 1.1.1); de
+  // tabellen op de pagina zijn het volwaardige tekstalternatief.
+  const lines: string[] = [
+    "classDiagram",
+    `  accTitle: Klassendiagram van de kennisgraaf ${groupTitle(group.id)}`,
+    "  accDescr: De tabellen verderop op deze pagina beschrijven dezelfde klassen en eigenschappen volledig in tekst.",
+    "  direction TB",
+  ];
   const foreign = new Set<string>();
   const edges = new Set<string>();
 
