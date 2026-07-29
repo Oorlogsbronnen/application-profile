@@ -1,21 +1,28 @@
+/*
+ * Overrides op Yasgui's eigen stylesheet, die lazy laadt en dus ná deze
+ * module kan komen. De selectors hieronder winnen vrijwel overal op
+ * specificiteit (de .editor-prefix); alleen regels die daarmee gelijk
+ * eindigen dragen !important.
+ */
+
 .editor {
   margin-bottom: var(--ifm-leading);
 }
 
-/* Eén vast endpoint en één query per blok: de tab-balk en endpoint-invoer
-   van Yasgui zijn hier ruis. De externe verwijzing-knop leidt nergens heen. */
+/* Eén vast endpoint en één query per blok: de tab-balk, endpoint-invoer en
+   de externe verwijzing-knop van Yasgui zijn hier ruis. */
 .editor :global(.tabsList),
 .editor :global(.controlbar),
 .editor :global(.yasr_btn.yasr_external_ref_btn) {
   display: none !important;
 }
 
-/* Chrome in de huisstijl: site-font voor de UI, monospace voor query en
-   resultaten, randen en radius via de Infima-tokens (dark-mode-bewust). */
 .editor :global(.yasgui) {
   font-family: var(--ifm-font-family-base);
 }
 
+/* Randen en radius via de Infima-tokens; de binnenrand van CodeMirror gaat
+   uit zodat er geen twee randen om hetzelfde blok staan. */
 .editor :global(.yasgui .yasqe),
 .editor :global(.yasgui .yasr) {
   border: 1px solid var(--ifm-color-emphasis-300);
@@ -28,6 +35,7 @@
 }
 
 .editor :global(.yasgui .CodeMirror) {
+  border: none;
   font-family: var(--ifm-font-family-monospace);
   font-size: 0.8125rem;
   line-height: 1.6;
@@ -35,11 +43,11 @@
   background: var(--ifm-background-surface-color);
 }
 
-/* Uitvoerknop: compacter en in de primaire merkkleur (Yasgui kleurt de
-   svg-paden met een vaste fill; paden met fill="none" moeten leeg blijven). */
+/* Uitvoerknop: compact en in de merkkleur (paden met fill="none" moeten
+   leeg blijven). */
 .editor :global(.yasqe .yasqe_queryButton) {
-  width: 26px;
-  height: 26px;
+  width: 26px !important;
+  height: 26px !important;
 }
 
 .editor :global(.yasqe .yasqe_queryButton svg) {
@@ -58,7 +66,6 @@
 
 /* Resultatenbalk: alles op één maat en één lijn. */
 .editor :global(.yasr .yasr_header) {
-  display: flex;
   align-items: center;
   gap: 0.75rem;
   padding: 0.375rem 0.75rem;
@@ -68,14 +75,11 @@
 }
 
 .editor :global(.yasr .yasr_btnGroup) {
-  display: flex;
   align-items: center;
-  gap: 0.25rem;
-  margin: 0;
 }
 
+/* Neutraliseert Infima's marge tussen li's. */
 .editor :global(.yasr .yasr_btnGroup li) {
-  display: block;
   margin: 0;
 }
 
@@ -84,9 +88,8 @@
   font-size: 0.8125rem;
   font-weight: var(--ifm-font-weight-base);
   color: var(--ifm-color-emphasis-700);
-  /* Yasgui zet een 2px onderstreping op de actieve knop; de oranje kleur
-     markeert de actieve staat al. !important omdat Yasgui's stylesheet
-     later laadt dan deze module. */
+  /* Yasgui onderstreept de actieve knop met een border; de oranje kleur
+     markeert de actieve staat al. */
   border: none !important;
   border-radius: var(--ifm-global-radius);
 }
@@ -96,15 +99,7 @@
   color: var(--ifm-color-primary);
 }
 
-/* De spacer tussen links en rechts mag krimpen, zodat de balk op één regel
-   blijft. */
-.editor :global(.yasr .yasr_header .space_element) {
-  flex: 1 1 auto;
-  min-width: 0.5rem;
-}
-
 .editor :global(.yasr .yasr_response_chip) {
-  border: none;
   background: none;
   padding: 0;
   font-size: 0.8125rem;
@@ -112,13 +107,10 @@
 }
 
 .editor :global(.yasr .tableControls) {
-  display: flex;
-  align-items: center;
   gap: 0.75rem;
   font-size: 0.8125rem;
 }
 
-.editor :global(.yasr .tableControls .switch .label),
 .editor :global(.yasr .tableControls label) {
   font-size: 0.8125rem;
   font-weight: var(--ifm-font-weight-base);
@@ -159,9 +151,10 @@
   color: var(--ifm-color-primary);
 }
 
-/* Onderbalk (aantal resultaten en paginering, DataTables v2) in dezelfde maat. */
+/* Onderbalk (aantal resultaten en paginering, DataTables v2). Tekstkleur op
+   de paging-knoppen zet Yasgui zelf met !important; alleen wat hier effect
+   heeft staat er. */
 .editor :global(.yasr .dt-layout-row) {
-  align-items: center;
   padding: 0.25rem 0.75rem;
 }
 
@@ -175,24 +168,14 @@
   font-family: var(--ifm-font-family-base);
   font-size: 0.8125rem;
   padding: 0.2rem 0.55rem;
-  color: var(--ifm-color-emphasis-700);
   border: 1px solid transparent;
   border-radius: var(--ifm-global-radius);
   background: none;
 }
 
 .editor :global(.yasr .dt-paging .dt-paging-button.current) {
-  color: var(--ifm-color-primary);
   border-color: var(--ifm-color-emphasis-300);
   background: var(--ifm-background-surface-color);
-}
-
-.editor :global(.yasr .dt-paging .dt-paging-button:hover:not(.disabled)) {
-  color: var(--ifm-color-primary);
-}
-
-.editor :global(.yasr .dt-paging .dt-paging-button.disabled) {
-  color: var(--ifm-color-emphasis-400);
 }
 
 /* Yasgui's CodeMirror-thema is licht; in dark mode krijgen gutter en de
