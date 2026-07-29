@@ -48,7 +48,7 @@ ob:CreativeWorkShape a sh:NodeShape ;
     sh:property [
         sh:path rdf:type ;
         sh:name "Type entiteit"@nl ;
-        sh:description ""Classificatie van het werk volgens schema.org."@nl ;
+        sh:description "Classificatie van het werk volgens schema.org."@nl ;
         sh:node ob:Rule_type ;
     ] ;
     sh:property [
@@ -135,7 +135,7 @@ ob:CreativeWorkShape a sh:NodeShape ;
     ] ;
     sh:property [
         sh:path sdo:url ;
-        ssh:name "Url"@nl ;
+        sh:name "Url"@nl ;
         sh:description "Verwijzing naar de url van de bron."@nl ;
         sh:node ob:Rule_url ;
     ] ;
