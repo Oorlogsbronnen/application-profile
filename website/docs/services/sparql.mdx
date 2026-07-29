@@ -1,0 +1,93 @@
+---
+title: SPARQL
+sidebar_position: 2
+---
+
+import SparqlEditor from "@site/src/components/SparqlEditor";
+
+# SPARQL
+
+De [linked data-datasets](../datasets/linked-data) zijn te bevragen via het publieke SPARQL-endpoint van Stichting WO2Net op LDmax:
+
+```text
+https://sparql.ldmax.nl/wo2net
+```
+
+Het endpoint accepteert `GET`- en `POST`-requests en ondersteunt CORS, dus je kunt er ook rechtstreeks vanuit de browser tegenaan. Wie liever in een visuele omgeving werkt: LDmax biedt een [query-interface](https://platform.ldmax.nl/organisaties/wo2net/query) met opgeslagen voorbeeldqueries.
+
+:::tip[Probeer het hieronder direct]
+
+De queryblokken op deze pagina zijn **uitvoerbaar**: pas ze aan en druk op de knop (of `Ctrl`/`Cmd` + `Enter`). Als rode draad gebruiken we verzetsstrijder [Hannie Schaft](https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388), die met elf persoonsvermeldingen rijk in de data vertegenwoordigd is.
+
+:::
+
+## Een persoon zoeken
+
+[Persoonsreconstructies](/schema#PersoonsReconstructieShape) zijn te doorzoeken op naam. Let op: de data gebruikt `http://schema.org/` (zonder `s`) als namespace.
+
+<SparqlEditor
+  query={`PREFIX pico: <https://personsincontext.org/model#>
+PREFIX schema: <http://schema.org/>
+SELECT ?persoon ?naam ?geboren ?overleden WHERE {
+  ?persoon a pico:PersonReconstruction ;
+           schema:name ?naam .
+  OPTIONAL { ?persoon schema:birthDate ?geboren }
+  OPTIONAL { ?persoon schema:deathDate ?overleden }
+  FILTER(CONTAINS(LCASE(?naam), "schaft"))
+}
+LIMIT 10`}
+/>
+
+## Van reconstructie naar vermeldingen
+
+Een reconstructie is opgebouwd uit [persoonsvermeldingen](/schema#PersoonsvermeldingShape) in bronnen, gekoppeld via `prov:wasDerivedFrom`. Zo zie je in welke bronnen Hannie Schaft voorkomt — en onder welke namen en beroepen:
+
+<SparqlEditor
+  query={`PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX schema: <http://schema.org/>
+SELECT ?vermelding ?naam ?beroep ?bron WHERE {
+  <https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388>
+      prov:wasDerivedFrom ?vermelding .
+  ?vermelding schema:name ?naam .
+  OPTIONAL { ?vermelding schema:hasOccupation ?beroep }
+  OPTIONAL { ?vermelding prov:hadPrimarySource ?bron }
+}`}
+/>
+
+## Gebeurtenissen in een leven
+
+[Gebeurtenissen](/schema#EventShape) hangen niet aan de reconstructie zelf, maar aan de afzonderlijke vermeldingen (`schema:actor` verwijst naar de vermelding). Een tijdlijn bouw je dus via die tussenstap:
+
+<SparqlEditor
+  query={`PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX schema: <http://schema.org/>
+SELECT ?datum ?gebeurtenis ?wat WHERE {
+  <https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388>
+      prov:wasDerivedFrom ?vermelding .
+  ?gebeurtenis schema:actor ?vermelding .
+  OPTIONAL { ?gebeurtenis schema:startDate ?datum }
+  OPTIONAL { ?gebeurtenis schema:name ?wat }
+}
+ORDER BY ?datum`}
+/>
+
+## Trefwoorden uit de WO2 Thesaurus
+
+Personen zijn via `schema:keywords` verbonden met [thesaurusconcepten](/schema#ConceptShape); de Nederlandse labels haal je op met `skos:prefLabel`:
+
+<SparqlEditor
+  query={`PREFIX schema: <http://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?concept ?label WHERE {
+  <https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388>
+      schema:keywords ?concept .
+  ?concept skos:prefLabel ?label .
+  FILTER(LANG(?label) = 'nl')
+}`}
+/>
+
+## Zelf aan de slag
+
+- Meer taakgerichte voorbeelden staan in het [cookbook](../cookbook/).
+- Het datamodel achter deze queries is beschreven in het [application profile](/schema).
+- Houd rekening met de licentie ([CC-BY-NC-SA 4.0](../rechten-en-gebruik)) en met de timeout van het endpoint: houd queries gericht en gebruik `LIMIT`.

@@ -1,0 +1,118 @@
+.editor {
+  margin-bottom: var(--ifm-leading);
+}
+
+/* Eén vast endpoint en één query per blok: de tab-balk en endpoint-invoer
+   van Yasgui zijn hier ruis. */
+.editor :global(.tabsList),
+.editor :global(.controlbar) {
+  display: none !important;
+}
+
+/* Chrome in de huisstijl: site-font voor de UI, monospace voor query en
+   resultaten, randen en radius via de Infima-tokens (dark-mode-bewust). */
+.editor :global(.yasgui) {
+  font-family: var(--ifm-font-family-base);
+}
+
+.editor :global(.yasgui .yasqe),
+.editor :global(.yasgui .yasr) {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+  overflow: hidden;
+}
+
+.editor :global(.yasgui .yasqe) {
+  margin-bottom: 0.75rem;
+}
+
+.editor :global(.yasgui .CodeMirror) {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--ifm-font-color-base);
+  background: var(--ifm-background-surface-color);
+}
+
+/* Uitvoerknop in de primaire merkkleur (Yasgui kleurt de svg-paden met een
+   vaste fill; paden met fill="none" moeten leeg blijven). */
+.editor :global(.yasqe .yasqe_queryButton .queryIcon path):not([fill="none"]) {
+  fill: var(--ifm-color-primary);
+}
+
+.editor
+  :global(.yasqe .yasqe_queryButton:hover .queryIcon path):not([fill="none"]) {
+  fill: var(--ifm-color-primary-dark);
+}
+
+/* Resultatenbalk (Table/Response-knoppen) als rustige pills. */
+.editor :global(.yasr .yasr_header) {
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+  background: var(--ifm-background-surface-color);
+}
+
+.editor :global(.yasr .yasr_btn) {
+  font-family: var(--ifm-font-family-base);
+  font-weight: var(--ifm-font-weight-base);
+  color: var(--ifm-color-emphasis-700);
+  border-radius: var(--ifm-global-radius);
+}
+
+.editor :global(.yasr .yasr_btn.selected),
+.editor :global(.yasr .yasr_btn:hover) {
+  color: var(--ifm-color-primary);
+}
+
+.editor :global(.yasr .yasr_btn.selected) {
+  border-color: var(--ifm-color-primary);
+}
+
+/* Resultaten: tabel en teksten op site-typografie. */
+.editor :global(.yasr .yasr_results) {
+  font-family: var(--ifm-font-family-base);
+  background: var(--ifm-background-color);
+}
+
+.editor :global(.yasr table.dataTable) {
+  font-size: 0.8125rem;
+}
+
+.editor :global(.yasr table.dataTable thead th) {
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+}
+
+.editor :global(.yasr a) {
+  color: var(--ifm-color-primary);
+}
+
+.editor :global(.yasr .yasr_response_chip) {
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+  border-color: var(--ifm-color-emphasis-300);
+}
+
+/* Yasgui's CodeMirror-thema is licht; in dark mode krijgen gutter en de
+   tokens die daar onleesbaar worden een eigen kleur. */
+html[data-theme="dark"] .editor :global(.CodeMirror-gutters) {
+  background: var(--ifm-background-surface-color);
+  border-right: 1px solid var(--ifm-color-emphasis-300);
+}
+
+html[data-theme="dark"] .editor :global(.CodeMirror .CodeMirror-linenumber) {
+  color: var(--ifm-color-emphasis-500);
+}
+
+/* Variabelen (?naam) — standaard donkerblauw. */
+html[data-theme="dark"] .editor :global(.CodeMirror .cm-atom) {
+  color: #8ab4f8;
+}
+
+/* IRI's tussen punthaken. */
+html[data-theme="dark"] .editor :global(.CodeMirror .cm-variable-3) {
+  color: #b5cea8;
+}
+
+html[data-theme="dark"] .editor :global(.CodeMirror .cm-punc) {
+  color: var(--ifm-font-color-base);
+}
