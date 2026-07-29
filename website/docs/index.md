@@ -11,6 +11,7 @@ Dit is de documentatie van het **Oorlogsbronnen dataplatform**: de plek waar ont
 - **[Datasets](datasets/datasetregister)** — het datasetregister en de linked data-publicatie op LDmax.
 - **[Services](services/apis)** — de API's, het SPARQL-endpoint en het Termennetwerk.
 - **[Datamodel](datamodel/personen-en-objecten)** — personen en objecten, de WO2 Thesaurus en het Oorlogsbronnen Application Profile.
+- **[Cookbook](cookbook/index.md)** — taakgerichte recepten met direct uitvoerbare queries.
 - **[IIIF](iiif)** — beelden gebruiken via IIIF.
 - **[Rechten en gebruik](rechten-en-gebruik)** — licenties en gebruiksvoorwaarden van de data.
 - **[Meedoen](meedoen)** — data delen met Oorlogsbronnen.

@@ -75,9 +75,11 @@ const config: Config = {
           "Documentatie van het Oorlogsbronnen dataplatform: linked data en API's over personen, gebeurtenissen en bronnen uit de Tweede Wereldoorlog in Nederland.",
         generateMarkdownFiles: true,
         excludeImports: true,
-        // Volgorde gelijk aan de sidebar
+        // Volgorde gelijk aan de sidebar. Let op: de plugin matcht met
+        // matchBase, dus een patroon zonder slash ("index.md") zou élke
+        // index.md vangen — vandaar het pad-specifieke eerste patroon.
         includeOrder: [
-          "index.md",
+          "docs/index.md",
           "datasets/**",
           "services/**",
           "datamodel/**",
@@ -91,9 +93,10 @@ const config: Config = {
         rootContent: [
           "## Directe toegang tot de data",
           "",
-          "- SPARQL-endpoint: https://platform.ldmax.nl/organisaties/wo2net/query",
-          "- Machine-leesbaar datamodel (SHACL/Turtle): https://data.oorlogsbronnen.nl/schema.ttl — leesbare versie op https://data.oorlogsbronnen.nl/schema",
-          "- REST API (Spinque): https://docs.spinque.com/3.0/using-apis/basic.html — JavaScript/TypeScript-client: `@spinque/query-api` (npm)",
+          "- SPARQL-endpoint: https://sparql.ldmax.nl/wo2net (GET/POST, CORS open; query-UI: https://platform.ldmax.nl/organisaties/wo2net/query)",
+          "- Namespaces in de data: schema = http://schema.org/ (http, zonder s), pico = https://personsincontext.org/model#",
+          "- Machine-leesbaar datamodel (SHACL/Turtle): https://data.oorlogsbronnen.nl/schema.ttl — per kennisgraaf /schema-personen.ttl en /schema-collecties.ttl; leesbare versie op https://data.oorlogsbronnen.nl/schema",
+          "- REST API (Spinque): basis https://rest.spinque.com/4/oorlogsbronnen/api/lod/e/ met ?config=default en resultaatvorm resultpage — uitleg en voorbeelden op https://data.oorlogsbronnen.nl/services/apis",
           "- Datasets op LDmax (https://platform.ldmax.nl/organisaties/wo2net): WO2 Personen en WO2 Collecties (licentie CC-BY-NC-SA 4.0, niet-commercieel), WO2 Thesaurus (CC0 1.0)",
           "",
           "Vermeld bij hergebruik de bron en respecteer de licenties: de personen- en collectiedata is niet-commercieel gelicenseerd.",
