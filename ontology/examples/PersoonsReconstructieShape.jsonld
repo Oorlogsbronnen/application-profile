@@ -1,16 +1,40 @@
 {
   "@context": "https://data.oorlogsbronnen.nl/context.jsonld",
-  "id": "https://data.oorlogsbronnen.nl/personen/voorbeeld-123",
+  "id": "https://n2t.net/ark:/59857/pb933c386-1f6f-4e9d-9a1f-6bb0daadbe8c",
   "type": "PersonReconstruction",
-  "identifier": "voorbeeld-123",
-  "name": "Jan Jansen",
-  "birthDate": "1920-03-14",
-  "birthPlace": "Rotterdam",
-  "deathDate": "1944-09-05",
-  "deathPlace": "Vught",
+  "identifier": "b933c386-1f6f-4e9d-9a1f-6bs4daadbe8c",
+  "name": "Johannes Maria Jansen",
+  "alternateName": "Jan Jansen",
+  "birthDate": "1923-09-23",
+  "birthPlace": "Maastricht",
+  "dateCreated": "2024-04-11",
+  "dateModified": "2026-07-15",
+  "deathDate": "1987-06-22",
+  "deathPlace": "Anloo",
+  "deceased": "true",
+  "children": [
+    {
+      "id": "https://n2t.net/ark:/59857/p8f74c4a0-a56b-4b3e-ac4a-6800854bdc6e"
+    }
+  ],
+  "gender": [
+    {
+      "id": "http://schema.org/Male"
+    }
+  ],
+  "keywords": [
+    {
+      "id": "https://data.niod.nl/WO2_Thesaurus/2360"
+    }
+  ],
+  "sameAs": [
+    {
+      "id": "https://nl.wikipedia.org/wiki/Jan_Jansen"
+    }
+  ],
   "wasDerivedFrom": [
     {
-      "id": "https://data.oorlogsbronnen.nl/vermeldingen/voorbeeld-456",
+      "id": "https://www.oorlogslevens.nl/person/Jan-Jansen/03/0004",
       "type": "PersonObservation"
     }
   ]

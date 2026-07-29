@@ -1,0 +1,36 @@
+{
+  "@context": "https://data.oorlogsbronnen.nl/context.jsonld",
+  "id": "https://www.oorlogslevens.nl/person/Gerard-Mooyman/03/0004",
+  "type": "PersonObservation",
+  "identifier": "Jan-Jansen/03/0004",
+  "name": "Johannes Maria Jansen",
+  "givenName": "Johannes Maria",
+  "familyName": "Jansen",
+  "alternateName": [
+    "Jan Jansen"
+  ],
+  "birthDate": "1923-09-23",
+  "birthPlace": "Maastricht",
+  "deathDate": "1987-06-22",
+  "deathPlace": "Anloo",
+  "hasOccupation": [
+    "Bakker",
+  ],
+
+  "gender": [
+    {
+      "id": "http://schema.org/Male"
+    }
+  ],
+  "keywords": [
+    {
+      "id": "https://data.niod.nl/WO2_Thesaurus/2360"
+    }
+  ],
+  "hadPrimarySource": [
+    {
+      "id": "https://www.oorlogslevens.nl/record/Jan-Jansen/03/0004",
+      "type": "Entity"
+    }
+  ]
+}

@@ -1,0 +1,397 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+_:CreativeWorkShape
+    a sh:NodeShape ;
+    sh:targetClass schema:CreativeWork ;
+    sh:nodeKind sh:IRI ;
+    sh:property
+        [
+            sh:path schema:name ;
+            sh:datatype rdf:langString ;
+            sh:uniqueLang true ;
+            sh:minCount 1 ;
+        ] ,
+        [
+            sh:path schema:creator ;
+            sh:or (
+                [ sh:class schema:Person ]
+                [ sh:class schema:Organization ]
+                [ sh:node _:CreatorShape ]
+            ) ;
+            sh:minCount 1 ;
+        ] ,
+        [
+            sh:path schema:isPartOf ;
+            sh:minCount 1 ;
+            sh:severity sh:Warning ;
+        ] ,
+        [
+            a sh:PropertyShape ;
+            sh:path schema:associatedMedia ;
+            sh:or (
+                [ sh:node _:MediaObjectShape ]
+                [ sh:node _:IIIFPresentationManifestShape ]
+            ) ;
+            sh:minCount 1 ;
+            sh:severity sh:Warning ;
+        ] ,
+        [
+            a sh:PropertyShape ;
+            sh:path schema:identifier ;
+            sh:or (
+              [ sh:datatype xsd:string ]
+              [ sh:class schema:PropertyValue ]
+          ) ;
+            sh:minCount 0 ;
+        ] ,
+        [
+            a sh:PropertyShape ;
+            sh:path schema:additionalType ;
+            sh:nodeKind sh:IRI ;
+            sh:minCount 0 ;
+        ] ,
+        [
+            a sh:PropertyShape ;
+            sh:path schema:description ;
+            sh:datatype rdf:langString ;
+            sh:minCount 0 ;
+        ] ,
+        [
+            a sh:PropertyShape ;
+            sh:path schema:abstract ;
+            sh:datatype rdf:langString ;
+            sh:minCount 0 ;
+        ] ,
+        [
+            a sh:PropertyShape ;
+            sh:path schema:text ;
+            sh:datatype rdf:langString ;
+            sh:minCount 0 ;
+        ] ,
+        [
+            a sh:PropertyShape ;
+            sh:path schema:size ;
+            sh:datatype xsd:string ;
+            sh:minCount 0 ;
+        ] ,
+        [
+            a sh:PropertyShape ;
+            sh:path schema:contentLocation ;
+            sh:or (
+                [ sh:node _:DefinedTermShape ]
+                [ sh:node _:PlaceShape ]
+            ) ;
+            sh:minCount 0 ;
+        ] ,
+        [
+            a sh:PropertyShape ;
+            sh:path schema:temporalCoverage ;
+            sh:or (
+                [ sh:nodeKind sh:IRI ]
+                [ sh:pattern "^(-?\\d{4}(-\\d{2}(-\\d{2}(T\\d{2}:\\d{2}(:\\d{2})?)?)?)?|\\.\\.)(/(-?\\d{4}(-\\d{2}(-\\d{2}(T\\d{2}:\\d{2}(:\\d{2})?)?)?)?|\\d{2}(-\\d{2})?|\\.\\.))?$" ]
+            ) ;
+            sh:minCount 0 ;
+        ] ,
+        [
+            a sh:PropertyShape ;
+            sh:path schema:locationCreated ;
+            sh:or (
+                [ sh:node _:DefinedTermShape ]
+                [ sh:node _:PlaceShape ]
+            ) ;
+            sh:minCount 0 ;
+        ] ,
+        [
+            a sh:PropertyShape ;
+            sh:path schema:dateCreated ;
+            sh:node _:DateShape ;
+            sh:minCount 0 ;
+        ] ,
+        [
+            a sh:PropertyShape ;
+            sh:path schema:about ;
+            sh:or (
+                [ sh:node _:DefinedTermShape ]
+                [ sh:class schema:CreativeWork ]
+            ) ;
+            sh:minCount 0 ;
+        ] ,
+        [
+            a sh:PropertyShape ;
+            sh:path schema:material ;
+            sh:node _:DefinedTermShape ;
+            sh:minCount 0 ;
+        ] ,
+        [
+            a sh:PropertyShape ;
+            sh:path schema:genre ;
+            sh:node _:DefinedTermShape ;
+            sh:minCount 0 ;
+        ] ,
+        [
+            a sh:PropertyShape ;
+            sh:path schema:sdDatePublished ;
+            sh:or (
+                [
+                    sh:datatype xsd:date ;
+                    sh:pattern "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" ;
+                ]
+                [
+                    sh:datatype xsd:dateTime ;
+                    sh:pattern "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(Z|[+-][0-9]{2}:[0-9]{2})?$" ;
+                ]
+            ) ;
+            sh:minCount 0 ;
+        ] .
+
+_:CreatorShape
+    a sh:NodeShape ;
+    sh:not [
+        sh:path rdf:type ;
+        sh:minCount 1
+    ] ;
+    sh:property [
+        sh:path schema:name ;
+        sh:datatype rdf:langString ;
+        sh:uniqueLang true ;
+        sh:minCount 1 ;
+    ] .
+
+_:DefinedTermShape
+    a sh:NodeShape ;
+    sh:class schema:DefinedTerm ;
+    sh:property [
+        sh:path schema:name ;
+        sh:datatype rdf:langString ;
+        sh:uniqueLang true ;
+        sh:minCount 1 ;
+    ] ,
+    [
+        sh:path schema:sameAs ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 0 ;
+    ] .
+
+_:PersonShape
+    a sh:NodeShape ;
+    sh:targetClass schema:Person ;
+    sh:property
+        [
+            sh:path schema:name ;
+            sh:datatype rdf:langString ;
+            sh:uniqueLang true ;
+            sh:minCount 1 ;
+        ] ,
+        [
+            sh:path schema:birthDate ;
+            sh:node _:DateShape ;
+            sh:minCount 0 ;
+            sh:maxCount 1 ;
+        ] ,
+        [
+            sh:path schema:birthPlace ;
+            sh:or (
+                [ sh:node _:DefinedTermShape ]
+                [ sh:node _:PlaceShape ]
+            ) ;
+            sh:minCount 0 ;
+            sh:maxCount 1 ;
+        ] ,
+        [
+            sh:path schema:deathDate ;
+            sh:node _:DateShape ;
+            sh:minCount 0 ;
+            sh:maxCount 1 ;
+        ] ,
+        [
+            sh:path schema:deathPlace ;
+            sh:or (
+                [ sh:node _:DefinedTermShape ]
+                [ sh:node _:PlaceShape ]
+            ) ;
+            sh:minCount 0 ;
+            sh:maxCount 1 ;
+        ] ,
+        [
+            sh:path schema:hasOccupation ;
+            sh:or (
+                [ sh:node _:DefinedTermShape ]
+                [ sh:node _:OccupationShape ]
+            ) ;
+            sh:minCount 0 ;
+        ] .
+
+_:OrganizationShape
+    a sh:NodeShape ;
+    sh:targetClass schema:Organization ;
+    sh:nodeKind sh:IRI ;
+    sh:property [
+        sh:path schema:name ;
+        sh:datatype rdf:langString ;
+        sh:uniqueLang true ;
+        sh:minCount 1 ;
+    ] ,
+    [
+        sh:path schema:location ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:class schema:Place ;
+        sh:node _:PlaceShape ;
+    ] .
+
+_:MediaObjectShape
+    a sh:NodeShape ;
+    sh:property
+        [
+            sh:path schema:license ;
+            sh:nodeKind sh:IRI ;
+            sh:minCount 1 ;
+        ] ,
+        [
+            sh:path schema:contentUrl ;
+            sh:nodeKind sh:IRI ;
+            sh:minCount 1 ;
+            sh:severity sh:Warning ;
+        ] ,
+        [
+            sh:path schema:thumbnailUrl ;
+            sh:nodeKind sh:IRI ;
+            sh:minCount 1 ;
+            sh:severity sh:Warning ;
+        ] ,
+        [
+            sh:path schema:copyrightNotice ;
+            sh:datatype rdf:langString ;
+            sh:minCount 0 ;
+        ] .
+
+_:IIIFPresentationManifestShape
+    a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:property [
+        sh:path schema:license ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+    ] ,
+    [
+        sh:path schema:encodingFormat ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:pattern "^application/ld\\+json;profile='http://iiif\\.io/api/presentation/\\d+/context\\.json'$" ;
+    ] .
+
+_:CreativeWorkAssociatedMediaCardinalityShape
+    a sh:NodeShape ;
+    sh:targetClass schema:CreativeWork ;
+    sh:property [
+        sh:path schema:associatedMedia ;
+        sh:qualifiedValueShape _:MediaObjectShape ;
+        sh:qualifiedMinCount 1 ;
+        sh:severity sh:Warning ;
+    ] ,
+    [
+        sh:path schema:associatedMedia ;
+        sh:qualifiedValueShape _:IIIFPresentationManifestShape ;
+        sh:qualifiedMaxCount 1 ;
+    ] .
+
+_:PlaceShape
+    a sh:NodeShape ;
+    sh:targetClass schema:Place ;
+    sh:property [
+        sh:path schema:name ;
+        sh:datatype rdf:langString ;
+        sh:uniqueLang true ;
+        sh:minCount 1 ;
+    ] ,
+    [
+        sh:path schema:address ;
+        sh:class schema:PostalAddress ;
+        sh:node _:PostalAddressShape ;
+        sh:minCount 0 ;
+    ] ,
+    [
+        sh:path schema:geo ;
+        sh:or (
+            [
+                sh:class schema:GeoCoordinates ;
+                sh:node [
+                    a sh:NodeShape ;
+                    sh:property [
+                        sh:path schema:latitude ;
+                        sh:datatype xsd:double ;
+                        sh:minCount 1 ;
+                        sh:maxCount 1 ;
+                    ] ,
+                    [
+                        sh:path schema:longitude ;
+                        sh:datatype xsd:double ;
+                        sh:minCount 1 ;
+                        sh:maxCount 1 ;
+                    ]
+                ] ;
+            ]
+            [ 
+                a sh:NodeShape ;
+                sh:class schema:GeoShape ;
+            ]
+        ) ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] .
+
+_:OccupationShape
+    a sh:NodeShape ;
+    sh:class schema:Occupation ;
+    sh:property [
+        sh:path schema:name ;
+        sh:datatype rdf:langString ;
+        sh:uniqueLang true ;
+        sh:minCount 1 ;
+    ] .
+
+_:PostalAddressShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path schema:streetAddress ;
+        sh:datatype xsd:string ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ,
+    [
+        sh:path schema:postalCode ;
+        sh:datatype xsd:string ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ,
+    [
+        sh:path schema:addressLocality ;
+        sh:datatype xsd:string ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ,
+    [
+        sh:path schema:addressRegion ;
+        sh:datatype xsd:string ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ,
+    [
+        sh:path schema:addressCountry ;
+        sh:datatype xsd:string ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] .
+
+_:DateShape
+    a sh:NodeShape ;
+    sh:or (
+        [ sh:datatype schema:Date ;     sh:pattern "^[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?$" ]
+        [ sh:datatype xsd:date ;        sh:pattern "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" ]
+        [ sh:datatype xsd:gYearMonth ]
+        [ sh:datatype xsd:gYear ]
+    ) .
