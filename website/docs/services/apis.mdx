@@ -1,0 +1,157 @@
+---
+title: API's
+sidebar_position: 1
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import ApiExample from "@site/src/components/ApiExample";
+import searchResponse from "@site/src/data/spinque/search-hannie-schaft.json";
+import persoonResponse from "@site/src/data/spinque/persoon-hannie-schaft.json";
+
+# API's
+
+De data van Oorlogsbronnen is via een REST API te bevragen, gebouwd op [Spinque](https://www.spinque.com/). De API is publiek en vereist geen API-key.
+
+## Opbouw van een request
+
+Alle endpoints leven onder één basis-URL:
+
+```text
+https://rest.spinque.com/4/oorlogsbronnen/api/in10/e/
+```
+
+Daarachter volgt het endpoint met zijn parameters volgens het patroon `{endpoint}/p/{parameter}/{waarde}/results`, afgesloten met `?config=production`. Parameterwaarden zijn URL-encoded. Voorbeeld:
+
+```text
+…/e/search/p/topic/hannie%20schaft/results?config=production&count=10
+```
+
+Handige queryparameters: `count` (aantal resultaten), `offset` (paginering). Vraag `results,count` op in plaats van `results` om naast de resultaten ook het totaal te krijgen.
+
+## Zoeken: `search`
+
+Vrij zoeken door alle bronnen, personen en thema's. Als rode draad gebruiken we — net als op de [SPARQL-pagina](./sparql) — verzetsstrijder Hannie Schaft:
+
+<Tabs groupId="taal">
+  <TabItem value="curl" label="curl">
+
+```sh
+curl "https://rest.spinque.com/4/oorlogsbronnen/api/in10/e/search/p/topic/hannie%20schaft/results?config=production&count=1"
+```
+
+  </TabItem>
+  <TabItem value="js" label="JavaScript">
+
+```ts
+import { Api, Query } from "@spinque/query-api";
+
+const api = new Api({
+  workspace: "oorlogsbronnen",
+  api: "in10",
+  config: "production",
+  version: "4",
+});
+
+const query: Query = {
+  endpoint: "search",
+  parameters: { topic: "hannie schaft" },
+};
+
+const results = await api.fetch(query);
+```
+
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
+from spinque_query_api import Api, Query
+
+api = Api(workspace="oorlogsbronnen", api="in10", config="production")
+
+query = Query(endpoint="search", parameters=[("topic", "hannie schaft")])
+results = api.fetch(query, {"count": 10})
+```
+
+  </TabItem>
+</Tabs>
+
+<ApiExample
+  url="https://rest.spinque.com/4/oorlogsbronnen/api/in10/e/search/p/topic/hannie%20schaft/results?config=production&count=1"
+  recorded={searchResponse}
+  recordedAt="2026-07-28"
+/>
+
+Elk resultaat bevat de `id` van de entiteit, de `class` (bijvoorbeeld `http://schema.org/Person`) en de `attributes` met de metadata volgens het [application profile](/schema).
+
+## Eén entiteit ophalen: `person`
+
+Met de `id` uit een zoekresultaat haal je de volledige persoonskaart op:
+
+<Tabs groupId="taal">
+  <TabItem value="curl" label="curl">
+
+```sh
+curl "https://rest.spinque.com/4/oorlogsbronnen/api/in10/e/person/p/id/https%3A%2F%2Fwww.oorlogsbronnen.nl%2Fperson%2F48968c01-9f60-492d-8712-58d3b8c2b388/results?config=production"
+```
+
+  </TabItem>
+  <TabItem value="js" label="JavaScript">
+
+```ts
+import { Api, Query } from "@spinque/query-api";
+
+const api = new Api({
+  workspace: "oorlogsbronnen",
+  api: "in10",
+  config: "production",
+  version: "4",
+});
+
+const query: Query = {
+  endpoint: "person",
+  parameters: {
+    id: "https://www.oorlogsbronnen.nl/person/48968c01-9f60-492d-8712-58d3b8c2b388",
+  },
+};
+
+const results = await api.fetch(query);
+```
+
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
+from spinque_query_api import Api, Query
+
+api = Api(workspace="oorlogsbronnen", api="in10", config="production")
+
+query = Query(
+    endpoint="person",
+    parameters=[
+        ("id", "https://www.oorlogsbronnen.nl/person/48968c01-9f60-492d-8712-58d3b8c2b388")
+    ],
+)
+results = api.fetch(query)
+```
+
+  </TabItem>
+</Tabs>
+
+<ApiExample
+  url="https://rest.spinque.com/4/oorlogsbronnen/api/in10/e/person/p/id/https%3A%2F%2Fwww.oorlogsbronnen.nl%2Fperson%2F48968c01-9f60-492d-8712-58d3b8c2b388/results?config=production"
+  recorded={persoonResponse}
+  recordedAt="2026-07-28"
+/>
+
+## Libraries
+
+Spinque biedt officiële client-libraries:
+
+- [`@spinque/query-api`](https://www.npmjs.com/package/@spinque/query-api) (JavaScript/TypeScript): npm-package voor Node ≥ 18 of de browser.
+- [`spinque-query-api`](https://pypi.org/project/spinque-query-api/) (Python): `pip install spinque-query-api`; zie de [broncode op GitHub](https://github.com/spinque/query-api-python).
+
+## Verder lezen
+
+- Taakgerichte voorbeelden staan in het [cookbook](../cookbook/).
+- [Spinque API-documentatie: basisgebruik](https://docs.spinque.com/3.0/using-apis/basic.html)

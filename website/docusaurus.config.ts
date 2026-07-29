@@ -1,8 +1,37 @@
 import { themes as prismThemes } from "prism-react-renderer";
-import type { Config } from "@docusaurus/types";
+import type { Config, Plugin } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+
+/**
+ * Lokale tegenhanger van de Netlify-proxy in static/_redirects: de dev-server
+ * stuurt /spinque-api/* server-side door naar de Spinque API, zodat de live
+ * API-voorbeelden ook met `pnpm start` te testen zijn. `docusaurus serve`
+ * heeft geen proxy; daar (en op Netlify vóór de allowlist-wijziging) vallen
+ * de voorbeelden terug op de vastgelegde responses.
+ */
+function spinqueDevProxy(): Plugin {
+  return {
+    name: "spinque-dev-proxy",
+    configureWebpack: () =>
+      // webpack's Configuration-type kent `devServer` alleen wanneer de
+      // typedefinities van webpack-dev-server geladen zijn; dat pakket is
+      // hier alleen transitief aanwezig, vandaar de cast.
+      ({
+        devServer: {
+          proxy: [
+            {
+              context: ["/spinque-api"],
+              target: "https://rest.spinque.com",
+              changeOrigin: true,
+              pathRewrite: { "^/spinque-api": "/4/oorlogsbronnen/api/in10" },
+            },
+          ],
+        },
+      }) as ReturnType<NonNullable<Plugin["configureWebpack"]>>,
+  };
+}
 
 const config: Config = {
   title: "data.oorlogsbronnen",
@@ -37,6 +66,7 @@ const config: Config = {
   themes: ["@docusaurus/theme-mermaid"],
 
   plugins: [
+    spinqueDevProxy,
     [
       "docusaurus-plugin-llms",
       {
@@ -51,6 +81,7 @@ const config: Config = {
           "datasets/**",
           "services/**",
           "datamodel/**",
+          "cookbook/**",
           "iiif.md",
           "rechten-en-gebruik.md",
           "meedoen.md",

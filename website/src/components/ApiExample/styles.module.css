@@ -1,0 +1,39 @@
+.example {
+  margin-bottom: var(--ifm-leading);
+}
+
+.urlLabel {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.urlInput {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--ifm-font-color-base);
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+  resize: vertical;
+}
+
+.urlInput:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 1px;
+}
+
+.actions {
+  margin-bottom: 0.75rem;
+}
+
+/* Lange responses niet de hele pagina laten overnemen. */
+.example :global(.theme-code-block) pre {
+  max-height: 24rem;
+}

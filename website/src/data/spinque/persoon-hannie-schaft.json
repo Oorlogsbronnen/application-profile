@@ -1,0 +1,174 @@
+{
+  "offset": 0,
+  "count": 10,
+  "type": ["OBJ"],
+  "items": [
+    {
+      "rank": 1,
+      "probability": 1.0,
+      "tuple": [
+        {
+          "id": "https://www.oorlogsbronnen.nl/person/48968c01-9f60-492d-8712-58d3b8c2b388",
+          "class": ["http://schema.org/Person"],
+          "attributes": {
+            "http://schema.org/name": "Hannie Schaft",
+            "http://schema.org/alternateName": [
+              "Johanna Schaft",
+              "Hannie",
+              "Het Meisje met het rode haar",
+              "Hanneke Schaft",
+              "Jannetje Johanna Schaft"
+            ],
+            "http://schema.org/identifier": [
+              "Jannetje+Johanna+Schaft/86/8859",
+              "Hannie-Schaft/95/1834",
+              "Hannie-Schaft/95/1833",
+              "Jannetje-Johanna-Schaft/128/2938",
+              "48968c01-9f60-492d-8712-58d3b8c2b388",
+              "Jannetje-Johanna-Schaft/50/730",
+              "Hannie-Schaft/95/1835",
+              "Hannie-Schaft/03/0004",
+              "Jannetje-Johanna-Schaft/37/33654046",
+              "Jannetje-Johanna-Schaft/09/16534",
+              "Jannetje-Johanna-Schaft/113/874",
+              "Jannetje-Johanna-Schaft/02/135198"
+            ],
+            "http://schema.org/birthPlace": "Haarlem",
+            "http://schema.org/deathPlace": "Overveen",
+            "http://schema.org/birthDate": "1920-09-16",
+            "http://schema.org/deathDate": "1945-04-17",
+            "http://schema.org/description": [
+              "<p>Jannetje Johanna Schaft speelde, als lid van RVV Haarlem, de volgende rol(len) in het verzet: ? - nog uitzoeken.</p><p>Bron: Noord-Hollands Archief: Lijst van Vrouwen in verzet.</p>",
+              "<p>Hannie ging rechten studeren in Amsterdam. Met het sterke rechtvaardigheidsgevoel dat ze van haar ouders had meegekregen, ging ze tekeer tegen alles wat onrecht in de wereld was. Zo ook tegen het onrecht wat Joden trof door toedoen van de Duitse bezetter. Toen deze van alle studerenden in 1943 een loyaliteitsverklaring eisten, was dit het einde voor de rechtenstudie van Hannie Schaft. Op 22 jarige leeftijd kwam Hannie Schaft in het Haarlemse verzet terecht. Aanvankelijk verrichtte Hannie Schaft veel koeriersdiensten, maar later raakte ze betrokken bij tal van verzetsacties. Bij een actie waarbij Hannie Schaft de Zaanse politiecommandant W. Ragut neerschoot, raakte Jan Bonekamp dodelijk gewond. Op 21 maart 1945 werd ze gearresteerd bij een controle. Na haar arrestatie bracht een Duitse officier Hannie Schaft in verband met 'het meisje met het rode haar', dat bij zoveel aanslagen en sabotage acties betrokken was geweest. Enkele weken later werd ze gefusilleerd in de duinen bij Overveen.</p><p>Bron: Vereniging Scouting Nederland</p>",
+              "<p>Jannetje Johanna Schaft (Haarlem, 16 september 1920 – Bloemendaal, 17 april 1945) was een communistische verzetsstrijdster. Schaft was actief voor de Communistische Partij van Nederland en Raad van Verzet. Ze hielp onderduikers en was betrokken bij meerdere executies van Duitsers en collaborateurs. Uiteindelijk werd Schaft opgepakt en geëxecuteerd.</p><p>Bron: Stichting WO2Net | Oorlogsbronnen.nl</p>"
+            ],
+            "http://schema.org/jobTitle": [
+              "Lid verzet",
+              "Studente",
+              "Verzetsstrijder"
+            ],
+            "http://schema.org/givenName": ["Hannie", "Jannetje Johanna"],
+            "http://schema.org/familyName": ["Schaft"],
+            "keywords": [
+              {
+                "@id": "https://data.niod.nl/WO2_Thesaurus/corporaties/4824",
+                "http://www.w3.org/2004/02/skos/core#prefLabel": {
+                  "de": "'Raad van Verzet'",
+                  "en": "'Raad van Verzet'",
+                  "nl": "Raad van Verzet"
+                }
+              },
+              {
+                "@id": "https://data.niod.nl/WO2_Thesaurus/2657",
+                "http://www.w3.org/2004/02/skos/core#prefLabel": {
+                  "de": "Widerstand",
+                  "en": "Resistance",
+                  "nl": "Verzet"
+                }
+              },
+              {
+                "@id": "https://data.niod.nl/WO2_Thesaurus/corporaties/4483",
+                "http://www.w3.org/2004/02/skos/core#prefLabel": {
+                  "de": "CPN",
+                  "en": "Communist Party of the Netherlands",
+                  "nl": "Communistische Partij van Nederland"
+                }
+              },
+              {
+                "@id": "https://data.niod.nl/WO2_Thesaurus/corporaties/6163",
+                "http://www.w3.org/2004/02/skos/core#prefLabel": {
+                  "de": "Verzetskruis",
+                  "en": "Verzetskruis",
+                  "nl": "Verzetskruis"
+                }
+              },
+              {
+                "@id": "https://data.niod.nl/WO2_Thesaurus/corporaties/4524",
+                "http://www.w3.org/2004/02/skos/core#prefLabel": {
+                  "de": "'Gevangenis Amstelveenseweg'",
+                  "en": "Amstelveenseweg Prison",
+                  "nl": "Gevangenis Amstelveenseweg"
+                }
+              },
+              {
+                "@id": "https://data.niod.nl/WO2_Thesaurus/events/7659",
+                "http://www.w3.org/2004/02/skos/core#prefLabel": {
+                  "de": "CPN verboten",
+                  "en": "Communist Party of the Netherlands banned",
+                  "nl": "CPN verboden"
+                }
+              },
+              {
+                "@id": "https://data.niod.nl/WO2_Thesaurus/3501",
+                "http://www.w3.org/2004/02/skos/core#prefLabel": {
+                  "de": "Pfadfinderbewegung",
+                  "en": "Scouting",
+                  "nl": "Padvinderij"
+                }
+              }
+            ],
+            "image": [
+              {
+                "@id": "https://data.niod.nl/WO2_biografieen/Hannie-Schaft/image",
+                "http://schema.org/thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/HannieSchaft3.jpg/500px-HannieSchaft3.jpg",
+                "http://schema.org/position": 1,
+                "http://schema.org/caption": "Portret van Hannie Schaft",
+                "provider": [
+                  {
+                    "@id": "https://data.niod.nl/Organizations/827",
+                    "http://schema.org/name": "Stichting WO2Net | Oorlogsbronnen.nl",
+                    "http://schema.org/url": "https://www.wo2net.nl/oorlogsbronnen/"
+                  }
+                ]
+              },
+              {
+                "@id": "https://www.oorlogslevens.nl/record/Jannetje-Johanna-Schaft/02/135198/image",
+                "http://schema.org/thumbnailUrl": "https://srs2022.ogs.nl/filestore/si/5150199/33892/5150208/1326298141.jpg?etag=c9a05d0ed876496c175238c805af3a30",
+                "http://schema.org/position": 1,
+                "http://schema.org/caption": "J.J. Schaft",
+                "provider": [
+                  {
+                    "@id": "https://data.niod.nl/Organizations/293",
+                    "http://schema.org/name": "Oorlogsgravenstichting",
+                    "http://schema.org/url": "https://oorlogsgravenstichting.nl/"
+                  }
+                ]
+              },
+              {
+                "@id": "https://www.oorlogslevens.nl/record/Jannetje-Johanna-Schaft/02/135198/memorial-image",
+                "http://schema.org/thumbnailUrl": "https://srs2022.ogs.nl/filestore/si/5150199/44321/5150208/IM000440.JPG?etag=3c9ebcc871a5a98f9ac188a863e769b9",
+                "http://schema.org/position": 2,
+                "http://schema.org/caption": "IM000440.JPG",
+                "provider": [
+                  {
+                    "@id": "https://data.niod.nl/Organizations/293",
+                    "http://schema.org/name": "Oorlogsgravenstichting",
+                    "http://schema.org/url": "https://oorlogsgravenstichting.nl/"
+                  }
+                ]
+              }
+            ],
+            "homeLocation": [
+              {
+                "@id": "https://data.niod.nl/WO2_Thesaurus/locations/9881",
+                "http://www.w3.org/2003/01/geo/wgs84_pos#long": 4.64055556,
+                "http://www.w3.org/2004/02/skos/core#prefLabel": {
+                  "nl": "Haarlem"
+                },
+                "http://www.w3.org/2003/01/geo/wgs84_pos#lat": 52.38027778,
+                "province": [
+                  {
+                    "@id": "https://data.niod.nl/WO2_Thesaurus/locations/7048",
+                    "http://www.w3.org/2004/02/skos/core#prefLabel": {
+                      "nl": "provincie Noord-Holland"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
