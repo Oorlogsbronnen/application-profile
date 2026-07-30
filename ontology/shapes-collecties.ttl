@@ -34,7 +34,8 @@ ob:CreativeWorkShape a sh:NodeShape ;
         sdo:VisualArtwork, 
         sdo:Painting, 
         sdo:Sculpture, 
-        sdo:SheetMusic ;
+        sdo:SheetMusic, 
+        sdo:ArchiveComponent ;
     sh:name "Creatieve werken"@nl ;
     sh:description "Bronnen en objecten uit erfgoedcollecties."@nl ;
     
@@ -44,13 +45,6 @@ ob:CreativeWorkShape a sh:NodeShape ;
         sh:name "Identifier"@nl ;
         sh:description "De unieke identifier van het werk."@nl ;
         sh:node ob:Rule_identifier ;
-    ] ;
-    sh:property [
-        sh:path rdf:type ;
-        sh:name "Type entiteit"@nl ;
-        sh:description "Classificatie van het werk volgens schema.org."@nl ;
-        sh:in ( sdo:CreativeWork sdo:Article sdo:Newspaper sdo:Book sdo:Photograph sdo:VisualArtwork sdo:Painting sdo:Sculpture sdo:SheetMusic sdo:ArchiveComponent sdo:VideoObject sdo:AudioObject ob:Bekendmaking ob:Monument ob:Interview ob:InterviewSegment ) ;
-        sh:minCount 1 ;               
     ] ;
     sh:property [
         sh:path sdo:additionalType ;
@@ -272,31 +266,14 @@ ob:InterviewShape a sh:NodeShape ;
 ob:ClosedCaptionShape a sh:NodeShape ;
     sh:targetClass ob:ClosedCaption ;
     sh:name "Interviewtranscripties"@nl ;
-    sh:description "Transcripties van audio en video in time based vtt formaat"@nl ;
-
-    # --- Type ---
-    sh:property [
-        sh:path rdf:type ;
-        sh:name "Type entiteit"@nl ;
-        sh:description "Classificatie van de transcriptie als ob:ClosedCaption"@nl ;
-        sh:in ( ob:ClosedCaption ) ;
-        sh:minCount 1 ;               
-        sh:maxCount 1 ;
-    ] . 
+    sh:description "Transcripties van audio en video in time based vtt formaat"@nl .
+    
 
 ### --- THESAURUSCONCEPTEN ---
 ob:ConceptShape a sh:NodeShape ;
     sh:targetClass skos:Concept ;
     sh:name "Thesaurusconcepten"@nl ;
     sh:description "Een abstract idee of een term uit een gecontroleerde woordenlijst of thesaurus."@nl ;
-
-    # --- Identificatie en Basis ---
-    sh:property [
-        sh:path rdf:type ;
-        sh:name "Type (RDF)"@nl ;
-        sh:in ( skos:Concept sdo:Organization sdo:Place sdo:Event ) ;
-        sh:minCount 1 ; 
-    ] ;
 
     # --- Inhoud en Onderwerp ---
     sh:property [

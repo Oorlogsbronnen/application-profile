@@ -36,14 +36,6 @@ ob:PersoonsReconstructieShape a sh:NodeShape ;
         sh:description "De unieke identifier (PID) van de persoonsreconstructie."@nl ;
         sh:node ob:Rule_identifier ;
     ] ;
-    sh:property [
-        sh:path rdf:type ;
-        sh:name "Type entiteit"@nl ;
-        sh:description "Classificatie volgens Persons in Context (PiCo)."@nl ;
-        sh:in ( picom:PersonReconstruction ) ;
-        sh:minCount 1 ;               
-        sh:maxCount 1 ;
-    ] ;
 
     # --- Naamgeving ---
     sh:property [
@@ -162,14 +154,6 @@ ob:PersoonsvermeldingShape a sh:NodeShape ;
         sh:name "Identifier"@nl ;
         sh:description "De interne identifier van de persoonsvermelding."@nl ;
         sh:node ob:Rule_identifier ;
-    ] ;
-    sh:property [
-        sh:path rdf:type ;
-        sh:name "Type entiteit"@nl ;
-        sh:description "Classificatie volgens Persons in Context (PiCo)."@nl ;
-        sh:in ( picom:PersonObservation ) ;
-        sh:minCount 1 ;               
-        sh:maxCount 1 ;
     ] ;
 
     # --- Naamgeving ---
@@ -299,18 +283,9 @@ ob:PersoonsvermeldingShape a sh:NodeShape ;
 ### --- GEBEURTENISSEN BIJ PERSONEN ---
 ob:EventShape a sh:NodeShape ;
     sh:targetClass sdo:Event ;
-    sh:name "Persoonlijke gebeurtenissen"@nl ;
+    sh:name "Gebeurtenissen"@nl ;
     sh:description "Belangrijke gebeurtenissen in het leven van de persoon (tijdens de Tweede Wereldoorlog)"@nl ;
 
-    # --- Type ---
-    sh:property [
-        sh:path rdf:type ;
-        sh:name "Type entiteit"@nl ;
-        sh:description "Classificatie van de gebeurtenis als sdo:Event"@nl ;
-        sh:class ( sdo:Event ) ;
-        sh:minCount 1 ;               
-        sh:maxCount 1 ;
-    ] ;
     sh:property [
         sh:path sdo:additionalType ;
         sh:name "type gebeurtenis"@nl ;
@@ -371,21 +346,17 @@ ob:EventShape a sh:NodeShape ;
         sh:node ob:Rule_endDate ;
     ] .
 
+### --- SUBCLASSES VOOR PERSOONLIJKE GEBEURTENISSEN ---
+ob:PersonalEventShape a sh:NodeShape ;
+    sh:targetClass ob:PersonalEvent ;
+    sh:name "Persoonlijke gebeurtenissen"@nl ;
+    sh:description "Typering van een gebeurtenis als persoonlijke gebeurtenis uit de WO2 thesaurus"@nl .
+    
 ### --- AFBEELDINGEN BIJ PERSONEN ---
 ob:ImageObjectShape a sh:NodeShape ;
     sh:targetClass sdo:ImageObject ;
     sh:name "Afbeeldingen bij personen"@nl ;
     sh:description "Afbeeldingen (archiefscans, maar ook portretten en andere foto's) die vanuit persoonsvermeldingen aan de persoon gekoppeld zijn"@nl ;
-
-    # --- Type ---
-    sh:property [
-        sh:path rdf:type ;
-        sh:name "Type entiteit"@nl ;
-        sh:description "Classificatie van de afbeelding als sdo:ImageObject"@nl ;
-        sh:in ( sdo:ImageObject ) ;
-        sh:minCount 1 ;               
-        sh:maxCount 1 ;
-    ] ;
 	
     # --- Kenmerken en Context ---
     sh:property [
@@ -417,14 +388,6 @@ ob:SourceShape a sh:NodeShape ;
         sh:name "Bronrecords"@nl ;
         sh:description "Archiefstukken, maar ook records uit andere (onderzoeks)datasets en webpagina's die de bron zijn van persoonsvermeldingen."@nl ;
     
-    sh:property [
-        sh:path rdf:type ;
-        sh:name "Type entiteit"@nl ;
-        sh:description "Classificatie van het bronrecord."@nl ;
-        sh:in ( sdo:ArchiveComponent prov:Entity ) ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-    ] ;
     sh:property [
         sh:path sdo:url ;
         sh:name "Url van het bronrecord"@nl ;
@@ -463,14 +426,6 @@ ob:DatasetShape a sh:NodeShape ;
         sh:name "Identifier"@nl ;
         sh:description "De unieke identifier van de dataset."@nl ;
         sh:node ob:Rule_identifier ;
-    ] ;
-    sh:property [
-        sh:path rdf:type ;
-        sh:name "Type entiteit"@nl ;
-        sh:description "Classificatie van de entiteit als sdo:Dataset"@nl ;
-        sh:in ( sdo:Dataset ) ;
-        sh:minCount 1 ;               
-        sh:maxCount 1 ;
     ] ;
 
     # --- Kenmerken en context ---

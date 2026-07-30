@@ -58,7 +58,6 @@ ob:Rule_givenName          sh:path sdo:givenName ;      sh:node ob:Base_String .
 
 # --- Beschrijving en Categorisering ---
 ob:Rule_material               sh:path sdo:material ;       sh:node ob:Base_String .
-ob:Rule_type                   sh:path rdf:type ;           sh:node ob:Base_IRI .
 ob:Rule_about                  sh:path sdo:about ;          sh:node ob:Base_IRI ; sh:or ([ sh:class skos:Concept ] [ sh:class sdo:Organization ] [ sh:class sdo:Place ] [ sh:class picom:PersonReconstruction ]) .
 ob:Rule_additionalType         sh:path sdo:additionalType ; sh:node ob:Base_StringOr .
 ob:Rule_additionalType_events  sh:path sdo:additionalType ; sh:node ob:Base_IRI ; sh:minCount 1 ; sh:maxCount 1 ; sh:class niod:PersonalEvent .
