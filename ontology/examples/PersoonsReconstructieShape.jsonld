@@ -1,0 +1,62 @@
+{
+  "@context": {
+    "id": "@id",
+    "type": "@type",
+    "schema": "http://schema.org/",
+    "pico": "https://personsincontext.org/model#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "identifier": "schema:identifier",
+    "name": "schema:name",
+    "gender": { "@id": "schema:gender", "@type": "@id" },
+    "birthDate": { "@id": "schema:birthDate", "@type": "xsd:date" },
+    "birthPlace": "schema:birthPlace",
+    "deathDate": { "@id": "schema:deathDate", "@type": "xsd:date" },
+    "deathPlace": "schema:deathPlace",
+    "deceased": "pico:deceased",
+    "keywords": { "@id": "schema:keywords", "@type": "@id" },
+    "dateCreated": { "@id": "schema:dateCreated", "@type": "xsd:date" },
+    "dateModified": { "@id": "schema:dateModified", "@type": "xsd:date" },
+    "wasDerivedFrom": { "@id": "prov:wasDerivedFrom", "@type": "@id" }
+  },
+  "id": "https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388",
+  "type": "pico:PersonReconstruction",
+  "identifier": "48968c01-9f60-492d-8712-58d3b8c2b388",
+  "name": "Hannie Schaft",
+  "gender": "schema:Female",
+  "birthDate": "1920-09-16",
+  "birthPlace": [
+    "Haarlem",
+    { "id": "https://data.niod.nl/WO2_Thesaurus/locations/9881" }
+  ],
+  "deathDate": "1945-04-17",
+  "deathPlace": [
+    "Overveen",
+    { "id": "https://data.niod.nl/WO2_Thesaurus/locations/10406" }
+  ],
+  "deceased": "true",
+  "keywords": [
+    "https://data.niod.nl/WO2_Thesaurus/2657",
+    "https://data.niod.nl/WO2_Thesaurus/3501",
+    "https://data.niod.nl/WO2_Thesaurus/corporaties/4483",
+    "https://data.niod.nl/WO2_Thesaurus/corporaties/4524",
+    "https://data.niod.nl/WO2_Thesaurus/corporaties/4824",
+    "https://data.niod.nl/WO2_Thesaurus/corporaties/6163",
+    "https://data.niod.nl/WO2_Thesaurus/events/7659"
+  ],
+  "dateCreated": "2024-04-11",
+  "dateModified": "2024-04-11",
+  "wasDerivedFrom": [
+    "https://www.oorlogslevens.nl/person/Hannie-Schaft/03/0004",
+    "https://www.oorlogslevens.nl/person/Hannie-Schaft/95/1833",
+    "https://www.oorlogslevens.nl/person/Hannie-Schaft/95/1834",
+    "https://www.oorlogslevens.nl/person/Hannie-Schaft/95/1835",
+    "https://www.oorlogslevens.nl/person/Jannetje-Johanna-Schaft/02/135198",
+    "https://www.oorlogslevens.nl/person/Jannetje-Johanna-Schaft/09/16534",
+    "https://www.oorlogslevens.nl/person/Jannetje-Johanna-Schaft/113/874",
+    "https://www.oorlogslevens.nl/person/Jannetje-Johanna-Schaft/128/2938",
+    "https://www.oorlogslevens.nl/person/Jannetje-Johanna-Schaft/37/33654046",
+    "https://www.oorlogslevens.nl/person/Jannetje-Johanna-Schaft/50/730",
+    "https://www.oorlogslevens.nl/person/Jannetje+Johanna+Schaft/86/8859"
+  ]
+}

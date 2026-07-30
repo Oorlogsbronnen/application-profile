@@ -1,0 +1,56 @@
+{
+  "offset": 0,
+  "count": 20,
+  "type": ["OBJ"],
+  "items": [
+    {
+      "rank": 1,
+      "assessment": null,
+      "probability": 1.0,
+      "tuple": [
+        {
+          "contentLocation": ["Amsterdam", "Noord-Holland"],
+          "creator": [],
+          "date": ["1942-05-05"],
+          "description": [
+            "Trouwfoto van David van Beetz en Sara Caun gemaakt in Amsterdam op 5 mei 1942, vlak na de invoering van de jodenster, 1942."
+          ],
+          "endDate": [],
+          "id": "https://beeldbankwo2.nl/nl/beelden/detail/b6863692-025a-11e7-904b-d89d6717b464/media/96304e31-bc21-473f-9ba0-06f3c28e77ae",
+          "identifier": ["161036"],
+          "publisher": ["Joods Cultureel Kwartier"],
+          "rdf:type": ["http://schema.org/Photograph"],
+          "rights": [
+            {
+              "id": "https://creativecommons.org/publicdomain/zero/1.0/",
+              "label": {
+                "nl": ["Geen auteursrecht"]
+              }
+            }
+          ],
+          "source": [
+            "https://beeldbankwo2.nl/nl/beelden/detail/b6863692-025a-11e7-904b-d89d6717b464/media/96304e31-bc21-473f-9ba0-06f3c28e77ae"
+          ],
+          "startDate": [],
+          "subject": [
+            {
+              "id": "https://data.niod.nl/WO2_Thesaurus/2805",
+              "prefLabel": {
+                "de": ["Juden"],
+                "en": ["Jews"],
+                "nl": ["Joden"]
+              }
+            }
+          ],
+          "thumbnail": [
+            "https://images.memorix.nl/niod/thumb/1000x1000/96304e31-bc21-473f-9ba0-06f3c28e77ae.jpg"
+          ],
+          "title": [
+            "Trouwfoto van David van Beetz en Sara Caun gemaakt in Amsterdam op 5 mei 1942, vlak na de invoering van de jodenster, 19..."
+          ],
+          "type": ["Foto"]
+        }
+      ]
+    }
+  ]
+}

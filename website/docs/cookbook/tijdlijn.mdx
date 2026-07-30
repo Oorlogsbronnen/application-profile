@@ -1,0 +1,39 @@
+---
+title: Tijdlijn van gebeurtenissen
+sidebar_position: 1
+---
+
+import SparqlEditor from "@site/src/components/SparqlEditor";
+
+# Bouw een tijdlijn van iemands oorlogsgebeurtenissen
+
+**Vraag:** welke gebeurtenissen zijn er bekend uit het oorlogsleven van een persoon, en wanneer vonden die plaats?
+
+## Hoe het model werkt
+
+Een [persoonsreconstructie](/schema#PersoonsReconstructieShape) is opgebouwd uit [persoonsvermeldingen](/schema#PersoonsvermeldingShape) in verschillende bronnen (`prov:wasDerivedFrom`). [Gebeurtenissen](/schema#EventShape) hangen aan die **vermeldingen** — niet aan de reconstructie zelf: `schema:actor` van een gebeurtenis verwijst naar de vermelding. Een tijdlijn bouw je dus in twee stappen: eerst van reconstructie naar vermeldingen, dan van vermeldingen naar gebeurtenissen.
+
+## De query
+
+<SparqlEditor
+  query={`PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX schema: <http://schema.org/>
+SELECT ?datum ?wat ?type ?gebeurtenis WHERE {
+  <https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388>
+      prov:wasDerivedFrom ?vermelding .
+  ?gebeurtenis schema:actor ?vermelding .
+  OPTIONAL { ?gebeurtenis schema:startDate ?datum }
+  OPTIONAL { ?gebeurtenis schema:name ?wat }
+  OPTIONAL { ?gebeurtenis schema:additionalType ?type }
+}
+ORDER BY ?datum`}
+/>
+
+## Wat krijg je terug
+
+Voor Hannie Schaft zes gebeurtenissen, waaronder haar arrestatie op **21 maart 1945** (`schema:name "Gearresteerd"`). De kolom `type` verwijst naar het gebeurtenistype in de [WO2 Thesaurus](https://data.niod.nl/WO2_Thesaurus/events/6344); alle gebeurtenistypen van het profiel staan in de [vocabulaire-extensie](https://github.com/Oorlogsbronnen/application-profile/blob/main/ontology/schema_ext-oorlogsbronnen.ttl).
+
+## Variaties
+
+- Niet elke gebeurtenis heeft een `schema:startDate`; laat de `OPTIONAL` weg om alleen gedateerde gebeurtenissen te tonen.
+- Voeg `?gebeurtenis schema:location ?locatie` toe (eveneens `OPTIONAL`) voor de plaats van de gebeurtenis.

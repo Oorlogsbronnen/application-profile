@@ -1,0 +1,154 @@
+@prefix ob: <https://data.oorlogsbronnen.nl/schema#> .
+@prefix niod: <https://data.niod.nl/WO2_Thesaurus/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcmit: <http://purl.org/dc/dcmitype/> .
+@prefix dcam: <http://purl.org/dc/dcam/> .
+@prefix edm: <http://www.europeana.eu/schemas/edm/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix picom: <https://personsincontext.org/model/#> .
+@prefix pnv: <https://w3id.org/pnv#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sdo: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos> .
+
+# Gedeelde bouwstenen voor de Oorlogsbronnen-shapes: basistypen (Base_*) en
+# regels (Rule_*). Wordt samen gebruikt met shapes-personen.ttl en
+# shapes-collecties.ttl; die bestanden verwijzen naar deze blokken.
+
+<https://data.oorlogsbronnen.nl/oorlogsbronnen-shapes> a owl:Ontology ;
+    owl:imports <http://datashapes.org/dash> ;
+    rdfs:label "Oorlogsbronnen SHACL Shapes"@nl .
+
+# =================================================================
+# BASIS LOGICA (Interne herbruikbare blokken)
+# =================================================================
+
+ob:Base_String          a sh:PropertyShape ; sh:datatype xsd:string .
+ob:Base_IRI             a sh:PropertyShape ; sh:nodeKind sh:IRI .
+ob:Base_Date            a sh:PropertyShape ; sh:datatype xsd:date .
+ob:Base_Double          a sh:PropertyShape ; sh:datatype xsd:double .
+ob:Base_Integer         a sh:PropertyShape ; sh:datatype xsd:integer .
+ob:Base_StringOrIRI     a sh:PropertyShape ; sh:or ([sh:datatype xsd:string] [sh:nodeKind sh:IRI]) .
+ob:Base_DateOrInteger   a sh:PropertyShape ; sh:or ([sh:datatype xsd:date] [sh:datatype xsd:integer]) .
+
+# =================================================================
+# TECHNISCHE BOUWSTENEN (Gekoppeld aan Properties)
+# =================================================================
+
+# --- Identificatie en Naamgeving ---
+ob:Rule_name               sh:path sdo:name ;           sh:node ob:Base_String .
+ob:Rule_name_rec           sh:path sdo:name ;           sh:node ob:Base_String ; sh:minCount 1 ; sh:maxCount 1 .
+ob:Rule_identifier         sh:path sdo:identifier ;     sh:node ob:Base_String ; sh:minCount 1 ; sh:maxCount 1 .
+ob:Rule_deceased           sh:path picom:deceased ;     sh:node ob:Base_String ; sh:maxCount 1 .
+ob:Rule_initials           sh:path pnv:initials ;       sh:node ob:Base_String .
+ob:Rule_additionalName     sh:path sdo:additionalName ; sh:node ob:Base_String .
+ob:Rule_alternateName      sh:path sdo:alternateName ;  sh:node ob:Base_String .
+ob:Rule_familyName         sh:path sdo:familyName ;     sh:node ob:Base_String .
+ob:Rule_givenName          sh:path sdo:givenName ;      sh:node ob:Base_String .
+
+
+# --- Beschrijving en Categorisering ---
+ob:Rule_material               sh:path sdo:material ;       sh:node ob:Base_String .
+ob:Rule_about                  sh:path sdo:about ;          sh:node ob:Base_IRI ; sh:or ([ sh:class skos:Concept ] [ sh:class sdo:Organization ] [ sh:class sdo:Place ] [ sh:class picom:PersonReconstruction ]) .
+ob:Rule_additionalType         sh:path sdo:additionalType ; sh:node ob:Base_StringOr .
+ob:Rule_additionalType_events  sh:path sdo:additionalType ; sh:node ob:Base_IRI ; sh:minCount 1 ; sh:maxCount 1 ; sh:class niod:PersonalEvent .
+ob:Rule_description            sh:path sdo:description ;    sh:node ob:Base_String .
+ob:Rule_hasOccupation          sh:path sdo:hasOccupation ;  sh:node ob:Base_String .
+ob:Rule_keywords               sh:path sdo:keywords ;       sh:node ob:Base_StringOrIRI .
+ob:Rule_keywords_person        sh:path sdo:keywords ;       sh:node ob:Base_IRI ; sh:or ([ sh:class skos:Concept ] [ sh:class sdo:Place ] [ sh:class sdo:Organization ]) .
+ob:Rule_text                   sh:path sdo:text ;           sh:node ob:Base_String .
+ob:Rule_transcript             sh:path sdo:transcript ;     sh:node ob:Base_IRI ;  sh:class ob:ClosedCaption .
+
+# --- Data en Tijd ---
+ob:Rule_date               sh:path sdo:dateCreated ;   sh:node ob:Base_DateOrInteger ; sh:maxCount 1 .
+ob:Rule_created            sh:path dct:created ;       sh:node ob:Base_Date ; sh:maxCount 1 .
+ob:Rule_modified           sh:path dct:modified ;      sh:node ob:Base_Date ; sh:maxCount 1 .
+ob:Rule_startDate          sh:path sdo:startDate ;     sh:node ob:Base_DateOrInteger ; sh:maxCount 1 .
+ob:Rule_endDate            sh:path sdo:endDate ;       sh:node ob:Base_DateOrInteger ; sh:maxCount 1 .
+ob:Rule_dateModified       sh:path sdo:dateModified ;  sh:node ob:Base_Date ; sh:maxCount 1 .
+ob:Rule_dateCreated        sh:path sdo:dateCreated ;   sh:node ob:Base_Date ; sh:maxCount 1 .
+ob:Rule_birthDate          sh:path sdo:birthDate ;     sh:node ob:Base_Date ; sh:maxCount 1 .
+ob:Rule_deathDate          sh:path sdo:deathDate ;     sh:node ob:Base_Date ; sh:maxCount 1 .
+ob:Rule_datePublished      sh:path sdo:datePublished ; sh:node ob:Base_Date ; sh:maxCount 1 .
+ob:Rule_temporal           sh:path sdo:temporal ;      sh:node ob:Base_String .
+
+# --- Locatie ---
+ob:Rule_address            sh:path sdo:address ;         sh:node ob:Base_StringOrIRI .
+ob:Rule_birthPlace         sh:path sdo:birthPlace ;      sh:node ob:Base_StringOrIRI ; sh:maxCount 1 .
+ob:Rule_contentLocation    sh:path sdo:contentLocation ; sh:node ob:Base_StringOrIRI .
+ob:Rule_deathPlace         sh:path sdo:deathPlace ;      sh:node ob:Base_StringOrIRI ; sh:maxCount 1 .
+ob:Rule_fromLocation       sh:path sdo:fromLocation ;    sh:node ob:Base_StringOrIRI .
+ob:Rule_homeLocation       sh:path sdo:homeLocation ;    sh:node ob:Base_StringOrIRI .
+ob:Rule_lat_schema         sh:path sdo:latitude ;        sh:node ob:Base_String ; sh:maxCount 1 .
+ob:Rule_long_schema        sh:path sdo:longitude ;       sh:node ob:Base_String ; sh:maxCount 1 .
+ob:Rule_location           sh:path sdo:location ;        sh:node ob:Base_StringOrIRI .
+ob:Rule_toLocation         sh:path sdo:toLocation ;      sh:node ob:Base_StringOrIRI .
+
+# --- Personen en Organisaties (Relaties) ---
+ob:Rule_creator            sh:path sdo:creator ;      sh:node ob:Base_StringOrIRI .
+ob:Rule_contributor        sh:path sdo:contributor ;  sh:node ob:Base_StringOrIRI .
+ob:Rule_publisher          sh:path sdo:publisher ;    sh:node ob:Base_IRI ;  sh:class sdo:Organization .
+ob:Rule_actor              sh:path sdo:actor ;        sh:node ob:Base_IRI ;  sh:class picom:PersonObservation .
+ob:Rule_gender_rec         sh:path sdo:gender ;       sh:node ob:Base_IRI .
+ob:Rule_gender             sh:path sdo:gender ;       sh:node ob:Base_StringOrIRI .
+ob:Rule_children_rec       sh:path sdo:children;      sh:node ob:Base_IRI ;  sh:class picom:PersonReconstruction .
+ob:Rule_children           sh:path sdo:children;      sh:node ob:Base_IRI ;  sh:class picom:PersonObservation .
+ob:Rule_parent_rec         sh:path sdo:parent ;       sh:node ob:Base_IRI ;  sh:class picom:PersonReconstruction .
+ob:Rule_parent             sh:path sdo:parent ;       sh:node ob:Base_IRI ;  sh:class picom:PersonObservation .
+ob:Rule_sibling_rec        sh:path sdo:sibling ;      sh:node ob:Base_IRI ;  sh:class picom:PersonReconstruction .
+ob:Rule_sibling            sh:path sdo:sibling ;      sh:node ob:Base_IRI ;  sh:class picom:PersonObservation .
+ob:Rule_spouse_rec         sh:path sdo:spouse ;       sh:node ob:Base_IRI ;  sh:class picom:PersonReconstruction .
+ob:Rule_spouse             sh:path sdo:spouse ;       sh:node ob:Base_IRI ;  sh:class picom:PersonObservation .
+ob:Rule_provider           sh:path sdo:provider ;     sh:node ob:Base_IRI ;  sh:class sdo:Organization .
+
+# --- Media en Web ---
+ob:Rule_contentUrl         sh:path sdo:contentUrl ;       sh:node ob:Base_StringOrIRI .
+ob:Rule_image              sh:path sdo:image ;            sh:node ob:Base_IRI .
+ob:Rule_thumbnail          sh:path sdo:thumbnail ;        sh:node ob:Base_StringOrIRI .
+ob:Rule_caption            sh:path sdo:caption ;          sh:node ob:Base_String ; sh:maxCount 1 .
+ob:Rule_url                sh:path sdo:url ;              sh:node ob:Base_StringOrIRI .
+ob:Rule_associatedMedia    sh:path sdo:associatedMedia ;  sh:node ob:Base_IRI ; sh:class sdo:ImageObject .
+ob:Rule_position           sh:path sdo:position ;         sh:node ob:Base_Integer .
+ob:Rule_muxPlaybackId      sh:path ob:muxPlaybackId ;     sh:node ob:Base_String .
+
+# --- Structureel en Rechten ---
+ob:Rule_isPartOf           sh:path sdo:isPartOf ;   sh:node ob:Base_StringOrIRI  .
+ob:Rule_license            sh:path sdo:license ;    sh:node ob:Base_IRI ; sh:class ob:Rights .
+ob:Rule_position           sh:path sdo:position ;   sh:node ob:Base_Integer .
+ob:Rule_superEvent         sh:path sdo:superEvent ; sh:node ob:Base_IRI ; sh:class sdo:Event .
+
+# --- Herkomst en Verwijzingen ---
+ob:Rule_inDataset          sh:path ob:inDataset ;          sh:node ob:Base_IRI ; sh:class sdo:Dataset .
+ob:Rule_hadPrimarySource   sh:path prov:hadPrimarySource ; sh:node ob:Base_IRI ; sh:or ([ sh:class prov:Entity ] [ sh:class sdo:ArchiveComponent ]) .
+ob:Rule_isPartOf_source    sh:path sdo:isPartOf ;          sh:node ob:Base_IRI  ; sh:class sdo:Dataset .
+ob:Rule_holdingArchive     sh:path sdo:holdingArchive ;    sh:node ob:Base_IRI  ; sh:class sdo:Organization .
+ob:Rule_wasDerivedFrom     sh:path prov:wasDerivedFrom ;   sh:node ob:Base_IRI ; sh:class picom:PersonObservation .
+ob:Rule_sameAs             sh:path sdo:sameAs ;            sh:node ob:Base_IRI .
+
+# --- SKOS thesaurus attributen ---
+ob:Rule_prefLabel          sh:path skos:prefLabel ;   sh:node ob:Base_String ; sh:minCount 1 .
+ob:Rule_altLabel           sh:path skos:altLabel ;    sh:node ob:Base_String .
+ob:Rule_hiddenLabel        sh:path skos:hiddenLabel ; sh:node ob:Base_String .
+ob:Rule_definition         sh:path skos:definition ;  sh:node ob:Base_String .
+ob:Rule_scopeNote          sh:path skos:scopeNote ;   sh:node ob:Base_String .
+
+ob:Rule_inScheme           sh:path skos:inScheme ; sh:node ob:Base_IRI ; sh:class skos:ConceptScheme ; sh:minCount 1 .
+ob:Rule_broader            sh:path skos:broader ;  sh:node ob:Base_IRI ; sh:class skos:Concept .
+ob:Rule_narrower           sh:path skos:narrower ; sh:node ob:Base_IRI ; sh:class skos:Concept .
+ob:Rule_related            sh:path skos:related ;  sh:node ob:Base_IRI ; sh:class skos:Concept .
+
+ob:Rule_exactMatch         sh:path skos:exactMatch ; sh:node ob:Base_IRI .
+ob:Rule_closeMatch         sh:path skos:closeMatch ; sh:node ob:Base_IRI .
+
+ob:Rule_wgsLocation        sh:path wgs:location ; sh:node ob:Base_IRI ; sh:or ([ sh:class skos:Concept ] [ sh:class wgs:SpatialTing ]) .
+ob:Rule_lat                sh:path wgs:lat ;      sh:node ob:Base_Double ; sh:maxCount 1 .
+ob:Rule_long               sh:path wgs:long ;     sh:node ob:Base_Double ; sh:maxCount 1 .

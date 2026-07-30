@@ -1,0 +1,178 @@
+{
+  "offset": 0,
+  "count": 10,
+  "type": ["OBJ"],
+  "items": [
+    {
+      "rank": 1,
+      "assessment": null,
+      "probability": 1.0,
+      "tuple": [
+        {
+          "birthDate": "1920-09-16",
+          "birthPlace": "Haarlem",
+          "dateCreated": "2024-04-11",
+          "dateModified": "2024-04-11",
+          "deathDate": "1945-04-17",
+          "deathPlace": "Overveen",
+          "deceased": "true",
+          "gender": [
+            {
+              "id": "http://schema.org/Female"
+            }
+          ],
+          "id": "https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388",
+          "identifier": "48968c01-9f60-492d-8712-58d3b8c2b388",
+          "keywords": [
+            {
+              "id": "https://data.niod.nl/WO2_Thesaurus/corporaties/4483"
+            },
+            {
+              "id": "https://data.niod.nl/WO2_Thesaurus/corporaties/4524"
+            },
+            {
+              "id": "https://data.niod.nl/WO2_Thesaurus/corporaties/4824"
+            },
+            {
+              "id": "https://data.niod.nl/WO2_Thesaurus/corporaties/6163"
+            },
+            {
+              "id": "https://data.niod.nl/WO2_Thesaurus/events/7659"
+            },
+            {
+              "id": "https://data.niod.nl/WO2_Thesaurus/3501"
+            },
+            {
+              "id": "https://data.niod.nl/WO2_Thesaurus/2657"
+            }
+          ],
+          "name": "Hannie Schaft",
+          "sameAs": [],
+          "type": "https://personsincontext.org/model#PersonReconstruction",
+          "wasDerivedFrom": [
+            {
+              "hadPrimarySource": [
+                {
+                  "id": "https://www.oorlogslevens.nl/record/Jannetje-Johanna-Schaft/37/33654046",
+                  "type": ["http://schema.org/ArchiveComponent"],
+                  "url": "https://www.wiewaswie.nl/nl/detail/33654046"
+                }
+              ],
+              "id": "https://www.oorlogslevens.nl/person/Jannetje-Johanna-Schaft/37/33654046",
+              "type": ["https://personsincontext.org/model#PersonObservation"]
+            },
+            {
+              "hadPrimarySource": [
+                {
+                  "id": "https://www.oorlogslevens.nl/record/Hannie-Schaft/95/1835",
+                  "type": ["http://www.w3.org/ns/prov#Entity"]
+                }
+              ],
+              "id": "https://www.oorlogslevens.nl/person/Hannie-Schaft/95/1835",
+              "type": ["https://personsincontext.org/model#PersonObservation"]
+            },
+            {
+              "hadPrimarySource": [
+                {
+                  "id": "https://www.oorlogslevens.nl/record/Hannie-Schaft/95/1834",
+                  "type": ["http://www.w3.org/ns/prov#Entity"]
+                }
+              ],
+              "id": "https://www.oorlogslevens.nl/person/Hannie-Schaft/95/1834",
+              "type": ["https://personsincontext.org/model#PersonObservation"]
+            },
+            {
+              "hadPrimarySource": [
+                {
+                  "id": "https://www.oorlogslevens.nl/record/Hannie-Schaft/95/1833",
+                  "type": ["http://www.w3.org/ns/prov#Entity"]
+                }
+              ],
+              "id": "https://www.oorlogslevens.nl/person/Hannie-Schaft/95/1833",
+              "type": ["https://personsincontext.org/model#PersonObservation"]
+            },
+            {
+              "hadPrimarySource": [
+                {
+                  "id": "https://data.niod.nl/WO2_biografieen/Hannie-Schaft",
+                  "type": [
+                    "http://www.w3.org/2000/01/rdf-schema#Resource",
+                    "http://www.w3.org/ns/prov#Entity"
+                  ],
+                  "url": "https://data.niod.nl/WO2_biografieen/Hannie-Schaft"
+                }
+              ],
+              "id": "https://www.oorlogslevens.nl/person/Hannie-Schaft/03/0004",
+              "type": ["https://personsincontext.org/model#PersonObservation"]
+            },
+            {
+              "hadPrimarySource": [
+                {
+                  "id": "https://www.oorlogslevens.nl/record/Jannetje-Johanna-Schaft/113/874",
+                  "type": ["http://www.w3.org/ns/prov#Entity"],
+                  "url": "https://noord-hollandsarchief.nl/ontdekken/tentoonstellingen/vrouweninverzet/vrouweninverzet-lijst"
+                }
+              ],
+              "id": "https://www.oorlogslevens.nl/person/Jannetje-Johanna-Schaft/113/874",
+              "type": ["https://personsincontext.org/model#PersonObservation"]
+            },
+            {
+              "hadPrimarySource": [
+                {
+                  "id": "https://www.oorlogslevens.nl/record/128/2938",
+                  "type": ["http://www.w3.org/ns/prov#Entity"],
+                  "url": "https://vrijheid.scouting.nl/scouting-in-de-oorlog/database-bestanden/groepen-vernoemd/881-groepen-vernoemd-hannie-schaft/file"
+                }
+              ],
+              "id": "https://www.oorlogslevens.nl/person/Jannetje-Johanna-Schaft/128/2938",
+              "type": ["https://personsincontext.org/model#PersonObservation"]
+            },
+            {
+              "hadPrimarySource": [
+                {
+                  "id": "https://www.oorlogslevens.nl/record/Jannetje-Johanna-Schaft/09/16534",
+                  "type": ["http://www.w3.org/ns/prov#Entity"],
+                  "url": "http://database.documentatiegroep40-45.nl/details2.php?ID=16534"
+                }
+              ],
+              "id": "https://www.oorlogslevens.nl/person/Jannetje-Johanna-Schaft/09/16534",
+              "type": ["https://personsincontext.org/model#PersonObservation"]
+            },
+            {
+              "hadPrimarySource": [
+                {
+                  "id": "https://www.oorlogslevens.nl/record/Jannetje+Johanna+Schaft/86/8859",
+                  "type": ["http://www.w3.org/ns/prov#Entity"]
+                }
+              ],
+              "id": "https://www.oorlogslevens.nl/person/Jannetje+Johanna+Schaft/86/8859",
+              "type": ["https://personsincontext.org/model#PersonObservation"]
+            },
+            {
+              "hadPrimarySource": [
+                {
+                  "id": "https://www.oorlogslevens.nl/record/Jannetje-Johanna-Schaft/50/730",
+                  "type": ["http://schema.org/ArchiveComponent"],
+                  "url": "https://search.iisg.amsterdam/Record/ARCH00347#A7a148a46a7"
+                }
+              ],
+              "id": "https://www.oorlogslevens.nl/person/Jannetje-Johanna-Schaft/50/730",
+              "type": ["https://personsincontext.org/model#PersonObservation"]
+            },
+            {
+              "hadPrimarySource": [
+                {
+                  "id": "https://www.oorlogslevens.nl/record/Jannetje-Johanna-Schaft/02/135198",
+                  "type": ["http://www.w3.org/ns/prov#Entity"],
+                  "url": "https://www.oorlogsgravenstichting.nl/persoon/135198/jannetje-johanna-schaft"
+                }
+              ],
+              "id": "https://www.oorlogslevens.nl/person/Jannetje-Johanna-Schaft/02/135198",
+              "type": ["https://personsincontext.org/model#PersonObservation"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

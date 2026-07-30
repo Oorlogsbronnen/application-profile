@@ -1,0 +1,394 @@
+@prefix ob: <https://data.oorlogsbronnen.nl/schema#> .
+@prefix niod: <https://data.niod.nl/WO2_Thesaurus/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcmit: <http://purl.org/dc/dcmitype/> .
+@prefix dcam: <http://purl.org/dc/dcam/> .
+@prefix edm: <http://www.europeana.eu/schemas/edm/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix picom: <https://personsincontext.org/model/#> .
+@prefix pnv: <https://w3id.org/pnv#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sdo: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos> .
+
+# Shapes van de kennisgraaf objecten/collecties (LDmax-dataset wo2net/collecties).
+# Valideren en gebruiken samen met shapes-bouwstenen.ttl.
+
+### --- KUNSTWERKEN, BRONNEN EN ANDERE OBJECT TYPEN ---
+ob:CreativeWorkShape a sh:NodeShape ;
+    sh:targetClass 
+        sdo:CreativeWork,
+        sdo:Article, 
+        sdo:Newspaper, 
+        sdo:Book, 
+        sdo:Photograph, 
+        sdo:VisualArtwork, 
+        sdo:Painting, 
+        sdo:Sculpture, 
+        sdo:SheetMusic, 
+        sdo:ArchiveComponent ;
+    sh:name "Creatieve werken"@nl ;
+    sh:description "Bronnen en objecten uit erfgoedcollecties."@nl ;
+    
+    # --- Identificatie en Basis ---
+    sh:property [
+        sh:path sdo:identifier ;
+        sh:name "Identifier"@nl ;
+        sh:description "De unieke identifier van het werk."@nl ;
+        sh:node ob:Rule_identifier ;
+    ] ;
+    sh:property [
+        sh:path sdo:additionalType ;
+        sh:name "Type"@nl ;
+        sh:description "Aanvullende classificatie of typering van het werk in tekstvorm."@nl ;
+        sh:node ob:Rule_additionalType ;
+    ] ;
+    sh:property [
+        sh:path sdo:material ;
+        sh:name "Materiaal"@nl ;
+        sh:description "Materiaalbeschrijving."@nl ;
+        sh:node ob:Rule_material ;
+    ] ;
+    sh:property [
+        sh:path sdo:isPartOf ;
+        sh:name "Collectie"@nl ;
+        sh:description "Collectie of deelcollectie waar het werk deel van uitmaakt."@nl ;
+        sh:node ob:Rule_isPartOf ;
+    ] ;
+
+    # --- Inhoud en Onderwerp ---
+        sh:property [
+        sh:path sdo:name ;
+        sh:name "Titel"@nl ;
+        sh:description "Titel of naam van het werk."@nl ;
+        sh:node ob:Rule_name ;
+    ] ;
+    sh:property [
+        sh:path sdo:description ;
+        sh:name "Beschrijving"@nl ;
+        sh:description "Uitgebreide beschrijving van het werk."@nl ;
+        sh:node ob:Rule_description ;
+    ] ;
+    sh:property [
+        sh:path sdo:keywords ;
+        sh:name "Onderwerp"@nl ;
+        sh:description "Trefwoorden die het onderwerp van het werk omschrijven."@nl ;
+        sh:node ob:Rule_keywords ;
+    ] ;
+    sh:property [
+        sh:path sdo:about ;
+        sh:name "Persoon of organisatie"@nl ;
+        sh:description "Persoon of organisatie als onderwerp van het werk."@nl ;
+        sh:node ob:Rule_about ;
+    ] ;
+    sh:property [
+        sh:path sdo:contentLocation ;
+        sh:name "Locatie"@nl ;
+        sh:description "Locatie als onderwerp van het werk."@nl ;
+        sh:node ob:Rule_contentLocation ;
+    ] ;
+
+    # --- Creatie en Herkomst ---
+    sh:property [
+        sh:path sdo:creator ;
+        sh:name "Maker"@nl ;
+        sh:description "De maker van het werk."@nl ;
+        sh:node ob:Rule_creator ;
+    ] ;
+    sh:property [
+        sh:path sdo:contributor ;
+        sh:name "Bijdrager"@nl ;
+        sh:description "Persoon die heeft bijgedragen aan de totstandkoming van het werk."@nl ;
+        sh:node ob:Rule_contributor ;
+    ] ;
+    sh:property [
+        sh:path sdo:publisher ;
+        sh:name "Bronbeheerder"@nl ;
+        sh:description "Verwijzing de leverancier van het bronrecord."@nl ;
+        sh:node ob:Rule_publisher ;
+    ] ;
+    sh:property [
+        sh:path sdo:provider ;
+        sh:name "Bronleverancier"@nl ;
+        sh:description "Verwijzing naar de leverancier van het bronrecord als dit niet de bronbeheerder zelf is."@nl ;
+        sh:node ob:Rule_provider ;
+    ] ;
+    sh:property [
+        sh:path sdo:license ;
+        sh:name "Rechten"@nl ;
+        sh:description "Rechtenstatement van bijvoorbeeld Creative Commons."@nl ;
+        sh:node ob:Rule_license ;
+    ] ;
+    sh:property [
+        sh:path sdo:url ;
+        sh:name "Url"@nl ;
+        sh:description "Verwijzing naar de url van de bron."@nl ;
+        sh:node ob:Rule_url ;
+    ] ;
+
+    # --- Tijd ---
+    sh:property [
+        sh:path sdo:dateCreated ;
+        sh:name "Maakdatum"@nl ;
+        sh:description "Datum of jaar wanneer het werk gemaakt is."@nl ;
+        sh:node ob:Rule_date ;
+    ] ;
+    sh:property [
+        sh:path sdo:startDate ;
+        sh:name "Begindatum"@nl ;
+        sh:description "Datum of jaar wanneer de creatie van het werk begon."@nl ;
+        sh:node ob:Rule_startDate ;
+    ] ;
+    sh:property [
+        sh:path sdo:endDate ;
+        sh:name "Einddatum"@nl ;
+        sh:description "Datum of jaar wanneer de creatie van het werk eindigde."@nl ;
+        sh:node ob:Rule_endDate ;
+    ] ;
+        sh:property [
+        sh:path sdo:temporal ;
+        sh:name "Periode"@nl ;
+        sh:description "Periode waarin het werk gemaakt is."@nl ;
+        sh:node ob:Rule_temporal ;
+    ] ;
+
+    # --- Visueel ---
+    sh:property [
+        sh:path sdo:thumbnail ;
+        sh:name "Afbeelding"@nl ;
+        sh:description "Afbeelding van het werk."@nl ;
+        sh:node ob:Rule_thumbnail ;
+    ] .
+
+### --- BEKENDMAKINGEN (Uitbreiding  op CreativeWorkShape) ---
+ob:BekendmakingShape a sh:NodeShape ;
+    sh:targetClass ob:Bekendmaking ;
+    sh:name "Bekendmakingen"@nl ;
+    
+    # 1. Hergebruik alle regels van CreativeWork
+    sh:node ob:CreativeWorkShape ;
+
+    # 2. Voeg extra properties toe
+    sh:property [
+        sh:path sdo:text ;
+        sh:name "Tekst"@nl ;
+        sh:description "Transcriptie van de tekst op het document"@nl ;
+        sh:node ob:Rule_text ;
+    ] ;
+    sh:property [
+        sh:path sdo:datePublished ;
+        sh:name "Publicatiedatum"@nl ;
+        sh:description "Publicatiedatum van het document"@nl ;
+        sh:node ob:Rule_datePublished ;
+    ] .
+
+### --- AUDIO EN VIDEO OBJECTEN (Uitbreiding  op CreativeWorkShape) ---
+ob:MediaShape a sh:NodeShape ;
+    sh:targetClass 
+        sdo:VideoObject,
+        sdo:AudioObject ;
+    sh:name "Media objecten"@nl ;
+    
+    # 1. Hergebruik alle regels van CreativeWork
+    sh:node ob:CreativeWorkShape ;
+
+    # 2. Voeg extra properties toe
+    sh:property [
+        sh:path sdo:contentUrl ;
+        sh:name "Url van het media object"@nl ;
+        sh:node ob:Rule_contentUrl ;
+    ] .
+
+### --- MONUMENTEN (Uitbreiding  op CreativeWorkShape) ---
+ob:MonumentShape a sh:NodeShape ;
+    sh:targetClass ob:Monument ;
+    sh:name "Monumenten"@nl ;
+    
+    # 1. Hergebruik alle regels van CreativeWork
+    sh:node ob:CreativeWorkShape ;
+
+    # 2. Voeg extra properties toe
+    sh:property [
+        sh:path sdo:latitude ;
+        sh:name "Latitude"@nl ;
+        sh:description "Breedtegraad van de locatie van het monument."@nl ;
+        sh:node ob:Rule_lat_schema ;
+    ] ;
+    sh:property [
+        sh:path sdo:longitude ;
+        sh:name "Longitude"@nl ;
+        sh:description "Lengtegraad van de locatie van het monument"@nl ;
+        sh:node ob:Rule_long_schema ;
+    ] .
+    
+### --- INTERVIEWS (Uitbreiding  op CreativeWorkShape) ---
+ob:InterviewShape a sh:NodeShape ;
+    sh:targetClass ob:Interview ;
+    sh:name "Interviews"@nl ;
+    
+    # 1. Hergebruik alle regels van CreativeWork
+    sh:node ob:CreativeWorkShape ;
+
+    # 2. Voeg extra properties toe
+    sh:property [
+        sh:path sdo:contentUrl ;
+        sh:name "Url van het media object"@nl ;
+        sh:node ob:Rule_contentUrl ;
+    ] ;
+    sh:property [
+        sh:path sdo:transcript ;
+        sh:name "Transcriptie"@nl ;
+        sh:description "Verwijzing naar de transcriptie van het interview"@nl ;
+        sh:node ob:Rule_transcript ;
+    ] ;
+    sh:property [
+        sh:path ob:muxPlaybackId ;
+        sh:name "MUX identifier"@nl ;
+        sh:description "Unieke identifier waarmee video's afgespeeld kunnen worden via het MUX platform"@nl ;
+        sh:node ob:Rule_muxPlaybackId ;
+    ] ;
+    sh:property [
+        sh:path sdo:position ;
+        sh:name "Positie"@nl ;
+        sh:node ob:Rule_position ;
+    ] .
+    
+### --- INTERVIEWTRANSCRIPTIES ---
+ob:ClosedCaptionShape a sh:NodeShape ;
+    sh:targetClass ob:ClosedCaption ;
+    sh:name "Interviewtranscripties"@nl ;
+    sh:description "Transcripties van audio en video in time based vtt formaat"@nl .
+    
+
+### --- THESAURUSCONCEPTEN ---
+ob:ConceptShape a sh:NodeShape ;
+    sh:targetClass skos:Concept ;
+    sh:name "Thesaurusconcepten"@nl ;
+    sh:description "Een abstract idee of een term uit een gecontroleerde woordenlijst of thesaurus."@nl ;
+
+    # --- Inhoud en Onderwerp ---
+    sh:property [
+        sh:path skos:prefLabel ;
+        sh:name "Voorkeursterm"@nl ;
+        sh:description "De officiële naam van het concept in de thesaurus."@nl ;
+        sh:node ob:Rule_prefLabel ;
+    ] ;
+
+    sh:property [
+        sh:path skos:altLabel ;
+        sh:name "Alternatieve term"@nl ;
+        sh:description "Synoniemen of andere schrijfwijzen van het concept."@nl ;
+        sh:node ob:Rule_altLabel ;
+    ] ;
+
+        sh:property [
+        sh:path skos:hiddenLabel ;
+        sh:name "Verborgen term"@nl ;
+        sh:description "Termen zoals spelfouten die wel doorzoekbaar moeten zijn, maar niet getoond worden."@nl ;
+        sh:node ob:Rule_hiddenLabel ;
+    ] ;
+
+        sh:property [
+        sh:path skos:scopeNote ;
+        sh:name "Beschrijving"@nl ;
+        sh:description "Een tekstuele beschrijving van het concept."@nl ;
+        sh:node ob:Rule_scopeNote ;
+    ] ;
+
+    sh:property [
+        sh:path skos:definition ;
+        sh:name "Definitie"@nl ;
+        sh:description "Een tekstuele uitleg van de betekenis van het concept."@nl ;
+        sh:node ob:Rule_definition ;
+    ] ;
+
+    # --- Relaties met andere concepten ---
+    sh:property [
+        sh:path skos:inScheme ;
+        sh:name "Behoort tot thesaurus"@nl ;
+        sh:description "De overkoepelende thesaurus of conceptenlijst waar dit concept deel van uitmaakt."@nl ;
+        sh:node ob:Rule_inScheme ;
+    ] ;
+
+    sh:property [
+        sh:path skos:broader ;
+        sh:name "Breder concept"@nl ;
+        sh:description "Verwijzing naar een concept dat hoger in de hiërarchie staat."@nl ;
+        sh:node ob:Rule_broader ;
+    ] ;
+
+    sh:property [
+        sh:path skos:narrower ;
+        sh:name "Kleiner concept"@nl ;
+        sh:description "Verwijzing naar een concept dat lager in de hiërarchie staat."@nl ;
+        sh:node ob:Rule_narrower ;
+    ] ;
+
+    sh:property [
+        sh:path skos:related ;
+        sh:name "Gerelateerd concept"@nl ;
+        sh:description "Verwijzing naar een concept dat inhoudelijk verwant is, maar niet in de hiërarchie staat."@nl ;
+        sh:node ob:Rule_related ;
+    ] ;
+
+    sh:property [
+        sh:path skos:exactMatch ;
+        sh:name "Exacte match"@nl ;
+        sh:description "Verwijzing naar een identiek concept in een externe bron (bijv. AAT of WO2-thesaurus)."@nl ;
+        sh:node ob:Rule_exactMatch ;
+    ] ;
+
+    # --- Locatie ---
+    sh:property [
+        sh:path wgs:location ;
+        sh:name "Locatie"@nl ;
+        sh:description "Locatie van het concept."@nl ;
+        sh:node ob:Rule_wgsLocation ;
+    ] ;
+
+    sh:property [
+        sh:path wgs:lat ;
+        sh:name "Latitude"@nl ;
+        sh:description "Breedtegraad van de locatie van het concept."@nl ;
+        sh:node ob:Rule_lat ;
+    ] ;
+    
+    sh:property [
+        sh:path wgs:long ;
+        sh:name "Longitude"@nl ;
+        sh:description "Lengtegraad van de locatie van het concept."@nl ;
+        sh:node ob:Rule_long ;
+    ] ;
+
+    # --- Tijd ---
+    sh:property [
+        sh:path dct:created ;
+        sh:name "Aanmaakdatum"@nl ;
+        sh:node ob:Rule_created ;
+    ] ;
+
+    sh:property [
+        sh:path dct:modified ;
+        sh:name "Wijzigingsdatum"@nl ;
+        sh:node ob:Rule_modified ;
+    ] ;
+
+    sh:property [
+        sh:path sdo:startDate ;
+        sh:name "Startdatum"@nl ;
+        sh:node ob:Rule_startDate ;
+    ] ;
+    sh:property [
+        sh:path sdo:endDate ;
+        sh:name "Einddatum"@nl ;
+        sh:node ob:Rule_endDate ;
+    ] .

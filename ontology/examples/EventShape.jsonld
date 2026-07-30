@@ -1,0 +1,21 @@
+{
+  "@context": {
+    "id": "@id",
+    "type": "@type",
+    "schema": "http://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "name": "schema:name",
+    "additionalType": { "@id": "schema:additionalType", "@type": "@id" },
+    "actor": { "@id": "schema:actor", "@type": "@id" },
+    "startDate": { "@id": "schema:startDate", "@type": "xsd:date" },
+    "hadPrimarySource": { "@id": "prov:hadPrimarySource", "@type": "@id" }
+  },
+  "id": "https://www.oorlogslevens.nl/person/Jannetje-Johanna-Schaft/50/730/arrested",
+  "type": "schema:Event",
+  "name": "Gearresteerd",
+  "additionalType": "https://data.niod.nl/WO2_Thesaurus/events/6344",
+  "actor": "https://www.oorlogslevens.nl/person/Jannetje-Johanna-Schaft/50/730",
+  "startDate": "1945-03-21",
+  "hadPrimarySource": "https://www.oorlogslevens.nl/record/Jannetje-Johanna-Schaft/50/730"
+}

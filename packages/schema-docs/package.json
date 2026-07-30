@@ -1,0 +1,22 @@
+{
+  "name": "@oorlogsbronnen/schema-docs",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Genereert de application profile-documentatie (/schema) uit de shapes-bestanden in ontology/",
+  "scripts": {
+    "generate": "tsx src/cli.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "n3": "^1.26.0"
+  },
+  "devDependencies": {
+    "@types/n3": "^1.26.1",
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "~5.8.0",
+    "vitest": "^3.0.0"
+  }
+}

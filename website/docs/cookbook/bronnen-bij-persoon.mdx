@@ -1,0 +1,37 @@
+---
+title: Bronnen bij een persoon
+sidebar_position: 2
+---
+
+import SparqlEditor from "@site/src/components/SparqlEditor";
+
+# Vind alle bronnen bij een persoon
+
+**Vraag:** in welke archieven, datasets en collecties komt een persoon voor, en waar kan ik de oorspronkelijke records bekijken?
+
+## Hoe het model werkt
+
+Elke [persoonsvermelding](/schema#PersoonsvermeldingShape) verwijst met `prov:hadPrimarySource` naar zijn [archiefrecord](/schema#SourceShape): het archiefstuk, dataset-record of de webpagina waar de vermelding vandaan komt. Dat record heeft een `schema:url` (de plek waar je het origineel bekijkt) en hoort via `schema:isPartOf` bij een [dataset](/schema#DatasetShape).
+
+## De query
+
+<SparqlEditor
+  query={`PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX schema: <http://schema.org/>
+SELECT DISTINCT ?bron ?url ?dataset WHERE {
+  <https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388>
+      prov:wasDerivedFrom ?vermelding .
+  ?vermelding prov:hadPrimarySource ?bron .
+  OPTIONAL { ?bron schema:url ?url }
+  OPTIONAL { ?bron schema:isPartOf ?ds . ?ds schema:name ?dataset }
+}`}
+/>
+
+## Wat krijg je terug
+
+Voor Hannie Schaft elf bronnen uit uiteenlopende collecties: van de dataset **Biografieën Tweede Wereldoorlog** tot **Scouts in de Oorlog** en het **Archief Communistische Partij van Nederland (CPN)** bij het IISG. De `url` leidt telkens naar het oorspronkelijke record bij de bronhouder.
+
+## Variaties
+
+- Voeg `?vermelding schema:name ?naam` toe om te zien onder welke naam de persoon in elke bron voorkomt — schrijfwijzen verschillen per bron.
+- Vraag met `?ds schema:holdingArchive ?archief` ook de beherende instelling van de dataset op.

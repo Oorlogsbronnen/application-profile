@@ -1,0 +1,17 @@
+{
+  "@context": {
+    "id": "@id",
+    "type": "@type",
+    "schema": "http://schema.org/",
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": { "@id": "schema:url", "@type": "@id" },
+    "holdingArchive": { "@id": "schema:holdingArchive", "@type": "@id" }
+  },
+  "id": "http://www.oorlogsbronnen.nl/dataset/iisg_cpn",
+  "type": "schema:Dataset",
+  "name": "Archief Communistische Partij van Nederland (CPN)",
+  "description": "Het archief van de Communistische Partij Nederland (CPN) wordt bewaard bij het IISG. Dit archief bevat informatie over communisten die tijdens de Duitse bezetting werden vervolgd.",
+  "url": "https://search.iisg.amsterdam/Record/ARCH00347/ArchiveContentList#A5cd9a31fba",
+  "holdingArchive": "https://data.niod.nl/Organizations/205"
+}

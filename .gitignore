@@ -1,0 +1,6 @@
+node_modules/
+.DS_Store
+
+# Gegenereerd door packages/schema-docs (bron: ontology/shapes-*.ttl)
+website/docs/datamodel/application-profile.mdx
+website/static/schema*.ttl
