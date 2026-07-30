@@ -59,13 +59,13 @@ ob:Rule_givenName          sh:path sdo:givenName ;      sh:node ob:Base_String .
 # --- Beschrijving en Categorisering ---
 ob:Rule_material               sh:path sdo:material ;       sh:node ob:Base_String .
 ob:Rule_type                   sh:path rdf:type ;           sh:node ob:Base_IRI .
-ob:Rule_about                  sh:path sdo:about ;          sh:node ob:Base_IRI ; sh:or ([ sh:class skos:Concept ] [ sh:class sdo:Place ] [ sh:class sdo:Event ] [ sh:class sdo:Organization ] [ sh:class picom:PersonObservation ] [ sh:class picom:PersonReconstruction ]) .
+ob:Rule_about                  sh:path sdo:about ;          sh:node ob:Base_IRI ; sh:or ([ sh:class skos:Concept ] [ sh:class sdo:Organization ] [ sh:class sdo:Place ] [ sh:class picom:PersonReconstruction ]) .
 ob:Rule_additionalType         sh:path sdo:additionalType ; sh:node ob:Base_StringOr .
 ob:Rule_additionalType_events  sh:path sdo:additionalType ; sh:node ob:Base_IRI ; sh:minCount 1 ; sh:maxCount 1 ; sh:class niod:PersonalEvent .
 ob:Rule_description            sh:path sdo:description ;    sh:node ob:Base_String .
 ob:Rule_hasOccupation          sh:path sdo:hasOccupation ;  sh:node ob:Base_String .
 ob:Rule_keywords               sh:path sdo:keywords ;       sh:node ob:Base_StringOrIRI .
-ob:Rule_keywords_person        sh:path sdo:keywords ;       sh:node ob:Base_IRI ; sh:or ([ sh:class skos:Concept ] [ sh:class sdo:Place ] [ sh:class sdo:Event ] [ sh:class sdo:Organization ] [ sh:class picom:PersonObservation ] [ sh:class picom:PersonReconstruction ]) .
+ob:Rule_keywords_person        sh:path sdo:keywords ;       sh:node ob:Base_IRI ; sh:or ([ sh:class skos:Concept ] [ sh:class sdo:Place ] [ sh:class sdo:Organization ]) .
 ob:Rule_text                   sh:path sdo:text ;           sh:node ob:Base_String .
 
 # --- Data en Tijd ---
@@ -96,22 +96,27 @@ ob:Rule_toLocation         sh:path sdo:toLocation ;      sh:node ob:Base_StringO
 # --- Personen en Organisaties (Relaties) ---
 ob:Rule_creator            sh:path sdo:creator ;      sh:node ob:Base_StringOrIRI .
 ob:Rule_contributor        sh:path sdo:contributor ;  sh:node ob:Base_StringOrIRI .
-ob:Rule_publisher          sh:path sdo:publisher ;    sh:node ob:Base_IRI  ; sh:class sdo:Organization .
-ob:Rule_actor              sh:path sdo:actor ;        sh:node ob:Base_IRI ; sh:or ([ sh:class picom:PersonReconstruction ] [ sh:class picom:PersonObservation ]) .
-ob:Rule_children           sh:path sdo:children;      sh:node ob:Base_IRI ;  sh:or ([ sh:class picom:PersonReconstruction ] [ sh:class picom:PersonObservation ]) .
+ob:Rule_publisher          sh:path sdo:publisher ;    sh:node ob:Base_IRI ;  sh:class sdo:Organization .
+ob:Rule_actor              sh:path sdo:actor ;        sh:node ob:Base_IRI ;  sh:class picom:PersonObservation .
 ob:Rule_gender_rec         sh:path sdo:gender ;       sh:node ob:Base_IRI .
 ob:Rule_gender             sh:path sdo:gender ;       sh:node ob:Base_StringOrIRI .
-ob:Rule_parent             sh:path sdo:parent ;       sh:node ob:Base_IRI ;  sh:or ([ sh:class picom:PersonReconstruction ] [ sh:class picom:PersonObservation ]) .
-ob:Rule_provider           sh:path sdo:provider ;     sh:node ob:Base_IRI  ; sh:class sdo:Organization .
-ob:Rule_sibling            sh:path sdo:sibling ;      sh:node ob:Base_IRI ;  sh:or ([ sh:class picom:PersonReconstruction ] [ sh:class picom:PersonObservation ]) .
-ob:Rule_spouse             sh:path sdo:spouse ;       sh:node ob:Base_IRI ;  sh:or ([ sh:class picom:PersonReconstruction ] [ sh:class picom:PersonObservation ]) .
+ob:Rule_children_rec       sh:path sdo:children;      sh:node ob:Base_IRI ;  sh:class picom:PersonReconstruction .
+ob:Rule_children           sh:path sdo:children;      sh:node ob:Base_IRI ;  sh:class picom:PersonObservation .
+ob:Rule_parent_rec         sh:path sdo:parent ;       sh:node ob:Base_IRI ;  sh:class picom:PersonReconstruction .
+ob:Rule_parent             sh:path sdo:parent ;       sh:node ob:Base_IRI ;  sh:class picom:PersonObservation .
+ob:Rule_sibling_rec        sh:path sdo:sibling ;      sh:node ob:Base_IRI ;  sh:class picom:PersonReconstruction .
+ob:Rule_sibling            sh:path sdo:sibling ;      sh:node ob:Base_IRI ;  sh:class picom:PersonObservation .
+ob:Rule_spouse_rec         sh:path sdo:spouse ;       sh:node ob:Base_IRI ;  sh:class picom:PersonReconstruction .
+ob:Rule_spouse             sh:path sdo:spouse ;       sh:node ob:Base_IRI ;  sh:class picom:PersonObservation .
+ob:Rule_provider           sh:path sdo:provider ;     sh:node ob:Base_IRI ;  sh:class sdo:Organization .
 
 # --- Media en Web ---
-ob:Rule_contentUrl         sh:path sdo:contentUrl ;   sh:node ob:Base_StringOrIRI .
-ob:Rule_image              sh:path sdo:image ;        sh:node ob:Base_IRI .
-ob:Rule_thumbnail          sh:path sdo:thumbnail ;    sh:node ob:Base_StringOrIRI .
-ob:Rule_caption            sh:path sdo:caption ;      sh:node ob:Base_String ; sh:maxCount 1 .
-ob:Rule_url                sh:path sdo:url ;          sh:node ob:Base_StringOrIRI .
+ob:Rule_contentUrl         sh:path sdo:contentUrl ;       sh:node ob:Base_StringOrIRI .
+ob:Rule_image              sh:path sdo:image ;            sh:node ob:Base_IRI .
+ob:Rule_thumbnail          sh:path sdo:thumbnail ;        sh:node ob:Base_StringOrIRI .
+ob:Rule_caption            sh:path sdo:caption ;          sh:node ob:Base_String ; sh:maxCount 1 .
+ob:Rule_url                sh:path sdo:url ;              sh:node ob:Base_StringOrIRI .
+ob:Rule_associatedMedia    sh:path sdo:associatedMedia ;  sh:node ob:Base_IRI ; sh:class sdo:ImageObject .
 
 # --- Structureel en Rechten ---
 ob:Rule_isPartOf           sh:path sdo:isPartOf ;   sh:node ob:Base_StringOrIRI  .

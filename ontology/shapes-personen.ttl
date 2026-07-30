@@ -95,25 +95,25 @@ ob:PersoonsReconstructieShape a sh:NodeShape ;
         sh:path sdo:children ;
         sh:name "Kinderen"@nl ;
         sh:description "Verwijzing naar de kinderen van de persoon."@nl ;
-        sh:node ob:Rule_children ;
+        sh:node ob:Rule_children_rec ;
     ] ;
     sh:property [
         sh:path sdo:parent ;
         sh:name "Ouder"@nl ;
         sh:description "Verwijzing naar een ouder van de persoon."@nl ;
-        sh:node ob:Rule_parent ;
+        sh:node ob:Rule_parent_rec ;
     ] ;
     sh:property [
         sh:path sdo:sibling ;
         sh:name "Broer of zus"@nl ;
         sh:description "Verwijzing naar een broer of zus van de persoon."@nl ;
-        sh:node ob:Rule_sibling ;
+        sh:node ob:Rule_sibling_rec ;
     ] ;
     sh:property [
         sh:path sdo:spouse ;
         sh:name "Partner"@nl ;
         sh:description "Verwijzing naar de (huwelijks)partner van de persoon."@nl ;
-        sh:node ob:Rule_spouse ;
+        sh:node ob:Rule_spouse_rec ;
     ] ;
 
     # --- Metadata en Herkomst ---
@@ -153,20 +153,34 @@ ob:PersoonsvermeldingShape a sh:NodeShape ;
     sh:targetClass picom:PersonObservation ;
     sh:name "Persoonsvermeldingen"@nl ;
     sh:description "Vermeldingen van personen binnen een specifieke historische bron."@nl ;
-
-    # 1. Hergebruik alle regels van PersoonsReconstructieShape
-    sh:node ob:PersoonsReconstructieShape ;
-
-    # 2. Sluit specifiek uit
+    
+    # --- Identificatie ---
     sh:property [
-        sh:path prov:wasDerivedFrom ;
-        sh:maxCount 0 ;
-        sh:name "Afgeleid van (niet toegestaan)"@nl ;
-        sh:description "Persoonsvermeldingen kunnen niet afgeleid zijn uit andere persoonsvermeldingen."@nl ;
+        sh:path sdo:identifier ;
+        sh:name "Identifier"@nl ;
+        sh:description "De interne identifier van de persoonsvermelding."@nl ;
+        sh:node ob:Rule_identifier ;
+    ] ;
+    sh:property [
+        sh:path rdf:type ;
+        sh:name "Type entiteit"@nl ;
+        sh:description "Classificatie volgens Persons in Context (PiCo)."@nl ;
+        sh:node ob:Rule_type ;
     ] ;
 
-    # 3. Voeg extra properties toe
     # --- Naamgeving ---
+    sh:property [
+        sh:path sdo:name ;
+        sh:name "Naam"@nl ;
+        sh:description "De volledige naam van de persoon."@nl ;
+        sh:node ob:Rule_name_rec ;
+    ] ;
+    sh:property [
+        sh:path sdo:alternateName ;
+        sh:name "Andere namen"@nl ;
+        sh:description "Varianten of historische schrijfwijzen van de naam. Ook gebruikt voor aliassen en bijnamen."@nl ;
+        sh:node ob:Rule_alternateName ;
+    ] ;
     sh:property [
         sh:path sdo:givenName ;
         sh:name "Voornaam"@nl ;
@@ -186,7 +200,73 @@ ob:PersoonsvermeldingShape a sh:NodeShape ;
         sh:node ob:Rule_initials ;
     ] ;
 
+    # --- Levensloop en Status ---
+    sh:property [
+        sh:path sdo:birthDate ;
+        sh:name "Geboortedatum"@nl ;
+        sh:node ob:Rule_birthDate ;
+    ] ;
+    sh:property [
+        sh:path sdo:birthPlace ;
+        sh:name "Geboorteplaats"@nl ;
+        sh:node ob:Rule_birthPlace ;
+    ] ;
+    sh:property [
+        sh:path sdo:deathDate ;
+        sh:name "Datum van overlijden"@nl ;
+        sh:node ob:Rule_deathDate ;
+    ] ;
+    sh:property [
+        sh:path sdo:deathPlace ;
+        sh:name "Plaats van overlijden"@nl ;
+        sh:node ob:Rule_deathPlace ;
+    ] ;
+    sh:property [
+        sh:path picom:deceased ;
+        sh:name "Overleden status"@nl ;
+        sh:description "Indicatie of de persoon is overleden."@nl ;
+        sh:node ob:Rule_deceased ;
+    ] ;
+    sh:property [
+        sh:path sdo:gender ;
+        sh:name "Geslacht"@nl ;
+        sh:node ob:Rule_gender_rec ;
+    ] ;
+
+    # --- Familierelaties ---
+    sh:property [
+        sh:path sdo:children ;
+        sh:name "Kinderen"@nl ;
+        sh:description "Verwijzing naar de kinderen van de persoon."@nl ;
+        sh:node ob:Rule_children ;
+    ] ;
+    sh:property [
+        sh:path sdo:parent ;
+        sh:name "Ouder"@nl ;
+        sh:description "Verwijzing naar een ouder van de persoon."@nl ;
+        sh:node ob:Rule_parent ;
+    ] ;
+    sh:property [
+        sh:path sdo:sibling ;
+        sh:name "Broer of zus"@nl ;
+        sh:description "Verwijzing naar een broer of zus van de persoon."@nl ;
+        sh:node ob:Rule_sibling ;
+    ] ;
+    sh:property [
+        sh:path sdo:spouse ;
+        sh:name "Partner"@nl ;
+        sh:description "Verwijzing naar de (huwelijks)partner van de persoon."@nl ;
+        sh:node ob:Rule_spouse ;
+    ] ;
+
     # --- Kenmerken en Context ---
+    sh:property [
+        sh:path sdo:keywords ;
+        sh:name "Trefwoorden"@nl ;
+        sh:description "Categorisering of trefwoorden van toepassing op de persoon (uit de WO2 thesaurus)."@nl ;
+        sh:node ob:Rule_keywords_person ;
+    ] ;
+
     sh:property [
         sh:path sdo:hasOccupation ;
         sh:name "Beroep of functie"@nl ;
