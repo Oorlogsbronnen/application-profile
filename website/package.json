@@ -16,6 +16,7 @@
     "@docusaurus/faster": "3.10.2",
     "@docusaurus/preset-classic": "3.10.2",
     "@docusaurus/theme-mermaid": "3.10.2",
+    "@easyops-cn/docusaurus-search-local": "^0.55.3",
     "@mdx-js/react": "^3.0.0",
     "@zazuko/yasgui": "^4.6.1",
     "docusaurus-plugin-llms": "^0.5.1",
