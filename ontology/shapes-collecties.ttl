@@ -49,7 +49,8 @@ ob:CreativeWorkShape a sh:NodeShape ;
         sh:path rdf:type ;
         sh:name "Type entiteit"@nl ;
         sh:description "Classificatie van het werk volgens schema.org."@nl ;
-        sh:node ob:Rule_type ;
+        sh:in ( sdo:CreativeWork sdo:Article sdo:Newspaper sdo:Book sdo:Photograph sdo:VisualArtwork sdo:Painting sdo:Sculpture sdo:SheetMusic sdo:ArchiveComponent sdo:VideoObject sdo:AudioObject ob:Bekendmaking ob:Monument ob:Interview ob:InterviewSegment ) ;
+        sh:minCount 1 ;               
     ] ;
     sh:property [
         sh:path sdo:additionalType ;
@@ -174,18 +175,6 @@ ob:CreativeWorkShape a sh:NodeShape ;
         sh:node ob:Rule_thumbnail ;
     ] .
 
-### --- ARCHIEVEN EN ARCHIEFSTUKKEN (Uitbreiding op CreativeWorkShape) ---
-ob:ArchiveShape a sh:NodeShape ;
-    sh:targetClass 
-        ob:Archive,
-        ob:ArchiveFile ;
-    sh:name "Archieven"@nl ;
-
-    # 1. Hergebruik alle regels van CreativeWork
-    sh:node ob:CreativeWorkShape .
-
-    # 2. Voeg extra properties toe (op dit moment niet aan de orde)
-
 ### --- BEKENDMAKINGEN (Uitbreiding  op CreativeWorkShape) ---
 ob:BekendmakingShape a sh:NodeShape ;
     sh:targetClass ob:Bekendmaking ;
@@ -246,6 +235,54 @@ ob:MonumentShape a sh:NodeShape ;
         sh:description "Lengtegraad van de locatie van het monument"@nl ;
         sh:node ob:Rule_long_schema ;
     ] .
+    
+### --- INTERVIEWS (Uitbreiding  op CreativeWorkShape) ---
+ob:InterviewShape a sh:NodeShape ;
+    sh:targetClass ob:Interview ;
+    sh:name "Interviews"@nl ;
+    
+    # 1. Hergebruik alle regels van CreativeWork
+    sh:node ob:CreativeWorkShape ;
+
+    # 2. Voeg extra properties toe
+    sh:property [
+        sh:path sdo:contentUrl ;
+        sh:name "Url van het media object"@nl ;
+        sh:node ob:Rule_contentUrl ;
+    ] ;
+    sh:property [
+        sh:path sdo:transcript ;
+        sh:name "Transcriptie"@nl ;
+        sh:description "Verwijzing naar de transcriptie van het interview"@nl ;
+        sh:node ob:Rule_transcript ;
+    ] ;
+    sh:property [
+        sh:path ob:muxPlaybackId ;
+        sh:name "MUX identifier"@nl ;
+        sh:description "Unieke identifier waarmee video's afgespeeld kunnen worden via het MUX platform"@nl ;
+        sh:node ob:Rule_muxPlaybackId ;
+    ] ;
+    sh:property [
+        sh:path sdo:position ;
+        sh:name "Positie"@nl ;
+        sh:node ob:Rule_position ;
+    ] .
+    
+### --- INTERVIEWTRANSCRIPTIES ---
+ob:ClosedCaptionShape a sh:NodeShape ;
+    sh:targetClass ob:ClosedCaption ;
+    sh:name "Interviewtranscripties"@nl ;
+    sh:description "Transcripties van audio en video in time based vtt formaat"@nl ;
+
+    # --- Type ---
+    sh:property [
+        sh:path rdf:type ;
+        sh:name "Type entiteit"@nl ;
+        sh:description "Classificatie van de transcriptie als ob:ClosedCaption"@nl ;
+        sh:in ( ob:ClosedCaption ) ;
+        sh:minCount 1 ;               
+        sh:maxCount 1 ;
+    ] . 
 
 ### --- THESAURUSCONCEPTEN ---
 ob:ConceptShape a sh:NodeShape ;
@@ -257,7 +294,8 @@ ob:ConceptShape a sh:NodeShape ;
     sh:property [
         sh:path rdf:type ;
         sh:name "Type (RDF)"@nl ;
-        sh:node ob:Rule_type ;
+        sh:in ( skos:Concept sdo:Organization sdo:Place sdo:Event ) ;
+        sh:minCount 1 ; 
     ] ;
 
     # --- Inhoud en Onderwerp ---

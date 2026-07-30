@@ -40,7 +40,9 @@ ob:PersoonsReconstructieShape a sh:NodeShape ;
         sh:path rdf:type ;
         sh:name "Type entiteit"@nl ;
         sh:description "Classificatie volgens Persons in Context (PiCo)."@nl ;
-        sh:node ob:Rule_type ;
+        sh:in ( picom:PersonReconstruction ) ;
+        sh:minCount 1 ;               
+        sh:maxCount 1 ;
     ] ;
 
     # --- Naamgeving ---
@@ -165,7 +167,9 @@ ob:PersoonsvermeldingShape a sh:NodeShape ;
         sh:path rdf:type ;
         sh:name "Type entiteit"@nl ;
         sh:description "Classificatie volgens Persons in Context (PiCo)."@nl ;
-        sh:node ob:Rule_type ;
+        sh:in ( picom:PersonObservation ) ;
+        sh:minCount 1 ;               
+        sh:maxCount 1 ;
     ] ;
 
     # --- Naamgeving ---
@@ -303,7 +307,9 @@ ob:EventShape a sh:NodeShape ;
         sh:path rdf:type ;
         sh:name "Type entiteit"@nl ;
         sh:description "Classificatie van de gebeurtenis als sdo:Event"@nl ;
-        sh:node ob:Rule_type ;
+        sh:class ( sdo:Event ) ;
+        sh:minCount 1 ;               
+        sh:maxCount 1 ;
     ] ;
     sh:property [
         sh:path sdo:additionalType ;
@@ -376,7 +382,9 @@ ob:ImageObjectShape a sh:NodeShape ;
         sh:path rdf:type ;
         sh:name "Type entiteit"@nl ;
         sh:description "Classificatie van de afbeelding als sdo:ImageObject"@nl ;
-        sh:node ob:Rule_type ;
+        sh:in ( sdo:ImageObject ) ;
+        sh:minCount 1 ;               
+        sh:maxCount 1 ;
     ] ;
 	
     # --- Kenmerken en Context ---
@@ -406,14 +414,16 @@ ob:SourceShape a sh:NodeShape ;
     sh:targetClass 
         sdo:ArchiveComponent,
         prov:Entity ;
-    sh:name "Bronrecords"@nl ;
-    sh:description "Archiefstukken, maar ook records uit andere (onderzoeks)datasets en webpagina's die de bron zijn van persoonsvermeldingen."@nl ;
+        sh:name "Bronrecords"@nl ;
+        sh:description "Archiefstukken, maar ook records uit andere (onderzoeks)datasets en webpagina's die de bron zijn van persoonsvermeldingen."@nl ;
     
     sh:property [
         sh:path rdf:type ;
         sh:name "Type entiteit"@nl ;
-        sh:description "Classificatie van het bronrecord als archiefstuk of anders."@nl ;
-        sh:node ob:Rule_type ;
+        sh:description "Classificatie van het bronrecord."@nl ;
+        sh:in ( sdo:ArchiveComponent prov:Entity ) ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
     ] ;
     sh:property [
         sh:path sdo:url ;
@@ -458,7 +468,9 @@ ob:DatasetShape a sh:NodeShape ;
         sh:path rdf:type ;
         sh:name "Type entiteit"@nl ;
         sh:description "Classificatie van de entiteit als sdo:Dataset"@nl ;
-        sh:node ob:Rule_type ;
+        sh:in ( sdo:Dataset ) ;
+        sh:minCount 1 ;               
+        sh:maxCount 1 ;
     ] ;
 
     # --- Kenmerken en context ---

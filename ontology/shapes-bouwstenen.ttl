@@ -67,6 +67,7 @@ ob:Rule_hasOccupation          sh:path sdo:hasOccupation ;  sh:node ob:Base_Stri
 ob:Rule_keywords               sh:path sdo:keywords ;       sh:node ob:Base_StringOrIRI .
 ob:Rule_keywords_person        sh:path sdo:keywords ;       sh:node ob:Base_IRI ; sh:or ([ sh:class skos:Concept ] [ sh:class sdo:Place ] [ sh:class sdo:Organization ]) .
 ob:Rule_text                   sh:path sdo:text ;           sh:node ob:Base_String .
+ob:Rule_transcript             sh:path sdo:transcript ;     sh:node ob:Base_IRI ;  sh:class ob:ClosedCaption .
 
 # --- Data en Tijd ---
 ob:Rule_date               sh:path sdo:dateCreated ;   sh:node ob:Base_DateOrInteger ; sh:maxCount 1 .
@@ -117,6 +118,8 @@ ob:Rule_thumbnail          sh:path sdo:thumbnail ;        sh:node ob:Base_String
 ob:Rule_caption            sh:path sdo:caption ;          sh:node ob:Base_String ; sh:maxCount 1 .
 ob:Rule_url                sh:path sdo:url ;              sh:node ob:Base_StringOrIRI .
 ob:Rule_associatedMedia    sh:path sdo:associatedMedia ;  sh:node ob:Base_IRI ; sh:class sdo:ImageObject .
+ob:Rule_position           sh:path sdo:position ;         sh:node ob:Base_Integer .
+ob:Rule_muxPlaybackId      sh:path ob:muxPlaybackId ;     sh:node ob:Base_String .
 
 # --- Structureel en Rechten ---
 ob:Rule_isPartOf           sh:path sdo:isPartOf ;   sh:node ob:Base_StringOrIRI  .
