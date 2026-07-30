@@ -75,7 +75,27 @@ const config: Config = {
       headingIds: true,
     },
   },
-  themes: ["@docusaurus/theme-mermaid"],
+  themes: [
+    "@docusaurus/theme-mermaid",
+    [
+      // Lokale zoekindex, gegenereerd bij de build: geen externe dienst,
+      // werkt ook op shared hosting. Zie specs/2026-07-30-robots-en-zoeken.md.
+      "@easyops-cn/docusaurus-search-local",
+      {
+        language: ["nl"],
+        // Docs staan op de site-root (routeBasePath "/" in de preset).
+        docsRouteBasePath: "/",
+        indexBlog: false,
+        // Content-hash in de index-bestandsnaam, zodat die lang gecachet kan
+        // worden zonder verouderde resultaten na een deploy.
+        hashed: "filename",
+      },
+    ],
+  ],
+
+  // Zet het aria-label van het zoekveld gelijk aan de NL-placeholder
+  // (WCAG 2.5.3); zie de toelichting in de module zelf.
+  clientModules: ["./src/client-modules/search-aria-label.ts"],
 
   plugins: [
     spinqueDevProxy,

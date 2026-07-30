@@ -90,6 +90,57 @@ table a {
   --ifm-footer-link-hover-color: #78291f;
 }
 
+/* Zoekveld in de navbar: ruimer en rustiger dan de plugin-default (pill),
+   naar het patroon van grote docs-sites. De grijstinten komen uit de
+   Infima-emphasis-schaal en werken dus in beide kleurmodi; emphasis-700
+   haalt WCAG AA (4,5:1) voor de placeholder en de sneltoets-hint. */
+
+.navbar__items--right {
+  gap: 5px;
+}
+
+.navbar__items .navbar__search {
+  margin-left: 0;
+}
+
+.navbar__search-input {
+  height: 2.375rem;
+  width: 12rem;
+  padding: 0 3.5rem 0 2.375rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background-color: var(--ifm-color-emphasis-100);
+  color: var(--ifm-font-color-base);
+  font-size: 0.9375rem;
+}
+
+.navbar__search-input::placeholder {
+  color: var(--ifm-color-emphasis-700);
+  /* Firefox dimt placeholders standaard extra. */
+  opacity: 1;
+}
+
+.navbar__search-input:focus-visible {
+  outline: 2px solid var(--ifm-color-primary-dark);
+  outline-offset: 1px;
+}
+
+/* Het vergrootglas (aria-hidden) kleurt via currentColor. */
+.navbar__search > svg {
+  color: var(--ifm-color-emphasis-700);
+}
+
+/* Sneltoets-hint (⌘K) als losse toetsjes, zoals in het referentie-ontwerp. */
+.navbar__search kbd {
+  padding: 0.1rem 0.35rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 5px;
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.75rem;
+  box-shadow: none;
+}
+
 /* Donkere modus: articleRed200 als basis — contrast op donkere achtergrond 6.7:1 */
 [data-theme="dark"] {
   --ifm-color-primary: #e38a7e;

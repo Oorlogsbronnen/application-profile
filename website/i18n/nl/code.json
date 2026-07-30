@@ -1,0 +1,42 @@
+{
+  "theme.SearchBar.label": {
+    "message": "Zoeken",
+    "description": "The ARIA label and placeholder for search button"
+  },
+  "theme.SearchBar.seeAll": {
+    "message": "Alle resultaten bekijken",
+    "description": "The label for the see-all-results link in the search bar"
+  },
+  "theme.SearchBar.noResultsText": {
+    "message": "Geen resultaten",
+    "description": "The text shown when no search results are found"
+  },
+  "theme.SearchBar.searchInContext": {
+    "message": "Alle resultaten binnen \"{context}\" bekijken",
+    "description": "The label for searching within a context"
+  },
+  "theme.SearchBar.seeAllOutsideContext": {
+    "message": "Alle resultaten buiten \"{context}\" bekijken",
+    "description": "The label for searching outside the current context"
+  },
+  "theme.SearchPage.existingResultsTitle": {
+    "message": "Zoekresultaten voor \"{query}\"",
+    "description": "The title on the search page when a query is present"
+  },
+  "theme.SearchPage.emptyResultsTitle": {
+    "message": "Zoeken in de documentatie",
+    "description": "The title on the search page without a query"
+  },
+  "theme.SearchPage.documentsFound.plurals": {
+    "message": "1 document gevonden|{count} documenten gevonden",
+    "description": "Pluralized label for the number of documents found"
+  },
+  "theme.SearchPage.noResultsText": {
+    "message": "Er zijn geen documenten gevonden",
+    "description": "The text on the search page when nothing was found"
+  },
+  "theme.SearchPage.searchContext.everywhere": {
+    "message": "Overal",
+    "description": "The label for the everywhere search context"
+  }
+}
