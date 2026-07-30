@@ -105,7 +105,7 @@ table a {
 
 .navbar__search-input {
   height: 2.375rem;
-  width: 12rem;
+  width: 12.5rem;
   padding: 0 3.5rem 0 2.375rem;
   border: 1px solid var(--ifm-color-emphasis-300);
   border-radius: 8px;
