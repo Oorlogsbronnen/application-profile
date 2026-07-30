@@ -145,7 +145,7 @@ const config: Config = {
           routeBasePath: "/",
           sidebarPath: "./sidebars.ts",
           editUrl:
-            "https://github.com/Oorlogsbronnen/application-profile/tree/data/website/",
+            "https://github.com/Oorlogsbronnen/application-profile/tree/main/website/",
         },
         blog: false,
         theme: {

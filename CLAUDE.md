@@ -21,9 +21,7 @@ De repo is een pnpm-monorepo:
 - `ontology/schema_ext-oorlogsbronnen.ttl` — de kern-vocabulaire (de `niod:`-extensie op schema.org). Dit is het hart van het profiel.
 - `ontology/shapes-bouwstenen.ttl`, `ontology/shapes-personen.ttl` en `ontology/shapes-collecties.ttl` — SHACL-shapes voor validatie van data tegen het profiel: gedeelde bouwstenen (`Base_*`/`Rule_*`) plus één bestand per kennisgraaf (personen en objecten/collecties, parallel aan de LDmax-datasets).
 - `context/context.jsonld` — de JSON-LD context voor gebruik in API's.
-- `schemas/schema.ttl` — een gevendorde kopie van de volledige schema.org-vocabulaire (~20k regels). Alleen referentie; **nooit handmatig bewerken**.
-- `.github/workflows/generate-docs.yml` — bij elke push naar `main`: TTL-bestanden samenvoegen met rdflib, documentatie genereren met Widoco en publiceren naar `gh-pages` ([live documentatie](https://oorlogsbronnen.github.io/application-profile/)).
-- Deploys van de website lopen via **Netlify's git-integratie** op de `data`-branch: elke push deployt automatisch naar [data-oorlogsbronnen.netlify.app](https://data-oorlogsbronnen.netlify.app/) (wachtwoord-beschermd, met deploy-previews per PR). De build-instellingen staan in de Netlify-UI, niet in de repo. **Netlify is tijdelijk (testfase)**; uiteindelijk draait de site op shared hosting — zie `specs/2026-07-27-netlify-deploy.md`.
+- Deploys van de website lopen via **Netlify's git-integratie** op de `main`-branch: elke push deployt automatisch naar [data-oorlogsbronnen.netlify.app](https://data-oorlogsbronnen.netlify.app/) (wachtwoord-beschermd, met deploy-previews per PR). De build-instellingen staan in de Netlify-UI, niet in de repo. **Netlify is tijdelijk (testfase)**; uiteindelijk draait de site op shared hosting — zie `specs/2026-07-27-netlify-deploy.md`.
 
 ## Tooling en commando's
 
@@ -46,16 +44,16 @@ Package manager: **pnpm** (workspaces). Draai `pnpm install` vanaf de root.
 
 ## Branch-strategie
 
-**`data` is de base branch voor nieuw werk**, niet `main`. Concreet:
+**`main` is de basis- én publicatiebranch.** Concreet:
 
-- Maak feature branches aan vanaf `origin/data`: `git fetch origin data && git switch -c <naam> --no-track origin/data`.
-- Richt pull requests op `data` (`gh pr create --base data`); features landen daar eerst.
-- `main` blijft de publicatie-branch: een push daarheen triggert de docs-pipeline naar GitHub Pages. Promotie van `data` naar `main` gaat óók via een PR, nooit via een directe merge of push.
+- Maak feature branches aan vanaf `origin/main`: `git fetch origin main && git switch -c <naam> --no-track origin/main`.
+- Richt pull requests op `main` (`gh pr create --base main`); een merge deployt automatisch via Netlify.
+- Push nooit direct naar `main` — elke wijziging gaat via een PR.
 
 ## Werkafspraken voor dit profiel
 
 - Wijzigingen aan de vocabulaire, shapes en context horen consistent te zijn: een nieuwe of gewijzigde term in `schema_ext-oorlogsbronnen.ttl` heeft meestal ook een aanpassing in de shapes-bestanden (`ontology/shapes-*.ttl`) en/of `context.jsonld` nodig. Controleer alle drie.
-- Labels en comments in de ontologie zijn tweetalig (nl/en) waar mogelijk; Widoco genereert de documentatie met `-lang nl-en`.
+- Labels en comments in de ontologie zijn tweetalig (nl/en) waar mogelijk.
 - Gebruik de bestaande prefixes en naamgeving (`niod:` voor eigen termen, `schema:` voor schema.org) en voeg geen nieuwe namespaces toe zonder overleg.
 
 ## Algemene regels
