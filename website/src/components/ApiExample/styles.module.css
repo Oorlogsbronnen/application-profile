@@ -37,3 +37,16 @@
 .example :global(.theme-code-block) pre {
   max-height: 24rem;
 }
+
+/* Statusmelding voor schermlezers; visueel verborgen — het label op het
+   response-blok toont dezelfde informatie al. */
+.status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

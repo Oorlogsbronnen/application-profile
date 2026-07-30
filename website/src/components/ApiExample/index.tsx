@@ -78,6 +78,16 @@ export default function ApiExample({
     live.status === "success"
       ? `Live response (zojuist opgehaald${live.viaProxy ? " via de proxy" : ""})`
       : `Vastgelegde response (${recordedAt})`;
+  // Korte melding voor de live-region (WCAG 4.1.3): de response zelf is
+  // bewust géén live-region — die zou integraal voorgelezen worden.
+  const statusMessage =
+    live.status === "loading"
+      ? "Bezig met live uitvoeren…"
+      : live.status === "success"
+        ? "Live response opgehaald; het resultaat staat hieronder."
+        : live.status === "failed"
+          ? "Live uitvoeren lukte niet; de eerder vastgelegde response blijft staan."
+          : "";
 
   return (
     <div className={styles.example}>
@@ -111,6 +121,9 @@ export default function ApiExample({
           </button>
         )}
       </p>
+      <p role="status" className={styles.status}>
+        {statusMessage}
+      </p>
       <ResponseBlock
         failed={live.status === "failed"}
         label={label}
@@ -134,7 +147,7 @@ const ResponseBlock = memo(function ResponseBlock({
   json: string;
 }): React.ReactElement {
   return (
-    <div aria-live="polite">
+    <div>
       {failed && (
         <Admonition type="caution" title="Live uitvoeren lukte niet">
           De browser blokkeerde de directe call (CORS) en ook de proxy was niet
