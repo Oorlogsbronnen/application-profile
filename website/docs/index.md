@@ -6,7 +6,7 @@ title: Introductie
 
 # data.oorlogsbronnen
 
-Dit is de documentatie van het **Oorlogsbronnen dataplatform**: de plek waar ontwikkelaars en informatiespecialisten vinden welke data het Oorlogsbronnen-ecosysteem biedt, hoe die is gestructureerd en hoe je die kunt gebruiken.
+Dit is de documentatie voor de gebruikers van het **Oorlogsbronnen dataplatform**: de plek waar ontwikkelaars en informatiespecialisten vinden welke data het Oorlogsbronnen-ecosysteem biedt, hoe die is gestructureerd en hoe je die kunt gebruiken.
 
 - **[Datasets](datasets/datasetregister)** — het datasetregister en de linked data-publicatie op LDmax.
 - **[Services](services/apis)** — de API's, het SPARQL-endpoint en het Termennetwerk.
