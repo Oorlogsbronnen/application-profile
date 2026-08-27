@@ -8,7 +8,7 @@ title: Introductie
 
 Dit is de documentatie voor de gebruikers van het **Oorlogsbronnen dataplatform**: de plek waar ontwikkelaars en informatiespecialisten vinden welke data het Oorlogsbronnen-ecosysteem biedt, hoe die is gestructureerd en hoe je die kunt gebruiken.
 
-- **[Datasets](datasets/datasetregister)** — het datasetregister en de linked data-publicatie op LDmax.
+- **[Datasets](datasets)** — het datasetregister en de linked data-publicatie op LDmax.
 - **[Services](services/apis)** — de API's, het SPARQL-endpoint en het Termennetwerk.
 - **[Datamodel](datamodel/personen-en-objecten)** — personen en objecten, de WO2 Thesaurus en het Oorlogsbronnen Application Profile.
 - **[Cookbook](cookbook/index.md)** — taakgerichte recepten met direct uitvoerbare queries.
