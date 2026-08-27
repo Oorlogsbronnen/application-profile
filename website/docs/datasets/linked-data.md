@@ -1,6 +1,6 @@
 ---
 title: Linked data (LDmax)
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 # Linked data (LDmax)
