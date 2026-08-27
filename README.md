@@ -2,11 +2,6 @@
 
 Dit repository bevat de bronbestanden en de documentatie van het **Application Profile (AP)** voor het Oorlogsbronnen-ecosysteem. Dit profiel definieert hoe metadata over personen, gebeurtenissen en bronnen gestructureerd wordt middels Linked Data standaarden.
 
-## 🚀 Live Documentatie
-
-De volledige documentatie (gegenereerd met Widoco) is hier te vinden:
-👉 **[Bekijk de documentatie](https://oorlogsbronnen.github.io/application-profile/)**
-
 ## 📂 Projectstructuur
 
 - `website/`: De [Docusaurus](https://docusaurus.io/)-documentatiesite van het data.oorlogsbronnen-platform (pnpm-workspace; zie `website/docs/` voor de inhoud).
