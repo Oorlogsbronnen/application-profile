@@ -31,8 +31,7 @@ Van elke pagina bestaat een markdown-versie: voeg `.md` toe aan het pad.
 Bijvoorbeeld:
 
 - [`/services/apis.md`](pathname:///services/apis.md) voor de API-documentatie
-- [`/datasets/linked-data.md`](pathname:///datasets/linked-data.md) voor de
-  pagina over linked data
+- [`/datasets.md`](pathname:///datasets.md) voor de pagina over de datasets
 
 De links in `/llms.txt` verwijzen rechtstreeks naar deze markdown-versies.
 

@@ -112,7 +112,7 @@ const config: Config = {
         // index.md vangen — vandaar het pad-specifieke eerste patroon.
         includeOrder: [
           "docs/index.md",
-          "datasets/**",
+          "datasets.md",
           "services/**",
           "datamodel/**",
           "cookbook/**",
