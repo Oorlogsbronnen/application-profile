@@ -37,7 +37,7 @@ ob:CreativeWorkShape a sh:NodeShape ;
         sdo:SheetMusic, 
         sdo:ArchiveComponent ;
     sh:name "Creatieve werken"@nl ;
-    sh:description "Bronnen en objecten uit erfgoedcollecties."@nl ;
+    sh:description "Bronnen en objecten (werken) uit erfgoedcollecties."@nl ;
     
     # --- Identificatie en Basis ---
     sh:property [
@@ -49,13 +49,13 @@ ob:CreativeWorkShape a sh:NodeShape ;
     sh:property [
         sh:path sdo:additionalType ;
         sh:name "Type"@nl ;
-        sh:description "Aanvullende classificatie of typering van het werk in tekstvorm."@nl ;
+        sh:description "Aanvullende classificatie of typering van het werk in tekstvorm OF nadere classificatie van archieven als niod:Archive of niod:ArchiveFile."@nl ;
         sh:node ob:Rule_additionalType ;
     ] ;
     sh:property [
         sh:path sdo:material ;
         sh:name "Materiaal"@nl ;
-        sh:description "Materiaalbeschrijving."@nl ;
+        sh:description "Materiaal gebruikt in het werk."@nl ;
         sh:node ob:Rule_material ;
     ] ;
     sh:property [
@@ -68,7 +68,7 @@ ob:CreativeWorkShape a sh:NodeShape ;
     # --- Inhoud en Onderwerp ---
         sh:property [
         sh:path sdo:name ;
-        sh:name "Titel"@nl ;
+        sh:name "Naam"@nl ;
         sh:description "Titel of naam van het werk."@nl ;
         sh:node ob:Rule_name ;
     ] ;
@@ -81,19 +81,19 @@ ob:CreativeWorkShape a sh:NodeShape ;
     sh:property [
         sh:path sdo:keywords ;
         sh:name "Onderwerp"@nl ;
-        sh:description "Trefwoorden die het onderwerp van het werk omschrijven."@nl ;
+        sh:description "Trefwoorden die het onderwerp van het werk omschrijven (in tekstvorm)."@nl ;
         sh:node ob:Rule_keywords ;
     ] ;
     sh:property [
         sh:path sdo:about ;
-        sh:name "Persoon of organisatie"@nl ;
-        sh:description "Persoon of organisatie als onderwerp van het werk."@nl ;
+        sh:name "Onderwerp"@nl ;
+        sh:description "IRI van concept uit de WO2 thesaurus of persoon uit de Oorlogsbronnen personendataset als onderwerp van het werk."@nl ;
         sh:node ob:Rule_about ;
     ] ;
     sh:property [
         sh:path sdo:contentLocation ;
         sh:name "Locatie"@nl ;
-        sh:description "Locatie als onderwerp van het werk."@nl ;
+        sh:description "Locatie als onderwerp van het werk (tekst of IRI van locatie uit de WO2 thesaurus)."@nl ;
         sh:node ob:Rule_contentLocation ;
     ] ;
 
@@ -101,37 +101,37 @@ ob:CreativeWorkShape a sh:NodeShape ;
     sh:property [
         sh:path sdo:creator ;
         sh:name "Maker"@nl ;
-        sh:description "De maker van het werk."@nl ;
+        sh:description "De maker van het werk (tekst of IRI van persoon uit de Oorlogsbronnen personendataset)."@nl ;
         sh:node ob:Rule_creator ;
     ] ;
     sh:property [
         sh:path sdo:contributor ;
         sh:name "Bijdrager"@nl ;
-        sh:description "Persoon die heeft bijgedragen aan de totstandkoming van het werk."@nl ;
+        sh:description "Persoon die heeft bijgedragen aan de totstandkoming van het werk (tekst of IRI van persoon uit de Oorlogsbronnen personendataset)."@nl ;
         sh:node ob:Rule_contributor ;
     ] ;
     sh:property [
         sh:path sdo:publisher ;
         sh:name "Bronbeheerder"@nl ;
-        sh:description "Verwijzing de leverancier van het bronrecord."@nl ;
+        sh:description "Verwijzing naar de leverancier van het bronrecord via een IRI uit de WO2 Organisatiethesaurus."@nl ;
         sh:node ob:Rule_publisher ;
     ] ;
     sh:property [
         sh:path sdo:provider ;
         sh:name "Bronleverancier"@nl ;
-        sh:description "Verwijzing naar de leverancier van het bronrecord als dit niet de bronbeheerder zelf is."@nl ;
+        sh:description "Verwijzing naar de leverancier van het bronrecord als dit niet de bronbeheerder zelf is (via een IRI uit de WO2 Organisatiethesaurus)."@nl ;
         sh:node ob:Rule_provider ;
     ] ;
     sh:property [
         sh:path sdo:license ;
         sh:name "Rechten"@nl ;
-        sh:description "Rechtenstatement van bijvoorbeeld Creative Commons."@nl ;
+        sh:description "Url van het rechtenstatement van bijvoorbeeld Creative Commons."@nl ;
         sh:node ob:Rule_license ;
     ] ;
     sh:property [
         sh:path sdo:url ;
         sh:name "Url"@nl ;
-        sh:description "Verwijzing naar de url van de bron."@nl ;
+        sh:description "Url van het werk bij de bron."@nl ;
         sh:node ob:Rule_url ;
     ] ;
 
@@ -154,7 +154,7 @@ ob:CreativeWorkShape a sh:NodeShape ;
         sh:description "Datum of jaar wanneer de creatie van het werk eindigde."@nl ;
         sh:node ob:Rule_endDate ;
     ] ;
-        sh:property [
+    sh:property [
         sh:path sdo:temporal ;
         sh:name "Periode"@nl ;
         sh:description "Periode waarin het werk gemaakt is."@nl ;
@@ -163,10 +163,16 @@ ob:CreativeWorkShape a sh:NodeShape ;
 
     # --- Visueel ---
     sh:property [
-        sh:path sdo:thumbnail ;
-        sh:name "Afbeelding"@nl ;
-        sh:description "Afbeelding van het werk."@nl ;
-        sh:node ob:Rule_thumbnail ;
+        sh:path sdo:thumbnailUrl ;
+        sh:name "Url van de Afbeelding"@nl ;
+        sh:description "Directe link naar de afbeelding (voor embedden etc.)."@nl ;
+        sh:node ob:Rule_thumbnailUrl ;
+    ] ;
+    sh:property [
+        sh:path sdo:associatedMedia ;
+        sh:name "IIIF Manifest"@nl ;
+        sh:description "Afbeelding(en) van het werk via een IIIF Manifest."@nl ;
+        sh:node ob:Rule_associatedMedia ;
     ] .
 
 ### --- BEKENDMAKINGEN (Uitbreiding  op CreativeWorkShape) ---
@@ -205,6 +211,7 @@ ob:MediaShape a sh:NodeShape ;
     sh:property [
         sh:path sdo:contentUrl ;
         sh:name "Url van het media object"@nl ;
+        sh:description "Directe link naar het media bestand (voor embedden etc.)"@nl ;
         sh:node ob:Rule_contentUrl ;
     ] .
 

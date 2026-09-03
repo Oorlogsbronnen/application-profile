@@ -366,10 +366,16 @@ ob:ImageObjectShape a sh:NodeShape ;
         sh:node ob:Rule_caption ;
     ] ;
     sh:property [
-        sh:path sdo:thumbnail ;
+        sh:path sdo:thumbnailUrl ;
         sh:name "Url van de afbeelding"@nl ;
-        sh:description "Url van de afbeelding bij de bron."@nl ;
-        sh:node ob:Rule_thumbnail ;
+        sh:description "Directe link naar de afbeelding (voor embedden etc.)."@nl ;
+        sh:node ob:Rule_thumbnailUrl ;
+    ] ;
+    sh:property [
+        sh:path sdo:associatedMedia ;
+        sh:name "IIIF Manifest"@nl ;
+        sh:description "Afbeelding(en) van de persoon via een IIIF Manifest."@nl ;
+        sh:node ob:Rule_associatedMedia ;
     ] ;
     sh:property [
         sh:path sdo:url ;
@@ -395,10 +401,10 @@ ob:SourceShape a sh:NodeShape ;
         sh:node ob:Rule_url ;
     ] ;
     sh:property [
-        sh:path sdo:associatedMedia ;
+        sh:path sdo:image ;
         sh:name "Afbeelding"@nl ;
         sh:description "Verwijzing naar de scan(s) of andere afbeelding(en) die gekoppeld zijn aan het bronrecord."@nl ;
-        sh:node ob:Rule_associatedMedia ;
+        sh:node ob:Rule_image ;
     ] ;
     sh:property [
         sh:path sdo:isPartOf ;
