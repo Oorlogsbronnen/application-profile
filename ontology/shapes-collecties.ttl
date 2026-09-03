@@ -164,8 +164,8 @@ ob:CreativeWorkShape a sh:NodeShape ;
     # --- Visueel ---
     sh:property [
         sh:path sdo:thumbnailUrl ;
-        sh:name "Url van de Afbeelding"@nl ;
-        sh:description "Directe link naar de afbeelding (voor embedden etc.)."@nl ;
+        sh:name "Afbeelding"@nl ;
+        sh:description "Directe link naar een afbeelding van het werk."@nl ;
         sh:node ob:Rule_thumbnailUrl ;
     ] ;
     sh:property [
@@ -249,6 +249,7 @@ ob:InterviewShape a sh:NodeShape ;
     sh:property [
         sh:path sdo:contentUrl ;
         sh:name "Url van het media object"@nl ;
+        sh:description "Directe link naar het media bestand (voor embedden etc.)"@nl ;
         sh:node ob:Rule_contentUrl ;
     ] ;
     sh:property [
