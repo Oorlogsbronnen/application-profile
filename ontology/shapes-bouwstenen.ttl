@@ -59,11 +59,11 @@ ob:Rule_givenName          sh:path sdo:givenName ;      sh:node ob:Base_String .
 # --- Beschrijving en Categorisering ---
 ob:Rule_material               sh:path sdo:material ;       sh:node ob:Base_String .
 ob:Rule_about                  sh:path sdo:about ;          sh:node ob:Base_IRI ; sh:or ([ sh:class skos:Concept ] [ sh:class sdo:Organization ] [ sh:class sdo:Place ] [ sh:class picom:PersonReconstruction ]) .
-ob:Rule_additionalType         sh:path sdo:additionalType ; sh:node ob:Base_StringOr .
+ob:Rule_additionalType         sh:path sdo:additionalType ; sh:node ob:Base_StringOrIRI .
 ob:Rule_additionalType_events  sh:path sdo:additionalType ; sh:node ob:Base_IRI ; sh:minCount 1 ; sh:maxCount 1 ; sh:class niod:PersonalEvent .
 ob:Rule_description            sh:path sdo:description ;    sh:node ob:Base_String .
 ob:Rule_hasOccupation          sh:path sdo:hasOccupation ;  sh:node ob:Base_String .
-ob:Rule_keywords               sh:path sdo:keywords ;       sh:node ob:Base_StringOrIRI .
+ob:Rule_keywords               sh:path sdo:keywords ;       sh:node ob:Base_String .
 ob:Rule_keywords_person        sh:path sdo:keywords ;       sh:node ob:Base_IRI ; sh:or ([ sh:class skos:Concept ] [ sh:class sdo:Place ] [ sh:class sdo:Organization ]) .
 ob:Rule_text                   sh:path sdo:text ;           sh:node ob:Base_String .
 ob:Rule_transcript             sh:path sdo:transcript ;     sh:node ob:Base_IRI ;  sh:class ob:ClosedCaption .
@@ -113,10 +113,10 @@ ob:Rule_provider           sh:path sdo:provider ;     sh:node ob:Base_IRI ;  sh:
 # --- Media en Web ---
 ob:Rule_contentUrl         sh:path sdo:contentUrl ;       sh:node ob:Base_StringOrIRI .
 ob:Rule_image              sh:path sdo:image ;            sh:node ob:Base_IRI .
-ob:Rule_thumbnail          sh:path sdo:thumbnail ;        sh:node ob:Base_StringOrIRI .
+ob:Rule_thumbnailUrl       sh:path sdo:thumbnailUrl ;     sh:node ob:Base_String .
 ob:Rule_caption            sh:path sdo:caption ;          sh:node ob:Base_String ; sh:maxCount 1 .
 ob:Rule_url                sh:path sdo:url ;              sh:node ob:Base_StringOrIRI .
-ob:Rule_associatedMedia    sh:path sdo:associatedMedia ;  sh:node ob:Base_IRI ; sh:class sdo:ImageObject .
+ob:Rule_associatedMedia    sh:path sdo:associatedMedia ;  sh:node ob:Base_String .
 ob:Rule_position           sh:path sdo:position ;         sh:node ob:Base_Integer .
 ob:Rule_muxPlaybackId      sh:path ob:muxPlaybackId ;     sh:node ob:Base_String .
 
