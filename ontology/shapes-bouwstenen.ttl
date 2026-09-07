@@ -57,16 +57,17 @@ ob:Rule_givenName          sh:path sdo:givenName ;      sh:node ob:Base_String .
 
 
 # --- Beschrijving en Categorisering ---
-ob:Rule_material               sh:path sdo:material ;       sh:node ob:Base_String .
-ob:Rule_about                  sh:path sdo:about ;          sh:node ob:Base_IRI ; sh:or ([ sh:class skos:Concept ] [ sh:class sdo:Organization ] [ sh:class sdo:Place ] [ sh:class picom:PersonReconstruction ]) .
-ob:Rule_additionalType         sh:path sdo:additionalType ; sh:node ob:Base_StringOrIRI .
-ob:Rule_additionalType_events  sh:path sdo:additionalType ; sh:node ob:Base_IRI ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ob:PersonalEvent .
-ob:Rule_description            sh:path sdo:description ;    sh:node ob:Base_String .
-ob:Rule_hasOccupation          sh:path sdo:hasOccupation ;  sh:node ob:Base_String .
-ob:Rule_keywords               sh:path sdo:keywords ;       sh:node ob:Base_String .
-ob:Rule_keywords_person        sh:path sdo:keywords ;       sh:node ob:Base_IRI ; sh:or ([ sh:class skos:Concept ] [ sh:class sdo:Place ] [ sh:class sdo:Organization ]) .
-ob:Rule_text                   sh:path sdo:text ;           sh:node ob:Base_String .
-ob:Rule_transcript             sh:path sdo:transcript ;     sh:node ob:Base_IRI ;  sh:class ob:ClosedCaption .
+ob:Rule_material                 sh:path sdo:material ;       sh:node ob:Base_String .
+ob:Rule_about                    sh:path sdo:about ;          sh:node ob:Base_IRI ; sh:or ([ sh:class skos:Concept ] [ sh:class sdo:Organization ] [ sh:class sdo:Place ] [ sh:class picom:PersonReconstruction ]) .
+ob:Rule_additionalType           sh:path sdo:additionalType ; sh:node ob:Base_String .
+ob:Rule_additionalType_archive   sh:path sdo:additionalType ; sh:node ob:Base_IRI ; sh:minCount 1 ; sh:maxCount 1 ; sh:or ([ sh:class ob:Archive ] [ sh:class ob:ArchiveFile ]) .
+ob:Rule_additionalType_events    sh:path sdo:additionalType ; sh:node ob:Base_IRI ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ob:PersonalEvent .
+ob:Rule_description              sh:path sdo:description ;    sh:node ob:Base_String .
+ob:Rule_hasOccupation            sh:path sdo:hasOccupation ;  sh:node ob:Base_String .
+ob:Rule_keywords                 sh:path sdo:keywords ;       sh:node ob:Base_String .
+ob:Rule_keywords_person          sh:path sdo:keywords ;       sh:node ob:Base_IRI ; sh:or ([ sh:class skos:Concept ] [ sh:class sdo:Place ] [ sh:class sdo:Organization ]) .
+ob:Rule_text                     sh:path sdo:text ;           sh:node ob:Base_String .
+ob:Rule_transcript               sh:path sdo:transcript ;     sh:node ob:Base_IRI ;  sh:class ob:ClosedCaption .
 
 # --- Data en Tijd ---
 ob:Rule_date               sh:path sdo:dateCreated ;   sh:node ob:Base_DateOrInteger ; sh:maxCount 1 .
