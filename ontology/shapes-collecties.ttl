@@ -34,8 +34,7 @@ ob:CreativeWorkShape a sh:NodeShape ;
         sdo:VisualArtwork, 
         sdo:Painting, 
         sdo:Sculpture, 
-        sdo:SheetMusic, 
-        sdo:ArchiveComponent ;
+        sdo:SheetMusic ;
     sh:name "Creatieve werken"@nl ;
     sh:description "Bronnen en objecten (werken) uit erfgoedcollecties."@nl ;
     
@@ -173,6 +172,28 @@ ob:CreativeWorkShape a sh:NodeShape ;
         sh:name "IIIF Manifest"@nl ;
         sh:description "Afbeelding(en) van het werk via een IIIF Manifest."@nl ;
         sh:node ob:Rule_associatedMedia ;
+    ] .
+    
+### --- ARCHIEVEN (Uitbreiding  op CreativeWorkShape) ---
+ob:ArchiefShape a sh:NodeShape ;
+    sh:targetClass sdo:ArchiveComponent ;
+    sh:name "Archieven"@nl ;
+    
+    # 1. Hergebruik alle regels van CreativeWork
+    sh:node ob:CreativeWorkShape ;
+
+    # 2. Voeg extra properties toe
+    sh:property [
+        sh:path sdo:text ;
+        sh:name "Tekst"@nl ;
+        sh:description "Transcriptie van de tekst op het document"@nl ;
+        sh:node ob:Rule_text ;
+    ] ;
+    sh:property [
+        sh:path sdo:additionalType ;
+        sh:name "Archiefsoort"@nl ;
+        sh:description "Aanvullende classificatie binnen archieven als Archief of Archiefbestand."@nl ;
+        sh:node ob:Rule_additionalType_archive ;
     ] .
 
 ### --- BEKENDMAKINGEN (Uitbreiding  op CreativeWorkShape) ---
