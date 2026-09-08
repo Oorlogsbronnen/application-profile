@@ -112,12 +112,12 @@ ob:Rule_spouse             sh:path sdo:spouse ;       sh:node ob:Base_IRI ;  sh:
 ob:Rule_provider           sh:path sdo:provider ;     sh:node ob:Base_IRI ;  sh:class sdo:Organization .
 
 # --- Media en Web ---
-ob:Rule_contentUrl         sh:path sdo:contentUrl ;       sh:node ob:Base_StringOrIRI .
+ob:Rule_contentUrl         sh:path sdo:contentUrl ;       sh:node ob:Base_IRI .
 ob:Rule_image              sh:path sdo:image ;            sh:node ob:Base_IRI ;  sh:class sdo:ImageObject .
-ob:Rule_thumbnailUrl       sh:path sdo:thumbnailUrl ;     sh:node ob:Base_String .
+ob:Rule_thumbnailUrl       sh:path sdo:thumbnailUrl ;     sh:node ob:Base_IRI .
 ob:Rule_caption            sh:path sdo:caption ;          sh:node ob:Base_String ; sh:maxCount 1 .
-ob:Rule_url                sh:path sdo:url ;              sh:node ob:Base_StringOrIRI .
-ob:Rule_associatedMedia    sh:path sdo:associatedMedia ;  sh:node ob:Base_String .
+ob:Rule_url                sh:path sdo:url ;              sh:node ob:Base_IRI .
+ob:Rule_associatedMedia    sh:path sdo:associatedMedia ;  sh:node ob:Base_IRI .
 ob:Rule_position           sh:path sdo:position ;         sh:node ob:Base_Integer .
 ob:Rule_muxPlaybackId      sh:path ob:muxPlaybackId ;     sh:node ob:Base_String .
 

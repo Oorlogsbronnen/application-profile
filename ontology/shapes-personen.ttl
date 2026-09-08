@@ -388,7 +388,7 @@ ob:ImageObjectShape a sh:NodeShape ;
 
 ## --- BRON ---
 ob:SourceShape a sh:NodeShape ;
-    sh:targetClass 
+    sh:targetClass
         sdo:ArchiveComponent,
         prov:Entity ;
         sh:name "Bronrecords"@nl ;
