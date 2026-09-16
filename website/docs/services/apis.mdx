@@ -13,23 +13,23 @@ import objectTrouwfotoResponse from "@site/src/data/spinque/object-trouwfoto-lod
 
 # API's
 
-De data van Oorlogsbronnen is via een REST API te bevragen, gebouwd op [Spinque](https://www.spinque.com/). De API is publiek en vereist geen API-key.
+De data van Oorlogsbronnen is te bevragen via een REST API en levert output in JSON-LD. De API is open en vereist geen API-key.
 
 ## Opbouw van een request
 
 Alle endpoints leven onder één basis-URL:
 
 ```text
-https://rest.spinque.com/4/oorlogsbronnen/api/lod/e/
+https://data.oorlogsbronnen.nl/api/
 ```
 
 Daarachter volgt het endpoint met zijn parameters volgens het patroon `{endpoint}/p/{parameter}/{waarde}/resultpage`, afgesloten met `?config=default`. Parameterwaarden zijn URL-encoded. Voorbeeld:
 
 ```text
-…/api/lod/e/person/p/id/{IRI}/resultpage?config=default
+e/person/p/id/{IRI}/resultpage?config=default
 ```
 
-Handige queryparameters: `count` (aantal resultaten) en `offset` (paginering). De API publiceert ook een machine-leesbare OpenAPI-beschrijving van alle endpoints: [swagger.json](https://rest.spinque.com/4/oorlogsbronnen/api/lod/swagger.json?config=default).
+Handige queryparameters: `count` (aantal resultaten) en `offset` (paginering). De API publiceert ook een machine-leesbare Open API-beschrijving van alle endpoints: [swagger.json](https://rest.spinque.com/4/oorlogsbronnen/api/lod/swagger.json?config=default).
 
 ## Zoeken: `search`
 
