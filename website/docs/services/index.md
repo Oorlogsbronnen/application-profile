@@ -5,8 +5,7 @@ description: Overzicht van de manieren waarop je de data van Oorlogsbronnen kunt
 
 # Services
 
-Je kunt de data van Oorlogsbronnen op verschillende manieren bevragen. Welke
-service past, hangt af van wat je bouwt:
+Je kunt de data van Oorlogsbronnen op verschillende manieren bevragen. Welke service past, hangt af van wat je bouwt:
 
 - **[API's](./apis)**: een REST API waarmee de linked data via verschillende voorgeconfigureerde endpoints kan worden bevraagd. De gebruikelijke keuze voor integratie van data in websites en
   applicaties.

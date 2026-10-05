@@ -3,7 +3,7 @@ title: Datasets
 sidebar_position: 2
 ---
 
-De data van Oorlogsbronnen is als Linked Open Data gepubliceerd op het [LDmax](https://platform.ldmax.nl/organisaties/wo2net) platform, onder de organisatie Stichting WO2Net.
+De data van Oorlogsbronnen is als Linked Open Data gepubliceerd op het [LDMax](https://platform.ldmax.nl/organisaties/wo2net) platform, onder de organisatie Stichting WO2Net.
 
 | Dataset                                                                                | Inhoud                                                                                     | Licentie        |
 | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | --------------- |

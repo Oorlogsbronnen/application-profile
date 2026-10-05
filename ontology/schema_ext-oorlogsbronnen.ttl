@@ -44,6 +44,16 @@ sdo:VisualArtwork rdfs:subClassOf :Afbeelding .
 sdo:SheetMusic rdfs:subClassOf :Afbeelding .
 :Bekendmaking rdfs:subClassOf :Afbeelding .
 
+:Archiefmateriaal a rdfs:Class ;
+	rdfs:label "Archiefmateriaal"@nl ;
+	rdfs:subClassOf schema:CreativeWork ;
+	rdf:comment "Class for all archivematerial"@en .
+
+ob:Archive rdfs:subClassOf :Archiefmateriaal .
+ob:ArchiveSeries rdfs:subClassOf :Archiefmateriaal .
+ob:ArchiveFile rdfs:subClassOf :Archiefmateriaal .
+sdo:ArchiveComponent rdfs:subClassOf :Archiefmateriaal .
+
 # Specifieke subclasses van sdo:CreativeWork
 
 :Monument a rdfs:Class ;
