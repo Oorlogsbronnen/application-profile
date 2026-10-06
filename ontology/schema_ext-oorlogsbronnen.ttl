@@ -46,7 +46,7 @@ sdo:SheetMusic rdfs:subClassOf :Afbeelding .
 
 :Archiefmateriaal a rdfs:Class ;
 	rdfs:label "Archiefmateriaal"@nl ;
-	rdfs:subClassOf schema:CreativeWork ;
+	rdfs:subClassOf sdo:CreativeWork ;
 	rdf:comment "Class for all archivematerial"@en .
 
 ob:Archive rdfs:subClassOf :Archiefmateriaal .
