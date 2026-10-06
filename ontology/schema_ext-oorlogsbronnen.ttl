@@ -1,4 +1,4 @@
-@prefix : <https://data.oorlogsbronnen.nl/schema#> .
+@prefix ob: <https://data.oorlogsbronnen.nl/schema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sdo: <https://schema.org/> .
@@ -33,73 +33,71 @@ sdo:Place rdfs:label "Locatie"@nl .
 
 # Extra class tussen CreativeWork en specifieke subclasses voor collectie objecten met visuele component
 
-:Afbeelding a rdfs:Class ;
+ob:Afbeelding a rdfs:Class ;
 	rdfs:label "Afbeelding"@nl ;
 	rdfs:subClassOf sdo:CreativeWork ;
 	rdf:comment "Superclass voor alle collectie objecten met een afbeelding"@nl .
 
-:Archiefmateriaal a rdfs:Class ;
+ob:Archiefmateriaal a rdfs:Class ;
 	rdfs:label "Archiefmateriaal"@nl ;
-	rdfs:subClassOf schema:CreativeWork ;
+	rdfs:subClassOf sdo:CreativeWork ;
 	rdf:comment "Class for all archivematerial"@en .
 	
-:Bekendmaking a rdfs:Class ;
+ob:Bekendmaking a rdfs:Class ;
  	rdfs:label "Bekendmaking"@nl ;
 	rdfs:subClassOf sdo:Event ;
 	rdf:comment "Class for official announcements, treated as events "@en .
 	
-sdo:Photograph rdfs:subClassOf :Afbeelding .
-sdo:ImageObject rdfs:subClassOf :Afbeelding .
-sdo:VisualArtwork rdfs:subClassOf :Afbeelding .
-sdo:SheetMusic rdfs:subClassOf :Afbeelding .
-:Bekendmaking rdfs:subClassOf :Afbeelding .
-
+sdo:Photograph rdfs:subClassOf ob:Afbeelding .
+sdo:ImageObject rdfs:subClassOf ob:Afbeelding .
+sdo:VisualArtwork rdfs:subClassOf ob:Afbeelding .
+sdo:SheetMusic rdfs:subClassOf ob:Afbeelding .
 
 # Specifieke subclasses van sdo:CreativeWork
 
-:Monument a rdfs:Class ;
+ob:Monument a rdfs:Class ;
 	rdfs:label "Monument"@nl ;
 	rdfs:subClassOf sdo:CreativeWork ;
 	rdf:comment "Class for monuments"@en .
 
-:Archive a rdfs:Class ;
+ob:Archive a rdfs:Class ;
 	rdfs:label "Archief"@nl ;
 	rdfs:subClassOf sdo:ArchiveComponent ;
 	rdf:comment "Class for an archive"@en .
 
-:ArchiveSeries a rdfs:Class ;
+ob:ArchiveSeries a rdfs:Class ;
 	rdfs:label "Archiefreeks"@nl ;
 	rdfs:subClassOf sdo:ArchiveComponent ;
 	rdf:comment "Class for a collection of archival documents"@en .
 
-:ArchiveFile a rdfs:Class ;
+ob:ArchiveFile a rdfs:Class ;
 	rdfs:label "Archiefstuk"@nl ;
 	rdfs:subClassOf sdo:ArchiveComponent ;
 	rdf:comment "Class for archival documents"@en .
 
-:Certificate a rdfs:Class ;
+ob:Certificate a rdfs:Class ;
   	rdfs:label "Akte"@nl ;
   	rdfs:subClassOf sdo:CreativeWork ;
   	rdf:comment "Class for archival certificates"@en .
 
-:Interview a rdfs:Class ;
+ob:Interview a rdfs:Class ;
 	rdfs:label "Interview"@nl ;
 	rdfs:subClassOf sdo:CreativeWork ;
 	rdf:comment "Class for interviews"@en .
 
-:InterviewSegment a rdfs:Class ;
+ob:InterviewSegment a rdfs:Class ;
 	rdfs:label "Fragment"@nl ;
 	rdfs:subClassOf sdo:CreativeWork ;
 	rdf:comment "Class for interviews segments"@en .
 
 # Curated content
 
-:Webpagina a rdfs:Class ;
+ob:Webpagina a rdfs:Class ;
 	rdfs:label "Webpagina"@nl ;
 	rdf:comment "Class for all web content created by Oorlogsbronnen"@en .
 
-sdo:WebPage rdfs:subClassOf :Webpagina .
-skos:Concept rdfs:subClassOf :Webpagina . # hack to get all thesaurus content available as webpagina
+sdo:WebPage rdfs:subClassOf ob:Webpagina .
+skos:Concept rdfs:subClassOf ob:Webpagina . # hack to get all thesaurus content available as webpagina
 
 # More specific classes of sdo:Event
 
@@ -356,24 +354,24 @@ niod:GedwongenVerhuisd a rdfs:Class ;
 
 # Properties for 'Bekendmakingen'
 
-:slachtoffer a rdf:Property ;
+ob:slachtoffer a rdf:Property ;
 	rdfs:label "slachtoffer"@nl ;
 	rdfs:subPropertyOf sdo:actor ;
 	rdf:comment "Een persoon die slachtoffer was in een gebeurtenis"@nl .
 
-:opdrachtgever a rdf:Property ;
+ob:opdrachtgever a rdf:Property ;
 	rdfs:label "opdrachtgever"@nl ;
 	rdfs:subPropertyOf sdo:actor ;
 	rdf:comment "Een persoon die de opdrachtgever was van een bekendmaking"@nl .
 
-:genoemde a rdf:Property ;
+ob:genoemde a rdf:Property ;
 	rdfs:label "genoemde"@nl ;
 	rdfs:subPropertyOf sdo:actor ;
 	rdf:comment "Een persoon die genoemd wordt bij een bekendmaking"@nl .
 
 # Class for rights statements
 
-:Rights a rdfs:Class ;
+ob:Rights a rdfs:Class ;
 	rdfs:label "Rechten"@nl ;
 	rdf:comment "Rights Statement"@en .
 
