@@ -38,21 +38,22 @@ sdo:Place rdfs:label "Locatie"@nl .
 	rdfs:subClassOf sdo:CreativeWork ;
 	rdf:comment "Superclass voor alle collectie objecten met een afbeelding"@nl .
 
+:Archiefmateriaal a rdfs:Class ;
+	rdfs:label "Archiefmateriaal"@nl ;
+	rdfs:subClassOf schema:CreativeWork ;
+	rdf:comment "Class for all archivematerial"@en .
+	
+:Bekendmaking a rdfs:Class ;
+ 	rdfs:label "Bekendmaking"@nl ;
+	rdfs:subClassOf sdo:Event ;
+	rdf:comment "Class for official announcements, treated as events "@en .
+	
 sdo:Photograph rdfs:subClassOf :Afbeelding .
 sdo:ImageObject rdfs:subClassOf :Afbeelding .
 sdo:VisualArtwork rdfs:subClassOf :Afbeelding .
 sdo:SheetMusic rdfs:subClassOf :Afbeelding .
 :Bekendmaking rdfs:subClassOf :Afbeelding .
 
-:Archiefmateriaal a rdfs:Class ;
-	rdfs:label "Archiefmateriaal"@nl ;
-	rdfs:subClassOf schema:CreativeWork ;
-	rdf:comment "Class for all archivematerial"@en .
-
-ob:Archive rdfs:subClassOf :Archiefmateriaal .
-ob:ArchiveSeries rdfs:subClassOf :Archiefmateriaal .
-ob:ArchiveFile rdfs:subClassOf :Archiefmateriaal .
-sdo:ArchiveComponent rdfs:subClassOf :Archiefmateriaal .
 
 # Specifieke subclasses van sdo:CreativeWork
 
@@ -353,12 +354,7 @@ niod:GedwongenVerhuisd a rdfs:Class ;
     rdfs:subClassOf sdo:Event ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/19198> .
 
-# Classes and properties for 'Bekendmakingen'
-
-:Bekendmaking a rdfs:Class ;
- 	rdfs:label "Bekendmaking"@nl ;
-	rdfs:subClassOf sdo:Event ;
-	rdf:comment "Class for official announcements, treated as events "@en .
+# Properties for 'Bekendmakingen'
 
 :slachtoffer a rdf:Property ;
 	rdfs:label "slachtoffer"@nl ;
