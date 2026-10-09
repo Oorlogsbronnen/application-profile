@@ -53,6 +53,8 @@ sdo:ImageObject rdfs:subClassOf ob:Afbeelding .
 sdo:VisualArtwork rdfs:subClassOf ob:Afbeelding .
 sdo:SheetMusic rdfs:subClassOf ob:Afbeelding .
 
+sdo:ArchiveComponent rdfs:subClassOf ob:Archiefmateriaal .
+
 # Specifieke subclasses van sdo:CreativeWork
 
 ob:Monument a rdfs:Class ;
@@ -63,19 +65,16 @@ ob:Monument a rdfs:Class ;
 ob:Archive a rdfs:Class ;
 	rdfs:label "Archief"@nl ;
 	rdfs:subClassOf sdo:ArchiveComponent ;
-	rdfs:subClassOf ob:Archiefmateriaal ;
 	rdf:comment "Class for an archive"@en .
 
 ob:ArchiveSeries a rdfs:Class ;
 	rdfs:label "Archiefreeks"@nl ;
 	rdfs:subClassOf sdo:ArchiveComponent ;
-	rdfs:subClassOf ob:Archiefmateriaal ;
 	rdf:comment "Class for a collection of archival documents"@en .
 
 ob:ArchiveFile a rdfs:Class ;
 	rdfs:label "Archiefstuk"@nl ;
 	rdfs:subClassOf sdo:ArchiveComponent ;
-	rdfs:subClassOf ob:Archiefmateriaal ;
 	rdf:comment "Class for archival documents"@en .
 
 ob:Certificate a rdfs:Class ;
