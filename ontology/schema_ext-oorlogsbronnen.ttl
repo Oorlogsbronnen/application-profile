@@ -13,7 +13,7 @@
 # Nederlandse labels voor objecten
 
 sdo:CreativeWork rdfs:label "Object"@nl .
-sdo:Article rdfs:label "Krantartikel"@nl . #TBD vervangen door sdo:NewsArticle
+sdo:Article rdfs:label "Krantenartikel"@nl . #TBD vervangen door sdo:NewsArticle
 sdo:Newspaper rdfs:label "Krant"@nl .
 sdo:Book rdfs:label "Boek"@nl .
 sdo:Photograph rdfs:label "Foto"@nl .
