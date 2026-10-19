@@ -52,6 +52,7 @@ sdo:Photograph rdfs:subClassOf ob:Afbeelding .
 sdo:ImageObject rdfs:subClassOf ob:Afbeelding .
 sdo:VisualArtwork rdfs:subClassOf ob:Afbeelding .
 sdo:SheetMusic rdfs:subClassOf ob:Afbeelding .
+ob:Bekendmaking rdfs:subClassOf ob:Afbeelding .
 
 sdo:ArchiveComponent rdfs:subClassOf ob:Archiefmateriaal .
 
