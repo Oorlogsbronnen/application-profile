@@ -85,7 +85,7 @@ ob:Rule_temporal           sh:path sdo:temporal ;      sh:node ob:Base_String .
 # --- Locatie ---
 ob:Rule_address            sh:path sdo:address ;         sh:node ob:Base_StringOrIRI .
 ob:Rule_birthPlace         sh:path sdo:birthPlace ;      sh:node ob:Base_StringOrIRI ; sh:maxCount 1 .
-ob:Rule_contentLocation    sh:path sdo:contentLocation ; sh:node ob:Base_StringOrIRI ; sh:class sdo:Place .
+ob:Rule_contentLocation    sh:path sdo:contentLocation ; sh:node ob:Base_StringOrIRI .
 ob:Rule_deathPlace         sh:path sdo:deathPlace ;      sh:node ob:Base_StringOrIRI ; sh:maxCount 1 .
 ob:Rule_fromLocation       sh:path sdo:fromLocation ;    sh:node ob:Base_StringOrIRI .
 ob:Rule_homeLocation       sh:path sdo:homeLocation ;    sh:node ob:Base_StringOrIRI .
@@ -95,8 +95,8 @@ ob:Rule_location           sh:path sdo:location ;        sh:node ob:Base_StringO
 ob:Rule_toLocation         sh:path sdo:toLocation ;      sh:node ob:Base_StringOrIRI .
 
 # --- Personen en Organisaties (Relaties) ---
-ob:Rule_creator            sh:path sdo:creator ;      sh:node ob:Base_StringOrIRI ; sh:or ([ sh:class sh:class picom:PersonReconstruction ] [ sh:class sdo:Person ]) .
-ob:Rule_contributor        sh:path sdo:contributor ;  sh:node ob:Base_StringOrIRI ; sh:or ([ sh:class sh:class picom:PersonReconstruction ] [ sh:class sdo:Person ]) .
+ob:Rule_creator            sh:path sdo:creator ;      sh:node ob:Base_StringOrIRI .
+ob:Rule_contributor        sh:path sdo:contributor ;  sh:node ob:Base_StringOrIRI .
 ob:Rule_publisher          sh:path sdo:publisher ;    sh:node ob:Base_IRI ;  sh:class sdo:Organization .
 ob:Rule_actor              sh:path sdo:actor ;        sh:node ob:Base_IRI ;  sh:class picom:PersonObservation .
 ob:Rule_gender_rec         sh:path sdo:gender ;       sh:node ob:Base_IRI .
