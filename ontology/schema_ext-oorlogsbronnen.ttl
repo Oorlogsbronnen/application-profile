@@ -45,7 +45,7 @@ ob:Archiefmateriaal a rdfs:Class ;
 	
 ob:Bekendmaking a rdfs:Class ;
  	rdfs:label "Bekendmaking"@nl ;
-	rdfs:subClassOf sdo:Event ;
+	rdfs:subClassOf sdo:Event, sdo:CreativeWork ;
 	rdf:comment "Class for official announcements, treated as events "@en .
 
 sdo:Photograph rdfs:subClassOf ob:Afbeelding .

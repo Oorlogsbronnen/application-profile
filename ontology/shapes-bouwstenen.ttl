@@ -3,7 +3,6 @@
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
-@prefix dcmit: <http://purl.org/dc/dcmitype/> .
 @prefix dcam: <http://purl.org/dc/dcam/> .
 @prefix edm: <http://www.europeana.eu/schemas/edm/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
@@ -58,7 +57,7 @@ ob:Rule_givenName          sh:path sdo:givenName ;      sh:node ob:Base_String .
 
 # --- Beschrijving en Categorisering ---
 ob:Rule_material                 sh:path sdo:material ;       sh:node ob:Base_String .
-ob:Rule_about                    sh:path sdo:about ;          sh:node ob:Base_IRI ; sh:or ([ sh:class skos:Concept ] [ sh:class sdo:Organization ] [ sh:class sdo:Place ] [ sh:class picom:PersonReconstruction ]) .
+ob:Rule_about                    sh:path sdo:about ;          sh:node ob:Base_IRI ; sh:or ([ sh:class skos:Concept ] [ sh:class sdo:Organization ] [ sh:class picom:PersonReconstruction ] [ sh:class sdo:Person ]) .
 ob:Rule_additionalType           sh:path sdo:additionalType ; sh:node ob:Base_String .
 ob:Rule_additionalType_archive   sh:path sdo:additionalType ; sh:node ob:Base_IRI ; sh:minCount 1 ; sh:maxCount 1 ; sh:or ([ sh:class ob:Archive ] [ sh:class ob:ArchiveFile ]) .
 ob:Rule_additionalType_events    sh:path sdo:additionalType ; sh:node ob:Base_IRI ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ob:PersonalEvent .
@@ -101,13 +100,13 @@ ob:Rule_publisher          sh:path sdo:publisher ;    sh:node ob:Base_IRI ;  sh:
 ob:Rule_actor              sh:path sdo:actor ;        sh:node ob:Base_IRI ;  sh:class picom:PersonObservation .
 ob:Rule_gender_rec         sh:path sdo:gender ;       sh:node ob:Base_IRI .
 ob:Rule_gender             sh:path sdo:gender ;       sh:node ob:Base_StringOrIRI .
-ob:Rule_children_rec       sh:path sdo:children;      sh:node ob:Base_IRI ;  sh:class picom:PersonReconstruction .
+ob:Rule_children_rec       sh:path sdo:children;      sh:node ob:Base_IRI ;  sh:or ([ sh:class sh:class picom:PersonReconstruction ] [ sh:class sdo:Person ]) .
 ob:Rule_children           sh:path sdo:children;      sh:node ob:Base_IRI ;  sh:class picom:PersonObservation .
-ob:Rule_parent_rec         sh:path sdo:parent ;       sh:node ob:Base_IRI ;  sh:class picom:PersonReconstruction .
+ob:Rule_parent_rec         sh:path sdo:parent ;       sh:node ob:Base_IRI ;  sh:or ([ sh:class sh:class picom:PersonReconstruction ] [ sh:class sdo:Person ]) .
 ob:Rule_parent             sh:path sdo:parent ;       sh:node ob:Base_IRI ;  sh:class picom:PersonObservation .
-ob:Rule_sibling_rec        sh:path sdo:sibling ;      sh:node ob:Base_IRI ;  sh:class picom:PersonReconstruction .
+ob:Rule_sibling_rec        sh:path sdo:sibling ;      sh:node ob:Base_IRI ;  sh:or ([ sh:class sh:class picom:PersonReconstruction ] [ sh:class sdo:Person ]) .
 ob:Rule_sibling            sh:path sdo:sibling ;      sh:node ob:Base_IRI ;  sh:class picom:PersonObservation .
-ob:Rule_spouse_rec         sh:path sdo:spouse ;       sh:node ob:Base_IRI ;  sh:class picom:PersonReconstruction .
+ob:Rule_spouse_rec         sh:path sdo:spouse ;       sh:node ob:Base_IRI ;  sh:or ([ sh:class sh:class picom:PersonReconstruction ] [ sh:class sdo:Person ]) .
 ob:Rule_spouse             sh:path sdo:spouse ;       sh:node ob:Base_IRI ;  sh:class picom:PersonObservation .
 ob:Rule_provider           sh:path sdo:provider ;     sh:node ob:Base_IRI ;  sh:class sdo:Organization .
 
