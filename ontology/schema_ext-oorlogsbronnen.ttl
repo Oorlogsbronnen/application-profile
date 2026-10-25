@@ -44,9 +44,9 @@ ob:Archiefmateriaal a rdfs:Class ;
 	rdf:comment "Class for all archivematerial"@en .
 	
 ob:Bekendmaking a rdfs:Class ;
-    rdfs:label "Bekendmaking"@nl ;
-    rdfs:subClassOf sdo:Event, ob:Afbeelding ;
-    rdf:comment "Class for official announcements, treated as events and visual collection items"@en .
+	rdfs:label "Bekendmaking"@nl ;
+	rdfs:subClassOf sdo:Event, ob:Afbeelding ;
+	rdf:comment "Class for official announcements, treated as events and visual collection items"@en .
 
 sdo:Photograph rdfs:subClassOf ob:Afbeelding .
 sdo:ImageObject rdfs:subClassOf ob:Afbeelding .
@@ -78,9 +78,9 @@ ob:ArchiveFile a rdfs:Class ;
 	rdf:comment "Class for archival documents"@en .
 
 ob:Certificate a rdfs:Class ;
-  	rdfs:label "Akte"@nl ;
-  	rdfs:subClassOf sdo:CreativeWork ;
-  	rdf:comment "Class for archival certificates"@en .
+	rdfs:label "Akte"@nl ;
+	rdfs:subClassOf sdo:CreativeWork ;
+	rdf:comment "Class for archival certificates"@en .
 
 ob:Interview a rdfs:Class ;
 	rdfs:label "Interview"@nl ;
