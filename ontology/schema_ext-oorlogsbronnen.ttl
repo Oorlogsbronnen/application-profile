@@ -44,16 +44,14 @@ ob:Archiefmateriaal a rdfs:Class ;
 	rdf:comment "Class for all archivematerial"@en .
 	
 ob:Bekendmaking a rdfs:Class ;
- 	rdfs:label "Bekendmaking"@nl ;
-	rdfs:subClassOf sdo:Event ;
-	rdfs:subClassOf sdo:CreativeWork ;
-	rdf:comment "Class for official announcements, treated as events "@en .
+    rdfs:label "Bekendmaking"@nl ;
+    rdfs:subClassOf sdo:Event, ob:Afbeelding ;
+    rdf:comment "Class for official announcements, treated as events and visual collection items"@en .
 
 sdo:Photograph rdfs:subClassOf ob:Afbeelding .
 sdo:ImageObject rdfs:subClassOf ob:Afbeelding .
 sdo:VisualArtwork rdfs:subClassOf ob:Afbeelding .
 sdo:SheetMusic rdfs:subClassOf ob:Afbeelding .
-ob:Bekendmaking rdfs:subClassOf ob:Afbeelding .
 
 sdo:ArchiveComponent rdfs:subClassOf ob:Archiefmateriaal .
 
