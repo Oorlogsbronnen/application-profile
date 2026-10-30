@@ -100,13 +100,13 @@ ob:Rule_publisher          sh:path sdo:publisher ;    sh:node ob:Base_IRI ;  sh:
 ob:Rule_actor              sh:path sdo:actor ;        sh:node ob:Base_IRI ;  sh:class picom:PersonObservation .
 ob:Rule_gender_rec         sh:path sdo:gender ;       sh:node ob:Base_IRI .
 ob:Rule_gender             sh:path sdo:gender ;       sh:node ob:Base_StringOrIRI .
-ob:Rule_children_rec       sh:path sdo:children;      sh:node ob:Base_IRI ;  sh:or ([ sh:class sh:class picom:PersonReconstruction ] [ sh:class sdo:Person ]) .
+ob:Rule_children_rec       sh:path sdo:children;      sh:node ob:Base_IRI ;  sh:or ([ sh:class picom:PersonReconstruction ] [ sh:class sdo:Person ]) .
 ob:Rule_children           sh:path sdo:children;      sh:node ob:Base_IRI ;  sh:class picom:PersonObservation .
-ob:Rule_parent_rec         sh:path sdo:parent ;       sh:node ob:Base_IRI ;  sh:or ([ sh:class sh:class picom:PersonReconstruction ] [ sh:class sdo:Person ]) .
+ob:Rule_parent_rec         sh:path sdo:parent ;       sh:node ob:Base_IRI ;  sh:or ([ sh:class picom:PersonReconstruction ] [ sh:class sdo:Person ]) .
 ob:Rule_parent             sh:path sdo:parent ;       sh:node ob:Base_IRI ;  sh:class picom:PersonObservation .
-ob:Rule_sibling_rec        sh:path sdo:sibling ;      sh:node ob:Base_IRI ;  sh:or ([ sh:class sh:class picom:PersonReconstruction ] [ sh:class sdo:Person ]) .
+ob:Rule_sibling_rec        sh:path sdo:sibling ;      sh:node ob:Base_IRI ;  sh:or ([ sh:class picom:PersonReconstruction ] [ sh:class sdo:Person ]) .
 ob:Rule_sibling            sh:path sdo:sibling ;      sh:node ob:Base_IRI ;  sh:class picom:PersonObservation .
-ob:Rule_spouse_rec         sh:path sdo:spouse ;       sh:node ob:Base_IRI ;  sh:or ([ sh:class sh:class picom:PersonReconstruction ] [ sh:class sdo:Person ]) .
+ob:Rule_spouse_rec         sh:path sdo:spouse ;       sh:node ob:Base_IRI ;  sh:or ([ sh:class picom:PersonReconstruction ] [ sh:class sdo:Person ]) .
 ob:Rule_spouse             sh:path sdo:spouse ;       sh:node ob:Base_IRI ;  sh:class picom:PersonObservation .
 ob:Rule_provider           sh:path sdo:provider ;     sh:node ob:Base_IRI ;  sh:class sdo:Organization .
 
