@@ -1,0 +1,28 @@
+# Controleert de bronbestanden in ontology/ op elke pull request naar main:
+# geldige Turtle, en shapes die de schema-generator accepteert. Een fout
+# verschijnt als rode check met een Nederlandse melding, bij een .ttl-fout
+# ook op de regel zelf in de PR-diff. Zie specs/2026-10-30-duidelijke-buildfouten.md.
+name: Controle bronbestanden
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  controle:
+    name: Controle bronbestanden
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # Leest de pnpm-versie uit `packageManager` in package.json.
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      # Alleen de generator: de controle bouwt de website niet.
+      - run: pnpm install --frozen-lockfile --filter @oorlogsbronnen/schema-docs
+      - run: pnpm check
