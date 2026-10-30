@@ -1,8 +1,12 @@
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
+import type { Vocabulary } from "../src/model.js";
 import type { PageContent } from "../src/page-content.js";
 import { renderPage } from "../src/render-page.js";
 import { renderGroupDiagram } from "../src/render-diagram.js";
 import { parseProfile } from "../src/parse-shapes.js";
+import { parseVocabulary } from "../src/parse-vocabulary.js";
 import { allShapes } from "../src/presenter.js";
 import { loadRealProfile } from "./helpers.js";
 
@@ -16,12 +20,18 @@ const emptyContent: PageContent = {
   fullExamples: [],
 };
 
+const emptyVocabulary: Vocabulary = {
+  classes: [],
+  properties: [],
+  eventTypes: [],
+};
+
 function escapeRegExp(text: string): string {
   return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
 describe("renderPage", () => {
-  const page = renderPage(profile, emptyContent);
+  const page = renderPage(profile, emptyContent, emptyVocabulary);
 
   it("gebruikt de Nederlandse naam als koptitel en de local name als anker", () => {
     for (const shape of allShapes(profile)) {
@@ -94,7 +104,7 @@ describe("renderPage met redactionele en voorbeeld-inhoud", () => {
     classExamples: new Map([["EventShape", '{\n  "@type": "sdo:Event"\n}']]),
     fullExamples: [{ name: "persoon", json: '{\n  "@id": "urn:x"\n}' }],
   };
-  const page = renderPage(profile, content);
+  const page = renderPage(profile, content, emptyVocabulary);
 
   it("voegt het toelichting-hoofdstuk in als hoofdstuk 2 en schuift de grafen op", () => {
     expect(page).toContain(
@@ -232,6 +242,7 @@ describe("klasse die in meerdere kennisgrafen een shape heeft", () => {
   const [personenTabellen, objectenTabellen] = renderPage(
     gedeeldeKlasse,
     emptyContent,
+    emptyVocabulary,
   ).split("{#objecten}");
 
   it("wijst in het diagram naar de shape uit dezelfde graaf, met één pijl", () => {
@@ -278,5 +289,77 @@ describe("hadPrimarySource in het echte personendiagram", () => {
       "PersoonsvermeldingShape --> SourceShape : hadPrimarySource",
     ]);
     expect(personenDiagram).not.toContain("ArchiefShape");
+  });
+});
+
+describe("renderPage met de vocabulaire", () => {
+  const vocabulary = parseVocabulary(
+    readFileSync(
+      resolve(__dirname, "../../../ontology/schema_ext-oorlogsbronnen.ttl"),
+      "utf8",
+    ),
+  );
+  const page = renderPage(profile, emptyContent, vocabulary);
+  const block = (anchor: string) => {
+    const start = page.indexOf(`{#${anchor}}`);
+    return page.slice(start, page.indexOf("\n#", start));
+  };
+
+  it("voegt het hoofdstuk Vocabulaire toe na de kennisgrafen, met drie onderdelen", () => {
+    const order = [
+      "{#objecten}",
+      "## 4. Vocabulaire {#vocabulaire}",
+      "### 4.1 Klassen {#vocabulaire-klassen}",
+      "### 4.2 Properties {#vocabulaire-properties}",
+      "### 4.3 Gebeurtenistypen (WO2 Thesaurus) {#gebeurtenistypen}",
+    ].map((text) => page.indexOf(text));
+    expect(order.every((index) => index >= 0)).toBe(true);
+    expect(order).toEqual([...order].sort((a, b) => a - b));
+  });
+
+  it("geeft elke ob:-term een kop met de local name als anker en de volledige IRI", () => {
+    expect(page).toContain(
+      "#### Archief {#Archive}\n\n`https://data.oorlogsbronnen.nl/schema#Archive`",
+    );
+    expect(page).toContain("#### slachtoffer {#slachtoffer}");
+  });
+
+  it("linkt een superklasse intern als die in de vocabulaire staat, anders naar de IRI", () => {
+    expect(block("Bekendmaking")).toContain(
+      "**Subklasse van:** [`sdo:Event`](https://schema.org/Event), [`ob:Afbeelding`](#Afbeelding)",
+    );
+    expect(block("slachtoffer")).toContain(
+      "**Subproperty van:** [`sdo:actor`](https://schema.org/actor)",
+    );
+  });
+
+  it("markeert een Engelse beschrijving met lang=en en laat een Nederlandse ongemoeid", () => {
+    expect(block("Archive")).toContain('<p lang="en">Class for an archive</p>');
+    expect(block("slachtoffer")).toContain(
+      "\n\nEen persoon die slachtoffer was in een gebeurtenis",
+    );
+  });
+
+  it("laat lege velden weg", () => {
+    expect(block("Rights")).not.toContain("Subklasse van");
+  });
+
+  it("toont de gebeurtenistypen als tabel met anker en thesauruslink", () => {
+    expect(page).toContain(
+      '| <span id="niod-Geboren"></span>**Geboren**<br/>[`niod:Geboren`](https://data.niod.nl/WO2_Thesaurus/Geboren) | [`sdo:Event`](https://schema.org/Event) |  | [WO2 Thesaurus](https://data.niod.nl/WO2_Thesaurus/events/6360) |',
+    );
+  });
+
+  it("linkt vanuit de shapes intern naar een ob:-term uit de vocabulaire", () => {
+    expect(page).toContain("[`ob:Archive`](#Archive)");
+    expect(page).toContain(
+      "**Van toepassing op:** [`ob:Bekendmaking`](#Bekendmaking)",
+    );
+  });
+
+  it("laat het hoofdstuk weg zonder vocabulaire", () => {
+    expect(renderPage(profile, emptyContent, emptyVocabulary)).not.toContain(
+      "{#vocabulaire}",
+    );
   });
 });

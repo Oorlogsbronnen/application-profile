@@ -97,16 +97,20 @@ export type RenderContext = {
   rules: Map<string, RuleBlock>;
   bases: Map<string, BaseBlock>;
   targetIndex: Map<string, ClassShape>;
+  /** IRI's van de `ob:`-termen met een eigen blok in het vocabulaire-hoofdstuk. */
+  vocabularyIris: ReadonlySet<string>;
 };
 
 export function buildRenderContext(
   profile: ApplicationProfile,
   groupId: GroupId,
+  vocabularyIris: ReadonlySet<string> = new Set(),
 ): RenderContext {
   return {
     rules: rulesByName(profile),
     bases: basesByName(profile),
     targetIndex: shapeByTargetClass(profile, groupId),
+    vocabularyIris,
   };
 }
 

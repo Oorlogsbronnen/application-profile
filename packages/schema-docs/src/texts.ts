@@ -17,8 +17,8 @@ export const texts = {
     slug: "/schema",
     sidebarPosition: 3,
     metaDescription:
-      "De klassen en properties van de kennisgrafen personen en objecten van Oorlogsbronnen, gegenereerd uit de SHACL-shapes in ontology/.",
-    intro: `Het application profile van Oorlogsbronnen definieert de klassen en properties waarmee metadata over personen, gebeurtenissen en bronnen wordt vastgelegd, verdeeld over twee kennisgrafen: **personen** en **objecten**. Deze pagina is automatisch gegenereerd uit de SHACL-shapes in [\`ontology/\`](${REPO_URL}/tree/main/ontology) (\`shapes-bouwstenen.ttl\`, \`shapes-personen.ttl\` en \`shapes-collecties.ttl\`) — die bestanden zijn en blijven de source of truth.`,
+      "De klassen en properties van de kennisgrafen personen en objecten van Oorlogsbronnen en de eigen vocabulaire, gegenereerd uit de SHACL-shapes en de vocabulaire in ontology/.",
+    intro: `Het application profile van Oorlogsbronnen definieert de klassen en properties waarmee metadata over personen, gebeurtenissen en bronnen wordt vastgelegd, verdeeld over twee kennisgrafen: **personen** en **objecten**. Deze pagina is automatisch gegenereerd uit de SHACL-shapes in [\`ontology/\`](${REPO_URL}/tree/main/ontology) (\`shapes-bouwstenen.ttl\`, \`shapes-personen.ttl\` en \`shapes-collecties.ttl\`) en de vocabulaire \`schema_ext-oorlogsbronnen.ttl\` — die bestanden zijn en blijven de source of truth.`,
     namespaceLabel: "Namespace",
     machineReadableLabel: "Machine-leesbaar",
     machineReadableLink:
@@ -28,7 +28,7 @@ export const texts = {
       ].join(" · ") + " (Turtle)",
     generatedComment: [
       "GEGENEREERD BESTAND — niet handmatig bewerken.",
-      "Bron: ontology/shapes-*.ttl · generator: packages/schema-docs",
+      "Bron: ontology/shapes-*.ttl en ontology/schema_ext-oorlogsbronnen.ttl · generator: packages/schema-docs",
       "Toelichting-hoofdstuk bewerken: website/docs/datamodel/_schema-toelichting.mdx",
       "Intro's van de kennisgraaf-hoofdstukken: website/docs/datamodel/_schema-personen.mdx en _schema-objecten.mdx",
       "Voorbeelden toevoegen: ontology/examples/ (zie packages/schema-docs/README.md)",
@@ -39,6 +39,25 @@ export const texts = {
     overview: "Overzicht",
     editorial: "Datamodellen en vocabulaires",
     fullExamples: "Volledige voorbeelden",
+    vocabulary: "Vocabulaire",
+  },
+
+  vocabulary: {
+    intro: `De eigen classes en properties van Oorlogsbronnen (\`ob:\`) en de gebeurtenistypen uit de WO2 Thesaurus (\`niod:\`), gegenereerd uit [\`ontology/schema_ext-oorlogsbronnen.ttl\`](${REPO_URL}/blob/main/ontology/schema_ext-oorlogsbronnen.ttl). De IRI van elke \`ob:\`-term verwijst naar zijn blok op deze pagina: \`ob:<Naam>\` is \`https://data.oorlogsbronnen.nl/schema#<Naam>\`.`,
+    classes: "Klassen",
+    properties: "Properties",
+    eventTypes: "Gebeurtenistypen (WO2 Thesaurus)",
+    eventTypesIntro:
+      "Classes in de namespace van de WO2 Thesaurus voor persoonlijke gebeurtenissen. De definitie van elk type staat in de thesaurus.",
+    parentClassLabel: "Subklasse van",
+    parentPropertyLabel: "Subproperty van",
+    eventTypesHeader: [
+      "Gebeurtenistype",
+      "Subklasse van",
+      "Beschrijving",
+      "Definitie",
+    ],
+    definedByLink: "WO2 Thesaurus",
   },
 
   classShape: {
