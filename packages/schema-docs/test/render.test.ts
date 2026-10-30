@@ -50,7 +50,7 @@ describe("renderPage", () => {
 
   it("toont de volledige IRI onder elke klasse-kop", () => {
     expect(page).toContain(
-      "`https://data.oorlogsbronnen.nl/schema#ArchiveShape`",
+      "`https://data.oorlogsbronnen.nl/schema#ArchiefShape`",
     );
   });
 
@@ -71,14 +71,10 @@ describe("renderPage", () => {
     expect(page).toContain(
       "erft alle regels van [`CreativeWorkShape`](#CreativeWorkShape)",
     );
-    expect(page).toContain(
-      "erft alle regels van [`PersoonsReconstructieShape`](#PersoonsReconstructieShape)",
-    );
   });
 
-  it("markeert verplichte en uitgesloten properties in de kardinaliteit", () => {
+  it("markeert verplichte properties in de kardinaliteit", () => {
     expect(page).toContain("1 — verplicht");
-    expect(page).toContain("0 — niet toegestaan");
   });
 
   it("bevat de frontmatter voor /schema", () => {
@@ -142,9 +138,8 @@ describe("renderGroupDiagram", () => {
     expect(personenDiagram).toContain("**sdo:name**: xsd:string [1]");
     expect(personenDiagram).toContain("**sdo:birthDate**: xsd:date [0..1]");
     expect(personenDiagram).toContain(
-      "**sdo:additionalType**: xsd:string | IRI [0..*]",
+      "**sdo:birthPlace**: xsd:string | IRI [0..1]",
     );
-    expect(personenDiagram).toContain("**prov:wasDerivedFrom** [0]");
   });
 
   it("laat het waardetype weg bij relaties — de pijl toont het doel al", () => {
@@ -160,29 +155,29 @@ describe("renderGroupDiagram", () => {
       'click CreativeWorkShape href "#CreativeWorkShape"',
     );
     expect(objectenDiagram).toContain(
-      'click PersoonsvermeldingShape href "#PersoonsvermeldingShape"',
+      'click PersoonsReconstructieShape href "#PersoonsReconstructieShape"',
     );
   });
 
   it("tekent overerving en verwijzingen binnen de graaf", () => {
     expect(personenDiagram).toContain(
-      "PersoonsvermeldingShape --|> PersoonsReconstructieShape",
+      "PersoonsReconstructieShape --> PersoonsvermeldingShape : wasDerivedFrom",
     );
     expect(personenDiagram).toContain(
-      "SourceShape --> DatasetShape : inDataset",
+      "SourceShape --> DatasetShape : isPartOf",
     );
-    expect(objectenDiagram).toContain("ArchiveShape --|> CreativeWorkShape");
+    expect(objectenDiagram).toContain("ArchiefShape --|> CreativeWorkShape");
   });
 
   it("toont een verwijzing naar de andere graaf als kale node", () => {
     expect(objectenDiagram).toContain(
-      "CreativeWorkShape --> PersoonsvermeldingShape : about",
+      "CreativeWorkShape --> PersoonsReconstructieShape : about",
     );
     expect(objectenDiagram).toContain(
-      '  class PersoonsvermeldingShape["Persoonsvermeldingen"]\n',
+      '  class PersoonsReconstructieShape["Persoonsreconstructies"]\n',
     );
     expect(objectenDiagram).not.toContain(
-      'class PersoonsvermeldingShape["Persoonsvermeldingen"] {',
+      'class PersoonsReconstructieShape["Persoonsreconstructies"] {',
     );
   });
 

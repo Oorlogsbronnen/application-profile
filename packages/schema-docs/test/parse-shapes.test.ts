@@ -136,19 +136,16 @@ describe("parseProfile op de echte shapes-bestanden", () => {
         .find((group) => group.id === id)!
         .shapes.map((shape) => shape.localName);
     expect(names("personen")).toContain("PersoonsReconstructieShape");
-    expect(names("personen")).toHaveLength(5);
+    expect(names("personen")).toHaveLength(7);
     expect(names("objecten")).toContain("CreativeWorkShape");
-    expect(names("objecten")).toHaveLength(6);
+    expect(names("objecten")).toHaveLength(8);
   });
 
-  it("herkent de overerving binnen beide grafen", () => {
-    const shapes = allShapes(profile);
-    const vermelding = shapes.find(
-      (shape) => shape.localName === "PersoonsvermeldingShape",
+  it("herkent de overerving via sh:node", () => {
+    const archief = allShapes(profile).find(
+      (shape) => shape.localName === "ArchiefShape",
     );
-    expect(vermelding?.inheritsFrom).toEqual(["PersoonsReconstructieShape"]);
-    const archive = shapes.find((shape) => shape.localName === "ArchiveShape");
-    expect(archive?.inheritsFrom).toEqual(["CreativeWorkShape"]);
+    expect(archief?.inheritsFrom).toEqual(["CreativeWorkShape"]);
   });
 
   it("vindt de bouwstenen", () => {
