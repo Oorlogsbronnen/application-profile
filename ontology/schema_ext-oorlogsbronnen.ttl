@@ -36,17 +36,17 @@ sdo:Place rdfs:label "Locatie"@nl .
 ob:Afbeelding a rdfs:Class ;
 	rdfs:label "Afbeelding"@nl ;
 	rdfs:subClassOf sdo:CreativeWork ;
-	rdf:comment "Superclass voor alle collectie objecten met een afbeelding"@nl .
+	rdfs:comment "Superclass voor alle collectie objecten met een afbeelding"@nl .
 
 ob:Archiefmateriaal a rdfs:Class ;
 	rdfs:label "Archiefmateriaal"@nl ;
 	rdfs:subClassOf sdo:CreativeWork ;
-	rdf:comment "Class for all archivematerial"@en .
+	rdfs:comment "Class for all archivematerial"@en .
 	
 ob:Bekendmaking a rdfs:Class ;
 	rdfs:label "Bekendmaking"@nl ;
 	rdfs:subClassOf sdo:Event, ob:Afbeelding, sdo:CreativeWork ;
-	rdf:comment "Class for official announcements, treated as events and visual collection items"@en .
+	rdfs:comment "Class for official announcements, treated as events and visual collection items"@en .
 
 sdo:Photograph rdfs:subClassOf ob:Afbeelding .
 sdo:ImageObject rdfs:subClassOf ob:Afbeelding .
@@ -60,43 +60,43 @@ sdo:ArchiveComponent rdfs:subClassOf ob:Archiefmateriaal .
 ob:Monument a rdfs:Class ;
 	rdfs:label "Monument"@nl ;
 	rdfs:subClassOf sdo:CreativeWork ;
-	rdf:comment "Class for monuments"@en .
+	rdfs:comment "Class for monuments"@en .
 
 ob:Archive a rdfs:Class ;
 	rdfs:label "Archief"@nl ;
 	rdfs:subClassOf sdo:ArchiveComponent ;
-	rdf:comment "Class for an archive"@en .
+	rdfs:comment "Class for an archive"@en .
 
 ob:ArchiveSeries a rdfs:Class ;
 	rdfs:label "Archiefreeks"@nl ;
 	rdfs:subClassOf sdo:ArchiveComponent ;
-	rdf:comment "Class for a collection of archival documents"@en .
+	rdfs:comment "Class for a collection of archival documents"@en .
 
 ob:ArchiveFile a rdfs:Class ;
 	rdfs:label "Archiefstuk"@nl ;
 	rdfs:subClassOf sdo:ArchiveComponent ;
-	rdf:comment "Class for archival documents"@en .
+	rdfs:comment "Class for archival documents"@en .
 
 ob:Certificate a rdfs:Class ;
 	rdfs:label "Akte"@nl ;
 	rdfs:subClassOf sdo:CreativeWork ;
-	rdf:comment "Class for archival certificates"@en .
+	rdfs:comment "Class for archival certificates"@en .
 
 ob:Interview a rdfs:Class ;
 	rdfs:label "Interview"@nl ;
 	rdfs:subClassOf sdo:CreativeWork ;
-	rdf:comment "Class for interviews"@en .
+	rdfs:comment "Class for interviews"@en .
 
 ob:InterviewSegment a rdfs:Class ;
 	rdfs:label "Fragment"@nl ;
 	rdfs:subClassOf sdo:CreativeWork ;
-	rdf:comment "Class for interviews segments"@en .
+	rdfs:comment "Class for interviews segments"@en .
 
 # Curated content
 
 ob:Webpagina a rdfs:Class ;
 	rdfs:label "Webpagina"@nl ;
-	rdf:comment "Class for all web content created by Oorlogsbronnen"@en .
+	rdfs:comment "Class for all web content created by Oorlogsbronnen"@en .
 
 sdo:WebPage rdfs:subClassOf ob:Webpagina .
 skos:Concept rdfs:subClassOf ob:Webpagina . # hack to get all thesaurus content available as webpagina
@@ -359,30 +359,30 @@ niod:GedwongenVerhuisd a rdfs:Class ;
 ob:slachtoffer a rdf:Property ;
 	rdfs:label "slachtoffer"@nl ;
 	rdfs:subPropertyOf sdo:actor ;
-	rdf:comment "Een persoon die slachtoffer was in een gebeurtenis"@nl .
+	rdfs:comment "Een persoon die slachtoffer was in een gebeurtenis"@nl .
 
 ob:opdrachtgever a rdf:Property ;
 	rdfs:label "opdrachtgever"@nl ;
 	rdfs:subPropertyOf sdo:actor ;
-	rdf:comment "Een persoon die de opdrachtgever was van een bekendmaking"@nl .
+	rdfs:comment "Een persoon die de opdrachtgever was van een bekendmaking"@nl .
 
 ob:genoemde a rdf:Property ;
 	rdfs:label "genoemde"@nl ;
 	rdfs:subPropertyOf sdo:actor ;
-	rdf:comment "Een persoon die genoemd wordt bij een bekendmaking"@nl .
+	rdfs:comment "Een persoon die genoemd wordt bij een bekendmaking"@nl .
 
 # Class for rights statements
 
 ob:Rights a rdfs:Class ;
 	rdfs:label "Rechten"@nl ;
-	rdf:comment "Rights Statement"@en .
+	rdfs:comment "Rights Statement"@en .
 
 # Classes for persons from Persons In Context
 
 picom:PersonObservation a rdfs:Class ;
         rdfs:label "Persoonsvermelding"@nl ;
-        rdf:comment "Persoon zoals geobserveerd in een bron"@nl .
+        rdfs:comment "Persoon zoals geobserveerd in een bron"@nl .
     
 picom:PersonReconstruction a rdfs:Class ;
         rdfs:label "Persoonsreconstructie"@nl ;
-        rdf:comment "Persoon gemodelleerd op basis van een of meer persoonsvermeldingen"@nl .
+        rdfs:comment "Persoon gemodelleerd op basis van een of meer persoonsvermeldingen"@nl .
