@@ -6,6 +6,7 @@
   "scripts": {
     "start": "pnpm --filter website start",
     "build": "pnpm --filter website build",
+    "check": "pnpm --filter @oorlogsbronnen/schema-docs check",
     "test": "pnpm --recursive test",
     "typecheck": "pnpm --recursive typecheck"
   },

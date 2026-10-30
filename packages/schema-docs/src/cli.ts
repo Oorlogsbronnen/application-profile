@@ -1,6 +1,12 @@
-import { readFileSync, writeFileSync } from "node:fs";
+import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  checkSources,
+  formatProblems,
+  githubAnnotation,
+  githubError,
+} from "./check-sources.js";
 import { GROUPS, type GroupId } from "./groups.js";
 import { loadPageContent } from "./load-content.js";
 import { combineTurtle, parseProfile } from "./parse-shapes.js";
@@ -13,7 +19,36 @@ const staticDir = resolve(repoRoot, "website/static");
 
 const pagePath = resolve(docsDir, "application-profile.mdx");
 
+// Met --check (`pnpm check`) wordt alles gecontroleerd en gerenderd, maar
+// niets weggeschreven.
+const checkOnly = process.argv.includes("--check");
+const inGitHubActions = process.env.GITHUB_ACTIONS === "true";
+
 try {
+  // Eerst alle bronbestanden, ook de vocabulaire die de generator verder niet
+  // leest: een syntaxfout daarin zou anders ongemerkt online komen.
+  const shapesFiles = new Set<string>([
+    "shapes-bouwstenen.ttl",
+    ...GROUPS.map((group) => group.shapesFile),
+  ]);
+  const ontologyFiles = readdirSync(ontologyDir)
+    .filter((name) => name.endsWith(".ttl"))
+    .sort();
+  const problems = checkSources(
+    ontologyFiles.map((name) => ({
+      file: `ontology/${name}`,
+      turtle: readFileSync(resolve(ontologyDir, name), "utf8"),
+      shapes: shapesFiles.has(name),
+    })),
+  );
+  if (problems.length > 0) {
+    console.error(formatProblems(problems));
+    if (inGitHubActions) {
+      problems.forEach((problem) => console.log(githubAnnotation(problem)));
+    }
+    process.exit(1);
+  }
+
   const bouwstenen = readFileSync(
     resolve(ontologyDir, "shapes-bouwstenen.ttl"),
     "utf8",
@@ -56,7 +91,15 @@ try {
     }
   }
 
-  writeFileSync(pagePath, renderPage(profile, content), "utf8");
+  const page = renderPage(profile, content);
+  if (checkOnly) {
+    console.log(
+      `Controle geslaagd: ${ontologyFiles.length} bronbestanden en ${shapeNames.size} klassen zijn in orde.`,
+    );
+    process.exit(0);
+  }
+
+  writeFileSync(pagePath, page, "utf8");
 
   // Machine-leesbare downloads: het volledige profiel en één bestand per
   // kennisgraaf, elk inclusief de bouwstenen zodat het zelfstandig valideert.
@@ -79,7 +122,11 @@ try {
       `${exampleCount} voorbeelden → ${pagePath}`,
   );
 } catch (error) {
+  const message = error instanceof Error ? error.message : String(error);
   console.error("Genereren van de schema-documentatie is mislukt.");
-  console.error(error instanceof Error ? error.message : error);
+  console.error(message);
+  if (inGitHubActions) {
+    console.log(githubError(message, ["title=Genereren mislukt"]));
+  }
   process.exit(1);
 }
