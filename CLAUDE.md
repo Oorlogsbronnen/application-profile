@@ -28,17 +28,7 @@ De repo is een pnpm-monorepo:
 Package manager: **pnpm** (workspaces). Draai `pnpm install` vanaf de root.
 
 - Website: `pnpm start` (dev-server) · `pnpm build` (productie-build) · `pnpm typecheck` · `pnpm test` (unit tests van de generator)
-- Valideer Turtle-syntax (spiegelt stap 1 van de CI, vereist `pip install rdflib`; de glob pakt automatisch alle bronbestanden mee):
-  ```sh
-  python3 -c "
-  import glob
-  from rdflib import Graph
-  g = Graph()
-  for f in sorted(glob.glob('ontology/*.ttl')):
-      g.parse(f, format='turtle')
-  print('OK:', len(g), 'triples')
-  "
-  ```
+- Controleer de bronbestanden: `pnpm check` — leest alle `ontology/*.ttl` in en draait de schema-generator zonder iets weg te schrijven. Dezelfde controle draait als GitHub-check op elke PR naar `main` en als eerste stap van `pnpm build` (zie `specs/2026-10-30-duidelijke-buildfouten.md`).
 - Valideer JSON-LD: `python3 -c "import json; json.load(open('context/context.jsonld'))"`
 - Format (markdown/JSON): `npx prettier@latest --write <bestand>` — voor `.ttl` bestaat geen formatter; volg de bestaande serialisatie-stijl van het bestand.
 
