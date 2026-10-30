@@ -3,6 +3,7 @@ import type {
   BaseBlock,
   Cardinality,
   ClassShape,
+  GroupId,
   RuleBlock,
   Term,
   ValueType,
@@ -54,14 +55,26 @@ export function allShapes(profile: ApplicationProfile): ClassShape[] {
   return profile.groups.flatMap((group) => group.shapes);
 }
 
-/** Index van klasse-IRI naar de shape die die klasse als targetClass heeft. */
+/**
+ * Index van klasse-IRI naar de shape die die klasse als targetClass heeft,
+ * gezien vanuit één kennisgraaf. Heeft een klasse in meerdere grafen een
+ * shape (zoals sdo:ArchiveComponent), dan wint die uit de eigen graaf;
+ * anders de eerste in leesvolgorde.
+ */
 export function shapeByTargetClass(
   profile: ApplicationProfile,
+  groupId: GroupId,
 ): Map<string, ClassShape> {
+  const ownGroupFirst = [
+    ...profile.groups.filter((group) => group.id === groupId),
+    ...profile.groups.filter((group) => group.id !== groupId),
+  ];
   const index = new Map<string, ClassShape>();
-  for (const shape of allShapes(profile)) {
+  for (const shape of ownGroupFirst.flatMap((group) => group.shapes)) {
     for (const targetClass of shape.targetClasses) {
-      index.set(targetClass.iri, shape);
+      if (!index.has(targetClass.iri)) {
+        index.set(targetClass.iri, shape);
+      }
     }
   }
   return index;
@@ -79,18 +92,21 @@ export function basesByName(
   return new Map(profile.bases.map((base) => [base.localName, base]));
 }
 
-/** De indexen die de pagina- en diagram-renderer delen. */
+/** De indexen die de pagina- en diagram-renderer delen, voor één kennisgraaf. */
 export type RenderContext = {
   rules: Map<string, RuleBlock>;
   bases: Map<string, BaseBlock>;
   targetIndex: Map<string, ClassShape>;
 };
 
-export function buildRenderContext(profile: ApplicationProfile): RenderContext {
+export function buildRenderContext(
+  profile: ApplicationProfile,
+  groupId: GroupId,
+): RenderContext {
   return {
     rules: rulesByName(profile),
     bases: basesByName(profile),
-    targetIndex: shapeByTargetClass(profile),
+    targetIndex: shapeByTargetClass(profile, groupId),
   };
 }
 
