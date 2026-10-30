@@ -1,11 +1,14 @@
 import type {
   ApplicationProfile,
   ClassShape,
+  LocalizedText,
   PropertyDoc,
   RuleBlock,
   ShapeGroup,
   Term,
   ValueType,
+  Vocabulary,
+  VocabularyTerm,
 } from "./model.js";
 import type { Example, PageContent } from "./page-content.js";
 import { groupTitle } from "./groups.js";
@@ -16,6 +19,7 @@ import {
   resolveRuleValueType,
   type RenderContext,
 } from "./presenter.js";
+import { localName } from "./iri.js";
 import { renderGroupDiagram } from "./render-diagram.js";
 import { SCHEMA_NS } from "./parse-shapes.js";
 import { texts } from "./texts.js";
@@ -35,7 +39,14 @@ import { texts } from "./texts.js";
 export function renderPage(
   profile: ApplicationProfile,
   content: PageContent,
+  vocabulary: Vocabulary,
 ): string {
+  const vocabularyIris = new Set(
+    [...vocabulary.classes, ...vocabulary.properties].map(
+      (term) => term.term.iri,
+    ),
+  );
+
   let chapterNumber = 1;
   const chapters: string[] = [renderOverview(profile, chapterNumber)];
   if (content.editorial) {
@@ -50,10 +61,14 @@ export function renderPage(
       renderGroup(
         group,
         chapterNumber,
-        buildRenderContext(profile, group.id),
+        buildRenderContext(profile, group.id, vocabularyIris),
         content,
       ),
     );
+  }
+  if (hasTerms(vocabulary)) {
+    chapterNumber += 1;
+    chapters.push(renderVocabulary(vocabulary, chapterNumber, vocabularyIris));
   }
   if (content.fullExamples.length > 0) {
     chapters.push(renderFullExamples(content.fullExamples, chapterNumber + 1));
@@ -138,7 +153,7 @@ function renderClassShape(
   if (shape.targetClasses.length > 0) {
     lines.push("");
     lines.push(
-      `**${texts.classShape.appliesToLabel}:** ${shape.targetClasses.map((t) => termLink(t)).join(", ")}`,
+      `**${texts.classShape.appliesToLabel}:** ${shape.targetClasses.map((t) => termLink(t, context.vocabularyIris)).join(", ")}`,
     );
   }
 
@@ -170,6 +185,128 @@ function renderClassShape(
   }
 
   return lines.join("\n");
+}
+
+function hasTerms(vocabulary: Vocabulary): boolean {
+  return (
+    vocabulary.classes.length +
+      vocabulary.properties.length +
+      vocabulary.eventTypes.length >
+    0
+  );
+}
+
+/**
+ * Hoofdstuk met de eigen vocabulaire. Elke `ob:`-term krijgt een blok met
+ * als anker exact zijn local name, zodat `…/schema#<LocalName>` resolvet
+ * (net als de shapes). De `niod:`-gebeurtenistypen staan in een tabel: het
+ * zijn er veel, met vaak alleen een naam en een thesauruslink.
+ */
+function renderVocabulary(
+  vocabulary: Vocabulary,
+  chapterNumber: number,
+  vocabularyIris: ReadonlySet<string>,
+): string {
+  const sections = [
+    {
+      id: "vocabulaire-klassen",
+      title: texts.vocabulary.classes,
+      terms: vocabulary.classes,
+    },
+    {
+      id: "vocabulaire-properties",
+      title: texts.vocabulary.properties,
+      terms: vocabulary.properties,
+    },
+  ]
+    .filter((section) => section.terms.length > 0)
+    .map((section, index) =>
+      [
+        `### ${chapterNumber}.${index + 1} ${section.title} {#${section.id}}`,
+        ...section.terms.map((term) =>
+          renderVocabularyTerm(term, vocabularyIris),
+        ),
+      ].join("\n\n"),
+    );
+  if (vocabulary.eventTypes.length > 0) {
+    sections.push(
+      renderEventTypes(
+        vocabulary.eventTypes,
+        `${chapterNumber}.${sections.length + 1}`,
+        vocabularyIris,
+      ),
+    );
+  }
+  return [
+    `## ${chapterNumber}. ${texts.sections.vocabulary} {#vocabulaire}`,
+    texts.vocabulary.intro,
+    ...sections,
+  ].join("\n\n");
+}
+
+function renderVocabularyTerm(
+  term: VocabularyTerm,
+  vocabularyIris: ReadonlySet<string>,
+): string {
+  const parentLabel =
+    term.kind === "class"
+      ? texts.vocabulary.parentClassLabel
+      : texts.vocabulary.parentPropertyLabel;
+  return [
+    `#### ${escapeText(term.label)} {#${term.localName}}`,
+    `\`${term.term.iri}\``,
+    term.parents.length > 0
+      ? `**${parentLabel}:** ${term.parents.map((parent) => termLink(parent, vocabularyIris)).join(", ")}`
+      : null,
+    term.description ? localizedBlock(term.description) : null,
+  ]
+    .filter((part): part is string => part !== null)
+    .join("\n\n");
+}
+
+function renderEventTypes(
+  terms: VocabularyTerm[],
+  sectionNumber: string,
+  vocabularyIris: ReadonlySet<string>,
+): string {
+  const rows = terms.map((term) =>
+    tableRow([
+      `<span id="niod-${term.localName}"></span>**${escapeCell(term.label)}**<br/>${termLink(term.term, vocabularyIris)}`,
+      term.parents.map((parent) => termLink(parent, vocabularyIris)).join(", "),
+      term.description ? localizedInline(term.description) : "",
+      term.definedBy
+        ? `[${texts.vocabulary.definedByLink}](${term.definedBy})`
+        : "",
+    ]),
+  );
+  return [
+    `### ${sectionNumber} ${texts.vocabulary.eventTypes} {#gebeurtenistypen}`,
+    "",
+    texts.vocabulary.eventTypesIntro,
+    "",
+    tableHeader(texts.vocabulary.eventTypesHeader),
+    ...rows,
+  ].join("\n");
+}
+
+/**
+ * Een beschrijving als alinea; een niet-Nederlandse tekst krijgt een
+ * `lang`-attribuut, zodat voorleessoftware hem goed uitspreekt (WCAG 3.1.2).
+ */
+function localizedBlock(text: LocalizedText): string {
+  const escaped = escapeText(text.text);
+  return isDutch(text) ? escaped : `<p lang="${text.language}">${escaped}</p>`;
+}
+
+function localizedInline(text: LocalizedText): string {
+  const escaped = escapeCell(text.text);
+  return isDutch(text)
+    ? escaped
+    : `<span lang="${text.language}">${escaped}</span>`;
+}
+
+function isDutch(text: LocalizedText): boolean {
+  return text.language === null || text.language === "nl";
 }
 
 function renderFullExamples(
@@ -210,7 +347,7 @@ function renderPropertyRow(
     .join("<br/>");
 
   return tableRow([
-    termLink(property.path),
+    termLink(property.path, context.vocabularyIris),
     nameAndDescription,
     cardinality,
     rule ? ruleValueTypeText(rule, context) : "",
@@ -254,10 +391,14 @@ function classLink(term: Term, context: RenderContext): string {
   if (shape) {
     return `[\`${term.compact}\`](#${shape.localName})`;
   }
-  return termLink(term);
+  return termLink(term, context.vocabularyIris);
 }
 
-function termLink(term: Term): string {
+/** Link naar het eigen vocabulaireblok als de term daar staat, anders naar de externe IRI. */
+function termLink(term: Term, vocabularyIris: ReadonlySet<string>): string {
+  if (vocabularyIris.has(term.iri)) {
+    return `[\`${term.compact}\`](#${localName(term.iri)})`;
+  }
   return `[\`${term.compact}\`](${term.iri})`;
 }
 

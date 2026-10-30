@@ -123,7 +123,7 @@ export function parseShapes(turtle: string): ParseResult {
  * N3's synchrone parse-API geeft de prefixes niet terug; ze staan in de
  * vaste `@prefix`-kop van de shapes-bestanden en worden daar uitgelezen.
  */
-function extractPrefixes(turtle: string): Prefixes {
+export function extractPrefixes(turtle: string): Prefixes {
   const prefixes: Prefixes = {};
   const pattern = /@prefix\s+([\w-]*):\s*<([^>]+)>\s*\./g;
   for (const match of turtle.matchAll(pattern)) {

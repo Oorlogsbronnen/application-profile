@@ -1,6 +1,7 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
+import { parseShapes } from "../src/parse-shapes.js";
 import {
   checkSources,
   explainTurtleError,
@@ -33,7 +34,7 @@ describe("checkSources", () => {
       {
         file: "ontology/shapes-bouwstenen.ttl",
         turtle: DUBBELE_SH_CLASS,
-        shapes: true,
+        parse: parseShapes,
       },
     ]);
     expect(rest).toEqual([]);
@@ -48,7 +49,7 @@ describe("checkSources", () => {
       {
         file: "ontology/schema_ext-oorlogsbronnen.ttl",
         turtle: ONGEBONDEN_PREFIX,
-        shapes: false,
+        parse: null,
       },
     ]);
     expect(problem?.file).toBe("ontology/schema_ext-oorlogsbronnen.ttl");
@@ -62,7 +63,7 @@ describe("checkSources", () => {
       {
         file: "ontology/shapes-bouwstenen.ttl",
         turtle: `${PREFIXES}\nob:Base_Leeg a sh:PropertyShape .\n`,
-        shapes: true,
+        parse: parseShapes,
       },
     ]);
     expect(problem?.file).toBe("ontology/shapes-bouwstenen.ttl");
@@ -70,16 +71,34 @@ describe("checkSources", () => {
     expect(problem?.explanation).toContain("geen herkenbaar waardetype");
   });
 
-  it("haalt de vocabulaire niet door de generator", () => {
+  it("haalt een bestand zonder parser alleen door de syntaxcontrole", () => {
     expect(
       checkSources([
         {
           file: "ontology/schema_ext-oorlogsbronnen.ttl",
           turtle: `${PREFIXES}\nob:Archive a rdfs:Class .\n`,
-          shapes: false,
+          parse: null,
         },
       ]),
     ).toEqual([]);
+  });
+
+  it("meldt elk rdf:comment met regel en de juiste property", () => {
+    const problems = checkSources([
+      {
+        file: "ontology/schema_ext-oorlogsbronnen.ttl",
+        turtle: `${PREFIXES}@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+# rdf:comment in een commentaarregel telt niet mee
+ob:Rights a rdfs:Class ;
+	rdf:comment "Rights Statement"@en .
+`,
+        parse: null,
+      },
+    ]);
+    expect(problems).toHaveLength(1);
+    expect(problems[0]?.line).toBe(9);
+    expect(problems[0]?.explanation).toContain("Gebruik rdfs:comment");
+    expect(formatProblems(problems)).not.toContain("technische melding");
   });
 
   it("keurt de echte bronbestanden goed", () => {
@@ -89,7 +108,7 @@ describe("checkSources", () => {
       .map((name) => ({
         file: `ontology/${name}`,
         turtle: readFileSync(resolve(ontologyDir, name), "utf8"),
-        shapes: name.startsWith("shapes-"),
+        parse: name.startsWith("shapes-") ? parseShapes : null,
       }));
     expect(sources.length).toBeGreaterThanOrEqual(4);
     expect(checkSources(sources)).toEqual([]);
@@ -115,7 +134,7 @@ describe("meldingen", () => {
     {
       file: "ontology/shapes-bouwstenen.ttl",
       turtle: DUBBELE_SH_CLASS,
-      shapes: true,
+      parse: parseShapes,
     },
   ]);
 
