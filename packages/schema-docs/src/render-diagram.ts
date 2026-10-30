@@ -24,7 +24,8 @@ import { localName } from "./iri.js";
  * overervingspijl en verwijzingen via de klasse-constraints van de gebruikte
  * regels als pijlen met de propertynaam. Relatie-properties tonen geen
  * waardetype in de box — de pijl toont hun doel al. Een verwijzing naar een
- * shape uit de andere kennisgraaf verschijnt als kale node zonder properties.
+ * shape uit de andere kennisgraaf verschijnt als kale node zonder properties;
+ * heeft de eigen graaf een shape voor dezelfde klasse, dan wint die.
  *
  * Knooppunten blijven de local names, zodat het diagram matcht met de
  * ankers; de getoonde labels zijn de Nederlandse namen uit `sh:name`.
@@ -34,8 +35,8 @@ import { localName } from "./iri.js";
 export function renderGroupDiagram(
   group: ShapeGroup,
   profile: ApplicationProfile,
-  context: RenderContext = buildRenderContext(profile),
 ): string {
+  const context = buildRenderContext(profile, group.id);
   const groupNames = new Set(group.shapes.map((shape) => shape.localName));
   const labels = new Map(
     allShapes(profile).map((shape) => [
