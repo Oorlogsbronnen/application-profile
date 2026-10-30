@@ -36,10 +36,8 @@ export function renderPage(
   profile: ApplicationProfile,
   content: PageContent,
 ): string {
-  const context = buildRenderContext(profile);
-
   let chapterNumber = 1;
-  const chapters: string[] = [renderOverview(profile, chapterNumber, context)];
+  const chapters: string[] = [renderOverview(profile, chapterNumber)];
   if (content.editorial) {
     chapterNumber += 1;
     chapters.push(
@@ -48,7 +46,14 @@ export function renderPage(
   }
   for (const group of profile.groups) {
     chapterNumber += 1;
-    chapters.push(renderGroup(group, chapterNumber, context, content));
+    chapters.push(
+      renderGroup(
+        group,
+        chapterNumber,
+        buildRenderContext(profile, group.id),
+        content,
+      ),
+    );
   }
   if (content.fullExamples.length > 0) {
     chapters.push(renderFullExamples(content.fullExamples, chapterNumber + 1));
@@ -80,16 +85,13 @@ ${chapters.join("\n\n")}
 function renderOverview(
   profile: ApplicationProfile,
   chapterNumber: number,
-  context: RenderContext,
 ): string {
   const parts = [
     `## ${chapterNumber}. ${texts.sections.overview} {#overzicht}`,
   ];
   for (const group of profile.groups) {
     parts.push(`**${groupTitle(group.id)}**`);
-    parts.push(
-      `\`\`\`mermaid\n${renderGroupDiagram(group, profile, context)}\n\`\`\``,
-    );
+    parts.push(`\`\`\`mermaid\n${renderGroupDiagram(group, profile)}\n\`\`\``);
   }
   return parts.join("\n\n");
 }

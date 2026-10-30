@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import type { PageContent } from "../src/page-content.js";
 import { renderPage } from "../src/render-page.js";
 import { renderGroupDiagram } from "../src/render-diagram.js";
+import { parseProfile } from "../src/parse-shapes.js";
 import { allShapes } from "../src/presenter.js";
 import { loadRealProfile } from "./helpers.js";
 
@@ -184,5 +185,98 @@ describe("renderGroupDiagram", () => {
   it("houdt de klassen van de andere graaf verder buiten het diagram", () => {
     expect(personenDiagram).not.toContain("CreativeWorkShape");
     expect(objectenDiagram).not.toContain("DatasetShape");
+  });
+});
+
+const PREFIXES = `
+@prefix : <https://data.oorlogsbronnen.nl/schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix sdo: <https://schema.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+`;
+
+/**
+ * Twee kennisgrafen die allebei een shape voor sdo:ArchiveComponent hebben,
+ * zoals SourceShape (personen) en ArchiefShape (collecties) in het echte profiel.
+ */
+const gedeeldeKlasse = parseProfile(
+  `${PREFIXES}
+:Base_IRI a sh:PropertyShape ; sh:nodeKind sh:IRI .
+:Rule_bron sh:path prov:hadPrimarySource ; sh:node :Base_IRI ; sh:or ([ sh:class prov:Entity ] [ sh:class sdo:ArchiveComponent ]) .
+:Rule_about sh:path sdo:about ; sh:node :Base_IRI ; sh:class sdo:Person .
+`,
+  [
+    {
+      id: "personen",
+      turtle: `${PREFIXES}
+:VermeldingShape a sh:NodeShape ; sh:targetClass sdo:Person ; sh:name "Vermelding"@nl ;
+    sh:property [ sh:path prov:hadPrimarySource ; sh:node :Rule_bron ] .
+:BronShape a sh:NodeShape ; sh:targetClass prov:Entity, sdo:ArchiveComponent ; sh:name "Bron"@nl .
+`,
+    },
+    {
+      id: "objecten",
+      turtle: `${PREFIXES}
+:ArchiefShape a sh:NodeShape ; sh:targetClass sdo:ArchiveComponent ; sh:name "Archief"@nl ;
+    sh:property [ sh:path prov:hadPrimarySource ; sh:node :Rule_bron ] ,
+                [ sh:path sdo:about ; sh:node :Rule_about ] .
+`,
+    },
+  ],
+);
+
+describe("klasse die in meerdere kennisgrafen een shape heeft", () => {
+  const [personenGraaf, objectenGraaf] = gedeeldeKlasse.groups;
+  const personenDiagram = renderGroupDiagram(personenGraaf!, gedeeldeKlasse);
+  const objectenDiagram = renderGroupDiagram(objectenGraaf!, gedeeldeKlasse);
+  const [personenTabellen, objectenTabellen] = renderPage(
+    gedeeldeKlasse,
+    emptyContent,
+  ).split("{#objecten}");
+
+  it("wijst in het diagram naar de shape uit dezelfde graaf, met één pijl", () => {
+    expect(
+      personenDiagram.match(
+        /VermeldingShape --> BronShape : hadPrimarySource/g,
+      ),
+    ).toHaveLength(1);
+    expect(personenDiagram).not.toContain("ArchiefShape");
+  });
+
+  it("verwijst in het diagram naar een andere graaf als alleen die de klasse beschrijft", () => {
+    expect(objectenDiagram).toContain(
+      "ArchiefShape --> BronShape : hadPrimarySource",
+    );
+    expect(objectenDiagram).toContain(
+      "ArchiefShape --> VermeldingShape : about",
+    );
+  });
+
+  it("linkt in de tabellen naar de shape uit dezelfde graaf", () => {
+    expect(personenTabellen).toContain("[`sdo:ArchiveComponent`](#BronShape)");
+    expect(objectenTabellen).toContain(
+      "[`sdo:ArchiveComponent`](#ArchiefShape)",
+    );
+  });
+
+  it("linkt in de tabellen naar een andere graaf als alleen die de klasse beschrijft", () => {
+    expect(objectenTabellen).toContain("[`prov:Entity`](#BronShape)");
+    expect(objectenTabellen).toContain("[`sdo:Person`](#VermeldingShape)");
+  });
+});
+
+describe("hadPrimarySource in het echte personendiagram", () => {
+  const personenDiagram = renderGroupDiagram(personen!, profile);
+
+  it("loopt vanuit Persoonsvermeldingen en Gebeurtenissen alleen naar Bronrecords", () => {
+    const pijlen = personenDiagram
+      .split("\n")
+      .filter((line) => line.endsWith(": hadPrimarySource"))
+      .map((line) => line.trim());
+    expect(pijlen).toEqual([
+      "EventShape --> SourceShape : hadPrimarySource",
+      "PersoonsvermeldingShape --> SourceShape : hadPrimarySource",
+    ]);
+    expect(personenDiagram).not.toContain("ArchiefShape");
   });
 });
