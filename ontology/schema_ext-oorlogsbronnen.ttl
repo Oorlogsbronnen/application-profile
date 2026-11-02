@@ -92,6 +92,12 @@ ob:InterviewSegment a rdfs:Class ;
 	rdfs:subClassOf sdo:CreativeWork ;
 	rdfs:comment "Class for interviews segments"@en .
 
+ob:ClosedCaption a rdfs:Class ;
+	rdfs:label "Interviewtranscriptie"@nl ;
+	rdfs:subClassOf sdo:CreativeWork ;
+	rdfs:comment "Transcriptie van audio of video in het tijdgebonden WebVTT-formaat"@nl ;
+	rdfs:comment "Transcript of audio or video in the time-based WebVTT format"@en .
+
 # Curated content
 
 ob:Webpagina a rdfs:Class ;
@@ -102,6 +108,11 @@ sdo:WebPage rdfs:subClassOf ob:Webpagina .
 skos:Concept rdfs:subClassOf ob:Webpagina . # hack to get all thesaurus content available as webpagina
 
 # More specific classes of sdo:Event
+
+ob:PersonalEvent a rdfs:Class ;
+	rdfs:label "Persoonlijke gebeurtenis"@nl ;
+	rdfs:comment "Type van een gebeurtenis in het leven van een persoon, zoals Geboren of Gearresteerd. De typen komen uit de WO2 Thesaurus en staan als waarde bij sdo:additionalType van een gebeurtenis."@nl ;
+	rdfs:comment "Type of an event in a person's life, such as born or arrested. The types come from the WO2 Thesaurus and are used as the value of sdo:additionalType of an event."@en .
 
 niod:Omgekomen a rdfs:Class ;
     rdfs:label "Omgekomen"@nl ;

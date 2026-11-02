@@ -17,13 +17,14 @@
     - de `niod:`-gebeurtenistypen als tabel;
   - `rdf:comment` → `rdfs:comment` in `schema_ext-oorlogsbronnen.ttl`, en `pnpm check` meldt `rdf:comment` voortaan als fout;
   - verwijzingen in de shape-tabellen naar een `ob:`-term uit de vocabulaire worden interne links;
-  - de links naar `ob:` en `niod:` in het toelichtingshoofdstuk wijzen naar het nieuwe hoofdstuk.
+  - de links naar `ob:` en `niod:` in het toelichtingshoofdstuk wijzen naar het nieuwe hoofdstuk;
+  - `ob:PersonalEvent` en `ob:ClosedCaption` toevoegen aan de vocabulaire; de shapes gebruiken ze al als doelklasse.
 - **Niet:**
   - een diagram;
   - de Nederlandse labels voor `sdo:`-klassen bovenaan het bestand;
   - subklassen uit andere vocabulaires tonen (zoals `sdo:Photograph` onder `ob:Afbeelding`);
   - de vocabulaire als download;
-  - ontbrekende termen aanvullen (zie open vragen).
+  - de inhoud van labels en beschrijvingen (dat doet Micon).
 
 ## Acceptatiecriteria
 
@@ -38,8 +39,4 @@
 9. `pnpm check` meldt elk `rdf:comment` met bestand, regel en de aanwijzing om `rdfs:comment` te gebruiken.
 10. De generator heeft unit tests voor het inlezen en renderen van de vocabulaire.
 11. De pagina gebruikt de bestaande opmaak van `/schema` en voldoet aan WCAG 2.2 AA.
-
-## Open vragen
-
-- De shapes gebruiken `ob:PersonalEvent` en `ob:ClosedCaption` als doelklasse, maar die staan niet in de vocabulaire. Vult Micon ze aan?
-- 31 van de 47 `niod:`-gebeurtenistypen hebben geen beschrijving, alleen een thesauruslink. Is dat voldoende?
+12. Elke `ob:`-class die een shape als doelklasse gebruikt, staat in de vocabulaire.
