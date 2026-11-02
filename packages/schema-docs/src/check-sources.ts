@@ -1,19 +1,18 @@
 import { Parser } from "n3";
-import { parseShapes } from "./parse-shapes.js";
 
 /**
  * Controle van de bronbestanden in ontology/ vóór de build: is elk bestand
- * geldige Turtle, en accepteert de generator de shapes-bestanden? Fouten
- * worden uitgelegd in begrijpelijk Nederlands, voor wie de bestanden
- * bewerkt zonder kennis van de tooling.
+ * geldige Turtle, en accepteert de generator het? Fouten worden uitgelegd in
+ * begrijpelijk Nederlands, voor wie de bestanden bewerkt zonder kennis van
+ * de tooling.
  */
 
 export type TurtleSource = {
   /** Pad vanaf de root van de repo, zoals het in meldingen verschijnt. */
   file: string;
   turtle: string;
-  /** Shapes-bestanden gaan ook door de generator; de vocabulaire alleen door de syntaxcontrole. */
-  shapes: boolean;
+  /** De generator-parser voor dit bestand (shapes of vocabulaire); gooit bij een bestand dat hij weigert. */
+  parse: ((turtle: string) => unknown) | null;
 };
 
 export type SourceProblem = {
@@ -65,45 +64,65 @@ export function explainTurtleError(message: string): string {
 }
 
 export function checkSources(sources: TurtleSource[]): SourceProblem[] {
-  return sources.flatMap((source) => {
-    const problem = checkSource(source);
-    return problem ? [problem] : [];
-  });
+  return sources.flatMap(checkSource);
 }
 
-function checkSource(source: TurtleSource): SourceProblem | null {
+function checkSource(source: TurtleSource): SourceProblem[] {
+  const lines = source.turtle.split("\n");
   try {
     new Parser().parse(source.turtle);
   } catch (error) {
     const technical = errorMessage(error);
     const line = errorLine(error);
-    return {
-      file: source.file,
-      line,
-      lineText: line
-        ? (source.turtle.split("\n")[line - 1]?.trim() ?? null)
-        : null,
-      explanation: explainTurtleError(technical),
-      technical,
-    };
+    return [
+      {
+        file: source.file,
+        line,
+        lineText: line ? (lines[line - 1]?.trim() ?? null) : null,
+        explanation: explainTurtleError(technical),
+        technical,
+      },
+    ];
   }
 
-  if (!source.shapes) {
-    return null;
+  // Geldige Turtle, maar rdf:comment bestaat niet: de beschrijving zou
+  // ongemerkt nergens verschijnen.
+  const rdfComments = lines.flatMap((text, index) =>
+    !text.trimStart().startsWith("#") && /\brdf:comment\b/.test(text)
+      ? [
+          {
+            file: source.file,
+            line: index + 1,
+            lineText: text.trim(),
+            explanation:
+              "Gebruik rdfs:comment in plaats van rdf:comment. rdf:comment bestaat niet, dus deze beschrijving verschijnt nergens.",
+            technical: "rdf:comment",
+          },
+        ]
+      : [],
+  );
+  if (rdfComments.length > 0) {
+    return rdfComments;
+  }
+
+  if (!source.parse) {
+    return [];
   }
   try {
-    parseShapes(source.turtle);
+    source.parse(source.turtle);
   } catch (error) {
     const technical = errorMessage(error);
-    return {
-      file: source.file,
-      line: null,
-      lineText: null,
-      explanation: `De schema-generator kan dit shapes-bestand niet verwerken: ${technical}`,
-      technical,
-    };
+    return [
+      {
+        file: source.file,
+        line: null,
+        lineText: null,
+        explanation: `De schema-generator kan dit bestand niet verwerken: ${technical}`,
+        technical,
+      },
+    ];
   }
-  return null;
+  return [];
 }
 
 function errorMessage(error: unknown): string {

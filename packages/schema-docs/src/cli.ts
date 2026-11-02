@@ -9,7 +9,8 @@ import {
 } from "./check-sources.js";
 import { GROUPS, type GroupId } from "./groups.js";
 import { loadPageContent } from "./load-content.js";
-import { combineTurtle, parseProfile } from "./parse-shapes.js";
+import { combineTurtle, parseProfile, parseShapes } from "./parse-shapes.js";
+import { parseVocabulary } from "./parse-vocabulary.js";
 import { renderPage } from "./render-page.js";
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), "../../..");
@@ -18,6 +19,7 @@ const docsDir = resolve(repoRoot, "website/docs/datamodel");
 const staticDir = resolve(repoRoot, "website/static");
 
 const pagePath = resolve(docsDir, "application-profile.mdx");
+const vocabularyFile = "schema_ext-oorlogsbronnen.ttl";
 
 // Met --check (`pnpm check`) wordt alles gecontroleerd en gerenderd, maar
 // niets weggeschreven.
@@ -38,7 +40,11 @@ try {
     ontologyFiles.map((name) => ({
       file: `ontology/${name}`,
       turtle: readFileSync(resolve(ontologyDir, name), "utf8"),
-      shapes: shapesFiles.has(name),
+      parse: shapesFiles.has(name)
+        ? parseShapes
+        : name === vocabularyFile
+          ? parseVocabulary
+          : null,
     })),
   );
   if (problems.length > 0) {
@@ -91,7 +97,24 @@ try {
     }
   }
 
-  const page = renderPage(profile, content);
+  const vocabulary = parseVocabulary(
+    readFileSync(resolve(ontologyDir, vocabularyFile), "utf8"),
+  );
+  const page = renderPage(profile, content, vocabulary);
+
+  // Shapes en vocabulaire delen de namespace en dus de ankers op /schema:
+  // twee keer hetzelfde anker zou een van beide IRI's laten verdwijnen.
+  const anchors = [...page.matchAll(/\{#([^}]+)\}|\bid="([^"]+)"/g)].map(
+    ([, heading, element]) => heading ?? element,
+  );
+  const duplicates = anchors.filter(
+    (anchor, index) => anchors.indexOf(anchor) !== index,
+  );
+  if (duplicates.length > 0) {
+    throw new Error(
+      `Het anker ${[...new Set(duplicates)].map((anchor) => `#${anchor}`).join(", ")} komt meer dan eens voor op de schemapagina. Een shape en een term in de vocabulaire hebben waarschijnlijk dezelfde naam.`,
+    );
+  }
   if (checkOnly) {
     console.log(
       `Controle geslaagd: ${ontologyFiles.length} bronbestanden en ${shapeNames.size} klassen zijn in orde.`,

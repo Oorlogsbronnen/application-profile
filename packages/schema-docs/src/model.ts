@@ -80,3 +80,35 @@ export type ApplicationProfile = {
   rules: RuleBlock[];
   bases: BaseBlock[];
 };
+
+/** Een tekst met de taal waarin hij geschreven is (`nl`, `en`, of `null` zonder taaltag). */
+export type LocalizedText = {
+  text: string;
+  language: string | null;
+};
+
+/**
+ * Een eigen term uit de vocabulaire (`schema_ext-oorlogsbronnen.ttl`): een
+ * class of property in de namespace van Oorlogsbronnen (`ob:`) of van de
+ * WO2 Thesaurus (`niod:`).
+ */
+export type VocabularyTerm = {
+  term: Term;
+  localName: string;
+  kind: "class" | "property";
+  label: string;
+  description: LocalizedText | null;
+  /** rdfs:subClassOf of rdfs:subPropertyOf. */
+  parents: Term[];
+  /** rdfs:isDefinedBy, bij `niod:`-termen de definitie in de thesaurus. */
+  definedBy: string | null;
+};
+
+export type Vocabulary = {
+  /** `ob:`-classes, in bestandsvolgorde. */
+  classes: VocabularyTerm[];
+  /** `ob:`-properties, in bestandsvolgorde. */
+  properties: VocabularyTerm[];
+  /** `niod:`-classes (gebeurtenistypen), in bestandsvolgorde. */
+  eventTypes: VocabularyTerm[];
+};

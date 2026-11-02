@@ -1,6 +1,6 @@
 # @oorlogsbronnen/schema-docs
 
-Genereert de documentatie van het **Oorlogsbronnen Application Profile** op [data.oorlogsbronnen.nl/schema](https://data.oorlogsbronnen.nl/schema), rechtstreeks uit de SHACL-shapes in [`ontology/`](../../ontology/): de gedeelde bouwstenen (`shapes-bouwstenen.ttl`) en één bestand per kennisgraaf (`shapes-personen.ttl` en `shapes-collecties.ttl`).
+Genereert de documentatie van het **Oorlogsbronnen Application Profile** op [data.oorlogsbronnen.nl/schema](https://data.oorlogsbronnen.nl/schema), rechtstreeks uit de SHACL-shapes in [`ontology/`](../../ontology/): de gedeelde bouwstenen (`shapes-bouwstenen.ttl`) en één bestand per kennisgraaf (`shapes-personen.ttl` en `shapes-collecties.ttl`). Het hoofdstuk Vocabulaire komt uit de eigen vocabulaire, `schema_ext-oorlogsbronnen.ttl`.
 
 **De shapes-bestanden zijn de source of truth.** Deze package leest die bestanden en schrijft documentatie; hij wijzigt er nooit iets aan. Wil je iets aanpassen aan de inhoud van de schema-pagina (een naam, beschrijving, kardinaliteit), pas dan de shapes aan — bij de eerstvolgende build staat het op de site.
 
@@ -20,7 +20,8 @@ De pagina bevat:
 1. **Overzicht** — per kennisgraaf een Mermaid-klassendiagram naar het model van [SCHEMA-AP-NDE](https://docs.nde.nl/schema-profile/#class-diagram): per klasse een box met de properties (pad, waardetype en kardinaliteit; relaties zonder waardetype — de pijl toont hun doel al), overerving (via `sh:node`) en verwijzingen (via `sh:class`-constraints van de gebruikte regels) als pijlen. Een verwijzing naar de andere graaf verschijnt als kale node, en elke node linkt naar zijn eigen sectie (mermaid-`securityLevel` staat daarvoor op `antiscript` in `docusaurus.config.ts`).
 2. **Datamodellen en vocabulaires** _(optioneel)_ — redactionele toelichting uit het handgeschreven fragment [`website/docs/datamodel/_schema-toelichting.mdx`](../../website/docs/datamodel/_schema-toelichting.mdx). Is dat bestand leeg of verwijderd, dan vervalt dit hoofdstuk en schuift de nummering op.
 3. **Personen** en **Objecten** — per kennisgraaf een hoofdstuk dat opent met een handgeschreven intro (`_schema-personen.mdx` / `_schema-objecten.mdx`, weggelaten als het bestand ontbreekt of leeg is), gevolgd door per NodeShape een genummerde sectie met de volledige IRI, de Nederlandse naam en beschrijving, de target classes en een tabel van de properties (kardinaliteit en waardetype), plus een JSON-LD-voorbeeld als dat bestaat.
-4. **Volledige voorbeelden** _(optioneel)_ — één sectie per bestand in `ontology/examples/volledig/`.
+4. **Vocabulaire** — de eigen classes en properties uit `schema_ext-oorlogsbronnen.ttl`. Elke `ob:`-term krijgt een blok met naam, IRI, superklasse en beschrijving; de `niod:`-gebeurtenistypen staan in een tabel met een link naar hun definitie in de WO2 Thesaurus. Zie `specs/2026-10-30-vocabulaire-op-schemapagina.md`.
+5. **Volledige voorbeelden** _(optioneel)_ — één sectie per bestand in `ontology/examples/volledig/`.
 
 ## Voorbeelden toevoegen
 
@@ -40,7 +41,9 @@ Elk voorbeeldbestand wordt bij het genereren gevalideerd als JSON; kapotte JSON 
 - **Waardetypen** worden herleid via de bouwstenen: `sh:datatype` → bv. `xsd:string`, `sh:nodeKind sh:IRI` → "IRI", `sh:class` of `sh:or` van klassen → "IRI van …" met een link. Verwijst een klasse naar een shape uit dit profiel, dan is dat een interne link.
 - **Overerving** (`sh:node` op shape-niveau, zoals `ArchiveShape` → `CreativeWorkShape`) wordt getoond als verwijzing naar de basis-shape; de tabel toont alleen de eigen properties.
 - **Lege beschrijvingen** (zoals `""@nl`) zijn geen fout en worden niet getoond.
-- **Een niet-parseerbaar shapes-bestand breekt de build** met een duidelijke foutmelding — kapotte Turtle komt zo nooit onopgemerkt op de site.
+- **Vocabulaire en shapes delen de namespace `ob:`, en dus de ankers.** Een `ob:`-term krijgt als anker exact zijn local name (`#Archive`), net als de shapes. Verwijzingen naar zo'n term, ook vanuit de shape-tabellen, zijn interne links. Komt een anker twee keer voor (een shape en een term met dezelfde naam), dan breekt de build.
+- **Beschrijvingen in de vocabulaire:** een Nederlandse `rdfs:comment` gaat voor; is er alleen een Engelse, dan krijgt die `lang="en"`. Een eigen term zonder `rdfs:label` breekt de build.
+- **Elk bronbestand wordt eerst gecontroleerd** (`check-sources.ts`): kapotte Turtle, `rdf:comment` in plaats van `rdfs:comment`, of een bestand dat de generator weigert, breekt de build met een Nederlandse melding met bestand en regel. Dezelfde controle draait als GitHub-check op elke pull request.
 
 ## Teksten aanpassen
 
@@ -59,6 +62,7 @@ Losse commando's, vanuit deze map of met `--filter`:
 
 ```sh
 pnpm generate    # alleen genereren
+pnpm check       # alleen controleren, niets wegschrijven
 pnpm test        # unit tests (vitest)
 pnpm typecheck   # TypeScript-check
 ```
@@ -67,8 +71,10 @@ pnpm typecheck   # TypeScript-check
 
 ```
 src/
-  cli.ts             # entrypoint: lezen → parsen → renderen → wegschrijven
+  cli.ts             # entrypoint: controleren → parsen → renderen → wegschrijven
+  check-sources.ts   # controle van de bronbestanden, met Nederlandse meldingen
   parse-shapes.ts    # Turtle (N3.js) → domeinmodel
+  parse-vocabulary.ts # vocabulaire (schema_ext-oorlogsbronnen.ttl) → VocabularyTerm
   model.ts           # het domeinmodel: ClassShape, RuleBlock, BaseBlock, …
   page-content.ts    # types voor redactionele en voorbeeld-inhoud
   load-content.ts    # laadt toelichting-fragment en voorbeelden van schijf
@@ -76,5 +82,5 @@ src/
   render-page.ts     # domeinmodel + inhoud → MDX-pagina
   render-diagram.ts  # domeinmodel → Mermaid-classDiagram
   texts.ts           # alle vaste teksten van de pagina
-test/                # unit tests op fixtures én op de echte shapes-bestanden
+test/                # unit tests op fixtures én op de echte bronbestanden
 ```
