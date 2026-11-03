@@ -8,7 +8,7 @@ title: Introductie
 
 Dit is de documentatie voor de gebruikers van het **Oorlogsbronnen dataplatform**: de plek waar ontwikkelaars en informatiespecialisten vinden welke data het Oorlogsbronnen-ecosysteem biedt, hoe die is gestructureerd en hoe je die kunt gebruiken.
 
-- **[Datasets](datasets/personen-en-objecten)** — het datasetregister en de linked data-publicaties van WO2Net.
+- **[Datasets](datasets/personen-en-objecten)** — de linked data-publicaties van WO2Net.
 - **[Services](services/apis)** — de Open API, het SPARQL-endpoint en het Termennetwerk.
 - **[Datamodel](datamodel/schema)** — documentatie van het Oorlogsbronnen Application Profile.
 - **[Cookbook](cookbook/index.md)** — taakgerichte recepten met direct uitvoerbare queries.
