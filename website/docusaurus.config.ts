@@ -113,7 +113,7 @@ const config: Config = {
         includeOrder: [
           "docs/index.md",
           "datasets/**",
-          "datamodel/**",
+          "schema",
           "services/**",
           "cookbook/**",
           "rechten-en-gebruik.md",
@@ -188,7 +188,7 @@ const config: Config = {
           title: "Services",
           items: [
             {
-              label: "SPARQL,
+              label: "SPARQL",
               href: LDMAX_ORG_URL,
             },
             {
