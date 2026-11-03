@@ -1,14 +1,10 @@
 ---
 title: Contact
-sidebar_position: 9
+sidebar_position: 8
 ---
 
 # Contact
 
-Neem contact met ons op als je ondersteuning nodig hebt bij het gebruiken van onze open data. Wij helpen je graag!
+Wil je meer weten over de mogelijkheden om aan de slag te gaan met de verzamelde data met betrekking tot Tweede Wereldoorlog? Of heb je vragen over de opzet, structuur of werking van het platform?  
 
-:::note[Inhoud volgt]
-
-Deze pagina wordt nog geschreven.
-
-:::
+Neem dan contact met ons op via [info@oorlogsbronnen.nl](mailto:info@oorlogsbronnen.nl)

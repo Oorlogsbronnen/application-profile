@@ -5,10 +5,10 @@ sidebar_position: 1
 
 # Personen en Objecten
 
-Hoe personen en objecten in de data van Oorlogsbronnen zijn gemodelleerd.
+## WO2 Collecties Oorlogsbronnen 
 
-:::note[Inhoud volgt]
+Deze dataset bevat de verrijkte metadata van alle aan de Tweede Wereldoorlog gerelateerde collecties die zijn opgenomen in oorlogsbronnen.nl. Deze dataset bevat foto’s, archieven, video’s, audio en boeken met betrekking tot de oorlog, de aanloop tot, de bevrijding en de viering van de vrijheid. De gegevens zijn afkomstig uit honderden collecties en databases van archieven, musea, herinneringscentra en andere organisaties in Nederland en daarbuiten. De objecten in deze collectie zijn ook te vinden op oorlogsbronnen.nl 
 
-Deze pagina wordt nog geschreven.
+## WO2 Personen Oorlogsbronnen 
 
-:::
+Deze dataset bevat informatie over getuigen, slachtoffers en andere personen betrokken bij de Tweede Wereldoorlog in Nederland. Denk daarbij aan onder andere, gevangenen in (concentratie)kampen en gevangenissen, slachtoffers van bombardementen, tewerkgestelden, verzetsstrijders, militairen, Joodse en Sinti- en Roma-slachtoffers. Voor elke persoon is een unieke identifier (UUID) gecreëerd en zijn bij ons bekende persoonsgegevens opgenomen, aangevuld met één of meer verwijzingen naar persoonsvermeldingen uit aan oorlogsbronnen.nl gekoppelde bronnen. De gegevens zijn afkomstig uit meer dan honderd collecties en databases van archieven, musea, herinneringscentra en andere organisaties in Nederland en daarbuiten. De informatie over de personen is ook te vinden in de vorm van persoonspagina’s op [oorlogsbronnen.nl](https://oorlogsbronnen.nl).
