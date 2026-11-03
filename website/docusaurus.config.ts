@@ -112,11 +112,10 @@ const config: Config = {
         // index.md vangen — vandaar het pad-specifieke eerste patroon.
         includeOrder: [
           "docs/index.md",
-          "datasets.md",
-          "services/**",
+          "datasets/**",
           "datamodel/**",
+          "services/**",
           "cookbook/**",
-          "iiif.md",
           "rechten-en-gebruik.md",
           "meedoen.md",
           "contact.md",
@@ -126,7 +125,7 @@ const config: Config = {
           "## Directe toegang tot de data",
           "",
           `- SPARQL-endpoint: https://sparql.ldmax.nl/wo2net (GET/POST, CORS open; query-UI: ${LDMAX_ORG_URL}/query)`,
-          "- Namespaces in de data: schema = http://schema.org/ (http, zonder s), pico = https://personsincontext.org/model#",
+          "- Namespaces in de data: sdo = https://schema.org/ , pico = https://personsincontext.org/model#",
           "- Machine-leesbaar datamodel (SHACL/Turtle): https://data.oorlogsbronnen.nl/schema.ttl — per kennisgraaf /schema-personen.ttl en /schema-collecties.ttl; leesbare versie op https://data.oorlogsbronnen.nl/schema",
           `- REST API (Spinque): basis ${SPINQUE_API_BASE}/lod/e/ met ?config=default en resultaatvorm resultpage — uitleg en voorbeelden op https://data.oorlogsbronnen.nl/services/apis`,
           `- Datasets op LDmax (${LDMAX_ORG_URL}): WO2 Personen en WO2 Collecties (licentie CC-BY-NC-SA 4.0, niet-commercieel), WO2 Thesaurus (CC0 1.0)`,
@@ -189,25 +188,25 @@ const config: Config = {
           title: "Services",
           items: [
             {
-              label: "LDmax",
+              label: "SPARQL,
               href: LDMAX_ORG_URL,
             },
             {
-              label: "Spinque API-documentatie",
-              href: "https://docs.spinque.com/3.0/using-apis/basic.html",
+              label: "API",
+              href: "https://data.oorlogsbronnen.nl/api/",
             },
           ],
         },
         {
-          title: "Meer",
+          title: "Websites",
           items: [
             {
               label: "Oorlogsbronnen.nl",
               href: "https://www.oorlogsbronnen.nl",
             },
             {
-              label: "GitHub",
-              href: "https://github.com/Oorlogsbronnen",
+              label: "WO2Net",
+              href: "https://wo2net.nl",
             },
           ],
         },
