@@ -12,7 +12,6 @@ Dit is de documentatie voor de gebruikers van het **Oorlogsbronnen dataplatform*
 - **[Services](services/apis)** — de API's, het SPARQL-endpoint en het Termennetwerk.
 - **[Datamodel](datamodel/personen-en-objecten)** — personen en objecten, de WO2 Thesaurus en het Oorlogsbronnen Application Profile.
 - **[Cookbook](cookbook/index.md)** — taakgerichte recepten met direct uitvoerbare queries.
-- **[IIIF](iiif)** — beelden gebruiken via IIIF.
 - **[Rechten en gebruik](rechten-en-gebruik)** — licenties en gebruiksvoorwaarden van de data.
 - **[Meedoen](meedoen)** — data delen met Oorlogsbronnen.
 - **[Contact](contact)**
