@@ -30,6 +30,8 @@ sdo:ArchiveComponent rdfs:label "Archiefmateriaal"@nl .
 
 sdo:Person rdfs:label "Persoon"@nl .
 sdo:Place rdfs:label "Locatie"@nl .
+niod:6564 rdfs:label "Locatie"@nl .
+skos:Concept rdfs:label "Thema"@nl .
 
 # Extra class tussen CreativeWork en specifieke subclasses voor collectie objecten met visuele component
 
