@@ -36,17 +36,17 @@ sdo:Place rdfs:label "Locatie"@nl .
 ob:Afbeelding a rdfs:Class ;
 	rdfs:label "Afbeelding"@nl ;
 	rdfs:subClassOf sdo:CreativeWork ;
-	rdfs:comment "Superclass voor alle collectie objecten met een afbeelding"@nl .
+	rdfs:comment "Custom class voor alle collectie objecten met een afbeelding op oorlogsbronnen.nl"@nl .
 
 ob:Archiefmateriaal a rdfs:Class ;
 	rdfs:label "Archiefmateriaal"@nl ;
 	rdfs:subClassOf sdo:CreativeWork ;
-	rdfs:comment "Class for all archivematerial"@en .
+	rdfs:comment "Custom class voor het bundelen van archieven en archiefstukken op voor oorlogsbronnen.nl"@nl .
 	
 ob:Bekendmaking a rdfs:Class ;
 	rdfs:label "Bekendmaking"@nl ;
 	rdfs:subClassOf sdo:Event, ob:Afbeelding, sdo:CreativeWork ;
-	rdfs:comment "Class for official announcements, treated as events and visual collection items"@en .
+	rdfs:comment "Custom class voor historische bekendmakingen op oorlogsbronnen.nl"@nl .
 
 skos:Concept a rdfs:Class ;
 	rdfs:label "Thema"@nl ;
@@ -70,49 +70,38 @@ sdo:ArchiveComponent rdfs:subClassOf ob:Archiefmateriaal .
 ob:Monument a rdfs:Class ;
 	rdfs:label "Monument"@nl ;
 	rdfs:subClassOf sdo:CreativeWork ;
-	rdfs:comment "Class for monuments"@en .
+	rdfs:comment "Custom class voor oorlogsmonumenten op oorlogsbronnen.nl"@nl .
 
 ob:Archive a rdfs:Class ;
 	rdfs:label "Archief"@nl ;
 	rdfs:subClassOf sdo:ArchiveComponent ;
-	rdfs:comment "Class for an archive"@en .
-
-ob:ArchiveSeries a rdfs:Class ;
-	rdfs:label "Archiefreeks"@nl ;
-	rdfs:subClassOf sdo:ArchiveComponent ;
-	rdfs:comment "Class for a collection of archival documents"@en .
+	rdfs:comment "Custom class voor archieven op oorlogsbronnen.nl"@nl .
 
 ob:ArchiveFile a rdfs:Class ;
 	rdfs:label "Archiefstuk"@nl ;
 	rdfs:subClassOf sdo:ArchiveComponent ;
-	rdfs:comment "Class for archival documents"@en .
-
-ob:Certificate a rdfs:Class ;
-	rdfs:label "Akte"@nl ;
-	rdfs:subClassOf sdo:CreativeWork ;
-	rdfs:comment "Class for archival certificates"@en .
+	rdfs:comment "Custom class voor archiefstukken op oorlogsbronnen.nl"@nl .
 
 ob:Interview a rdfs:Class ;
 	rdfs:label "Interview"@nl ;
 	rdfs:subClassOf sdo:CreativeWork ;
-	rdfs:comment "Class for interviews"@en .
+	rdfs:comment "Custom class voor oral history interviews op oorlogsbronnen.nl"@nl .
 
 ob:InterviewSegment a rdfs:Class ;
 	rdfs:label "Fragment"@nl ;
 	rdfs:subClassOf sdo:CreativeWork ;
-	rdfs:comment "Class for interviews segments"@en .
+	rdfs:comment "Custom class voor fragmenten van oral history interviews op oorlogsbronnen.nl"@nl .
 
 ob:ClosedCaption a rdfs:Class ;
 	rdfs:label "Interviewtranscriptie"@nl ;
 	rdfs:subClassOf sdo:CreativeWork ;
-	rdfs:comment "Transcriptie van audio of video in het tijdgebonden WebVTT-formaat"@nl ;
-	rdfs:comment "Transcript of audio or video in the time-based WebVTT format"@en .
+	rdfs:comment "Transcriptie van audio of video in het tijdgebonden WebVTT-formaat"@nl .
 
 # Curated content
 
 ob:Webpagina a rdfs:Class ;
 	rdfs:label "Webpagina"@nl ;
-	rdfs:comment "Class for all web content created by Oorlogsbronnen"@en .
+	rdfs:comment "Custom class voor artikelen en andere web content gecreëerd door Oorlogsbronnen/WO2Net"@nl .
 
 sdo:WebPage rdfs:subClassOf ob:Webpagina .
 
@@ -120,258 +109,254 @@ sdo:WebPage rdfs:subClassOf ob:Webpagina .
 
 ob:PersonalEvent a rdfs:Class ;
 	rdfs:label "Persoonlijke gebeurtenis"@nl ;
-	rdfs:comment "Type van een gebeurtenis in het leven van een persoon, zoals Geboren of Gearresteerd. De typen komen uit de WO2 Thesaurus en staan als waarde bij sdo:additionalType van een gebeurtenis."@nl ;
-	rdfs:comment "Type of an event in a person's life, such as born or arrested. The types come from the WO2 Thesaurus and are used as the value of sdo:additionalType of an event."@en .
-
-niod:Omgekomen a rdfs:Class ;
-    rdfs:label "Omgekomen"@nl ;
-    rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
-    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/8772> .
-
-niod:Geboren a rdfs:Class ;
-    rdfs:label "Geboren"@nl ;
-    rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
-    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6360> .
+	rdfs:subClassOf sdo:Event ;
+	rdfs:comment "Gebeurtenissen in het leven van een persoon (life events) krijgen een specifieke subclass, zoals Gearresteerd of Bevrijd. De typen komen uit de WO2 Thesaurus en worden gebruikt als sdo:additionalType van de gebeurtenis."@nl .
 
 niod:Gevangen a rdfs:Class ;
     rdfs:label "Gevangen"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
-    rdfs:comment "Gevangen verwijst naar de gevangenschap van burgers in (concentratie)kampen en gevangenissen. Voor krijgsgevangenen gebruiken we 'Geïnterneerd'. Ook voor gevangen burgers uit Nederlands-Indië wordt de term 'Geïnterneerd' gebruikt."@nl ;
+    rdfs:comment "Gevangenschap van burgers in (concentratie)kampen en gevangenissen. Voor krijgsgevangenen gebruiken we 'Geïnterneerd'. Ook voor gevangen burgers uit Nederlands-Indië wordt de term 'Geïnterneerd' gebruikt"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6354> .
 
 niod:BevrijdUit a rdfs:Class ;
     rdfs:label "Bevrijd uit"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
-    rdfs:comment "Bevrijd worden uit een kamp of gevangenis."@nl ;
+    rdfs:comment "Bevrijd worden uit een kamp of gevangenis"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6347> .
 
 niod:Gearresteerd a rdfs:Class ;
     rdfs:label "Gearresteerd"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
-    rdfs:comment "Aangehouden of opgepakt worden."@nl ;
+    rdfs:comment "Aangehouden of gearresteerd worden"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6344> .
 
 niod:Ontsnapt a rdfs:Class ;
     rdfs:label "Ontsnapt"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
+    rdfs:comment "Ontsnappen uit een kamp of gevangenis"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/8795> .
 
 niod:Opgepakt a rdfs:Class ;
     rdfs:label "Opgepakt"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
-    rdfs:comment "Opgepakt betekent de aanhouding van een persoon zonder dat daarna een juridisch traject gestart is. Opgepakt wordt meestal gebruikt voor personen die (willekeurig) aangehouden zijn tijdens razzia's en repressailles."@nl ;
+    rdfs:comment "Opgepakt worden zonder dat daarna een juridisch traject volgt. Meestal gebruikt voor personen die (willekeurig) aangehouden zijn tijdens razzia's en repressailles"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6345> .
 
 niod:Getransporteerd a rdfs:Class ;
     rdfs:label "Getransporteerd"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
+    rdfs:comment "Gedwongen getransporteerd worden van of naar een (concentratie)kamp of gevangenis"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6348> .
 
 niod:Tewerkgesteld a rdfs:Class ;
     rdfs:label "Tewerkgesteld"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
+    rdfs:comment "Gedwongen tewerkgesteld worden. Tijdens de Tweede Wereldoorlog werden ruim een half miljoen Nederlandse mannen gedwongen om als dwangarbeider in nazi-Duitsland te werken. Dit systeem stond bekend als de Arbeitseinsatz (arbeidsinzet)"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/8514> .
 
 niod:Teruggekeerd a rdfs:Class ;
     rdfs:label "Teruggekeerd"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
+    rdfs:comment "Terugkeren uit een (concentratie)kamp of gevangenis"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/18496> .
 
 niod:Gevlucht a rdfs:Class ;
     rdfs:label "Gevlucht"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
+    rdfs:comment "Vluchten voor een gevaar of dreiging"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6353> .
 
-niod:Gestorven a rdfs:Class ;
-    rdfs:label "Gestorven"@nl ;
-    rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
-    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6361> .
 
 niod:Vrijgelaten a rdfs:Class ;
     rdfs:label "Vrijgelaten"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
+    rdfs:comment "Vrijgelaten worden uit een (concentratie)kamp of gevangenis"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6346> .
 
 niod:LidGeweest a rdfs:Class ;
     rdfs:label "Lid geweest"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
+    rdfs:comment "Lidmaatschap van een partij, groep of organisatie"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6352> .
-
-niod:Geëxecuteerd a rdfs:Class ;
-    rdfs:label "Geëxecuteerd"@nl ;
-    rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
-    rdfs:comment "Standrechtelijk omgebracht worden. Geëxecuteerd is het werkwoord om het slachtoffer van de executie te benoemen."@nl ;
-    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6357> .
 
 niod:Overleden a rdfs:Class ;
     rdfs:label "Overleden"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
+    rdfs:comment "Overlijden van een persoon in de meest neutrale vorm. Indien de oorzaak van overlijden bekend is wordt deze beschreven in de beschrijving (sdo:description) van de gebeurtenis"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/8771> .
 
 niod:Verraden a rdfs:Class ;
     rdfs:label "Verraden"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
-    rdfs:comment "Verraden worden. Werkwoord om de persoon te beschrijven die verraden is."@nl ;
+    rdfs:comment "Verraden worden. Het gaat hier om de persoon die verraden is"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6358> .
 
 niod:Getroffen a rdfs:Class ;
     rdfs:label "Getroffen"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
+    rdfs:comment "Getroffen worden. Het gaat hier om het slachtoffer van een gebeurtenis of kogel"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6356> .
 
 niod:Geïnterneerd a rdfs:Class ;
     rdfs:label "Geïnterneerd"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
-    rdfs:comment "Geïnterneerd verwijst naar militairen die gevangen zitten in kampen of gevangenissen. Ook naar burgers in Nederlands-Indië die gevangen zitten in kampen wordt verwezen als geïnterneerden. Voor alle overige burgers in kampen en gevangenissen gebruiken we 'Gevangen'."@nl ;
+    rdfs:comment "Geïnterneerd verwijst naar militairen die gevangen zitten in kampen of gevangenissen. Ook naar burgers in Nederlands-Indië die gevangen zitten in kampen wordt verwezen als geïnterneerden. Voor alle overige burgers in kampen en gevangenissen gebruiken we 'Gevangen'"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6349> .
 
 niod:Afgepakt a rdfs:Class ;
     rdfs:label "Afgepakt"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
-    rdfs:comment "Afgepakt is de term voor de persoonlijke gebeurtenis waarbij roerende of onroerende bezittingen afgenomen worden van de eigenaar."@nl ;
+    rdfs:comment "Afgepakt betreft het afnemen van roerende of onroerende bezittingen van de eigenaar"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/19486> .
 
 niod:Opgeroepen a rdfs:Class ;
     rdfs:label "Opgeroepen"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
+    rdfs:comment "Opgeroepen worden voor dienst of gedwongen tewerkstelling"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/8542> .
-
-niod:Gehuwd a rdfs:Class ;
-    rdfs:label "Gehuwd"@nl ;
-    rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
-    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/18966> .
 
 niod:Opgericht a rdfs:Class ;
     rdfs:label "Opgericht"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
+    rdfs:comment "Het oprichten van een partij, groep of organisatie"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/13792> .
 
 niod:Benoemd a rdfs:Class ;
     rdfs:label "Benoemd"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
+    rdfs:comment "Benoemd worden in een functie of rang"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/13790> .
 
 niod:Veroordeeld a rdfs:Class ;
     rdfs:label "Veroordeeld"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
+    rdfs:comment "Veroordeeld worden tot een straf"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6563> .
 
 niod:Geleid a rdfs:Class ;
     rdfs:label "Geleid"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
-    rdfs:comment "Leider zijn van, baas zijn over. Werkwoord om het leiden van een partij, groep of organisatie te beschrijven."@nl ;
+    rdfs:comment "Leider zijn van een partij, groep of organisatie"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11182> .
 
 niod:Arresteert a rdfs:Class ;
     rdfs:label "Arresteert"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
-    rdfs:comment "Het actief arresteren of oppakken van mensen. Werkwoord om de arresterende persoon te benoemen."@nl ;
+    rdfs:comment "Het arresteren of oppakken van personen"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11179> .
 
 niod:Gerecruteerd a rdfs:Class ;
     rdfs:label "Gerecruteerd"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
-    rdfs:comment "Gerecruteerd betekent geworven voor militaire of geheime diensten."@nl ;
+    rdfs:comment "Geworven worden voor militaire of geheime diensten"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6362> .
 
 niod:Vertrokken a rdfs:Class ;
     rdfs:label "Vertrokken"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
+    rdfs:comment "Vertrekken uit een land of plaats"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/13791> .
 
 niod:Vrijgesproken a rdfs:Class ;
     rdfs:label "Vrijgesproken"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
+    rdfs:comment "Door een rechtbank vrijgesproken worden van veroordeling"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/14203> .
 
 niod:Gevochten a rdfs:Class ;
     rdfs:label "Gevochten"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
+    rdfs:comment "Deelgenomen hebben aan een gevechtsactie"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6359> .
 
 niod:Verraadt a rdfs:Class ;
     rdfs:label "Verraadt"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
-    rdfs:comment "Het verraden van een ander mens. Werkwoord om de verrader te benoemen."@nl ;
+    rdfs:comment "Het verraden van een ander persoon"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11177> .
 
 niod:Gedecoreerd a rdfs:Class ;
     rdfs:label "Gedecoreerd"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
+    rdfs:comment "Gedecoreerd of onderscheiden worden"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6365> .
 
 niod:Geroyeerd a rdfs:Class ;
     rdfs:label "Geroyeerd"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
+    rdfs:comment "Geroyeerd worden als lid van een een partij, groep of organisatie"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11178> .
 
 niod:Ondergedoken a rdfs:Class ;
     rdfs:label "Ondergedoken"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
+    rdfs:comment "Op een geheime plek schuilhouden om uit handen van de autoriteiten of de bezetter te blijven"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6351> .
 
 niod:Executeert a rdfs:Class ;
     rdfs:label "Executeert"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
-    rdfs:comment "Het actief ombrengen van een persoon (in opdracht van..). Werkwoord om uitvoerder van de executie te benoemen."@nl ;
+    rdfs:comment "Het uitvoeren van een executie"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11176> .
 
 niod:Opgevangen a rdfs:Class ;
     rdfs:label "Opgevangen"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
+    rdfs:comment "Opgevangen worden na gedwongen verplaatsing of ontheemding"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/10956> .
 
 niod:Gevaren a rdfs:Class ;
     rdfs:label "Gevaren"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
+    rdfs:comment "Reis over zee gemaakt. Van toepassing op Engelandvaarders"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11181> .
-
-niod:Geliquideerd a rdfs:Class ;
-    rdfs:label "Geliquideerd"@nl ;
-    rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
-    rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/16379> .
 
 niod:BevrijdIn a rdfs:Class ;
     rdfs:label "Bevrijd in"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
-    rdfs:comment "Plaats/stad of land waarin een persoon bevrijd wordt."@nl ;
+    rdfs:comment "Verwijst naar de plaats of het land waarin een persoon bevrijd wordt"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11173> .
 
 niod:Geland a rdfs:Class ;
     rdfs:label "Geland"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
-    rdfs:comment "Het aan land komen (zowel per boot als vliegtuig) van een persoon."@nl ;
+    rdfs:comment "Het aan land komen (zowel per boot als vliegtuig) van een persoon"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6363> .
 
 niod:Gepleegd a rdfs:Class ;
     rdfs:label "Gepleegd"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
-    rdfs:comment "Het uitvoeren van een (ondermijnende) activiteit, zoals een aanslag of overval. Werkwoord om de uitvoerder van de aanslag te benoemen."@nl ;
+    rdfs:comment "Het uitvoeren van een (ondermijnende) activiteit, zoals een aanslag of overval"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6355> .
 
 niod:OpPadGegaan a rdfs:Class ;
     rdfs:label "Op pad gegaan"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
+    rdfs:comment "Vertrekken van een locatie"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/17064> .
 
 niod:Vrijgesteld a rdfs:Class ;
     rdfs:label "Vrijgesteld"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
+    rdfs:comment "Vrijgesteld worden van dienst of een andere verplichte activiteit"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/6562> .
 
 niod:Geevacueerd a rdfs:Class ;
     rdfs:label "Geëvacueerd"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
+    rdfs:comment "Tijdelijk worden weggehaald uit een gevaarlijk gebied"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/11174> .
 
 niod:Vermist a rdfs:Class ;
     rdfs:label "Vermist"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
+    rdfs:comment "Het is niet duidelijk waar de persoon zich bevindt"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/events/10946> .
 
 niod:GedwongenVerhuisd a rdfs:Class ;
     rdfs:label "Gedwongen verhuisd"@nl ;
     rdfs:subClassOf sdo:Event, ob:PersonalEvent ;
+    rdfs:comment "Onder dwang moeten verhuizen"@nl ;
     rdfs:isDefinedBy <https://data.niod.nl/WO2_Thesaurus/19198> .
 
 # Properties for 'Bekendmakingen'
@@ -379,7 +364,7 @@ niod:GedwongenVerhuisd a rdfs:Class ;
 ob:slachtoffer a rdf:Property ;
 	rdfs:label "slachtoffer"@nl ;
 	rdfs:subPropertyOf sdo:actor ;
-	rdfs:comment "Een persoon die slachtoffer was in een gebeurtenis"@nl .
+	rdfs:comment "Een persoon die getroffen werd door de effecten van een bekendmaking"@nl .
 
 ob:opdrachtgever a rdf:Property ;
 	rdfs:label "opdrachtgever"@nl ;
@@ -395,7 +380,7 @@ ob:genoemde a rdf:Property ;
 
 ob:Rights a rdfs:Class ;
 	rdfs:label "Rechten"@nl ;
-	rdfs:comment "Rights Statement"@en .
+	rdfs:comment "Class waarmee rechtenverklaringen uit verschillende bronnen zoals rightsstatements.org en creativecommons met elkaar verbonden worden"@nl .
 
 # Classes for persons from Persons In Context
 
