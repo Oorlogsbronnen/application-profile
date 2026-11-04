@@ -75,12 +75,12 @@ ob:Monument a rdfs:Class ;
 ob:Archive a rdfs:Class ;
 	rdfs:label "Archief"@nl ;
 	rdfs:subClassOf sdo:ArchiveComponent ;
-	rdfs:comment "Custom class voor archieven op oorlogsbronnen.nl""@nl .
+	rdfs:comment "Custom class voor archieven op oorlogsbronnen.nl"@nl .
 
 ob:ArchiveFile a rdfs:Class ;
 	rdfs:label "Archiefstuk"@nl ;
 	rdfs:subClassOf sdo:ArchiveComponent ;
-	rdfs:comment "Custom class voor archiefstukken op oorlogsbronnen.nl""@nl .
+	rdfs:comment "Custom class voor archiefstukken op oorlogsbronnen.nl"@nl .
 
 ob:Interview a rdfs:Class ;
 	rdfs:label "Interview"@nl ;
