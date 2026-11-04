@@ -95,7 +95,7 @@ ob:InterviewSegment a rdfs:Class ;
 ob:ClosedCaption a rdfs:Class ;
 	rdfs:label "Interviewtranscriptie"@nl ;
 	rdfs:subClassOf sdo:CreativeWork ;
-	rdfs:comment "Transcriptie van audio of video in het tijdgebonden WebVTT-formaat"@nl ;
+	rdfs:comment "Transcriptie van audio of video in het tijdgebonden WebVTT-formaat"@nl .
 
 # Curated content
 
@@ -110,7 +110,7 @@ sdo:WebPage rdfs:subClassOf ob:Webpagina .
 ob:PersonalEvent a rdfs:Class ;
 	rdfs:label "Persoonlijke gebeurtenis"@nl ;
 	rdfs:subClassOf sdo:Event ;
-	rdfs:comment "Gebeurtenissen in het leven van een persoon (life events) krijgen een specifieke subclass, zoals Gearresteerd of Bevrijd. De typen komen uit de WO2 Thesaurus en worden gebruikt als sdo:additionalType van de gebeurtenis."@nl ;
+	rdfs:comment "Gebeurtenissen in het leven van een persoon (life events) krijgen een specifieke subclass, zoals Gearresteerd of Bevrijd. De typen komen uit de WO2 Thesaurus en worden gebruikt als sdo:additionalType van de gebeurtenis."@nl .
 
 niod:Gevangen a rdfs:Class ;
     rdfs:label "Gevangen"@nl ;
