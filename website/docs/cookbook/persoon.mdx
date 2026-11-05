@@ -1,0 +1,247 @@
+---
+title: Alles over een persoon
+sidebar_position: 1
+---
+
+import ApiRequest from "@site/src/components/ApiRequest";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# Alles over een persoon ophalen
+
+**Vraag:** je hebt de ID van een persoon. Wie was dit, wat is er gebeurd, welke bronnen noemen deze persoon en welke foto's en documenten horen erbij?
+
+Vier endpoints van de Oorlogsbronnen-API geven samen antwoord. In dit recept leer je hoe je een request opbouwt en wat elk endpoint teruggeeft. Het voorbeeld is verzetsstrijder Hannie Schaft. Je kunt elk request hieronder direct uitvoeren en aanpassen.
+
+:::note[Acceptatieomgeving]
+
+Deze API draait op de acceptatieomgeving. De URL en de responses kunnen nog veranderen. Alle endpoints staan in de [technische API-documentatie](https://acc-data.oorlogsbronnen.nl/services/api/docs).
+
+:::
+
+| Je wilt weten | Endpoint | Je krijgt |
+| --- | --- | --- |
+| Wie was deze persoon? | [`person`](#person) | Eén samengevoegd profiel met biografie, familie en trefwoorden |
+| Wat is er gebeurd? | [`person_events`](#person_events) | Gebeurtenissen zoals arrestatie en overlijden, per bron |
+| Wat zegt elke bron? | [`person_observations`](#person_observations) | De vermelding van de persoon in elke afzonderlijke bron |
+| Welk materiaal hoort erbij? | [`person_related_objects`](#person_related_objects) | Foto's, documenten en andere objecten uit collecties |
+
+## Reconstructie en vermelding
+
+De API maakt onderscheid tussen twee dingen:
+
+- Een **[persoonsvermelding](/schema#PersoonsvermeldingShape)** is wat één bron over iemand zegt. Bronnen kunnen elkaar tegenspreken: Hannie Schaft staat bij de ene bron als geboren in Haarlem en bij de andere in Bloemendaal.
+- Een **[persoonsreconstructie](/schema#PersoonsReconstructieShape)** is het samengevoegde profiel dat op die vermeldingen is gebaseerd. De ID die je aan de API geeft, is altijd de ID van de reconstructie.
+
+## Zo bouw je een request
+
+Een request is een gewone `GET` op een URL. Je hebt geen API-sleutel nodig.
+
+```text
+https://acc-data.oorlogsbronnen.nl/services/api/person_events/48968c01-9f60-492d-8712-58d3b8c2b388?count=10&offset=0
+└───────────────── basis-URL ─────────────────┘└─ endpoint ─┘└──────────────── ID ───────────────┘└── paginering ───┘
+```
+
+| Deel | Waarde | Toelichting |
+| --- | --- | --- |
+| Basis-URL | `https://acc-data.oorlogsbronnen.nl/services/api` | Is voor alle endpoints gelijk |
+| Endpoint en ID | `/person/p/id/{id}`<br/>`/person_events/{id}`<br/>`/person_observations/{id}`<br/>`/person_related_objects/{id}` | Let op: het pad van `person` is anders dan dat van de andere drie |
+| `count` | 1 tot en met 50, standaard 10 | Hoeveel resultaten je wilt ontvangen |
+| `offset` | 0 tot en met 300, standaard 0 | Hoeveel resultaten je overslaat, om te bladeren |
+
+De ID is een UUID. Je vindt die aan het eind van de persistente link van een persoon, zonder de `p` ervoor. Bij `https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388` is de ID dus `48968c01-9f60-492d-8712-58d3b8c2b388`.
+
+## Zo ziet een response eruit
+
+Alle vier de endpoints geven JSON-LD terug in dezelfde vorm. Het resultaat zelf staat steeds in `items[n].tuple[0]`:
+
+```json
+{
+  "@context": { "@vocab": "https://personsincontext.org/model#" },
+  "offset": 0,
+  "count": 10,
+  "items": [
+    {
+      "rank": 1,
+      "probability": 1.0,
+      "tuple": [
+        {
+          "id": "https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388",
+          "name": ["Hannie Schaft"],
+          "birthDate": ["1920-09-16"],
+          "spouse": []
+        }
+      ]
+    }
+  ]
+}
+```
+
+Houd bij het verwerken rekening met het volgende:
+
+- **Bijna elk veld is een lijst**, ook als er maar één waarde is. Een veld zonder waarde is een lege lijst (`[]`).
+- **`count` is niet het totaal.** Het is het aantal dat je hebt gevraagd. De API meldt niet hoeveel resultaten er in totaal zijn. Verhoog `offset` met `count` tot je minder resultaten krijgt dan je vroeg.
+- **Een onbekende ID geeft geen foutmelding**, maar `HTTP 200` met een lege `items`-lijst. Alleen een ongeldige `count` of `offset` geeft een fout (`HTTP 422`).
+- **Doe verzoeken na elkaar, niet tegelijk.** Bij gelijktijdige verzoeken geeft de API op dit moment regelmatig `HTTP 500`. Probeer het bij zo'n fout gewoon opnieuw.
+
+## `person`: het profiel {#person}
+
+Dit endpoint geeft de persoonsreconstructie terug: de samengevoegde gegevens van één persoon.
+
+<ApiRequest
+  endpoint="/person/p/id/{id}"
+  pathParams={{ id: "48968c01-9f60-492d-8712-58d3b8c2b388" }}
+/>
+
+| Veld | Betekenis |
+| --- | --- |
+| `name`, `alternateName` | Naam en andere schrijfwijzen |
+| `birthDate`, `birthPlace` | Geboortedatum (`JJJJ-MM-DD`) en -plaats |
+| `deathDate`, `deathPlace`, `deceased` | Overlijdensdatum, -plaats en of de persoon is overleden |
+| `gender` | Geslacht als schema.org-term, zoals `https://schema.org/Female` |
+| `parent`, `spouse`, `children` | Familieleden als ARK-link, zonder naam. Haal de ID uit de link om hun profiel op te vragen |
+| `keywords` | Trefwoorden uit de WO2 Thesaurus, met een label per taal in `prefLabel` |
+| `sameAs` | Dezelfde persoon op een andere website, zoals Wikipedia |
+| `id`, `identifier` | De persistente ARK-link en de UUID |
+
+Hannie Schaft heeft geen familierelaties in de data. Wil je die zien? Vul dan de ID `5b4e704c-507b-403f-b1bf-08c146322441` in en klik op **Uitvoeren**.
+
+## `person_events`: wat er gebeurde {#person_events}
+
+Dit endpoint geeft de gebeurtenissen in het leven van een persoon, zoals een arrestatie of overlijden. Elke gebeurtenis komt uit een persoonsvermelding. [Gebeurtenissen](/schema#EventShape) worden dus niet samengevoegd: noemen meerdere bronnen het overlijden van Hannie Schaft, dan krijg je meerdere resultaten. De tijdlijn hieronder toont ze onder dezelfde datum.
+
+<ApiRequest
+  endpoint="/person_events/{id}"
+  pathParams={{ id: "48968c01-9f60-492d-8712-58d3b8c2b388" }}
+/>
+
+| Veld | Betekenis |
+| --- | --- |
+| `name` | Beschrijving van de gebeurtenis, zoals `Gearresteerd in Haarlem/op straat` |
+| `additionalType` | Soort gebeurtenis als thesaurusterm, zoals `Gearresteerd` of `Overleden` |
+| `startDate`, `endDate` | Wanneer het gebeurde. Dit kan ontbreken |
+| `location`, `fromLocation`, `toLocation` | Waar het gebeurde, of het begin en einde van een reis of transport |
+| `description` | Toelichting, zoals een doodsoorzaak |
+| `hadPrimarySource` | De bron. Gebruik `url` als die gevuld is en anders `id` |
+
+De resultaten staan niet op datum. Sorteer ze zelf op `startDate` als je een tijdlijn wilt maken. Haal dan eerst alle pagina's op, want bij de standaard `count=10` mis je gebeurtenissen. Bij Hannie Schaft zijn het er 14.
+
+## `person_observations`: wat elke bron zegt {#person_observations}
+
+Dit endpoint geeft alle persoonsvermeldingen waarop het profiel is gebaseerd. Zo zie je wat elke bron meldt en waar de bron te vinden is. Foto's van de persoon staan ook hier, niet bij `person`.
+
+<ApiRequest
+  endpoint="/person_observations/{id}"
+  pathParams={{ id: "48968c01-9f60-492d-8712-58d3b8c2b388" }}
+/>
+
+| Veld | Betekenis |
+| --- | --- |
+| `name`, `givenName`, `familyName`, `initials`, `alternateName` | De naam zoals de bron die noemt |
+| `birthDate`, `birthPlace`, `deathDate`, `deathPlace` | De levensgegevens volgens deze bron |
+| `jobTitle`, `homeLocation` | Beroep en woonplaats |
+| `description` | Beschrijving uit de bron. Deze kan HTML bevatten |
+| `image` | Afbeeldingen met `thumbnailUrl` en `caption` |
+| `keywords` | Trefwoorden uit de WO2 Thesaurus |
+| `hadPrimarySource` | De bron. Gebruik `url` als die gevuld is en anders `id` |
+
+## `person_related_objects`: foto's en documenten {#person_related_objects}
+
+Dit endpoint geeft historische foto's, krantenknipsels en andere objecten uit WO2-collecties die aan de persoon zijn gekoppeld. Het is het traagste van de vier en kan een paar seconden duren. Veel personen hebben geen gekoppelde objecten. Je krijgt dan een lege `items`-lijst.
+
+<ApiRequest
+  endpoint="/person_related_objects/{id}"
+  pathParams={{ id: "48968c01-9f60-492d-8712-58d3b8c2b388" }}
+/>
+
+| Veld | Betekenis |
+| --- | --- |
+| `name`, `description` | Titel en beschrijving |
+| `additionalType` | Soort object, zoals `krantenknipsel` of `still image` |
+| `dateCreated`, `startDate`, `endDate` | Wanneer het object is gemaakt of waarop het betrekking heeft |
+| `thumbnailUrl`, `contentUrl` | De afbeelding, als die beschikbaar is |
+| `url` | De pagina van het object bij de collectie |
+| `publisher`, `provider`, `isPartOf` | De organisatie en collectie waar het object vandaan komt |
+| `about`, `keywords`, `contentLocation` | Waar het object over gaat: personen, onderwerpen en plaatsen |
+| `license` | De rechten op dit object |
+
+Controleer `license` voordat je een object hergebruikt. Sommige objecten zijn auteursrechtelijk beschermd. Meer hierover lees je bij [rechten en gebruik](/rechten-en-gebruik).
+
+## In je eigen code
+
+Deze voorbeelden halen alle vier de endpoints op voor één persoon.
+
+<Tabs groupId="taal">
+  <TabItem value="curl" label="curl" default>
+
+```bash
+ID=48968c01-9f60-492d-8712-58d3b8c2b388
+BASE=https://acc-data.oorlogsbronnen.nl/services/api
+
+curl "$BASE/person/p/id/$ID"
+curl "$BASE/person_events/$ID?count=50"
+curl "$BASE/person_observations/$ID?count=50"
+curl "$BASE/person_related_objects/$ID?count=50"
+```
+
+  </TabItem>
+  <TabItem value="js" label="JavaScript">
+
+```js
+const base = "https://acc-data.oorlogsbronnen.nl/services/api";
+const id = "48968c01-9f60-492d-8712-58d3b8c2b388";
+
+async function haalOp(pad) {
+  const res = await fetch(`${base}${pad}?count=50`);
+  if (!res.ok) throw new Error(`HTTP ${res.status} bij ${pad}`);
+  const { items } = await res.json();
+  return items.map((item) => item.tuple[0]);
+}
+
+// Na elkaar, niet tegelijk: zie de opmerking over gelijktijdige verzoeken hierboven.
+const [persoon] = await haalOp(`/person/p/id/${id}`);
+const gebeurtenissen = await haalOp(`/person_events/${id}`);
+const vermeldingen = await haalOp(`/person_observations/${id}`);
+const objecten = await haalOp(`/person_related_objects/${id}`);
+
+console.log(persoon.name[0], gebeurtenissen.length, vermeldingen.length, objecten.length);
+```
+
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
+import requests
+
+BASE = "https://acc-data.oorlogsbronnen.nl/services/api"
+ID = "48968c01-9f60-492d-8712-58d3b8c2b388"
+
+
+def haal_op(pad):
+    res = requests.get(f"{BASE}{pad}", params={"count": 50}, timeout=30)
+    res.raise_for_status()
+    return [item["tuple"][0] for item in res.json()["items"]]
+
+
+persoon = haal_op(f"/person/p/id/{ID}")[0]
+gebeurtenissen = haal_op(f"/person_events/{ID}")
+vermeldingen = haal_op(f"/person_observations/{ID}")
+objecten = haal_op(f"/person_related_objects/{ID}")
+
+print(persoon["name"][0], len(gebeurtenissen), len(vermeldingen), len(objecten))
+```
+
+  </TabItem>
+</Tabs>
+
+:::caution[Gebruik in de browser]
+
+De API stuurt geen CORS-headers. Een webapplicatie op een ander domein kan de API daarom niet rechtstreeks aanroepen. Roep de API aan vanaf je eigen server of via een proxy. Vanaf de command line, in Python en in Node.js speelt dit niet.
+
+:::
+
+## Verder bouwen
+
+- **Andere persoon:** vervang de ID in het pad. De rest van de URL blijft hetzelfde.
+- **Meer dan 50 resultaten:** verhoog `offset` met `count` (0, 50, 100, …). De hoogste `offset` is 300, dus je kunt maximaal 350 resultaten per endpoint ophalen.
+- **Hetzelfde met SPARQL:** bouw een [tijdlijn](./tijdlijn) of vind de [bronnen bij een persoon](./bronnen-bij-persoon) met een eigen query.

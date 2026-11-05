@@ -1,0 +1,283 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  font-size: 0.92rem;
+}
+
+.header { display: flex; gap: 1rem; align-items: center; }
+
+.avatar {
+  flex: none;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--ifm-color-primary-darkest);
+  background: var(--ifm-color-primary-lightest);
+}
+.avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+.name { margin: 0; font-size: 1.4rem; }
+.alt { font-size: 0.85rem; color: var(--ifm-color-emphasis-700); font-style: italic; }
+
+.meta { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.3rem; }
+.meta span {
+  font-size: 0.78rem;
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-800);
+}
+
+/* Levenslijn */
+.lifeline { padding: 0.25rem 0 1.25rem; }
+.track {
+  position: relative;
+  height: 28px;
+  border-radius: 6px;
+  background: var(--ifm-color-emphasis-100);
+}
+.war {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--ifm-color-danger-contrast-background),
+    var(--ifm-color-danger-contrast-background) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+  border-left: 1px solid var(--ifm-color-danger-light);
+  border-right: 1px solid var(--ifm-color-danger-light);
+}
+.war span {
+  position: absolute;
+  top: -1.3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--ifm-color-danger-dark);
+  white-space: nowrap;
+}
+.life {
+  position: absolute;
+  top: 11px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--ifm-color-primary);
+}
+.dot {
+  position: absolute;
+  top: 8px;
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  border-radius: 50%;
+  background: var(--ifm-color-primary);
+  border: 2px solid var(--ifm-background-color);
+}
+.dotDeath { background: var(--ifm-color-emphasis-900); }
+.axis { position: relative; height: 0; }
+.axis span {
+  position: absolute;
+  top: 0.25rem;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+/* Feiten */
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+}
+.fact {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+}
+.fact dt {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ifm-color-emphasis-700);
+}
+.fact dd { margin: 0.15rem 0 0; }
+.factDate { font-weight: 600; }
+.muted { color: var(--ifm-color-emphasis-700); font-style: italic; }
+
+.h4 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ifm-color-emphasis-700);
+  margin: 0 0 0.5rem;
+}
+
+/* Trefwoorden */
+.chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.chip {
+  font-size: 0.8rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--ifm-color-primary-lighter);
+  color: var(--ifm-color-primary-darker);
+}
+
+/* Galerij */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 0.5rem;
+}
+.thumb {
+  position: relative;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: zoom-in;
+  background: var(--ifm-color-emphasis-200);
+}
+.thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.2s; }
+.thumb:hover img { transform: scale(1.05); }
+.thumb span {
+  position: absolute;
+  inset: auto 0 0 0;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.4rem;
+  color: #fff;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  text-align: left;
+}
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.85);
+  cursor: zoom-out;
+}
+.lightbox figure { margin: 0; max-width: 90vw; cursor: default; }
+.lightbox img { max-width: 90vw; max-height: 80vh; display: block; margin: 0 auto; }
+.lightbox figcaption { color: #fff; text-align: center; margin-top: 0.5rem; display: flex; flex-direction: column; }
+.lightbox figcaption span { font-size: 0.75rem; opacity: 0.7; }
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  font-size: 0.78rem;
+  color: var(--ifm-color-emphasis-700);
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  padding-top: 0.75rem;
+}
+
+.text { margin: 0; }
+
+/* Familie */
+.family { display: flex; flex-direction: column; gap: 0.5rem; margin: 0; }
+.family dt { font-weight: 600; font-size: 0.85rem; }
+.family dd { margin: 0.2rem 0 0; }
+.chipCode { font-family: var(--ifm-font-family-monospace); font-size: 0.72rem; }
+
+.tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.05rem 0.5rem;
+  border-radius: 999px;
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-800);
+}
+
+.sourceLine { font-size: 0.8rem; color: var(--ifm-color-emphasis-700); }
+
+/* Tijdlijn (person_events) */
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.92rem;
+}
+.timelineDate {
+  position: relative;
+  margin: 0;
+  padding: 0 0 1.1rem 1.4rem;
+  border-left: 2px solid var(--ifm-color-emphasis-200);
+}
+.timelineDate:last-child { padding-bottom: 0; }
+.timelineDate::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 0.35rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--ifm-color-primary);
+  border: 2px solid var(--ifm-background-surface-color);
+}
+.timelineEvents {
+  list-style: none;
+  margin: 0.35rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.timelineEvents li { margin: 0; }
+
+/* Kaarten (person_observations, person_related_objects) */
+.cardGrid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.75rem;
+  font-size: 0.92rem;
+}
+.itemCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0.7rem 0.8rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+}
+.rows { margin: 0; font-size: 0.85rem; }
+.rows > div { display: flex; gap: 0.5rem; }
+.rows dt { flex: none; width: 5.5rem; color: var(--ifm-color-emphasis-700); font-weight: 400; }
+.rows dd { margin: 0; }
+.more { font-size: 0.85rem; }
+.more summary { cursor: pointer; color: var(--ifm-color-primary-dark); }
+.objectImage {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 4px;
+  background: var(--ifm-color-emphasis-200);
+}
+.clamp {
+  margin: 0;
+  font-size: 0.85rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
