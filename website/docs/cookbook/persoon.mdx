@@ -11,7 +11,7 @@ import TabItem from "@theme/TabItem";
 
 **Vraag:** je hebt de ID van een persoon. Wie was dit, wat is er gebeurd, welke bronnen noemen deze persoon en welke foto's en documenten horen erbij?
 
-Vier endpoints van de Oorlogsbronnen-API geven samen antwoord. In dit recept leer je hoe je een request opbouwt en wat elk endpoint teruggeeft. Het voorbeeld is verzetsstrijder Hannie Schaft. Je kunt elk request hieronder direct uitvoeren en aanpassen.
+Vier endpoints van de Oorlogsbronnen-API geven samen antwoord. In dit recept leer je hoe je een request opbouwt en wat elk endpoint teruggeeft. Het voorbeeld is verzetsstrijder Hannie Schaft. Bij elk endpoint kun je het request aanpassen en met **Uitvoeren** het resultaat ophalen en bekijken.
 
 :::note[Acceptatieomgeving]
 
@@ -108,7 +108,7 @@ Hannie Schaft heeft geen familierelaties in de data. Wil je die zien? Vul dan de
 
 ## `person_events`: wat er gebeurde {#person_events}
 
-Dit endpoint geeft de gebeurtenissen in het leven van een persoon, zoals een arrestatie of overlijden. Elke gebeurtenis komt uit een persoonsvermelding. [Gebeurtenissen](/schema#EventShape) worden dus niet samengevoegd: noemen meerdere bronnen het overlijden van Hannie Schaft, dan krijg je meerdere resultaten. De tijdlijn hieronder toont ze onder dezelfde datum.
+Dit endpoint geeft de gebeurtenissen in het leven van een persoon, zoals een arrestatie of overlijden. Elke gebeurtenis komt uit een persoonsvermelding. [Gebeurtenissen](/schema#EventShape) worden dus niet samengevoegd: noemen meerdere bronnen het overlijden van Hannie Schaft, dan krijg je meerdere resultaten. De tijdlijn die je na **Uitvoeren** ziet, toont ze onder dezelfde datum.
 
 <ApiRequest
   endpoint="/person_events/{id}"
@@ -122,7 +122,7 @@ Dit endpoint geeft de gebeurtenissen in het leven van een persoon, zoals een arr
 | `startDate`, `endDate` | Wanneer het gebeurde. Dit kan ontbreken |
 | `location`, `fromLocation`, `toLocation` | Waar het gebeurde, of het begin en einde van een reis of transport |
 | `description` | Toelichting, zoals een doodsoorzaak |
-| `hadPrimarySource` | De bron. Gebruik `url` als die gevuld is en anders `id` |
+| `hadPrimarySource` | De bron. `url` is de link naar het record bij de bron en kan leeg zijn. `id` is een identifier en werkt niet altijd als link |
 
 De resultaten staan niet op datum. Sorteer ze zelf op `startDate` als je een tijdlijn wilt maken. Haal dan eerst alle pagina's op, want bij de standaard `count=10` mis je gebeurtenissen. Bij Hannie Schaft zijn het er 14.
 
@@ -143,7 +143,7 @@ Dit endpoint geeft alle persoonsvermeldingen waarop het profiel is gebaseerd. Zo
 | `description` | Beschrijving uit de bron. Deze kan HTML bevatten |
 | `image` | Afbeeldingen met `thumbnailUrl` en `caption` |
 | `keywords` | Trefwoorden uit de WO2 Thesaurus |
-| `hadPrimarySource` | De bron. Gebruik `url` als die gevuld is en anders `id` |
+| `hadPrimarySource` | De bron. `url` is de link naar het record bij de bron en kan leeg zijn. `id` is een identifier en werkt niet altijd als link |
 
 ## `person_related_objects`: foto's en documenten {#person_related_objects}
 

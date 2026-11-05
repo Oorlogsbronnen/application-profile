@@ -4,9 +4,8 @@ import {
   entities,
   first,
   fmtDate,
+  primarySources,
   safeUrl,
-  sourceName,
-  sourceUrl,
   stripHtml,
   textOf,
   type Json,
@@ -54,9 +53,6 @@ function TimelineEvent({ event }: { event: Json }) {
   const to = textOf(first(event.toLocation));
   const end = fmtDate(first(event.endDate));
   const description = first(event.description);
-  const sources = arr(event.hadPrimarySource)
-    .map(sourceUrl)
-    .filter(Boolean) as string[];
 
   return (
     <li>
@@ -74,27 +70,31 @@ function TimelineEvent({ event }: { event: Json }) {
       )}
       {end && <span className={styles.muted}> tot {end}</span>}
       {description && <div>{stripHtml(description)}</div>}
-      {sources.length > 0 && (
-        <div className={styles.sourceLine}>
-          Bron: <SourceLinks urls={sources} />
-        </div>
-      )}
+      <SourceLine sources={event.hadPrimarySource} />
     </li>
   );
 }
 
-function SourceLinks({ urls }: { urls: string[] }) {
+/** Bronnen met een `url` worden een link; de rest blijft platte tekst. */
+function SourceLine({ sources }: { sources: Json }) {
+  const items = primarySources(sources);
+  if (items.length === 0) return null;
   return (
-    <>
-      {urls.map((url, i) => (
-        <React.Fragment key={url}>
+    <div className={styles.sourceLine}>
+      Bron:{" "}
+      {items.map(({ name, url }, i) => (
+        <React.Fragment key={`${name}-${i}`}>
           {i > 0 && ", "}
-          <a href={url} target="_blank" rel="noreferrer">
-            {sourceName(url)} ↗
-          </a>
+          {url ? (
+            <a href={url} target="_blank" rel="noreferrer">
+              {name} ↗
+            </a>
+          ) : (
+            name
+          )}
         </React.Fragment>
       ))}
-    </>
+    </div>
   );
 }
 
@@ -122,9 +122,6 @@ export function ObservationList({ data }: { data: Json }) {
 }
 
 function ObservationCard({ observation: o }: { observation: Json }) {
-  const sources = arr(o.hadPrimarySource)
-    .map(sourceUrl)
-    .filter(Boolean) as string[];
   const description = first(o.description);
   const rows = [
     ["Geboren", fmtDate(first(o.birthDate)), first(o.birthPlace)],
@@ -137,11 +134,7 @@ function ObservationCard({ observation: o }: { observation: Json }) {
   return (
     <li className={styles.itemCard}>
       <strong>{first(o.name) ?? "Naam onbekend"}</strong>
-      {sources.length > 0 && (
-        <div className={styles.sourceLine}>
-          Bron: <SourceLinks urls={sources} />
-        </div>
-      )}
+      <SourceLine sources={o.hadPrimarySource} />
       <dl className={styles.rows}>
         {rows.map(([label, ...values]) => (
           <div key={label}>

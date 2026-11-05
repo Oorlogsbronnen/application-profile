@@ -45,10 +45,6 @@ export function labelOf(v: Json): string | undefined {
 export const textOf = (v: Json): string | undefined =>
   typeof v === "string" ? v : (labelOf(v) ?? first(v?.name));
 
-/** De link naar de oorspronkelijke bron valt terug op de ID van de bron. */
-export const sourceUrl = (source: Json): string | undefined =>
-  safeUrl(first(source?.url)) ?? safeUrl(idOf(source));
-
 /** Bekende bronnen: domein → leesbare naam */
 const SOURCES: Record<string, string> = {
   "kampwesterbork.nl": "Herinneringscentrum Kamp Westerbork",
@@ -78,6 +74,17 @@ export function sourceName(url: string): string {
   const key = Object.keys(SOURCES).find((d) => h === d || h.endsWith("." + d));
   return key ? SOURCES[key] : h;
 }
+
+/**
+ * De bronnen uit `hadPrimarySource`. Alleen `url` is een werkende link; de `id`
+ * is een identifier die niet altijd opent en gebruiken we dus alleen voor de naam.
+ */
+export const primarySources = (v: Json): { name: string; url?: string }[] =>
+  arr(v).flatMap((source) => {
+    const url = safeUrl(first(source?.url));
+    const reference = url ?? idOf(source);
+    return reference ? [{ name: sourceName(reference), url }] : [];
+  });
 
 export function fmtDate(d?: string): string | null {
   if (!d) return null;

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import {
   OORLOGSBRONNEN_API_BASE,
   OORLOGSBRONNEN_API_PROXY_PREFIX,
@@ -17,7 +17,7 @@ import styles from "./styles.module.css";
  *     pathParams={{ id: "48968c01-..." }}
  *   />
  *
- * Haalt het resultaat live op bij het laden van de pagina en bij "Uitvoeren".
+ * Haalt het resultaat pas live op als de gebruiker op "Uitvoeren" klikt.
  * Lukt dat niet, dan toont de component een melding; een eerder opgehaald
  * resultaat blijft dan staan.
  */
@@ -98,7 +98,7 @@ export default function ApiRequest({
   const [path, setPath] = useState<Params>(pathParams);
   const [q, setQ] = useState<Params>(query);
   const [rawUrl, setRawUrl] = useState<string | null>(null); // handmatig bewerkte URL
-  const [runState, setRunState] = useState<RunState>("loading");
+  const [runState, setRunState] = useState<RunState>("idle");
   const [result, setResult] = useState<Result | null>(null);
   const [tab, setTab] = useState<"overzicht" | "json">("overzicht");
   const [copied, setCopied] = useState<string | null>(null);
@@ -127,12 +127,6 @@ export default function ApiRequest({
       setRunState("failed");
     }
   }
-
-  // Alleen bij het laden van de pagina; daarna bepaalt de gebruiker wanneer.
-  useEffect(() => {
-    void load();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   function run() {
     if (runState !== "loading") void load();
@@ -246,7 +240,7 @@ export default function ApiRequest({
           ? "Bezig met ophalen…"
           : runState === "failed"
             ? "Ophalen lukte niet."
-            : `Resultaat opgehaald: ${count} resultaten.`}
+            : result && `Resultaat opgehaald: ${count} resultaten.`}
       </p>
 
       {runState === "failed" && (
