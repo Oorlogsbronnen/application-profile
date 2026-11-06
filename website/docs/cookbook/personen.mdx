@@ -1,0 +1,265 @@
+---
+title: Personen zoeken
+sidebar_position: 2
+---
+
+import ApiRequest from "@site/src/components/ApiRequest";
+import SparqlEditor from "@site/src/components/SparqlEditor";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# Personen zoeken op plaats en onderwerp
+
+**Vraag:** welke personen zijn geboren of overleden in een bepaalde plaats, of hebben met een bepaald onderwerp te maken?
+
+Het endpoint `persons` zoekt personen met filters. In dit recept leer je hoe je die filters opbouwt en combineert, wat de API teruggeeft, en hoe je daarna alles over één gevonden persoon ophaalt. Bij elk voorbeeld kun je de filters aanpassen en met **Uitvoeren** het resultaat ophalen en bekijken.
+
+:::note[Acceptatieomgeving]
+
+Deze API draait op de acceptatieomgeving. De URL en de responses kunnen nog veranderen. Alle endpoints staan in de [technische API-documentatie](https://acc-data.oorlogsbronnen.nl/services/api/docs).
+
+:::
+
+## Zo bouw je een request
+
+Een request is een gewone `GET` op een URL. Je hebt geen API-sleutel nodig.
+
+```text
+https://acc-data.oorlogsbronnen.nl/services/api/persons?birthplace=https://data.niod.nl/WO2_Thesaurus/locations/9881&count=10&offset=0
+```
+
+| Parameter | Waarde | Toelichting |
+| --- | --- | --- |
+| `birthplace` | Volledige URI van een plaats uit de WO2 Thesaurus | De geboorteplaats |
+| `deathplace` | Volledige URI van een plaats uit de WO2 Thesaurus | De plaats van overlijden |
+| `keywords` | Volledige URI van een onderwerp uit de WO2 Thesaurus | Een trefwoord dat aan de persoon is gekoppeld, zoals `https://data.niod.nl/WO2_Thesaurus/2657` (Verzet) |
+| `count` | 1 tot en met 50, standaard 10 | Hoeveel resultaten je wilt ontvangen |
+| `offset` | 0 tot en met 300, standaard 0 | Hoeveel resultaten je overslaat, om te bladeren |
+
+Voor de filters gelden dezelfde vier regels als bij [Objecten zoeken](./objecten):
+
+- **Minstens één filter is verplicht.** Zonder filter geeft de API een foutmelding (`HTTP 400`).
+- **Gebruik altijd de volledige URI.** Met een plaatsnaam (`birthplace=Haarlem`) of alleen een nummer krijg je geen foutmelding, maar een lege lijst.
+- **Dezelfde parameter herhalen betekent OF.** `?deathplace=A&deathplace=B` geeft personen die in A of in B zijn overleden.
+- **Verschillende filters combineren betekent EN.** `?birthplace=A&keywords=C` geeft personen die in A zijn geboren en trefwoord C hebben.
+
+## De URI van een plaats of onderwerp
+
+Plaatsen en onderwerpen komen allebei uit de WO2 Thesaurus. Kampen hebben een eigen deel van de thesaurus, met `/kampen/` in de URI. De voorbeelden op deze pagina gebruiken deze URI's:
+
+| URI | Betekenis |
+| --- | --- |
+| `https://data.niod.nl/WO2_Thesaurus/locations/9577` | Amsterdam |
+| `https://data.niod.nl/WO2_Thesaurus/locations/9881` | Haarlem |
+| `https://data.niod.nl/WO2_Thesaurus/locations/9576` | Rotterdam |
+| `https://data.niod.nl/WO2_Thesaurus/kampen/3653` | Auschwitz |
+| `https://data.niod.nl/WO2_Thesaurus/kampen/4855` | Sobibor |
+| `https://data.niod.nl/WO2_Thesaurus/2657` | Verzet |
+| `https://data.niod.nl/WO2_Thesaurus/2244` | N.S.B. |
+
+De URI van een andere plaats zoek je op naam met deze query. Vervang `haarlem` door de plaats die je zoekt. Voor onderwerpen gebruik je het recept [Zoeken via de thesaurus](./thesaurus).
+
+<SparqlEditor
+  query={`PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?plaats ?naam WHERE {
+  ?plaats skos:prefLabel ?naam .
+  FILTER(LCASE(STR(?naam)) = "haarlem")
+  FILTER(STRSTARTS(STR(?plaats), "https://data.niod.nl/WO2_Thesaurus/"))
+}`}
+/>
+
+## Zo ziet een response eruit
+
+De response heeft dezelfde vorm als bij de andere endpoints. Elk resultaat staat in `items[n].tuple[0]`, en bijna elk veld is een lijst:
+
+```json
+{
+  "offset": 0,
+  "count": 10,
+  "items": [
+    {
+      "rank": 1,
+      "tuple": [
+        {
+          "id": "https://www.oorlogsbronnen.nl/person/5cb5f829-8b63-49f7-8670-7f0eddb5ab71",
+          "name": ["Emmy Cortissos-Dreesde"],
+          "alternateName": [],
+          "birthDate": ["1912-03-25"],
+          "birthPlace": ["Amsterdam"],
+          "deathDate": ["1943-05-21"],
+          "deathPlace": ["Sobibor"],
+          "image": [],
+          "type": ["https://schema.org/Person"]
+        }
+      ]
+    }
+  ]
+}
+```
+
+| Veld | Betekenis |
+| --- | --- |
+| `id` | De URL van de persoonsreconstructie. Het laatste deel is de UUID die je voor de [vervolgaanroepen](#vervolgaanroepen) nodig hebt |
+| `name`, `alternateName` | Naam en andere schrijfwijzen |
+| `birthDate`, `birthPlace` | Geboortedatum (`JJJJ-MM-DD`) en -plaats |
+| `deathDate`, `deathPlace` | Overlijdensdatum en -plaats |
+| `image` | Foto's van de persoon, met `thumbnailUrl` en `caption`. Kan leeg zijn |
+| `type` | Altijd `https://schema.org/Person` |
+
+Let op twee dingen:
+
+- **De plaatsen in de response zijn tekst**, zoals `"Amsterdam"`, en geen URI. Je filtert dus met een URI, maar krijgt een naam terug.
+- **Niet iedereen heeft een foto.** De visualisatie toont dan een vervangende afbeelding.
+
+Net als bij de andere endpoints is `count` het aantal dat je hebt gevraagd en niet het totaal. Krijg je minder resultaten dan je vroeg, dan ben je aan het eind. Een lege `items`-lijst betekent dat er niemand past bij deze combinatie van filters.
+
+## Eén filter
+
+Personen die in Haarlem zijn geboren. Maak het veld `birthplace` leeg en klik op **Uitvoeren** om de foutmelding te zien die je krijgt als er geen filter is.
+
+<ApiRequest
+  endpoint="/persons"
+  query={{
+    birthplace: ["https://data.niod.nl/WO2_Thesaurus/locations/9881"],
+    deathplace: [],
+    keywords: [],
+    count: 10,
+    offset: 0,
+  }}
+/>
+
+## Meerdere plaatsen (OF)
+
+Personen die in Sobibor **of** in Auschwitz zijn overleden. Met **+ waarde toevoegen** zet je er nog een plaats bij. In de URL zie je dat `deathplace` dan nog een keer voorkomt.
+
+<ApiRequest
+  endpoint="/persons"
+  query={{
+    birthplace: [],
+    deathplace: [
+      "https://data.niod.nl/WO2_Thesaurus/kampen/4855",
+      "https://data.niod.nl/WO2_Thesaurus/kampen/3653",
+    ],
+    keywords: [],
+    count: 10,
+    offset: 0,
+  }}
+/>
+
+## Plaats en onderwerp (EN)
+
+Personen die in Haarlem zijn geboren **en** het trefwoord Verzet hebben, onder wie Hannie Schaft. Probeer ook `keywords` te vervangen door de N.S.B. (`https://data.niod.nl/WO2_Thesaurus/2244`).
+
+<ApiRequest
+  endpoint="/persons"
+  query={{
+    birthplace: ["https://data.niod.nl/WO2_Thesaurus/locations/9881"],
+    deathplace: [],
+    keywords: ["https://data.niod.nl/WO2_Thesaurus/2657"],
+    count: 10,
+    offset: 0,
+  }}
+/>
+
+## Meer over een gevonden persoon {#vervolgaanroepen}
+
+`persons` geeft per persoon alleen de basisgegevens. Met de UUID uit `id` haal je de rest op. Dat is het laatste deel van de URL: bij `https://www.oorlogsbronnen.nl/person/48968c01-9f60-492d-8712-58d3b8c2b388` is dat `48968c01-9f60-492d-8712-58d3b8c2b388`. Geef je de hele URL mee, dan krijg je een lege lijst.
+
+| Endpoint | Je krijgt |
+| --- | --- |
+| `/person/p/id/{id}` | Het profiel, met familierelaties en trefwoorden |
+| `/person_events/{id}` | Gebeurtenissen zoals arrestatie en overlijden, met bron |
+| `/person_observations/{id}` | Wat elke bron over de persoon zegt, met foto's |
+| `/person_related_objects/{id}` | Gekoppelde foto's en objecten uit collecties |
+
+Deze vier endpoints worden uitgelegd in het recept [Alles over een persoon](./persoon). Op elke kaart hierboven staat de link **Alles over deze persoon**. Die opent dat recept met de ID van die persoon al ingevuld.
+
+## In je eigen code
+
+Het JavaScript-voorbeeld zoekt personen en haalt daarna de gebeurtenissen van de eerste persoon op. Het Python-voorbeeld bladert door alle pagina's van een OF-zoekvraag.
+
+<Tabs groupId="taal">
+  <TabItem value="curl" label="curl" default>
+
+```bash
+curl "https://acc-data.oorlogsbronnen.nl/services/api/persons?birthplace=https://data.niod.nl/WO2_Thesaurus/locations/9881&keywords=https://data.niod.nl/WO2_Thesaurus/2657&count=50"
+```
+
+  </TabItem>
+  <TabItem value="js" label="JavaScript">
+
+```js
+const base = "https://acc-data.oorlogsbronnen.nl/services/api";
+
+// append() voegt een waarde toe; herhaal het voor meerdere waardes (OF).
+const params = new URLSearchParams();
+params.append("birthplace", "https://data.niod.nl/WO2_Thesaurus/locations/9881");
+params.append("keywords", "https://data.niod.nl/WO2_Thesaurus/2657");
+params.append("count", "50");
+
+async function haalOp(url) {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`HTTP ${res.status} bij ${url}`);
+  const { items } = await res.json();
+  return items.map((item) => item.tuple[0]);
+}
+
+const personen = await haalOp(`${base}/persons?${params}`);
+console.log(personen.length, "personen gevonden");
+
+// De UUID is het laatste deel van de id; daarna één aanroep tegelijk.
+const persoon = personen[0];
+const uuid = persoon.id.split("/").pop();
+const gebeurtenissen = await haalOp(`${base}/person_events/${uuid}`);
+console.log(persoon.name[0], "heeft", gebeurtenissen.length, "gebeurtenissen");
+```
+
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
+import requests
+
+BASE = "https://acc-data.oorlogsbronnen.nl/services/api"
+
+
+def zoek_personen(filters):
+    """Haalt alle pagina's op, tot de API minder dan 50 resultaten geeft."""
+    personen = []
+    for offset in range(0, 301, 50):
+        params = {**filters, "count": 50, "offset": offset}
+        res = requests.get(f"{BASE}/persons", params=params, timeout=30)
+        res.raise_for_status()
+        items = res.json()["items"]
+        personen += [item["tuple"][0] for item in items]
+        if len(items) < 50:
+            break
+    return personen
+
+
+# Een lijst wordt een herhaalde parameter: overleden in Sobibor OF Auschwitz
+personen = zoek_personen({
+    "deathplace": [
+        "https://data.niod.nl/WO2_Thesaurus/kampen/4855",
+        "https://data.niod.nl/WO2_Thesaurus/kampen/3653",
+    ],
+})
+for persoon in personen[:5]:
+    uuid = persoon["id"].rsplit("/", 1)[-1]
+    print(uuid, persoon["name"][0])
+```
+
+  </TabItem>
+</Tabs>
+
+:::caution[Gebruik in de browser]
+
+De API stuurt geen CORS-headers. Een webapplicatie op een ander domein kan de API daarom niet rechtstreeks aanroepen. Roep de API aan vanaf je eigen server of via een proxy. Vanaf de command line, in Python en in Node.js speelt dit niet.
+
+:::
+
+## Verder bouwen
+
+- **Meer dan 50 resultaten:** verhoog `offset` met `count` (0, 50, 100, …). De hoogste `offset` is 300, dus je kunt maximaal 350 resultaten per zoekvraag ophalen. Heb je er meer nodig, maak de zoekvraag dan kleiner met een extra filter.
+- **Verzoeken na elkaar:** de API geeft op dit moment regelmatig `HTTP 500` als je verzoeken tegelijk doet. Doe ze na elkaar, zoals in de voorbeelden, en probeer het bij zo'n fout opnieuw.
+- **Objecten over hetzelfde onderwerp:** met dezelfde thesaurus-URI's zoek je in [Objecten zoeken](./objecten) naar foto's en archiefstukken.

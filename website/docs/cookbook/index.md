@@ -11,6 +11,7 @@ Taakgerichte recepten voor het werken met de data van Oorlogsbronnen. Elk recept
 Als rode draad gebruiken we verzetsstrijder [Hannie Schaft](https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388) — vervang haar IRI door een andere persoon om hetzelfde recept op jouw onderzoek toe te passen.
 
 - [Alles over een persoon ophalen met de API](persoon.mdx)
+- [Personen zoeken op plaats en onderwerp met de API](personen.mdx)
 - [Objecten zoeken op onderwerp en organisatie met de API](objecten.mdx)
 - [Bouw een tijdlijn van iemands oorlogsgebeurtenissen](tijdlijn.mdx)
 - [Vind alle bronnen bij een persoon](bronnen-bij-persoon.mdx)

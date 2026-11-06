@@ -9,6 +9,7 @@ import {
   safeUrl,
   sourceName,
   stripHtml,
+  uuidOf,
   type Json,
 } from "./helpers";
 import styles from "./views.module.css";
@@ -153,7 +154,7 @@ export default function PersonCard({ data }: { data: Json }) {
 
 /** De API geeft van familieleden alleen de ARK-link, zonder naam. */
 function PersonLink({ id }: { id?: string }) {
-  const uuid = id?.match(/[0-9a-f]{8}-[0-9a-f-]{27}/)?.[0];
+  const uuid = uuidOf(id);
   return (
     <a
       className={`${styles.chip} ${styles.chipCode}`}

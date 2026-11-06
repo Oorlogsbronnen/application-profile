@@ -9,6 +9,14 @@ export const arr = (v: Json): Json[] =>
 export const idOf = (v: Json): string | undefined =>
   typeof v === "string" ? v : v?.id;
 
+/** De UUID uit een ARK-link of persoons-URL, zoals …/person/48968c01-… */
+export const uuidOf = (v: unknown): string | undefined =>
+  typeof v === "string"
+    ? v.match(
+        /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i,
+      )?.[0]
+    : undefined;
+
 /** De entiteiten uit een response: { items: [ { tuple: [ entiteit ] } ] } */
 export const entities = (data: Json): Json[] =>
   arr(data?.items)

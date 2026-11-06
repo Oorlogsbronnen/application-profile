@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Link from "@docusaurus/Link";
 import {
   arr,
   entities,
@@ -9,6 +10,7 @@ import {
   sourceName,
   stripHtml,
   textOf,
+  uuidOf,
   type Json,
 } from "./helpers";
 import styles from "./views.module.css";
@@ -156,7 +158,7 @@ function ObservationCard({ observation: o }: { observation: Json }) {
 
 /* ---------- objects en person_related_objects: raster van objecten ---------- */
 
-type Icon = "photo" | "document" | "book";
+type Icon = "photo" | "document" | "book" | "person";
 
 /** schema.org-type → leesbaar label en pictogram; specifieke types eerst. */
 const KINDS: [RegExp, { label: string; icon: Icon }][] = [
@@ -246,12 +248,70 @@ function ObjectCard({ object: o }: { object: Json }) {
   );
 }
 
+/* ---------- persons: raster van personen ---------- */
+
+export function PersonGrid({ data }: { data: Json }) {
+  return (
+    <ul className={styles.cardGrid}>
+      {entities(data).map((person: Json) => (
+        <PersonResult key={person.id} person={person} />
+      ))}
+    </ul>
+  );
+}
+
+function PersonResult({ person: p }: { person: Json }) {
+  const name: string | undefined = first(p.name);
+  // De id is een URL; de vervolgaanroepen hebben alleen de UUID nodig.
+  const uuid = uuidOf(p.id);
+  const photo = arr(p.image)
+    .map((image: Json) => safeUrl(first(image?.thumbnailUrl)))
+    .find(Boolean);
+  const alt = arr(p.alternateName).filter((n: string) => n !== name);
+  const rows = [
+    ["Geboren", fmtDate(first(p.birthDate)), first(p.birthPlace)],
+    ["Overleden", fmtDate(first(p.deathDate)), first(p.deathPlace)],
+  ].filter(([, ...values]) => values.some(Boolean));
+
+  return (
+    <li className={styles.itemCard}>
+      <ObjectImage src={photo} icon="person" portrait />
+      <strong>{name ?? "Naam onbekend"}</strong>
+      {alt.length > 0 && (
+        <div className={styles.alt}>ook bekend als {alt.join(", ")}</div>
+      )}
+      <dl className={styles.rows}>
+        {rows.map(([label, ...values]) => (
+          <div key={label}>
+            <dt>{label}</dt>
+            <dd>{values.filter(Boolean).join(", ")}</dd>
+          </div>
+        ))}
+      </dl>
+      {uuid && (
+        <Link to={`/cookbook/persoon?id=${uuid}`}>
+          Alles over deze persoon →
+        </Link>
+      )}
+    </li>
+  );
+}
+
 /**
  * Toont de thumbnail, of een vervangende afbeelding als die ontbreekt of niet
  * laadt (niet elke thumbnail bij een bron bestaat nog). De ref vangt een fout
  * die optrad vóór de hydratie van de vooraf gerenderde pagina.
  */
-function ObjectImage({ src, icon }: { src?: string; icon: Icon }) {
+function ObjectImage({
+  src,
+  icon,
+  portrait = false,
+}: {
+  src?: string;
+  icon: Icon;
+  /** Portretfoto: snijd bij naar het bovenste deel, waar het gezicht zit. */
+  portrait?: boolean;
+}) {
   const [failed, setFailed] = useState(false);
   if (!src || failed) return <FallbackImage icon={icon} />;
   return (
@@ -259,7 +319,11 @@ function ObjectImage({ src, icon }: { src?: string; icon: Icon }) {
       ref={(img) => {
         if (img?.complete && img.naturalWidth === 0) setFailed(true);
       }}
-      className={styles.objectImage}
+      className={
+        portrait
+          ? `${styles.objectImage} ${styles.objectImagePortrait}`
+          : styles.objectImage
+      }
       src={src}
       alt=""
       loading="lazy"
@@ -287,6 +351,12 @@ const ICONS: Record<Icon, React.ReactNode> = {
       <path d="M20 5c-3-1-6-1-8 1v14c2-2 5-2 8-1z" />
     </>
   ),
+  person: (
+    <>
+      <circle cx="12" cy="8" r="4" />
+      <path d="M4 21c0-4 4-7 8-7s8 3 8 7" />
+    </>
+  ),
 };
 
 function FallbackImage({ icon }: { icon: Icon }) {
@@ -304,7 +374,11 @@ function FallbackImage({ icon }: { icon: Icon }) {
       >
         {ICONS[icon]}
       </svg>
-      <span>Geen afbeelding beschikbaar</span>
+      <span>
+        {icon === "person"
+          ? "Geen foto beschikbaar"
+          : "Geen afbeelding beschikbaar"}
+      </span>
     </div>
   );
 }

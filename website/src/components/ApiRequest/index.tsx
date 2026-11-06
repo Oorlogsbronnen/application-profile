@@ -1,11 +1,16 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
   OORLOGSBRONNEN_API_BASE,
   OORLOGSBRONNEN_API_PROXY_PREFIX,
 } from "@site/src/lib/oorlogsbronnen-api";
 import { entities, safeUrl, type Json } from "./helpers";
 import PersonCard from "./PersonCard";
-import { EventTimeline, ObjectGrid, ObservationList } from "./ResultViews";
+import {
+  EventTimeline,
+  ObjectGrid,
+  ObservationList,
+  PersonGrid,
+} from "./ResultViews";
 import styles from "./styles.module.css";
 
 /**
@@ -40,6 +45,9 @@ const LABELS: Record<string, string> = {
   id: "ID van de persoon (UUID)",
   about: "Onderwerp: volledige URI uit de WO2 Thesaurus",
   publisher: "Organisatie: volledige URI uit de WO2 Organisatie Thesaurus",
+  birthplace: "Geboorteplaats: volledige URI uit de WO2 Thesaurus",
+  deathplace: "Overlijdensplaats: volledige URI uit de WO2 Thesaurus",
+  keywords: "Trefwoord: volledige URI uit de WO2 Thesaurus",
   count: "Aantal resultaten (1–50)",
   offset: "Aantal resultaten overslaan (0–300)",
 };
@@ -109,6 +117,20 @@ export default function ApiRequest({
   query = { count: 10, offset: 0 },
 }: Props) {
   const [path, setPath] = useState<Params>(pathParams);
+
+  // Een padparameter in de pagina-URL (bv. /cookbook/persoon?id=…) vult het
+  // veld vooraf in; zo linkt "Personen zoeken" door naar een gekozen persoon.
+  // Na het laden, zodat de vooraf gerenderde HTML gelijk blijft.
+  useEffect(() => {
+    const search = new URLSearchParams(window.location.search);
+    const fromUrl = Object.keys(pathParams).flatMap((key) => {
+      const value = search.get(key)?.trim();
+      return value ? [[key, value] as const] : [];
+    });
+    if (fromUrl.length > 0)
+      setPath((p) => ({ ...p, ...Object.fromEntries(fromUrl) }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const [q, setQ] = useState<Query>(query);
   const [rawUrl, setRawUrl] = useState<string | null>(null); // handmatig bewerkte URL
   const [runState, setRunState] = useState<RunState>("idle");
@@ -373,6 +395,7 @@ const VIEWS: [RegExp, React.ComponentType<{ data: Json }>][] = [
   [/\/person_observations\//, ObservationList],
   [/\/person_related_objects\//, ObjectGrid],
   [/\/objects(\?|$)/, ObjectGrid],
+  [/\/persons(\?|$)/, PersonGrid],
 ];
 
 /** FastAPI-fouten: { detail: "tekst" } of { detail: [ { loc, msg } ] } */
