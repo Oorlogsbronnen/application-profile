@@ -273,6 +273,28 @@
   border-radius: 4px;
   background: var(--ifm-color-emphasis-200);
 }
+/* Vervangende afbeelding als een object geen (werkende) thumbnail heeft */
+.fallbackImage {
+  height: 160px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  color: var(--ifm-color-primary-darker);
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--ifm-color-emphasis-100),
+    var(--ifm-color-emphasis-100) 8px,
+    var(--ifm-color-emphasis-200) 8px,
+    var(--ifm-color-emphasis-200) 16px
+  );
+}
+.fallbackImage span {
+  font-size: 0.75rem;
+  color: var(--ifm-color-emphasis-800);
+}
 .clamp {
   margin: 0;
   font-size: 0.85rem;

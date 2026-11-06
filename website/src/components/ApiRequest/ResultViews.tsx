@@ -6,6 +6,7 @@ import {
   fmtDate,
   primarySources,
   safeUrl,
+  sourceName,
   stripHtml,
   textOf,
   type Json,
@@ -153,7 +154,24 @@ function ObservationCard({ observation: o }: { observation: Json }) {
   );
 }
 
-/* ---------- person_related_objects: raster van objecten ---------- */
+/* ---------- objects en person_related_objects: raster van objecten ---------- */
+
+type Icon = "photo" | "document" | "book";
+
+/** schema.org-type → leesbaar label en pictogram; specifieke types eerst. */
+const KINDS: [RegExp, { label: string; icon: Icon }][] = [
+  [/\/(Photograph|ImageObject)$/, { label: "Foto", icon: "photo" }],
+  [/\/ArchiveComponent$/, { label: "Archiefstuk", icon: "document" }],
+  [/\/Book$/, { label: "Boek", icon: "book" }],
+  [/\/CreativeWork$/, { label: "Creatief werk", icon: "document" }],
+];
+
+function objectKind(types: Json): { label?: string; icon: Icon } {
+  const list = arr(types).filter((t): t is string => typeof t === "string");
+  for (const [pattern, kind] of KINDS)
+    if (list.some((t) => pattern.test(t))) return kind;
+  return { icon: "document" };
+}
 
 export function ObjectGrid({ data }: { data: Json }) {
   return (
@@ -172,18 +190,23 @@ function ObjectCard({ object: o }: { object: Json }) {
   const date = fmtDate(first(o.dateCreated) ?? first(o.startDate));
   const license = textOf(first(o.license));
   const description = first(o.description);
+  const kind = objectKind(o.type);
+  // Liever de soort uit de bron; anders het schema.org-type.
+  const tags = arr(o.additionalType).map(textOf).filter(Boolean) as string[];
+  if (tags.length === 0 && kind.label) tags.push(kind.label);
 
   return (
     <li className={styles.itemCard}>
-      {image && <ObjectImage src={image} />}
+      <ObjectImage src={image} icon={kind.icon} />
       <div className={styles.chips}>
-        {arr(o.additionalType).map((type: Json) => (
-          <span key={textOf(type)} className={styles.tag}>
-            {textOf(type)}
+        {tags.map((tag) => (
+          <span key={tag} className={styles.tag}>
+            {tag}
           </span>
         ))}
       </div>
-      <strong>{first(o.name) ?? "Zonder titel"}</strong>
+      {/* Sommige titels bevatten HTML, zoals <br/> */}
+      <strong>{stripHtml(first(o.name) ?? "") || "Zonder titel"}</strong>
       {description && description !== first(o.name) && (
         <p className={styles.clamp}>{stripHtml(description)}</p>
       )}
@@ -194,11 +217,18 @@ function ObjectCard({ object: o }: { object: Json }) {
             <dd>{date}</dd>
           </div>
         )}
-        {institution && (
+        {institution ? (
           <div>
             <dt>Collectie</dt>
             <dd>{institution}</dd>
           </div>
+        ) : (
+          url && (
+            <div>
+              <dt>Bron</dt>
+              <dd>{sourceName(url)}</dd>
+            </div>
+          )
         )}
         {license && (
           <div>
@@ -217,12 +247,13 @@ function ObjectCard({ object: o }: { object: Json }) {
 }
 
 /**
- * Niet elke thumbnail bij een bron bestaat nog; verberg kapotte afbeeldingen.
- * De ref vangt een fout die optrad vóór de hydratie van de vooraf gerenderde pagina.
+ * Toont de thumbnail, of een vervangende afbeelding als die ontbreekt of niet
+ * laadt (niet elke thumbnail bij een bron bestaat nog). De ref vangt een fout
+ * die optrad vóór de hydratie van de vooraf gerenderde pagina.
  */
-function ObjectImage({ src }: { src: string }) {
+function ObjectImage({ src, icon }: { src?: string; icon: Icon }) {
   const [failed, setFailed] = useState(false);
-  if (failed) return null;
+  if (!src || failed) return <FallbackImage icon={icon} />;
   return (
     <img
       ref={(img) => {
@@ -234,6 +265,47 @@ function ObjectImage({ src }: { src: string }) {
       loading="lazy"
       onError={() => setFailed(true)}
     />
+  );
+}
+
+const ICONS: Record<Icon, React.ReactNode> = {
+  photo: (
+    <>
+      <path d="M4 8h3l2-3h6l2 3h3v11H4z" />
+      <circle cx="12" cy="13" r="3.5" />
+    </>
+  ),
+  document: (
+    <>
+      <path d="M6 3h8l4 4v14H6z" />
+      <path d="M14 3v4h4M9 12h6M9 16h6" />
+    </>
+  ),
+  book: (
+    <>
+      <path d="M4 5c3-1 6-1 8 1v14c-2-2-5-2-8-1z" />
+      <path d="M20 5c-3-1-6-1-8 1v14c2-2 5-2 8-1z" />
+    </>
+  ),
+};
+
+function FallbackImage({ icon }: { icon: Icon }) {
+  return (
+    <div className={styles.fallbackImage}>
+      <svg
+        viewBox="0 0 24 24"
+        width="40"
+        height="40"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+        aria-hidden
+      >
+        {ICONS[icon]}
+      </svg>
+      <span>Geen afbeelding beschikbaar</span>
+    </div>
   );
 }
 

@@ -28,6 +28,31 @@
 
 .wide { grid-column: 1 / -1; }
 
+/* Herhaalbare parameter (bv. about): één invoerveld per waarde */
+.list { border: 0; margin: 0; padding: 0; min-width: 0; }
+.list legend { padding: 0; margin-bottom: 0.25rem; }
+.listRow { display: flex; gap: 0.4rem; margin-bottom: 0.4rem; }
+.remove, .add {
+  font: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+  border-radius: 4px;
+  color: var(--ifm-color-primary-darker);
+}
+.remove {
+  flex: none;
+  width: 2rem;
+  border: 1px solid var(--ifm-color-emphasis-400);
+  background: transparent;
+}
+.add {
+  align-self: flex-start;
+  padding: 0.15rem 0;
+  border: 0;
+  background: none;
+}
+.remove:hover, .add:hover { text-decoration: underline; }
+
 .hint {
   color: var(--ifm-color-emphasis-700);
   font-size: 0.8rem;

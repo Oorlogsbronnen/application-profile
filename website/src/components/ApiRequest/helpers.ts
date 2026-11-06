@@ -2,7 +2,7 @@
 
 export type Json = any;
 
-/** Alle velden in een entiteit zijn lijsten; `first()` pakt de eerste waarde. */
+/** Bijna alle velden in een entiteit zijn lijsten; `first()` pakt de eerste waarde. */
 export const first = (v: Json): Json => (Array.isArray(v) ? v[0] : v);
 export const arr = (v: Json): Json[] =>
   v == null ? [] : Array.isArray(v) ? v : [v];
@@ -20,12 +20,13 @@ export const safeUrl = (url: unknown): string | undefined =>
   typeof url === "string" && /^https?:\/\//i.test(url) ? url : undefined;
 
 /**
- * Sommige beschrijvingen bevatten HTML. Die tonen we als platte tekst: React
- * escapet de uitkomst, dus ook onvolledig verwijderde opmaak blijft onschadelijk.
+ * Sommige beschrijvingen en titels bevatten HTML. Die tonen we als platte tekst:
+ * React escapet de uitkomst, dus ook onvolledig verwijderde opmaak blijft
+ * onschadelijk. Alleen echte tags gaan eruit, zodat "a < b" gewoon blijft staan.
  */
 export const stripHtml = (s: string): string =>
   s
-    .replace(/<[^>]*>/g, " ")
+    .replace(/<\/?[a-z][^>]*>/gi, " ")
     .replace(/\s+/g, " ")
     .trim();
 
@@ -59,6 +60,13 @@ const SOURCES: Record<string, string> = {
   "iisg.amsterdam": "IISG",
   "documentatiegroep40-45.nl": "Documentatiegroep 40-45",
   "scouting.nl": "Scouting Nederland",
+  "beeldbankwo2.nl": "Beeldbank WO2",
+  "hetutrechtsarchief.nl": "Het Utrechts Archief",
+  "archief.zaanstad.nl": "Gemeentearchief Zaanstad",
+  "studiezaal.nijmegen.nl": "Regionaal Archief Nijmegen",
+  "erfgoedleiden.nl": "Erfgoed Leiden",
+  "collectiegelderland.nl": "Collectie Gelderland",
+  "hdl.handle.net": "Persistente link (Handle)",
 };
 
 function host(url: string): string {
@@ -86,8 +94,10 @@ export const primarySources = (v: Json): { name: string; url?: string }[] =>
     return reference ? [{ name: sourceName(reference), url }] : [];
   });
 
-export function fmtDate(d?: string): string | null {
-  if (!d) return null;
+export function fmtDate(value?: string): string | null {
+  if (!value) return null;
+  // Een tijd erachter (1945-11-27T00:00:00) laten we weg.
+  const d = /^\d{4}-\d{2}-\d{2}T/.test(value) ? value.slice(0, 10) : value;
   const parts = d.split("-");
   if (parts.length === 1) return d; // alleen een jaartal
   const date = new Date(d + "T12:00:00");

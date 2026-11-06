@@ -17,25 +17,36 @@ import styles from "./styles.module.css";
  *     pathParams={{ id: "48968c01-..." }}
  *   />
  *
+ * Een queryparameter met een lijst als waarde mag meerdere keren voorkomen,
+ * bv. query={{ about: ["https://…/2244", "https://…/2657"], count: 10 }}.
+ * De gebruiker kan dan waardes toevoegen en verwijderen.
+ *
  * Haalt het resultaat pas live op als de gebruiker op "Uitvoeren" klikt.
  * Lukt dat niet, dan toont de component een melding; een eerder opgehaald
  * resultaat blijft dan staan.
  */
 
 type Params = Record<string, string | number>;
+type Query = Record<string, string | number | string[]>;
 
 interface Props {
   /** Pad na de basis-URL; {naam} wordt vervangen door pathParams.naam */
   endpoint: string;
   pathParams?: Params;
-  query?: Params;
+  query?: Query;
 }
 
 const LABELS: Record<string, string> = {
   id: "ID van de persoon (UUID)",
+  about: "Onderwerp: volledige URI uit de WO2 Thesaurus",
+  publisher: "Organisatie: volledige URI uit de WO2 Organisatie Thesaurus",
   count: "Aantal resultaten (1–50)",
   offset: "Aantal resultaten overslaan (0–300)",
 };
+
+/** Houdt URI's in de query leesbaar: de API accepteert `:` en `/` ongecodeerd. */
+const encodeQueryValue = (v: string) =>
+  encodeURIComponent(v).replace(/%3A/gi, ":").replace(/%2F/gi, "/");
 
 type Result = {
   data: Json;
@@ -46,17 +57,19 @@ type Result = {
 
 type RunState = "idle" | "loading" | "failed";
 
-function buildUrl(endpoint: string, path: Params, query: Params): string {
+function buildUrl(endpoint: string, path: Params, query: Query): string {
   const url =
     OORLOGSBRONNEN_API_BASE +
     endpoint.replace(/\{(\w+)\}/g, (_, k) =>
       encodeURIComponent(String(path[k] ?? `{${k}}`).trim()),
     );
+  // Een lijst wordt een herhaalde parameter: ?about=…&about=…
   const qs = Object.entries(query)
-    .filter(([, v]) => String(v).trim() !== "")
-    .map(
-      ([k, v]) =>
-        `${encodeURIComponent(k)}=${encodeURIComponent(String(v).trim())}`,
+    .flatMap(([k, v]) =>
+      (Array.isArray(v) ? v : [v])
+        .map((value) => String(value).trim())
+        .filter((value) => value !== "")
+        .map((value) => `${encodeURIComponent(k)}=${encodeQueryValue(value)}`),
     )
     .join("&");
   return qs ? `${url}?${qs}` : url;
@@ -96,7 +109,7 @@ export default function ApiRequest({
   query = { count: 10, offset: 0 },
 }: Props) {
   const [path, setPath] = useState<Params>(pathParams);
-  const [q, setQ] = useState<Params>(query);
+  const [q, setQ] = useState<Query>(query);
   const [rawUrl, setRawUrl] = useState<string | null>(null); // handmatig bewerkte URL
   const [runState, setRunState] = useState<RunState>("idle");
   const [result, setResult] = useState<Result | null>(null);
@@ -169,6 +182,57 @@ export default function ApiRequest({
     </label>
   );
 
+  /** Herhaalbare parameter: één invoerveld per waarde. */
+  const listField = (key: string, values: string[]) => {
+    const shown = values.length > 0 ? values : [""];
+    const update = (next: string[]) => {
+      setRawUrl(null);
+      setQ((p) => ({ ...p, [key]: next }));
+    };
+    return (
+      <fieldset
+        key={`query-${key}`}
+        className={`${styles.field} ${styles.wide} ${styles.list}`}
+      >
+        <legend className={styles.fieldLabel}>
+          <code>{key}</code>
+          {LABELS[key] && <span className={styles.hint}>{LABELS[key]}</span>}
+        </legend>
+        {shown.map((value, i) => (
+          <div key={i} className={styles.listRow}>
+            <input
+              className={styles.input}
+              value={value}
+              spellCheck={false}
+              aria-label={`${key}, waarde ${i + 1}`}
+              onChange={(e) =>
+                update(shown.map((v, j) => (j === i ? e.target.value : v)))
+              }
+              onKeyDown={(e) => e.key === "Enter" && run()}
+            />
+            {shown.length > 1 && (
+              <button
+                type="button"
+                className={styles.remove}
+                aria-label={`Verwijder ${key}, waarde ${i + 1}`}
+                onClick={() => update(shown.filter((_, j) => j !== i))}
+              >
+                ×
+              </button>
+            )}
+          </div>
+        ))}
+        <button
+          type="button"
+          className={styles.add}
+          onClick={() => update([...shown, ""])}
+        >
+          + waarde toevoegen
+        </button>
+      </fieldset>
+    );
+  };
+
   const count = entities(result?.data).length;
   const mayHaveMore = count > 0 && count === result?.data?.count;
 
@@ -176,7 +240,9 @@ export default function ApiRequest({
     <div className={styles.box}>
       <div className={styles.fields}>
         {Object.entries(path).map(([k, v]) => field("path", k, v))}
-        {Object.entries(q).map(([k, v]) => field("query", k, v))}
+        {Object.entries(q).map(([k, v]) =>
+          Array.isArray(v) ? listField(k, v) : field("query", k, v),
+        )}
       </div>
 
       <div className={styles.urlRow}>
@@ -306,6 +372,7 @@ const VIEWS: [RegExp, React.ComponentType<{ data: Json }>][] = [
   [/\/person_events\//, EventTimeline],
   [/\/person_observations\//, ObservationList],
   [/\/person_related_objects\//, ObjectGrid],
+  [/\/objects(\?|$)/, ObjectGrid],
 ];
 
 /** FastAPI-fouten: { detail: "tekst" } of { detail: [ { loc, msg } ] } */
