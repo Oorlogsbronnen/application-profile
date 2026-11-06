@@ -1,0 +1,223 @@
+---
+title: Objecten zoeken
+sidebar_position: 2
+---
+
+import ApiRequest from "@site/src/components/ApiRequest";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# Objecten zoeken op onderwerp en organisatie
+
+**Vraag:** welke foto's, archiefstukken en andere objecten uit WO2-collecties gaan over een bepaald onderwerp, of komen van een bepaalde organisatie?
+
+Het endpoint `objects` zoekt in de collecties met filters. In dit recept leer je hoe je die filters opbouwt en combineert, en wat de API teruggeeft. Bij elk voorbeeld kun je de filters aanpassen en met **Uitvoeren** het resultaat ophalen en bekijken.
+
+:::note[Acceptatieomgeving]
+
+Deze API draait op de acceptatieomgeving. De URL en de responses kunnen nog veranderen. Alle endpoints staan in de [technische API-documentatie](https://acc-data.oorlogsbronnen.nl/services/api/docs).
+
+:::
+
+## Zo bouw je een request
+
+Een request is een gewone `GET` op een URL. Je hebt geen API-sleutel nodig.
+
+```text
+https://acc-data.oorlogsbronnen.nl/services/api/objects?about=https://data.niod.nl/WO2_Thesaurus/2244&count=10&offset=0
+└───────────────── basis-URL ─────────────────┘└ pad ─┘└────────────────── filter ──────────────────┘└── paginering ──┘
+```
+
+| Parameter | Waarde | Toelichting |
+| --- | --- | --- |
+| `about` | Volledige URI uit de WO2 Thesaurus | Het onderwerp, zoals `https://data.niod.nl/WO2_Thesaurus/2657` (Verzet) |
+| `publisher` | Volledige URI uit de WO2 Organisatie Thesaurus | De organisatie die het object publiceert, zoals `https://data.niod.nl/Organizations/105` (Vrijheidsmuseum) |
+| `count` | 1 tot en met 50, standaard 10 | Hoeveel resultaten je wilt ontvangen |
+| `offset` | 0 tot en met 300, standaard 0 | Hoeveel resultaten je overslaat, om te bladeren |
+
+Voor de filters gelden vier regels:
+
+- **Minstens één filter is verplicht.** Zonder `about` of `publisher` geeft de API een foutmelding (`HTTP 400`).
+- **Gebruik altijd de volledige URI.** Met alleen het nummer (`about=2244`) krijg je geen foutmelding, maar een lege lijst.
+- **Dezelfde parameter herhalen betekent OF.** `?about=A&about=B` geeft objecten over A of over B.
+- **Verschillende filters combineren betekent EN.** `?about=A&publisher=C` geeft objecten over A die door C zijn gepubliceerd.
+
+De voorbeelden op deze pagina gebruiken deze URI's:
+
+| URI | Betekenis |
+| --- | --- |
+| `https://data.niod.nl/WO2_Thesaurus/2244` | N.S.B. |
+| `https://data.niod.nl/WO2_Thesaurus/2657` | Verzet |
+| `https://data.niod.nl/Organizations/105` | Vrijheidsmuseum |
+| `https://data.niod.nl/Organizations/817` | Erfgoed Gelderland |
+
+Andere onderwerpen vind je met het recept [Zoeken via de thesaurus](./thesaurus).
+
+Organisaties komen uit de WO2 Organisatie Thesaurus. Een paar organisaties met veel objecten:
+
+| URI | Organisatie |
+| --- | --- |
+| `https://data.niod.nl/Organizations/116` | NIOD |
+| `https://data.niod.nl/Organizations/113` | Nationaal Archief |
+| `https://data.niod.nl/Organizations/311` | Nationaal Monument Oranjehotel |
+
+De URI van een organisatie staat ook in het veld `publisher` van een object uit [`person_related_objects`](./persoon#person_related_objects).
+
+## Zo ziet een response eruit
+
+De response heeft dezelfde vorm als bij de andere endpoints. Elk resultaat staat in `items[n].tuple[0]`, en bijna elk veld is een lijst:
+
+```json
+{
+  "offset": 0,
+  "count": 10,
+  "items": [
+    {
+      "rank": 1,
+      "tuple": [
+        {
+          "id": "https://studiezaal.nijmegen.nl/detail.php?id=260595",
+          "name": ["Mussert spreekt Jeugdstormers toe bij de opening van de Westerhelling als NSB-centrum"],
+          "type": ["http://www.w3.org/2000/01/rdf-schema#Resource", "https://schema.org/Photograph"]
+        }
+      ]
+    }
+  ]
+}
+```
+
+| Veld | Betekenis |
+| --- | --- |
+| `id` | De URI van het object bij de bron. Dit is ook de pagina waar je het object bekijkt |
+| `name` | De titel |
+| `type` | De soort object als schema.org-type, zoals `Photograph` (foto), `ArchiveComponent` (archiefstuk), `Book` (boek) of `CreativeWork` (creatief werk) |
+
+Meer velden geeft dit endpoint niet. Er zit dus geen afbeelding, datum of beschrijving in de response. De visualisatie toont daarom bij elk object een vervangende afbeelding die past bij het type. Wil je het object zelf zien, open dan de link in `id`.
+
+Net als bij de andere endpoints is `count` het aantal dat je hebt gevraagd en niet het totaal. Krijg je minder resultaten dan je vroeg, dan ben je aan het eind. Een lege `items`-lijst betekent dat er niets past bij deze combinatie van filters.
+
+## Eén onderwerp
+
+Objecten over de N.S.B. Maak het veld `about` leeg en klik op **Uitvoeren** om de foutmelding te zien die je krijgt als er geen filter is.
+
+<ApiRequest
+  endpoint="/objects"
+  query={{
+    about: ["https://data.niod.nl/WO2_Thesaurus/2244"],
+    publisher: [],
+    count: 10,
+    offset: 0,
+  }}
+/>
+
+## Meerdere onderwerpen (OF)
+
+Objecten over de N.S.B. **of** over het verzet. Met **+ waarde toevoegen** zet je er nog een onderwerp bij. In de URL zie je dat `about` dan nog een keer voorkomt.
+
+<ApiRequest
+  endpoint="/objects"
+  query={{
+    about: [
+      "https://data.niod.nl/WO2_Thesaurus/2244",
+      "https://data.niod.nl/WO2_Thesaurus/2657",
+    ],
+    publisher: [],
+    count: 10,
+    offset: 0,
+  }}
+/>
+
+## Onderwerp en organisatie (EN)
+
+Objecten over het verzet **die** Erfgoed Gelderland publiceert. Elk extra filter maakt het resultaat kleiner: met alleen `about` krijg je honderden objecten over het verzet, met `publisher` erbij nog maar een handvol.
+
+<ApiRequest
+  endpoint="/objects"
+  query={{
+    about: ["https://data.niod.nl/WO2_Thesaurus/2657"],
+    publisher: ["https://data.niod.nl/Organizations/817"],
+    count: 10,
+    offset: 0,
+  }}
+/>
+
+## In je eigen code
+
+Deze voorbeelden halen objecten over het verzet van Erfgoed Gelderland op. Het Python-voorbeeld bladert daarnaast door alle pagina's van een OF-zoekvraag.
+
+<Tabs groupId="taal">
+  <TabItem value="curl" label="curl" default>
+
+```bash
+curl "https://acc-data.oorlogsbronnen.nl/services/api/objects?about=https://data.niod.nl/WO2_Thesaurus/2657&publisher=https://data.niod.nl/Organizations/817&count=50"
+```
+
+  </TabItem>
+  <TabItem value="js" label="JavaScript">
+
+```js
+const base = "https://acc-data.oorlogsbronnen.nl/services/api";
+
+// append() voegt een waarde toe; herhaal het voor meerdere waardes (OF).
+const params = new URLSearchParams();
+params.append("about", "https://data.niod.nl/WO2_Thesaurus/2657");
+params.append("publisher", "https://data.niod.nl/Organizations/817");
+params.append("count", "50");
+
+const res = await fetch(`${base}/objects?${params}`);
+if (!res.ok) throw new Error(`HTTP ${res.status}`);
+const { items } = await res.json();
+
+for (const item of items) {
+  const object = item.tuple[0];
+  console.log(object.name[0], object.id);
+}
+```
+
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
+import requests
+
+BASE = "https://acc-data.oorlogsbronnen.nl/services/api"
+
+
+def zoek_objecten(filters):
+    """Haalt alle pagina's op, tot de API minder dan 50 resultaten geeft."""
+    objecten = []
+    for offset in range(0, 301, 50):
+        params = {**filters, "count": 50, "offset": offset}
+        res = requests.get(f"{BASE}/objects", params=params, timeout=30)
+        res.raise_for_status()
+        items = res.json()["items"]
+        objecten += [item["tuple"][0] for item in items]
+        if len(items) < 50:
+            break
+    return objecten
+
+
+# Een lijst wordt een herhaalde parameter: N.S.B. OF verzet
+objecten = zoek_objecten({
+    "about": [
+        "https://data.niod.nl/WO2_Thesaurus/2244",
+        "https://data.niod.nl/WO2_Thesaurus/2657",
+    ],
+})
+print(len(objecten), "objecten")
+```
+
+  </TabItem>
+</Tabs>
+
+:::caution[Gebruik in de browser]
+
+De API stuurt geen CORS-headers. Een webapplicatie op een ander domein kan de API daarom niet rechtstreeks aanroepen. Roep de API aan vanaf je eigen server of via een proxy. Vanaf de command line, in Python en in Node.js speelt dit niet.
+
+:::
+
+## Verder bouwen
+
+- **Meer dan 50 resultaten:** verhoog `offset` met `count` (0, 50, 100, …). De hoogste `offset` is 300, dus je kunt maximaal 350 resultaten per zoekvraag ophalen. Heb je er meer nodig, maak de zoekvraag dan kleiner met een extra filter.
+- **Verzoeken na elkaar:** de API geeft op dit moment regelmatig `HTTP 500` als je verzoeken tegelijk doet. Doe ze na elkaar, zoals in het Python-voorbeeld, en probeer het bij zo'n fout opnieuw.
+- **Objecten bij een persoon:** zoek je materiaal over één persoon, gebruik dan [`person_related_objects`](./persoon#person_related_objects). Dat endpoint geeft ook afbeeldingen, datums en rechten terug.
