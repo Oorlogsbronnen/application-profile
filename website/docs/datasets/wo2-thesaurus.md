@@ -9,10 +9,13 @@ De WO2-thesaurus is een gevalideerde, hiërarchisch georganiseerde trefwoordenli
 
 Redactie van de WO2-Thesaurus wordt gedaan door het [NIOD](https://niod.nl) in samenwerking met [WO2Net](https://wo2net.nl).  
 
-Er is een SPARQL-endpoint beschikbaar: [https://www.ldmax.nl/datasets/wo2net/thesaurus](https://www.ldmax.nl/datasets/wo2net/thesaurus ) 
+## Distributies
 
-De WO2-thesaurus is ook beschikbaar via het Termennetwerk: [https://termennetwerk.netwerkdigitaalerfgoed.nl/nl](https://termennetwerk.netwerkdigitaalerfgoed.nl/nl) van NDE en dus te gebruiken binnen collectiebeheersystemen zoals Axiell Collections, Atlantis, MAIS FLEXIS en Memorix.  
+- Er is een **SPARQL-endpoint** beschikbaar: [https://www.ldmax.nl/datasets/wo2net/thesaurus](https://www.ldmax.nl/datasets/wo2net/thesaurus ) 
 
-Daarnaast is de WO2-thesaurus ook te vinden via het Datasetregister van Netwerk Digitaal Erfgoed: [https://datasetregister.netwerkdigitaalerfgoed.nl/dataset?uri=https://www.ldmax.nl/datasets/wo2net/thesaurus](https://datasetregister.netwerkdigitaalerfgoed.nl/dataset?uri=https://www.ldmax.nl/datasets/wo2net/thesaurus)
+- De WO2-thesaurus is ook beschikbaar via **het Termennetwerk**: [https://termennetwerk.netwerkdigitaalerfgoed.nl/nl](https://termennetwerk.netwerkdigitaalerfgoed.nl/nl) van NDE en dus te gebruiken binnen collectiebeheersystemen zoals Axiell Collections, Atlantis, MAIS FLEXIS en Memorix.  
 
-Licentie: [https://creativecommons.org/publicdomain/zero/1.0/](https://creativecommons.org/publicdomain/zero/1.0/)
+- Daarnaast is de WO2-thesaurus ook te vinden via **het Datasetregister** van Netwerk Digitaal Erfgoed: [https://datasetregister.netwerkdigitaalerfgoed.nl/dataset?uri=https://www.ldmax.nl/datasets/wo2net/thesaurus](https://datasetregister.netwerkdigitaalerfgoed.nl/dataset?uri=https://www.ldmax.nl/datasets/wo2net/thesaurus)
+
+## Licentie 
+[https://creativecommons.org/publicdomain/zero/1.0/](https://creativecommons.org/publicdomain/zero/1.0/)
