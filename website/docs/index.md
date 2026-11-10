@@ -10,8 +10,8 @@ Dit is de documentatie voor de gebruikers van het **Oorlogsbronnen dataplatform*
 
 - **[Datasets](datasets/personen-en-objecten)** — de linked data-publicaties van WO2Net.
 - **[Services](services/apis)** — de Open API, het SPARQL-endpoint en het Termennetwerk.
-- **[Datamodel](schema)** — documentatie van het Oorlogsbronnen Application Profile.
-- **[Cookbook](cookbook/index.md)** — taakgerichte recepten met direct uitvoerbare queries.
+- **[Applicatieprofiel](schema)** — documentatie van het Oorlogsbronnen Applicatieprofiel.
+- **[Cookbook](cookbook/index.md)** — taakgerichte voorbeelden met de Open API.
 - **[Rechten en gebruik](rechten-en-gebruik)** — licenties en gebruiksvoorwaarden van de data.
 - **[Meedoen](meedoen)** — data delen met WO2Net/Oorlogsbronnen.
 - **[Contact](contact)**
