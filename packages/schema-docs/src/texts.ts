@@ -14,6 +14,7 @@ const REPO_URL = "https://github.com/Oorlogsbronnen/application-profile";
 export const texts = {
   page: {
     title: "Oorlogsbronnen Applicatieprofiel",
+    sidebarLabel: "Applicatieprofiel",
     slug: "/schema",
     sidebarPosition: 3,
     metaDescription:
@@ -29,8 +30,8 @@ export const texts = {
     generatedComment: [
       "GEGENEREERD BESTAND — niet handmatig bewerken.",
       "Bron: ontology/shapes-*.ttl en ontology/schema_ext-oorlogsbronnen.ttl · generator: packages/schema-docs",
-      "Toelichting-hoofdstuk bewerken: website/docs/datamodel/_schema-toelichting.mdx",
-      "Intro's van de kennisgraaf-hoofdstukken: website/docs/datamodel/_schema-personen.mdx en _schema-objecten.mdx",
+      "Toelichting-hoofdstuk bewerken: website/docs/_schema-toelichting.mdx",
+      "Intro's van de kennisgraaf-hoofdstukken: website/docs/_schema-personen.mdx en _schema-objecten.mdx",
       "Voorbeelden toevoegen: ontology/examples/ (zie packages/schema-docs/README.md)",
     ],
   },

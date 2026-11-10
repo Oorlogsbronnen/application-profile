@@ -15,7 +15,7 @@ import { renderPage } from "./render-page.js";
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), "../../..");
 const ontologyDir = resolve(repoRoot, "ontology");
-const docsDir = resolve(repoRoot, "website/docs/datamodel");
+const docsDir = resolve(repoRoot, "website/docs");
 const staticDir = resolve(repoRoot, "website/static");
 
 const pagePath = resolve(docsDir, "application-profile.mdx");
