@@ -26,24 +26,24 @@ https://data.oorlogsbronnen.nl/services/api/persons?birthplace=https://data.niod
 
 | Parameter | Waarde | Toelichting |
 | --- | --- | --- |
-| `birthplace` | Volledige URI van een plaats uit de WO2 Thesaurus | De geboorteplaats |
-| `deathplace` | Volledige URI van een plaats uit de WO2 Thesaurus | De plaats van overlijden |
-| `keywords` | Volledige URI van een onderwerp uit de WO2 Thesaurus | Een trefwoord dat aan de persoon is gekoppeld, zoals `https://data.niod.nl/WO2_Thesaurus/2657` (Verzet) |
+| `birthplace` | URI of naam van een plaats uit de WO2 Thesaurus | De geboorteplaats, zoals `https://data.niod.nl/WO2_Thesaurus/locations/9587` of `Utrecht` |
+| `deathplace` | URI of naam van een plaats uit de WO2 Thesaurus | De plaats van overlijden |
+| `keywords` | URI of naam van een onderwerp uit de WO2 Thesaurus | Een trefwoord dat aan de persoon is gekoppeld, zoals `https://data.niod.nl/WO2_Thesaurus/2657` of `verzet` |
 | `count` | 1 tot en met 50, standaard 10 | Hoeveel resultaten je wilt ontvangen |
 | `offset` | 0 tot en met 300, standaard 0 | Hoeveel resultaten je overslaat, om te bladeren |
 
 Voor de filters gelden dezelfde vier regels als bij [Objecten zoeken](./objecten):
 
 - **Minstens één filter is verplicht.** Zonder filter geeft de API een foutmelding (`HTTP 400`).
-- **Gebruik altijd de volledige URI.** Met een plaatsnaam (`birthplace=Haarlem`) of alleen een nummer krijg je geen foutmelding, maar een lege lijst.
+- **Gebruik een URI of een naam.** Een naam moet precies overeenkomen met een naam van de term in de WO2 Thesaurus: het voorkeurslabel (`prefLabel`) of een alternatieve of verborgen naam (`altLabel`, `hiddenLabel`). Hoofdletters maken niet uit. `birthplace=utrecht` werkt dus net zo goed als de URI. Wijkt de naam af, of geef je alleen het nummer van de URI, dan krijg je geen foutmelding maar een lege lijst.
 - **Dezelfde parameter herhalen betekent OF.** `?deathplace=A&deathplace=B` geeft personen die in A of in B zijn overleden.
 - **Verschillende filters combineren betekent EN.** `?birthplace=A&keywords=C` geeft personen die in A zijn geboren en trefwoord C hebben.
 
-## De URI van een plaats of onderwerp
+## Plaatsen en onderwerpen opzoeken
 
-Plaatsen en onderwerpen komen allebei uit de WO2 Thesaurus. Kampen hebben een eigen deel van de thesaurus, met `/kampen/` in de URI. De voorbeelden op deze pagina gebruiken deze URI's:
+Plaatsen en onderwerpen komen allebei uit de WO2 Thesaurus. Kampen hebben een eigen deel van de thesaurus, met `/kampen/` in de URI. In een filter mag je de URI of de naam gebruiken. Een URI wijst altijd precies één term aan; met een naam hoef je de URI niet op te zoeken. De voorbeelden op deze pagina gebruiken deze termen:
 
-| URI | Betekenis |
+| URI | Naam |
 | --- | --- |
 | `https://data.niod.nl/WO2_Thesaurus/locations/9577` | Amsterdam |
 | `https://data.niod.nl/WO2_Thesaurus/locations/9881` | Haarlem |
@@ -61,6 +61,16 @@ SELECT ?plaats ?naam WHERE {
   ?plaats skos:prefLabel ?naam .
   FILTER(LCASE(STR(?naam)) = "haarlem")
   FILTER(STRSTARTS(STR(?plaats), "https://data.niod.nl/WO2_Thesaurus/"))
+}`}
+/>
+
+Welke namen je voor een term in een filter kunt gebruiken, zie je met de query hieronder. Die toont alle namen van de N.S.B., zoals `NSB` en `Nationaal Socialistische Beweging`. Vervang de URI door die van de term die je zoekt.
+
+<SparqlEditor
+  query={`PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?soort ?naam WHERE {
+  VALUES ?soort { skos:prefLabel skos:altLabel skos:hiddenLabel }
+  <https://data.niod.nl/WO2_Thesaurus/2244> ?soort ?naam .
 }`}
 />
 
@@ -104,14 +114,14 @@ De response heeft dezelfde vorm als bij de andere endpoints. Elk resultaat staat
 
 Let op twee dingen:
 
-- **De plaatsen in de response zijn tekst**, zoals `"Amsterdam"`, en geen URI. Je filtert dus met een URI, maar krijgt een naam terug.
+- **De plaatsen in de response zijn tekst**, zoals `"Amsterdam"`, en geen URI. Die tekst komt uit de bron en is niet altijd een naam uit de thesaurus. Gebruik hem dus niet zonder meer als filter.
 - **Niet iedereen heeft een foto.** De visualisatie toont dan een vervangende afbeelding.
 
 Net als bij de andere endpoints is `count` het aantal dat je hebt gevraagd en niet het totaal. Krijg je minder resultaten dan je vroeg, dan ben je aan het eind. Een lege `items`-lijst betekent dat er niemand past bij deze combinatie van filters.
 
 ## Eén filter
 
-Personen die in Haarlem zijn geboren. Maak het veld `birthplace` leeg en klik op **Uitvoeren** om de foutmelding te zien die je krijgt als er geen filter is.
+Personen die in Haarlem zijn geboren, hier gefilterd met de URI. Vervang die door `haarlem` en klik op **Uitvoeren**: je krijgt hetzelfde resultaat. Maak het veld `birthplace` leeg en klik op **Uitvoeren** om de foutmelding te zien die je krijgt als er geen filter is.
 
 <ApiRequest
   endpoint="/persons"
@@ -144,14 +154,14 @@ Personen die in Sobibor **of** in Auschwitz zijn overleden. Met **+ waarde toevo
 
 ## Plaats en onderwerp (EN)
 
-Personen die in Haarlem zijn geboren **en** het trefwoord Verzet hebben, onder wie Hannie Schaft. Probeer ook `keywords` te vervangen door de N.S.B. (`https://data.niod.nl/WO2_Thesaurus/2244`).
+Personen die in Haarlem zijn geboren **en** het trefwoord Verzet hebben, onder wie Hannie Schaft. Dit voorbeeld filtert met namen in plaats van URI's. Probeer ook `keywords` te vervangen door `nsb` of door de URI `https://data.niod.nl/WO2_Thesaurus/2244`.
 
 <ApiRequest
   endpoint="/persons"
   query={{
-    birthplace: ["https://data.niod.nl/WO2_Thesaurus/locations/9881"],
+    birthplace: ["Haarlem"],
     deathplace: [],
-    keywords: ["https://data.niod.nl/WO2_Thesaurus/2657"],
+    keywords: ["Verzet"],
     count: 10,
     offset: 0,
   }}

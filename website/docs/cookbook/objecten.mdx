@@ -21,26 +21,26 @@ Een request is een gewone `GET` op een URL. Je hebt geen API-sleutel nodig.
 
 ```text
 https://data.oorlogsbronnen.nl/services/api/objects?about=https://data.niod.nl/WO2_Thesaurus/2244&count=10&offset=0
-└───────────────── basis-URL ─────────────────┘└ pad ─┘└────────────────── filter ──────────────────┘└── paginering ──┘
+└─────────────── basis-URL ───────────────┘└ pad ─┘└────────────────── filter ──────────────────┘└── paginering ──┘
 ```
 
 | Parameter | Waarde | Toelichting |
 | --- | --- | --- |
-| `about` | Volledige URI uit de WO2 Thesaurus | Het onderwerp, zoals `https://data.niod.nl/WO2_Thesaurus/2657` (Verzet) |
-| `publisher` | Volledige URI uit de WO2 Organisatie Thesaurus | De organisatie die het object publiceert, zoals `https://data.niod.nl/Organizations/105` (Vrijheidsmuseum) |
+| `about` | URI of naam uit de WO2 Thesaurus | Het onderwerp, zoals `https://data.niod.nl/WO2_Thesaurus/2244` of `n.s.b.` |
+| `publisher` | URI of naam uit de WO2 Organisatie Thesaurus | De organisatie die het object publiceert, zoals `https://data.niod.nl/Organizations/105` of `Vrijheidsmuseum` |
 | `count` | 1 tot en met 50, standaard 10 | Hoeveel resultaten je wilt ontvangen |
 | `offset` | 0 tot en met 300, standaard 0 | Hoeveel resultaten je overslaat, om te bladeren |
 
 Voor de filters gelden vier regels:
 
 - **Minstens één filter is verplicht.** Zonder `about` of `publisher` geeft de API een foutmelding (`HTTP 400`).
-- **Gebruik altijd de volledige URI.** Met alleen het nummer (`about=2244`) krijg je geen foutmelding, maar een lege lijst.
+- **Gebruik een URI of een naam.** Een naam moet precies overeenkomen met een naam van de term in de thesaurus: het voorkeurslabel (`prefLabel`) of een alternatieve of verborgen naam (`altLabel`, `hiddenLabel`). Hoofdletters maken niet uit. `about=n.s.b.` en `about=NSB` werken dus net zo goed als de URI, maar `about=n.s.b` (zonder de laatste punt) of alleen het nummer (`about=2244`) niet. Dan krijg je geen foutmelding, maar een lege lijst.
 - **Dezelfde parameter herhalen betekent OF.** `?about=A&about=B` geeft objecten over A of over B.
 - **Verschillende filters combineren betekent EN.** `?about=A&publisher=C` geeft objecten over A die door C zijn gepubliceerd.
 
-De voorbeelden op deze pagina gebruiken deze URI's:
+In een filter mag je de URI of de naam gebruiken. Een URI wijst altijd precies één term aan; met een naam hoef je de URI niet op te zoeken. De voorbeelden op deze pagina gebruiken deze termen:
 
-| URI | Betekenis |
+| URI | Naam |
 | --- | --- |
 | `https://data.niod.nl/WO2_Thesaurus/2244` | N.S.B. |
 | `https://data.niod.nl/WO2_Thesaurus/2657` | Verzet |
@@ -54,6 +54,8 @@ Organisaties komen uit de WO2 Organisatie Thesaurus. Een paar organisaties met v
 | `https://data.niod.nl/Organizations/116` | NIOD |
 | `https://data.niod.nl/Organizations/113` | Nationaal Archief |
 | `https://data.niod.nl/Organizations/311` | Nationaal Monument Oranjehotel |
+
+Welke namen je voor een onderwerp kunt gebruiken, zie je met de query onder [Plaatsen en onderwerpen opzoeken](./personen#plaatsen-en-onderwerpen-opzoeken).
 
 De URI van een organisatie staat ook in het veld `publisher` van een object uit [`person_related_objects`](./persoon#person_related_objects).
 
@@ -92,7 +94,7 @@ Net als bij de andere endpoints is `count` het aantal dat je hebt gevraagd en ni
 
 ## Eén onderwerp
 
-Objecten over de N.S.B. Maak het veld `about` leeg en klik op **Uitvoeren** om de foutmelding te zien die je krijgt als er geen filter is.
+Objecten over de N.S.B., hier gefilterd met de URI. Vervang die door `n.s.b.` en klik op **Uitvoeren**: je krijgt hetzelfde resultaat. Maak het veld `about` leeg en klik op **Uitvoeren** om de foutmelding te zien die je krijgt als er geen filter is.
 
 <ApiRequest
   endpoint="/objects"

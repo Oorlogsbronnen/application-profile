@@ -7,6 +7,8 @@ import ApiRequest from "@site/src/components/ApiRequest";
 
 # API's
 
+De [linked data-datasets](../datasets/personen-en-objecten) over personen en objecten zijn ook op te vragen via de openbare REST API van Oorlogsbronnen. Elk endpoint is een gewone `GET`-request en geeft JSON-LD terug:
+
 | | |
 | --- | --- |
 | Basis-URL | `https://data.oorlogsbronnen.nl/services/api` |
@@ -19,7 +21,7 @@ import ApiRequest from "@site/src/components/ApiRequest";
 
 ### `/persons` {#persons}
 
-Personen zoeken met filters. Minstens één filter is verplicht. Dezelfde filter herhalen betekent OF, verschillende filters combineren betekent EN.
+Personen zoeken met filters. Minstens één filter is verplicht. Een filter is een URI uit de WO2 Thesaurus of een naam die precies overeenkomt met een `prefLabel`, `altLabel` of `hiddenLabel` van de term, zonder op hoofdletters te letten. Dezelfde filter herhalen betekent OF, verschillende filters combineren betekent EN.
 
 <ApiRequest
   endpoint="/persons"
@@ -58,7 +60,7 @@ Historische foto's en objecten uit WO2-collecties die aan één persoon zijn gek
 
 ### `/objects` {#objects}
 
-Objecten zoeken met filters. Minstens één filter is verplicht. Dezelfde filter herhalen betekent OF, verschillende filters combineren betekent EN.
+Objecten zoeken met filters. Minstens één filter is verplicht. Een filter is een URI uit de WO2 Thesaurus of een naam die precies overeenkomt met een `prefLabel`, `altLabel` of `hiddenLabel` van de term, zonder op hoofdletters te letten. Dezelfde filter herhalen betekent OF, verschillende filters combineren betekent EN.
 
 <ApiRequest
   endpoint="/objects"
