@@ -76,7 +76,7 @@ export function renderPage(
 
   return `---
 title: ${texts.page.title}
-sidebar_label: ${texts.page.title}
+sidebar_label: ${texts.page.sidebarLabel}
 sidebar_position: ${texts.page.sidebarPosition}
 slug: ${texts.page.slug}
 description: ${texts.page.metaDescription}
