@@ -13,12 +13,12 @@ const REPO_URL = "https://github.com/Oorlogsbronnen/application-profile";
  */
 export const texts = {
   page: {
-    title: "Oorlogsbronnen Application Profile",
+    title: "Oorlogsbronnen Applicatieprofiel",
     slug: "/schema",
     sidebarPosition: 3,
     metaDescription:
       "De klassen en properties van de kennisgrafen personen en objecten van Oorlogsbronnen en de eigen vocabulaire, gegenereerd uit de SHACL-shapes en de vocabulaire in ontology/.",
-    intro: `Het application profile van Oorlogsbronnen definieert de klassen en properties waarmee metadata over personen, gebeurtenissen en bronnen wordt vastgelegd, verdeeld over twee kennisgrafen: **personen** en **objecten**. Deze pagina is automatisch gegenereerd uit de SHACL-shapes in [\`ontology/\`](${REPO_URL}/tree/main/ontology) (\`shapes-bouwstenen.ttl\`, \`shapes-personen.ttl\` en \`shapes-collecties.ttl\`) en de vocabulaire \`schema_ext-oorlogsbronnen.ttl\` — die bestanden zijn en blijven de source of truth.`,
+    intro: `Het Applicatieprofiel van Oorlogsbronnen definieert de klassen en properties waarmee metadata over personen, gebeurtenissen en bronnen wordt vastgelegd, verdeeld over twee kennisgrafen: **personen** en **objecten**. Deze pagina is automatisch gegenereerd uit de SHACL-shapes in [\`ontology/\`](${REPO_URL}/tree/main/ontology) (\`shapes-bouwstenen.ttl\`, \`shapes-personen.ttl\` en \`shapes-collecties.ttl\`) en de vocabulaire \`schema_ext-oorlogsbronnen.ttl\` — die bestanden zijn en blijven de source of truth.`,
     namespaceLabel: "Namespace",
     machineReadableLabel: "Machine-leesbaar",
     machineReadableLink:
