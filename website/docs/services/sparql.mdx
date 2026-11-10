@@ -7,7 +7,7 @@ import SparqlEditor from "@site/src/components/SparqlEditor";
 
 # SPARQL
 
-De [linked data-datasets](../datasets/personen-en-objecten) zijn te bevragen via het publieke SPARQL-endpoint van Stichting WO2Net op LDmax:
+De [linked data-datasets](../datasets/personen-en-objecten) zijn te bevragen via het publieke SPARQL-endpoint van Stichting WO2Net op LDMax:
 
 ```text
 https://platform.ldmax.nl/organisaties/wo2net/query
@@ -27,58 +27,61 @@ Gebruik opgeslagen queries voor terugkerende analyses. Zo houd je werkbare query
 
 :::tip[Probeer het hieronder direct]
 
-De queryblokken op deze pagina zijn **uitvoerbaar**: pas ze aan en druk op de knop (of `Ctrl` + `Enter`). Als rode draad gebruiken we verzetsstrijder [Hannie Schaft](https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388), die met elf persoonsvermeldingen rijk in de data vertegenwoordigd is.
+De queryblokken op deze pagina zijn **uitvoerbaar**: pas ze aan en druk op de knop (of `Ctrl` + `Enter`).
 
 :::
 
 ## Een persoon zoeken
 
-[Persoonsreconstructies](/schema#PersoonsReconstructieShape) zijn te doorzoeken op naam.
+[Persoonsreconstructies](/schema#PersoonsReconstructieShape) zijn te doorzoeken op naam of andere biografische gegevens. Een combinatie is ook mogelijk.
 
 <SparqlEditor
-  query={`PREFIX pico: <https://personsincontext.org/model#>
+  query={`PREFIX picom: <https://personsincontext.org/model#>
 PREFIX sdo: <https://schema.org/>
-SELECT ?persoon ?naam ?geboren ?overleden WHERE {
-  ?persoon a pico:PersonReconstruction ;
+SELECT * WHERE {
+  ?persoon a picom:PersonReconstruction ;
            sdo:name ?naam .
   OPTIONAL { ?persoon sdo:birthDate ?geboren }
   OPTIONAL { ?persoon sdo:deathDate ?overleden }
-  FILTER(CONTAINS(LCASE(?naam), "schaft"))
+  OPTIONAL { ?persoon sdo:deathPlace ?overlijdensplaats }
+  FILTER(CONTAINS(LCASE(?overlijdensplaats), "overveen"))
 }
-LIMIT 10`}
+ORDER BY ASC(?naam)`}
 />
 
 ## Van reconstructie naar vermeldingen
 
-Een reconstructie is opgebouwd uit [persoonsvermeldingen](/schema#PersoonsvermeldingShape) in bronnen, gekoppeld via `prov:wasDerivedFrom`. Zo zie je in welke bronnen Hannie Schaft voorkomt — en onder welke namen en beroepen:
+Eén van de personen in bovenstaande lijst is Hannie Schaft. De persoonsreconstructie bij Oorlogsbronnen is opgebouwd uit [persoonsvermeldingen](/schema#PersoonsvermeldingShape) uit verschillende bronnen, gekoppeld via `prov:wasDerivedFrom` en `sdo:hadPrimarySource`. Zo zie je in welke bronnen Hannie Schaft voorkomt — en onder welke namen en beroepen:
 
 <SparqlEditor
   query={`PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX sdo: <https://schema.org/>
-SELECT ?vermelding ?naam ?beroep ?bron WHERE {
+SELECT ?vermelding ?naam ?beroep ?dataset ?bron WHERE {
   <https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388>
       prov:wasDerivedFrom ?vermelding .
-  ?vermelding sdo:name ?naam .
+  ?vermelding sdo:name ?naam ;
+              prov:hadPrimarySource/sdo:isPartOf/sdo:name ?dataset ;
+              prov:hadPrimarySource/sdo:holdingArchive/sdo:name  ?bron             .
   OPTIONAL { ?vermelding sdo:hasOccupation ?beroep }
-  OPTIONAL { ?vermelding sdo:hadPrimarySource ?bron }
 }`}
 />
 
-## Gebeurtenissen in een leven
+## Bronnen over een persoon
 
-[Gebeurtenissen](/schema#EventShape) hangen niet aan de reconstructie zelf, maar aan de afzonderlijke vermeldingen (`sdo:actor` verwijst naar de vermelding). Een tijdlijn bouw je dus via die tussenstap:
+[Bronnen](/schema#objecten) uit WOII collecties hebben ook vaak betrekking op personen, maar maken niet perse onderdeel uit van de persoonsreconstructie. In dit voorbeeld zoeken we via de relatie `sdo:about` door alle collecties heen naar foto's waarop Anne Frank is afgebeeld:
 
 <SparqlEditor
-  query={`PREFIX prov: <http://www.w3.org/ns/prov#>
-PREFIX sdo: <https://schema.org/>
-SELECT ?datum ?gebeurtenis ?wat WHERE {
-  <https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388>
-      prov:wasDerivedFrom ?vermelding .
-  ?gebeurtenis sdo:actor ?vermelding .
-  OPTIONAL { ?gebeurtenis sdo:startDate ?datum }
-  OPTIONAL { ?gebeurtenis sdo:name ?wat }
-}
-ORDER BY ?datum`}
+  query={`PREFIX sdo: <https://schema.org/>
+SELECT ?object ?name ?description ?image WHERE {
+  ?object a sdo:Photograph ;
+          sdo:name ?name ;
+          sdo:about ?about ;
+          sdo:thumbnailUrl ?image .
+  
+  OPTIONAL { ?object sdo:description ?description }
+  
+  FILTER(CONTAINS(LCASE(STR(?about)), "anne frank"))
+}`}
 />
 
 ## Trefwoorden uit de WO2 Thesaurus
