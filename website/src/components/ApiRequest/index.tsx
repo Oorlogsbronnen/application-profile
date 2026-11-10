@@ -14,7 +14,7 @@ import {
 import styles from "./styles.module.css";
 
 /**
- * Interactieve aanroep van de Oorlogsbronnen-API voor de cookbook.
+ * Interactieve aanroep van de Oorlogsbronnen-API.
  *
  * Gebruik in MDX:
  *   <ApiRequest
@@ -39,6 +39,10 @@ interface Props {
   endpoint: string;
   pathParams?: Params;
   query?: Query;
+  /** Vervangt per parameter de standaardtoelichting uit LABELS */
+  labels?: Record<string, string>;
+  /** Toont alleen de JSON, zonder de visuele weergave van de cookbook */
+  jsonOnly?: boolean;
 }
 
 const LABELS: Record<string, string> = {
@@ -115,7 +119,10 @@ export default function ApiRequest({
   endpoint,
   pathParams = {},
   query = { count: 10, offset: 0 },
+  labels,
+  jsonOnly = false,
 }: Props) {
+  const hintFor = (key: string) => labels?.[key] ?? LABELS[key];
   const [path, setPath] = useState<Params>(pathParams);
 
   // Een padparameter in de pagina-URL (bv. /cookbook/persoon?id=…) vult het
@@ -186,7 +193,7 @@ export default function ApiRequest({
     >
       <span className={styles.fieldLabel}>
         <code>{key}</code>
-        {LABELS[key] && <span className={styles.hint}>{LABELS[key]}</span>}
+        {hintFor(key) && <span className={styles.hint}>{hintFor(key)}</span>}
       </span>
       <input
         className={styles.input}
@@ -218,7 +225,7 @@ export default function ApiRequest({
       >
         <legend className={styles.fieldLabel}>
           <code>{key}</code>
-          {LABELS[key] && <span className={styles.hint}>{LABELS[key]}</span>}
+          {hintFor(key) && <span className={styles.hint}>{hintFor(key)}</span>}
         </legend>
         {shown.map((value, i) => (
           <div key={i} className={styles.listRow}>
@@ -356,29 +363,33 @@ export default function ApiRequest({
                 {mayHaveMore && " — er kunnen er meer zijn, verhoog offset"}
               </span>
             )}
-            <span className={styles.tabs}>
-              <button
-                type="button"
-                aria-pressed={tab === "overzicht"}
-                className={tab === "overzicht" ? styles.tabActive : styles.tab}
-                onClick={() => setTab("overzicht")}
-              >
-                Overzicht
-              </button>
-              <button
-                type="button"
-                aria-pressed={tab === "json"}
-                className={tab === "json" ? styles.tabActive : styles.tab}
-                onClick={() => setTab("json")}
-              >
-                JSON
-              </button>
-            </span>
+            {!jsonOnly && (
+              <span className={styles.tabs}>
+                <button
+                  type="button"
+                  aria-pressed={tab === "overzicht"}
+                  className={
+                    tab === "overzicht" ? styles.tabActive : styles.tab
+                  }
+                  onClick={() => setTab("overzicht")}
+                >
+                  Overzicht
+                </button>
+                <button
+                  type="button"
+                  aria-pressed={tab === "json"}
+                  className={tab === "json" ? styles.tabActive : styles.tab}
+                  onClick={() => setTab("json")}
+                >
+                  JSON
+                </button>
+              </span>
+            )}
           </div>
-          {tab === "overzicht" ? (
-            <Overview result={result} />
-          ) : (
+          {jsonOnly || tab === "json" ? (
             <JsonTree value={result.data} />
+          ) : (
+            <Overview result={result} />
           )}
         </div>
       )}

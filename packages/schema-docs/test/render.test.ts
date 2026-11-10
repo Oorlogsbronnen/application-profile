@@ -90,7 +90,8 @@ describe("renderPage", () => {
 
   it("bevat de frontmatter voor /schema", () => {
     expect(page).toContain("slug: /schema");
-    expect(page).toContain("title: Oorlogsbronnen Application Profile");
+    expect(page).toContain("title: Oorlogsbronnen Applicatieprofiel");
+    expect(page).toContain("sidebar_label: Applicatieprofiel");
   });
 });
 

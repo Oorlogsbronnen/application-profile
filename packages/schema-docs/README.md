@@ -6,19 +6,19 @@ Genereert de documentatie van het **Oorlogsbronnen Application Profile** op [dat
 
 ## Wat wordt er gegenereerd?
 
-| Output                    | Waarheen                  | Wat                                                                              |
-| ------------------------- | ------------------------- | -------------------------------------------------------------------------------- |
-| `application-profile.mdx` | `website/docs/datamodel/` | De pagina op `/schema`                                                           |
-| `schema.ttl`              | `website/static/`         | Het volledige profiel (bouwstenen + beide grafen) op `/schema.ttl`               |
-| `schema-personen.ttl`     | `website/static/`         | De kennisgraaf personen incl. bouwstenen, op `/schema-personen.ttl`              |
-| `schema-collecties.ttl`   | `website/static/`         | De kennisgraaf objecten/collecties incl. bouwstenen, op `/schema-collecties.ttl` |
+| Output                    | Waarheen          | Wat                                                                              |
+| ------------------------- | ----------------- | -------------------------------------------------------------------------------- |
+| `application-profile.mdx` | `website/docs/`   | De pagina op `/schema`                                                           |
+| `schema.ttl`              | `website/static/` | Het volledige profiel (bouwstenen + beide grafen) op `/schema.ttl`               |
+| `schema-personen.ttl`     | `website/static/` | De kennisgraaf personen incl. bouwstenen, op `/schema-personen.ttl`              |
+| `schema-collecties.ttl`   | `website/static/` | De kennisgraaf objecten/collecties incl. bouwstenen, op `/schema-collecties.ttl` |
 
 Deze bestanden zijn **ge-gitignored**: ze worden bij elke build opnieuw gemaakt en horen niet in git.
 
 De pagina bevat:
 
 1. **Overzicht** — per kennisgraaf een Mermaid-klassendiagram naar het model van [SCHEMA-AP-NDE](https://docs.nde.nl/schema-profile/#class-diagram): per klasse een box met de properties (pad, waardetype en kardinaliteit; relaties zonder waardetype — de pijl toont hun doel al), overerving (via `sh:node`) en verwijzingen (via `sh:class`-constraints van de gebruikte regels) als pijlen. Een verwijzing naar de andere graaf verschijnt als kale node, en elke node linkt naar zijn eigen sectie (mermaid-`securityLevel` staat daarvoor op `antiscript` in `docusaurus.config.ts`).
-2. **Datamodellen en vocabulaires** _(optioneel)_ — redactionele toelichting uit het handgeschreven fragment [`website/docs/datamodel/_schema-toelichting.mdx`](../../website/docs/datamodel/_schema-toelichting.mdx). Is dat bestand leeg of verwijderd, dan vervalt dit hoofdstuk en schuift de nummering op.
+2. **Datamodellen en vocabulaires** _(optioneel)_ — redactionele toelichting uit het handgeschreven fragment [`website/docs/_schema-toelichting.mdx`](../../website/docs/_schema-toelichting.mdx). Is dat bestand leeg of verwijderd, dan vervalt dit hoofdstuk en schuift de nummering op.
 3. **Personen** en **Objecten** — per kennisgraaf een hoofdstuk dat opent met een handgeschreven intro (`_schema-personen.mdx` / `_schema-objecten.mdx`, weggelaten als het bestand ontbreekt of leeg is), gevolgd door per NodeShape een genummerde sectie met de volledige IRI, de Nederlandse naam en beschrijving, de target classes en een tabel van de properties (kardinaliteit en waardetype), plus een JSON-LD-voorbeeld als dat bestaat.
 4. **Vocabulaire** — de eigen classes en properties uit `schema_ext-oorlogsbronnen.ttl`. Elke `ob:`-term krijgt een blok met naam, IRI, superklasse en beschrijving; de `niod:`-gebeurtenistypen staan in een tabel met een link naar hun definitie in de WO2 Thesaurus. Zie `specs/2026-10-30-vocabulaire-op-schemapagina.md`.
 5. **Volledige voorbeelden** _(optioneel)_ — één sectie per bestand in `ontology/examples/volledig/`.
