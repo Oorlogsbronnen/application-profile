@@ -204,7 +204,7 @@
 
 .sourceLine { font-size: 0.8rem; color: var(--ifm-color-emphasis-700); }
 
-/* Tijdlijn (person_events) */
+/* Tijdlijn (gebeurtenissen uit person) */
 .timeline {
   list-style: none;
   margin: 0;
@@ -239,7 +239,7 @@
 }
 .timelineEvents li { margin: 0; }
 
-/* Kaarten (person_observations, person_related_objects) */
+/* Kaarten (vermeldingen uit person, person_related_objects) */
 .cardGrid {
   list-style: none;
   margin: 0;

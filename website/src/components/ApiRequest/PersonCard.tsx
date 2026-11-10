@@ -102,7 +102,7 @@ export default function PersonCard({ data }: { data: Json }) {
                 <dt>{label}</dt>
                 <dd className={styles.chips}>
                   {people.map((person: Json) => (
-                    <PersonLink key={idOf(person)} id={idOf(person)} />
+                    <PersonLink key={idOf(person)} person={person} />
                   ))}
                 </dd>
               </div>
@@ -132,7 +132,7 @@ export default function PersonCard({ data }: { data: Json }) {
 
       <footer className={styles.footer}>
         <span>
-          ID <code>{first(p.identifier)}</code>
+          ID <code>{first(p.identifier) ?? uuidOf(p.id)}</code>
         </span>
         {sameAs.map((s: Json) => {
           const url = safeUrl(idOf(s));
@@ -152,18 +152,44 @@ export default function PersonCard({ data }: { data: Json }) {
   );
 }
 
-/** De API geeft van familieleden alleen de ARK-link, zonder naam. */
-function PersonLink({ id }: { id?: string }) {
+/**
+ * Een familielid: ARK-link met naam en levensjaren. Heeft de API alleen de
+ * link, dan tonen we de UUID. De link opent het profiel op de cookbook-pagina;
+ * een gewone <a> (geen Docusaurus-Link), zodat de pagina opnieuw laadt en de
+ * ApiRequest-blokken de nieuwe ID uit de URL oppakken.
+ */
+function PersonLink({ person }: { person: Json }) {
+  const id = idOf(person);
   const uuid = uuidOf(id);
-  return (
-    <a
-      className={`${styles.chip} ${styles.chipCode}`}
-      href={safeUrl(id)}
-      target="_blank"
-      rel="noreferrer"
-    >
-      {uuid ?? id}
+  const name: string | undefined = first(person?.name);
+  const birth: string | undefined = first(person?.birthDate);
+  const death: string | undefined = first(person?.deathDate);
+  const years =
+    birth || death
+      ? ` (${birth?.slice(0, 4) ?? "?"}–${death?.slice(0, 4) ?? ""})`
+      : "";
+  if (!name) {
+    return (
+      <a
+        className={`${styles.chip} ${styles.chipCode}`}
+        href={safeUrl(id)}
+        target="_blank"
+        rel="noreferrer"
+      >
+        {uuid ?? id}
+      </a>
+    );
+  }
+  return uuid ? (
+    <a className={styles.chip} href={`/cookbook/persoon?id=${uuid}`}>
+      {name}
+      {years}
     </a>
+  ) : (
+    <span className={styles.chip}>
+      {name}
+      {years}
+    </span>
   );
 }
 
@@ -192,7 +218,9 @@ function Fact({
     <div className={styles.fact}>
       <dt>{label}</dt>
       <dd>
-        <div className={styles.factDate}>{fmtDate(date) ?? "datum onbekend"}</div>
+        <div className={styles.factDate}>
+          {fmtDate(date) ?? "datum onbekend"}
+        </div>
         <div className={unknownPlace ? styles.muted : undefined}>
           {place ?? "plaats onbekend"}
         </div>
