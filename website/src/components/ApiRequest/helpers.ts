@@ -23,6 +23,25 @@ export const entities = (data: Json): Json[] =>
     .map((item) => item?.tuple?.[0])
     .filter(Boolean);
 
+/**
+ * Sinds `person` ook de vermeldingen en gebeurtenissen meelevert, zitten die
+ * genest in het profiel: persoon.wasDerivedFrom[] zijn de persoonsvermeldingen,
+ * vermelding.actor[] de gebeurtenissen uit die vermelding.
+ */
+export const observationsOf = (data: Json): Json[] =>
+  entities(data).flatMap((person) => arr(person.wasDerivedFrom));
+
+/** Een gebeurtenis heeft zelf geen bron: die erft hij van zijn vermelding. */
+export const eventsOf = (data: Json): Json[] =>
+  observationsOf(data).flatMap((observation) =>
+    arr(observation.actor).map((event) => ({
+      ...event,
+      hadPrimarySource: arr(event.hadPrimarySource).length
+        ? event.hadPrimarySource
+        : observation.hadPrimarySource,
+    })),
+  );
+
 /** Metadata komt van veel bronnen: alleen http(s) mag een link worden. */
 export const safeUrl = (url: unknown): string | undefined =>
   typeof url === "string" && /^https?:\/\//i.test(url) ? url : undefined;

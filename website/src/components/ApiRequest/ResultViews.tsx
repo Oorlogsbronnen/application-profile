@@ -3,8 +3,10 @@ import Link from "@docusaurus/Link";
 import {
   arr,
   entities,
+  eventsOf,
   first,
   fmtDate,
+  observationsOf,
   primarySources,
   safeUrl,
   sourceName,
@@ -15,7 +17,7 @@ import {
 } from "./helpers";
 import styles from "./views.module.css";
 
-/* ---------- person_events: tijdlijn ---------- */
+/* ---------- person, onderdeel gebeurtenissen: tijdlijn ---------- */
 
 /**
  * De API levert gebeurtenissen in willekeurige volgorde en per bron apart.
@@ -23,7 +25,7 @@ import styles from "./views.module.css";
  */
 export function EventTimeline({ data }: { data: Json }) {
   const groups = new Map<string, Json[]>();
-  entities(data).forEach((event) => {
+  eventsOf(data).forEach((event) => {
     const date: string = first(event.startDate) ?? "";
     groups.set(date, [...(groups.get(date) ?? []), event]);
   });
@@ -40,8 +42,8 @@ export function EventTimeline({ data }: { data: Json }) {
             {fmtDate(date) ?? "Datum onbekend"}
           </div>
           <ul className={styles.timelineEvents}>
-            {groups.get(date)!.map((event: Json) => (
-              <TimelineEvent key={event.id} event={event} />
+            {groups.get(date)!.map((event: Json, i) => (
+              <TimelineEvent key={`${event.id}-${i}`} event={event} />
             ))}
           </ul>
         </li>
@@ -52,9 +54,14 @@ export function EventTimeline({ data }: { data: Json }) {
 
 function TimelineEvent({ event }: { event: Json }) {
   const type = textOf(first(event.additionalType));
-  const from = textOf(first(event.fromLocation));
-  const to = textOf(first(event.toLocation));
-  const end = fmtDate(first(event.endDate));
+  const from = textOf(
+    first(event.fromLocation) ?? first(event.fromLocation_str),
+  );
+  const to = textOf(first(event.toLocation) ?? first(event.toLocation_str));
+  // Sommige bronnen vullen endDate ook bij een gebeurtenis van één dag.
+  const endDate: string | undefined = first(event.endDate);
+  const end =
+    endDate && endDate !== first(event.startDate) ? fmtDate(endDate) : null;
   const description = first(event.description);
 
   return (
@@ -101,10 +108,10 @@ function SourceLine({ sources }: { sources: Json }) {
   );
 }
 
-/* ---------- person_observations: één kaart per bron ---------- */
+/* ---------- person, onderdeel vermeldingen: één kaart per bron ---------- */
 
 export function ObservationList({ data }: { data: Json }) {
-  const observations = entities(data);
+  const observations = observationsOf(data);
   const images = observations.flatMap((o: Json) =>
     arr(o.image).flatMap((image: Json) => {
       const src = safeUrl(first(image.thumbnailUrl));

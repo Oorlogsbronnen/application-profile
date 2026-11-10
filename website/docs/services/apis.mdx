@@ -9,17 +9,11 @@ import ApiRequest from "@site/src/components/ApiRequest";
 
 | | |
 | --- | --- |
-| Basis-URL | `https://acc-data.oorlogsbronnen.nl/services/api` |
+| Basis-URL | `https://data.oorlogsbronnen.nl/services/api` |
 | Methode | `GET` |
 | API-sleutel | Niet nodig |
 | Antwoord | JSON-LD |
-| Specificatie | [Swagger UI](https://acc-data.oorlogsbronnen.nl/services/api/docs) · [openapi.json](https://acc-data.oorlogsbronnen.nl/services/api/openapi.json) |
-
-:::note[Acceptatieomgeving]
-
-Deze API draait op de acceptatieomgeving. De URL en de responses kunnen nog veranderen.
-
-:::
+| Specificatie | [Swagger UI](https://data.oorlogsbronnen.nl/services/api/docs) · [openapi.json](https://data.oorlogsbronnen.nl/services/api/openapi.json) |
 
 ## Personen
 
@@ -41,31 +35,12 @@ Personen zoeken met filters. Minstens één filter is verplicht. Dezelfde filter
 
 ### `/person/p/id/{id}` {#person}
 
-Eén persoon met biografische gegevens, familierelaties en thesaurustermen.
+Eén persoon met biografische gegevens, familierelaties en thesaurustermen. In `wasDerivedFrom` staan de persoonsvermeldingen uit de afzonderlijke bronnen, en in elke vermelding in `actor` de gebeurtenissen die die bron noemt. Een uitleg per onderdeel staat in het cookbook [Alles over een persoon](../cookbook/persoon.mdx).
 
 <ApiRequest
   endpoint="/person/p/id/{id}"
   pathParams={{ id: "48968c01-9f60-492d-8712-58d3b8c2b388" }}
-  jsonOnly
-/>
-
-### `/person_events/{id}` {#person_events}
-
-Gebeurtenissen uit de persoonsvermeldingen van één persoon, met bron.
-
-<ApiRequest
-  endpoint="/person_events/{id}"
-  pathParams={{ id: "48968c01-9f60-492d-8712-58d3b8c2b388" }}
-  jsonOnly
-/>
-
-### `/person_observations/{id}` {#person_observations}
-
-Persoonsvermeldingen van één persoon, met biografische gegevens, afbeeldingen en bron.
-
-<ApiRequest
-  endpoint="/person_observations/{id}"
-  pathParams={{ id: "48968c01-9f60-492d-8712-58d3b8c2b388" }}
+  query={{}}
   jsonOnly
 />
 

@@ -13,18 +13,14 @@ import TabItem from "@theme/TabItem";
 
 Het endpoint `objects` zoekt in de collecties met filters. Op deze pagina leer je hoe je die filters opbouwt en combineert, en wat de API teruggeeft. Bij elk voorbeeld kun je de filters aanpassen en met **Uitvoeren** het resultaat ophalen en bekijken.
 
-:::note[Acceptatieomgeving]
-
-Deze API draait op de acceptatieomgeving. De URL en de responses kunnen nog veranderen. Alle endpoints staan in de [technische API-documentatie](https://acc-data.oorlogsbronnen.nl/services/api/docs).
-
-:::
+Alle endpoints staan in de [technische API-documentatie](https://data.oorlogsbronnen.nl/services/api/docs).
 
 ## Zo bouw je een request
 
 Een request is een gewone `GET` op een URL. Je hebt geen API-sleutel nodig.
 
 ```text
-https://acc-data.oorlogsbronnen.nl/services/api/objects?about=https://data.niod.nl/WO2_Thesaurus/2244&count=10&offset=0
+https://data.oorlogsbronnen.nl/services/api/objects?about=https://data.niod.nl/WO2_Thesaurus/2244&count=10&offset=0
 └───────────────── basis-URL ─────────────────┘└ pad ─┘└────────────────── filter ──────────────────┘└── paginering ──┘
 ```
 
@@ -147,14 +143,14 @@ Deze voorbeelden halen objecten over het verzet van Erfgoed Gelderland op. Het P
   <TabItem value="curl" label="curl" default>
 
 ```bash
-curl "https://acc-data.oorlogsbronnen.nl/services/api/objects?about=https://data.niod.nl/WO2_Thesaurus/2657&publisher=https://data.niod.nl/Organizations/817&count=50"
+curl "https://data.oorlogsbronnen.nl/services/api/objects?about=https://data.niod.nl/WO2_Thesaurus/2657&publisher=https://data.niod.nl/Organizations/817&count=50"
 ```
 
   </TabItem>
   <TabItem value="js" label="JavaScript">
 
 ```js
-const base = "https://acc-data.oorlogsbronnen.nl/services/api";
+const base = "https://data.oorlogsbronnen.nl/services/api";
 
 // append() voegt een waarde toe; herhaal het voor meerdere waardes (OF).
 const params = new URLSearchParams();
@@ -178,7 +174,7 @@ for (const item of items) {
 ```python
 import requests
 
-BASE = "https://acc-data.oorlogsbronnen.nl/services/api"
+BASE = "https://data.oorlogsbronnen.nl/services/api"
 
 
 def zoek_objecten(filters):

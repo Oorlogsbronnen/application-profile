@@ -4,7 +4,3 @@
 # server-side door (status 200 = proxy, geen redirect).
 # Zie specs/2026-07-28-data-tastbaar-maken.md.
 /spinque-api/*  https://rest.spinque.com/4/oorlogsbronnen/api/:splat  200
-
-# Same-origin proxy naar de Oorlogsbronnen-API op acceptatie: die stuurt geen
-# CORS-headers. Zie src/lib/oorlogsbronnen-api.ts.
-/services/api/*  https://acc-data.oorlogsbronnen.nl/services/api/:splat  200

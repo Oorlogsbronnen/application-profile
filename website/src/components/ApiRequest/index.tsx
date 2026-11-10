@@ -1,9 +1,12 @@
 import React, { useEffect, useMemo, useState } from "react";
+import { OORLOGSBRONNEN_API_BASE } from "@site/src/lib/oorlogsbronnen-api";
 import {
-  OORLOGSBRONNEN_API_BASE,
-  OORLOGSBRONNEN_API_PROXY_PREFIX,
-} from "@site/src/lib/oorlogsbronnen-api";
-import { entities, safeUrl, type Json } from "./helpers";
+  entities,
+  eventsOf,
+  observationsOf,
+  safeUrl,
+  type Json,
+} from "./helpers";
 import PersonCard from "./PersonCard";
 import {
   EventTimeline,
@@ -18,9 +21,13 @@ import styles from "./styles.module.css";
  *
  * Gebruik in MDX:
  *   <ApiRequest
- *     endpoint="/person_events/{id}"
+ *     endpoint="/person/p/id/{id}"
  *     pathParams={{ id: "48968c01-..." }}
+ *     view="events"
  *   />
+ *
+ * Met `view` kies je welk onderdeel van de response het overzicht toont. Zo
+ * kan één endpoint op een pagina in stappen worden uitgelegd.
  *
  * Een queryparameter met een lijst als waarde mag meerdere keren voorkomen,
  * bv. query={{ about: ["https://…/2244", "https://…/2657"], count: 10 }}.
@@ -43,7 +50,15 @@ interface Props {
   labels?: Record<string, string>;
   /** Toont alleen de JSON, zonder de visuele weergave van de cookbook */
   jsonOnly?: boolean;
+  /** Welk onderdeel het overzicht toont; standaard afgeleid uit de URL */
+  view?: View;
 }
+
+/**
+ * Onderdelen van een response die het overzicht los kan tonen. `person` levert
+ * profiel, vermeldingen en gebeurtenissen in één keer.
+ */
+type View = "person" | "events" | "observations" | "objects" | "persons";
 
 const LABELS: Record<string, string> = {
   id: "ID van de persoon (UUID)",
@@ -87,14 +102,6 @@ function buildUrl(endpoint: string, path: Params, query: Query): string {
   return qs ? `${url}?${qs}` : url;
 }
 
-/** De browser mag de API alleen via hetzelfde domein aanroepen (geen CORS). */
-function toFetchUrl(url: string): string {
-  return url.startsWith(OORLOGSBRONNEN_API_BASE + "/")
-    ? OORLOGSBRONNEN_API_PROXY_PREFIX +
-        url.slice(OORLOGSBRONNEN_API_BASE.length)
-    : url;
-}
-
 /**
  * De API geeft regelmatig een 500-fout bij gelijktijdige verzoeken. Daarom doen
  * alle ApiRequest-blokken op een pagina hun verzoeken na elkaar.
@@ -121,6 +128,7 @@ export default function ApiRequest({
   query = { count: 10, offset: 0 },
   labels,
   jsonOnly = false,
+  view,
 }: Props) {
   const hintFor = (key: string) => labels?.[key] ?? LABELS[key];
   const [path, setPath] = useState<Params>(pathParams);
@@ -157,7 +165,7 @@ export default function ApiRequest({
     try {
       const next = await enqueue(async () => {
         const t0 = performance.now();
-        const res = await fetchWithRetry(toFetchUrl(url));
+        const res = await fetchWithRetry(url);
         // Een proxy of server die iets anders dan JSON teruggeeft, is ook een storing.
         const data = await res.json();
         const ms = Math.round(performance.now() - t0);
@@ -262,8 +270,13 @@ export default function ApiRequest({
     );
   };
 
-  const count = entities(result?.data).length;
-  const mayHaveMore = count > 0 && count === result?.data?.count;
+  const count = result ? countOf(view ?? viewFor(result.url), result.data) : 0;
+  // Vermeldingen en gebeurtenissen zitten in één profiel en worden niet gepagineerd.
+  const mayHaveMore =
+    view !== "events" &&
+    view !== "observations" &&
+    count > 0 &&
+    count === result?.data?.count;
 
   return (
     <div className={styles.box}>
@@ -389,7 +402,7 @@ export default function ApiRequest({
           {jsonOnly || tab === "json" ? (
             <JsonTree value={result.data} />
           ) : (
-            <Overview result={result} />
+            <Overview result={result} view={view} />
           )}
         </div>
       )}
@@ -399,15 +412,32 @@ export default function ApiRequest({
 
 /* ---------- Overzicht: weergave passend bij het opgevraagde endpoint ---------- */
 
+const VIEWS: Record<View, React.ComponentType<{ data: Json }>> = {
+  person: PersonCard,
+  events: EventTimeline,
+  observations: ObservationList,
+  objects: ObjectGrid,
+  persons: PersonGrid,
+};
+
 /** Op basis van de URL, zodat ook een handmatig bewerkte URL goed wordt getoond. */
-const VIEWS: [RegExp, React.ComponentType<{ data: Json }>][] = [
-  [/\/person\/p\/id\//, PersonCard],
-  [/\/person_events\//, EventTimeline],
-  [/\/person_observations\//, ObservationList],
-  [/\/person_related_objects\//, ObjectGrid],
-  [/\/objects(\?|$)/, ObjectGrid],
-  [/\/persons(\?|$)/, PersonGrid],
+const URL_VIEWS: [RegExp, View][] = [
+  [/\/person\/p\/id\//, "person"],
+  [/\/person_related_objects\//, "objects"],
+  [/\/object\/p\/id\//, "objects"],
+  [/\/objects(\?|$)/, "objects"],
+  [/\/persons(\?|$)/, "persons"],
 ];
+
+const viewFor = (url: string): View | undefined =>
+  URL_VIEWS.find(([pattern]) => pattern.test(url))?.[1];
+
+/** Aantal getoonde resultaten: bij een onderdeel van `person` dat van het onderdeel. */
+function countOf(view: View | undefined, data: Json): number {
+  if (view === "events") return eventsOf(data).length;
+  if (view === "observations") return observationsOf(data).length;
+  return entities(data).length;
+}
 
 /** FastAPI-fouten: { detail: "tekst" } of { detail: [ { loc, msg } ] } */
 function apiErrors(data: Json): string[] {
@@ -417,7 +447,7 @@ function apiErrors(data: Json): string[] {
   return [typeof detail === "string" ? detail : "Onbekende fout"];
 }
 
-function Overview({ result }: { result: Result }) {
+function Overview({ result, view }: { result: Result; view?: View }) {
   const { data, url, http } = result;
   if (http >= 400) {
     return (
@@ -431,6 +461,7 @@ function Overview({ result }: { result: Result }) {
       </div>
     );
   }
+  const shown = view ?? viewFor(url);
   if (entities(data).length === 0) {
     return (
       <p className={styles.empty}>
@@ -440,8 +471,17 @@ function Overview({ result }: { result: Result }) {
       </p>
     );
   }
-  const View = VIEWS.find(([pattern]) => pattern.test(url))?.[1];
-  return View ? <View data={data} /> : <JsonTree value={data} />;
+  if (countOf(shown, data) === 0) {
+    return (
+      <p className={styles.empty}>
+        {shown === "events"
+          ? "De bronnen noemen voor deze persoon geen gebeurtenissen."
+          : "Deze persoon heeft geen vermeldingen in de response."}
+      </p>
+    );
+  }
+  const Component = shown && VIEWS[shown];
+  return Component ? <Component data={data} /> : <JsonTree value={data} />;
 }
 
 /* ---------- Inklapbare JSON-weergave ---------- */
