@@ -15,6 +15,6 @@ Deze dataset bevat informatie over getuigen, slachtoffers en andere personen bet
 
 ### De datasets zijn beschikbaar via:
 
-- **Het Dataset Register van Netwerk Digitaal Erfgoed** — [datasetregister.netwerkdigitaalerfgoed.nl/datasets?search=wo2net](https://datasetregister.netwerkdigitaalerfgoed.nl/datasets?search=wo2net)
+- **Het Dataset Register** — [datasetregister.netwerkdigitaalerfgoed.nl/datasets?search=wo2net](https://datasetregister.netwerkdigitaalerfgoed.nl/datasets?search=wo2net)
 - **SPARQL**  — [ldmax.nl/datasets/wo2net/collecties](https://www.ldmax.nl/datasets/wo2net/collecties)
 - **De Open API** — [data.oorlogsbronnen.nl/services/api/docs](https://data.oorlogsbronnen.nl/services/api/docs)

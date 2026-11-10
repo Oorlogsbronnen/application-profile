@@ -10,10 +10,20 @@ import SparqlEditor from "@site/src/components/SparqlEditor";
 De [linked data-datasets](../datasets/personen-en-objecten) zijn te bevragen via het publieke SPARQL-endpoint van Stichting WO2Net op LDmax:
 
 ```text
-https://sparql.ldmax.nl/wo2net
+https://platform.ldmax.nl/organisaties/wo2net/query
 ```
 
-Het endpoint accepteert `GET`- en `POST`-requests en ondersteunt CORS (Cross-Origin Resource Sharing), wat betekent dat webapplicaties vanaf een ander domein (andere website of applicatie) direct zoekopdrachten (queries) kunnen uitvoeren op de data vanuit een webbrowser. Wie liever in een visuele omgeving werkt: LDMax biedt een [query-interface](https://platform.ldmax.nl/organisaties/wo2net/query) met opgeslagen voorbeeldqueries.
+### Wat kun je hier doen?
+
+De SPARQL IDE is bedoeld voor gerichte datavragen. Je kiest een organisatie met endpoint, schrijft of plakt een query en ziet de resultaten direct in tabel-, kaart- of JSON-vorm. Queries kunnen lokaal worden opgeslagen in de browser.
+
+## Aanpak
+
+Selecteer eerst het juiste endpoint. Start met een voorbeeldquery of een eenvoudige SELECT met LIMIT. Voer de query uit en controleer eerst of de bindings logisch zijn. Verfijn daarna pas met extra joins, filters en aggregaties.
+
+## Opgeslagen queries
+
+Gebruik opgeslagen queries voor terugkerende analyses. Zo houd je werkbare queryversies bij en hoef je niet steeds opnieuw te beginnen.
 
 :::tip[Probeer het hieronder direct]
 
@@ -23,16 +33,16 @@ De queryblokken op deze pagina zijn **uitvoerbaar**: pas ze aan en druk op de kn
 
 ## Een persoon zoeken
 
-[Persoonsreconstructies](/schema#PersoonsReconstructieShape) zijn te doorzoeken op naam. Let op: de data gebruikt `http://schema.org/` (zonder `s`) als namespace.
+[Persoonsreconstructies](/schema#PersoonsReconstructieShape) zijn te doorzoeken op naam.
 
 <SparqlEditor
   query={`PREFIX pico: <https://personsincontext.org/model#>
-PREFIX schema: <http://schema.org/>
+PREFIX sdo: <https://schema.org/>
 SELECT ?persoon ?naam ?geboren ?overleden WHERE {
   ?persoon a pico:PersonReconstruction ;
-           schema:name ?naam .
-  OPTIONAL { ?persoon schema:birthDate ?geboren }
-  OPTIONAL { ?persoon schema:deathDate ?overleden }
+           sdo:name ?naam .
+  OPTIONAL { ?persoon sdo:birthDate ?geboren }
+  OPTIONAL { ?persoon sdo:deathDate ?overleden }
   FILTER(CONTAINS(LCASE(?naam), "schaft"))
 }
 LIMIT 10`}
