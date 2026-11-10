@@ -9,7 +9,7 @@ import type Yasgui from "@zazuko/yasgui";
 import "@zazuko/yasgui/build/yasgui.min.css";
 import styles from "./styles.module.css";
 
-const DEFAULT_ENDPOINT = "https://platform.ldmax.nl/organisaties/wo2net/query";
+const DEFAULT_ENDPOINT = "https://sparql.ldmax.nl/wo2net";
 
 type SparqlEditorProps = {
   /** De vooringevulde, direct uitvoerbare query. */
