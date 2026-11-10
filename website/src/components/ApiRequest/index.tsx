@@ -62,11 +62,11 @@ type View = "person" | "events" | "observations" | "objects" | "persons";
 
 const LABELS: Record<string, string> = {
   id: "ID van de persoon (UUID)",
-  about: "Onderwerp: volledige URI uit de WO2 Thesaurus",
-  publisher: "Organisatie: volledige URI uit de WO2 Organisatie Thesaurus",
-  birthplace: "Geboorteplaats: volledige URI uit de WO2 Thesaurus",
-  deathplace: "Overlijdensplaats: volledige URI uit de WO2 Thesaurus",
-  keywords: "Trefwoord: volledige URI uit de WO2 Thesaurus",
+  about: "Onderwerp: URI of exacte naam uit de WO2 Thesaurus",
+  publisher: "Organisatie: URI of exacte naam uit de WO2 Organisatie Thesaurus",
+  birthplace: "Geboorteplaats: URI of exacte naam uit de WO2 Thesaurus",
+  deathplace: "Overlijdensplaats: URI of exacte naam uit de WO2 Thesaurus",
+  keywords: "Trefwoord: URI of exacte naam uit de WO2 Thesaurus",
   count: "Aantal resultaten (1–50)",
   offset: "Aantal resultaten overslaan (0–300)",
 };
