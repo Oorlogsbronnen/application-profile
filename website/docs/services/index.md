@@ -1,5 +1,6 @@
 ---
 title: Services
+sidebar_position: 0
 description: Overzicht van de manieren waarop je de data van Oorlogsbronnen kunt bevragen.
 ---
 
