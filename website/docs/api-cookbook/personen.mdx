@@ -12,7 +12,7 @@ import TabItem from "@theme/TabItem";
 
 **Vraag:** welke personen zijn geboren of overleden in een bepaalde plaats, of hebben met een bepaald onderwerp te maken?
 
-Het endpoint `persons` zoekt personen met filters. Op deze pagina leer je hoe je die filters opbouwt en combineert, wat de API teruggeeft, en hoe je daarna de foto's en objecten bij een gevonden persoon ophaalt. Bij elk voorbeeld kun je de filters aanpassen en met **Uitvoeren** het resultaat ophalen en bekijken.
+Het endpoint `persons` zoekt personen met filters. Op deze pagina leer je hoe je die filters opbouwt en combineert, wat de API teruggeeft, en hoe je daarna alles over één gevonden persoon ophaalt. Bij elk voorbeeld kun je de filters aanpassen en met **Uitvoeren** het resultaat ophalen en bekijken.
 
 Alle endpoints staan in de [technische API-documentatie](https://data.oorlogsbronnen.nl/services/api/docs).
 
@@ -76,7 +76,7 @@ SELECT ?soort ?naam WHERE {
 
 ## Zo ziet een response eruit
 
-De response heeft dezelfde vorm als bij de andere endpoints. Elk resultaat staat in `items[n].tuple[0]`, en bijna elk veld is een lijst. Elk resultaat is een volledig profiel: precies wat [`person`](./persoon) voor die persoon teruggeeft. Hieronder een ingekorte response:
+De response heeft dezelfde vorm als bij de andere endpoints. Elk resultaat staat in `items[n].tuple[0]`, en bijna elk veld is een lijst. Omdat je een lijst van personen krijgt, staan per persoon alleen de basisgegevens erin:
 
 ```json
 {
@@ -84,36 +84,21 @@ De response heeft dezelfde vorm als bij de andere endpoints. Elk resultaat staat
   "count": 10,
   "items": [
     {
-      "rank": 1,
+      "rank": 28,
+      "probability": 1,
       "tuple": [
         {
-          "id": "https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388",
-          "name": ["Hannie Schaft"],
-          "alternateName": [],
-          "birthDate": ["1920-09-16"],
-          "birthPlace": ["Haarlem"],
-          "deathDate": ["1945-04-17"],
-          "deathPlace": ["Overveen"],
-          "gender": [{ "id": "https://schema.org/Female" }],
-          "keywords": [
-            {
-              "id": "https://data.niod.nl/WO2_Thesaurus/corporaties/4524",
-              "prefLabel": []
-            }
-          ],
-          "parent": [],
-          "spouse": [],
-          "children": [],
-          "sameAs": [],
+          "id": "https://n2t.net/ark:/59857/p17bffd61-a9c2-476c-83db-0d7a1f04112b",
+          "name": ["Nicolaas Bernardus Peeters"],
+          "alternateName": ["Nicolaas Bernardus Peeters"],
+          "birthDate": ["1893-04-12"],
+          "birthPlace": ["'s-Hertogenbosch"],
+          "deathDate": ["1945-02-21"],
+          "deathPlace": ["Dachau"],
+          "deceased": ["true"],
           "type": [
             "https://personsincontext.org/model#PersonReconstruction",
             "https://schema.org/Person"
-          ],
-          "wasDerivedFrom": [
-            {
-              "name": ["Jannetje Johanna Schaft"],
-              "actor": [{ "name": ["Omgekomen"], "startDate": ["1945-04-17"] }]
-            }
           ]
         }
       ]
@@ -122,22 +107,21 @@ De response heeft dezelfde vorm als bij de andere endpoints. Elk resultaat staat
 }
 ```
 
-| Veld                           | Betekenis                                                                                                                                                    |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `id`                           | De persistente ARK-link van de persoonsreconstructie. De UUID aan het eind, zonder de `p` ervoor, heb je voor de [vervolgaanroepen](#vervolgaanroepen) nodig |
-| `name`, `alternateName`        | Naam en andere schrijfwijzen                                                                                                                                 |
-| `birthDate`, `birthPlace`      | Geboortedatum (`JJJJ-MM-DD`) en -plaats                                                                                                                      |
-| `deathDate`, `deathPlace`      | Overlijdensdatum en -plaats                                                                                                                                  |
-| `gender`                       | Geslacht als schema.org-term, zoals `https://schema.org/Female`                                                                                              |
-| `keywords`                     | Trefwoorden uit de WO2 Thesaurus. Het label in `prefLabel` is op dit moment leeg; zoek het op met de [query hierboven](#plaatsen-en-onderwerpen-opzoeken)    |
-| `parent`, `spouse`, `children` | Familieleden met hun ARK-link, naam en levensdata                                                                                                            |
-| `sameAs`                       | Dezelfde persoon op een andere website, zoals Wikipedia                                                                                                      |
-| `wasDerivedFrom`               | De vermeldingen in de afzonderlijke bronnen, met daarin de gebeurtenissen. Zie [Alles over een persoon](./persoon#vermeldingen)                              |
+| Veld                      | Betekenis                                                                                                                                                    |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `id`                      | De persistente ARK-link van de persoonsreconstructie. De UUID aan het eind, zonder de `p` ervoor, heb je voor de [vervolgaanroepen](#vervolgaanroepen) nodig |
+| `name`, `alternateName`   | Naam en andere schrijfwijzen                                                                                                                                 |
+| `birthDate`, `birthPlace` | Geboortedatum (`JJJJ-MM-DD`) en -plaats                                                                                                                      |
+| `deathDate`, `deathPlace` | Overlijdensdatum en -plaats                                                                                                                                  |
+| `deceased`                | `"true"` als bekend is dat de persoon is overleden, ook als de datum ontbreekt                                                                               |
+| `type`                    | Altijd een persoonsreconstructie (`PersonReconstruction`) en een `https://schema.org/Person`                                                                 |
+
+Familie, trefwoorden, de vermeldingen per bron en de gebeurtenissen daarin staan niet in deze response. Die haal je per persoon op met [`person`](#vervolgaanroepen).
 
 Let op twee dingen:
 
 - **De plaatsen in de response zijn tekst**, zoals `"Haarlem"`, en geen URI. Die tekst komt uit de bron en is niet altijd een naam uit de thesaurus. Gebruik hem dus niet zonder meer als filter.
-- **Er zitten geen foto's in de response.** De visualisatie toont daarom een vervangende afbeelding. Foto's en documenten bij een persoon haal je op met [`person_related_objects`](#vervolgaanroepen).
+- **Er zitten geen foto's in de response.** De visualisatie toont daarom een vervangende afbeelding.
 
 Net als bij de andere endpoints is `count` het aantal dat je hebt gevraagd en niet het totaal. Krijg je minder resultaten dan je vroeg, dan ben je aan het eind. Een lege `items`-lijst betekent dat er niemand past bij deze combinatie van filters.
 
@@ -191,18 +175,18 @@ Personen die in Haarlem zijn geboren **en** het trefwoord Verzet hebben, onder w
 
 ## Meer over een gevonden persoon {#vervolgaanroepen}
 
-`persons` geeft per persoon al het volledige profiel, met de vermeldingen en gebeurtenissen. Wat er niet in zit, zijn de foto's en objecten uit collecties. Die haal je op met de ID van de persoon. Dat is de UUID aan het eind van `id`, zonder de `p` ervoor: bij `https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388` is dat `48968c01-9f60-492d-8712-58d3b8c2b388`. De hele ARK-link werkt ook, maar de UUID met de `p` ervoor geeft een lege lijst.
+`persons` geeft per persoon alleen de basisgegevens. Met de ID van de persoon haal je de rest op. Dat is de UUID aan het eind van `id`, zonder de `p` ervoor: bij `https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388` is dat `48968c01-9f60-492d-8712-58d3b8c2b388`. De hele ARK-link werkt ook, maar de UUID met de `p` ervoor geeft een lege lijst.
 
-| Endpoint                       | Je krijgt                                                                         |
-| ------------------------------ | --------------------------------------------------------------------------------- |
-| `/person_related_objects/{id}` | Gekoppelde foto's en objecten uit collecties                                      |
-| `/person/p/id/{id}`            | Hetzelfde profiel als in `persons`, voor één persoon. Handig als je de ID al hebt |
+| Endpoint                       | Je krijgt                                                                                                 |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------- |
+| `/person/p/id/{id}`            | Het profiel met familierelaties en trefwoorden, plus de vermeldingen per bron en de gebeurtenissen daarin |
+| `/person_related_objects/{id}` | Gekoppelde foto's en objecten uit collecties                                                              |
 
 Deze twee endpoints worden uitgelegd in het cookbook [Alles over een persoon](./persoon). Op elke kaart hierboven staat de link **Alles over deze persoon**.
 
 ## In je eigen code
 
-Het JavaScript-voorbeeld zoekt personen, telt hun gebeurtenissen en haalt daarna de objecten bij de eerste persoon op. Het Python-voorbeeld bladert door alle pagina's van een OF-zoekvraag.
+Het JavaScript-voorbeeld zoekt personen en haalt daarna van de eerste persoon het profiel op, met de gebeurtenissen daarin. Het Python-voorbeeld bladert door alle pagina's van een OF-zoekvraag.
 
 <Tabs groupId="taal">
   <TabItem value="curl" label="curl" default>
@@ -236,28 +220,15 @@ async function haalOp(url) {
 const personen = await haalOp(`${base}/persons?${params}`);
 console.log(personen.length, "personen gevonden");
 
-// Gebeurtenissen zitten in de vermeldingen: wasDerivedFrom[].actor[]
-for (const persoon of personen.slice(0, 5)) {
-  const gebeurtenissen = persoon.wasDerivedFrom.flatMap((v) => v.actor);
-  console.log(
-    persoon.name[0],
-    "heeft",
-    gebeurtenissen.length,
-    "gebeurtenissen",
-  );
-}
-
 // De UUID staat aan het eind van de ARK-link, na de "p".
-const uuid = personen[0].id.match(/p([0-9a-f-]{36})$/)[1];
-const objecten = await haalOp(
-  `${base}/person_related_objects/${uuid}?count=50`,
-);
-console.log(
-  personen[0].name[0],
-  "heeft",
-  objecten.length,
-  "gekoppelde objecten",
-);
+// Haal het profiel op; doe vervolgaanroepen na elkaar, niet tegelijk.
+const persoon = personen[0];
+const uuid = persoon.id.match(/p([0-9a-f-]{36})$/)[1];
+const [profiel] = await haalOp(`${base}/person/p/id/${uuid}`);
+
+// Gebeurtenissen zitten in de vermeldingen: wasDerivedFrom[].actor[]
+const gebeurtenissen = profiel.wasDerivedFrom.flatMap((v) => v.actor);
+console.log(persoon.name[0], "heeft", gebeurtenissen.length, "gebeurtenissen");
 ```
 
   </TabItem>
