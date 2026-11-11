@@ -1,6 +1,6 @@
 ---
 title: Rechten en gebruik
-sidebar_position: 6
+sidebar_position: 7
 ---
 
 # Rechten en gebruik
