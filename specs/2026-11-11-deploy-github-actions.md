@@ -25,8 +25,9 @@
 
 ## Security
 
-- Eén deploy-sleutel voor beide servers, als environment-secret `SSH_KEY` in zowel `acceptance` als `production`. De environments staan alleen `main` respectievelijk tags `*-release` toe, dus een workflow op een andere branch kan de sleutel niet lezen.
-- De sleutel staat zonder beperking in `~obnldt/.ssh/authorized_keys` en geeft dus een shell als `obnldt`, ook de gebruiker van de API. Beperken met `rrsync` is een bewuste vervolgstap.
+- Eén deploy-sleutel voor beide servers, als repository-secret `SSH_KEY`. Hij komt niet in de repo of in de logs.
+- De sleutel staat zonder beperking in `~obnldt/.ssh/authorized_keys` en geeft dus een shell als `obnldt`, ook de gebruiker van de API.
+- Geaccepteerd risico: een repository-secret is te lezen door elke workflowrun, ook op een feature branch. Iedereen met schrijfrechten op de repo kan de sleutel dus gebruiken. Dat risico is ingeschat als laag; als het later moet, verplaatsen we de sleutel naar de environments en beperken we hem met `rrsync`.
 - Wie een `*-release`-tag mag pushen, bepaalt de tag-ruleset. Die is de bescherming van productie.
 - De hostsleutels van beide servers staan vast in de workflow. De workflows hebben alleen `contents: read`.
 

@@ -13,12 +13,10 @@ on:
         required: true
         type: string
     secrets:
-      # Staat als environment-secret in acceptance en production (dezelfde
-      # sleutel), zodat alleen main en *-release-tags erbij kunnen. Niet
-      # required: de aanroepende workflow ziet environment-secrets niet.
+      # Repository-secret: één sleutel voor beide servers.
       SSH_KEY:
         description: "Private deploy-sleutel voor obnldt op beide servers"
-        required: false
+        required: true
 
 permissions:
   contents: read
