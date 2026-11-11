@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # Bouwt de site vanaf een schone, actuele main en zet website/build/ op de
-# Webslice-server van de gekozen omgeving. Zie specs/2026-11-11-deploy-webslice.md.
+# Webslice-server van de gekozen omgeving. Draait lokaal en in GitHub Actions
+# (.github/workflows/deploy.yml). Zie specs/2026-11-11-deploy-webslice.md en
+# specs/2026-11-11-deploy-github-actions.md.
 #
 # Gebruik: pnpm deploy:acc [--dry-run]  ·  pnpm deploy:prod [--dry-run]
 set -euo pipefail
@@ -38,12 +40,18 @@ fail() {
 
 cd "$(git rev-parse --show-toplevel)"
 
-# 1. Alleen een schone, actuele main gaat online.
-[[ "$(git branch --show-current)" == "main" ]] ||
-  fail "je zit niet op main. Deployen kan alleen vanaf main."
+# 1. Alleen een schone, actuele main gaat online. In GitHub Actions staat de
+#    commit van de push of de release-tag los uitgecheckt; die moet op main staan.
 git fetch --quiet origin main
-[[ "$(git rev-parse HEAD)" == "$(git rev-parse origin/main)" ]] ||
-  fail "je lokale main is niet gelijk aan origin/main. Haal eerst de laatste versie op met 'git pull --ff-only'."
+if [[ "${CI:-}" == "true" ]]; then
+  git merge-base --is-ancestor HEAD origin/main ||
+    fail "deze commit staat niet op main. Deployen kan alleen vanaf main."
+else
+  [[ "$(git branch --show-current)" == "main" ]] ||
+    fail "je zit niet op main. Deployen kan alleen vanaf main."
+  [[ "$(git rev-parse HEAD)" == "$(git rev-parse origin/main)" ]] ||
+    fail "je lokale main is niet gelijk aan origin/main. Haal eerst de laatste versie op met 'git pull --ff-only'."
+fi
 [[ -z "$(git status --porcelain --untracked-files=no)" ]] ||
   fail "er zijn lokale wijzigingen in getrackte bestanden. Commit of verwijder ze eerst."
 untracked="$(git ls-files --others --exclude-standard -- website packages ontology context)"
@@ -62,8 +70,9 @@ ssh -n "${ssh_options[@]}" "$server" true ||
 ssh -n "${ssh_options[@]}" "$server" "test -d '${target}'" ||
   fail "de doelmap ~/${target} bestaat niet op ${server}."
 
-# 3. Productie vraagt om een expliciete bevestiging.
-if [[ "$environment" == "prod" && "$dry_run" == false ]]; then
+# 3. Productie vraagt om een expliciete bevestiging. In GitHub Actions is de
+#    gepushte release-tag die bevestiging.
+if [[ "$environment" == "prod" && "$dry_run" == false && "${CI:-}" != "true" ]]; then
   echo "Je gaat commit ${commit} deployen naar PRODUCTIE (${server}:~/${target})."
   read -r -p "Typ 'productie' om door te gaan: " answer || answer=""
   [[ "$answer" == "productie" ]] || fail "niet bevestigd."
@@ -98,7 +107,7 @@ fi
 
 # 6. Vastleggen welke versie er draait, buiten de publieke map.
 printf 'commit: %s\ndatum: %s\ndoor: %s\n' \
-  "$(git rev-parse HEAD)" "$(date '+%Y-%m-%dT%H:%M:%S%z')" "$(git config user.name)" |
+  "$(git rev-parse HEAD)" "$(date '+%Y-%m-%dT%H:%M:%S%z')" "${GITHUB_ACTOR:-$(git config user.name)}" |
   ssh "${ssh_options[@]}" "$server" "cat > '${revision_file}'"
 
 echo
