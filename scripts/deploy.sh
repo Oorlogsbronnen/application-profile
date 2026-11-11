@@ -54,16 +54,18 @@ ${untracked}"
 commit="$(git rev-parse --short HEAD)"
 
 # 2. Toegang tot de server en de doelmap controleren, vóór het bouwen.
+# -n: de controles lezen geen invoer, zodat die bewaard blijft voor de
+# bevestigingsprompt. rsync en het schrijven van REVISION hebben invoer juist nodig.
 ssh_options=(-o BatchMode=yes -o ConnectTimeout=10)
-ssh "${ssh_options[@]}" "$server" true ||
+ssh -n "${ssh_options[@]}" "$server" true ||
   fail "geen SSH-toegang tot ${server}. Vraag de beheerder om je publieke sleutel toe te voegen."
-ssh "${ssh_options[@]}" "$server" "test -d '${target}'" ||
+ssh -n "${ssh_options[@]}" "$server" "test -d '${target}'" ||
   fail "de doelmap ~/${target} bestaat niet op ${server}."
 
 # 3. Productie vraagt om een expliciete bevestiging.
 if [[ "$environment" == "prod" && "$dry_run" == false ]]; then
   echo "Je gaat commit ${commit} deployen naar PRODUCTIE (${server}:~/${target})."
-  read -r -p "Typ 'productie' om door te gaan: " answer
+  read -r -p "Typ 'productie' om door te gaan: " answer || answer=""
   [[ "$answer" == "productie" ]] || fail "niet bevestigd."
 fi
 
@@ -101,4 +103,4 @@ printf 'commit: %s\ndatum: %s\ndoor: %s\n' \
 
 echo
 echo "Gedeployd naar ${label}: commit ${commit} (${added} nieuw, ${updated} gewijzigd, ${deleted} verwijderd)."
-ssh "${ssh_options[@]}" "$server" "cat '${revision_file}'"
+ssh -n "${ssh_options[@]}" "$server" "cat '${revision_file}'"

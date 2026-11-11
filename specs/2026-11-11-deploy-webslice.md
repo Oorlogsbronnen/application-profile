@@ -33,10 +33,10 @@
 
 11. Vóór het uploaden toont `pnpm deploy:prod` de commit en de server, en het gaat pas verder als je dat bevestigt door `productie` te typen. Bij elke andere invoer stopt het zonder iets te uploaden.
 
-| Omgeving   | Commando           | Server                                 | Doelmap                                                                      |
-| ---------- | ------------------ | -------------------------------------- | ---------------------------------------------------------------------------- |
-| Acceptatie | `pnpm deploy:acc`  | `obnldt@obnl-acc-ws1.cust.webslice.eu` | `~/html/acc-data.oorlogsbronnen.nl/current/public/`                          |
-| Productie  | `pnpm deploy:prod` | `obnldt@obnl-prd-ws1.cust.webslice.eu` | TODO: bevestigen (verwacht: `~/html/data.oorlogsbronnen.nl/current/public/`) |
+| Omgeving   | Commando           | Server                                 | Doelmap                                             |
+| ---------- | ------------------ | -------------------------------------- | --------------------------------------------------- |
+| Acceptatie | `pnpm deploy:acc`  | `obnldt@obnl-acc-ws1.cust.webslice.eu` | `~/html/acc-data.oorlogsbronnen.nl/current/public/` |
+| Productie  | `pnpm deploy:prod` | `obnldt@obnl-prd-ws1.cust.webslice.eu` | `~/html/data.oorlogsbronnen.nl/current/public/`     |
 
 ## Security
 
@@ -45,6 +45,5 @@
 
 ## Open vragen
 
-- Hoe is de productieserver ingericht (doelmap, nginx-root), en staat daar al iets dat `--delete` niet mag weghalen? De eerste productie-deploy begint met een `--dry-run`.
 - Directe links naar mappen zonder slash aan het eind (bv. `/schema`) geven op acceptatie een 301 naar `http://acc-data.oorlogsbronnen.nl:8080/schema/`, en die werkt niet. Dit zit in de nginx-config (`absolute_redirect off;` lost het op), dus de serverbeheerder moet het aanpassen, ook op productie. Wie pakt dat op?
 - Wie krijgen SSH-toegang tot de servers, en wie voegt hun sleutels toe?
