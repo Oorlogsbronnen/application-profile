@@ -115,7 +115,8 @@ const config: Config = {
           "datasets/**",
           "schema",
           "services/**",
-          "cookbook/**",
+          "api-cookbook/**",
+          "sparql-cookbook/**",
           "rechten-en-gebruik.md",
           "meedoen.md",
           "contact.md",
@@ -189,11 +190,11 @@ const config: Config = {
           items: [
             {
               label: "SPARQL",
-              href: LDMAX_ORG_URL,
+              href: "https://platform.ldmax.nl/query?slug=wo2net",
             },
             {
-              label: "API",
-              href: "https://data.oorlogsbronnen.nl/api/",
+              label: "Open API",
+              href: "https://data.oorlogsbronnen.nl/services/api/docs",
             },
           ],
         },
