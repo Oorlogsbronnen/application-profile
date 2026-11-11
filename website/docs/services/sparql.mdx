@@ -21,7 +21,7 @@ De SPARQL IDE is bedoeld voor gerichte datavragen. Je kiest een organisatie met 
 
 Start met het bestuderen van de voorbeeldqueries op deze pagina of begin met een eenvoudige SELECT met LIMIT op [https://platform.ldmax.nl/organisaties/wo2net/query](https://platform.ldmax.nl/organisaties/wo2net/query). Voer de query uit en controleer eerst of de bindings logisch zijn. Verfijn daarna pas met extra joins, filters en aggregaties.
 
-Het is verreweg het beste om je queries direct uit te voeren op [https://platform.ldmax.nl/organisaties/wo2net/query](https://platform.ldmax.nl/organisaties/wo2net/query). Alleen de ARK URI's van personen resolven ook buiten het LDMax platform naar de knowledge graph.
+Het is verreweg het beste om je queries direct uit te voeren op [https://platform.ldmax.nl/organisaties/wo2net/query](https://platform.ldmax.nl/organisaties/wo2net/query). Alleen de ARK URI's van personen [resolven](contentnegotiation) ook buiten het LDMax platform naar de knowledge graph.
 
 
 ## Opgeslagen queries
@@ -59,15 +59,15 @@ ORDER BY ASC(?naam)`}
 
 <SparqlEditor
   query={`PREFIX sdo: <https://schema.org/>
-SELECT ?object ?name ?description ?image WHERE {
-  ?object a sdo:Photograph ;
-          sdo:name ?name ;
-          sdo:about ?about ;
-          sdo:thumbnailUrl ?image .
+SELECT ?object ?title ?about ?name ?image WHERE {
+?object a sdo:Photograph ;
+        sdo:name ?title ;
+        sdo:about ?about ;
+        sdo:thumbnailUrl ?image .
   
-  OPTIONAL { ?object sdo:description ?description }
-  
-  FILTER(CONTAINS(LCASE(STR(?about)), "anne frank"))
+?about sdo:name ?name .
+
+FILTER(CONTAINS(LCASE(STR(?name)), "frank"))
 }
 LIMIT 50`}
 />
@@ -94,6 +94,6 @@ LIMIT 50`}
 
 ## Zelf aan de slag
 
-- Meer taakgerichte voorbeelden staan in het [cookbook](../sparql-cookbook/).
+- Meer taakgerichte voorbeelden staan in het [cookbook](/sparql-cookbook/).
 - Het datamodel achter deze queries is beschreven in het [applicatieprofiel](/schema).
-- Houd rekening met de licentie ([CC-BY-NC-SA 4.0](../rechten-en-gebruik)) en met de timeout van het endpoint: houd queries gericht en gebruik `LIMIT`.
+- Houd rekening met de licentie ([CC-BY-NC-SA 4.0](/rechten-en-gebruik)) en met de timeout van het endpoint: houd queries gericht en gebruik `LIMIT`.
