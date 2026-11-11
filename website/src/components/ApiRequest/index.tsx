@@ -1,5 +1,8 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { OORLOGSBRONNEN_API_BASE } from "@site/src/lib/oorlogsbronnen-api";
+import {
+  OORLOGSBRONNEN_API_BASE,
+  toSameOrigin,
+} from "@site/src/lib/oorlogsbronnen-api";
 import {
   entities,
   eventsOf,
@@ -116,10 +119,11 @@ function enqueue<T>(task: () => Promise<T>): Promise<T> {
 
 /** Andere bezoekers kunnen hetzelfde effect veroorzaken: probeer het nog één keer. */
 async function fetchWithRetry(url: string): Promise<Response> {
-  const res = await fetch(url);
+  const target = toSameOrigin(url);
+  const res = await fetch(target);
   if (res.status < 500) return res;
   await new Promise((resolve) => setTimeout(resolve, 500));
-  return fetch(url);
+  return fetch(target);
 }
 
 export default function ApiRequest({
