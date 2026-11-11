@@ -1,0 +1,56 @@
+# Herbruikbare deploy naar Webslice, aangeroepen door deploy-acceptance.yml en
+# deploy-production.yml. Volgt de opzet van de Norday-template
+# (statamic-next-stack), maar zonder Deployer: scripts/deploy.sh bouwt de
+# statische site op de runner en zet hem met rsync over.
+# Zie specs/2026-11-11-deploy-github-actions.md.
+name: Deploy
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        description: "GitHub-environment en omgeving op Webslice (acceptance of production)"
+        required: true
+        type: string
+    secrets:
+      # Staat als environment-secret in acceptance en production (dezelfde
+      # sleutel), zodat alleen main en *-release-tags erbij kunnen. Niet
+      # required: de aanroepende workflow ziet environment-secrets niet.
+      SSH_KEY:
+        description: "Private deploy-sleutel voor obnldt op beide servers"
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+
+    steps:
+      # Volledige historie: het script controleert of de commit op main staat.
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Leest de pnpm-versie uit `packageManager` in package.json.
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+
+      # Vastgelegde hostsleutels: wijkt een server af, dan faalt de deploy.
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_KEY }}
+          known_hosts: |
+            obnl-acc-ws1.cust.webslice.eu ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO4fsIQlvXH92/WOEM0rt2+hs00p1kv8141BSxmjq/bg
+            obnl-prd-ws1.cust.webslice.eu ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOcXH5g7aaG7eYrxLuGAzV4TkoPNNB92Kt++26BT9fjL
+
+      - name: Deploy
+        run: bash scripts/deploy.sh ${{ inputs.environment == 'production' && 'prod' || 'acc' }}
