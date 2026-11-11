@@ -86,17 +86,22 @@ SELECT ?object ?name ?description ?image WHERE {
 
 ## Trefwoorden uit de WO2 Thesaurus
 
-Personen zijn via `sdo:keywords` verbonden met [thesaurusconcepten](/schema#ConceptShape); de Nederlandse labels haal je op met `skos:prefLabel`:
+Personen zijn via `sdo:keywords` verbonden met [thesaurusconcepten](/schema#ConceptShape) uit de WO2 Thesaurus. Het kan moeilijk zijn om te bepalen wat het juiste thesaurusconcept is voor de term die je zoekt. Deze query helpt om dat te bepalen door te zoeken door alle  `skos:prefLabel`, `skos:altLabel` en `skos:hiddenLabel` van de WO2 Thesaurus:
 
 <SparqlEditor
-  query={`PREFIX sdo: <https://schema.org/>
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-SELECT ?concept ?label WHERE {
-  <https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388>
-      sdo:keywords ?concept .
-  ?concept skos:prefLabel ?label .
+  query={`PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT DISTINCT ?concept ?label WHERE {
+  # ?label matcht zowel skos:prefLabel als skos:altLabel en skos:hiddenLabel
+  ?concept (skos:prefLabel | skos:altLabel | skos:hiddenLabel) ?label .
+  
+  # Gebruik een filter om alleen in de Nederlandstalige labels te zoeken
   FILTER(LANG(?label) = 'nl')
-}`}
+  
+  # Hoofdletterongevoelige substring filter. Vervang jouw_zoekterm door de term die je zoekt
+  FILTER(CONTAINS(LCASE(STR(?label)), "jouw_zoekterm"))
+}
+LIMIT 50`}
 />
 
 ## Zelf aan de slag
