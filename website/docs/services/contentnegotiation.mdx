@@ -19,3 +19,29 @@ Op data.oorlogsbronnen.nl kunnen persoonsreconstructies op de volgende manieren 
 ## Voorbeeld 
 
 Als een client een bepaald RDF Format wil, kan dit worden aangegeven in de Accept-header:
+
+<Tabs groupId="taal">
+  <TabItem value="curl" label="curl" default>
+
+```bash
+curl -H "Accept: text/turtle" https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388
+```
+  </TabItem>
+  <TabItem value="js" label="JavaScript">
+
+```js
+fetch("https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388", {
+  headers: {
+    "Accept": "application/ld+json"
+  }
+})
+  .then(response => {
+    if (response.ok) return response.json();
+    throw new Error(`HTTP error! status: ${response.status}`);
+  })
+  .then(console.log)
+  .catch(console.error);
+```
+
+  </TabItem>
+</Tabs>
