@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
-# Bouwt de site vanaf een schone, actuele main en zet website/build/ op de
-# Webslice-server van de gekozen omgeving. Zie specs/2026-11-11-deploy-webslice.md.
+# Bouwt de site en zet website/build/ op de Webslice-server van de gekozen
+# omgeving. Draait lokaal (pnpm deploy:acc / deploy:prod) en in GitHub Actions
+# (.github/workflows/deploy.yml). Zie specs/2026-11-11-deploy-webslice.md en
+# specs/2026-11-11-deploy-github-actions.md.
 #
 # Gebruik: pnpm deploy:acc [--dry-run]  ·  pnpm deploy:prod [--dry-run]
 set -euo pipefail
@@ -10,6 +12,10 @@ dry_run=false
 if [[ "${2:-}" == "--dry-run" ]]; then
   dry_run=true
 fi
+in_ci=false
+if [[ "${CI:-}" == "true" ]]; then
+  in_ci=true
+fi
 
 # De doelmappen staan bewust vast: rsync --delete mag nooit buiten deze
 # mappen iets verwijderen. Paden zijn relatief aan de home-map op de server.
@@ -17,19 +23,23 @@ case "$environment" in
   acc)
     label="acceptatie"
     server="obnldt@obnl-acc-ws1.cust.webslice.eu"
-    target="html/acc-data.oorlogsbronnen.nl/current/public"
+    root="html/acc-data.oorlogsbronnen.nl/current"
     ;;
   prod)
     label="productie"
     server="obnldt@obnl-prd-ws1.cust.webslice.eu"
-    target="html/data.oorlogsbronnen.nl/current/public"
+    root="html/data.oorlogsbronnen.nl/current"
     ;;
   *)
     echo "Onbekende omgeving '${environment}'. Gebruik: pnpm deploy:acc of pnpm deploy:prod (optioneel met --dry-run)." >&2
     exit 1
     ;;
 esac
-revision_file="$(dirname "$target")/REVISION"
+# De deploy-sleutel van GitHub Actions is op de server met rrsync beperkt tot
+# precies deze map; paden zijn dan relatief aan die map.
+if [[ "${DEPLOY_RRSYNC:-}" == "1" ]]; then
+  root="."
+fi
 
 fail() {
   echo "Deploy naar ${label} gestopt: $1" >&2
@@ -38,33 +48,44 @@ fail() {
 
 cd "$(git rev-parse --show-toplevel)"
 
-# 1. Alleen een schone, actuele main gaat online.
-[[ "$(git branch --show-current)" == "main" ]] ||
-  fail "je zit niet op main. Deployen kan alleen vanaf main."
-git fetch --quiet origin main
-[[ "$(git rev-parse HEAD)" == "$(git rev-parse origin/main)" ]] ||
-  fail "je lokale main is niet gelijk aan origin/main. Haal eerst de laatste versie op met 'git pull --ff-only'."
+# 1. Alleen schone, gereviewde code gaat online: een commit die op main staat.
+#    Acceptatie lokaal: precies de laatste main. Productie: een versietag.
+git fetch --quiet --tags origin main
 [[ -z "$(git status --porcelain --untracked-files=no)" ]] ||
   fail "er zijn lokale wijzigingen in getrackte bestanden. Commit of verwijder ze eerst."
 untracked="$(git ls-files --others --exclude-standard -- website packages ontology context)"
 [[ -z "$untracked" ]] ||
   fail "er staan ongetrackte bestanden in mappen die de build inleest:
 ${untracked}"
+git merge-base --is-ancestor HEAD origin/main ||
+  fail "deze commit staat niet op main. Deployen kan alleen vanaf main."
+
+tag=""
+if [[ "$environment" == "acc" && "$in_ci" == false ]]; then
+  [[ "$(git rev-parse HEAD)" == "$(git rev-parse origin/main)" ]] ||
+    fail "je versie is niet gelijk aan origin/main. Haal eerst de laatste versie op met 'git switch main && git pull --ff-only'."
+fi
+if [[ "$environment" == "prod" ]]; then
+  tag="$(git tag --points-at HEAD | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | sort -V | tail -1 || true)"
+  [[ -n "$tag" ]] ||
+    fail "deze commit heeft geen versietag (vX.Y.Z). Maak een release met 'git tag v1.2.3 && git push origin v1.2.3'; GitHub deployt die dan naar productie."
+fi
 
 commit="$(git rev-parse --short HEAD)"
+version="commit ${commit}${tag:+ (${tag})}"
 
-# 2. Toegang tot de server en de doelmap controleren, vóór het bouwen.
-# -n: de controles lezen geen invoer, zodat die bewaard blijft voor de
-# bevestigingsprompt. rsync en het schrijven van REVISION hebben invoer juist nodig.
-ssh_options=(-o BatchMode=yes -o ConnectTimeout=10)
-ssh -n "${ssh_options[@]}" "$server" true ||
-  fail "geen SSH-toegang tot ${server}. Vraag de beheerder om je publieke sleutel toe te voegen."
-ssh -n "${ssh_options[@]}" "$server" "test -d '${target}'" ||
-  fail "de doelmap ~/${target} bestaat niet op ${server}."
+# 2. Toegang tot de server en de doelmap controleren, vóór het bouwen. Alles
+#    loopt via rsync: de deploy-sleutel van GitHub Actions mag niets anders.
+rsync_ssh="ssh -o BatchMode=yes -o ConnectTimeout=10"
+rsync -e "$rsync_ssh" --list-only "${server}:${root}/" >/dev/null ||
+  fail "geen toegang tot ${server}. Vraag de beheerder om je publieke sleutel toe te voegen."
+rsync -e "$rsync_ssh" --list-only "${server}:${root}/public/" >/dev/null ||
+  fail "de doelmap ${root}/public bestaat niet op ${server}."
 
-# 3. Productie vraagt om een expliciete bevestiging.
-if [[ "$environment" == "prod" && "$dry_run" == false ]]; then
-  echo "Je gaat commit ${commit} deployen naar PRODUCTIE (${server}:~/${target})."
+# 3. Lokaal vraagt productie om een expliciete bevestiging. In GitHub Actions
+#    is de gepushte versietag die bevestiging.
+if [[ "$environment" == "prod" && "$dry_run" == false && "$in_ci" == false ]]; then
+  echo "Je gaat ${version} deployen naar PRODUCTIE (${server}:~/${root}/public)."
   read -r -p "Typ 'productie' om door te gaan: " answer || answer=""
   [[ "$answer" == "productie" ]] || fail "niet bevestigd."
 fi
@@ -82,7 +103,7 @@ rsync_options=(
 if [[ "$dry_run" == true ]]; then
   rsync_options+=(--dry-run)
 fi
-changes="$(rsync "${rsync_options[@]}" -e "ssh ${ssh_options[*]}" website/build/ "${server}:${target}/")"
+changes="$(rsync "${rsync_options[@]}" -e "$rsync_ssh" website/build/ "${server}:${root}/public/")"
 
 added="$(grep -c '^[<>]f+++' <<<"$changes" || true)"
 deleted="$(grep -c '^\*deleting' <<<"$changes" || true)"
@@ -97,10 +118,21 @@ if [[ "$dry_run" == true ]]; then
 fi
 
 # 6. Vastleggen welke versie er draait, buiten de publieke map.
-printf 'commit: %s\ndatum: %s\ndoor: %s\n' \
-  "$(git rev-parse HEAD)" "$(date '+%Y-%m-%dT%H:%M:%S%z')" "$(git config user.name)" |
-  ssh "${ssh_options[@]}" "$server" "cat > '${revision_file}'"
+revision="$(mktemp)"
+trap 'rm -f "$revision"' EXIT
+{
+  echo "commit: $(git rev-parse HEAD)"
+  if [[ -n "$tag" ]]; then
+    echo "tag: ${tag}"
+  fi
+  echo "datum: $(date '+%Y-%m-%dT%H:%M:%S%z')"
+  echo "door: ${GITHUB_ACTOR:-$(git config user.name)}"
+  if [[ "$in_ci" == true ]]; then
+    echo "run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+  fi
+} >"$revision"
+rsync -e "$rsync_ssh" "$revision" "${server}:${root}/REVISION"
 
 echo
-echo "Gedeployd naar ${label}: commit ${commit} (${added} nieuw, ${updated} gewijzigd, ${deleted} verwijderd)."
-ssh -n "${ssh_options[@]}" "$server" "cat '${revision_file}'"
+echo "Gedeployd naar ${label}: ${version} (${added} nieuw, ${updated} gewijzigd, ${deleted} verwijderd)."
+cat "$revision"
