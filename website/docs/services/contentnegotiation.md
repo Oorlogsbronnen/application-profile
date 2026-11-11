@@ -1,0 +1,21 @@
+---
+title: Content Negotiation
+sidebar_position: 4
+---
+
+# Content Negotiation
+
+Data.oorlogsbronnen.nl biedt voor de personencollectie ook Content Negotation. Hiermee is het mogelijk om de informatie over een persoon op verschillende manieren op te vragen. Zo kunnen op basis van dezelfde URL verschillende representaties worden opgevraagd. Op die manier kan de HTTP user-agent de best passende representatie voor de gebruiker aanroepen.
+
+Content-negotiation is een mechanisme waarmee een client en server kunnen onderhandelen over het formaat van de data die wordt teruggestuurd. De client geeft in de HTTP-header aan welk formaat het prefereert, en de server retourneert de data in dat formaat, mits beschikbaar. Dit maakt het mogelijk om dezelfde resource in verschillende representaties aan te bieden, zoals HTML, JSON-LD of Turtle.
+
+Op data.oorlogsbronnen.nl kunnen persoonsreconstructies op de volgende manieren aangeroepen worden:
+
+- Als HTML: [https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388](https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388)
+- Als turtle: (met de .ttl extensie): [https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388.ttl](https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388.ttl)
+- Als N-Triples (met de .nt extensie): [https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388.nt](https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388.nt)
+- Als JSON-LD (met de .jsonld extensie): [https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388.jsonld](https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388.jsonld)
+
+## Voorbeeld 
+
+Als een client een bepaald RDF Format wil, kan dit worden aangegeven in de Accept-header:
