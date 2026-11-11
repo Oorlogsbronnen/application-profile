@@ -8,7 +8,9 @@
     "build": "pnpm --filter website build",
     "check": "pnpm --filter @oorlogsbronnen/schema-docs check",
     "test": "pnpm --recursive test",
-    "typecheck": "pnpm --recursive typecheck"
+    "typecheck": "pnpm --recursive typecheck",
+    "deploy:acc": "bash scripts/deploy.sh acc",
+    "deploy:prod": "bash scripts/deploy.sh prod"
   },
   "pnpm": {
     "ignoredBuiltDependencies": [

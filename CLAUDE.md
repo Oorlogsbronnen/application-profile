@@ -22,6 +22,7 @@ De repo is een pnpm-monorepo:
 - `ontology/shapes-bouwstenen.ttl`, `ontology/shapes-personen.ttl` en `ontology/shapes-collecties.ttl` — SHACL-shapes voor validatie van data tegen het profiel: gedeelde bouwstenen (`Base_*`/`Rule_*`) plus één bestand per kennisgraaf (personen en objecten/collecties, parallel aan de LDmax-datasets).
 - `context/context.jsonld` — de JSON-LD context voor gebruik in API's.
 - Deploys van de website lopen via **Netlify's git-integratie** op de `main`-branch: elke push deployt automatisch naar [data-oorlogsbronnen.netlify.app](https://data-oorlogsbronnen.netlify.app/) (wachtwoord-beschermd, met deploy-previews per PR). De build-instellingen staan in de Netlify-UI, niet in de repo. **Netlify is tijdelijk (testfase)**; uiteindelijk draait de site op shared hosting — zie `specs/2026-07-27-netlify-deploy.md`.
+- Daarnaast draait de site op **Webslice**: acceptatie op [acc-data.oorlogsbronnen.nl](https://acc-data.oorlogsbronnen.nl) en productie op data.oorlogsbronnen.nl. Daar deploy je met de hand vanaf een schone, actuele `main`: `pnpm deploy:acc` of `pnpm deploy:prod` (productie vraagt om een bevestiging). Met `--dry-run` zie je eerst wat er zou veranderen. Het script bouwt de site, synchroniseert `website/build/` met `rsync --delete` en schrijft de gedeployde commit naar `REVISION` op de server. Toegang gaat via je eigen SSH-sleutel op de gebruiker `obnldt`; vraag de beheerder om je publieke sleutel toe te voegen. Zie `specs/2026-11-11-deploy-webslice.md`.
 
 ## Tooling en commando's
 
@@ -29,6 +30,7 @@ Package manager: **pnpm** (workspaces). Draai `pnpm install` vanaf de root.
 
 - Website: `pnpm start` (dev-server) · `pnpm build` (productie-build) · `pnpm typecheck` · `pnpm test` (unit tests van de generator)
 - Controleer de bronbestanden: `pnpm check` — leest alle `ontology/*.ttl` in en draait de schema-generator zonder iets weg te schrijven. Dezelfde controle draait als GitHub-check op elke PR naar `main` en als eerste stap van `pnpm build` (zie `specs/2026-10-30-duidelijke-buildfouten.md`).
+- Deployen naar Webslice: `pnpm deploy:acc` · `pnpm deploy:prod` (beide met optioneel `--dry-run`)
 - Valideer JSON-LD: `python3 -c "import json; json.load(open('context/context.jsonld'))"`
 - Format (markdown/JSON): `npx prettier@latest --write <bestand>` — voor `.ttl` bestaat geen formatter; volg de bestaande serialisatie-stijl van het bestand.
 
