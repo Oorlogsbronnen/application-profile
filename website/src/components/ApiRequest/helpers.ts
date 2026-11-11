@@ -121,10 +121,12 @@ export const primarySources = (v: Json): { name: string; url?: string }[] =>
     return reference ? [{ name: sourceName(reference), url }] : [];
   });
 
-export function fmtDate(value?: string): string | null {
-  if (!value) return null;
+export function fmtDate(value?: string | number): string | null {
+  if (value == null || value === "") return null;
+  // Een jaartal komt soms als getal binnen (`"startDate": [1945]`).
+  const text = String(value);
   // Een tijd erachter (1945-11-27T00:00:00) laten we weg.
-  const d = /^\d{4}-\d{2}-\d{2}T/.test(value) ? value.slice(0, 10) : value;
+  const d = /^\d{4}-\d{2}-\d{2}T/.test(text) ? text.slice(0, 10) : text;
   const parts = d.split("-");
   if (parts.length === 1) return d; // alleen een jaartal
   const date = new Date(d + "T12:00:00");

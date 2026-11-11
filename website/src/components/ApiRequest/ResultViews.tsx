@@ -196,7 +196,10 @@ function ObjectCard({ object: o }: { object: Json }) {
   const image = safeUrl(first(o.thumbnailUrl));
   const url = safeUrl(first(o.url)) ?? safeUrl(o.id);
   const institution = textOf(first(o.publisher)) ?? textOf(first(o.provider));
-  const date = fmtDate(first(o.dateCreated) ?? first(o.startDate));
+  // Zonder dateCreated is het een periode: startDate tot endDate, bv. 1945–1950.
+  const start = fmtDate(first(o.dateCreated) ?? first(o.startDate));
+  const end = arr(o.dateCreated).length ? null : fmtDate(first(o.endDate));
+  const date = end && end !== start ? `${start ?? "?"} – ${end}` : start;
   const license = textOf(first(o.license));
   const description = first(o.description);
   const kind = objectKind(o.type);
@@ -296,7 +299,7 @@ function PersonResult({ person: p }: { person: Json }) {
         ))}
       </dl>
       {uuid && (
-        <Link to={`/cookbook/persoon?id=${uuid}`}>
+        <Link to={`/api-cookbook/persoon?id=${uuid}`}>
           Alles over deze persoon →
         </Link>
       )}
