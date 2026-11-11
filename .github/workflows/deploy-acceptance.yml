@@ -1,0 +1,23 @@
+name: Deploy acceptance
+
+on:
+  # Elke push naar main, ook een gemergde PR.
+  push:
+    branches: [main]
+  # Handmatig starten vanuit de GitHub-UI.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: "${{ github.workflow }}"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy
+    uses: ./.github/workflows/deploy.yml
+    with:
+      environment: acceptance
+    secrets: inherit

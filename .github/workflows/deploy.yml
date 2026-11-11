@@ -1,36 +1,38 @@
-# Deployt de site naar Webslice: elke push naar main naar acceptatie, elke
-# release-tag (*-release, bv. 1.0.0-release) naar productie. Volgt de
-# Norday-conventie voor Webslice-projecten (skill monorepo-deploy). Terugdraaien: "Run workflow" met een
-# oudere tag bij "Use workflow from". Een handmatige run vanaf main deployt
-# acceptatie opnieuw. Zie specs/2026-11-11-deploy-github-actions.md.
+# Herbruikbare deploy naar Webslice, aangeroepen door deploy-acceptance.yml en
+# deploy-production.yml. Volgt de opzet van de Norday-template
+# (statamic-next-stack), maar zonder Deployer: de statische site wordt op de
+# runner gebouwd en met rsync overgezet door scripts/deploy.sh.
+# Zie specs/2026-11-11-deploy-github-actions.md.
 name: Deploy
 
 on:
-  push:
-    branches: [main]
-    tags: ["*-release"]
-  workflow_dispatch:
+  workflow_call:
+    inputs:
+      environment:
+        description: "GitHub-environment en omgeving op Webslice (acceptance of production)"
+        required: true
+        type: string
+    secrets:
+      SSH_KEY:
+        description: "Private deploy-sleutel; op beide servers met rrsync beperkt tot current/"
+        required: true
 
 permissions:
   contents: read
 
 jobs:
   deploy:
-    name: Deploy naar ${{ github.ref_type == 'tag' && 'productie' || 'acceptatie' }}
+    name: Deploy
     runs-on: ubuntu-latest
-    # Per environment een eigen DEPLOY_SSH_KEY. De environment 'production' staat
-    # alleen tags *-release toe, 'acceptance' alleen main.
-    environment: ${{ github.ref_type == 'tag' && 'production' || 'acceptance' }}
-    # Nooit twee deploys tegelijk naar dezelfde omgeving; een nieuwere wacht.
-    concurrency:
-      group: deploy-${{ github.ref_type == 'tag' && 'production' || 'acceptance' }}
-      cancel-in-progress: false
+    environment: ${{ inputs.environment }}
+
     steps:
       # Volledige historie en tags: het script controleert of de commit op
       # main staat en (voor productie) een release-tag heeft.
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       # Leest de pnpm-versie uit `packageManager` in package.json.
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
@@ -39,21 +41,17 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
 
-      - name: SSH-toegang instellen
-        env:
-          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
-        run: |
-          install -d -m 700 ~/.ssh
-          install -m 600 /dev/null ~/.ssh/id_ed25519
-          printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/id_ed25519
-          # Vastgelegde hostsleutels: wijkt een server af, dan faalt de deploy.
-          cat > ~/.ssh/known_hosts <<'EOF'
-          obnl-acc-ws1.cust.webslice.eu ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO4fsIQlvXH92/WOEM0rt2+hs00p1kv8141BSxmjq/bg
-          obnl-prd-ws1.cust.webslice.eu ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOcXH5g7aaG7eYrxLuGAzV4TkoPNNB92Kt++26BT9fjL
-          EOF
+      # Vastgelegde hostsleutels: wijkt een server af, dan faalt de deploy.
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_KEY }}
+          known_hosts: |
+            obnl-acc-ws1.cust.webslice.eu ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO4fsIQlvXH92/WOEM0rt2+hs00p1kv8141BSxmjq/bg
+            obnl-prd-ws1.cust.webslice.eu ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOcXH5g7aaG7eYrxLuGAzV4TkoPNNB92Kt++26BT9fjL
 
       - name: Deploy
         env:
           # De deploy-sleutel is op de server met rrsync beperkt tot current/.
           DEPLOY_RRSYNC: "1"
-        run: bash scripts/deploy.sh ${{ github.ref_type == 'tag' && 'prod' || 'acc' }}
+        run: bash scripts/deploy.sh ${{ inputs.environment == 'production' && 'prod' || 'acc' }}

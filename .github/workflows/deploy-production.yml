@@ -1,0 +1,41 @@
+name: Deploy production
+
+on:
+  push:
+    tags:
+      - "*-release"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: "${{ github.workflow }}"
+  cancel-in-progress: false
+
+jobs:
+  tag-must-be-in-main:
+    name: Check if tag is in main
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check the tag "${{ github.ref_name }}"
+        run: |
+          if git merge-base --is-ancestor "$(git rev-list -n 1 '${{ github.ref_name }}')" origin/main
+          then
+            echo "The tag is in the main branch";
+            true
+          else
+            echo "The tag is not in the main branch";
+            false
+          fi
+
+  deploy:
+    name: Deploy
+    needs: tag-must-be-in-main
+    uses: ./.github/workflows/deploy.yml
+    with:
+      environment: production
+    secrets: inherit
