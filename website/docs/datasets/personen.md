@@ -9,7 +9,7 @@ Deze dataset bevat informatie over getuigen, slachtoffers en andere personen bet
 
 ## Unieke identifiers voor personen
 
-Op Oorlogsbronnen wordt informatie over personen uit diverse datasets met persoonsvermeldingen geharmoniseerd door middel van matchingstrategieën, resulterend in meer dan 800.000 unieke [persoonsreconstructies](schema#PersoonsReconstructieShape). Elke persoonsreconstructie heeft een Persistent Identifier (PID), specifiek een Archival Resource Key (ARK), waarin een unieke identifier (UUID) is opgenomen.
+Op Oorlogsbronnen wordt informatie over personen uit diverse datasets met persoonsvermeldingen geharmoniseerd door middel van matchingstrategieën, resulterend in meer dan 800.000 unieke [persoonsreconstructies](/schema#PersoonsReconstructieShape). Elke persoonsreconstructie heeft een Persistent Identifier (PID), specifiek een Archival Resource Key (ARK), waarin een unieke identifier (UUID) is opgenomen.
 
 De structuur van een ARK URI is als volgt:
 
