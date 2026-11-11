@@ -1,5 +1,6 @@
 # Deployt de site naar Webslice: elke push naar main naar acceptatie, elke
-# versietag (vX.Y.Z) naar productie. Terugdraaien: "Run workflow" met een
+# release-tag (*-release, bv. 1.0.0-release) naar productie. Volgt de
+# Norday-conventie voor Webslice-projecten (skill monorepo-deploy). Terugdraaien: "Run workflow" met een
 # oudere tag bij "Use workflow from". Een handmatige run vanaf main deployt
 # acceptatie opnieuw. Zie specs/2026-11-11-deploy-github-actions.md.
 name: Deploy
@@ -7,7 +8,7 @@ name: Deploy
 on:
   push:
     branches: [main]
-    tags: ["v[0-9]+.[0-9]+.[0-9]+"]
+    tags: ["*-release"]
   workflow_dispatch:
 
 permissions:
@@ -17,16 +18,16 @@ jobs:
   deploy:
     name: Deploy naar ${{ github.ref_type == 'tag' && 'productie' || 'acceptatie' }}
     runs-on: ubuntu-latest
-    # Per environment een eigen DEPLOY_SSH_KEY. De environment 'productie' staat
-    # alleen tags v* toe, 'acceptatie' alleen main.
-    environment: ${{ github.ref_type == 'tag' && 'productie' || 'acceptatie' }}
+    # Per environment een eigen DEPLOY_SSH_KEY. De environment 'production' staat
+    # alleen tags *-release toe, 'acceptance' alleen main.
+    environment: ${{ github.ref_type == 'tag' && 'production' || 'acceptance' }}
     # Nooit twee deploys tegelijk naar dezelfde omgeving; een nieuwere wacht.
     concurrency:
-      group: deploy-${{ github.ref_type == 'tag' && 'productie' || 'acceptatie' }}
+      group: deploy-${{ github.ref_type == 'tag' && 'production' || 'acceptance' }}
       cancel-in-progress: false
     steps:
       # Volledige historie en tags: het script controleert of de commit op
-      # main staat en (voor productie) een versietag heeft.
+      # main staat en (voor productie) een release-tag heeft.
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
