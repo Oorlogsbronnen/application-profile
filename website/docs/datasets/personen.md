@@ -13,7 +13,7 @@ Op Oorlogsbronnen wordt informatie over personen uit diverse datasets met persoo
 
 De structuur van een ARK URI is als volgt:
 
-ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388
+`ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388`
 
 1. Het ARK Label: De identifier begint verplicht met de vaste prefix `ark:/`.
 2. Het NAAN (Name Assigning Authority Number): Dit is een uniek, geregistreerd identificatienummer dat door de California Digital Library (CDLIB) wordt toegewezen aan de betreffende erfgoedinstelling of het archief dat de data publiceert. In dit geval is dit `59857`.
