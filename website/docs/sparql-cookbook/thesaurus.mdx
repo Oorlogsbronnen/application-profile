@@ -1,0 +1,51 @@
+---
+title: Zoeken via de thesaurus
+sidebar_position: 3
+---
+
+import SparqlEditor from "@site/src/components/SparqlEditor";
+
+# Van zoekterm naar thesaurusconcept — en terug naar personen
+
+**Vraag:** ik heb een onderwerp ("verzet"), geen naam. Hoe vind ik het juiste concept in de WO2 Thesaurus, en vervolgens de personen die daaraan gekoppeld zijn?
+
+## Hoe het model werkt
+
+Personen zijn via `schema:keywords` gekoppeld aan [thesaurusconcepten](/schema#ConceptShape). Wie op onderwerp wil zoeken, zoekt dus eerst het concept (op `skos:prefLabel`), en gebruikt dat concept daarna als filter. Concepten van de WO2 Thesaurus herken je aan `skos:inScheme <https://data.niod.nl/WO2_Thesaurus/1560>`.
+
+## Stap 1: vind het concept
+
+<SparqlEditor
+  query={`PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?concept ?label WHERE {
+  ?concept skos:inScheme <https://data.niod.nl/WO2_Thesaurus/1560> ;
+           skos:prefLabel ?label .
+  FILTER(CONTAINS(LCASE(?label), "verzet"))
+  FILTER(LANG(?label) = 'nl')
+}
+LIMIT 15`}
+/>
+
+## Stap 2: vind personen bij het concept
+
+Neem de concept-IRI uit stap 1 en gebruik die als waarde van `schema:keywords`:
+
+<SparqlEditor
+  query={`PREFIX pico: <https://personsincontext.org/model#>
+PREFIX schema: <http://schema.org/>
+SELECT ?persoon ?naam WHERE {
+  ?persoon a pico:PersonReconstruction ;
+           schema:keywords <https://data.niod.nl/WO2_Thesaurus/2657> ;
+           schema:name ?naam .
+}
+LIMIT 10`}
+/>
+
+## Wat krijg je terug
+
+Stap 1 levert de verzetsgerelateerde concepten uit de thesaurus; stap 2 toont personen die aan zo'n concept gekoppeld zijn — onder wie Hannie Schaft. Verken vanaf een concept ook de hiërarchie met `skos:broader` en `skos:narrower` (zie de [ConceptShape](/schema#ConceptShape)).
+
+## Variaties
+
+- Zoek ook in alternatieve termen door `skos:prefLabel` te vervangen door `skos:prefLabel|skos:altLabel`.
+- Combineer beide stappen in één query door het concept niet vast te zetten maar te binden via de `FILTER` uit stap 1.
