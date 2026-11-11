@@ -190,7 +190,7 @@ const config: Config = {
           items: [
             {
               label: "SPARQL",
-              href: "https://platform.ldmax.nl/query?slug=wo2net",
+              href: "https://platform.ldmax.nl/organisaties/wo2net/query",
             },
             {
               label: "Open API",
