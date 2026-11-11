@@ -49,7 +49,7 @@ fail() {
 cd "$(git rev-parse --show-toplevel)"
 
 # 1. Alleen schone, gereviewde code gaat online: een commit die op main staat.
-#    Acceptatie lokaal: precies de laatste main. Productie: een versietag.
+#    Acceptatie lokaal: precies de laatste main. Productie: een release-tag.
 git fetch --quiet --tags origin main
 [[ -z "$(git status --porcelain --untracked-files=no)" ]] ||
   fail "er zijn lokale wijzigingen in getrackte bestanden. Commit of verwijder ze eerst."
@@ -66,9 +66,9 @@ if [[ "$environment" == "acc" && "$in_ci" == false ]]; then
     fail "je versie is niet gelijk aan origin/main. Haal eerst de laatste versie op met 'git switch main && git pull --ff-only'."
 fi
 if [[ "$environment" == "prod" ]]; then
-  tag="$(git tag --points-at HEAD | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | sort -V | tail -1 || true)"
+  tag="$(git tag --points-at HEAD | grep -E -- '-release$' | sort -V | tail -1 || true)"
   [[ -n "$tag" ]] ||
-    fail "deze commit heeft geen versietag (vX.Y.Z). Maak een release met 'git tag v1.2.3 && git push origin v1.2.3'; GitHub deployt die dan naar productie."
+    fail "deze commit heeft geen release-tag (*-release). Maak een release met 'git tag 1.2.0-release && git push origin 1.2.0-release'; GitHub deployt die dan naar productie."
 fi
 
 commit="$(git rev-parse --short HEAD)"
@@ -83,7 +83,7 @@ rsync -e "$rsync_ssh" --list-only "${server}:${root}/public/" >/dev/null ||
   fail "de doelmap ${root}/public bestaat niet op ${server}."
 
 # 3. Lokaal vraagt productie om een expliciete bevestiging. In GitHub Actions
-#    is de gepushte versietag die bevestiging.
+#    is de gepushte release-tag die bevestiging.
 if [[ "$environment" == "prod" && "$dry_run" == false && "$in_ci" == false ]]; then
   echo "Je gaat ${version} deployen naar PRODUCTIE (${server}:~/${root}/public)."
   read -r -p "Typ 'productie' om door te gaan: " answer || answer=""
