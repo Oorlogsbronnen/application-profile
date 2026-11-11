@@ -12,3 +12,4 @@ Je kunt de data van Oorlogsbronnen op verschillende manieren bevragen. Welke ser
   applicaties.
 - **[SPARQL](./sparql)**: het SPARQL-endpoint bij LDMax, geschikt voor het stellen van eigen gerichte datavragen op de linked data.
 - **[Termennetwerk](./termennetwerk)**: termen uit de WO2 Thesaurus opzoeken en gebruiken in je eigen collectie management systeem.
+- **[Content Negotiation](./contentnegotiation)**: Manieren om persoonsreconstructies in verschillende representaties op te vragen.
