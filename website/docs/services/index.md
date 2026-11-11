@@ -6,10 +6,9 @@ description: Overzicht van de manieren waarop je de data van Oorlogsbronnen kunt
 
 # Services
 
-Je kunt de data van Oorlogsbronnen op verschillende manieren bevragen. Welke service past, hangt af van wat je bouwt:
+De data van Oorlogsbronnen is op verschillende manieren te gebruiken en doorzoeken. Welke service past, hangt af van wat je bouwt:
 
-- **[API's](./apis)**: een REST API waarmee de linked data via verschillende voorgeconfigureerde endpoints kan worden bevraagd. De gebruikelijke keuze voor integratie van data in websites en
-  applicaties.
-- **[SPARQL](./sparql)**: het SPARQL-endpoint bij LDMax, geschikt voor het stellen van eigen gerichte datavragen op de linked data.
-- **[Termennetwerk](./termennetwerk)**: termen uit de WO2 Thesaurus opzoeken en gebruiken in je eigen collectie management systeem.
-- **[Content Negotiation](./contentnegotiation)**: Manieren om persoonsreconstructies in verschillende representaties op te vragen.
+- **[API's](./apis)**: De open API van Oorlogsbronnen, waarmee de data via verschillende voorgeconfigureerde endpoints kan worden bevraagd. API's worden veel gebruikt voor integratie van data in websites en andere applicaties.
+- **[SPARQL](./sparql)**: het SPARQL-endpoint bij LDMax, waarmee de data op zeer gedetailleerde wijze bevraagd kan worden. De resultaten van een query kunnen worden opgeslagen of verder bewerkt en gebruikt in andere toepassingen.
+- **[Termennetwerk](./termennetwerk)**: termen uit de WO2 Thesaurus kunnen worden gekoppeld in je eigen collectie management systeem. Het termennetwerk van het Netwerk Digitaal Erfgoed voorziet in deze service.
+- **[Content Negotiation](./contentnegotiation)**: De persoonsreconstructies van Oorlogsbronnen kunnen via content negotiation in verschillende representaties opgevraagd worden.
