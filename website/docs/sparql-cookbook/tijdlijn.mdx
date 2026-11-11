@@ -1,31 +1,89 @@
 ---
-title: Meer over een persoon
+title: Levensloop van een verzetsvrouw
 sidebar_position: 1
 ---
 
 import SparqlEditor from "@site/src/components/SparqlEditor";
 
-# SPARQL queries met betrekking tot een persoon
+# Levensloop van een verzetsvrouw
 
-## Hoe het model werkt
+**Geertruida "Truus" van Lier** (1921–1943) was een jonge Utrechtse rechtenstudent, die tijdens de Tweede Wereldoorlog toetrad tot de kern van het gewapend verzet. Ze is één van de opmerkelijkste verzetsvrouwen uit de Nederlandse geschiedenis vanwege de verregaande aard van haar acties.
 
-Een [persoonsreconstructie](/schema#PersoonsReconstructieShape) bij Oorlogsbronnen is opgebouwd uit één of meer [persoonsvermeldingen](/schema#PersoonsvermeldingShape), gekoppeld via (`prov:wasDerivedFrom`). De persoonsvermeldingen zijn afkomstig van een [bron](/schema#SourceShape), gekoppeld via `sdo:hadPrimarySource`.
+Over Truus van Lier is veel informatie te vinden op Oorlogsbronnen. Over door haar gepleegde moordaanslag op het beruchte hoofd van de Utrechtse politie en NSB’er Gerardus Johannes Kerlen is ook een artikel verschenen: [Vrouwen in verzet. Een Utrechtse liquidatie](https://www.oorlogsbronnen.nl/artikel/vrouwen-verzet-een-utrechtse-liquidatie)
 
 [Gebeurtenissen](/schema#EventShape) in het leven van een persoon zijn gelinkt aan de **vermeldingen** — niet direct aan de reconstructie: `sdo:actor` van een gebeurtenis verwijst naar de vermelding. Een tijdlijn bouw je dus in twee stappen: eerst van reconstructie naar vermeldingen, dan van vermeldingen naar gebeurtenissen.
 
-## Vind gebeurtenissen bij een persoon
+## Een overzicht
 
-Welke gebeurtenissen zijn er bekend uit het oorlogsleven van een persoon en wat is daarvoor de bron? Als voorbeeld nemen we de bekende verzetsvrouw Hannie Schaft.
+We beginnen met het verzamelen van alle gegevens die direct aan de persoonsreconstructie van Truus van Lier gekoppeld zijn en nemen daarvoor de UUID van Truus als uitgangspunt: `674fcd3a-037b-4c4f-a047-e292fbc44183`. Deze UUID is te vinden in de URL van de tijdlijn van Truus van Lier en voorafgegaan door de ARK prefix van Oorlogsbronnen vormt hij de URI, die we kunnen gebruiken in onze SPARQL queries: `https://n2t.net/ark:/59857/p674fcd3a-037b-4c4f-a047-e292fbc44183`
 
-We nemen de ARK identifier van Hannie Schaft als uitgangspunt: `https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388`
+:::tip[Het datamodel]
 
-### De query
+Een [persoonsreconstructie](/schema#PersoonsReconstructieShape) bij Oorlogsbronnen is opgebouwd uit één of meer [persoonsvermeldingen](/schema#PersoonsvermeldingShape), gekoppeld via `prov:wasDerivedFrom`. De persoonsvermeldingen zijn afkomstig van een [bron](/schema#SourceShape), gekoppeld via `sdo:hadPrimarySource`. Deze structuur is vastgelegd in het [applicatieprofiel](/schema).
+
+:::
+
+### De eerste query
+
+Met deze query vraag je alle properties op die direct aan `https://n2t.net/ark:/59857/p674fcd3a-037b-4c4f-a047-e292fbc44183` gekoppeld zijn.
+
+<SparqlEditor
+  query={`SELECT ?id ?property ?value WHERE {
+  BIND(<https://n2t.net/ark:/59857/p674fcd3a-037b-4c4f-a047-e292fbc44183> AS ?id)
+  ?id ?property ?value .
+}`}
+/>
+
+### Wat krijg je terug
+
+Naast de basis biografische gegevens vinden we links naar 11 vermeldingen via `prov:wasDerivedFrom`. De onderliggende gegevens en bronvermeldingen zijn nog niet direct beschikbaar.
+
+## Bronnen, afbeeldingen en scans
+
+De vermeldingen zijn gebaseerd op bronnen, meestal voorzien van een link en vaak ook van een afbeelding of scan. het is mogelijk deze allemaal in 1x op te vragen met deze query:
 
 <SparqlEditor
   query={`PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX sdo: <https://schema.org/>
-SELECT ?datum ?gebeurtenis ?type ?id WHERE {
-  <https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT DISTINCT * WHERE {
+    <https://n2t.net/ark:/59857/p674fcd3a-037b-4c4f-a047-e292fbc44183> prov:wasDerivedFrom ?vermelding .
+    ?vermelding prov:hadPrimarySource ?record .
+    
+    # Provider is optioneel, MAAR als hij er is, is het label verplicht
+    OPTIONAL { 
+        ?record sdo:holdingArchive ?provider .
+        ?provider skos:prefLabel ?providerLabel .
+    }
+  
+    # Afbeelding is optioneel, thumbnail daarbinnen is optioneel
+    OPTIONAL { 
+        ?record sdo:associatedMedia ?image .
+        OPTIONAL { 
+            ?image sdo:thumbnailUrl ?imageUrl 
+        }
+        OPTIONAL { 
+            ?image sdo:caption ?caption
+        }
+    }
+}
+LIMIT 50`}
+/>
+
+### Wat krijg je terug
+
+Er zijn 11 persoonsvermeldingen uit verschillende bronnen. Sommige daarvan hebben een afbeelding. Deze gegevens zijn verder aan te vullen door de query uit te breiden.
+
+## Gebeurtenissen
+
+Welke gebeurtenissen uit het leven van zijn Truus van Lier zijn er via de persoonsvermeldingen bekend bij Oorlogsbronnen?
+
+<SparqlEditor
+  query={`PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX sdo: <https://schema.org/>
+SELECT * WHERE {
+  <https://n2t.net/ark:/59857/p674fcd3a-037b-4c4f-a047-e292fbc44183>
       prov:wasDerivedFrom ?vermelding .
   ?id sdo:actor ?vermelding .
   OPTIONAL { ?id sdo:startDate ?datum }
@@ -35,15 +93,15 @@ SELECT ?datum ?gebeurtenis ?type ?id WHERE {
 ORDER BY ?datum`}
 />
 
-### Wat krijg je terug
-
-Voor Hannie Schaft vinden we 14 vermeldingen van gebeurtenissen, maar deze vermeldingen komen uit verschillende bronnen en hebben uiteindelijk betrekking op een kleiner aantal gebeurtenissen. Eén van deze gebeurtenissen is haar arrestatie op **21 maart 1945**. Type en datum zullen bij meerdere vermeldingen van deze gebeurtenis hetzelfde zijn. 
-
 :::tip[TIP]
 
 De kolom `type` verwijst naar het type persoonlijke gebeurtenis. Deze typen zijn vastgelegd in het [applicatieprofiel](/schema#gebeurtenistypen).
 
 :::
+
+### Wat krijg je terug
+
+We vinden 11 vermeldingen van gebeurtenissen, maar deze vermeldingen komen uit verschillende bronnen en hebben uiteindelijk betrekking op een kleiner aantal gebeurtenissen. 
 
 ### Variaties
 
@@ -51,20 +109,3 @@ De kolom `type` verwijst naar het type persoonlijke gebeurtenis. Deze typen zijn
 - Voeg `?id sdo:location ?locatie` toe (eveneens `OPTIONAL`) voor de plaats van de gebeurtenis. 
 - Voor een volledig overzicht van alle properties van persoonlijke gebeurtenissen zie [3.3 Gebeurtenissen](/schema#EventShape) in het applicatieprofiel.
 
-## Verzamel alle afbeeldingen en archiefscans
-
-Veel bronnen zijn gekoppeld afbeeldingen, veelal gaat het om scans uit archieven, maar ook portretfoto's zijn te vinden. 
-
-<SparqlEditor
-  query={`PREFIX prov: <http://www.w3.org/ns/prov#>
-PREFIX sdo: <https://schema.org/>
-SELECT * WHERE {
-  <https://n2t.net/ark:/59857/pa7cc9745-384c-4939-b46f-12f8fe183062>
-      prov:wasDerivedFrom ?vermelding .
-  ?vermelding prov:hadPrimarySource ?bron .
-  ?bron sdo:holdingArchive ?provider .
-  ?bron sdo:associatedMedia ?image .
-  ?image sdo:thumbnailUrl ?imageUrl
-  OPTIONAL { ?vermelding sdo:hasOccupation ?beroep }
-}`}
-/>
