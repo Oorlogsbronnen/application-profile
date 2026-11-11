@@ -13,4 +13,4 @@ Als rode draad gebruiken we verzetsstrijder [Hannie Schaft](https://n2t.net/ark:
 - [Vind alle bronnen bij een persoon](bronnen-bij-persoon.mdx)
 - [Van zoekterm naar thesaurusconcept — en terug naar personen](thesaurus.mdx)
 
-De queries draaien op het [SPARQL-endpoint](../services/sparql); het datamodel is beschreven in het [application profile](/schema).
+De queries draaien op het [SPARQL-endpoint](/services/sparql); het datamodel is beschreven in het [application profile](/schema).

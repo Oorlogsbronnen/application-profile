@@ -7,7 +7,7 @@ import SparqlEditor from "@site/src/components/SparqlEditor";
 
 # SPARQL
 
-De [linked data-datasets](../datasets/personen-en-objecten) zijn te bevragen via het publieke SPARQL-endpoint van Stichting WO2Net op LDMax:
+De [linked data-datasets](../datasets) zijn te bevragen via het publieke SPARQL-endpoint van Stichting WO2Net op LDMax:
 
 ```text
 https://platform.ldmax.nl/organisaties/wo2net/query
@@ -49,24 +49,8 @@ SELECT * WHERE {
 ORDER BY ASC(?naam)`}
 />
 
-## Van reconstructie naar vermeldingen
 
-Eén van de personen in bovenstaande lijst is Hannie Schaft. De persoonsreconstructie bij Oorlogsbronnen is opgebouwd uit [persoonsvermeldingen](/schema#PersoonsvermeldingShape) uit verschillende bronnen, gekoppeld via `prov:wasDerivedFrom` en `sdo:hadPrimarySource`. Zo zie je in welke bronnen Hannie Schaft voorkomt — en onder welke namen en beroepen:
-
-<SparqlEditor
-  query={`PREFIX prov: <http://www.w3.org/ns/prov#>
-PREFIX sdo: <https://schema.org/>
-SELECT ?vermelding ?naam ?beroep ?dataset ?bron WHERE {
-  <https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388>
-      prov:wasDerivedFrom ?vermelding .
-  ?vermelding sdo:name ?naam ;
-              prov:hadPrimarySource/sdo:isPartOf/sdo:name ?dataset ;
-              prov:hadPrimarySource/sdo:holdingArchive/sdo:name  ?bron             .
-  OPTIONAL { ?vermelding sdo:hasOccupation ?beroep }
-}`}
-/>
-
-## Bronnen over een persoon
+## Bronnen over een persoon zoeken
 
 [Bronnen](/schema#objecten) uit WOII collecties hebben ook vaak betrekking op personen, maar maken niet perse onderdeel uit van de persoonsreconstructie. In dit voorbeeld zoeken we via de relatie `sdo:about` door alle collecties heen naar foto's waarop Anne Frank is afgebeeld:
 
@@ -81,12 +65,13 @@ SELECT ?object ?name ?description ?image WHERE {
   OPTIONAL { ?object sdo:description ?description }
   
   FILTER(CONTAINS(LCASE(STR(?about)), "anne frank"))
-}`}
+}
+LIMIT 50`}
 />
 
-## Trefwoorden uit de WO2 Thesaurus
+## WO2 Thesaurus URI's vinden
 
-Personen zijn via `sdo:keywords` verbonden met [thesaurusconcepten](/schema#ConceptShape) uit de WO2 Thesaurus. Het kan moeilijk zijn om te bepalen wat het juiste thesaurusconcept is voor de term die je zoekt. Deze query helpt om dat te bepalen door te zoeken door alle  `skos:prefLabel`, `skos:altLabel` en `skos:hiddenLabel` van de WO2 Thesaurus:
+Personen zijn via `sdo:keywords` verbonden met [thesaurusconcepten](/schema#ConceptShape) uit de WO2 Thesaurus, objecten via `sdo:about`. Het kan moeilijk zijn om te bepalen wat het juiste thesaurusconcept is voor de term die je zoekt. Deze query helpt daarbij door te zoeken door alle `skos:prefLabel`, `skos:altLabel` en `skos:hiddenLabel` waardes in de WO2 Thesaurus:
 
 <SparqlEditor
   query={`PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
@@ -106,6 +91,6 @@ LIMIT 50`}
 
 ## Zelf aan de slag
 
-- Meer taakgerichte voorbeelden staan in het [cookbook](../cookbook/).
-- Het datamodel achter deze queries is beschreven in het [application profile](/schema).
+- Meer taakgerichte voorbeelden staan in het [cookbook](../sparql-cookbook/).
+- Het datamodel achter deze queries is beschreven in het [applicatieprofiel](/schema).
 - Houd rekening met de licentie ([CC-BY-NC-SA 4.0](../rechten-en-gebruik)) en met de timeout van het endpoint: houd queries gericht en gebruik `LIMIT`.
