@@ -181,7 +181,7 @@ function PersonLink({ person }: { person: Json }) {
     );
   }
   return uuid ? (
-    <a className={styles.chip} href={`/cookbook/persoon?id=${uuid}`}>
+    <a className={styles.chip} href={`/api-cookbook/persoon?id=${uuid}`}>
       {name}
       {years}
     </a>

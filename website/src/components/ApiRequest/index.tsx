@@ -64,8 +64,9 @@ interface Props {
 type View = "person" | "events" | "observations" | "objects" | "persons";
 
 const LABELS: Record<string, string> = {
-  id: "ID van de persoon (UUID)",
+  id: "ID van de persoon (UUID of ARK-link)",
   about: "Onderwerp: URI of exacte naam uit de WO2 Thesaurus",
+  contentlocation: "Plaats: URI of exacte naam uit de WO2 Thesaurus",
   publisher: "Organisatie: URI of exacte naam uit de WO2 Organisatie Thesaurus",
   birthplace: "Geboorteplaats: URI of exacte naam uit de WO2 Thesaurus",
   deathplace: "Overlijdensplaats: URI of exacte naam uit de WO2 Thesaurus",
@@ -137,7 +138,7 @@ export default function ApiRequest({
   const hintFor = (key: string) => labels?.[key] ?? LABELS[key];
   const [path, setPath] = useState<Params>(pathParams);
 
-  // Een padparameter in de pagina-URL (bv. /cookbook/persoon?id=…) vult het
+  // Een padparameter in de pagina-URL (bv. /api-cookbook/persoon?id=…) vult het
   // veld vooraf in; zo linkt "Personen zoeken" door naar een gekozen persoon.
   // Na het laden, zodat de vooraf gerenderde HTML gelijk blijft.
   useEffect(() => {
@@ -428,7 +429,7 @@ const VIEWS: Record<View, React.ComponentType<{ data: Json }>> = {
 const URL_VIEWS: [RegExp, View][] = [
   [/\/person\/p\/id\//, "person"],
   [/\/person_related_objects\//, "objects"],
-  [/\/object\/p\/id\//, "objects"],
+  [/\/object\/[^?]/, "objects"],
   [/\/objects(\?|$)/, "objects"],
   [/\/persons(\?|$)/, "persons"],
 ];

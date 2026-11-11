@@ -15,12 +15,12 @@ Twee endpoints van de Oorlogsbronnen-API geven samen antwoord. `person` geeft in
 
 Op deze pagina loop je de response van `person` in drie stappen door. Elke stap licht een ander deel van dezelfde response toe. Bij elke stap kun je het request aanpassen en met **Uitvoeren** het resultaat ophalen. Het overzicht toont dan alleen het deel dat bij die stap hoort; onder **JSON** zie je steeds de volledige response.
 
-| Je wilt weten | Waar in de response | Je krijgt |
-| --- | --- | --- |
-| Wie was deze persoon? | [`person`, het profiel](#person) | Eén samengevoegd profiel met biografie, familie en trefwoorden |
-| Wat is er gebeurd? | [`person`, de gebeurtenissen](#gebeurtenissen) | Gebeurtenissen zoals arrestatie en overlijden, per bron |
-| Wat zegt elke bron? | [`person`, de vermeldingen](#vermeldingen) | De vermelding van de persoon in elke afzonderlijke bron |
-| Welk materiaal hoort erbij? | [`person_related_objects`](#person_related_objects) | Foto's, documenten en andere objecten uit collecties |
+| Je wilt weten               | Waar in de response                                 | Je krijgt                                                      |
+| --------------------------- | --------------------------------------------------- | -------------------------------------------------------------- |
+| Wie was deze persoon?       | [`person`, het profiel](#person)                    | Eén samengevoegd profiel met biografie, familie en trefwoorden |
+| Wat is er gebeurd?          | [`person`, de gebeurtenissen](#gebeurtenissen)      | Gebeurtenissen zoals arrestatie en overlijden, per bron        |
+| Wat zegt elke bron?         | [`person`, de vermeldingen](#vermeldingen)          | De vermelding van de persoon in elke afzonderlijke bron        |
+| Welk materiaal hoort erbij? | [`person_related_objects`](#person_related_objects) | Foto's, documenten en andere objecten uit collecties           |
 
 ## Reconstructie en vermelding
 
@@ -46,14 +46,14 @@ https://data.oorlogsbronnen.nl/services/api/person/p/id/48968c01-9f60-492d-8712-
 └─────────────── basis-URL ───────────────┘└ endpoint ─┘└─────────────── ID ───────────────┘
 ```
 
-| Deel | Waarde | Toelichting |
-| --- | --- | --- |
-| Basis-URL | `https://data.oorlogsbronnen.nl/services/api` | Is voor alle endpoints gelijk |
-| Endpoint en ID | `/person/p/id/{id}`<br/>`/person_related_objects/{id}` | Let op: het pad van `person` is anders dan dat van `person_related_objects` |
-| `count` | 1 tot en met 50, standaard 10 | Alleen bij `person_related_objects`: hoeveel objecten je wilt ontvangen |
-| `offset` | 0 tot en met 300, standaard 0 | Alleen bij `person_related_objects`: hoeveel objecten je overslaat, om te bladeren |
+| Deel           | Waarde                                                 | Toelichting                                                                        |
+| -------------- | ------------------------------------------------------ | ---------------------------------------------------------------------------------- |
+| Basis-URL      | `https://data.oorlogsbronnen.nl/services/api`          | Is voor alle endpoints gelijk                                                      |
+| Endpoint en ID | `/person/p/id/{id}`<br/>`/person_related_objects/{id}` | Let op: het pad van `person` is anders dan dat van `person_related_objects`        |
+| `count`        | 1 tot en met 50, standaard 10                          | Alleen bij `person_related_objects`: hoeveel objecten je wilt ontvangen            |
+| `offset`       | 0 tot en met 300, standaard 0                          | Alleen bij `person_related_objects`: hoeveel objecten je overslaat, om te bladeren |
 
-De ID is een UUID. Je vindt die aan het eind van de persistente link van een persoon, zonder de `p` ervoor. Bij `https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388` is de ID dus `48968c01-9f60-492d-8712-58d3b8c2b388`.
+De ID is een UUID. Je vindt die aan het eind van de persistente link van een persoon, zonder de `p` ervoor. Bij `https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388` is de ID dus `48968c01-9f60-492d-8712-58d3b8c2b388`. De hele persistente link werkt ook als ID. Met de `p` ervoor (`p48968c01-…`) krijg je een lege lijst.
 
 ## Zo ziet een response eruit
 
@@ -106,17 +106,17 @@ Het bovenste niveau van de response is de persoonsreconstructie: de samengevoegd
   view="person"
 />
 
-| Veld | Betekenis |
-| --- | --- |
-| `name`, `alternateName` | Naam en andere schrijfwijzen |
-| `birthDate`, `birthPlace` | Geboortedatum (`JJJJ-MM-DD`) en -plaats |
-| `deathDate`, `deathPlace` | Overlijdensdatum en -plaats |
-| `gender` | Geslacht als schema.org-term, zoals `https://schema.org/Female` |
-| `parent`, `spouse`, `children` | Familieleden met hun ARK-link (`id`), naam en levensdata. Haal de ID uit de link om hun profiel op te vragen |
-| `keywords` | Trefwoorden uit de WO2 Thesaurus, met een label per taal in `prefLabel` |
-| `sameAs` | Dezelfde persoon op een andere website, zoals Wikipedia |
-| `id` | De persistente ARK-link. De UUID aan het eind is de ID |
-| `wasDerivedFrom` | De persoonsvermeldingen, met daarin de gebeurtenissen. Zie stap 2 en 3 |
+| Veld                           | Betekenis                                                                                                                                                                                                          |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `name`, `alternateName`        | Naam en andere schrijfwijzen                                                                                                                                                                                       |
+| `birthDate`, `birthPlace`      | Geboortedatum (`JJJJ-MM-DD`) en -plaats                                                                                                                                                                            |
+| `deathDate`, `deathPlace`      | Overlijdensdatum en -plaats                                                                                                                                                                                        |
+| `gender`                       | Geslacht als schema.org-term, zoals `https://schema.org/Female`                                                                                                                                                    |
+| `parent`, `spouse`, `children` | Familieleden met hun ARK-link (`id`), naam en levensdata. Haal de ID uit de link om hun profiel op te vragen                                                                                                       |
+| `keywords`                     | Trefwoorden uit de WO2 Thesaurus. Het label in `prefLabel` is op dit moment leeg; zoek het op met de [query bij Personen zoeken](./personen#plaatsen-en-onderwerpen-opzoeken). De visualisatie toont daarom de URI |
+| `sameAs`                       | Dezelfde persoon op een andere website, zoals Wikipedia                                                                                                                                                            |
+| `id`                           | De persistente ARK-link. De UUID aan het eind is de ID                                                                                                                                                             |
+| `wasDerivedFrom`               | De persoonsvermeldingen, met daarin de gebeurtenissen. Zie stap 2 en 3                                                                                                                                             |
 
 Hannie Schaft heeft geen familierelaties in de data. Wil je die zien? Vul dan de ID `5b4e704c-507b-403f-b1bf-08c146322441` in en klik op **Uitvoeren**.
 
@@ -131,14 +131,15 @@ Dezelfde response bevat ook de gebeurtenissen in het leven van de persoon, zoals
   view="events"
 />
 
-| Veld | Betekenis |
-| --- | --- |
-| `name` | Beschrijving van de gebeurtenis, zoals `Gearresteerd in Haarlem/op straat` |
-| `additionalType` | Soort gebeurtenis als thesaurusterm, zoals `Gearresteerd` of `Overleden` |
-| `startDate`, `endDate` | Wanneer het gebeurde. Dit kan ontbreken |
-| `location`, `fromLocation`, `toLocation` | Waar het gebeurde, of het begin en einde van een reis of transport, als term uit de WO2 Thesaurus |
-| `location_str`, `fromLocation_str`, `toLocation_str` | Dezelfde plaatsen als tekst, zoals de bron ze noemt. Vaak gevuld als er geen thesaurusterm is |
-| `description` | Toelichting, zoals een doodsoorzaak |
+| Veld                                                 | Betekenis                                                                                         |
+| ---------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `name`                                               | Beschrijving van de gebeurtenis, zoals `Gearresteerd in Haarlem/op straat`                        |
+| `additionalType`                                     | Soort gebeurtenis als thesaurusterm, zoals `Gearresteerd` of `Overleden`                          |
+| `startDate`, `endDate`                               | Wanneer het gebeurde. Dit kan ontbreken                                                           |
+| `location`, `fromLocation`, `toLocation`             | Waar het gebeurde, of het begin en einde van een reis of transport, als term uit de WO2 Thesaurus |
+| `location_str`, `fromLocation_str`, `toLocation_str` | Dezelfde plaatsen als tekst, zoals de bron ze noemt. Vaak gevuld als er geen thesaurusterm is     |
+| `description`                                        | Toelichting, zoals een doodsoorzaak                                                               |
+| `superEvent`                                         | De grotere gebeurtenis waar dit deel van is, als term uit de WO2 Thesaurus. Meestal leeg          |
 
 Een gebeurtenis heeft geen eigen bronvermelding. De bron staat in `hadPrimarySource` van de vermelding waar de gebeurtenis in staat (zie stap 3).
 
@@ -146,7 +147,7 @@ De gebeurtenissen staan niet op datum. Sorteer ze zelf op `startDate` als je een
 
 ## Stap 3: wat elke bron zegt {#vermeldingen}
 
-Het laatste deel van de response is `wasDerivedFrom`: alle persoonsvermeldingen waarop het profiel is gebaseerd. Zo zie je wat elke bron meldt en waar de bron te vinden is. Foto's van de persoon staan ook hier, in `image`, en niet op het hoogste niveau van het profiel. Het overzicht toont één kaart per vermelding.
+Het laatste deel van de response is `wasDerivedFrom`: alle persoonsvermeldingen waarop het profiel is gebaseerd. Zo zie je wat elke bron meldt en waar de bron te vinden is. Het overzicht toont één kaart per vermelding.
 
 <ApiRequest
   endpoint="/person/p/id/{id}"
@@ -155,36 +156,37 @@ Het laatste deel van de response is `wasDerivedFrom`: alle persoonsvermeldingen 
   view="observations"
 />
 
-| Veld | Betekenis |
-| --- | --- |
-| `name`, `givenName`, `familyName`, `initials`, `alternateName` | De naam zoals de bron die noemt |
-| `birthDate`, `birthPlace`, `deathDate`, `deathPlace` | De levensgegevens volgens deze bron |
-| `jobTitle`, `homeLocation` | Beroep en woonplaats |
-| `description` | Beschrijving uit de bron. Deze kan HTML bevatten |
-| `image` | Afbeeldingen met `thumbnailUrl` en `caption` |
-| `keywords` | Trefwoorden uit de WO2 Thesaurus |
-| `actor` | De gebeurtenissen die deze bron noemt. Zie stap 2 |
-| `hadPrimarySource` | De bron. `url` is de link naar het record bij de bron en kan leeg zijn. `id` is een identifier en werkt niet altijd als link |
+| Veld                                                           | Betekenis                                                                                                                    |
+| -------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `name`, `givenName`, `familyName`, `initials`, `alternateName` | De naam zoals de bron die noemt                                                                                              |
+| `birthDate`, `birthPlace`, `deathDate`, `deathPlace`           | De levensgegevens volgens deze bron                                                                                          |
+| `jobTitle`, `homeLocation`                                     | Beroep en woonplaats                                                                                                         |
+| `description`                                                  | Beschrijving uit de bron. Deze kan HTML bevatten                                                                             |
+| `keywords`                                                     | Trefwoorden uit de WO2 Thesaurus                                                                                             |
+| `actor`                                                        | De gebeurtenissen die deze bron noemt. Zie stap 2                                                                            |
+| `hadPrimarySource`                                             | De bron. `url` is de link naar het record bij de bron en kan leeg zijn. `id` is een identifier en werkt niet altijd als link |
 
 ## `person_related_objects`: foto's en documenten {#person_related_objects}
 
-Dit tweede endpoint geeft historische foto's, krantenknipsels en andere objecten uit WO2-collecties die aan de persoon zijn gekoppeld. Veel personen hebben geen gekoppelde objecten. Je krijgt dan een lege `items`-lijst.
+Dit tweede endpoint geeft historische foto's, brieven en andere objecten uit WO2-collecties die aan de persoon zijn gekoppeld. Veel personen hebben geen gekoppelde objecten. Je krijgt dan een lege `items`-lijst. Dat geldt op dit moment ook voor Hannie Schaft. Het voorbeeld gebruikt daarom verzetsman Johan Hendrik Westerveld, van wie het Nationaal Monument Oranjehotel foto's en afscheidsbrieven heeft.
 
 <ApiRequest
   endpoint="/person_related_objects/{id}"
-  pathParams={{ id: "48968c01-9f60-492d-8712-58d3b8c2b388" }}
+  pathParams={{ id: "1caee130-5f13-4556-af1d-bbd379150b83" }}
 />
 
-| Veld | Betekenis |
-| --- | --- |
-| `name`, `description` | Titel en beschrijving |
-| `additionalType` | Soort object, zoals `krantenknipsel` of `still image` |
-| `dateCreated`, `startDate`, `endDate` | Wanneer het object is gemaakt of waarop het betrekking heeft |
-| `thumbnailUrl`, `contentUrl` | De afbeelding, als die beschikbaar is |
-| `url` | De pagina van het object bij de collectie |
-| `publisher`, `provider`, `isPartOf` | De organisatie en collectie waar het object vandaan komt |
+| Veld                                   | Betekenis                                                    |
+| -------------------------------------- | ------------------------------------------------------------ |
+| `name`, `description`                  | Titel en beschrijving                                        |
+| `type`, `additionalType`               | Soort object als schema.org-type, en zoals de bron die noemt |
+| `dateCreated`, `startDate`, `endDate`  | Wanneer het object is gemaakt of waarop het betrekking heeft |
+| `thumbnailUrl`, `contentUrl`           | De afbeelding, als die beschikbaar is                        |
+| `url`                                  | De pagina van het object bij de collectie                    |
+| `publisher`, `provider`, `isPartOf`    | De organisatie en collectie waar het object vandaan komt     |
 | `about`, `keywords`, `contentLocation` | Waar het object over gaat: personen, onderwerpen en plaatsen |
-| `license` | De rechten op dit object |
+| `license`                              | De rechten op dit object                                     |
+
+De objecten hebben dezelfde vorm als bij [Objecten zoeken](./objecten#zo-ziet-een-response-eruit), waar alle velden staan.
 
 Controleer `license` voordat je een object hergebruikt. Sommige objecten zijn auteursrechtelijk beschermd. Meer hierover lees je bij [rechten en gebruik](/rechten-en-gebruik).
 
@@ -225,9 +227,16 @@ const objecten = await haalOp(`/person_related_objects/${id}?count=50`);
 const vermeldingen = persoon.wasDerivedFrom;
 const gebeurtenissen = vermeldingen
   .flatMap((v) => v.actor.map((g) => ({ ...g, bron: v.hadPrimarySource })))
-  .sort((a, b) => (a.startDate[0] ?? "9999").localeCompare(b.startDate[0] ?? "9999"));
+  .sort((a, b) =>
+    (a.startDate[0] ?? "9999").localeCompare(b.startDate[0] ?? "9999"),
+  );
 
-console.log(persoon.name[0], gebeurtenissen.length, vermeldingen.length, objecten.length);
+console.log(
+  persoon.name[0],
+  gebeurtenissen.length,
+  vermeldingen.length,
+  objecten.length,
+);
 ```
 
   </TabItem>

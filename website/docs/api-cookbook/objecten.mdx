@@ -9,7 +9,7 @@ import TabItem from "@theme/TabItem";
 
 # Objecten zoeken op onderwerp en organisatie
 
-**Vraag:** welke foto's, archiefstukken en andere objecten uit WO2-collecties gaan over een bepaald onderwerp, of komen van een bepaalde organisatie?
+**Vraag:** welke foto's, archiefstukken en andere objecten uit WO2-collecties gaan over een bepaald onderwerp of een bepaalde plaats, of komen van een bepaalde organisatie?
 
 Het endpoint `objects` zoekt in de collecties met filters. Op deze pagina leer je hoe je die filters opbouwt en combineert, en wat de API teruggeeft. Bij elk voorbeeld kun je de filters aanpassen en met **Uitvoeren** het resultaat ophalen en bekijken.
 
@@ -24,44 +24,46 @@ https://data.oorlogsbronnen.nl/services/api/objects?about=https://data.niod.nl/W
 └─────────────── basis-URL ───────────────┘└ pad ─┘└────────────────── filter ──────────────────┘└── paginering ──┘
 ```
 
-| Parameter | Waarde | Toelichting |
-| --- | --- | --- |
-| `about` | URI of naam uit de WO2 Thesaurus | Het onderwerp, zoals `https://data.niod.nl/WO2_Thesaurus/2244` of `n.s.b.` |
-| `publisher` | URI of naam uit de WO2 Organisatie Thesaurus | De organisatie die het object publiceert, zoals `https://data.niod.nl/Organizations/105` of `Vrijheidsmuseum` |
-| `count` | 1 tot en met 50, standaard 10 | Hoeveel resultaten je wilt ontvangen |
-| `offset` | 0 tot en met 300, standaard 0 | Hoeveel resultaten je overslaat, om te bladeren |
+| Parameter         | Waarde                                          | Toelichting                                                                                                   |
+| ----------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `about`           | URI of naam uit de WO2 Thesaurus                | Het onderwerp, zoals `https://data.niod.nl/WO2_Thesaurus/2244` of `n.s.b.`                                    |
+| `contentlocation` | URI of naam van een plaats uit de WO2 Thesaurus | De plaats waar het object over gaat, zoals `https://data.niod.nl/WO2_Thesaurus/locations/9881` of `Haarlem`   |
+| `publisher`       | URI of naam uit de WO2 Organisatie Thesaurus    | De organisatie die het object publiceert, zoals `https://data.niod.nl/Organizations/105` of `Vrijheidsmuseum` |
+| `count`           | 1 tot en met 50, standaard 10                   | Hoeveel resultaten je wilt ontvangen                                                                          |
+| `offset`          | 0 tot en met 300, standaard 0                   | Hoeveel resultaten je overslaat, om te bladeren                                                               |
 
 Voor de filters gelden vier regels:
 
-- **Minstens één filter is verplicht.** Zonder `about` of `publisher` geeft de API een foutmelding (`HTTP 400`).
-- **Gebruik een URI of een naam.** Een naam moet precies overeenkomen met een naam van de term in de thesaurus: het voorkeurslabel (`prefLabel`) of een alternatieve of verborgen naam (`altLabel`, `hiddenLabel`). Hoofdletters maken niet uit. `about=n.s.b.` en `about=NSB` werken dus net zo goed als de URI, maar `about=n.s.b` (zonder de laatste punt) of alleen het nummer (`about=2244`) niet. Dan krijg je geen foutmelding, maar een lege lijst.
+- **Minstens één filter is verplicht.** Zonder `about`, `contentlocation` of `publisher` geeft de API een foutmelding (`HTTP 400`).
+- **Gebruik een URI of een naam.** Een naam moet precies overeenkomen met een naam van de term in de thesaurus: het voorkeurslabel (`prefLabel`) of een alternatieve of verborgen naam (`altLabel`, `hiddenLabel`). Hoofdletters maken niet uit. `about=n.s.b.` en `about=NSB` vinden dus dezelfde objecten als de URI (soms in een andere volgorde), maar `about=n.s.b` (zonder de laatste punt) of alleen het nummer (`about=2244`) niet. Dan krijg je geen foutmelding, maar een lege lijst.
 - **Dezelfde parameter herhalen betekent OF.** `?about=A&about=B` geeft objecten over A of over B.
 - **Verschillende filters combineren betekent EN.** `?about=A&publisher=C` geeft objecten over A die door C zijn gepubliceerd.
 
 In een filter mag je de URI of de naam gebruiken. Een URI wijst altijd precies één term aan; met een naam hoef je de URI niet op te zoeken. De voorbeelden op deze pagina gebruiken deze termen:
 
-| URI | Naam |
-| --- | --- |
-| `https://data.niod.nl/WO2_Thesaurus/2244` | N.S.B. |
-| `https://data.niod.nl/WO2_Thesaurus/2657` | Verzet |
-| `https://data.niod.nl/Organizations/105` | Vrijheidsmuseum |
-| `https://data.niod.nl/Organizations/817` | Erfgoed Gelderland |
+| URI                                                 | Naam               |
+| --------------------------------------------------- | ------------------ |
+| `https://data.niod.nl/WO2_Thesaurus/2244`           | N.S.B.             |
+| `https://data.niod.nl/WO2_Thesaurus/2657`           | Verzet             |
+| `https://data.niod.nl/WO2_Thesaurus/locations/9881` | Haarlem            |
+| `https://data.niod.nl/Organizations/105`            | Vrijheidsmuseum    |
+| `https://data.niod.nl/Organizations/817`            | Erfgoed Gelderland |
 
 Organisaties komen uit de WO2 Organisatie Thesaurus. Een paar organisaties met veel objecten:
 
-| URI | Organisatie |
-| --- | --- |
-| `https://data.niod.nl/Organizations/116` | NIOD |
-| `https://data.niod.nl/Organizations/113` | Nationaal Archief |
+| URI                                      | Organisatie                    |
+| ---------------------------------------- | ------------------------------ |
+| `https://data.niod.nl/Organizations/116` | NIOD                           |
+| `https://data.niod.nl/Organizations/113` | Nationaal Archief              |
 | `https://data.niod.nl/Organizations/311` | Nationaal Monument Oranjehotel |
 
-Welke namen je voor een onderwerp kunt gebruiken, zie je met de query onder [Plaatsen en onderwerpen opzoeken](./personen#plaatsen-en-onderwerpen-opzoeken).
+Hoe je de URI van een plaats opzoekt, en welke namen je voor een onderwerp kunt gebruiken, zie je met de queries onder [Plaatsen en onderwerpen opzoeken](./personen#plaatsen-en-onderwerpen-opzoeken).
 
-De URI van een organisatie staat ook in het veld `publisher` van een object uit [`person_related_objects`](./persoon#person_related_objects).
+De URI van een organisatie staat ook in het veld `publisher` van elk object in de response.
 
 ## Zo ziet een response eruit
 
-De response heeft dezelfde vorm als bij de andere endpoints. Elk resultaat staat in `items[n].tuple[0]`, en bijna elk veld is een lijst:
+De response heeft dezelfde vorm als bij de andere endpoints. Elk resultaat staat in `items[n].tuple[0]`, en bijna elk veld is een lijst. Hieronder een ingekorte response:
 
 ```json
 {
@@ -72,9 +74,39 @@ De response heeft dezelfde vorm als bij de andere endpoints. Elk resultaat staat
       "rank": 1,
       "tuple": [
         {
-          "id": "https://studiezaal.nijmegen.nl/detail.php?id=260595",
-          "name": ["Mussert spreekt Jeugdstormers toe bij de opening van de Westerhelling als NSB-centrum"],
-          "type": ["http://www.w3.org/2000/01/rdf-schema#Resource", "https://schema.org/Photograph"]
+          "id": "https://www.collectiegelderland.nl/object/fdc53f30-0a9c-60b8-b788-ed38f9b70146",
+          "name": [
+            "Tegel 'Verzet voor vaderland Spoorwegstaking Sept. 1944 Mei 1945'"
+          ],
+          "type": ["https://schema.org/CreativeWork"],
+          "additionalType": ["aandenkens", "siertegels"],
+          "description": [
+            "Cloisonné tegel voorstellende een seinpaal met opschrift …"
+          ],
+          "startDate": [1945],
+          "endDate": [1950],
+          "about": [
+            {
+              "id": "https://data.niod.nl/WO2_Thesaurus/2657",
+              "prefLabel": { "nl": ["Verzet"], "en": ["Resistance"] }
+            }
+          ],
+          "publisher": [
+            {
+              "id": "https://data.niod.nl/Organizations/817",
+              "prefLabel": { "nl": ["Erfgoed Gelderland"] }
+            }
+          ],
+          "license": [
+            {
+              "id": "https://rightsstatements.org/vocab/InC/1.0/",
+              "label": { "nl": ["Auteursrechtelijk beschermd"] }
+            }
+          ],
+          "thumbnailUrl": [],
+          "url": [
+            "https://www.collectiegelderland.nl/object/fdc53f30-0a9c-60b8-b788-ed38f9b70146"
+          ]
         }
       ]
     }
@@ -82,13 +114,23 @@ De response heeft dezelfde vorm als bij de andere endpoints. Elk resultaat staat
 }
 ```
 
-| Veld | Betekenis |
-| --- | --- |
-| `id` | De URI van het object bij de bron. Dit is ook de pagina waar je het object bekijkt |
-| `name` | De titel |
-| `type` | De soort object als schema.org-type, zoals `Photograph` (foto), `ArchiveComponent` (archiefstuk), `Book` (boek) of `CreativeWork` (creatief werk) |
+| Veld                                                          | Betekenis                                                                                                                                                     |
+| ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`                                                          | De URI van het object bij de bron                                                                                                                             |
+| `name`, `description`                                         | Titel en beschrijving                                                                                                                                         |
+| `type`                                                        | De soort object als schema.org-type, zoals `Photograph` (foto), `ArchiveComponent` (archiefstuk), `Book` (boek) of `CreativeWork` (creatief werk)             |
+| `additionalType`                                              | De soort object zoals de bron die noemt, zoals `speld` of `siertegels`                                                                                        |
+| `dateCreated`, `startDate`, `endDate`                         | Wanneer het object is gemaakt of over welke periode het gaat. Een jaartal staat er soms als getal in (`1945`), een volledige datum als tekst (`"1944-09-17"`) |
+| `thumbnailUrl`, `contentUrl`                                  | De afbeelding, als die beschikbaar is                                                                                                                         |
+| `url`                                                         | De pagina van het object bij de collectie                                                                                                                     |
+| `publisher`, `provider`, `isPartOf`                           | De organisatie en collectie waar het object vandaan komt                                                                                                      |
+| `about`, `keywords`, `contentLocation`, `contentLocation_str` | Waar het object over gaat: onderwerpen, personen en plaatsen. Termen uit de WO2 Thesaurus hebben een label per taal in `prefLabel`                            |
+| `creator`, `material`, `identifier`                           | Maker, materiaal en het inventarisnummer bij de bron                                                                                                          |
+| `license`                                                     | De rechten op dit object                                                                                                                                      |
 
-Meer velden geeft dit endpoint niet. Er zit dus geen afbeelding, datum of beschrijving in de response. De visualisatie toont daarom bij elk object een vervangende afbeelding die past bij het type. Wil je het object zelf zien, open dan de link in `id`.
+Niet elk veld is bij elk object gevuld: een veld zonder waarde is een lege lijst (`[]`). Heeft een object geen afbeelding, dan toont de visualisatie een vervangende afbeelding die past bij het type.
+
+Controleer `license` voordat je een object hergebruikt. Sommige objecten zijn auteursrechtelijk beschermd. Meer hierover lees je bij [rechten en gebruik](/rechten-en-gebruik).
 
 Net als bij de andere endpoints is `count` het aantal dat je hebt gevraagd en niet het totaal. Krijg je minder resultaten dan je vroeg, dan ben je aan het eind. Een lege `items`-lijst betekent dat er niets past bij deze combinatie van filters.
 
@@ -100,6 +142,7 @@ Objecten over de N.S.B., hier gefilterd met de URI. Vervang die door `n.s.b.` en
   endpoint="/objects"
   query={{
     about: ["https://data.niod.nl/WO2_Thesaurus/2244"],
+    contentlocation: [],
     publisher: [],
     count: 10,
     offset: 0,
@@ -117,6 +160,7 @@ Objecten over de N.S.B. **of** over het verzet. Met **+ waarde toevoegen** zet j
       "https://data.niod.nl/WO2_Thesaurus/2244",
       "https://data.niod.nl/WO2_Thesaurus/2657",
     ],
+    contentlocation: [],
     publisher: [],
     count: 10,
     offset: 0,
@@ -125,12 +169,13 @@ Objecten over de N.S.B. **of** over het verzet. Met **+ waarde toevoegen** zet j
 
 ## Onderwerp en organisatie (EN)
 
-Objecten over het verzet **die** Erfgoed Gelderland publiceert. Elk extra filter maakt het resultaat kleiner: met alleen `about` krijg je honderden objecten over het verzet, met `publisher` erbij nog maar een handvol.
+Objecten over het verzet **die** Erfgoed Gelderland publiceert. Elk extra filter maakt het resultaat kleiner: met alleen `about` krijg je honderden objecten over het verzet, met `publisher` erbij nog maar een handvol. Maak `publisher` leeg en vul bij `contentlocation` `Haarlem` in: dan krijg je objecten over het verzet in Haarlem.
 
 <ApiRequest
   endpoint="/objects"
   query={{
     about: ["https://data.niod.nl/WO2_Thesaurus/2657"],
+    contentlocation: [],
     publisher: ["https://data.niod.nl/Organizations/817"],
     count: 10,
     offset: 0,
@@ -216,4 +261,4 @@ De API stuurt geen CORS-headers. Een webapplicatie op een ander domein kan de AP
 
 - **Meer dan 50 resultaten:** verhoog `offset` met `count` (0, 50, 100, …). De hoogste `offset` is 300, dus je kunt maximaal 350 resultaten per zoekvraag ophalen. Heb je er meer nodig, maak de zoekvraag dan kleiner met een extra filter.
 - **Verzoeken na elkaar:** de API geeft op dit moment regelmatig `HTTP 500` als je verzoeken tegelijk doet. Doe ze na elkaar, zoals in het Python-voorbeeld, en probeer het bij zo'n fout opnieuw.
-- **Objecten bij een persoon:** zoek je materiaal over één persoon, gebruik dan [`person_related_objects`](./persoon#person_related_objects). Dat endpoint geeft ook afbeeldingen, datums en rechten terug.
+- **Objecten bij een persoon:** zoek je materiaal over één persoon, gebruik dan [`person_related_objects`](./persoon#person_related_objects). Dat endpoint geeft objecten in dezelfde vorm terug.
