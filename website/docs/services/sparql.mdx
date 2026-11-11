@@ -49,7 +49,8 @@ SELECT * WHERE {
   OPTIONAL { ?persoon sdo:deathPlace ?overlijdensplaats }
   FILTER(CONTAINS(LCASE(?overlijdensplaats), "overveen"))
 }
-ORDER BY ASC(?naam)`}
+ORDER BY ASC(?naam)
+LIMIT 10`}
 />
 
 
@@ -69,27 +70,7 @@ SELECT ?object ?title ?about ?name ?image WHERE {
 
 FILTER(CONTAINS(LCASE(STR(?name)), "frank"))
 }
-LIMIT 50`}
-/>
-
-## WO2 Thesaurus URI's vinden
-
-Personen zijn via `sdo:keywords` verbonden met [thesaurusconcepten](/schema#ConceptShape) uit de WO2 Thesaurus, objecten via `sdo:about`. Het kan moeilijk zijn om te bepalen wat het juiste thesaurusconcept is voor de term die je zoekt. Deze query helpt daarbij door te zoeken door alle `skos:prefLabel`, `skos:altLabel` en `skos:hiddenLabel` waardes in de WO2 Thesaurus:
-
-<SparqlEditor
-  query={`PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-
-SELECT DISTINCT ?concept ?label WHERE {
-  # ?label matcht zowel skos:prefLabel als skos:altLabel en skos:hiddenLabel
-  ?concept (skos:prefLabel | skos:altLabel | skos:hiddenLabel) ?label .
-  
-  # Gebruik een filter om alleen in de Nederlandstalige labels te zoeken
-  FILTER(LANG(?label) = 'nl')
-  
-  # Hoofdletterongevoelige substring filter. Vervang jouw_zoekterm door de term die je zoekt
-  FILTER(CONTAINS(LCASE(STR(?label)), "jouw_zoekterm"))
-}
-LIMIT 50`}
+LIMIT 20`}
 />
 
 ## Zelf aan de slag
