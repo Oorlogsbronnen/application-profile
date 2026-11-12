@@ -24,9 +24,18 @@ Een [persoonsreconstructie](/schema#PersoonsReconstructieShape) bij Oorlogsbronn
 Met deze query vraag je alle properties op die direct aan `https://n2t.net/ark:/59857/p674fcd3a-037b-4c4f-a047-e292fbc44183` gekoppeld zijn.
 
 <SparqlEditor
-  query={`SELECT ?id ?property ?value WHERE {
-  BIND(<https://n2t.net/ark:/59857/p674fcd3a-037b-4c4f-a047-e292fbc44183> AS ?id)
-  ?id ?property ?value .
+  query={`PREFIX sdo: <https://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT ?id ?property ?value ?name WHERE {
+    BIND(<https://n2t.net/ark:/59857/p674fcd3a-037b-4c4f-a047-e292fbc44183> AS ?id)
+    ?id ?property ?value .
+    
+    OPTIONAL { ?value sdo:name ?name }
+    OPTIONAL { ?value skos:prefLabel ?name }
+    
+    # Houd de rij als ER GEEN naam is, OF als de naam Nederlands is
+    FILTER(!BOUND(?name) || LANG(?name) = 'nl')
 }`}
 />
 

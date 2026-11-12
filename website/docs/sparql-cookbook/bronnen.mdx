@@ -14,13 +14,15 @@ import SparqlEditor from "@site/src/components/SparqlEditor";
 PREFIX sdo: <https://schema.org/>
 
 SELECT DISTINCT * WHERE {
-    ?object a ?type ;
-            sdo:about <https://data.niod.nl/WO2_Thesaurus/2860> ;
-            sdo:contentLocation <https://data.niod.nl/WO2_Thesaurus/locations/9577> ;
-            sdo:name ?name ;
-            sdo:thumbnailUrl ?thumbnailUrl.
+  ?object a ?type ;
+  # about en contentLocation zijn WO2 Thesaurus ID's
+  sdo:about <https://data.niod.nl/WO2_Thesaurus/2860> ;
+  sdo:contentLocation <https://data.niod.nl/WO2_Thesaurus/locations/9577> ;
+  sdo:name ?name ;
+  sdo:thumbnailUrl ?thumbnailUrl.
 
-    ?type rdfs:subClassOf* sdo:CreativeWork .
+  # ?type matcht matcht ook alle subclasses van sdo:CreativeWork
+  ?type rdfs:subClassOf* sdo:CreativeWork .
 }
 
 `}
@@ -33,23 +35,3 @@ Deze query geeft alle objecten:
 - met als onderwerpslocatie Amsterdam.
 - van het type `sdo:CreativeWork` of één van haar subclasses.
 - waarbij een afbeelding beschikbaar is.
-
-## WO2 Thesaurus URI's vinden
-
-Personen zijn via `sdo:keywords` verbonden met [thesaurusconcepten](/schema#ConceptShape) uit de WO2 Thesaurus, objecten via `sdo:about`. Het kan moeilijk zijn om te bepalen wat het juiste thesaurusconcept is voor de term die je zoekt. Deze query helpt daarbij door te zoeken door alle `skos:prefLabel`, `skos:altLabel` en `skos:hiddenLabel` waardes in de WO2 Thesaurus:
-
-<SparqlEditor
-  query={`PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-
-SELECT DISTINCT ?concept ?label WHERE {
-  # ?label matcht zowel skos:prefLabel als skos:altLabel en skos:hiddenLabel
-  ?concept (skos:prefLabel | skos:altLabel | skos:hiddenLabel) ?label .
-  
-  # Gebruik een filter om alleen in de Nederlandstalige labels te zoeken
-  FILTER(LANG(?label) = 'nl')
-  
-  # Hoofdletterongevoelige substring filter. Vervang jouw_zoekterm door de term die je zoekt
-  FILTER(CONTAINS(LCASE(STR(?label)), "jouw_zoekterm"))
-}
-LIMIT 50`}
-/>
