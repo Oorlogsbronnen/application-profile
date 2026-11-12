@@ -24,3 +24,5 @@ De structuur van een ARK URI is als volgt:
 
 - De URL `https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388` verwijst naar `https://www.oorlogsbronnen.nl/person/48968c01-9f60-492d-8712-58d3b8c2b388` voor informatie op de website.  
 - De URL `https://n2t.net/ark:/59857/p48968c01-9f60-492d-8712-58d3b8c2b388.ttl` verwijst naar dezelfde data in de vorm van een TTL-versie.
+
+Zie ook [Content Negotiation](/services/contentnegotiation.mdx)
