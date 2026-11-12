@@ -5,47 +5,45 @@ sidebar_position: 3
 
 import SparqlEditor from "@site/src/components/SparqlEditor";
 
-# Van zoekterm naar thesaurusconcept — en terug naar personen
+# Zoeken via de thesaurus
 
-**Vraag:** ik heb een onderwerp ("verzet"), geen naam. Hoe vind ik het juiste concept in de WO2 Thesaurus, en vervolgens de personen die daaraan gekoppeld zijn?
+**Vraag:** ik heb een onderwerp ("verzet") waarover ik meer informatie wil. Hoe vind ik het juiste concept in de WO2 Thesaurus en vervolgens de personen of objecten die daaraan gekoppeld zijn?
 
-## Hoe het model werkt
+## WO2 Thesaurus URI's vinden
 
-Personen zijn via `schema:keywords` gekoppeld aan [thesaurusconcepten](/schema#ConceptShape). Wie op onderwerp wil zoeken, zoekt dus eerst het concept (op `skos:prefLabel`), en gebruikt dat concept daarna als filter. Concepten van de WO2 Thesaurus herken je aan `skos:inScheme <https://data.niod.nl/WO2_Thesaurus/1560>`.
-
-## Stap 1: vind het concept
+Personen zijn via `sdo:keywords` verbonden met [thesaurusconcepten](/schema#ConceptShape) uit de WO2 Thesaurus, objecten via `sdo:about`. Het kan moeilijk zijn om te bepalen wat het juiste thesaurusconcept is voor de term die je zoekt. Deze query helpt daarbij door te zoeken door alle `skos:prefLabel`, `skos:altLabel` en `skos:hiddenLabel` waardes in de WO2 Thesaurus:
 
 <SparqlEditor
   query={`PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-SELECT ?concept ?label WHERE {
-  ?concept skos:inScheme <https://data.niod.nl/WO2_Thesaurus/1560> ;
-           skos:prefLabel ?label .
-  FILTER(CONTAINS(LCASE(?label), "verzet"))
+
+SELECT DISTINCT ?concept ?label WHERE {
+  # ?label matcht zowel skos:prefLabel als skos:altLabel en skos:hiddenLabel
+  ?concept (skos:prefLabel | skos:altLabel | skos:hiddenLabel) ?label .
+  
+  # Gebruik een filter om alleen in de Nederlandstalige labels te zoeken
   FILTER(LANG(?label) = 'nl')
+  
+  # Hoofdletterongevoelige substring filter. Vervang "verzet" door de term die je zoekt
+  FILTER(CONTAINS(LCASE(STR(?label)), "verzet"))
 }
-LIMIT 15`}
+LIMIT 50`}
 />
 
-## Stap 2: vind personen bij het concept
+## Vind personen bij het concept
 
-Neem de concept-IRI uit stap 1 en gebruik die als waarde van `schema:keywords`:
+Neem de concept-IRI uit stap 1 en gebruik die als waarde van `sdo:keywords`:
 
 <SparqlEditor
-  query={`PREFIX pico: <https://personsincontext.org/model#>
-PREFIX schema: <http://schema.org/>
+  query={`PREFIX picom: <https://personsincontext.org/model#>
+PREFIX sdo: <https://schema.org/>
 SELECT ?persoon ?naam WHERE {
-  ?persoon a pico:PersonReconstruction ;
-           schema:keywords <https://data.niod.nl/WO2_Thesaurus/2657> ;
-           schema:name ?naam .
+  ?persoon a picom:PersonReconstruction ;
+           sdo:keywords <https://data.niod.nl/WO2_Thesaurus/2657> ;
+           sdo:name ?naam .
 }
 LIMIT 10`}
 />
 
 ## Wat krijg je terug
 
-Stap 1 levert de verzetsgerelateerde concepten uit de thesaurus; stap 2 toont personen die aan zo'n concept gekoppeld zijn — onder wie Hannie Schaft. Verken vanaf een concept ook de hiërarchie met `skos:broader` en `skos:narrower` (zie de [ConceptShape](/schema#ConceptShape)).
-
-## Variaties
-
-- Zoek ook in alternatieve termen door `skos:prefLabel` te vervangen door `skos:prefLabel|skos:altLabel`.
-- Combineer beide stappen in één query door het concept niet vast te zetten maar te binden via de `FILTER` uit stap 1.
+Stap 1 levert de verzetsgerelateerde concepten uit de thesaurus; stap 2 toont personen die aan zo'n concept gekoppeld zijn. Verken vanaf een concept ook de hiërarchie met `skos:broader` en `skos:narrower` (zie de [ConceptShape](/schema#ConceptShape)).

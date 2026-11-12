@@ -9,6 +9,6 @@ De data van Oorlogsbronnen kan bevraagd worden met behulp van SPARQL. In deze ru
 
 - [Levensloop van een verzetsvrouw](tijdlijn.mdx)
 - [Amsterdam in de Hongerwinter](bronnen.mdx)
-- [Van zoekterm naar thesaurusconcept — en terug naar personen](thesaurus.mdx)
+- [Zoeken via de thesaurus](thesaurus.mdx)
 
 De queries draaien op het [SPARQL-endpoint](/services/sparql); het datamodel is beschreven in het [applicatieprofiel](/schema).
