@@ -4,7 +4,7 @@ sidebar_position: 0
 slug: /cookbook
 ---
 
-# Cookbook
+# API Cookbook
 
 Hier zijn verschillende cookbooks te vinden voor het werken met de data van Oorlogsbronnen via de Open API.
 
