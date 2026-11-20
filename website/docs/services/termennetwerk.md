@@ -20,6 +20,6 @@ Het Termennetwerk van het Netwerk Digitaal Erfgoed is een centrale, open zoekmac
 
 De WO2-Theaurus is beschikbaar door middel van het Termennetwerk. Voorbeeld van zoekopdracht in het Termennetwerk; [https://termennetwerk.netwerkdigitaalerfgoed.nl/nl?q=tweede+wereldoorlog&datasets=https://data.niod.nl/WO2_Thesaurus](https://termennetwerk.netwerkdigitaalerfgoed.nl/nl?q=tweede+wereldoorlog&datasets=https://data.niod.nl/WO2_Thesaurus)
 
-Het Termennetwerk is ook beschikbaar binnen GRAPH-QL: [https://termennetwerk-api.netwerkdigitaalerfgoed.nl/graphiql](https://termennetwerk-api.netwerkdigitaalerfgoed.nl/graphiql) en via [https://docs.nde.nl/nl/](https://docs.nde.nl/nl/) is meer informatie beschikbaar. 
+Het Termennetwerk is ook beschikbaar binnen GRAPH-QL: [https://termennetwerk-api.netwerkdigitaalerfgoed.nl/graphiql](https://termennetwerk-api.netwerkdigitaalerfgoed.nl/graphiql) en via [https://docs.nde.nl/nl/services/network-of-terms/](https://docs.nde.nl/nl/services/network-of-terms/) is meer informatie beschikbaar. 
 
 
